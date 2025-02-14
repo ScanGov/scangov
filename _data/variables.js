@@ -47,3 +47,15 @@ export const performanceDataVariables = [
     'cls',
     'inp'
 ];
+
+export const accessibilityDataVariables = [
+    'a11y-best-practices',
+    'a11y-color-contrast',
+    'a11y-names-labels',
+    'a11y-navigation',
+    'a11y-aria',
+    'a11y-language',
+    'a11y-audio-video',
+    'a11y-tables-lists',
+    'hidden',
+]

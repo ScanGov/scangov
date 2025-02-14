@@ -102,6 +102,14 @@ eleventyComputed:
                   </td>
                 </tr>
                 {% endfor %}
+                {% if scorekey == "accessibility"  and domain.scores[scorekey].remediation %}
+                <tr>
+                  <td colspan="3" align="center">
+                    More details on these issues on this site and recommendations for <a href="{{ domain.scores[scorekey].remediation }}">remediation</a>
+                  </td>
+                  </td>
+                </tr>
+                {% endif %}
               </tbody>
             </table>
           </div>

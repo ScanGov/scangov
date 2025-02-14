@@ -231,5 +231,73 @@
         "docs": "https://docs.scangov.org/interaction-to-next-paint"
       }
     ]
+  },
+  "accessibility": {
+    "displayName": "Accessibility",
+    "attributes": [
+      {
+        "key": "a11y-color-contrast",
+        "displayName": "Color contrast",
+        "tag": "a11y-color-contrast",
+        "description": "Opportunities to improve legibility by ensuring sufficient background, foreground color contrast and that links are discernible without relying on color.",
+        "docs": "https://docs.scangov.org/a11y-color-contrast"
+      },
+      {
+        "key": "a11y-best-practices",
+        "displayName": "Accessibility best practices",
+        "tag": "a11y-best-practices",
+        "description": "Improve accessibility by providing sufficient area on touch elements and allowing the viewport sizing to be controlled by the visitor.",
+        "docs": "https://docs.scangov.org/a11y-best-practices"
+      },
+      {
+        "key": "a11y-names-labels",
+        "displayName": "Names and labels",
+        "tag": "a11y-names-labels",
+        "description": "Provide the expected tags and attributes so each document can be easily used with a screen reader.",
+        "docs": "https://docs.scangov.org/a11y-names-labels"
+      },
+      {
+        "key": "a11y-navigation",
+        "displayName": "Navigation",
+        "tag": "a11y-navigation",
+        "description": "These are opportunities to improve keyboard navigation in your application.",
+        "docs": "https://docs.scangov.org/a11y-navigation"
+      },
+      {
+        "key": "a11y-aria",
+        "displayName": "ARIA attributes",
+        "tag": "a11y-aria",
+        "description": "These are opportunities to improve the usage of ARIA in your application which may enhance the experience for users of assistive technology, like a screen reader.",
+        "docs": "https://docs.scangov.org/a11y-aria"
+      },
+      {
+        "key": "a11y-language",
+        "displayName": "Internationalization and localization",
+        "tag": "a11y-language",
+        "description": "Follow these recommendations to improve the experience for visitors who may take advantage of translations.",
+        "docs": "https://docs.scangov.org/a11y-language"
+      },
+      {
+        "key": "a11y-audio-video",
+        "displayName": "Audio and video",
+        "tag": "a11y-audio-video",
+        "description": "These are opportunities to provide alternative content for audio and video. This may improve the experience for users with hearing or vision impairments.",
+        "docs": "https://docs.scangov.org/a11y-audio-video"
+      },
+      {
+        "key": "a11y-tables-lists",
+        "displayName": "Tables and lists",
+        "tag": "a11y-tables-lists",
+        "description": "These are opportunities to improve the experience of reading tabular or list data using assistive technology, like a screen reader.",
+        "docs": "https://docs.scangov.org/a11y-tables-lists"
+      },
+      {
+        "key": "hidden",
+        "displayName": "Hidden content",
+        "tag": "hidden",
+        "description": "Follow these recommendations to avoid hiding content from visitors using assistive technology.",
+        "docs": "https://docs.scangov.org/hidden"
+      }
+    ]
   }
 }

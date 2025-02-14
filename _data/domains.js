@@ -1,4 +1,4 @@
-import { metaDataVariables, robotsDataVariables, sitemapDataVariables, securityDataVariables, urlDataVariables, performanceDataVariables } from './variables.js';
+import { metaDataVariables, robotsDataVariables, sitemapDataVariables, securityDataVariables, urlDataVariables, performanceDataVariables, accessibilityDataVariables } from './variables.js';
 import { readFileSync } from 'fs'
 
 export default function () {
@@ -8,6 +8,7 @@ export default function () {
     const sitemapData = JSON.parse(readFileSync('./public/data/sitemap.json'));
     const urlData = JSON.parse(readFileSync('./public/data/url.json'));
     const performanceData = JSON.parse(readFileSync('./public/data/performance.json'));
+    const accessibilityData = JSON.parse(readFileSync('./public/data/accessibility.json'));
 
     let devModeDomainLimit = 100;
 
@@ -66,6 +67,14 @@ export default function () {
         if (allDataMap.get(p.url)) {
             newObject = allDataMap.get(p.url);
             newObject.performance = p;
+            allDataMap.set(p.url, newObject);
+        }
+    })
+    accessibilityData.forEach(p => {
+        let newObject = {};
+        if (allDataMap.get(p.url)) {
+            newObject = allDataMap.get(p.url);
+            newObject.accessibility = p;
             allDataMap.set(p.url, newObject);
         }
     })
@@ -176,6 +185,26 @@ export default function () {
             overallScoreCount += performanceTotal;
         }
         // only adding overall score if there is performance data
+
+        // accessibility section
+        if (d.accessibility) {
+            let accessibilityTotal = 0;
+            let accessibilityAttributeResults = {};
+            accessibilityDataVariables.forEach(v => {
+                if (d.accessibility[v] === true) {
+                    accessibilityTotal++;
+                }
+                accessibilityAttributeResults[v] = d.accessibility[v];
+            })
+            let accessibilityScore = Math.round(accessibilityTotal / accessibilityDataVariables.length * 100);
+            d.scores['accessibility'] = { "score": accessibilityScore, "correct": accessibilityTotal, "all": accessibilityDataVariables.length, attributes: accessibilityAttributeResults  };
+            if(d.accessibility.remediation) {
+                d.scores['accessibility'].remediation = d.accessibility.remediation;
+            }
+            overallPossibleScore += accessibilityDataVariables.length;
+            overallScoreCount += accessibilityTotal;
+        }
+        // only adding overall score if there is accessibility data
 
         d.overallPossibleScore = overallPossibleScore;
         d.overallScoreCount = overallScoreCount;
