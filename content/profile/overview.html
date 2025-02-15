@@ -25,7 +25,7 @@ eleventyComputed:
   <div id="overview-section">
     <div class="row">
       <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
-        <div class="card mb-3 text-bg-{{ domain.overallScore | colorify }}" id="overview-card" score="{{ domain.overallScore }}">
+        <div class="card mb-3 {% if (domain.status != 200) %}{% else %}text-bg-{{ domain.overallScore | colorify }}{% endif %}" id="overview-card" score="{{ domain.overallScore }}">
           <div class="card-header">
             <a href="/profile/ca-gov/overview/" class="text-decoration-none" style="color: inherit">Overview</a>
             <a href="https://docs.scangov.org/overall">
@@ -33,7 +33,7 @@ eleventyComputed:
             </a>
           </div>
           <a href="/profile/{{ domain.urlkey | slugify }}/overview/" class="card-body text-center pt-5 text-decoration-none">
-            <p class="display-1" id="overview-grade">{{ domain.overallScore | gradify }}</p>
+            <p class="display-1" id="overview-grade">{% if (domain.status != 200) %}-{% else %}{{ domain.overallScore | gradify }}{% endif %}</p>
           </a>
         </div>
       </div>
@@ -42,7 +42,7 @@ eleventyComputed:
         {% set lower = card.toLowerCase() %}
         {% if domain.scores[lower] %}
           <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
-            <div class="card mb-3 text-bg-{{ domain.scores[lower].score | colorify }}" id="{{ lower }}-card" score="{{ domain.scores[lower].score }}">
+            <div class="card mb-3 {% if (domain.status != 200) or (domain.scores[lower] | length === 0) %}{% else %}text-bg-{{ domain.scores[lower].score | colorify }}{% endif %}" id="{{ lower }}-card" score="{{ domain.scores[lower].score }}">
               <div class="card-header">
                 <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr={{ lower }}" class="text-decoration-none" style="color: inherit">{{ card }}</a>
                 <a href="https://docs.scangov.org/{{ lower }}">
@@ -50,7 +50,10 @@ eleventyComputed:
                 </a>
               </div>
               <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr={{ lower }}" class="card-body text-center pt-5 text-decoration-none">
-                <p class="display-1" id="{{ lower }}-grade">{{ domain.scores[lower].score | gradify }}</p>
+                <p class="display-1" id="{{ lower }}-grade">
+                  {% if (domain.status != 200) or (domain.scores[lower] | length === 0) %}-{% else %}
+                  {{ domain.scores[lower].score | gradify }}
+                  {% endif %}</p>
               </a>
             </div>
           </div>
