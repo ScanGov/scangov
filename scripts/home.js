@@ -1,7 +1,7 @@
 let params = new URLSearchParams(location.search);
 
 let field = params.get('field');
-if (!(field === 'metadata' || field === 'url' || field === 'sitemap' || field === 'robots' || field === 'security' || field === 'performance'))
+if (!(field === 'metadata' || field === 'url' || field === 'sitemap' || field === 'robots' || field === 'security' || field === 'performance' || field === 'accessibility'))
     field = 'overview';
 document.getElementById(field + '-radio').checked = true;
 
@@ -76,7 +76,7 @@ let done = 0;
 let json;
 let metadataJson, urlJson, sitemapJson, robotsJson, securityJson;
 const show = field => {
-    if (!json || (field === 'overview' && done !== 6)) return;
+    if (!json || (field === 'overview' && done !== 7)) return;
 
     if (paginationElements.length === 0)
         showPagination(json.length);
@@ -282,7 +282,7 @@ if (field === 'overview' || field === 'url')
             showScore(total / count / (3 - !CHECK_WWW), 3 - !CHECK_WWW, 'elements');
             show('url');
         }
-        else if (done === 6)
+        else if (done === 7)
             overviewScore();
     });
 if (field === 'overview' || field === 'sitemap')
@@ -321,7 +321,7 @@ if (field === 'overview' || field === 'sitemap')
             showScore(total / data.length / 3, 3, 'elements');
             show('sitemap');
         }
-        else if (done === 6)
+        else if (done === 7)
             overviewScore();
     });
 if (field === 'overview' || field === 'robots')
@@ -360,7 +360,7 @@ if (field === 'overview' || field === 'robots')
             showScore(total / data.length / 3, 3, 'elements');
             show('robots');
         }
-        else if (done === 6)
+        else if (done === 7)
             overviewScore();
     });
 if (field === 'overview' || field === 'security')
@@ -400,7 +400,7 @@ if (field === 'overview' || field === 'security')
             showScore(total / data.length / 4, 4, 'elements');
             show('security');
         }
-        else if (done === 6)
+        else if (done === 7)
             overviewScore();
     });
 // begin performance
@@ -442,10 +442,57 @@ if (field === 'overview' || field === 'performance')
             showScore(total / data.length / 5, 5, 'elements');
             show('performance');
         }
-        else if (done === 6)
+        else if (done === 7)
             overviewScore();
     });
-// end performance    
+// end performance
+// begin accessibility
+if (field === 'overview' || field === 'accessibility')
+    getData('accessibility').then(data => {
+        data = filterDomains(data);
+
+        let total = 0, count = 0;
+        for (let i = 0; i < data.length; i++) {
+            const domain = data[i];
+
+            domain.successes = [];
+            domain.failures = [];
+            (domain['a11y-best-practices'] ? domain.successes : domain.failures).push('Accessibility best practices');
+            (domain['a11y-color-contrast'] ? domain.successes : domain.failures).push('Color contrast');
+            (domain['a11y-names-labels'] ? domain.successes : domain.failures).push('Names and labels');
+            (domain['a11y-navigation'] ? domain.successes : domain.failures).push('Navigation');
+            (domain['a11y-aria'] ? domain.successes : domain.failures).push('ARIA');
+            (domain['a11y-language'] ? domain.successes : domain.failures).push('Language');
+            (domain['a11y-audio-video'] ? domain.successes : domain.failures).push('Audio and video');
+            (domain['a11y-tables-lists'] ? domain.successes : domain.failures).push('Accessibility of hidden elements');
+            (domain.hidden ? domain.successes : domain.failures).push('');        
+            domain.score = Math.round(100 * domain.successes.length / (domain.successes.length + domain.failures.length));
+            domain.grade = getGrade(domain.score);
+
+            total += domain.successes.length;
+            count++;
+        }
+
+        if (field === 'accessibility') {
+            data = data.sort((a, b) => {
+                if (a.score === b.score)
+                    return a.url.localeCompare(b.url);
+                return b.score - a.score;
+            });
+            json = data;
+        }
+        else
+            updateJson(data, 'accessibility');
+
+        done++;
+        if (field === 'accessibility') {
+            showScore(total / data.length / 5, 5, 'elements');
+            show('accessibility');
+        }
+        else if (done === 7)
+            overviewScore();
+    });
+// end accessibility
 if (field === 'overview' || field === 'metadata')
     getData('metadata').then(data => {
         data = filterDomains(data);
@@ -503,7 +550,7 @@ if (field === 'overview' || field === 'metadata')
             showScore(total / count / variables.length, variables.length, 'tags');
             show('metadata');
         }
-        else if (done === 6) {
+        else if (done === 7) {
             overviewScore();
         }
     });
