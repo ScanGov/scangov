@@ -261,7 +261,8 @@ export default async function (eleventyConfig) {
             const purgeCSSResults = await new PurgeCSS().purge({
                 content: [
                     '_site/assets/purge/states.html',
-                    '_site/index.html'
+                    '_site/index.html',
+                    '_site/changelog/index.html'
                 ],
                 css: ['public/assets/bootstrap/css/bootstrap.min.css'],
             })

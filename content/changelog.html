@@ -1,7 +1,7 @@
 ---
 layout: layouts/page
 title: Changelog
-description: Updates to our data and website.
+description: Government website changes.
 
 pagination:
     data: history
@@ -9,6 +9,9 @@ pagination:
     alias: historyPage
 ---
 
+<div class="alert alert-info" role="alert">
+    Note: Changelog reflects ScanGov scraper times and not when actual changes were made.
+</div>
 <div class="col-12">
   <section class="py-4">
     <ul class="timeline" id="timeline">
@@ -29,7 +32,7 @@ pagination:
                                     <li>
                                         {% set oldPercent = field.oldScore / field.newTotal * 100 %}
                                         {% set newPercent = field.newScore / field.newTotal * 100 %}
-                                        <a href="/profile/{{ domain[0] | slugify }}/details/?attr={{ field.name | lower }}">{{ field.name }}</a>: Grade: {{ oldPercent | gradify }} → {{ newPercent | gradify }} /
+                                        <a href="/profile/{{ item.domain | slugify }}/details/?attr={{ field.name | lower }}">{{ field.name }}</a>: Grade: {{ oldPercent | gradify }} → {{ newPercent | gradify }} /
                                         Score: {{ oldPercent | percentify }} → {{ newPercent | percentify }}
                                         ({{ field.newScore }} of {{ field.newTotal }} elements)
                                     </li>
