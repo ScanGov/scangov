@@ -47,6 +47,9 @@
               <label for="performance-radio" class="d-block">
                 <input type="radio" name="field" value="performance" id="performance-radio"> Performance
                         </label>
+              <label for="accessibility-radio" class="d-block">
+                <input type="radio" name="field" value="accessibility" id="accessibility-radio"> Accessibility
+                        </label>
               <input type="submit" value="Go" class="mt-2 btn btn-primary">
             </div>
           </form>
@@ -60,7 +63,7 @@
                 document.getElementById(`${sort}-radio`).checked = true;
               }
             }
-            let pregenSearches = ['metadata','robots','url','sitemap','security','performance'];
+            let pregenSearches = ['metadata','robots','url','sitemap','security','performance','accessibility'];
             document.getElementById('search-form').addEventListener('submit',function(e) {
               if(document.getElementById('search').value.trim() == '' && document.getElementById('filter').selectedIndex === 0
 ) {
