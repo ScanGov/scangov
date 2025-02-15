@@ -29,6 +29,11 @@
       "icon": "filter"
     },
     {
+      "url": "/changelog",
+      "title": "Changelog",
+      "icon": "timeline"
+    },
+    {
       "url": "https://docs.scangov.org/community",
       "title": "Community",
       "icon": "circle-nodes"
