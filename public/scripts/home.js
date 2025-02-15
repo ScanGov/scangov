@@ -486,7 +486,7 @@ if (field === 'overview' || field === 'accessibility')
 
         done++;
         if (field === 'accessibility') {
-            showScore(total / data.length / 5, 5, 'elements');
+            showScore(total / data.length / 9, 9, 'elements');
             show('accessibility');
         }
         else if (done === 7)
