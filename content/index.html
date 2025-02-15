@@ -98,7 +98,7 @@ pagination:
         <nav>
           <ul class="pagination flex-wrap" id="pagination">
             <li class="page-item" id="previous">
-              <a class="page-link" href="#1" id="previous-link">Previous</a>
+                <a class="page-link {% if pagination.pageNumber == 0 %}disabled{% endif %}" href="{{ pagination.hrefs[pagination.pageNumber - 1] }}" id="previous-link">Previous</a>
             </li>
             {%- for pageEntry in pagination.pages %}
               <li class="page-item {% if page.url == pagination.hrefs[ loop.index0 ] %}active{% endif %}">
@@ -106,7 +106,7 @@ pagination:
               </li>
             {%- endfor %}
             <li class="page-item" id="next">
-              <a class="page-link" href="#1" id="next-link">Next</a>
+                <a class="page-link {% if pagination.pageNumber == pagination.hrefs.length - 1 %}disabled{% endif %}" href="{{ pagination.hrefs[pagination.pageNumber + 1] }}" id="next-link">Next</a>
             </li>
           </ul>
         </nav>

@@ -289,6 +289,10 @@ main#home img {
     margin-bottom: 0.25rem;
 }
 
+.timeline-date {
+    font-family: var(--bs-font-bold);
+}
+
 /* Anchor links */
 
 h2 a#heading-hashtag,
