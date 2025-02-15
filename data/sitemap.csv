@@ -1558,6 +1558,7 @@ watermonitor.gov,"Department of the Interior",404,"https://watermonitor.gov/site
 volunteer.gov,"Department of the Interior",500,"undefined",false,0,0,0
 volcano.gov,"Department of the Interior",200,"https://www.usgs.gov/natural-hazards/volcano-hazards/",false,0,0,0
 utahfireinfo.gov,"Department of the Interior",200,"https://utah-fire-info-utahdnr.hub.arcgis.com/",false,0,0,1
+usgs.gov,"Department of the Interior",200,"https://www.usgs.gov/sitemap.xml",true,363812,0,0.8484848484848485
 usbr.gov,"Department of the Interior",500,"undefined",false,0,0,0
 sierrawild.gov,"Department of the Interior",200,"https://www.sierrawild.gov/sitemap.xml",true,51,0,1
 sciencebase.gov,"Department of the Interior",200,"https://www.sciencebase.gov/sitemaps/sitemap_index.xml",true,3399932,0,0
@@ -2021,7 +2022,6 @@ nationsreportcard.gov,"Department of Education",404,"https://www.nationsreportca
 nagb.gov,"Department of Education",200,"https://www.nagb.gov/sitemap.xml",true,1092,0,0.9038461538461539
 g5.gov,"Department of Education",200,"https://g5.gov/sitemap.xml",false,0,0,1
 fafsa.gov,"Department of Education",200,"https://studentaid.gov/h/apply-for-aid/fafsa",false,0,0,1
-ed.gov,"Department of Education",500,"undefined",false,0,0,0
 collegenavigator.gov,"Department of Education",500,"http://collegenavigator.gov/sitemap.xml",false,0,0,0
 childstats.gov,"Department of Education",404,"https://www.childstats.gov/sitemap.xml",false,0,0,0
 budgetlob.gov,"Department of Education",500,"undefined",false,0,0,0
@@ -2247,4 +2247,4 @@ az.gov,"State of Arizona",200,"https://az.gov/sitemap.xml",true,7,0,0.1190476190
 alaska.gov,"State of Alaska",404,"https://alaska.gov/sitemap.xml",false,0,0,0
 alabama.gov,"State of Alabama",200,"https://www.alabama.gov/sitemap.xml",false,0,0,1
 slc.gov,"Salt Lake City, UT",200,"https://www.slc.gov/wp-sitemap.xml",true,1665,0,0.24675324675324672
-usgs.gov,"Department of the Interior",200,"https://www.usgs.gov/sitemap.xml",true,363812,0,0.8484848484848485
+ed.gov,"Department of Education",200,"https://www.ed.gov/sitemap.xml",true,1954,0,0.9560439560439561

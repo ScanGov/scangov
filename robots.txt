@@ -1,0 +1,3 @@
+Disallow: /404.html
+
+Sitemap: https://scangov.org/sitemap.xml

@@ -1558,6 +1558,7 @@ watermonitor.gov,"Department of the Interior",500,true,31536000,1739537330181,fa
 volunteer.gov,"Department of the Interior",302,true,15552000,1739521346181,false,false,false
 volcano.gov,"Department of the Interior",301,true,63072000,1739568866181,false,true,false
 utahfireinfo.gov,"Department of the Interior",301,false,-1,-1,true,true,false
+usgs.gov,"Department of the Interior",500,true,31536000,1739540888689,false,true,true
 usbr.gov,"Department of the Interior",500,false,-1,-1,false,false,false
 sierrawild.gov,"Department of the Interior",301,true,31536000,1739537330181,false,false,false
 sciencebase.gov,"Department of the Interior",301,false,-1,-1,false,false,false
@@ -2021,7 +2022,6 @@ nationsreportcard.gov,"Department of Education",301,true,31536000,1739537330181,
 nagb.gov,"Department of Education",301,true,63072000,1739568866181,false,true,false
 g5.gov,"Department of Education",200,true,31536000,1739537330181,true,false,false
 fafsa.gov,"Department of Education",301,true,31536000,1739537330181,false,true,false
-ed.gov,"Department of Education",301,true,63072000,1739568866181,false,false,false
 collegenavigator.gov,"Department of Education",301,true,31536000,1739537330181,true,false,false
 childstats.gov,"Department of Education",301,true,31536000,1739537330181,true,false,false
 budgetlob.gov,"Department of Education",500,false,-1,-1,false,false,false
@@ -2247,4 +2247,4 @@ az.gov,"State of Arizona",200,true,300,1739505794481,false,true,false
 alaska.gov,"State of Alaska",200,true,31536000,1739537330181,true,true,false
 alabama.gov,"State of Alabama",301,false,-1,-1,false,true,false
 slc.gov,"Salt Lake City, UT",302,false,-1,-1,false,false,false
-usgs.gov,"Department of the Interior",500,true,31536000,1739540888689,false,true,true
+ed.gov,"Department of Education",301,true,63072000,1739645035101,false,true,false

@@ -1558,6 +1558,7 @@ watermonitor.gov,"https://watermonitor.gov/","Department of the Interior",200,fa
 volunteer.gov,"undefined","Department of the Interior",500,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
 volcano.gov,"https://www.usgs.gov/natural-hazards/volcano-hazards/","Department of the Interior",200,true,false,false,false,false,true,true,false,true,false,true,false,true,false,false,false,false,false,false,false,false,false
 utahfireinfo.gov,"https://utah-fire-info-utahdnr.hub.arcgis.com/","Department of the Interior",200,true,true,false,false,false,true,false,false,false,true,true,true,true,true,false,false,false,false,true,true,true,true
+usgs.gov,"https://www.usgs.gov/","Department of the Interior",200,true,true,false,false,false,true,true,false,true,true,true,true,true,true,false,false,true,false,false,false,false,false
 usbr.gov,"undefined","Department of the Interior",500,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
 sierrawild.gov,"https://www.sierrawild.gov/","Department of the Interior",200,true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
 sciencebase.gov,"https://www.sciencebase.gov/catalog/","Department of the Interior",200,true,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
@@ -2021,7 +2022,6 @@ nationsreportcard.gov,"https://www.nationsreportcard.gov/","Department of Educat
 nagb.gov,"https://www.nagb.gov/","Department of Education",200,true,true,false,false,false,true,false,false,false,true,true,true,true,false,false,false,false,false,true,false,false,false
 g5.gov,"https://g5.gov/","Department of Education",200,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
 fafsa.gov,"https://studentaid.gov/h/apply-for-aid/fafsa","Department of Education",200,true,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
-ed.gov,"undefined","Department of Education",500,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
 collegenavigator.gov,"https://nces.ed.gov/collegenavigator/","Department of Education",200,true,true,true,true,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
 childstats.gov,"https://www.childstats.gov/","Department of Education",200,true,true,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
 budgetlob.gov,"undefined","Department of Education",500,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
@@ -2247,4 +2247,4 @@ az.gov,"https://az.gov/","State of Arizona",200,true,false,false,false,false,tru
 alaska.gov,"https://alaska.gov/","State of Alaska",200,true,true,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
 alabama.gov,"https://www.alabama.gov/","State of Alabama",200,true,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false
 slc.gov,"https://www.slc.gov/","Salt Lake City, UT",200,true,true,false,true,false,true,true,false,true,true,false,true,false,true,false,false,false,false,false,false,false,false
-usgs.gov,"https://www.usgs.gov/","Department of the Interior",200,true,true,false,false,false,true,true,false,true,true,true,true,true,true,false,false,true,false,false,false,false,false
+ed.gov,"https://www.ed.gov/","Department of Education",200,true,false,false,false,false,true,true,false,true,false,true,true,true,true,false,false,false,false,true,true,true,false
