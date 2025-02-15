@@ -1558,6 +1558,7 @@ watermonitor.gov,"Department of the Interior",200,"https://watermonitor.gov/",tr
 volunteer.gov,"Department of the Interior",500,"https://www.volunteer.gov/",true,true,false
 volcano.gov,"Department of the Interior",200,"https://www.usgs.gov/natural-hazards/volcano-hazards/",true,true,false
 utahfireinfo.gov,"Department of the Interior",200,"https://utah-fire-info-utahdnr.hub.arcgis.com/",true,false,true
+usgs.gov,"Department of the Interior",200,"https://www.usgs.gov/",true,true,true
 usbr.gov,"Department of the Interior",500,"http://www.usbr.gov/",false,true,false
 sierrawild.gov,"Department of the Interior",200,"https://www.sierrawild.gov/",true,true,true
 sciencebase.gov,"Department of the Interior",200,"https://www.sciencebase.gov/catalog/",true,true,true
@@ -2021,7 +2022,6 @@ nationsreportcard.gov,"Department of Education",200,"https://www.nationsreportca
 nagb.gov,"Department of Education",200,"https://www.nagb.gov/",true,true,true
 g5.gov,"Department of Education",200,"https://g5.gov/",true,true,false
 fafsa.gov,"Department of Education",200,"https://studentaid.gov/h/apply-for-aid/fafsa",true,true,true
-ed.gov,"Department of Education",500,"http://www.ed.gov/",false,true,false
 collegenavigator.gov,"Department of Education",200,"https://nces.ed.gov/collegenavigator/",true,true,false
 childstats.gov,"Department of Education",200,"https://www.childstats.gov/",true,true,false
 budgetlob.gov,"Department of Education",500,"http://www.budgetlob.gov/",false,true,false
@@ -2247,4 +2247,4 @@ az.gov,"State of Arizona",200,"https://az.gov/",true,true,true
 alaska.gov,"State of Alaska",200,"https://alaska.gov/",true,true,false
 alabama.gov,"State of Alabama",200,"https://www.alabama.gov/",true,true,true
 slc.gov,"Salt Lake City, UT",200,"https://www.slc.gov/",true,true,true
-usgs.gov,"Department of the Interior",200,"https://www.usgs.gov/",true,true,true
+ed.gov,"Department of Education",200,"https://www.ed.gov/",true,true,true

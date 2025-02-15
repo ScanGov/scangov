@@ -1558,6 +1558,7 @@ watermonitor.gov,"Department of the Interior",404,"https://watermonitor.gov/robo
 volunteer.gov,"Department of the Interior",500,"https://www.volunteer.gov/",false,"null",false,undefined
 volcano.gov,"Department of the Interior",200,"https://www.usgs.gov/natural-hazards/volcano-hazards/",false,"null",false,false
 utahfireinfo.gov,"Department of the Interior",200,"https://utah-fire-info-utahdnr.hub.arcgis.com/",false,"null",false,false
+usgs.gov,"Department of the Interior",200,"https://www.usgs.gov/robots.txt",true,"https://www.usgs.gov/sitemap.xml",true,robots.txt
 usbr.gov,"Department of the Interior",500,"http://www.usbr.gov/",false,"null",false,undefined
 sierrawild.gov,"Department of the Interior",404,"https://www.sierrawild.gov/robots.txt",false,"null",false,false
 sciencebase.gov,"Department of the Interior",200,"https://www.sciencebase.gov/robots.txt",true,"https://www.sciencebase.gov/sitemaps/sitemap_index.xml",true,robots.txt
@@ -2021,7 +2022,6 @@ nationsreportcard.gov,"Department of Education",404,"https://www.nationsreportca
 nagb.gov,"Department of Education",200,"https://www.nagb.gov/robots.txt",true,"https://www.nagb.gov/sitemap.xml",true,robots.txt
 g5.gov,"Department of Education",200,"https://g5.gov/robots.txt",true,"null",true,robots.txt
 fafsa.gov,"Department of Education",200,"https://studentaid.gov/h/apply-for-aid/fafsa",false,"null",false,false
-ed.gov,"Department of Education",500,"http://www.ed.gov/",false,"null",false,undefined
 collegenavigator.gov,"Department of Education",500,"http://collegenavigator.gov/robots.txt",true,"null",true,meta
 childstats.gov,"Department of Education",404,"https://www.childstats.gov/robots.txt",false,"null",false,false
 budgetlob.gov,"Department of Education",500,"http://www.budgetlob.gov/",false,"null",false,undefined
@@ -2247,4 +2247,4 @@ az.gov,"State of Arizona",200,"https://az.gov/robots.txt",true,"null",true,robot
 alaska.gov,"State of Alaska",200,"https://alaska.gov/robots.txt",true,"null",true,robots.txt
 alabama.gov,"State of Alabama",200,"https://www.alabama.gov/robots.txt",true,"null",true,robots.txt
 slc.gov,"Salt Lake City, UT",200,"https://www.slc.gov/robots.txt",true,"https://www.slc.gov/wp-sitemap.xml",true,robots.txt
-usgs.gov,"Department of the Interior",200,"https://www.usgs.gov/robots.txt",true,"https://www.usgs.gov/sitemap.xml",true,robots.txt
+ed.gov,"Department of Education",404,"https://www.ed.gov/sites/ed/files/robots.txt",false,"null",false,false
