@@ -25,7 +25,7 @@ export default function () {
         newObject.status = m.status;
         newObject.name = m.name;
         newObject.redirect = m.redirect;
-        if ((process.env.ELEVENTY_RUN_MODE !== 'serve') || (truncateCount < devModeDomainLimit)) {
+        if ((process.env.ELEVENTY_RUN_MODE !== 'serve') || (truncateCount < devModeDomainLimit) || (truncateCount > metaData.length - devModeDomainLimit)) {
             allDataMap.set(m.url, newObject);
         }
         truncateCount++;

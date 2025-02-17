@@ -1,0 +1,48 @@
+---
+home: false
+displaySearch: true
+layout: layouts/default
+title: Government digital experience monitor
+keywords: government domains, government websites
+permalink: /rankings/cities/
+---
+
+<main id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h2>City Results</h2>
+        <ul class="small list-unstyled">
+          {% include "updated.html" %}
+        </ul>
+        {% include "rankingtabs.html" %}
+      </div>
+    </div>
+    {% set dataset = cities %}
+    {% set specificAttribute = "" %}
+    {% include "cumulativescores.html" %}
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-responsive table-bordered table-hover mt-3">
+            <thead class="table-dark">
+              {% set currentsort = "cities" %}
+              {% include "rankingheaders.html" %}
+            </thead>
+            <tbody id="table">
+              {% set rankingPosition = 1 %}
+              {% set currentScore = cities[0].overallScore %}
+              {% for d in cities %}
+              {% if d.overallScore != currentScore %}
+                {% set currentScore = d.overallScore %}
+                {% set rankingPosition = rankingPosition + 1 %}
+              {% endif %}
+                {% include "rankingtable.html" %}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

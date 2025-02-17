@@ -3,19 +3,20 @@ home: false
 displaySearch: true
 layout: layouts/default
 title: Government digital experience monitor
+description: Accessibility monitoring 
 keywords: government domains, government websites
 
 pagination:
-  data: security.overall
+  data: security.states
   size: 100
   alias: member
 ---
 
-{% set pageHeader = "Security Results" %}
-{% set dataset = security.overall %}
+{% set pageHeader = "Security results" %}
+{% set dataset = security.states %}
 {% set specificAttribute = "security" %}
-{% set currentsort = "" %}
-{% set currentScore = security.overall[0].overallScore %}
-{% set showPagination = true %}
+{% set currentsort = "states" %}
+{% set currentScore = member[0].scores['security'].score %}
+{% set showPagination = false %}
 
 {% include "sortcontent.html" %}

@@ -1,13 +1,29 @@
-import { default as domainData } from './domains.js';
+import { default as domainData } from './domains.js'
+import { stateDomainList } from './variables.js'
+import { cityDomainList } from './variables.js'
 import * as fs from 'fs'
 
 export default function () {
+  let domainDataFilled = domainData()
 
-    let domainDataFilled = domainData();
+  let security = {}
+  let overall = domainDataFilled.sort(function (a, b) {
+    return (
+      parseInt(b.scores['security'].score) -
+      parseInt(a.scores['security'].score)
+    )
+  })
+  security.overall = overall
 
-    let security = domainDataFilled.sort(function (a, b) {
-        return parseInt(b.scores['security'].score) - parseInt(a.scores['security'].score);
-    })
+  const filteredStatesOnly = overall.filter(
+    (obj) => stateDomainList.lastIndexOf(obj.urlkey) > -1,
+  )
+  security.states = filteredStatesOnly
 
-    return security;
+  const filteredCitiesOnly = overall.filter(
+    (obj) => cityDomainList.lastIndexOf(obj.urlkey) > -1,
+  )
+  security.cities = filteredCitiesOnly
+
+  return security
 }

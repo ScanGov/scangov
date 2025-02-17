@@ -1,0 +1,41 @@
+{% if currentsort %}
+  {% set directory = currentsort + "/" %}
+{% else %}
+  {% set directory = "" %}
+{% endif %}
+<tr>
+  <td scope="col">Rank</th>
+  <th scope="col">Site</th>
+  {% if page.url.indexOf("/accessibility/") > -1 %}
+    <th scope="col">Accessibility <i class="fa-solid fa-sort-down"></i></th>
+  {% else %}
+    <th scope="col"><a href="/sorts/{{ directory }}accessibility/">Accessibility</a></th>
+  {% endif %}
+  <!--<th scope="col">Content</th>-->
+  {% if page.url.indexOf("/url/") > -1 %}
+    <th scope="col">Domain <i class="fa-solid fa-sort-down"></i></th>
+  {% else %}
+    <th scope="col"><a href="/sorts/{{ directory }}url/">Domain</a></th>
+  {% endif %}
+  {% if page.url.indexOf("/performance/") > -1 %}
+    <th scope="col">Performance <i class="fa-solid fa-sort-down"></i></th>
+  {% else %}
+    <th scope="col"><a href="/sorts/{{ directory }}performance/">Performance</a></th>
+  {% endif %}
+  {% if page.url.indexOf("/security/") > -1 %}
+    <th scope="col">Security <i class="fa-solid fa-sort-down"></i></th>
+  {% else %}
+    <th scope="col"><a href="/sorts/{{ directory }}security/">Security</a></th>
+  {% endif %}
+  <!--<th scope="col">SEO</th>-->
+  <!--<th scope="col">Social</th>-->
+  {% if page.url.indexOf('/sorts') === -1 %}
+    <th scope="col" class="text-center">Overall <i class="fa-solid fa-sort-down"></i></th>
+  {% else %}
+    {% if currentsort %}
+      <th scope="col" class="text-center"><a href="/rankings/{{ directory }}">Overall</a></th>
+    {% else %}
+      <th scope="col" class="text-center"><a href="/">Overall</a></th>
+    {% endif %}
+  {% endif %}
+</tr>

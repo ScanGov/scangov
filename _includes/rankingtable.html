@@ -1,0 +1,23 @@
+<tr>
+  <td>{{ rankingPosition }}</td>
+  <td>
+    <a href="/profile/{{d.urlkey | slugify }}/overview">{{ d.urlkey }}</a>
+    <br>
+    <a class="small text-muted" href="?search={{ d.name }}&amp;agency=1&amp;field=overview">{{ d.name }}</a>
+  </td>
+  <td>
+    <span class="badge text-bg-{{ d.scores['accessibility'].score | colorify }}" title="{{ d.overallScore }}%">{{ d.scores['accessibility'].score | gradify }}</span>
+  </td>
+  <td>
+    <span class="badge text-bg-{{ d.scores['url'].score | colorify }}" title="{{ d.overallScore }}%">{{ d.scores['url'].score | gradify }}</span>
+  </td>
+  <td>
+    <span class="badge text-bg-{{ d.scores['performance'].score | colorify }}" title="{{ d.overallScore }}%">{{ d.scores['performance'].score | gradify }}</span>
+  </td>
+  <td>
+    <span class="badge text-bg-{{ d.scores['security'].score | colorify }}" title="{{ d.overallScore }}%">{{ d.scores['security'].score | gradify }}</span>
+  </td>
+  <td class="text-center grade-display-column">
+    <span class="badge text-bg-{{ d.overallScore | colorify }}" title="{{ d.overallScore }}%">{{ d.overallScore | gradify }}</span>
+  </td>
+</tr>

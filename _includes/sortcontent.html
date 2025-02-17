@@ -1,0 +1,55 @@
+
+<main id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <h2>{{ pageHeader }}</h2>
+        <ul class="small list-unstyled">
+          {% include "updated.html" %}
+          {% if showPagination %}
+            <li class="text-body-secondary">
+              Showing: {{ pagination.pageNumber * pagination.size + 1 }} - {{ (pagination.pageNumber + 1) * pagination.size }}
+              <span id="showing-count"></span>
+              of {{ dataset.length }}
+              <span id="showing-total"></span>
+            </li>
+          {% endif %}
+        </ul>
+        {% include "rankingtabs.html" %}
+      </div>
+    </div>
+    {% include "cumulativescores.html" %}
+    <div class="row">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-responsive table-bordered table-hover mt-3">
+            <thead class="table-dark">
+              {% include "rankingheaders.html" %}
+            </thead>
+            <tbody id="table">
+              {% set rankingPosition = 1 %}
+              {% for d in member %}
+                {% if d.overallScore != currentScore %}
+                  {% set currentScore = d.overallScore %}
+                  {% set rankingPosition = rankingPosition + 1 %}
+                {% endif %}
+                {% include "rankingtable.html" %}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    {% if showPagination %}
+      {% include "pagination.html" %}
+    {% endif %}
+  </div>
+</main>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      {% include "help.html" %}
+    </div>
+  </div>
+</div>

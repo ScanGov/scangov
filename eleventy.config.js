@@ -172,16 +172,20 @@ export default async function (eleventyConfig) {
         return output;
     })
 
-    eleventyConfig.addFilter('specificAverageScore', (data, attribute) => {
-        let totalScores = 0;
-        let totalItems = 0;
-        data.forEach(d => {
-            if (d.status === 200) {
-                totalScores += d.scores[attribute].score;
-                totalItems++;
-            }
-        })
-        return Math.round(totalScores / totalItems);
+    eleventyConfig.addFilter('specificAverageScore', (data, attribute = null) => {
+        if(!attribute) {
+            return scoreCalc(data);
+        } else {
+            let totalScores = 0;
+            let totalItems = 0;
+            data.forEach(d => {
+                if (d.status === 200) {
+                    totalScores += d.scores[attribute].score;
+                    totalItems++;
+                }
+            })
+            return Math.round(totalScores / totalItems);
+        }
     })
 
     eleventyConfig.addFilter('specificAverageElements', (data, attribute) => {
@@ -262,7 +266,9 @@ export default async function (eleventyConfig) {
                 content: [
                     '_site/assets/purge/states.html',
                     '_site/index.html',
-                    '_site/changelog/index.html'
+                    '_site/changelog/index.html',
+                    '_site/rankings/states/index.html',
+                    '_site/sorts/accessibility/index.html'
                 ],
                 css: ['public/assets/bootstrap/css/bootstrap.min.css'],
             })
