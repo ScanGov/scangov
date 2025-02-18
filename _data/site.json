@@ -24,7 +24,7 @@
   ],
   "nav": [
     {
-      "url": "/",
+      "url": "/filter/",
       "title": "Filter",
       "icon": "filter"
     },

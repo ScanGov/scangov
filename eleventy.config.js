@@ -268,7 +268,8 @@ export default async function (eleventyConfig) {
                     '_site/index.html',
                     '_site/changelog/index.html',
                     '_site/rankings/states/index.html',
-                    '_site/sorts/accessibility/index.html'
+                    '_site/sorts/accessibility/index.html',
+                    '_site/filter/index.html'
                 ],
                 css: ['public/assets/bootstrap/css/bootstrap.min.css'],
             })
