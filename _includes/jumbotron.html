@@ -82,19 +82,40 @@
             document
               .getElementById('search-form')
               .addEventListener('submit', function (e) {
-                if (document.getElementById('search').value.trim() == '' && document.getElementById('filter').selectedIndex === 0) {
+                if (document.getElementById('search').value.trim() == '') {
                   let redirecting = false;
                   let destination = '';
-                  if (document.getElementById(`overview-radio`).checked) {
-                    redirecting = true;
-                    destination = `/`
-                  }
-                  pregenSearches.forEach(p => {
-                    if (document.getElementById(`${p}-radio`).checked) {
+                  if(document.getElementById('filter').selectedIndex === 0) {
+                    if (document.getElementById(`overview-radio`).checked) {
                       redirecting = true;
-                      destination = `/sorts/${p}/`
+                      destination = `/`
                     }
-                  })
+                    pregenSearches.forEach(p => {
+                      if (document.getElementById(`${p}-radio`).checked) {
+                        redirecting = true;
+                        destination = `/sorts/${p}/`
+                      }
+                    })
+                  } else {
+                    if (document.getElementById(`overview-radio`).checked) {
+                      if(document.getElementById('filter').selectedIndex === 2) {
+                        redirecting = true;
+                        destination = '/rankings/states/';
+                      }
+                    }
+                    // there is no cities sort yet
+                    // /rankings/cities/#sort
+
+                    pregenSearches.forEach(p => {
+                      if (document.getElementById(`${p}-radio`).checked) {
+
+                        if(document.getElementById('filter').selectedIndex === 2) {
+                          redirecting = true;
+                          destination = '/sorts/states/${p}/';
+                        }
+                      }
+                    })
+                  }
                   if (redirecting) {
                     e.preventDefault();
                     window.location.href = destination;
