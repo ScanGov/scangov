@@ -35,6 +35,11 @@ pagination:
                                         <a href="/profile/{{ item.domain | slugify }}/details/?attr={{ field.name | lower }}">{{ field.name }}</a>: Grade: {{ oldPercent | gradify }} → {{ newPercent | gradify }} /
                                         Score: {{ oldPercent | percentify }} → {{ newPercent | percentify }}
                                         ({{ field.newScore }} of {{ field.newTotal }} elements)
+                                        {% if oldPercent < newPercent %}
+                                            <i class="text-success fa-solid fa-circle-up"></i>
+                                        {% else %}
+                                            <i class="text-danger fa-solid fa-circle-down"></i>
+                                        {% endif %}
                                     </li>
                                     {% endfor %}
                                 </ul>
