@@ -85,7 +85,7 @@
                 if (document.getElementById('search').value.trim() == '') {
                   let redirecting = false;
                   let destination = '';
-                  if(document.getElementById('filter').selectedIndex === 0) {
+                  if (document.getElementById('filter').selectedIndex === 0) {
                     if (document.getElementById(`overview-radio`).checked) {
                       redirecting = true;
                       destination = `/`
@@ -98,7 +98,7 @@
                     })
                   } else {
                     if (document.getElementById(`overview-radio`).checked) {
-                      if(document.getElementById('filter').selectedIndex === 2) {
+                      if (document.getElementById('filter').selectedIndex === 2) {
                         redirecting = true;
                         destination = '/rankings/states/';
                       }
@@ -109,7 +109,7 @@
                     pregenSearches.forEach(p => {
                       if (document.getElementById(`${p}-radio`).checked) {
 
-                        if(document.getElementById('filter').selectedIndex === 2) {
+                        if (document.getElementById('filter').selectedIndex === 2) {
                           redirecting = true;
                           destination = '/sorts/states/${p}/';
                         }
@@ -133,7 +133,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-12">
-              <h1 class="display-6" id="jumbotron-title">
+              <h1 class="display-5" id="jumbotron-title">
                 <span id="site">{{ title }}</span>
               </h1>
               {% if description %}
@@ -155,47 +155,43 @@
         <p class="lead pb-3 mb-5">{{ description }}</p>
       {% endif %}
     {% else %}
-      <div class="pt-5 pb-4 mb-5 border-bottom">
+      <div class="pt-5 pb-4 mb-3 border-bottom">
         <div class="container">
           <div class="row">
             <div class="col-12">
               {% if title %}
-                <h1 class="display-4">{{ title }}</h1>
+                <h1 class="display-5">{{ title }}</h1>
               {% endif %}
               {% if description %}
                 <p class="lead">{{ description }}</p>
               {% endif %}
             </div>
           </div>
-
-
-
-              {% if displaySearch %}
-                <form id="search-form" action="/search/" class="row mt-3">                
-                <div class="littlesearch">
-                  <label class="" for="search">Search:</label>
-                  <input name="search" type="text" class="form-control" placeholder="enter domain" id="search">
-                  <input type="submit" value="Go" class="btn btn-primary">
-                  </div>
-                </form>
-                <style>
-                  .littlesearch {
-                    display: flex;
-                    align-items: center;
-                    justify-items: flex-start;
-                    justify-content: flex-start;
-                    max-width: 65%;
-                  }
-                  .littlesearch .awesomplete {
-                    flex-grow: 2;
-                    margin: 0 .75rem;
-                  }
-                  .littlesearch .awesomplete .form-control {
-                    padding: .55rem .75rem;
-                  }
-                </style>
-              {% endif %}
-
+          {% if displaySearch %}
+            <form id="search-form" action="/search/" class="row mt-3">
+              <div class="littlesearch">
+                <label class="" for="search">Domain:</label>
+                <input name="search" type="text" class="form-control" placeholder="ex: ca.gov" id="search">
+                <input type="submit" value="Go" class="btn btn-primary">
+              </div>
+            </form>
+            <style>
+              .littlesearch {
+                display: flex;
+                align-items: center;
+                justify-items: flex-start;
+                justify-content: flex-start;
+                max-width: 65%;
+              }
+              .littlesearch .awesomplete {
+                flex-grow: 2;
+                margin: 0 0.75rem;
+              }
+              .littlesearch .awesomplete .form-control {
+                padding: 0.55rem 0.75rem;
+              }
+            </style>
+          {% endif %}
 
         </div>
       </div>

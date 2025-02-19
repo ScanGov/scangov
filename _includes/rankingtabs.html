@@ -4,6 +4,7 @@
   {% set directory = "" %}
 {% endif %}
 <a id="sort"></a>
+<h2>Filters:</h2>
 <ul class="nav nav-pills">
   <li class="nav-item">
     {% if page.url.indexOf("/cities/") == -1 and page.url.indexOf("/states/") == -1 %}
@@ -31,7 +32,7 @@
   </li>
 </ul>
 
-<ul class="nav nav-pills mt-2">
+<ul class="nav nav-pills mt-2 mb-2 small">
   {% if page.url.indexOf("/accessibility/") > -1 %}
     <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}accessibility/">Accessibility</a></li>
   {% else %}

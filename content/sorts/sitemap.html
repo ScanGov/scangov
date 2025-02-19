@@ -15,7 +15,7 @@ pagination:
 {% set dataset = sitemap.overall %}
 {% set specificAttribute = "sitemap" %}
 {% set currentsort = "" %}
-{% set currentScore = sitemap.overall[0].overallScore %}
+{% set currentScore = member[0].scores['sitemap'].score %}
 {% set showPagination = true %}
 
 {% include "sortcontent.html" %}

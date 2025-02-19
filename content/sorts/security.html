@@ -15,7 +15,7 @@ pagination:
 {% set dataset = security.overall %}
 {% set specificAttribute = "security" %}
 {% set currentsort = "" %}
-{% set currentScore = security.overall[0].overallScore %}
+{% set currentScore = member[0].scores['security'].score %}
 {% set showPagination = true %}
 
 {% include "sortcontent.html" %}

@@ -16,7 +16,8 @@ pagination:
 {% set dataset = states %}
 {% set specificAttribute = "" %}
 {% set currentsort = "states" %}
-{% set currentScore = states[0].overallScore %}
+{% set currentScore = member[0].overallScore %}
+{% set rankingScore = member.overallScore %}
 {% set showPagination = false %}
 
 {% include "sortcontent.html" %}

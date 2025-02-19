@@ -13,9 +13,9 @@ pagination:
 
 {% set pageHeader = "Metadata Results" %}
 {% set dataset = metadata.overall %}
-{% set specificAttribute = "robots" %}
+{% set specificAttribute = "metadata" %}
 {% set currentsort = "" %}
-{% set currentScore = metadata.overall[0].overallScore %}
+{% set currentScore = member[0].scores['metadata'].score %}
 {% set showPagination = true %}
 
 {% include "sortcontent.html" %}

@@ -15,7 +15,7 @@ pagination:
 {% set dataset = performance.overall %}
 {% set specificAttribute = "performance" %}
 {% set currentsort = "" %}
-{% set currentScore = performance.overall[0].overallScore %}
+{% set currentScore = member[0].scores['performance'].score %}
 {% set showPagination = true %}
 
 {% include "sortcontent.html" %}

@@ -29,8 +29,13 @@
             <tbody id="table">
               {% set rankingPosition = 1 %}
               {% for d in member %}
-                {% if d.overallScore != currentScore %}
-                  {% set currentScore = d.overallScore %}
+                {% if specificAttribute %}
+                  {% set rankingScore = d.scores[specificAttribute].score %}
+                {% else %}
+                  {% set rankingScore = d.overallScore %}
+                {% endif %}
+                {% if rankingScore != currentScore %}
+                  {% set currentScore = rankingScore %}
                   {% set rankingPosition = rankingPosition + 1 %}
                 {% endif %}
                 {% include "rankingtable.html" %}

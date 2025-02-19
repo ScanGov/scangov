@@ -15,7 +15,7 @@ pagination:
 {% set dataset = robots.overall %}
 {% set specificAttribute = "robots" %}
 {% set currentsort = "" %}
-{% set currentScore = robots.overall[0].overallScore %}
+{% set currentScore = member[0].scores['robots'].score %}
 {% set showPagination = true %}
 
 {% include "sortcontent.html" %}

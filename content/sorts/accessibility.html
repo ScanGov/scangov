@@ -15,7 +15,7 @@ pagination:
 {% set dataset = accessibility.overall %}
 {% set specificAttribute = "accessibility" %}
 {% set currentsort = "" %}
-{% set currentScore = accessibility.overall[0].overallScore %}
+{% set currentScore = member[0].scores['accessibility'].score %}
 {% set showPagination = true %}
 
 {% include "sortcontent.html" %}
