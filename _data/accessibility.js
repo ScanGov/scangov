@@ -22,5 +22,8 @@ export default function () {
     const filteredCitiesOnly = overall.filter(obj => (cityDomainList.lastIndexOf(obj.urlkey) > -1) );
     accessibility.cities = filteredCitiesOnly;
 
+    const filteredFedsOnly = overall.filter(obj => (cityDomainList.lastIndexOf(obj.urlkey) === -1 && stateDomainList.lastIndexOf(obj.urlkey) === -1 ) );
+    accessibility.federal = filteredFedsOnly;
+
     return accessibility;
 }

@@ -3,32 +3,43 @@
 {% else %}
   {% set directory = "" %}
 {% endif %}
+{% set currentHighlight = " active\" aria-current=\"page" %}
+{% set topLevel = false %}
+{% if page.url.indexOf("/cities/") == -1 and page.url.indexOf("/states/") == -1 and page.url.indexOf("/federal/") == -1 %}
+  {% set topLevel = true %}
+{% endif %}
 <a id="sort"></a>
-<h2>Filters:</h2>
+<h2>Filters</h2>
 <ul class="nav nav-pills">
   <li class="nav-item">
-    {% if page.url.indexOf("/cities/") == -1 and page.url.indexOf("/states/") == -1 %}
-      <a class="nav-link active" aria-current="page" href="/sorts/accessibility/">All</a>
+
+    {% if specificAttribute %}
+      <a class="nav-link{% if topLevel %}{{ currentHighlight | safe }}{% endif %}" href="/sorts/{{ specificAttribute }}">All</a>
     {% else %}
-      <a class="nav-link" href="/">All</a>
+      <a class="nav-link{% if topLevel %}{{ currentHighlight | safe }}{% endif %}" href="/">All</a>
+    {% endif %}
+
+  </li>
+  <li class="nav-item">
+    {% if specificAttribute %}
+      <a class="nav-link{% if page.url.indexOf("/cities/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/sorts/cities/{{ specificAttribute }}/">Cities</a>
+    {% else %}
+      <a class="nav-link{% if page.url.indexOf("/cities/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/cities/">Cities</a>
     {% endif %}
   </li>
   <li class="nav-item">
-    {% if page.url.indexOf("/cities/") != -1 %}
-      <a class="nav-link active" aria-current="page" href="/rankings/cities/">Cities</a>
+    {% if specificAttribute %}
+      <a class="nav-link{% if page.url.indexOf("/states/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/sorts/states/{{ specificAttribute }}/">States</a>
     {% else %}
-      <a class="nav-link" href="/rankings/cities/">Cities</a>
+      <a class="nav-link{% if page.url.indexOf("/states/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/states/">States</a>
     {% endif %}
   </li>
   <li class="nav-item">
-    {% if page.url.indexOf("/states/") != -1 %}
-      <a class="nav-link active" aria-current="page" href="/rankings/states/">States</a>
+    {% if specificAttribute %}
+      <a class="nav-link{% if page.url.indexOf("/federal/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/sorts/federal/{{ specificAttribute }}/">Federal</a>
     {% else %}
-      <a class="nav-link" href="/rankings/states/">States</a>
+      <a class="nav-link{% if page.url.indexOf("/federal/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/federal/">Federal</a>
     {% endif %}
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Federal</a>
   </li>
 </ul>
 

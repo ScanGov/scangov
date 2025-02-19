@@ -22,5 +22,8 @@ export default function () {
   )
   url.cities = filteredCitiesOnly
 
+  const filteredFedsOnly = overall.filter(obj => (cityDomainList.lastIndexOf(obj.urlkey) === -1 && stateDomainList.lastIndexOf(obj.urlkey) === -1 ) );
+  url.federal = filteredFedsOnly; 
+
   return url
 }

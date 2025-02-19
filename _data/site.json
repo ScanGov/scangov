@@ -34,11 +34,6 @@
       "icon": "timeline"
     },
     {
-      "url": "https://docs.scangov.org/community",
-      "title": "Community",
-      "icon": "circle-nodes"
-    },
-    {
       "url": "https://docs.scangov.org/",
       "title": "Docs",
       "icon": "file-lines"

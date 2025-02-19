@@ -44,7 +44,7 @@
     color: var(--bs-nav-pills-link-active-color) !important;
   }
 
-  .btn {
+  .nav-pills .btn {
     color: #000;
     background-color: #70e17b;
     border-color: #70e17b;

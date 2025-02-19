@@ -28,5 +28,8 @@ export default function () {
   )
   performance.cities = filteredCitiesOnly
 
+  const filteredFedsOnly = overall.filter(obj => (cityDomainList.lastIndexOf(obj.urlkey) === -1 && stateDomainList.lastIndexOf(obj.urlkey) === -1 ) );
+  performance.federal = filteredFedsOnly;
+
   return performance
 }

@@ -22,5 +22,8 @@ export default function () {
   )
   metadata.cities = filteredCitiesOnly
 
+  const filteredFedsOnly = overall.filter(obj => (cityDomainList.lastIndexOf(obj.urlkey) === -1 && stateDomainList.lastIndexOf(obj.urlkey) === -1 ) );
+  metadata.federal = filteredFedsOnly;
+
   return metadata
 }

@@ -1,0 +1,21 @@
+---
+home: false
+displaySearch: true
+layout: layouts/default
+title: Ranking of US federal sites by performance
+keywords: government domains, government websites
+
+pagination:
+  data: performance.federal
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Performance results" %}
+{% set dataset = performance.federal %}
+{% set specificAttribute = "performance" %}
+{% set currentsort = "federal" %}
+{% set currentScore = member[0].scores['performance'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

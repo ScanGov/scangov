@@ -25,5 +25,8 @@ export default function () {
   )
   security.cities = filteredCitiesOnly
 
+  const filteredFedsOnly = overall.filter(obj => (cityDomainList.lastIndexOf(obj.urlkey) === -1 && stateDomainList.lastIndexOf(obj.urlkey) === -1 ) );
+  security.federal = filteredFedsOnly;
+
   return security
 }

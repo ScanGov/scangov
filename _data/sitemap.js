@@ -24,5 +24,8 @@ export default function () {
   )
   sitemap.cities = filteredCitiesOnly
 
+  const filteredFedsOnly = overall.filter(obj => (cityDomainList.lastIndexOf(obj.urlkey) === -1 && stateDomainList.lastIndexOf(obj.urlkey) === -1 ) );
+  sitemap.federal = filteredFedsOnly;
+
   return sitemap
 }
