@@ -6,18 +6,17 @@
     <a class="small text-muted" href="?search={{ d.name }}&amp;agency=1&amp;field=overview">{{ d.name }}</a>
   </td>
   <td>
-    <span class="badge text-bg-{{ d.scores['accessibility'].score | colorify }}" title="{{ d.overallScore }}%">{{ d.scores['accessibility'].score | gradify }}</span>
-  </td>
-  <td>
-    <span class="badge text-bg-{{ d.scores['url'].score | colorify }}" title="{{ d.overallScore }}%">{{ d.scores['url'].score | gradify }}</span>
-  </td>
-  <td>
-    <span class="badge text-bg-{{ d.scores['performance'].score | colorify }}" title="{{ d.overallScore }}%">{{ d.scores['performance'].score | gradify }}</span>
-  </td>
-  <td>
-    <span class="badge text-bg-{{ d.scores['security'].score | colorify }}" title="{{ d.overallScore }}%">{{ d.scores['security'].score | gradify }}</span>
+    {% if specificAttribute %}
+      {{ d[specificAttribute] | auditStatusIcons(specificAttribute) | safe }}
+    {% else %}
+      {{ d | allAuditStatusIcons | safe }}
+    {% endif %}
   </td>
   <td class="text-center grade-display-column">
-    <span class="badge text-bg-{{ d.overallScore | colorify }}" title="{{ d.overallScore }}%">{{ d.overallScore | gradify }}</span>
+    {% if specificAttribute %}
+      <span class="badge text-bg-{{ d.scores[specificAttribute].score | colorify }}" title="{{ d.scores[specificAttribute].score }}%">{{ d.scores[specificAttribute].score | gradify }}</span>
+    {% else %}
+      <span class="badge text-bg-{{ d.overallScore | colorify }}" title="{{ d.overallScore }}%">{{ d.overallScore | gradify }}</span>
+    {% endif %}
   </td>
 </tr>

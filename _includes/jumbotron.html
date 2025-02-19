@@ -139,6 +139,9 @@
               {% if description %}
                 <p class="lead">{{ description }}</p>
               {% endif %}
+              <ul class="small list-unstyled">
+                {% include "updated.html" %}
+              </ul>
               {% include "share.html" %}
             </div>
           </div>
@@ -185,7 +188,10 @@
                   }
                   .littlesearch .awesomplete {
                     flex-grow: 2;
-                    margin: 0 2rem;
+                    margin: 0 .75rem;
+                  }
+                  .littlesearch .awesomplete .form-control {
+                    padding: .55rem .75rem;
                   }
                 </style>
               {% endif %}

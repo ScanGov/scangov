@@ -1,27 +1,72 @@
+{% if currentsort %}
+  {% set directory = currentsort + "/" %}
+{% else %}
+  {% set directory = "" %}
+{% endif %}
 <a id="sort"></a>
 <ul class="nav nav-pills">
   <li class="nav-item">
     {% if page.url.indexOf("/cities/") == -1 and page.url.indexOf("/states/") == -1 %}
-      <a class="nav-link active" aria-current="page" href="/sorts/accessibility/#sort">All</a>
+      <a class="nav-link active" aria-current="page" href="/sorts/accessibility/">All</a>
     {% else %}
-      <a class="nav-link" href="/#sort">All</a>
+      <a class="nav-link" href="/">All</a>
     {% endif %}
   </li>
   <li class="nav-item">
     {% if page.url.indexOf("/cities/") != -1 %}
-      <a class="nav-link active" aria-current="page" href="/rankings/cities/#sort">Cities</a>
+      <a class="nav-link active" aria-current="page" href="/rankings/cities/">Cities</a>
     {% else %}
-      <a class="nav-link" href="/rankings/cities/#sort">Cities</a>
+      <a class="nav-link" href="/rankings/cities/">Cities</a>
     {% endif %}
   </li>
   <li class="nav-item">
     {% if page.url.indexOf("/states/") != -1 %}
-      <a class="nav-link active" aria-current="page" href="/rankings/states/#sort">States</a>
+      <a class="nav-link active" aria-current="page" href="/rankings/states/">States</a>
     {% else %}
-      <a class="nav-link" href="/rankings/states/#sort">States</a>
+      <a class="nav-link" href="/rankings/states/">States</a>
     {% endif %}
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">Federal</a>
   </li>
 </ul>
+
+<ul class="nav nav-pills mt-2">
+  {% if page.url.indexOf("/accessibility/") > -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}accessibility/">Accessibility</a></li>
+  {% else %}
+    <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}accessibility/">Accessibility</a></li>
+  {% endif %}
+  {% if page.url.indexOf("/url/") > -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}url/">Domain</a></li>
+  {% else %}
+    <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}url/">Domain</a></li>
+  {% endif %}
+  {% if page.url.indexOf("/performance/") > -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}performance/">Performance</a></li>
+  {% else %}
+    <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}performance/">Performance</a></li>
+  {% endif %}
+  {% if page.url.indexOf("/security/") > -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}security/">Security</a></li>
+  {% else %}
+    <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}security/">Security</a></li>
+  {% endif %}
+  {% if page.url.indexOf('/sorts') === -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/rankings/{{ directory }}">All</a></li>
+  {% else %}
+    {% if specificAttribute %}
+      {% if currentsort %}
+        <li class="nav-item"><a class="nav-link" href="/rankings/{{ directory }}">All</a></li>
+      {% else %}
+        <li class="nav-item"><a class="nav-link" href="/">All</a></li>
+      {% endif %}
+    {% else %}
+      {% if currentsort %}
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/rankings/{{ directory }}">All</a></li>
+      {% else %}
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">All</a></li>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+  </ul>

@@ -4,6 +4,12 @@
     <div class="row">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <!--<h2>{{ pageHeader }}</h2>-->
+        {% include "rankingtabs.html" %}
+      </div>
+    </div>
+    {% include "cumulativescores.html" %}
+    <div class="row">
+      <div class="col-12">
         <ul class="small list-unstyled">
           {% include "updated.html" %}
           {% if showPagination %}
@@ -15,13 +21,6 @@
             </li>
           {% endif %}
         </ul>
-        {% include "rankingtabs.html" %}
-      </div>
-    </div>
-    {% include "cumulativescores.html" %}
-    <div class="row">
-      <div class="col-12">
-        Showing {%if currentsort %}results from {{ currentsort }}{% else %} overall results{% endif%} sorted by {% if specificAttribute %}{{ specificAttribute }}{% else %}overall{% endif %} score
         <div class="table-responsive">
           <table class="table table-responsive table-bordered table-hover mt-3">
             <thead class="table-dark">

@@ -482,3 +482,7 @@ table svg {
 .navbar-brand:hover>svg {
   fill: var(--bs-link-color) !important;
 }
+
+.biggest {
+  width: 55%
+}
