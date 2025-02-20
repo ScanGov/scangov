@@ -14,12 +14,13 @@
   "date": "%B %-d, %Y",
   "timezone": "America/Los_Angeles",
   "data": [
-    "Metadata",
+    "Accessibility",
+    "Content",
     "URL",
+    "Performance",
     "SEO",
     "Security",
-    "Performance",
-    "Accessibility"
+    "Social"    
   ],
   "nav": [
     {

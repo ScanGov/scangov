@@ -1,35 +1,7 @@
 {
-  "metadata": {
-    "displayName": "Metadata",
+  "social": {
+    "displayName": "Social",
     "attributes": [
-      {
-        "key": "title",
-        "displayName": "title",
-        "tag": "<title>",
-        "description": "Defines the document's title that is shown in a browser's title bar or a page's tab",
-        "docs": "https://docs.scangov.org/metadata"
-      },
-      {
-        "key": "description",
-        "displayName": "description",
-        "tag": "<meta name=\"description\">",
-        "description": "A short and accurate summary of the content of the page",
-        "docs": "https://docs.scangov.org/metadata"
-      },
-      {
-        "key": "viewport",
-        "displayName": "viewport",
-        "tag": "<meta name=\"viewport\">",
-        "description": "Gives hints about the size of the initial size of the viewport",
-        "docs": "https://docs.scangov.org/metadata"
-      },
-      {
-        "key": "canonical",
-        "displayName": "canonical",
-        "tag": "<link rel=\"canonical\">",
-        "description": "Indicates that another page is representative of the content on the page",
-        "docs": "https://docs.scangov.org/metadata"
-      },
       {
         "key": "ogSiteName",
         "displayName": "og:site_name",
@@ -78,7 +50,40 @@
         "tag": "<meta property=\"og:image:alt\">",
         "description": "A description of what is in the image",
         "docs": "https://docs.scangov.org/open-graph"
-      }      
+      }
+    ]
+  },
+  "content": {
+    "displayName": "Content",
+    "attributes": [
+      {
+        "key": "title",
+        "displayName": "title",
+        "tag": "<title>",
+        "description": "Defines the document's title that is shown in a browser's title bar or a page's tab",
+        "docs": "https://docs.scangov.org/metadata"
+      },
+      {
+        "key": "description",
+        "displayName": "description",
+        "tag": "<meta name=\"description\">",
+        "description": "A short and accurate summary of the content of the page",
+        "docs": "https://docs.scangov.org/metadata"
+      },
+      {
+        "key": "viewport",
+        "displayName": "viewport",
+        "tag": "<meta name=\"viewport\">",
+        "description": "Gives hints about the size of the initial size of the viewport",
+        "docs": "https://docs.scangov.org/metadata"
+      },
+      {
+        "key": "canonical",
+        "displayName": "canonical",
+        "tag": "<link rel=\"canonical\">",
+        "description": "Indicates that another page is representative of the content on the page",
+        "docs": "https://docs.scangov.org/metadata"
+      }
     ]
   },
   "url": {
@@ -104,7 +109,7 @@
         "tag": "www",
         "description": "Resolves with www and non-www input. ",
         "docs": "https://docs.scangov.org/canonicalization"
-      }      
+      }
     ]
   },
   "seo": {

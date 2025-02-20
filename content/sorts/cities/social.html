@@ -1,0 +1,21 @@
+---
+home: false
+displaySearch: true
+layout: layouts/default
+title: Ranking of US cities by social tags
+keywords: government domains, government websites
+
+pagination:
+  data: social.cities
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Social Results" %}
+{% set dataset = social.cities %}
+{% set specificAttribute = "social" %}
+{% set currentsort = "cities" %}
+{% set currentScore = member[0].scores['social'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

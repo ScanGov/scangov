@@ -6,24 +6,24 @@ import * as fs from 'fs'
 export default function () {
   let domainDataFilled = domainData()
 
-  let metadata = {}
+  let social = {}
   let overall = domainDataFilled.sort(function (a, b) {
-    return b.scores['metadata'].score - a.scores['metadata'].score
+    return b.scores['social'].score - a.scores['social'].score
   })
-  metadata.overall = overall
+  social.overall = overall
 
   const filteredStatesOnly = overall.filter(
     (obj) => stateDomainList.lastIndexOf(obj.urlkey) > -1,
   )
-  metadata.states = filteredStatesOnly
+  social.states = filteredStatesOnly
 
   const filteredCitiesOnly = overall.filter(
     (obj) => cityDomainList.lastIndexOf(obj.urlkey) > -1,
   )
-  metadata.cities = filteredCitiesOnly
+  social.cities = filteredCitiesOnly
 
   const filteredFedsOnly = overall.filter(obj => (cityDomainList.lastIndexOf(obj.urlkey) === -1 && stateDomainList.lastIndexOf(obj.urlkey) === -1 ) );
-  metadata.federal = filteredFedsOnly;
+  social.federal = filteredFedsOnly;
 
-  return metadata
+  return social
 }

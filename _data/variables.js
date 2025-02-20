@@ -14,9 +14,26 @@ export const metaDataVariables = [
   'ogImageAlt',
 ]
 
+export const socialDataVariables = [
+  'ogSiteName',
+  'ogType',
+  'ogTitle',
+  'ogDescription',
+  'ogUrl',
+  'ogImage',
+  'ogImageAlt'
+]
+
+export const contentDataVariables = [
+  'title',
+  'description',
+  'viewport'
+]
+
 export const robotsDataVariables = ['valid', 'allowed', 'sitemap']
 
 export const sitemapDataVariables = ['status', 'xml', 'completion']
+
 export const SITEMAP_COMPLETION_THRESHOLD = 1.0
 
 export const securityDataVariables = [

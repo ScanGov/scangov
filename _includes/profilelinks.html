@@ -4,13 +4,17 @@
       <i class="fa-solid fa-gauge"></i>
       <small>Dashboard</small>
     </a>
-    <a href="/profile/{{ domainSlug | slugify }}/details/?attr=metadata" class="list-group-item list-group-item-action">
+    <a href="/profile/{{ domainSlug | slugify }}/details/?attr=social" class="list-group-item list-group-item-action">
       <i class="fa-solid fa-database"></i>
-      <small>Metadata</small>
+      <small>Social</small>
+    </a>
+    <a href="/profile/{{ domainSlug | slugify }}/details/?attr=content" class="list-group-item list-group-item-action">
+      <i class="fa-solid fa-database"></i>
+      <small>Content</small>
     </a>
     <a href="/profile/{{ domainSlug | slugify }}/details/?attr=url" class="list-group-item list-group-item-action">
       <i class="fa-solid fa-link"></i>
-      <small>URL</small>
+      <small>Domain</small>
     </a>
     <a href="/profile/{{ domainSlug | slugify }}/details/?attr=seo" class="list-group-item list-group-item-action">
       <i class="fa-solid fa-robot"></i>

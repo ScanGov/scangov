@@ -69,6 +69,20 @@
   {% else %}
     <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}seo/">SEO</a></li>
   {% endif %}
+
+  {% if page.url.indexOf("/content/") > -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}content/">Content</a></li>
+  {% else %}
+    <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}content/">Content</a></li>
+  {% endif %}
+  {% if page.url.indexOf("/social/") > -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}social/">Social</a></li>
+  {% else %}
+    <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}social/">Social</a></li>
+  {% endif %}
+
+
+
   {% if page.url.indexOf('/sorts') === -1 %}
     <li class="nav-item"><a class="nav-link active" aria-current="page" href="/rankings/{{ directory }}">All</a></li>
   {% else %}

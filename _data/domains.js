@@ -2,6 +2,8 @@ import {
   metaDataVariables,
   robotsDataVariables,
   sitemapDataVariables,
+  socialDataVariables,
+  contentDataVariables,
   securityDataVariables,
   urlDataVariables,
   performanceDataVariables,
@@ -10,7 +12,6 @@ import {
 import { readFileSync } from 'fs'
 
 /*
-All attributes under Robots & Sitemap go under SEO
 Metadata is retired as a visible topic and its attributes get put into:
 canonical goes under SEO
 The 7 open graph related metadata attributes go under Social
@@ -40,6 +41,22 @@ export default function () {
   metaData.forEach((m) => {
     let newObject = {}
     newObject.metadata = m
+    /* create social object */
+    newObject.social = {};
+    socialDataVariables.forEach(v => {
+      newObject.social[v] = m[v];
+    })
+    newObject.social.url = m.url;
+    newObject.social.status = m.status;
+    newObject.social.name = m.name;
+    /* create content object */
+    newObject.content = {};
+    contentDataVariables.forEach(v => {
+      newObject.content[v] = m[v];
+    })
+    newObject.content.url = m.url;
+    newObject.content.status = m.status;
+    newObject.content.name = m.name;
     // Add domain data to object
     newObject.urlkey = m.url
     newObject.status = m.status
@@ -107,8 +124,53 @@ export default function () {
 
   // compute the grades here
   allDataMap.forEach((d, keys) => {
-    let overallPossibleScore = 0
-    let overallScoreCount = 0
+    let overallPossibleScore = 0;
+    let overallScoreCount = 0;
+    d.scores = {};
+
+    /* social score calculation */
+    let socialTotal = 0
+    let socialDataAttributeResults = {}
+    socialDataVariables.forEach((v) => {
+      if (d.social[v] === true) {
+        socialTotal++
+      }
+      socialDataAttributeResults[v] = d.social[v]
+    })
+    let socialScore = Math.round(
+      (socialTotal / socialDataVariables.length) * 100,
+    )
+    d.scores['social'] = {
+      score: socialScore,
+      correct: socialTotal,
+      all: socialDataVariables.length,
+      attributes: socialDataAttributeResults,
+    }
+    overallPossibleScore += socialDataVariables.length;
+    overallScoreCount += socialTotal;
+
+    /* content score calculation */
+    let contentTotal = 0;
+    let contentDataAttributeResults = {}
+    contentDataVariables.forEach((v) => {
+      if (d.content[v] === true) {
+        contentTotal++
+      }
+      contentDataAttributeResults[v] = d.content[v]
+    })
+    let contentScore = Math.round(
+      (contentTotal / contentDataVariables.length) * 100,
+    )
+    d.scores['content'] = {
+      score: contentScore,
+      correct: contentTotal,
+      all: contentDataVariables.length,
+      attributes: contentDataAttributeResults,
+    }
+    overallPossibleScore += contentDataVariables.length;
+    overallScoreCount += contentTotal;
+
+    /* old metadata score section which is now removed
     let metadataTotal = 0
     d.scores = {}
     let metaDataAttributeResults = {}
@@ -129,6 +191,7 @@ export default function () {
     }
     overallPossibleScore += metaDataVariables.length
     overallScoreCount += metadataTotal
+    end old metadatasection */
 
 
     /* begin combining robots and sitemap into SEO */
