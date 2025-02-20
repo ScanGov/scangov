@@ -30,7 +30,7 @@ export default function () {
     readFileSync('./public/data/accessibility.json'),
   )
 
-  let devModeDomainLimit = 100
+  let devModeDomainLimit = 100;
 
   let allDataMap = new Map()
   let allDataArray = []
@@ -54,14 +54,6 @@ export default function () {
     }
     truncateCount++
   })
-  robotsData.forEach((r) => {
-    let newObject = {}
-    if (allDataMap.get(r.url)) {
-      newObject = allDataMap.get(r.url)
-      newObject.robots = r
-      allDataMap.set(r.url, newObject)
-    }
-  })
   securityData.forEach((s) => {
     let newObject = {}
     if (allDataMap.get(s.url)) {
@@ -70,11 +62,21 @@ export default function () {
       allDataMap.set(s.url, newObject)
     }
   })
+  robotsData.forEach((r) => {
+    let newObject = {}
+    if (allDataMap.get(r.url)) {
+      newObject = allDataMap.get(r.url)
+      newObject.seo = r
+      allDataMap.set(r.url, newObject)
+    }
+  })
   sitemapData.forEach((s) => {
     let newObject = {}
     if (allDataMap.get(s.url)) {
       newObject = allDataMap.get(s.url)
-      newObject.sitemap = s
+      for(var attrib in s) {
+        newObject.seo[attrib] = s[attrib];
+      }
       allDataMap.set(s.url, newObject)
     }
   })
@@ -128,65 +130,57 @@ export default function () {
     overallPossibleScore += metaDataVariables.length
     overallScoreCount += metadataTotal
 
-    let robotsTotal = 0
-    let robotsAttributeResults = {}
-    robotsDataVariables.forEach((v) => {
-      if (d.robots[v]) {
-        robotsTotal++
-      }
-      robotsAttributeResults[v] = d.robots[v]
-    })
-    let robotsScore = Math.round(
-      (robotsTotal / robotsDataVariables.length) * 100,
-    )
-    d.scores['robots'] = {
-      score: robotsScore,
-      correct: robotsTotal,
-      all: robotsDataVariables.length,
-      attributes: robotsAttributeResults,
-    }
-    overallPossibleScore += robotsDataVariables.length
-    overallScoreCount += robotsTotal
 
-    let sitemapTotal = 0
-    let sitemapAttributeResults = {}
+    /* begin combining robots and sitemap into SEO */
+    let seoTotal = 0
+    let seoAttributeResults = {}
+    robotsDataVariables.forEach((v) => {
+      if (d.seo[v]) {
+        seoTotal++
+      }
+      seoAttributeResults[v] = d.seo[v]
+    })
     sitemapDataVariables.forEach((v) => {
-      if (d.sitemap[v]) {
+      if (d.seo[v]) {
         // these aren't true false at the moment so translate them
         // status: 200,
         // completion: 1,
         // xml: true,
         if (v == 'status') {
-          if (d.sitemap[v] === 200) {
-            d.sitemap[v] = true
-            sitemapTotal++
+          if (d.seo[v] === 200) {
+            d.seo[v] = true;
+            seoTotal++;
           }
         }
         if (v == 'completion') {
-          if (d.sitemap[v] === 1) {
-            d.sitemap[v] = true
-            sitemapTotal++
+          if (d.seo[v] === 1) {
+            d.seo[v] = true
+            seoTotal++
           } else {
-            d.sitemap[v] = false
+            d.seo[v] = false
           }
         }
         if (v == 'xml') {
-          sitemapTotal++
+          seoTotal++
         }
       }
-      sitemapAttributeResults[v] = d.sitemap[v]
+      seoAttributeResults[v] = d.seo[v]
     })
-    let sitemapScore = Math.round(
-      100 * (sitemapTotal / sitemapDataVariables.length),
+    let seoScore = Math.round(
+      (seoTotal / (robotsDataVariables.length + sitemapDataVariables.length)) * 100,
     )
-    d.scores['sitemap'] = {
-      score: sitemapScore,
-      correct: sitemapTotal,
-      all: sitemapDataVariables.length,
-      attributes: sitemapAttributeResults,
+    d.scores['seo'] = {
+      score: seoScore,
+      correct: seoTotal,
+      all: (robotsDataVariables.length + sitemapDataVariables.length),
+      attributes: seoAttributeResults,
     }
-    overallPossibleScore += sitemapDataVariables.length
-    overallScoreCount += sitemapTotal
+    overallPossibleScore += (robotsDataVariables.length + sitemapDataVariables.length)
+    overallScoreCount += seoTotal
+    /* end combination of robots and sitemap into SEO */
+
+
+
 
     let securityTotal = 0
     let securityAttributeResults = {}

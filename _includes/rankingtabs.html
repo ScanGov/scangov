@@ -64,6 +64,11 @@
   {% else %}
     <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}security/">Security</a></li>
   {% endif %}
+  {% if page.url.indexOf("/seo/") > -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}seo/">SEO</a></li>
+  {% else %}
+    <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}seo/">SEO</a></li>
+  {% endif %}
   {% if page.url.indexOf('/sorts') === -1 %}
     <li class="nav-item"><a class="nav-link active" aria-current="page" href="/rankings/{{ directory }}">All</a></li>
   {% else %}

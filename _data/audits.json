@@ -107,8 +107,8 @@
       }      
     ]
   },
-  "sitemap": {
-    "displayName": "Sitemap",
+  "seo": {
+    "displayName": "SEO",
     "attributes": [
       {
         "key": "status",
@@ -130,12 +130,7 @@
         "tag": "Complete",
         "description": "Every link on the home page is in the sitemap.",
         "docs": "https://docs.scangov.org/sitemaps"
-      }
-    ]
-  },
-  "robots": {
-    "displayName": "Robots",
-    "attributes": [
+      },
       {
         "key": "valid",
         "displayName": "Valid",
