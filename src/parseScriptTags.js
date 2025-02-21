@@ -16,5 +16,6 @@ export function parseScriptTags(domain, html) {
     }
   });
 
+  // Return an array of <script> src values
   return scriptSources;
 }
