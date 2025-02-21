@@ -1,5 +1,6 @@
 ---
-home: true
+home: false
+displaySearch: true
 layout: layouts/default
 title: ScanGov search results
 description: Monitoring government digital experience.
@@ -11,86 +12,81 @@ keywords: government domains, government websites
     <div class="row">
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <h2>Results</h2>
-        <ul class="small list-unstyled">
-          {% include "updated.html" %}
-          <li class="text-body-secondary">
-            <span id="filters">
-              Filters:
-            </span>
-          </li>
-          <li class="text-body-secondary">
-            Showing:
-            <span id="showing-count"></span>
-            of
-            <span id="showing-total"></span>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="row" id="score-card">
-      <h3 class="h4">Grade/score</h3>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex align-items-stretch">
-        <div class="card mb-3" id="grade-card">
-          <div class="card-header">
-            Average grade
-          </div>
-          <div class="card-body text-center pt-5">
-            <p class="display-1" id="grade"></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex align-items-stretch">
-        <div class="card mb-3 text-bg-dark" id="score">
-          <div class="card-header">
-            Average score
-          </div>
-          <div class="card-body text-center">
-            <p class="display-1">
-              <span id="percent"></span>%
-            </p>
-          </div>
-          <div class="card-footer text-center" id="amount"></div>
-        </div>
       </div>
     </div>
     <div class="row">
       <div class="col-12">
-        <h3 class="h4" id="table-header">Domains</h3>
         <div class="table-responsive">
           <table class="table table-responsive table-bordered table-hover mt-3">
             <thead class="table-dark">
               <tr>
                 <th scope="col" style="width: 500px;">Domain</th>
-                <th scope="col">Status</th>
                 <th scope="col" class="text-center">Grade</th>
               </tr>
             </thead>
-            <tbody id="table"></tbody>
+            <tbody id="results-table"></tbody>
           </table>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <nav>
-          <ul class="pagination flex-wrap" id="pagination">
-            <li class="page-item" id="previous">
-              <a class="page-link" href="#1" id="previous-link">Previous</a>
-            </li>
-            <li class="page-item" id="next">
-              <a class="page-link" href="#1" id="next-link">Next</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
   </div>
 </main>
-<script src="/scripts/variables.js"></script>
-<script src="/scripts/util.js"></script>
-<script src="/scripts/home.js"></script>
-<span class="d-none">
-  <i class="fa-solid fa-circle-check text-success" >check</i>
-  <i class="fa-solid fa-circle-xmark text-danger">x</i>
-  <i class="fa-solid fa-circle-exclamation text-warning">!</i>
-</span>
+<script>
+  async function searching() {
+    let query = new URLSearchParams(location.search).get('search');
+
+    const url = "https://ktnuy2jke9.execute-api.us-west-2.amazonaws.com/search?q=" + query;
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+
+      const json = await response.json();
+      let outputHTML = '';
+      json.forEach(j => {
+        outputHTML += `<tr>
+          <td>
+            <a href="/profile/${j
+            .domain
+            .replace(/\./g, '-')}/overview">${j
+            .domain}</a>
+            <br>
+            <a class="small text-muted" href="/search/?search=${j
+            .agency}">${j
+            .agency}</a>
+          </td>
+          <td class="text-center grade-display-column">
+            <span class="badge text-bg-${gradeColor(j.grade)}" title="${j
+            .grade}%">${letterGrade(j.grade)}</span>
+          </td>
+        </tr>`;
+      })
+      document
+        .getElementById('results-table')
+        .innerHTML = outputHTML;
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+searching();
+
+function letterGrade(score) {
+  if (score >= 90) 
+    return 'A'
+  if (score >= 80) 
+    return 'B'
+  if (score >= 70) 
+    return 'C'
+  if (score >= 60) 
+    return 'D'
+  return 'F'
+}
+
+function gradeColor(score) {
+  if (score >= 90) return 'success'
+  if (score >= 70) return 'warning'
+  return 'danger'
+}
+</script>

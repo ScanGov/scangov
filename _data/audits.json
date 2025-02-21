@@ -76,15 +76,7 @@
         "tag": "<meta name=\"viewport\">",
         "description": "Gives hints about the size of the initial size of the viewport",
         "docs": "https://docs.scangov.org/metadata"
-      },
-      {
-        "key": "canonical",
-        "displayName": "canonical",
-        "tag": "<link rel=\"canonical\">",
-        "description": "Indicates that another page is representative of the content on the page",
-        "docs": "https://docs.scangov.org/metadata"
-      }
-    ]
+      }    ]
   },
   "url": {
     "displayName": "URL",
@@ -156,6 +148,13 @@
         "tag": "Sitemap",
         "description": "The robots.txt file points to a sitemap file.",
         "docs": "https://docs.scangov.org/sitemaps"
+      },
+      {
+        "key": "canonical",
+        "displayName": "canonical",
+        "tag": "<link rel=\"canonical\">",
+        "description": "Indicates that another page is representative of the content on the page",
+        "docs": "https://docs.scangov.org/metadata"
       }
     ]
   },

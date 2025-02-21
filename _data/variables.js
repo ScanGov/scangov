@@ -30,6 +30,12 @@ export const contentDataVariables = [
   'viewport'
 ]
 
+export const seoDataVariables = [
+  'valid', 'allowed', 'sitemap',
+  'status', 'xml', 'completion',
+  'canonical'
+]
+
 export const robotsDataVariables = ['valid', 'allowed', 'sitemap']
 
 export const sitemapDataVariables = ['status', 'xml', 'completion']

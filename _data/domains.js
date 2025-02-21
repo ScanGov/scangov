@@ -1,22 +1,14 @@
 import {
   metaDataVariables,
-  robotsDataVariables,
-  sitemapDataVariables,
   socialDataVariables,
   contentDataVariables,
   securityDataVariables,
   urlDataVariables,
   performanceDataVariables,
   accessibilityDataVariables,
+  seoDataVariables
 } from './variables.js'
 import { readFileSync } from 'fs'
-
-/*
-Metadata is retired as a visible topic and its attributes get put into:
-canonical goes under SEO
-The 7 open graph related metadata attributes go under Social
-title, description and viewport go under Content
-*/
 
 export default function () {
   const metaData = JSON.parse(readFileSync('./public/data/metadata.json'))
@@ -57,7 +49,18 @@ export default function () {
     newObject.content.url = m.url;
     newObject.content.status = m.status;
     newObject.content.name = m.name;
-    // Add domain data to object
+    /* create seo object */
+    newObject.seo = {};
+    seoDataVariables.forEach(v => {
+      if(m[v]) {
+        newObject.seo[v] = m[v];
+      }
+    })
+    newObject.seo.url = m.url;
+    newObject.seo.status = m.status;
+    newObject.seo.name = m.name;
+
+    // Add domain data to top level object
     newObject.urlkey = m.url
     newObject.status = m.status
     newObject.name = m.name
@@ -83,7 +86,9 @@ export default function () {
     let newObject = {}
     if (allDataMap.get(r.url)) {
       newObject = allDataMap.get(r.url)
-      newObject.seo = r
+      for(var attrib in r) {
+        newObject.seo[attrib] = r[attrib];
+      }
       allDataMap.set(r.url, newObject)
     }
   })
@@ -197,23 +202,19 @@ export default function () {
     /* begin combining robots and sitemap into SEO */
     let seoTotal = 0
     let seoAttributeResults = {}
-    robotsDataVariables.forEach((v) => {
-      if (d.seo[v]) {
-        seoTotal++
-      }
-      seoAttributeResults[v] = d.seo[v]
-    })
-    sitemapDataVariables.forEach((v) => {
+    seoDataVariables.forEach((v) => {
       if (d.seo[v]) {
         // these aren't true false at the moment so translate them
         // status: 200,
         // completion: 1,
         // xml: true,
+        let interestingVals = false;
         if (v == 'status') {
           if (d.seo[v] === 200) {
             d.seo[v] = true;
             seoTotal++;
           }
+          interestingVals = true;
         }
         if (v == 'completion') {
           if (d.seo[v] === 1) {
@@ -222,23 +223,24 @@ export default function () {
           } else {
             d.seo[v] = false
           }
+          interestingVals = true;
         }
-        if (v == 'xml') {
+        if (!interestingVals) {
           seoTotal++
         }
       }
       seoAttributeResults[v] = d.seo[v]
     })
     let seoScore = Math.round(
-      (seoTotal / (robotsDataVariables.length + sitemapDataVariables.length)) * 100,
+      (seoTotal / (seoDataVariables.length)) * 100,
     )
     d.scores['seo'] = {
       score: seoScore,
       correct: seoTotal,
-      all: (robotsDataVariables.length + sitemapDataVariables.length),
+      all: (seoDataVariables.length),
       attributes: seoAttributeResults,
     }
-    overallPossibleScore += (robotsDataVariables.length + sitemapDataVariables.length)
+    overallPossibleScore += (seoDataVariables.length)
     overallScoreCount += seoTotal
     /* end combination of robots and sitemap into SEO */
 
