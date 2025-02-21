@@ -259,6 +259,10 @@ export default async function (eleventyConfig) {
     return gradeColor(score)
   })
 
+  eleventyConfig.addFilter('encodeParameter', (param) => {
+    return encodeURIComponent(param.trim());
+  })
+
   // Features to make your build faster (when you need them)
 
   // If your passthrough copy gets heavy and cumbersome, add this line
