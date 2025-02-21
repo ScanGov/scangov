@@ -30,6 +30,7 @@
 	"dependencies": {
 		"@11ty/font-awesome": "^1.0.0-beta.1",
 		"@11ty/is-land": "^4.0.0",
+		"cheerio": "^1.0.0",
 		"purgecss": "^7.0.2"
 	}
 }

@@ -4,6 +4,7 @@ import zlib from 'zlib';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import readlineSync from 'readline-sync';
 import { exit } from 'process';
+import { parseScriptTags } from "./src/parseScriptTags.js";
 
 let debug = false;
 for (let i = 2; i < process.argv.length; i++)
@@ -208,7 +209,7 @@ const fetch = (url, httpAgent, httpsAgent, visited, followRedirects = true, meth
                 else
                     redirectUrl = redirectUrl.substring(0, singleIndex);
 
-                // Continue requests 
+                // Continue requests
                 const valid = isValidUrl(redirectUrl, req.protocol + '//' + req.host);
                 if (valid && valid !== url.href && valid !== referrer) {
                     if (debug)
@@ -265,6 +266,8 @@ const fetch = (url, httpAgent, httpsAgent, visited, followRedirects = true, meth
 
 
 const urlResults = [], metadataResults = [], robotsResults = [], sitemapResults = [], securityResults = [];
+let scriptResults = [];
+
 const urlHistory = existsSync('public/data/url.json') ? JSON.parse(readFileSync('public/data/url.json')) : [],
     sitemapHistory = existsSync('public/data/sitemap.json') ? JSON.parse(readFileSync('public/data/sitemap.json')) : [],
     robotsHistory = existsSync('public/data/robots.json') ? JSON.parse(readFileSync('public/data/robots.json')) : [],
@@ -638,6 +641,8 @@ for (let i = 0; i < 3 && i < domains.length; i++)
                         }
                     })
                 ]);
+
+                scriptResults = scriptResults.concat(parseScriptTags(domain, res.data));
             }
             else {
                 // No response
@@ -878,6 +883,7 @@ writeFileSync('public/data/metadata.json', JSON.stringify(metadataResults));
 writeFileSync('public/data/robots.json', JSON.stringify(robotsResults));
 writeFileSync('public/data/sitemap.json', JSON.stringify(sitemapResults));
 writeFileSync('public/data/security.json', JSON.stringify(securityResults));
+writeFileSync('public/data/scriptSources.json', JSON.stringify(scriptResults, null, 2));
 writeFileSync('public/data/updated_time', Date.now().toString());
 
 const endTime = Math.round((Date.now() - startTime) / 1000);
