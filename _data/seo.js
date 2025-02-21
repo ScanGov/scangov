@@ -1,31 +1,31 @@
 import { default as domainData } from './domains.js'
-import { stateDomainList } from './variables.js'
-import { cityDomainList } from './variables.js'
+import { stateDomainList, cityDomainList, addRankingPosition } from './variables.js';
 import * as fs from 'fs'
 
 export default function () {
   let domainDataFilled = domainData()
 
   let seo = {}
+  let currentAttribute = 'seo';
   let overall = domainDataFilled.sort(function (a, b) {
     return (
-      parseInt(b.scores['seo'].score) - parseInt(a.scores['seo'].score)
+      parseInt(b.scores[currentAttribute].score) - parseInt(a.scores[currentAttribute].score)
     )
   })
-  seo.overall = overall
+  seo.overall = addRankingPosition(overall, currentAttribute);
 
   const filteredStatesOnly = overall.filter(
     (obj) => stateDomainList.lastIndexOf(obj.urlkey) > -1,
   )
-  seo.states = filteredStatesOnly
+  seo.states = addRankingPosition(filteredStatesOnly, currentAttribute);
 
   const filteredCitiesOnly = overall.filter(
     (obj) => cityDomainList.lastIndexOf(obj.urlkey) > -1,
   )
-  seo.cities = filteredCitiesOnly
+  seo.cities = addRankingPosition(filteredCitiesOnly, currentAttribute);
 
   const filteredFedsOnly = overall.filter(obj => (cityDomainList.lastIndexOf(obj.urlkey) === -1 && stateDomainList.lastIndexOf(obj.urlkey) === -1 ) );
-  seo.federal = filteredFedsOnly;
+  seo.federal = addRankingPosition(filteredFedsOnly, currentAttribute);
 
   return seo
 }

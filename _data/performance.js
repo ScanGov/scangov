@@ -1,35 +1,36 @@
-import { default as domainData } from './domains.js'
-import { stateDomainList } from './variables.js'
-import { cityDomainList } from './variables.js'
+import { default as domainData } from './domains.js';
+import { stateDomainList, cityDomainList, addRankingPosition } from './variables.js';
 import * as fs from 'fs'
 
 export default function () {
   let domainDataFilled = domainData()
 
-  // remove everything from the array that has no score
-  const filteredData = domainDataFilled.filter((obj) => 'performance' in obj)
+  let performance = {};
+  let currentAttribute = 'performance';
 
-  let performance = {}
+  // remove everything from the array that has no score
+  const filteredData = domainDataFilled.filter((obj) => currentAttribute in obj)
+
   let overall = filteredData.sort(function (a, b) {
     return (
-      parseInt(b.scores['performance'].score) -
-      parseInt(a.scores['performance'].score)
+      parseInt(b.scores[currentAttribute].score) -
+      parseInt(a.scores[currentAttribute].score)
     )
   })
-  performance.overall = overall
+  performance.overall = addRankingPosition(overall, currentAttribute);
 
   const filteredStatesOnly = overall.filter(
     (obj) => stateDomainList.lastIndexOf(obj.urlkey) > -1,
   )
-  performance.states = filteredStatesOnly
+  performance.states = addRankingPosition(filteredStatesOnly, currentAttribute);
 
   const filteredCitiesOnly = overall.filter(
     (obj) => cityDomainList.lastIndexOf(obj.urlkey) > -1,
   )
-  performance.cities = filteredCitiesOnly
+  performance.cities = addRankingPosition(filteredCitiesOnly, currentAttribute);
 
   const filteredFedsOnly = overall.filter(obj => (cityDomainList.lastIndexOf(obj.urlkey) === -1 && stateDomainList.lastIndexOf(obj.urlkey) === -1 ) );
-  performance.federal = filteredFedsOnly;
+  performance.federal = addRankingPosition(filteredFedsOnly, currentAttribute);
 
   return performance
 }

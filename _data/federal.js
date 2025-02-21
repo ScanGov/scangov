@@ -1,5 +1,5 @@
-import { default as domainData } from './domains.js'
-import { cityDomainList, stateDomainList } from './variables.js'
+import { default as domainData } from './domains.js';
+import { stateDomainList, cityDomainList, addRankingPosition } from './variables.js';
 import * as fs from 'fs'
 
 export default function () {
@@ -25,5 +25,5 @@ export default function () {
     return parseInt(b.overallScore) - parseInt(a.overallScore)
   })
 
-  return federal;
+  return addRankingPosition(federal, null);
 }

@@ -1,5 +1,5 @@
-import { default as domainData } from './domains.js'
-import { stateDomainList } from './variables.js';
+import { default as domainData } from './domains.js';
+import { stateDomainList, addRankingPosition } from './variables.js';
 import * as fs from 'fs'
 
 export default function () {
@@ -17,5 +17,5 @@ export default function () {
     return parseInt(b.overallScore) - parseInt(a.overallScore)
   })
 
-  return states
+  return addRankingPosition(states, null);
 }

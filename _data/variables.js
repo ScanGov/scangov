@@ -399,3 +399,28 @@ export const cityDomainList = [
   'cityofsouthfultonga.gov',
   'eugene-or.gov',
 ]
+
+export const addRankingPosition = function(data, attribute) {
+  let currentScore = 100;
+  let rankingPosition = 1;
+  if(attribute) {
+    currentScore = data[0].scores[attribute].score;
+  } else {
+    currentScore = data[0].overallScore;
+  }
+  data.forEach(o => {
+    let rankingScore = null;
+    if(attribute) {
+      rankingScore = o.scores[attribute].score;
+    } else {
+      rankingScore = o.overallScore;
+    }
+    if(rankingScore != currentScore) {
+      currentScore = rankingScore;
+      rankingPosition = rankingPosition + 1;
+    }
+    o.rankingPosition = rankingPosition;
+  })
+
+  return data;
+}
