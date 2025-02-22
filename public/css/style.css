@@ -486,3 +486,7 @@ table svg {
 .biggest {
   width: 55%
 }
+
+.d-none {
+  display: none;
+}
