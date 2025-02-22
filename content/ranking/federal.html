@@ -1,0 +1,22 @@
+---
+home: false
+displaySearch: true
+layout: layouts/default
+title: Ranking of US federal sites by overall grade
+keywords: government domains, government websites
+
+pagination:
+  data: federal
+  size: 500
+  alias: member
+---
+
+{% set pageHeader = "Overall results" %}
+{% set dataset = federal %}
+{% set specificAttribute = "" %}
+{% set currentsort = "federal" %}
+{% set currentScore = member[0].overallScore %}
+{% set rankingScore = member.overallScore %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

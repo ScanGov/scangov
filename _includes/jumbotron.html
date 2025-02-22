@@ -15,7 +15,7 @@
               Search:
             </label>
             <div>
-            <input name="search" type="text" class="form-control" placeholder="enter domain" id="search">
+              <input name="search" type="text" class="form-control" placeholder="enter domain" id="search">
             </div>
             <!-- single-level delete start -->
             <label class="pb-2 mt-3" for="filter">Filter:</label>
@@ -54,37 +54,74 @@
             </div>
           </form>
           <script>
-            if(window.location.pathname == '/') {
-              document.getElementById('overview-radio').checked = true;
+            if (window.location.pathname == '/') {
+              document
+                .getElementById('overview-radio')
+                .checked = true;
             }
-            if(window.location.pathname.indexOf('/sorts/') == 0) {
-              let sort = window.location.pathname.split('/')[2];
-              if(document.getElementById(`${sort}-radio`)) {
-                document.getElementById(`${sort}-radio`).checked = true;
+            if (window.location.pathname.indexOf('/sorts/') == 0) {
+              let sort = window
+                .location
+                .pathname
+                .split('/')[2];
+              if (document.getElementById(`${sort}-radio`)) {
+                document
+                  .getElementById(`${sort}-radio`)
+                  .checked = true;
               }
             }
-            let pregenSearches = ['metadata','robots','url','sitemap','security','performance','accessibility'];
-            document.getElementById('search-form').addEventListener('submit',function(e) {
-              if(document.getElementById('search').value.trim() == '' && document.getElementById('filter').selectedIndex === 0
-) {
-                let redirecting = false;
-                let destination = '';
-                if(document.getElementById(`overview-radio`).checked) { 
-                  redirecting = true;
-                  destination = `/`
-                }
-                pregenSearches.forEach(p => {                  
-                  if(document.getElementById(`${p}-radio`).checked) { 
-                    redirecting = true;
-                    destination = `/sorts/${p}/`
+            let pregenSearches = [
+              'metadata',
+              'robots',
+              'url',
+              'sitemap',
+              'security',
+              'performance',
+              'accessibility'
+            ];
+            document
+              .getElementById('search-form')
+              .addEventListener('submit', function (e) {
+                if (document.getElementById('search').value.trim() == '') {
+                  let redirecting = false;
+                  let destination = '';
+                  if (document.getElementById('filter').selectedIndex === 0) {
+                    if (document.getElementById(`overview-radio`).checked) {
+                      redirecting = true;
+                      destination = `/`
+                    }
+                    pregenSearches.forEach(p => {
+                      if (document.getElementById(`${p}-radio`).checked) {
+                        redirecting = true;
+                        destination = `/sorts/${p}/`
+                      }
+                    })
+                  } else {
+                    if (document.getElementById(`overview-radio`).checked) {
+                      if (document.getElementById('filter').selectedIndex === 2) {
+                        redirecting = true;
+                        destination = '/rankings/states/';
+                      }
+                    }
+                    // there is no cities sort yet
+                    // /rankings/cities/#sort
+
+                    pregenSearches.forEach(p => {
+                      if (document.getElementById(`${p}-radio`).checked) {
+
+                        if (document.getElementById('filter').selectedIndex === 2) {
+                          redirecting = true;
+                          destination = '/sorts/states/${p}/';
+                        }
+                      }
+                    })
                   }
-                })
-                if(redirecting) {
-                  e.preventDefault();
-                  window.location.href = destination;
+                  if (redirecting) {
+                    e.preventDefault();
+                    window.location.href = destination;
+                  }
                 }
-              }
-            })
+              })
           </script>
           <div class="row d-none" id="share">
             {% include "share.html" %}
@@ -96,11 +133,11 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-12">
-              <h1 class="display-6" id="jumbotron-title">
+              <h1 class="display-5" id="jumbotron-title">
                 <span id="site">{{ title }}</span>
               </h1>
               {% if description %}
-                <p class="lead">{{ description }}</p>
+                <p class="lead">Managed by <a href="/search/?search={{ domain.name | encodeParameter }}">{{ domain.name }}</a></p>
               {% endif %}
               <ul class="small list-unstyled">
                 {% include "updated.html" %}
@@ -118,18 +155,44 @@
         <p class="lead pb-3 mb-5">{{ description }}</p>
       {% endif %}
     {% else %}
-      <div class="pt-5 pb-4 mb-5 border-bottom">
+      <div class="pt-5 pb-4 mb-3 border-bottom">
         <div class="container">
           <div class="row">
             <div class="col-12">
               {% if title %}
-                <h1 class="display-4">{{ title }}</h1>
+                <h1 class="display-5">{{ title }}</h1>
               {% endif %}
               {% if description %}
                 <p class="lead">{{ description }}</p>
               {% endif %}
             </div>
           </div>
+          {% if displaySearch %}
+            <form id="search-form" action="/search/" class="row mt-3">
+              <div class="littlesearch">
+                <label class="" for="search">Domain:</label>
+                <input name="search" type="text" class="form-control" placeholder="ex: ca.gov" id="search">
+                <input type="submit" value="Go" class="btn btn-primary">
+              </div>
+            </form>
+            <style>
+              .littlesearch {
+                display: flex;
+                align-items: center;
+                justify-items: flex-start;
+                justify-content: flex-start;
+                max-width: 65%;
+              }
+              .littlesearch .awesomplete {
+                flex-grow: 2;
+                margin: 0 0.75rem;
+              }
+              .littlesearch .awesomplete .form-control {
+                padding: 0.55rem 0.75rem;
+              }
+            </style>
+          {% endif %}
+
         </div>
       </div>
     {% endif %}

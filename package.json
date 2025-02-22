@@ -9,6 +9,9 @@
 		"start": "npx @11ty/eleventy --serve --quiet",
 		"start-ghpages": "npx @11ty/eleventy --pathprefix=/scangov/ --serve --quiet",
 		"deploy:test": "aws s3 cp _site s3://test.scangov.org/ --recursive",
+		"write:grades": "node scripts/gradesummary.js",
+		"upload:grades": "aws s3 cp scripts/output/domains.csv s3://audits.scangov.org/aggregate/domains.csv",
+		"deploy:grades": "npm run write:grades && npm run upload:grades",
 		"test:manual": "npx http-server _site",
 		"debug": "cross-env DEBUG=Eleventy* npx @11ty/eleventy",
 		"debugstart": "cross-env DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet"

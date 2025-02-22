@@ -1,0 +1,103 @@
+{% if currentsort %}
+  {% set directory = currentsort + "/" %}
+{% else %}
+  {% set directory = "" %}
+{% endif %}
+{% set currentHighlight = " active\" aria-current=\"page" %}
+{% set topLevel = false %}
+{% if page.url.indexOf("/cities/") == -1 and page.url.indexOf("/states/") == -1 and page.url.indexOf("/federal/") == -1 %}
+  {% set topLevel = true %}
+{% endif %}
+<a id="sort"></a>
+<h2>Filters</h2>
+<ul class="nav nav-pills">
+  <li class="nav-item">
+
+    {% if specificAttribute %}
+      <a class="nav-link{% if topLevel %}{{ currentHighlight | safe }}{% endif %}" href="/sorts/{{ specificAttribute }}">All</a>
+    {% else %}
+      <a class="nav-link{% if topLevel %}{{ currentHighlight | safe }}{% endif %}" href="/">All</a>
+    {% endif %}
+
+  </li>
+  <li class="nav-item">
+    {% if specificAttribute %}
+      <a class="nav-link{% if page.url.indexOf("/cities/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/sorts/cities/{{ specificAttribute }}/">Cities</a>
+    {% else %}
+      <a class="nav-link{% if page.url.indexOf("/cities/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/cities/">Cities</a>
+    {% endif %}
+  </li>
+  <li class="nav-item">
+    {% if specificAttribute %}
+      <a class="nav-link{% if page.url.indexOf("/states/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/sorts/states/{{ specificAttribute }}/">States</a>
+    {% else %}
+      <a class="nav-link{% if page.url.indexOf("/states/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/states/">States</a>
+    {% endif %}
+  </li>
+  <li class="nav-item">
+    {% if specificAttribute %}
+      <a class="nav-link{% if page.url.indexOf("/federal/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/sorts/federal/{{ specificAttribute }}/">Federal</a>
+    {% else %}
+      <a class="nav-link{% if page.url.indexOf("/federal/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/federal/">Federal</a>
+    {% endif %}
+  </li>
+</ul>
+
+<ul class="nav nav-pills mt-2 mb-2 small">
+  {% if page.url.indexOf("/accessibility/") > -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}accessibility/">Accessibility</a></li>
+  {% else %}
+    <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}accessibility/">Accessibility</a></li>
+  {% endif %}
+  {% if page.url.indexOf("/url/") > -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}url/">Domain</a></li>
+  {% else %}
+    <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}url/">Domain</a></li>
+  {% endif %}
+  {% if page.url.indexOf("/performance/") > -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}performance/">Performance</a></li>
+  {% else %}
+    <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}performance/">Performance</a></li>
+  {% endif %}
+  {% if page.url.indexOf("/security/") > -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}security/">Security</a></li>
+  {% else %}
+    <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}security/">Security</a></li>
+  {% endif %}
+  {% if page.url.indexOf("/seo/") > -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}seo/">SEO</a></li>
+  {% else %}
+    <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}seo/">SEO</a></li>
+  {% endif %}
+
+  {% if page.url.indexOf("/content/") > -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}content/">Content</a></li>
+  {% else %}
+    <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}content/">Content</a></li>
+  {% endif %}
+  {% if page.url.indexOf("/social/") > -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/sorts/{{ directory }}social/">Social</a></li>
+  {% else %}
+    <li class="nav-item"><a class="nav-link" href="/sorts/{{ directory }}social/">Social</a></li>
+  {% endif %}
+
+
+
+  {% if page.url.indexOf('/sorts') === -1 %}
+    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/rankings/{{ directory }}">All</a></li>
+  {% else %}
+    {% if specificAttribute %}
+      {% if currentsort %}
+        <li class="nav-item"><a class="nav-link" href="/rankings/{{ directory }}">All</a></li>
+      {% else %}
+        <li class="nav-item"><a class="nav-link" href="/">All</a></li>
+      {% endif %}
+    {% else %}
+      {% if currentsort %}
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/rankings/{{ directory }}">All</a></li>
+      {% else %}
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">All</a></li>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+  </ul>

@@ -1,0 +1,21 @@
+---
+home: false
+displaySearch: true
+layout: layouts/default
+title: Ranking of all sites by social tags
+keywords: government domains, government websites
+
+pagination:
+  data: social.overall
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Social Results" %}
+{% set dataset = social.overall %}
+{% set specificAttribute = "social" %}
+{% set currentsort = "" %}
+{% set currentScore = member[0].scores['social'].score %}
+{% set showPagination = true %}
+
+{% include "sortcontent.html" %}

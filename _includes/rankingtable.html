@@ -1,0 +1,22 @@
+<tr>
+  <td>{{ d.rankingPosition }}</td>
+  <td>
+    <a href="/profile/{{d.urlkey | slugify }}/overview">{{ d.urlkey }}</a>
+    <br>
+    <a class="small text-muted" href="/search/?search={{ d.name | encodeParameter }}">{{ d.name }}</a>
+  </td>
+  <td>
+    {% if specificAttribute %}
+      {{ d[specificAttribute] | auditStatusIcons(specificAttribute) | safe }}
+    {% else %}
+      {{ d | allAuditStatusIcons | safe }}
+    {% endif %}
+  </td>
+  <td class="text-center grade-display-column">
+    {% if specificAttribute %}
+      <span class="badge text-bg-{{ d.scores[specificAttribute].score | colorify }}" title="{{ d.scores[specificAttribute].score }}%">{{ d.scores[specificAttribute].score | gradify }}</span>
+    {% else %}
+      <span class="badge text-bg-{{ d.overallScore | colorify }}" title="{{ d.overallScore }}%">{{ d.overallScore | gradify }}</span>
+    {% endif %}
+  </td>
+</tr>

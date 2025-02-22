@@ -475,10 +475,14 @@ table svg {
   color: var(--bs-body-color) !important;
 }
 
-.navbar-brand:hover, .navbar-nav:hover, .nav-link:hover, .navbar-nav .nav-link:hover, a.list-group-item:hover {
+.navbar-brand:hover, .nav-link:hover, .navbar-nav .nav-link:hover, a.list-group-item:hover {
   color: var(--bs-link-color) !important;
 }
 
 .navbar-brand:hover>svg {
   fill: var(--bs-link-color) !important;
+}
+
+.biggest {
+  width: 55%
 }

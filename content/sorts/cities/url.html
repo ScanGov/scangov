@@ -1,0 +1,21 @@
+---
+home: false
+displaySearch: true
+layout: layouts/default
+title: Ranking of US cities by domain
+keywords: government domains, government websites
+
+pagination:
+  data: url.cities
+  size: 500
+  alias: member
+---
+
+{% set pageHeader = "Domain Results" %}
+{% set dataset = url.cities %}
+{% set specificAttribute = "url" %}
+{% set currentsort = "cities" %}
+{% set currentScore = member[0].scores['url'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

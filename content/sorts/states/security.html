@@ -1,0 +1,21 @@
+---
+home: false
+displaySearch: true
+layout: layouts/default
+title: Ranking of US states by security
+keywords: government domains, government websites
+
+pagination:
+  data: security.states
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Security results" %}
+{% set dataset = security.states %}
+{% set specificAttribute = "security" %}
+{% set currentsort = "states" %}
+{% set currentScore = member[0].scores['security'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

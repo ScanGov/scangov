@@ -1,0 +1,21 @@
+---
+home: false
+displaySearch: true
+layout: layouts/default
+title: Ranking of US federal sites by SEO
+keywords: government domains, government websites
+
+pagination:
+  data: seo.federal
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "SEO results" %}
+{% set dataset = seo.federal %}
+{% set specificAttribute = "seo" %}
+{% set currentsort = "federal" %}
+{% set currentScore = member[0].scores['seo'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

@@ -1,0 +1,21 @@
+---
+home: false
+displaySearch: true
+layout: layouts/default
+title: Ranking of US states by domain
+keywords: government domains, government websites
+
+pagination:
+  data: url.states
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Domain Results" %}
+{% set dataset = url.states %}
+{% set specificAttribute = "url" %}
+{% set currentsort = "states" %}
+{% set currentScore = member[0].scores['url'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

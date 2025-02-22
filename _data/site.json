@@ -14,17 +14,17 @@
   "date": "%B %-d, %Y",
   "timezone": "America/Los_Angeles",
   "data": [
-    "Metadata",
+    "Accessibility",
+    "Content",
     "URL",
-    "Sitemap",
-    "Robots",
-    "Security",
     "Performance",
-    "Accessibility"
+    "SEO",
+    "Security",
+    "Social"    
   ],
   "nav": [
     {
-      "url": "/",
+      "url": "/#sort",
       "title": "Filter",
       "icon": "filter"
     },
@@ -32,11 +32,6 @@
       "url": "/changelog",
       "title": "Changelog",
       "icon": "timeline"
-    },
-    {
-      "url": "https://docs.scangov.org/community",
-      "title": "Community",
-      "icon": "circle-nodes"
     },
     {
       "url": "https://docs.scangov.org/",

@@ -1,0 +1,21 @@
+---
+home: false
+displaySearch: true
+layout: layouts/default
+title: Ranking of US cities by content tags
+keywords: government domains, government websites
+
+pagination:
+  data: contenttags.cities
+  size: 500
+  alias: member
+---
+
+{% set pageHeader = "Content Results" %}
+{% set dataset = contenttags.cities %}
+{% set specificAttribute = "content" %}
+{% set currentsort = "cities" %}
+{% set currentScore = member[0].scores['content'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

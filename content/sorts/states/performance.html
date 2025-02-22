@@ -1,0 +1,21 @@
+---
+home: false
+displaySearch: true
+layout: layouts/default
+title: Ranking of US states by performance
+keywords: government domains, government websites
+
+pagination:
+  data: performance.states
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Performance results" %}
+{% set dataset = performance.states %}
+{% set specificAttribute = "performance" %}
+{% set currentsort = "states" %}
+{% set currentScore = member[0].scores['performance'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}
