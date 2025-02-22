@@ -1,10 +1,17 @@
 ---
 name: New standard
 about: Suggest something to include in ScanGov standards.
-title: 'Standard: '
+title: 'New standard: '
 labels: ''
 assignees: ''
 
 ---
 
+- [ ] Standard:  
+- [ ] Indicator: 
+- [ ] Description: 
+- [ ] [Add docs issue](https://github.com/ScanGov/docs/issues)
 
+Reference:
+
+-
