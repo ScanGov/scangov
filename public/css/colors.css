@@ -34,7 +34,11 @@
   --bs-secondary: #afaea2;
   --bs-nav-link-color: rgba(255, 255, 255, 1) !important;
   --bs-navbar-color: rgba(255, 255, 255, 1) !important;
-  --bs-dark-rgb: rgba(25, 29, 37, 1);
+  --bs-dark-rgb: 25, 29, 37;
+  --bs-bg-opacity: 1;
+  --bs-danger-rgb: 228, 29, 61;
+  --bs-warning-rgb: 250, 206, 0;
+  --bs-success-rgb: 112, 225, 123;
 
   .nav-pills {
     --bs-nav-pills-link-active-bg: #70e17b;
@@ -71,5 +75,8 @@
     --bs-pagination-active-color: #13171f;
     --bs-pagination-active-bg: #70e17b;
     --bs-pagination-active-border-color: #70e17b;
+  }
+  .text-bg-success {
+    color: #000 !important;
   }
 }
