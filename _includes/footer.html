@@ -63,7 +63,12 @@
       feedbackButton.style.opacity = '0';
   });
 </script>
-{% if jekyll.environment == 'production' %}
-  <!-- TODO: add analytics -->
-{% endif %}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MM5GF482X0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MM5GF482X0');
+</script>
 {% include "js.html" %}</body></html>
