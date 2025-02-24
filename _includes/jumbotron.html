@@ -136,10 +136,10 @@
               <h1 class="display-5" id="jumbotron-title">
                 <span id="site">{{ title }}</span>
               </h1>
-              {% if description %}
-                <p class="lead">Managed by <a href="/search/?search={{ domain.name | encodeParameter }}">{{ domain.name }}</a></p>
-              {% endif %}
               <ul class="small list-unstyled">
+                <li class="text-body-secondary">
+                  Managed by <a href="/search/?search={{ domain.name | encodeParameter }}">{{ domain.name }}</a>
+                </li>
                 {% include "updated.html" %}
               </ul>
               {% include "share.html" %}
