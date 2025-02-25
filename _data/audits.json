@@ -99,7 +99,7 @@
         "key": "www",
         "displayName": "WWW",
         "tag": "www",
-        "description": "Resolves with www and non-www input. ",
+        "description": "A single canonical domain is reachable with www and non-www input. ",
         "docs": "https://docs.scangov.org/canonicalization"
       }
     ]
@@ -165,7 +165,7 @@
         "key": "hsts",
         "displayName": "HSTS",
         "tag": "HSTS",
-        "description": "The site automatically upgrades from HTTP to HTTPS.",
+        "description": "The site automatically upgrades from HTTP to HTTPS and instructs browsers to use HTTPS going forward.",
         "docs": "https://docs.scangov.org/hsts"
       },
       {
