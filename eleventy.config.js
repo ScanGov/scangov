@@ -271,6 +271,19 @@ export default async function (eleventyConfig) {
 
   // eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
 
+  eleventyConfig.on("eleventy.before", async ({ dir, runMode, outputMode }) => {
+    let allFileNames = ['accessibility','metadata','performance','robots','security','sitemap','url'];
+    let i = 0;
+    while(i <allFileNames.length) {
+      let filename = allFileNames[i];
+      let gitFileData = await getGithubData(`https://github.com/ScanGov/data/raw/refs/heads/main/${filename}.json`);
+      fs.writeFileSync(`./public/data/${filename}.json`,gitFileData,'utf8');
+      i++;
+    }
+    let gitCSVFileData = await getGithubData(`https://github.com/ScanGov/data/raw/refs/heads/main/domains.csv`);
+    fs.writeFileSync(`./public/data/domains.csv`,gitCSVFileData,'utf8');
+});
+
   eleventyConfig.on(
     'eleventy.after',
     async ({ dir, results, runMode, outputMode }) => {
@@ -313,4 +326,23 @@ export const config = {
     data: '../_data', // default: "_data" (`input` relative)
     output: '_site',
   },
+}
+
+
+
+async function getGithubData(url) {
+  return new Promise(async (resolve) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+
+      const json = await response.text();
+      console.log('got '+url);
+      resolve(json);
+    } catch (error) {
+      throw new Error(`Fetch error: ${error.message}`);
+    }
+  });
 }

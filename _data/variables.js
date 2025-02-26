@@ -319,6 +319,7 @@ export const cityDomainList = [
   'pearlandtx.gov',
   'peoriaaz.gov',
   'peoriagov.org',
+  'piedmont.ca.gov',
   'pittsburghpa.gov',
   'plano.gov',
   'pomonaca.gov',
