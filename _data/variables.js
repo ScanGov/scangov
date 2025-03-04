@@ -399,6 +399,12 @@ export const cityDomainList = [
   'chicago.gov',
   'cityofsouthfultonga.gov',
   'eugene-or.gov',
+  'harriscountytx.gov',
+  'baytown.org',
+  'deerparktx.gov',
+  'ci.friendswood.tx.us',
+  'laportetx.gov',
+  'missouricitytx.gov',
 ]
 
 export const addRankingPosition = function(data, attribute) {
