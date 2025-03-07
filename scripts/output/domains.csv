@@ -1,6 +1,6 @@
 domain,agency,grade
 dei.gov,"Executive Office of the President",42
-doge.gov,"Department of Government Efficiency",54
+doge.gov,"Department of Government Efficiency",58
 solanocounty.gov,"County of Solano, CA",26
 piedmont.ca.gov,"City of Piedmont, CA",55
 eugene-or.gov,"City of Eugene, OR",50
@@ -77,7 +77,7 @@ cityofrc.us,"City of Rancho Cucamonga, CA",58
 raleighnc.gov,"City of Raleigh, NC",68
 quincyma.gov,"City of Quincy, MA",58
 providenceri.gov,"City of Providence, RI",83
-portland.gov,"City of Portland, OR",71
+portland.gov,"City of Portland, OR",74
 pompanobeachfl.gov,"City of Pompano Beach, FL",53
 pomonaca.gov,"City of Pomona, CA",58
 plano.gov,"City of Plano, TX",53
@@ -90,9 +90,9 @@ pasadenatx.gov,"City of Pasadena, TX",61
 pasadena.gov,"City of Pasadena, CA",50
 palmbayflorida.org,"City of Palm Bay, FL",61
 opkansas.org,"City of Overland Park, KS",71
-orlando.gov,"City of Orlando, FL",76
+orlando.gov,"City of Orlando, FL",79
 cityoforange.org,"City of Orange, CA",50
-ontarioca.gov,"City of Ontario, CA",76
+ontarioca.gov,"City of Ontario, CA",79
 olympiawa.gov,"City of Olympia, WA",53
 olatheks.gov,"City of Olathe, KS",63
 odessa-tx.gov,"City of Odessa, TX",58
@@ -116,7 +116,7 @@ miramarfl.gov,"City of Miramar, FL",76
 minneapolismn.gov,"City of Minneapolis, MN",74
 milwaukee.gov,"City of Milwaukee, WI",21
 midlandtexas.gov,"City of Midland, TX",53
-miami.gov,"City of Miami, FL",74
+miami.gov,"City of Miami, FL",76
 miamigardens-fl.gov,"City of Miami Gardens, FL",58
 mesquitetx.gov,"City of Mesquite, TX",37
 memphistn.gov,"City of Memphis, TN",74
@@ -172,7 +172,7 @@ ggcity.org,"City of GARDEN GROVE, CA",55
 gainesvillefl.gov,"City of Gainesville, FL",84
 cityoffullerton.com,"City of Fullerton, CA",58
 friscotexas.gov,"City of Frisco, TX",61
-fresno.gov,"City of Fresno, CA",63
+fresno.gov,"City of Fresno, CA",66
 fremontpolice.gov,"City of Fremont, CA",55
 fremont.gov,"City of Fremont, CA",58
 fortworthtexas.gov,"City of Fort Worth, TX",82
@@ -181,8 +181,8 @@ fontanaca.gov,"City of Fontana, CA",47
 flpd.gov,"City of Fort Lauderdale, FL",68
 fishersin.gov,"City of Fishers, IN",50
 surpriseaz.gov,"City of Surprise, AZ",17
-seattle.gov,"City of Seattle, WA",63
-fayettevillenc.gov,"City of Fayetteville, NC",74
+seattle.gov,"City of Seattle, WA",55
+fayettevillenc.gov,"City of Fayetteville, NC",76
 fayetteville-ar.gov,"City of Fayetteville, AR",66
 fargond.gov,"City of Fargo, ND",45
 everettwa.gov,"City of Everett, WA",63
@@ -203,7 +203,7 @@ costamesaca.gov,"City of Costa Mesa, CA",61
 corpuschristitx.gov,"City of Corpus Christi, TX",76
 coronaca.gov,"City of Corona, CA",66
 cor.net,"City of Richardson, TX",63
-coralsprings.gov,"City of CORAL SPRINGS, FL",84
+coralsprings.gov,"City of CORAL SPRINGS, FL",87
 concordnh.gov,"City of Concord, NH",53
 concordnc.gov,"City of Concord, NC",53
 como.gov,"City of Columbia, MO",17
@@ -230,7 +230,7 @@ cincinnati-oh.gov,"City of Cincinnati, OH",58
 chulavistaca.gov,"City of Chula Vista, CA",55
 chicoca.gov,"City of Chico, CA",45
 cityofchesapeake.net,"City of Chesapeake, VA",63
-chattanooga.gov,"City of Chattanooga, TN",84
+chattanooga.gov,"City of Chattanooga, TN",87
 charlottenc.gov,"City of Charlotte, NC",76
 charlestonwv.gov,"City of Charleston, WV",47
 charleston-sc.gov,"City of Charleston, SC",55
@@ -254,7 +254,7 @@ bouldercolorado.gov,"City of Boulder, CO",71
 boston.gov,"City of Boston, MA",63
 cityofboise.org,"City of Boise, ID",21
 bismarcknd.gov,"City of Bismarck, ND",55
-birminghamal.gov,"City of Birmingham, AL",71
+birminghamal.gov,"City of Birmingham, AL",74
 billingsmtpublicworks.gov,"City of Billings, MT",58
 billingsmt.gov,"City of Billings, MT",55
 berkeleyca.gov,"City of Berkeley, CA",66
@@ -303,7 +303,7 @@ otianywhere.net,"United States Agency for International Development ",37
 monitor.net.co,"United States Agency for International Development",4
 smithsonianstudentadventures.com,"Smithsonian Institution",55
 smithsonianearthtv.com,"Smithsonian Institution",0
-smithsoniancraftshow.org,"Smithsonian Institution",42
+smithsoniancraftshow.org,"Smithsonian Institution",45
 smithsoniancraft2wear.org,"Smithsonian Institution",25
 smithsonianchambermusic.org,"Smithsonian Institution",34
 smithsonianapa.org,"Smithsonian Institution",0
@@ -501,7 +501,7 @@ voatour.com,"U.S. Agency for Global Media",73
 voanews.com,"U.S. Agency for Global Media",79
 vetmedinfo.org,"Health and Human Services (HHS)",0
 veteranshealthlibrary.org,"",0
-veteranscrisisline.net,"Department of Veterans Affairs (VA)",79
+veteranscrisisline.net,"Department of Veterans Affairs (VA)",82
 vasc.org/erc,"National Aeronautics and Space Administration",0
 usuhs.edu,"Uniformed Services University of the Health Services",50
 usu.edu/beetle,"U.S. Forest Service (USFS)",8
@@ -558,7 +558,7 @@ senccfc.org,"Combined Federal Campaign",0
 scportal.us,"Department of Defense",39
 sanangelocfc.org,"Combined Federal Campaign",0
 rockymountaincfc.org,"Combined Federal Campaign",0
-richmondfed.org,"Federal Reserve Board",63
+richmondfed.org,"Federal Reserve Board",66
 riandsemacfc.org,"Combined Federal Campaign",0
 rferl.org,"U.S. Agency for Global Media",76
 rfa.org,"U.S. Agency for Global Media",55
@@ -695,7 +695,7 @@ fmjfee.com,"U.S. Citizenship and Immigration Service (USCIS)",39
 firelab.org,"U.S. Forest Service (USFS)",63
 findtbresources.org,"Centers for Disease Control and Prevention (CDC)",0
 fhlbtopeka.com,"Interagency Collaboration",66
-fhlbsf.com,"Interagency Collaboration",58
+fhlbsf.com,"Interagency Collaboration",61
 fhlbsea.com,"Interagency Collaboration",42
 fhlbny.com,"Interagency Collaboration",74
 fhlbi.com,"Interagency Collaboration",71
@@ -966,10 +966,10 @@ uscapitalgiftshop.gov,"Architect of the Capitol",4
 uscapital.gov,"Architect of the Capitol",4
 usbg.gov,"Architect of the Capitol",61
 capitolgiftshop.gov,"Architect of the Capitol",4
-capitol.gov,"Architect of the Capitol",52
+capitol.gov,"Architect of the Capitol",55
 capitalgiftshop.gov,"Architect of the Capitol",4
-capital.gov,"Architect of the Capitol",52
-aoc.gov,"Architect of the Capitol",61
+capital.gov,"Architect of the Capitol",55
+aoc.gov,"Architect of the Capitol",63
 ustaxcourt.gov,"U.S. Courts",53
 ussc.gov,"U.S. Courts",4
 usprobation.gov,"U.S. Courts",61
@@ -1100,7 +1100,7 @@ stb.gov,"Surface Transportation Board",84
 sji.gov,"State Justice Institute",45
 sbrc.gov,"Southwest Border Regional Commission",70
 scrc.gov,"Southeast Crescent Regional Commission",50
-ssab.gov,"Social Security Advisory Board",71
+ssab.gov,"Social Security Advisory Board",74
 ssa.gov,"Social Security Administration",87
 socialsecurity.gov,"Social Security Administration",85
 segurosocial.gov,"Social Security Administration",76
@@ -1110,7 +1110,7 @@ sbir.gov,"Small Business Administration",55
 sba.gov,"Small Business Administration",76
 nwbc.gov,"Small Business Administration",71
 business.gov,"Small Business Administration",4
-sss.gov,"Selective Service System",82
+sss.gov,"Selective Service System",84
 sec.gov,"Securities and Exchange Commission",71
 investor.gov,"Securities and Exchange Commission",63
 rrb.gov,"Railroad Retirement Board",47
@@ -1221,8 +1221,8 @@ informationliteracy.gov,"Institute of Museum and Library Services",4
 imls.gov,"Institute of Museum and Library Services",29
 truman.gov,"Harry S. Truman Scholarship Foundation",84
 restorethegulf.gov,"Gulf Coast Ecosystem Restoration Council",45
-vote.gov,"General Services Administration",82
-ussm.gov,"General Services Administration",76
+vote.gov,"General Services Administration",84
+ussm.gov,"General Services Administration",79
 usagov.gov,"General Services Administration",70
 usability.gov,"General Services Administration",82
 usa.gov,"General Services Administration",82
@@ -1230,8 +1230,8 @@ us.gov,"General Services Administration",70
 thenamingcommission.gov,"General Services Administration",4
 statspolicy.gov,"General Services Administration",74
 sftool.gov,"General Services Administration",26
-section508.gov,"General Services Administration",82
-search.gov,"General Services Administration",82
+section508.gov,"General Services Administration",84
+search.gov,"General Services Administration",84
 sbst.gov,"General Services Administration",66
 sam.gov,"General Services Administration",55
 saferfederalworkforce.gov,"General Services Administration",4
@@ -1250,12 +1250,12 @@ pki.gov,"General Services Administration",4
 pki-lab.gov,"General Services Administration",4
 pif.gov,"General Services Administration",73
 pic.gov,"General Services Administration",30
-performance.gov,"General Services Administration",82
+performance.gov,"General Services Administration",84
 pcscotus.gov,"General Services Administration",4
-paymentaccuracy.gov,"General Services Administration",76
+paymentaccuracy.gov,"General Services Administration",79
 notify.gov,"General Services Administration",63
 ncmms.gov,"General Services Administration",4
-madeinamerica.gov,"General Services Administration",68
+madeinamerica.gov,"General Services Administration",71
 login.gov,"General Services Administration",84
 kids.gov,"General Services Administration",70
 itdashboard.gov,"General Services Administration",50
@@ -1269,7 +1269,7 @@ gsaig.gov,"General Services Administration",63
 gsafleet.gov,"General Services Administration",61
 gsaauctions.gov,"General Services Administration",47
 gsaadvantage.gov,"General Services Administration",42
-gsa.gov,"General Services Administration",87
+gsa.gov,"General Services Administration",89
 gobiernousa.gov,"General Services Administration",67
 fsrs.gov,"General Services Administration",42
 fsd.gov,"General Services Administration",50
@@ -1290,12 +1290,12 @@ fdms.gov,"General Services Administration",55
 fcsm.gov,"General Services Administration",55
 fbo.gov,"General Services Administration",45
 fbf.gov,"General Services Administration",42
-fapiis.gov,"General Services Administration",52
+fapiis.gov,"General Services Administration",55
 fai.gov,"General Services Administration",55
-facadatabase.gov,"General Services Administration",55
+facadatabase.gov,"General Services Administration",58
 faca.gov,"General Services Administration",76
 fac.gov,"General Services Administration",66
-evaluation.gov,"General Services Administration",79
+evaluation.gov,"General Services Administration",82
 esrs.gov,"General Services Administration",50
 ecpic.gov,"General Services Administration",79
 digitalgov.gov,"General Services Administration",88
@@ -1311,18 +1311,18 @@ code.gov,"General Services Administration",76
 cloud.gov,"General Services Administration",76
 citizenscience.gov,"General Services Administration",84
 cio.gov,"General Services Administration",79
-challenge.gov,"General Services Administration",76
+challenge.gov,"General Services Administration",79
 cfo.gov,"General Services Administration",84
 cdo.gov,"General Services Administration",82
 cbca.gov,"General Services Administration",21
 cao.gov,"General Services Administration",4
-buyamerican.gov,"General Services Administration",70
-buyaccessible.gov,"General Services Administration",55
+buyamerican.gov,"General Services Administration",73
+buyaccessible.gov,"General Services Administration",58
 businessusa.gov,"General Services Administration",70
 afadvantage.gov,"General Services Administration",42
 acquisitiongateway.gov,"General Services Administration",53
 acquisition.gov,"General Services Administration",58
-accessibility.gov,"General Services Administration",79
+accessibility.gov,"General Services Administration",82
 400yaahc.gov,"General Services Administration",21
 18f.gov,"General Services Administration",36
 sentinel.gov,"Federal Trade Commission",76
@@ -1344,7 +1344,7 @@ alertaenlinea.gov,"Federal Trade Commission",82
 tsptest.gov,"Federal Retirement Thrift Investment Board",4
 tsp.gov,"Federal Retirement Thrift Investment Board",31
 frtibtest.gov,"Federal Retirement Thrift Investment Board",4
-frtib.gov,"Federal Retirement Thrift Investment Board",74
+frtib.gov,"Federal Retirement Thrift Investment Board",76
 exploretsp.gov,"Federal Retirement Thrift Investment Board",8
 uscurrency.gov,"Federal Reserve Board of Governors",82
 newmoney.gov,"Federal Reserve Board of Governors",4
@@ -1384,7 +1384,7 @@ affordableconnectivity.gov,"Federal Communications Commission",76
 acpbenefit.gov,"Federal Communications Commission",76
 accedeainternet.gov,"Federal Communications Commission",48
 fcsic.gov,"Farm Credit Administration",53
-fca.gov,"Farm Credit Administration",68
+fca.gov,"Farm Credit Administration",71
 exim.gov,"Export/Import Bank of the U.S.",58
 whitehousedrugpolicy.gov,"Executive Office of the President",8
 whitehouse.gov,"Executive Office of the President",95
@@ -1439,7 +1439,7 @@ energystar.gov,"Environmental Protection Agency",76
 cbi-epa.gov,"Environmental Protection Agency",4
 airnow.gov,"Environmental Protection Agency",50
 airknowledge.gov,"Environmental Protection Agency",21
-votebymail.gov,"Election Assistance Commission",58
+votebymail.gov,"Election Assistance Commission",61
 helpamericavote.gov,"Election Assistance Commission",52
 eac.gov,"Election Assistance Commission",58
 ugov.gov,"Director of National Intelligence",4
@@ -1506,7 +1506,7 @@ mymoney.gov,"Department of the Treasury",68
 myira.gov,"Department of the Treasury",4
 msb.gov,"Department of the Treasury",4
 moneyfactorystore.gov,"Department of the Treasury",17
-moneyfactory.gov,"Department of the Treasury",52
+moneyfactory.gov,"Department of the Treasury",55
 mha.gov,"Department of the Treasury",70
 makinghomeaffordable.gov,"Department of the Treasury",70
 its.gov,"Department of the Treasury",37
@@ -1544,7 +1544,7 @@ cdfifund.gov,"Department of the Treasury",55
 ccac.gov,"Department of the Treasury",47
 bondpro.gov,"Department of the Treasury",42
 bfem.gov,"Department of the Treasury",4
-bep.gov,"Department of the Treasury",66
+bep.gov,"Department of the Treasury",68
 banknet.gov,"Department of the Treasury",10
 bankhelp.gov,"Department of the Treasury",68
 bankcustomerassistance.gov,"Department of the Treasury",68
@@ -1843,7 +1843,7 @@ tox21.gov,"Department of Health and Human Services",72
 tobacco.gov,"Department of Health and Human Services",13
 thisfreelife.gov,"Department of Health and Human Services",13
 therealcost.gov,"Department of Health and Human Services",58
-thebraininitiative.gov,"Department of Health and Human Services",48
+thebraininitiative.gov,"Department of Health and Human Services",52
 surgeongeneral.gov,"Department of Health and Human Services",70
 stopbullying.gov,"Department of Health and Human Services",87
 stopalcoholabuse.gov,"Department of Health and Human Services",63
@@ -1878,7 +1878,7 @@ insurekidsnow.gov,"Department of Health and Human Services",58
 ihs.gov,"Department of Health and Human Services",68
 idealab.gov,"Department of Health and Human Services",4
 hrsa.gov,"Department of Health and Human Services",55
-hiv.gov,"Department of Health and Human Services",82
+hiv.gov,"Department of Health and Human Services",84
 hhsops.gov,"Department of Health and Human Services",4
 hhsoig.gov,"Department of Health and Human Services",4
 hhs.gov,"Department of Health and Human Services",84
@@ -1943,7 +1943,7 @@ arpah.gov,"Department of Health and Human Services",67
 arpa-h.gov,"Department of Health and Human Services",71
 aoa.gov,"Department of Health and Human Services",4
 alzheimers.gov,"Department of Health and Human Services",21
-aids.gov,"Department of Health and Human Services",82
+aids.gov,"Department of Health and Human Services",85
 ahrq.gov,"Department of Health and Human Services",24
 ahcpr.gov,"Department of Health and Human Services",13
 agingstats.gov,"Department of Health and Human Services",14
@@ -1964,13 +1964,13 @@ sns.gov,"Department of Energy",50
 smartgrid.gov,"Department of Energy",67
 science.gov,"Department of Energy",50
 scidac.gov,"Department of Energy",50
-sandia.gov,"Department of Energy",84
+sandia.gov,"Department of Energy",87
 safgrandchallenge.gov,"Department of Energy",4
 rl.gov,"Department of Energy",4
 rideelectric.gov,"Department of Energy",67
 pr100.gov,"Department of Energy",58
 pppo.gov,"Department of Energy",4
-pppl.gov,"Department of Energy",68
+pppl.gov,"Department of Energy",71
 pnnl.gov,"Department of Energy",68
 pnl.gov,"Department of Energy",67
 pcast.gov,"Department of Energy",4
@@ -2046,11 +2046,11 @@ jccs.gov,"Department of Defense",32
 iwtsd.gov,"Department of Defense",32
 itc.gov,"Department of Defense",4
 ioss.gov,"Department of Defense",8
-intelligencecareers.gov,"Department of Defense",74
+intelligencecareers.gov,"Department of Defense",79
 iad.gov,"Department of Defense",8
 hive.gov,"Department of Defense",42
 fvap.gov,"Department of Defense",47
-fehrm.gov,"Department of Defense",66
+fehrm.gov,"Department of Defense",68
 defense.gov,"Department of Defense",71
 dc3on.gov,"Department of Defense",4
 cttso.gov,"Department of Defense",34
@@ -2076,7 +2076,7 @@ tasefiling.gov,"Department of Commerce",39
 sworm.gov,"Department of Commerce",42
 stopfakes.gov,"Department of Commerce",21
 standards.gov,"Department of Commerce",73
-spectrum.gov,"Department of Commerce",55
+spectrum.gov,"Department of Commerce",58
 spd15revision.gov,"Department of Commerce",34
 spaceweather.gov,"Department of Commerce",50
 semiconductors.gov,"Department of Commerce",73
@@ -2093,7 +2093,7 @@ noaa.gov,"Department of Commerce",24
 nist.gov,"Department of Commerce",89
 nehrp.gov,"Department of Commerce",53
 my2020census.gov,"Department of Commerce",4
-mgi.gov,"Department of Commerce",71
+mgi.gov,"Department of Commerce",74
 mbda.gov,"Department of Commerce",84
 marinecadastre.gov,"Department of Commerce",68
 manufacturing.gov,"Department of Commerce",58
@@ -2155,8 +2155,8 @@ americorps.gov,"Corporation for National & Community Service",61
 americanclimatecorps.gov,"Corporation for National & Community Service",8
 acc.gov,"Corporation for National & Community Service",17
 seguridadconsumidor.gov,"Consumer Product Safety Commission",67
-saferproducts.gov,"Consumer Product Safety Commission",47
-saferproduct.gov,"Consumer Product Safety Commission",42
+saferproducts.gov,"Consumer Product Safety Commission",50
+saferproduct.gov,"Consumer Product Safety Commission",45
 recalls.gov,"Consumer Product Safety Commission",58
 poolsafety.gov,"Consumer Product Safety Commission",64
 poolsafely.gov,"Consumer Product Safety Commission",66
@@ -2179,7 +2179,7 @@ whistleblower.gov,"Commodity Futures Trading Commission",53
 smartcheck.gov,"Commodity Futures Trading Commission",21
 devcftc.gov,"Commodity Futures Trading Commission",4
 cftc.gov,"Commodity Futures Trading Commission",39
-coldcaserecords.gov,"Civil Rights Cold Case Records Review Board",76
+coldcaserecords.gov,"Civil Rights Cold Case Records Review Board",79
 safetyvideos.gov,"Chemical Safety Board",42
 csb.gov,"Chemical Safety Board",48
 ucia.gov,"Central Intelligence Agency",4
@@ -2216,7 +2216,7 @@ oklahoma.gov,"State of Oklahoma",71
 ohio.gov,"State of Ohio",24
 nd.gov,"State of North Dakota",61
 nc.gov,"State of North Carolina",95
-ny.gov,"State of New York",93
+ny.gov,"State of New York",95
 nm.gov,"State of New Mexico",63
 nj.gov,"State of New Jersey",68
 nh.gov,"State of New Hampshire",55
@@ -2233,7 +2233,7 @@ maine.gov,"State of Maine",55
 louisiana.gov,"State of Louisiana",37
 kentucky.gov,"State of Kentucky",45
 kansas.gov,"State of Kansas",82
-iowa.gov,"State of Iowa",92
+iowa.gov,"State of Iowa",95
 in.gov,"State of Indiana",71
 illinois.gov,"State of Illinois",71
 idaho.gov,"State of Idaho",71
@@ -2250,3 +2250,31 @@ alaska.gov,"State of Alaska",50
 alabama.gov,"State of Alabama",58
 slc.gov,"Salt Lake City, UT",71
 waste.gov,"Executive Office of the President",38
+laportetx.gov,"City of LaPorte, TX",47
+missouricitytx.gov,"City of Missouri, TX",47
+ci.friendswood.tx.us,"City of Friendswood, TX",45
+harriscountytx.gov,"City of Harris County, TX",42
+deerparktx.gov,"City of Deer Park, TX",47
+baytown.org,"City of Baytown, TX",42
+wallertexas.gov,"City of Waller, TX",66
+cityofwebster.com,"City of Webster, TX",39
+westutx.gov,"City of West University Place, TX",45
+taylorlakevillage.us,"City of Taylor Lake Village, TX",24
+staffordtx.gov,"City of Stafford, TX",47
+springvalleytx.com,"City of Spring Valley Village, TX",47
+shoreacrestx.us,"City of Shoreacres, TX",47
+southhoustontx.gov,"City of South Houston, TX",45
+seabrooktx.gov,"City of Seabrook, TX",45
+cityofpineypoint.com,"City of Piney Point Village, TX",47
+cityofkaty.com,"City of Katy, TX",53
+nassaubay.com,"City of Nassau Bay, TX",50
+morganspoint-tx.com,"City of Morgan’s Point, TX",74
+jerseyvillagetx.com,"City of Jersey Village, TX",34
+jacintocity-tx.gov,"City of Jacinto City, TX",63
+hilshirevillagetexas.com,"City of Hilshire Village, TX",45
+cityofhunterscreek.com,"City of Hunters Creek Village, TX",58
+thecityofhedwigvillage.com,"City of Hedwig Village, TX",32
+cityofgalenapark-tx.gov,"City of Galena Park, TX",47
+ellago-tx.gov,"City of El Lago, TX",68
+cityofhumbletx.gov,"City of Humble, TX",61
+bellairetx.gov,"City of Bellaire, TX",45
