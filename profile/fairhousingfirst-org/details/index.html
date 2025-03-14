@@ -21,10 +21,10 @@
     <meta property="og:url" content="https://scangov.org/profile/fairhousingfirst-org/details/">
     
       <!-- Created date -->
-      <meta property="article:published_time" content="Thu Mar 13 2025 16:25:11 GMT+0000 (Coordinated Universal Time)">
-      <meta name="dc.date" content="Thu Mar 13 2025 16:25:11 GMT+0000 (Coordinated Universal Time)">
-      <meta name="dc.date.created" content="Thu Mar 13 2025 16:25:11 GMT+0000 (Coordinated Universal Time)">
-      <meta name="dcterms.created" content="Thu Mar 13 2025 16:25:11 GMT+0000 (Coordinated Universal Time)">
+      <meta property="article:published_time" content="Fri Mar 14 2025 03:09:51 GMT+0000 (Coordinated Universal Time)">
+      <meta name="dc.date" content="Fri Mar 14 2025 03:09:51 GMT+0000 (Coordinated Universal Time)">
+      <meta name="dc.date.created" content="Fri Mar 14 2025 03:09:51 GMT+0000 (Coordinated Universal Time)">
+      <meta name="dcterms.created" content="Fri Mar 14 2025 03:09:51 GMT+0000 (Coordinated Universal Time)">
     
     
     
@@ -140,32 +140,6 @@
             </li>
           
         
-        <!--
-        <li class="nav-item me-3 me-lg-0 small" id="toggle-theme">
-          <a
-            class="nav-item nav-link mx-1"
-            href="javascript:void(0)"
-            onclick="
-            localStorage.setItem('theme', document.body.getAttribute('data-bs-theme') == 'light' ? 'dark' : 'light');
-            document.body.setAttribute('data-bs-theme', document.body.getAttribute('data-bs-theme') == 'light' ? 'dark' : 'light');
-            document.querySelector('#toggle-theme img').src = '/assets/img/' + (document.body.getAttribute('data-bs-theme') == 'light' ? 'moon' : 'sun') + '.svg';
-            ">
-            <img
-              id="theme-icon"
-              src="/assets/img/sun.svg"
-              alt="Toggle theme"
-              style="width: 1rem;">
-            <script>
-              let colorTheme = localStorage.getItem('theme');
-              if (colorTheme) {
-                document.body.setAttribute('data-bs-theme', colorTheme);
-                document.querySelector('#toggle-theme img').src = '/assets/img/' + (colorTheme == 'light' ? 'moon' : 'sun') + '.svg';
-              }
-            </script>
-            Mode
-          </a>
-        </li>
-        -->
       </ul>
     </div>
   </div>
@@ -1677,14 +1651,6 @@
 <script async="" defer="" src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <script>
-  let theme = localStorage.getItem('theme');
-  if (!theme)
-    theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light';
-  document.body.setAttribute('data-bs-theme', theme);
-  if (theme === 'light')
-    document.getElementById('theme-toggle-icon').outerHTML = `<i class='fa-solid fa-moon' id='theme-toggle-icon'></i>`;
-
-
   /* mobile menu */
   document.querySelectorAll('.navbar-toggler')[0].addEventListener('click',function(e) { document.getElementById('navbarSupportedContent').classList.toggle('show'); })
 

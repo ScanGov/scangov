@@ -29,7 +29,7 @@
   src: url("/assets/fonts/jetbrains-mono/JetBrainsMono-ExtraBold.ttf") format("truetype");
 }
 
-:root, [data-bs-theme=dark] {
+:root/*, [data-bs-theme=dark]*/ {
   --bs-body-color: #fff;
   --bs-body-color-rgb: 255, 255, 255;
   --bs-body-bg: #13171f;
@@ -151,12 +151,12 @@ body.page h3 {
   margin-top: 3rem;
 }
 
-body[data-bs-theme='dark'] footer a {
+body/*[data-bs-theme='dark']*/ footer a {
   color: white;
 }
 
-body[data-bs-theme='dark'] footer img,
-body[data-bs-theme='dark'] ul.navbar-nav img {
+body/*[data-bs-theme='dark']*/ footer img,
+body/*[data-bs-theme='dark']*/ ul.navbar-nav img {
   filter: invert(1);
 }
 
@@ -306,7 +306,7 @@ h3:hover a#heading-hashtag {
 }
 
 /* Bootstrap dark mode WCAG compliance override */
-[data-bs-theme='dark'] .text-bg-danger .card {
+/*[data-bs-theme='dark'] */.text-bg-danger .card {
   --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0);
 }
 
