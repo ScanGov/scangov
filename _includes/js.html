@@ -3,14 +3,6 @@
 <script async defer src="{{ site.baseurl }}/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 {% endif %}
 <script>
-  let theme = localStorage.getItem('theme');
-  if (!theme)
-    theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light';
-  document.body.setAttribute('data-bs-theme', theme);
-  if (theme === 'light')
-    document.getElementById('theme-toggle-icon').outerHTML = `<i class='fa-solid fa-moon' id='theme-toggle-icon'></i>`;
-
-
   /* mobile menu */
   document.querySelectorAll('.navbar-toggler')[0].addEventListener('click',function(e) { document.getElementById('navbarSupportedContent').classList.toggle('show'); })
 
