@@ -3,7 +3,7 @@
   "description": "Government digital experience monitor",
   "url": "https://scangov.org",
   "org": "ScanGov",
-  "org-url": "https://scangov.org",
+  "org-url": "https://scangov.com",
   "repo": "https://github.com/ScanGov/scangov",
   "rss": "https://docs.scangov.org/feed.xml",
   "github-url": "https://github.com/ScanGov/scangov",
@@ -20,7 +20,7 @@
     "Performance",
     "SEO",
     "Security",
-    "Social"    
+    "Social"
   ],
   "nav": [
     {
@@ -32,6 +32,11 @@
       "url": "/changelog",
       "title": "Changelog",
       "icon": "timeline"
+    },
+    {
+      "url": "https://scangov.com/",
+      "title": "ScanGov",
+      "icon": "house"
     },
     {
       "url": "https://docs.scangov.org/",

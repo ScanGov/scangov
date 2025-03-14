@@ -1,10 +1,8 @@
 <div class="container">
   {% include "supporters.html" %}
-  <footer class="mt-5 pt-5 border-top">
-    <div class="row">
-      <div class="col-4 mb-3">
-        <ul class="nav flex-column">
-          <li>
+    <footer class="">
+    <!--
+      <div class="row">  <div class="col-4 mb-3">    <ul class="nav flex-column">      <li>
             <a href="https://docs.scangov.org/about/" class="nav-link p-0 text-body-secondary">About</a>
           </li>
           <li>
@@ -39,16 +37,17 @@
         </ul>
       </div>
     </div>
+    -->
     <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
       <p class="small">
-        <a href="{{ site.org-url }}" style="text-decoration: none;">{{ site.title }}</a>
+        <a href="{{ site['org-url'] }}" style="text-decoration: none;">{{ site.org }}</a>
         2025
       </p>
     </div>
   </footer>
 </div>
 <a
-  href="https://docs.scangov.org/contact"
+  href="https://docs.google.com/forms/d/e/1FAIpQLSeKiSG0f07leAwW1QqIMSoDIgTA92m0jVy6NADtiaoPhg4rww/viewform"
   id="feedback-button"
   aria-label="Contact us"
   class="feedback"
@@ -64,7 +63,10 @@
       feedbackButton.style.opacity = '0';
   });
 </script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MM5GF482X0"></script>
+<script
+  async
+  defer
+  src="https://www.googletagmanager.com/gtag/js?id=G-MM5GF482X0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
