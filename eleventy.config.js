@@ -276,13 +276,60 @@ export default async function (eleventyConfig) {
     let i = 0;
     while(i <allFileNames.length) {
       let filename = allFileNames[i];
-      let gitFileData = await getGithubData(`https://github.com/ScanGov/data/raw/refs/heads/main/${filename}.json`);
-      fs.writeFileSync(`./public/data/${filename}.json`,gitFileData,'utf8');
+      let gitUrl = `https://github.com/ScanGov/data/raw/refs/heads/main/${filename}.json`;
+      if(process.env.ELEVENTY_RUN_MODE === 'serve' && fs.existsSync(`../data/${filename}.json`)) {
+        fs.copyFileSync(`../data/${filename}.json`, `./public/data/${filename}.json`)
+      } else {
+        let gitFileData = await getGithubData(gitUrl);
+        fs.writeFileSync(`./public/data/${filename}.json`,gitFileData,'utf8');
+      }
       i++;
     }
     let gitCSVFileData = await getGithubData(`https://github.com/ScanGov/data/raw/refs/heads/main/domains.csv`);
     fs.writeFileSync(`./public/data/domains.csv`,gitCSVFileData,'utf8');
-});
+  });
+
+  async function getData(url, local = false) {
+    return new Promise(async (resolve) => {
+      if(local) {
+        let fileLoc = url.replace('https://github.com/ScanGov/data/raw/refs/heads/main/','');
+        resolve(JSON.parse(fs.readFileSync('../data/'+fileLoc,'utf8')));
+      } else {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+          }
+    
+          const json = await response.json();
+          console.log('got '+url);
+          resolve(json);
+        } catch (error) {
+          throw new Error(`Fetch error: ${error.message}`);
+        }
+      }
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   eleventyConfig.on(
     'eleventy.after',
