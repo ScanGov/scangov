@@ -119,6 +119,7 @@ eleventyComputed:
           </div>
         </div>
       </div>
+    {#
       <div class="row" id="changelog-{{ scorekey }}">
         <div class="col-12">
           {% set history = domain[scorekey].history | timeSort %}
@@ -147,6 +148,7 @@ eleventyComputed:
           {% endif %}
         </div>
       </div>
+        #}
     </div>
   </div>
 {% endfor %}
@@ -162,7 +164,7 @@ eleventyComputed:
   if(elToShow) {
     elToShow.classList.remove('d-none');
   } else {
-    document.getElementById(`details-metadata`).classList.remove('d-none');
+    //document.getElementById(`details-metadata`).classList.remove('d-none');
   }
 })();
 </script>

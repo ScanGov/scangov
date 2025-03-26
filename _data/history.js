@@ -1,90 +1,188 @@
-import { metaDataVariables, robotsDataVariables, sitemapDataVariables, SITEMAP_COMPLETION_THRESHOLD, securityDataVariables, urlDataVariables, performanceDataVariables } from './variables.js';
-import { readFileSync } from 'fs'
+import { variablesMap, variableTopics, dataFiles, elementToDataFile } from './variables.js';
+import { readFileSync } from 'fs';
+import { createChangeItem, createDateNumber } from './history_util.js';
 
-const createDateNumber = time => {
-    const date = new Date(time);
-    // Shift year 4 digits, month 2
-    // YYYYMMDD
-    return (date.getFullYear() * 100 + (date.getMonth() + 1)) * 100 + date.getDate();
-}
+const updateTime = parseInt(readFileSync('public/data/updated_time', 'utf8'));
 
-export default function () {
-    const historyMap = new Map();
-    const updateMap = (data, variables, name) => {
-        data.forEach(d => {
-            if (d.history.length === 0)
-                return;
+const createHistory = histories => {
+    const domains = new Map();
 
-            // TODO: map as domain to map of dates, then sort by date, in changelog check if date is different
-            // Add current scores to history
-            d.history.push(d);
+    for (const history of histories) {
+        // Loop through every data file
+        for (const domain of history[1]) {
+            let obj = domains.get(domain.url);
+            if (!obj)
+                obj = new Map();
 
-            for (let i = 0; i < d.history.length - 1; i++) {
-                const current = d.history[i], next = d.history[i + 1];
+            domain.time = updateTime;
+            const domainHistory = domain.history;
+            delete domain.history;
+            obj.set(history[0] /* field name */, domainHistory.concat(domain));
 
-                // Calculate history scores
-                let oldScore = 0, newScore = 0;
-                let oldTotal = 0, newTotal = 0;
-                for (let j = 0; j < variables.length; j++) {
-                    const variable = variables[j];
-                    if (name === 'Sitemap') {
-                        oldTotal = 3, newTotal = 3;
-                        switch (variable) {
-                            case 'status':
-                                oldScore += current.status === 200;
-                                newScore += next.status === 200;
-                                break;
-                            case 'xml':
-                                oldScore += current.xml;
-                                newScore += next.xml;
-                                break;
-                            case 'completion':
-                                oldScore += current.completion >= SITEMAP_COMPLETION_THRESHOLD;
-                                newScore += next.completion >= SITEMAP_COMPLETION_THRESHOLD;
-                                break;
+            domains.set(domain.url, obj);
+        }
+    }
+
+    let history = [];
+
+    for (const domain of domains) {
+        const domainHistories = domain[1];
+        const statusHistory = domainHistories.get('url');
+
+        // Create a map for history of each topic
+        const newHistories = new Map();
+        for (const topic of variableTopics)
+            newHistories.set(topic[0], new Map());
+
+        for (const history of domainHistories) {
+            // All the scoring elements under the file
+            const items = dataFiles.get(history[0]);
+            // Loop through every change in the domain's history
+            for (const date of history[1]) {
+                const dateNumber = createDateNumber(date.time);
+
+                // Loop through all scoring elements
+                for (const item of items) {
+                    // The new topic the element is in
+                    const itemTopic = variablesMap.get(item);
+                    const topicHistory = newHistories.get(itemTopic);
+                    if (topicHistory.has(dateNumber))
+                        // The new history map already has this change in it
+                        continue;
+
+                    // Create list of other elements in the same topic to search for
+                    const topicElements = variableTopics.get(itemTopic);
+                    const elementsToSearch = new Map();
+                    for (const element of topicElements) {
+                        // Get data file to search in
+                        const elementFile = elementToDataFile.get(element);
+                        let fileSearches = elementsToSearch.get(elementFile);
+                        if (!fileSearches)
+                            fileSearches = [];
+                        fileSearches.push(element);
+                        elementsToSearch.set(elementFile, fileSearches);
+                    }
+
+                    const dateItem = { statusCode: statusHistory[statusHistory.length - 1].status /* default to current */ };
+
+                    // Get status at history time
+                    for (let i = statusHistory.length - 1; i >= 1; i--) {
+                        if (statusHistory[i].time <= date.time) {
+                            dateItem.statusCode = statusHistory[i].status;
+                            break;
                         }
                     }
-                    else {
-                        const currentHasVariable = variable in current;
-                        oldScore += currentHasVariable && !!current[variable];
-                        oldTotal += currentHasVariable;
-                        const nextHasVariable = variable in next;
-                        newScore += nextHasVariable && !!next[variable];
-                        newTotal += nextHasVariable;
-                    }
-                }
 
-                // Score didn't change, skip
-                if (oldScore === newScore)
+                    // Loop through all files with elements in new topic
+                    for (const file of elementsToSearch) {
+                        const fileHistory = domainHistories.get(file[0] /* name of file */);
+                        // Loop through every date in file history
+                        let beforeItem = fileHistory[fileHistory.length - 1]; // Default to current data if there isn't anything else
+                        // Look backwards for first item from before history date
+                        for (let i = fileHistory.length - 2; i >= 0; i--) {
+                            if (fileHistory[i].time <= date.time) {
+                                beforeItem = fileHistory[i];
+                                break;
+                            }
+                        }
+                        for (const element of file[1] /* elements for topic in specific file */)
+                            // Set all the values for the new history item
+                            dateItem[element] = beforeItem[element];
+                    }
+
+                    topicHistory.set(dateNumber, dateItem);
+                    newHistories.set(itemTopic, topicHistory);
+                }
+            }
+        }
+
+        const domainChanges = new Map();
+        for (const topic of newHistories) {
+            if (topic[1].size <= 1)
+                continue;
+
+            const changes = [...topic[1].entries()].sort((a, b) => b[0] - a[0]);
+            for (let i = 0; i < changes.length - 1; i++) {
+                const current = changes[i], date = current[0];
+                // Array of all changes for the domain on a day
+                let dateChanges = domainChanges.get(date);
+                if (!dateChanges)
+                    dateChanges = [];
+
+                const changeItem = createChangeItem(topic[0], date, current[1], changes[i + 1][1])
+                if (changeItem.oldPercent === changeItem.newPercent)
                     continue;
 
-                const mapKey = d.url + ' ' + createDateNumber(current.time);
-
-                if (!historyMap.has(mapKey))
-                    // Create array for change items
-                    historyMap.set(mapKey, []);
-
-                historyMap.get(mapKey).push({ name, oldScore, newScore, oldTotal, newTotal });
+                dateChanges.push(changeItem);
+                domainChanges.set(date, dateChanges);
             }
-        });
-    };
+        }
 
+        for (const change of domainChanges)
+            history.push({
+                url: domain[0],
+                date: change[0],
+                changes: change[1],
+            });
+    }
+
+    history = history
+        .sort((a, b) => b.date - a.date);
+    history.forEach(h => {
+        // Get first two digits
+        const day = h.date % 100;
+        // Shift two digits
+        h.date = Math.floor(h.date / 100);
+        const month = h.date % 100;
+        h.date = Math.floor(h.date / 100);
+        // date now only has the year
+        h.date = month + '/' + day + '/' + h.date;
+    });
+    return history;
+};
+
+export default function () {
     const metaData = JSON.parse(readFileSync('./public/data/metadata.json'));
     const robotsData = JSON.parse(readFileSync('./public/data/robots.json'));
     const securityData = JSON.parse(readFileSync('./public/data/security.json'));
     const sitemapData = JSON.parse(readFileSync('./public/data/sitemap.json'));
     const urlData = JSON.parse(readFileSync('./public/data/url.json'));
     const performanceData = JSON.parse(readFileSync('./public/data/performance.json'));
+    const accessibilityData = JSON.parse(readFileSync('./public/data/accessibility.json'));
 
-    updateMap(metaData, metaDataVariables, 'Metadata')
-    updateMap(urlData, urlDataVariables, 'URL')
-    updateMap(sitemapData, sitemapDataVariables, 'Sitemap')
-    updateMap(robotsData, robotsDataVariables, 'Robots')
-    updateMap(securityData, securityDataVariables, 'Security')
-    updateMap(performanceData, performanceDataVariables, 'Performance')
+    let history = createHistory(new Map([
+        ['metadata', metaData],
+        ['robots', robotsData],
+        ['security', securityData],
+        ['sitemap', sitemapData],
+        ['url', urlData],
+        ['performance', performanceData],
+        ['accessibility', accessibilityData]
+    ]));
+
+    return history;
+
+    /*
+    const loop = (data, variables, name) =>
+        data.forEach(d => {
+            if (d.history.length === 0)
+                return;
+
+            // Add current scores to history
+            d.history.push(d);
+
+            updateMap(historyMap, d.url, d.history, variables, name);
+        });
+    loop(metaData, metaDataVariables, 'Metadata');
+    loop(urlData, urlDataVariables, 'URL');
+    loop(sitemapData, sitemapDataVariables, 'Sitemap');
+    loop(robotsData, robotsDataVariables, 'Robots');
+    loop(securityData, securityDataVariables, 'Security');
+    loop(performanceData, performanceDataVariables, 'Performance');
+    loop(accessibilityData, accessibilityDataVariables, 'Accessibility');
 
     let changelog = [];
-    historyMap.forEach((changes, key) => {
+    history.forEach((changes, key) => {
         const domain = key.substring(0, key.indexOf(' '));
         let date = parseInt(key.substring(key.indexOf(' ') + 1));
         const time = date;
@@ -94,8 +192,6 @@ export default function () {
         // Take out next two digits
         const month = date % 100;
         date = (date - month) / 100;
-        if (isNaN(time))
-            console.log(key, changes)
         // The date variable only holds the year now
         changelog.push({
             domain,
@@ -105,5 +201,6 @@ export default function () {
         });
     });
     changelog = changelog.sort((a, b) => b.time - a.time);
+    */
     return changelog;
 };

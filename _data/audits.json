@@ -78,8 +78,8 @@
         "docs": "https://docs.scangov.org/metadata"
       }    ]
   },
-  "url": {
-    "displayName": "URL",
+  "domain": {
+    "displayName": "Domain",
     "attributes": [
       {
         "key": "https",

@@ -26,22 +26,34 @@ pagination:
             {% endif %}
                         <div class="text-muted">
                             <p class="timeline-domain">
-                                {{ item.domain }}:
+                                {{ item.url }}:
                                 <ul>
-                                    {% for field in item.changes %}
-                                    <li>
-                                        {% set oldPercent = field.oldScore / field.newTotal * 100 %}
-                                        {% set newPercent = field.newScore / field.newTotal * 100 %}
-                                        <a href="/profile/{{ item.domain | slugify }}/details/?attr={{ field.name | lower }}">{{ field.name }}</a>: Grade: {{ oldPercent | gradify }} → {{ newPercent | gradify }} /
-                                        Score: {{ oldPercent | percentify }} → {{ newPercent | percentify }}
-                                        ({{ field.newScore }} of {{ field.newTotal }} elements)
-                                        {% if oldPercent < newPercent %}
-                                            <i class="text-success fa-solid fa-circle-up"></i>
-                                        {% else %}
-                                            <i class="text-danger fa-solid fa-circle-down"></i>
-                                        {% endif %}
-                                    </li>
+                                    {% set statusGood = true %}
+                                    {% for status in item.changes %}
+                                        {% set statusGood = statusGood and status.statusCode < 300 %}
                                     {% endfor %}
+                                    {% if statusGood %}
+                                        {% for field in item.changes %}
+                                            <li>
+                                                <a href="/profile/{{ item.url | slugify }}/details/?attr={{ field.topic | lower }}">
+                                                    {{ field.topic }}
+                                                </a>: 
+                                                Grade: {{ field.oldPercent | gradify }} → {{ field.newPercent | gradify }} /
+                                                Score: {{ field.oldPercent | percentify }} → {{ field.newPercent | percentify }}
+                                                ({{ field.newScore }} of {{ field.newTotal }} elements)
+                                                {% if field.oldPercent < field.newPercent %}
+                                                    <i class="text-success fa-solid fa-circle-up"></i>
+                                                {% else %}
+                                                    <i class="text-danger fa-solid fa-circle-down"></i>
+                                                {% endif %}
+                                            </li>
+                                        {% endfor %}
+                                    {% else %}
+                                        <li>
+                                            <a href="/profile/{{ item.url | slugify }}/overview/">Down</a>
+                                            <i class="text-warning fa-solid fa-circle-exclamation"></i>
+                                        </li>
+                                    {% endif %}
                                 </ul>
                             </p>
                     </div>

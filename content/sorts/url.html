@@ -13,9 +13,9 @@ pagination:
 
 {% set pageHeader = "Domain Results" %}
 {% set dataset = url.overall %}
-{% set specificAttribute = "url" %}
+{% set specificAttribute = "domain" %}
 {% set currentsort = "" %}
-{% set currentScore = member[0].scores['url'].score %}
+{% set currentScore = member[0].scores['domain'].score %}
 {% set showPagination = true %}
 
 {% include "sortcontent.html" %}
