@@ -11,6 +11,7 @@ assignees: ''
 - [ ] Indicator: 
 - [ ] Description: 
 - [ ] [Add docs issue](https://github.com/ScanGov/docs/issues)
+- [ ] [Add to data](https://github.com/ScanGov/data)
 
 Reference:
 

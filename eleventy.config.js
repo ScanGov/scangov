@@ -12,10 +12,18 @@ import * as fs from 'fs'
 import pluginFilters from './_config/filters.js'
 import fontAwesomePlugin from '@11ty/font-awesome'
 import { PurgeCSS } from 'purgecss'
+import { getData } from './scripts/getdata.js'
+
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function (eleventyConfig) {
-    let audits = JSON.parse(fs.readFileSync('./_data/audits.json'))
+    let auditsFile = 'https://github.com/ScanGov/data/raw/refs/heads/main/standards/audits.json';
+    let getDataLocally = false;
+    if (process.env.ELEVENTY_RUN_MODE === 'serve') {
+        getDataLocally = true;
+    }
+    const audits = await getData(auditsFile, getDataLocally);
+
     eleventyConfig.addPlugin(fontAwesomePlugin)
 
     // Drafts, see also _data/eleventyDataSchema.js
