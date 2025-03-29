@@ -66,22 +66,27 @@ const createHistory = histories => {
                     const dateItem = { statusCode: statusHistory[statusHistory.length - 1].status /* default to current */ };
 
                     // Get status at history time
-                    for (let i = statusHistory.length - 1; i >= 1; i--) {
-                        if (statusHistory[i].time <= date.time) {
-                            dateItem.statusCode = statusHistory[i].status;
+                    // Look for first item past date, then go back one
+                    for (let i = 1; i < statusHistory.length; i++) {
+                        if (statusHistory[i].time > date.time) {
+                            dateItem.statusCode = statusHistory[i - 1].status;
                             break;
                         }
                     }
+
+                    // TODO: the thing is backwards?
+                    // it looks like the things aren't added with the right times and the current one isn't accurate
+                    // and why is the status messed up?
 
                     // Loop through all files with elements in new topic
                     for (const file of elementsToSearch) {
                         const fileHistory = domainHistories.get(file[0] /* name of file */);
                         // Loop through every date in file history
                         let beforeItem = fileHistory[fileHistory.length - 1]; // Default to current data if there isn't anything else
-                        // Look backwards for first item from before history date
-                        for (let i = fileHistory.length - 2; i >= 0; i--) {
-                            if (fileHistory[i].time <= date.time) {
-                                beforeItem = fileHistory[i];
+                        // Look for first item past date, then go back one
+                        for (let i = 1; i < fileHistory.length; i++) {
+                            if (fileHistory[i].time > date.time) {
+                                beforeItem = fileHistory[i - 1];
                                 break;
                             }
                         }
