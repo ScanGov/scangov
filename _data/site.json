@@ -5,6 +5,7 @@
   "org": "ScanGov",
   "org-url": "https://scangov.com",
   "repo": "https://github.com/ScanGov/scangov",
+  "data_repo": "https://github.com/ScanGov/data",
   "rss": "https://docs.scangov.org/feed.xml",
   "github-url": "https://github.com/ScanGov/scangov",
   "linkedin-url": "https://www.linkedin.com/company/scangov",
