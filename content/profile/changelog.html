@@ -1,0 +1,31 @@
+---
+layout: layouts/default
+profile: true
+
+pagination:
+  data: domain_changelog
+  size: 1
+  addAllPagesToCollections: true
+  alias: domain
+
+permalink: "profile/{{ domain.url | slugify }}/changelog/"
+
+eleventyComputed:
+  title: "{{ domain.url }} changelog"
+  description: "Managed by {{ domain.name }}"
+  agency: by {{ domain.name }}
+---
+
+{% set domainSlug = domain.url %}
+{% set domainLink = domain.redirect %}
+{% include "profilelinks.html" %}
+
+<div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+    <h2 class="h2" id="page">Changelog</h2>
+    <div id="overview-section">
+        <div class="row">
+            {% set historyPage = domain.log %}
+            {% include 'changelog_list.html' %}
+        </div>
+    </div>
+</div>

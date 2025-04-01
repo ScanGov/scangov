@@ -4,7 +4,7 @@ title: Changelog
 description: Government website changes.
 
 pagination:
-    data: history
+    data: changelog
     size: 200
     alias: historyPage
 ---
@@ -12,59 +12,7 @@ pagination:
 <div class="alert alert-info" role="alert">
     Note: Changelog reflects ScanGov scraper times and not when actual changes were made.
 </div>
-<div class="col-12">
-  <section class="py-4">
-    <ul class="timeline" id="timeline">
-        {% set currentDate = "" %}
-        {% set changeDate = true %}
-        {% for item in historyPage %}
-            {% if item.date != currentDate %}
-                {% set currentDate = item.date %}
-                {% set changeDate = true %}
-                <li class="timeline-item">
-                    <p class="timeline-date">{{ item.date }}</p>
-            {% endif %}
-                        <div class="text-muted">
-                            <p class="timeline-domain">
-                                {{ item.url }}:
-                                <ul>
-                                    {% set statusGood = true %}
-                                    {% for status in item.changes %}
-                                        {% set statusGood = statusGood and status.statusCode < 300 %}
-                                    {% endfor %}
-                                    {% if statusGood %}
-                                        {% for field in item.changes %}
-                                            <li>
-                                                <a href="/profile/{{ item.url | slugify }}/details/?attr={{ field.topic | lower }}">
-                                                    {{ field.topic }}
-                                                </a>: 
-                                                Grade: {{ field.oldPercent | gradify }} → {{ field.newPercent | gradify }} /
-                                                Score: {{ field.oldPercent | percentify }} → {{ field.newPercent | percentify }}
-                                                ({{ field.newScore }} of {{ field.newTotal }} elements)
-                                                {% if field.oldPercent < field.newPercent %}
-                                                    <i class="text-success fa-solid fa-circle-up"></i>
-                                                {% else %}
-                                                    <i class="text-danger fa-solid fa-circle-down"></i>
-                                                {% endif %}
-                                            </li>
-                                        {% endfor %}
-                                    {% else %}
-                                        <li>
-                                            <a href="/profile/{{ item.url | slugify }}/overview/">Down</a>
-                                            <i class="text-warning fa-solid fa-circle-exclamation"></i>
-                                        </li>
-                                    {% endif %}
-                                </ul>
-                            </p>
-                    </div>
-            {% if changeDate %}
-                {% set changeDate = false %}
-                </li>
-            {% endif %}
-        {% endfor %}
-        </ul>
-  </section>
-</div>
+{% include 'changelog_list.html' %}
 <div class="row">
     <div class="col-12">
     <nav>

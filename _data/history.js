@@ -1,10 +1,94 @@
-import { variablesMap, variableTopics, dataFiles, elementToDataFile } from './variables.js';
+import { SITEMAP_COMPLETION_THRESHOLD, variablesMap, variableTopics, dataFiles, elementToDataFile } from './variables.js';
 import { readFileSync } from 'fs';
-import { createChangeItem, createDateNumber } from './history_util.js';
+
+const createDateNumber = time => {
+    const date = new Date(time);
+    // Shift year 4 digits, month 2
+    // YYYYMMDD
+    return (date.getFullYear() * 100 + (date.getMonth() + 1)) * 100 + date.getDate();
+};
+
+export const dateNumberToString = num => {
+    let date = num;
+    // Get first two digits
+    const day = date % 100;
+    // Shift two digits
+    date = Math.floor(date / 100);
+    const month = date % 100;
+    date = Math.floor(date / 100);
+    // date now only has the year
+    return month + '/' + day + '/' + date;
+}
+
+const upperCaseTopic = topic => {
+    switch (topic) {
+        case 'accessibility':
+            return 'Accessibility';
+        case 'content':
+            return 'Content';
+        case 'domain':
+            return 'Domain';
+        case 'performance':
+            return 'Performance';
+        case 'seo':
+            return 'SEO';
+        case 'security':
+            return 'Security';
+        case 'social':
+            return 'Social';
+    }
+};
+
+const createChangeItem = (topic, date, newItem, oldItem) => {
+    if (topic === 'seo') {
+        // Change non-boolean values to booleans
+        newItem.sitemap = !!newItem.sitemap;
+        oldItem.sitemap = !!oldItem.sitemap;
+        newItem.status = newItem.status < 300;
+        oldItem.status = oldItem.status < 300;
+        if (newItem.completion != undefined)
+            newItem.completion = newItem.completion >= SITEMAP_COMPLETION_THRESHOLD;
+        if (oldItem.completion != undefined)
+            oldItem.completion = oldItem.completion >= SITEMAP_COMPLETION_THRESHOLD;
+    }
+
+    const elements = variableTopics.get(topic);
+    let oldTotal = 0, newTotal = 0;
+    let oldScore = 0, newScore = 0;
+    for (const element of elements) {
+        if (oldItem[element] != undefined) {
+            oldScore += oldItem[element];
+            oldTotal++;
+        }
+        if (newItem[element] != undefined) {
+            newScore += newItem[element];
+            newTotal++;
+        }
+    }
+
+    return {
+        statusCode: newItem.statusCode,
+        topic: upperCaseTopic(topic),
+        date,
+        oldScore, newScore,
+        oldPercent: Math.round(100 * oldScore / oldTotal),
+        newPercent: Math.round(100 * newScore / newTotal),
+        oldTotal, newTotal
+    };
+}
 
 const updateTime = parseInt(readFileSync('public/data/updated_time', 'utf8'));
 
-const createHistory = histories => {
+export const domainHistories = (() => {
+    const histories = [
+        ['metadata', JSON.parse(readFileSync('./public/data/metadata.json'))],
+        ['robots', JSON.parse(readFileSync('./public/data/robots.json'))],
+        ['security', JSON.parse(readFileSync('./public/data/security.json'))],
+        ['sitemap', JSON.parse(readFileSync('./public/data/sitemap.json'))],
+        ['url', JSON.parse(readFileSync('./public/data/url.json'))],
+        ['performance', JSON.parse(readFileSync('./public/data/performance.json'))],
+        ['accessibility', JSON.parse(readFileSync('./public/data/accessibility.json'))]
+    ];
     const domains = new Map();
 
     for (const history of histories) {
@@ -23,7 +107,7 @@ const createHistory = histories => {
         }
     }
 
-    let history = [];
+    const history = [];
 
     for (const domain of domains) {
         const domainHistories = domain[1];
@@ -74,10 +158,6 @@ const createHistory = histories => {
                         }
                     }
 
-                    // TODO: the thing is backwards?
-                    // it looks like the things aren't added with the right times and the current one isn't accurate
-                    // and why is the status messed up?
-
                     // Loop through all files with elements in new topic
                     for (const file of elementsToSearch) {
                         const fileHistory = domainHistories.get(file[0] /* name of file */);
@@ -123,89 +203,8 @@ const createHistory = histories => {
             }
         }
 
-        for (const change of domainChanges)
-            history.push({
-                url: domain[0],
-                date: change[0],
-                changes: change[1],
-            });
+        history.push({ url: domain[0], changes: domainChanges });
     }
 
-    history = history
-        .sort((a, b) => b.date - a.date);
-    history.forEach(h => {
-        // Get first two digits
-        const day = h.date % 100;
-        // Shift two digits
-        h.date = Math.floor(h.date / 100);
-        const month = h.date % 100;
-        h.date = Math.floor(h.date / 100);
-        // date now only has the year
-        h.date = month + '/' + day + '/' + h.date;
-    });
     return history;
-};
-
-export default function () {
-    const metaData = JSON.parse(readFileSync('./public/data/metadata.json'));
-    const robotsData = JSON.parse(readFileSync('./public/data/robots.json'));
-    const securityData = JSON.parse(readFileSync('./public/data/security.json'));
-    const sitemapData = JSON.parse(readFileSync('./public/data/sitemap.json'));
-    const urlData = JSON.parse(readFileSync('./public/data/url.json'));
-    const performanceData = JSON.parse(readFileSync('./public/data/performance.json'));
-    const accessibilityData = JSON.parse(readFileSync('./public/data/accessibility.json'));
-
-    let history = createHistory(new Map([
-        ['metadata', metaData],
-        ['robots', robotsData],
-        ['security', securityData],
-        ['sitemap', sitemapData],
-        ['url', urlData],
-        ['performance', performanceData],
-        ['accessibility', accessibilityData]
-    ]));
-
-    return history;
-
-    /*
-    const loop = (data, variables, name) =>
-        data.forEach(d => {
-            if (d.history.length === 0)
-                return;
-
-            // Add current scores to history
-            d.history.push(d);
-
-            updateMap(historyMap, d.url, d.history, variables, name);
-        });
-    loop(metaData, metaDataVariables, 'Metadata');
-    loop(urlData, urlDataVariables, 'URL');
-    loop(sitemapData, sitemapDataVariables, 'Sitemap');
-    loop(robotsData, robotsDataVariables, 'Robots');
-    loop(securityData, securityDataVariables, 'Security');
-    loop(performanceData, performanceDataVariables, 'Performance');
-    loop(accessibilityData, accessibilityDataVariables, 'Accessibility');
-
-    let changelog = [];
-    history.forEach((changes, key) => {
-        const domain = key.substring(0, key.indexOf(' '));
-        let date = parseInt(key.substring(key.indexOf(' ') + 1));
-        const time = date;
-        // Take out first two digits
-        const day = date % 100;
-        date = (date - day) / 100;
-        // Take out next two digits
-        const month = date % 100;
-        date = (date - month) / 100;
-        // The date variable only holds the year now
-        changelog.push({
-            domain,
-            time,
-            date: month + '/' + day + '/' + date,
-            changes
-        });
-    });
-    changelog = changelog.sort((a, b) => b.time - a.time);
-    */
-    return changelog;
-};
+})();

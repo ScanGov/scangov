@@ -1,34 +1,39 @@
+{% set slug = domainSlug | slugify %}
 <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
   <div class="list-group mb-5">
-    <a href="/profile/{{ domainSlug | slugify }}/overview/" class="list-group-item list-group-item-action">
+    <a href="/profile/{{ slug }}/overview/" class="list-group-item list-group-item-action">
       <i class="fa-solid fa-gauge"></i>
       <small>Dashboard</small>
     </a>
-    <a href="/profile/{{ domainSlug | slugify }}/details/?attr=performance" class="list-group-item list-group-item-action">
+    <a href="/profile/{{ slug }}/changelog/" class="list-group-item list-group-item-action">
+      <i class="fa-solid fa-timeline"></i>
+      <small>Changelog</small>
+    </a>
+    <a href="/profile/{{ slug }}/details/?attr=performance" class="list-group-item list-group-item-action">
       <i class="fa-solid fa-gauge-simple-high"></i>
       <small>Performance</small>
     </a>
-    <a href="/profile/{{ domainSlug | slugify }}/details/?attr=accessibility" class="list-group-item list-group-item-action">
+    <a href="/profile/{{ slug }}/details/?attr=accessibility" class="list-group-item list-group-item-action">
       <i class="fa-solid fa-universal-access"></i>
       <small>Accessibility</small>
     </a>
-    <a href="/profile/{{ domainSlug | slugify }}/details/?attr=security" class="list-group-item list-group-item-action">
+    <a href="/profile/{{ slug }}/details/?attr=security" class="list-group-item list-group-item-action">
       <i class="fa-solid fa-lock"></i>
       <small>Security</small>
     </a>
-    <a href="/profile/{{ domainSlug | slugify }}/details/?attr=content" class="list-group-item list-group-item-action">
+    <a href="/profile/{{ slug }}/details/?attr=content" class="list-group-item list-group-item-action">
       <i class="fa-solid fa-file-lines"></i>
       <small>Content</small>
     </a>
-    <a href="/profile/{{ domainSlug | slugify }}/details/?attr=domain" class="list-group-item list-group-item-action">
+    <a href="/profile/{{ slug }}/details/?attr=domain" class="list-group-item list-group-item-action">
       <i class="fa-solid fa-link"></i>
       <small>Domain</small>
     </a>
-    <a href="/profile/{{ domainSlug | slugify }}/details/?attr=social" class="list-group-item list-group-item-action">
+    <a href="/profile/{{ slug }}/details/?attr=social" class="list-group-item list-group-item-action">
       <i class="fa-solid fa-share-nodes"></i>
       <small>Social</small>
     </a>
-    <a href="/profile/{{ domainSlug | slugify }}/details/?attr=seo" class="list-group-item list-group-item-action">
+    <a href="/profile/{{ slug }}/details/?attr=seo" class="list-group-item list-group-item-action">
       <i class="fa-solid fa-magnifying-glass"></i>
       <small>SEO</small>
     </a>
