@@ -1,7 +1,7 @@
 <tr>
   <td>{{ d.rankingPosition }}</td>
   <td>
-    <a href="/profile/{{d.urlkey | slugify }}/overview">{{ d.urlkey }}</a>
+    <a href="/profile/{{d.urlkey | slugify }}/overall">{{ d.urlkey }}</a>
     <br>
     <a class="small text-muted" href="/search/?search={{ d.name | encodeParameter }}">{{ d.name }}</a>
   </td>

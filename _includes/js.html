@@ -39,7 +39,7 @@
         const inputText = event.target.value;
         let outputList = [];
         json.forEach(j => {
-          outputList.push({ "label": `<a href="/profile/${j.domain.replace(/\./g,'-')}/overview/">${j.domain}</a> by ${j.agency}`, "value": `/profile/${j.domain.replace(/\./g,'-')}/overview/` })
+          outputList.push({ "label": `<a href="/profile/${j.domain.replace(/\./g,'-')}/overall/">${j.domain}</a> by ${j.agency}`, "value": `/profile/${j.domain.replace(/\./g,'-')}/overall/` })
         })
         awesomplete.list = outputList;
         awesomplete.evaluate();
