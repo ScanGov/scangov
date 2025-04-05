@@ -138,7 +138,10 @@
               </h1>
               <ul class="small list-unstyled">
                 <li class="text-body-secondary">
-                  Managed by <a href="/search/?search={{ domain.name | encodeParameter }}">{{ domain.name }}</a>
+                  Managed by: <a href="/search/?search={{ domain.name | encodeParameter }}">{{ domain.name }}</a>
+                </li>
+                <li class="text-body-secondary">
+                    Scan: Homepage only &middot; <a href="https://scangov.com">Get full site scan</a>
                 </li>
                 {% include "updated.html" %}
               </ul>
