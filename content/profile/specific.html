@@ -84,7 +84,9 @@ eleventyComputed:
                       <i class="fa-solid fa-circle-question"></i>
                     </a>
                   </th>
+                  <!--
                   <th scope="col">Description</th>
+                  -->
                   <th scope="col">Status&nbsp;<a href="https://docs.scangov.org/status" style="color: inherit;" class="text-decoration-none">
                       <i class="fa-solid fa-circle-question"></i>
                     </a>
@@ -96,11 +98,12 @@ eleventyComputed:
                 {% for attribute in attributeCards %}
                   <tr>
                     <td>
-                      <a href="{{ attribute.docs }}">{{ attribute.displayName }}</a>
+                      <a href="{{ attribute.docs }}">{{ attribute.displayName }}</a><br>
+                      <small>{{ attribute.description }}</small>
                     </td>
-                    <td>
-                      {{ attribute.description }}
+<!--                    <td>
                     </td>
+                    -->
                     <td>
                       {% if domain.status != 200 %}
                         <i class="fa-solid fa-circle-exclamation text-warning"></i>
