@@ -7,5 +7,4 @@ package-lock.json
 vendor/
 ssl/
 .DS_Store
-public/data/*.json
-public/data/domains.csv
+public/data/
