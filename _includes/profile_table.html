@@ -1,0 +1,43 @@
+<div class="table-responsive table-hover">
+    <table class="table table-responsive table-bordered table-hover mt-2 mb-2">
+        <thead class="table-dark">
+        <tr>
+            <th scope="col">Standard
+            <a href="https://docs.scangov.org/standards" style="color: inherit;" class="text-decoration-none">
+                <i class="fa-solid fa-circle-question"></i>
+            </a>
+            </th>
+            <th scope="col">Status&nbsp;<a href="https://docs.scangov.org/status" style="color: inherit;" class="text-decoration-none">
+                <i class="fa-solid fa-circle-question"></i>
+            </a>
+            </th>
+        </tr>
+        </thead>
+        <tbody id="table-compliance-{{ scorekey }}">
+        {% set attributeCards = audits[scorekey].attributes %}
+        {% for attribute in attributeCards %}
+            <tr>
+            <td>
+                <a href="{{ attribute.docs }}">{{ attribute.displayName }}</a><br>
+                <small>{{ attribute.description }}</small>
+            </td>
+            <td>
+                {% if domain.status != 200 %}
+                <i class="fa-solid fa-circle-exclamation text-warning"></i>
+                <span class="d-xl-inline">Can't access (<a href="https://docs.scangov.org/status#500">500</a>)</span>
+                {% else %}
+                {% if (domain.scores[scorekey] | length === 0) %}
+                    N/A
+                {% else %}
+                    <i class="fa-solid {% if domain[scorekey][attribute.key] %}fa-circle-check text-success{% else %}fa-circle-xmark text-danger{% endif %}"></i>
+                    <span class="d-xl-inline">
+                    {% if domain[scorekey][attribute.key] %}Active{% else %}Missing{% endif %}
+                    </span>
+                {% endif %}
+                {% endif %}
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -75,87 +75,9 @@ eleventyComputed:
       <div class="row">
         <div class="col-12">
           <h3 class="mt-3">Standards</h3>
-          <div class="table-responsive table-hover">
-            <table class="table table-responsive table-bordered table-hover mt-3 mb-3">
-              <thead class="table-dark">
-                <tr>
-                  <th scope="col">Standard
-                    <a href="https://docs.scangov.org/standards" style="color: inherit;" class="text-decoration-none">
-                      <i class="fa-solid fa-circle-question"></i>
-                    </a>
-                  </th>
-                  <!--
-                  <th scope="col">Description</th>
-                  -->
-                  <th scope="col">Status&nbsp;<a href="https://docs.scangov.org/status" style="color: inherit;" class="text-decoration-none">
-                      <i class="fa-solid fa-circle-question"></i>
-                    </a>
-                  </th>
-                </tr>
-              </thead>
-              <tbody id="table-compliance-{{ scorekey }}">
-                {% set attributeCards = audits[scorekey].attributes %}
-                {% for attribute in attributeCards %}
-                  <tr>
-                    <td>
-                      <a href="{{ attribute.docs }}">{{ attribute.displayName }}</a><br>
-                      <small>{{ attribute.description }}</small>
-                    </td>
-<!--                    <td>
-                    </td>
-                    -->
-                    <td>
-                      {% if domain.status != 200 %}
-                        <i class="fa-solid fa-circle-exclamation text-warning"></i>
-                        <span class="d-xl-inline">Can't access (<a href="https://docs.scangov.org/status#500">500</a>)</span>
-                      {% else %}
-                        {% if (domain.scores[scorekey] | length === 0) %}
-                          N/A
-                        {% else %}
-                          <i class="fa-solid {% if domain[scorekey][attribute.key] %}fa-circle-check text-success{% else %}fa-circle-xmark text-danger{% endif %}"></i>
-                          <span class="d-xl-inline">
-                            {% if domain[scorekey][attribute.key] %}Active{% else %}Missing{% endif %}
-                          </span>
-                        {% endif %}
-                      {% endif %}
-                    </td>
-                  </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
+            {% include "profile_table.html" %}
         </div>
       </div>
-      {#
-      <div class="row" id="changelog-{{ scorekey }}">
-        <div class="col-12">
-          {% set history = domain[scorekey].history | timeSort %}
-          {% if history.length > 0 %}
-            <h2>Changelog</h2>
-            <section class="pt-2">
-              <ul class="timeline" id="timeline-{{ scorekey }}">
-                <li class="timeline-item">
-                  <h5 class="fw-bold">Status: {{ domain.status }} / {{ domain.scores[scorekey].attributes | scanResultWriteUp(scorekey) }}</h5>
-                  <p class="mb-1 text-muted">Current</p>
-                  <p>
-                    {{ domain.scores[scorekey].attributes | auditStatusIcons(scorekey) | safe }}
-                  </p>
-                </li>
-                {% for log in history %}
-                  <li class="timeline-item">
-                    <h5 class="fw-bold">Status: {{ log.status }} / {{ log | scanResultWriteUp(scorekey) }}</h5>
-                    <p class="mb-1 text-muted">{{ log.time | standardFormatDate }}</p>
-                    <p>
-                      {{ log | auditStatusIcons(scorekey) | safe }}
-                    </p>
-                  </li>
-                {% endfor %}
-              </ul>
-            </section>
-          {% endif %}
-        </div>
-      </div>
-      #}
     </div>
   </div>
 {% endfor %}

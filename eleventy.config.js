@@ -382,6 +382,7 @@ export default async function (eleventyConfig) {
                     '_site/rankings/states/index.html',
                     '_site/sorts/accessibility/index.html',
                     '_site/filter/index.html',
+                    '_site/profile/ca-gov/report/index.html',
                 ],
                 css: ['public/assets/bootstrap/css/bootstrap.min.css'],
             })

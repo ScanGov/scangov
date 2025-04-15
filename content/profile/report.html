@@ -1,0 +1,171 @@
+---
+profile: true
+
+pagination:
+  data: domains
+  size: 1
+  addAllPagesToCollections: true
+  alias: domain
+
+permalink: "profile/{{ domain.urlkey | slugify }}/report/"
+
+eleventyComputed:
+  title: "{{ domain.urlkey }} digital experience report"
+  description: "Managed by: {{ domain.name }}"
+  agency: by {{ domain.name }}
+---
+
+{% include "header.html" %}
+
+<style>
+    @media print {
+        body {
+            font-family: "Public Sans Regular", sans-serif;
+        }
+
+        svg {
+            fill: black !important;
+        }
+
+        div.card {
+            border: 1px solid black;
+            background-color: none;
+        }
+
+        div.card-header {
+            border-bottom: 1px solid var(--bs-border-color);
+        }
+
+        div.card-footer {
+            border-top: 1px solid var(--bs-border-color);
+        }
+
+        * {
+            color: black !important;
+        }
+
+        main#page {
+            display: none;
+        }
+    }
+</style>
+
+<main id="page">
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile/{{ domain.urlkey | slugify }}/overall/" title="Back to overall page">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" title="Print" href="#"
+                        onclick="window.print()">
+                        <i class="fa-solid fa-print"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<main id="print">
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="display-1 mb-5 mt-5">{{ domain.urlkey }} status report</h1>
+            <h2>Created by: ScanGov</h2>
+            <h2>Date: <span id="date"></span></h2>
+            <h2>Source: scangov.org/profile/{{ domain.urlkey | slugify }}/overall/</h2>
+
+            <div class="mt-5">
+                <h2>Contents</h2>
+                <ul>
+                    <li><a href="#overall">Overall</a></li>
+                    {% for topic in site.data %}
+                        {% set scorekey = topic.toLowerCase() %}
+                        {% if domain.scores[scorekey] %}
+                            <li><a href="#{{ scorekey }}">{{ topic }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    <li><a href="#changelog">Changelog</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <h2 style="page-break-before: always" id="overall">Overall</h2>
+        <div class="row">
+            {% for topic in site.data %}
+                {% set scorekey = topic.toLowerCase() %}
+                {% if domain.scores[scorekey] %}
+                    {% set score = domain.scores[scorekey].score %}
+                    <div class="d-flex col-4 align-items-stretch">
+                        <div class="card mb-3 text-bg-{{ score | colorify }}">
+                            <div class="card-header">
+                                <a href="#{{ scorekey }}" class="text-decoration-none">{{ topic }}</a>
+                            </div>
+                            <div class="card-body text-center">
+                                <a href="#{{ scorekey }}" class="text-decoration-none" style="color: inherit">
+                                    <p class="display-1">{{ score | gradify }}</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% for topic in site.data %}
+            {% set scorekey = topic.toLowerCase() %}
+            {% if domain.scores[scorekey] %}
+                {% set score = domain.scores[scorekey].score %}
+                <h2 id="{{ scorekey }}" style="page-break-before: always">{{ topic }}</h2>
+                <div class="row">
+                    <div class="d-flex col-6 align-items-stretch">
+                        <div class="card mb-3 text-bg-{{ score | colorify }}">
+                            <div class="card-header">Grade</div>
+                            <div class="card-body text-center">
+                                <p class="display-1">{{ score | gradify }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex col-6 align-items-stretch">
+                        <div class="card mb-3 text-bg-dark">
+                            <div class="card-header">Score</div>
+                            <div class="card-body text-center">
+                                <p class="display-1">{{ score }}%</p>
+                            </div>
+                            <div class="card-footer">
+                                {{ domain.scores[scorekey].correct }} of {{ domain.scores[scorekey].all }} elements
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {% include "profile_table.html" %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <h2 style="page-break-before: always" id="changelog">Changelog</h2>
+        <div class="row">
+            {% for history in domain_changelog %}
+                {% if history.url == domain.urlkey %}
+                    {% set historyPage = history.log %}
+                    {% include 'changelog_list.html' %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</main>
+
+<script>
+    document.getElementById('date').innerText = new Date().toLocaleString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' });
+
+    window.print();
+</script>
+
+{% getBundle "fontawesome" %}
