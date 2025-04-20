@@ -183,6 +183,7 @@ export const stateDomainList = [
     'wv.gov',
     'wisconsin.gov',
     'wyo.gov',
+    'dc.gov',
 ]
 
 export const cityDomainList = [

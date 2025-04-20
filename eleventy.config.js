@@ -276,7 +276,9 @@ export default async function (eleventyConfig) {
     function gradeColor(score) {
         if (score >= 90) return 'success'
         if (score >= 70) return 'warning'
-        return 'danger'
+        if (score >= 0) return 'danger'
+        // Gray for non-responding
+        return 'secondary'
     }
 
     eleventyConfig.addFilter('colorify', (score) => {
@@ -383,6 +385,7 @@ export default async function (eleventyConfig) {
                     '_site/sorts/accessibility/index.html',
                     '_site/filter/index.html',
                     '_site/profile/ca-gov/report/index.html',
+                    '_site/map/index.html',
                 ],
                 css: ['public/assets/bootstrap/css/bootstrap.min.css'],
             })

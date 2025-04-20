@@ -1,5 +1,8 @@
 import { domainHistories as domains, dateNumberToString } from './history.js';
+import { default as domainJS } from './domains.js';
 import { readFileSync } from 'fs';
+
+const domainList = domainJS();
 
 export default function () {
     // Used for the visit page link in the profile links
@@ -8,6 +11,23 @@ export default function () {
     // History is a list of every domain and its changes
     const history = [];
     for (const domain of domains) {
+        // Skip domains without a page if on local
+        if (process.env.ELEVENTY_RUN_MODE === 'serve') {
+            let found = false;
+            for (let i = 0; i < domainList.length; i++) {
+                const d = domainList[i];
+
+                if (d.url === domain.url) {
+                    found = true;
+                    domainList.splice(i, 1);
+                    break;
+                }
+            }
+
+            if (!found)
+                continue;
+        }
+
         const obj = { url: domain.url };
 
         // Get domain data

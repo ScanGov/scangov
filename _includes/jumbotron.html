@@ -137,9 +137,11 @@
                 <span id="site">{{ title }}</span>
               </h1>
               <ul class="small list-unstyled">
-                <li class="text-body-secondary">
-                  Managed by: <a href="/search/?search={{ domain.name | encodeParameter }}">{{ domain.name }}</a>
-                </li>
+                {% if not mapPage %}
+                    <li class="text-body-secondary">
+                        Managed by: <a href="/search/?search={{ domain.name | encodeParameter }}">{{ domain.name }}</a>
+                    </li>
+                {% endif %}
                 {% include "updated.html" %}
                 <li class="text-body-secondary">
                     Scan: Homepage only &middot; <a href="https://scangov.com">Get full site scan</a>

@@ -1,12 +1,11 @@
 <ul class="list-group list-group-horizontal-sm">
-    {% if home %}
-    {% else %}
+    {% if profile and not mapPage %}
     <li class="list-group-item">
         <div class="dropdown btn dropdown-toggle">
             <a
-                    href="/report/?domain={{ domain.urlkey }}"
-                    id="report"
-                    class="dropdown-item">
+                href="/profile/{{ domain.urlkey | slugify }}/report/"
+                id="report"
+                class="dropdown-item">
                 <i class="fa-solid fa-download"></i>
                 <small>Download report</small>
             </a>
