@@ -3,7 +3,7 @@
   <td>
     <a href="/profile/{{d.urlkey | slugify }}/overall">{{ d.urlkey }}</a>
     <br>
-    <a class="small text-muted" href="/search/?search={{ d.name | encodeParameter }}">{{ d.name }}</a>
+    <a class="small text-muted" href="/org/{{ d.name | slugify }}/">{{ d.name }}</a>
   </td>
   <td>
     {% if specificAttribute %}

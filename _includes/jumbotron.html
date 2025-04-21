@@ -137,9 +137,9 @@
                 <span id="site">{{ title }}</span>
               </h1>
               <ul class="small list-unstyled">
-                {% if not mapPage %}
+                {% if not mapPage and not orgPage %}
                     <li class="text-body-secondary">
-                        Managed by: <a href="/search/?search={{ domain.name | encodeParameter }}">{{ domain.name }}</a>
+                        Managed by: <a href="/org/{{ domain.name | slugify }}/">{{ domain.name }}</a>
                     </li>
                 {% endif %}
                 {% include "updated.html" %}
