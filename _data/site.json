@@ -35,6 +35,11 @@
       "icon": "timeline"
     },
     {
+      "url": "/map",
+      "title": "Map",
+      "icon": "map"
+    },
+    {
       "url": "https://scangov.com/",
       "title": "ScanGov",
       "icon": "house"
