@@ -141,7 +141,7 @@ export const stateDomainList = [
     'colorado.gov',
     'ct.gov',
     'de.gov',
-    'myflorida.com',
+    'myflorida.gov',
     'georgia.gov',
     'hawaii.gov',
     'idaho.gov',
