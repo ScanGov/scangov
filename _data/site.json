@@ -42,12 +42,12 @@
     {
       "url": "https://scangov.com/",
       "title": "ScanGov",
-      "icon": "house"
+      "icon": "landmark"
     },
     {
-      "url": "https://docs.scangov.org/",
-      "title": "Docs",
-      "icon": "file-lines"
+      "url": "https://standards.scangov.org/",
+      "title": "Standards",
+      "icon": "certificate"
     },
     {
       "url": "https://docs.scangov.org/about",

@@ -1,40 +1,6 @@
 <div class="container">
   {% include "supporters.html" %}
-    <footer class="">
-    <!--
-      <div class="row">  <div class="col-4 mb-3">    <ul class="nav flex-column">      <li>        <a href="https://docs.scangov.org/about/" class="nav-link p-0 text-body-secondary">About</a>      </li>      <li>
-            <a href="https://docs.scangov.org/blog/" class="nav-link p-0 text-body-secondary">Blog</a>
-          </li>
-          <li>
-            <a href="https://docs.scangov.org/press/" class="nav-link p-0 text-body-secondary">Press</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-4 mb-3">
-        <ul class="nav flex-column">
-          <li>
-            <a href="https://docs.scangov.org" class="nav-link p-0 text-body-secondary">Docs</a>
-          </li>
-          <li>
-            <a href="https://docs.scangov.org/help" class="nav-link p-0 text-body-secondary">Help</a>
-          </li>
-          <li>
-            <a href="https://docs.scangov.org/community" class="nav-link p-0 text-body-secondary">Community</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-4 mb-3">
-        <ul class="nav flex-column">
-          <li>
-            <a href="https://github.com/ScanGov/scangov/issues/new/choose" class="nav-link p-0 text-body-secondary">Issues</a>
-          </li>
-          <li>
-            <a href="https://github.com/orgs/civichackingagency/projects/2" class="nav-link p-0 text-body-secondary">Project board</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    -->
+  <footer>
     <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
       <p class="small">
         <a href="{{ site['org-url'] }}" style="text-decoration: none;">{{ site.org }}</a>
@@ -44,12 +10,12 @@
   </footer>
 </div>
 <a
-  href="https://scangov.com"
+  href="https://docs.scangov.org/feedback"
   id="feedback-button"
-  aria-label="Get ScanGov"
+  aria-label="Feedback"
   class="feedback"
   style="">
-  Get ScanGov
+  Feedback
 </a>
 <script>
   const feedbackButton = document.getElementById("feedback-button");
