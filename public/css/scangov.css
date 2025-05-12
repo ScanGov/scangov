@@ -1,0 +1,70 @@
+/* This file is maintaned in https://github.com/ScanGov/components and copied to multiple projects during startup */
+:root {
+    --scangov-color-alerts: #29e1cb;
+    --scangov-color-certificate: #ffbe2e;
+    --scangov-color-docs: #a8f2ff;
+    --scangov-color-guidance: #fee685;
+    --scangov-color-landmark: #fff;
+    --scangov-color-me: #fffb00;
+    --scangov-color-news: #f4b2ff;
+    --scangov-color-pages: #b7f5bd;
+    --scangov-color-project: #7efbe1;
+    --scangov-color-satellite-dish: #c3ebfa;
+    --scangov-color-schedule: #f8b9c5;
+    --scangov-color-sites: #ffcdd5;
+    --scangov-color-standards: #ffbe2e;
+    --scangov-color-tasklist: #c3ebfa;
+    --scangov-color-what-they-say: #f5f6f7;
+}
+
+.fa-certificate {
+    color: var(--scangov-color-certificate) !important;
+}
+
+.fa-satellite-dish {
+    color: var(--scangov-color-satellite-dish) !important;
+}
+
+.fa-scroll {
+    color: var(--scangov-color-guidance) !important;
+}
+
+.fa-diagram-project {
+    color: var(--scangov-color-project) !important;
+}
+
+.fa-landmark {
+    color: var(--scangov-color-landmark) !important;
+}
+
+.fa-robot {
+    color: #e6e6e6;
+}
+
+.fa-universal-access {
+    color: #a8f2ff;
+}
+
+.fa-file-lines {
+    color: #d5bfff;
+}
+
+.fa-link {
+    color: #7efbe1;
+}
+
+.fa-dashboard, .fa-gauge {
+    color: #ffbc78;
+}
+
+.fa-lock {
+    color: #ff8d7b;
+}
+
+.fa-magnifying-glass {
+    color: #ffe396;
+}
+
+.fa-share-nodes {
+    color: #ffb4cf;
+}
