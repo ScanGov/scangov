@@ -29,10 +29,11 @@
   src: url("/assets/fonts/jetbrains-mono/JetBrainsMono-ExtraBold.ttf") format("truetype");
 }
 
-:root
+/* Dark mode 
 
-/*, [data-bs-theme=dark]*/
-  {
+[data-bs-theme=dark] {
+    color-scheme: dark;*/
+:root, [data-bs-theme=dark], [data-bs-theme=light] {
   --bs-body-color: #fff;
   --bs-body-color-rgb: 255, 255, 255;
   --bs-body-bg: #13171f;
@@ -78,7 +79,7 @@
   --bs-nav-link-color: var(--bs-body-color);
   --bs-nav-link-hover-color: var(--bs-link-color);
   --bs-badge-bg: var(--bs-link-color);
-  --bs-border-radius-sm: 0rem;
+  --bs-border-radius-sm: .25rem;
   --bs-selection-bg: var(--bs-link-color);
   --bs-selection-color: var(--bs-body-bg);
   --bs-text-bg-primary: #face00;
@@ -93,6 +94,10 @@
   --bs-form-control-focus-color: var(--bs-body-color);
   --bs-text-opacity: .5;
   --bs-nav-link-font-size: 1.1em;
+  --bs-info-text-emphasis: var(--bs-body-color);
+  --bs-info-bg-subtle: var(--bs-body-secondary-bg);
+  --bs-info-border-subtle: var(--bs-border-color);
+  --bs-emphasis-color: var(--bs-body-color) !important;
 }
 
 .form-control {
@@ -511,4 +516,17 @@ table td svg {
 
 .d-none {
   display: none;
+}
+
+.active {
+  --bs-nav-pills-link-active-bg: var(--bs-btn-primary-bg) !important;
+  color: var(--bs-body-bg) !important;
+}
+
+.active i, .active svg {
+  color: var(--bs-body-bg) !important;
+}
+
+.nav-pills .active {
+  --bs-link-color: var(--bs-body-bg);
 }
