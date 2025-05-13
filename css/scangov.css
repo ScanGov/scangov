@@ -1,8 +1,6 @@
 /* This file is maintaned in https://github.com/ScanGov/components and copied to multiple projects during startup */
 
-.fa-solid {
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
-}
+.fa-solid {}
 
 .fa-arrows-rotate {
     color: #ffe396 !important;
@@ -14,247 +12,198 @@
 
 .fa-bell-concierge {
     color: #dec69a !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-bolt {
     color: #face00 !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-brain {
     color: #fdb8ae !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-bullhorn {
     color: #96abee !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-calendar {
     color: #f8b9c5 !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-certificate {
     color: #ffbe2e !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-check-to-slot {
     color: #ffb4cf !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-circle-check {
     color: #b7f5bd !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 /*
 .fa-circle-info {
     color: #b8d293 !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-circle-question {
     color: #97d4ea !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 */
 
 .fa-code {
     color: #bbc8f5 !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-comment {
     color: #c5c5f3 !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-dashboard {
     color: #ffbc78;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-diagram-project {
     color: #7efbe1 !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-envelope-open-text {
     color: #7efbe1 !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-face-smile {
     color: #fffb00;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-file {
     color: #a8f2ff;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-file-lines {
     color: #a8f2ff;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-filter {
     color: #cbc4f2;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-gauge-simple {
     color: #ffbc78;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-gauge-high {
     color: #ffbc78;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-graduation-cap {
     color: #c7efe2;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-heart {
     color: #ff8d7b;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-laptop {
     color: #9bd4cf;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-landmark {
     color: #ffffff !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-link {
     color: #7efbe1;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-lock {
     color: #ff8d7b;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-magnifying-glass {
     color: #ffe396;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-map {
     color: #fdb8ae;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-newspaper {
     color: #f8b9c5;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-circle-nodes {
     color: #c3ebfa;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-percent {
     color: #a8f2ff;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-ranking-star {
     color: #83fcd4;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-rectangle-list {
     color: #f8b9c5;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-robot {
     color: #e6e6e6;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-satellite-dish {
     color: #c3ebfa !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-scroll {
     color: #fee685 !important;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-scale-balanced {
     color: #e6c74c;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-server {
     color: #fbbaa7;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-share-nodes {
     color: #ffb4cf;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-spray-can-sparkles {
     color: #f8b9c5;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-square-check {
     color: #c3ebfa;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-star {
     color: #e6c74c;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-table {
     color: #f8b9c5;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-timeline {
     color: #ffb4cf;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-universal-access {
     color: #a8f2ff;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-user-shield {
     color: #f3bf90;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-wand-magic-sparkles {
     color: #f8b9c5;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
 
 .fa-window-maximize {
     color: #ffcdd5;
-    filter: drop-shadow(-2px 2px 0 rgba(255, 255, 255, 0.25));
 }
