@@ -38,21 +38,6 @@
       "url": "/map",
       "title": "Map",
       "icon": "map"
-    },
-    {
-      "url": "https://scangov.com/",
-      "title": "ScanGov",
-      "icon": "landmark"
-    },
-    {
-      "url": "https://standards.scangov.org/",
-      "title": "Standards",
-      "icon": "certificate"
-    },
-    {
-      "url": "https://docs.scangov.org/about",
-      "title": "About",
-      "icon": "circle-info"
     }
   ]
 }
