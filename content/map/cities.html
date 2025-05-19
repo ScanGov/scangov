@@ -1,0 +1,39 @@
+---
+layout: layouts/page
+title: Map
+profile: true
+mapPage: true
+---
+
+<style>
+
+    #legend > span {
+        margin-left: 1rem;
+    }
+</style>
+
+<script>
+    window.cities = {{ city_map | dump | safe }};
+</script>
+
+<div id="map" style="height: 800px"></div>
+
+<p id="legend">
+    <strong>Legend:</strong>
+    <span class="text-bg-success">　</span> A
+    <span class="text-bg-warning">　</span> B-C
+    <span class="text-bg-danger">　</span> D-F
+    <span class="text-bg-secondary">　</span> Inaccessible
+</p>
+
+<!--
+<link rel="stylesheet" href="/map/leaflet/leaflet.css">
+<script src="/map/leaflet/leaflet.js"></script>
+-->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+<script src="/map/cities.js"></script>

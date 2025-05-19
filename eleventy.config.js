@@ -41,7 +41,8 @@ export default async function (eleventyConfig) {
             CNAME: 'CNAME',
         })
         .addPassthroughCopy('./content/feed/pretty-atom-feed.xsl')
-
+        .addPassthroughCopy('./content/map/cities.js')
+        .addPassthroughCopy({ './node_modules/leaflet/dist/': '/map/leaflet/' })
     // Run Eleventy when these files change:
     // https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 

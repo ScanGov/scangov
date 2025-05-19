@@ -1,5 +1,4 @@
 import { default as domainJS } from './domains.js';
-import { stateDomainList } from './variables.js';
 
 const domainList = domainJS();
 

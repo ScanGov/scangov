@@ -3,19 +3,19 @@ import { cityDomainList, addRankingPosition } from './variables.js'
 import * as fs from 'fs'
 
 export default function () {
-  let domainDataFilled = domainData()
+    let domainDataFilled = domainData()
 
-  let cityDomainData = []
+    let cityDomainData = []
 
-  domainDataFilled.forEach((d) => {
-    if (cityDomainList.lastIndexOf(d.urlkey) > -1) {
-      cityDomainData.push(d)
-    }
-  })
+    domainDataFilled.forEach((d) => {
+        if (cityDomainList.lastIndexOf(d.urlkey) > -1) {
+            cityDomainData.push(d)
+        }
+    })
 
-  let cities = cityDomainData.sort(function (a, b) {
-    return parseInt(b.overallScore) - parseInt(a.overallScore)
-  })
+    let cities = cityDomainData.sort(function (a, b) {
+        return parseInt(b.overallScore) - parseInt(a.overallScore)
+    })
 
-  return addRankingPosition(cities, null);
+    return addRankingPosition(cities, null);
 }

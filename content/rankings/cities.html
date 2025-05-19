@@ -4,11 +4,11 @@ displaySearch: true
 layout: layouts/default
 title: Ranking of US cities by overall grade
 keywords: government domains, government websites
-permalink: /rankings/cities/
+permalink: "/rankings/cities/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber }}/{% endif %}"
 
 pagination:
   data: cities
-  size: 500
+  size: 100
   alias: member
 ---
 

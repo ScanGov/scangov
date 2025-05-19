@@ -34,6 +34,7 @@
 		"@11ty/font-awesome": "^1.0.0-beta.1",
 		"@11ty/is-land": "^4.0.0",
 		"cheerio": "^1.0.0",
+		"leaflet": "^1.9.4",
 		"purgecss": "^7.0.2"
 	}
 }
