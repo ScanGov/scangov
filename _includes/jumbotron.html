@@ -1,204 +1,214 @@
 <div id="main-content">
-  {% if home %}
+    {% if home %}
     <div class="py-5 mb-5 border-bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            {% if description %}
-              <h1 id="jumbotron-title" class="display-5 mb-3">{{ title }}</h1>
-            {% endif %}
-          </div>
-        </div>
-        <form id="search-form" action="/search/" class="row">
-          <div class="col-sm-12 col-lg-6 mt-3">
-            <label class="pb-2" for="search">
-              Search:
-            </label>
-            <div>
-              <input name="search" type="text" class="form-control" placeholder="enter domain" id="search">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    {% if description %}
+                    <h1 id="jumbotron-title" class="display-5 mb-3">{{ title }}</h1>
+                    {% endif %}
+                </div>
             </div>
-            <!-- single-level delete start -->
-            <label class="pb-2 mt-3" for="filter">Filter:</label>
-            <select class="form-select form-control-lg" aria-label="Default select example" name="level" id="filter">
-              <option value="1">all domains</option>
-              <option value="2">federal domains</option>
-              <option value="3">state domains</option>
-            </select>
-            <!-- single-level delete end -->
-          </div>
-          <div class="col-sm-12 col-lg-6 mt-3">
-            <label for="overall-radio" class="d-block">
-              <input type="radio" name="field" value="overall" id="overall-radio" value="overall"> Overall</label>
-            <label for="url-radio" class="d-block">
-              <label for="metadata-radio" class="d-block">
-                <input type="radio" name="field" value="metadata" id="metadata-radio" value="metadata"> Metadata</label>
-              <label for="url-radio" class="d-block">
-                <input type="radio" name="field" id="url-radio"> URL
+            <form id="search-form" action="/search/" class="row">
+                <div class="col-sm-12 col-lg-6 mt-3">
+                    <label class="pb-2" for="search">
+                        Search:
+                    </label>
+                    <div>
+                        <input name="search" type="text" class="form-control" placeholder="enter domain" id="search">
+                    </div>
+                    <!-- single-level delete start -->
+                    <label class="pb-2 mt-3" for="filter">Filter:</label>
+                    <select class="form-select form-control-lg" aria-label="Default select example" name="level" id="filter">
+                        <option value="1">all domains</option>
+                        <option value="2">federal domains</option>
+                        <option value="3">state domains</option>
+                    </select>
+                    <!-- single-level delete end -->
+                </div>
+                <div class="col-sm-12 col-lg-6 mt-3">
+                    <label for="overall-radio" class="d-block">
+                        <input type="radio" name="field" value="overall" id="overall-radio" value="overall"> Overall</label>
+                    <label for="url-radio" class="d-block">
+                        <label for="metadata-radio" class="d-block">
+                            <input type="radio" name="field" value="metadata" id="metadata-radio" value="metadata"> Metadata</label>
+                        <label for="url-radio" class="d-block">
+                            <input type="radio" name="field" id="url-radio"> URL
                         </label>
-              <label for="sitemap-radio" class="d-block">
-                <input type="radio" name="field" value="sitemap" id="sitemap-radio"> Sitemap
+                        <label for="sitemap-radio" class="d-block">
+                            <input type="radio" name="field" value="sitemap" id="sitemap-radio"> Sitemap
                         </label>
-              <label for="robots-radio" class="d-block">
-                <input type="radio" name="field" value="robots" id="robots-radio"> Robots
+                        <label for="robots-radio" class="d-block">
+                            <input type="radio" name="field" value="robots" id="robots-radio"> Robots
                         </label>
-              <label for="security-radio" class="d-block">
-                <input type="radio" name="field" value="security" id="security-radio"> Security
+                        <label for="security-radio" class="d-block">
+                            <input type="radio" name="field" value="security" id="security-radio"> Security
                         </label>
-              <label for="performance-radio" class="d-block">
-                <input type="radio" name="field" value="performance" id="performance-radio"> Performance
+                        <label for="performance-radio" class="d-block">
+                            <input type="radio" name="field" value="performance" id="performance-radio"> Performance
                         </label>
-              <label for="accessibility-radio" class="d-block">
-                <input type="radio" name="field" value="accessibility" id="accessibility-radio"> Accessibility
+                        <label for="accessibility-radio" class="d-block">
+                            <input type="radio" name="field" value="accessibility" id="accessibility-radio"> Accessibility
                         </label>
-              <input type="submit" value="Go" class="mt-2 btn btn-primary">
-            </div>
-          </form>
-          <script>
+                        <input type="submit" value="Go" class="mt-2 btn btn-primary">
+                </div>
+            </form>
+            <script>
             if (window.location.pathname == '/') {
-              document
-                .getElementById('overall-radio')
-                .checked = true;
+                document
+                    .getElementById('overall-radio')
+                    .checked = true;
             }
             if (window.location.pathname.indexOf('/sorts/') == 0) {
-              let sort = window
-                .location
-                .pathname
-                .split('/')[2];
-              if (document.getElementById(`${sort}-radio`)) {
-                document
-                  .getElementById(`${sort}-radio`)
-                  .checked = true;
-              }
+                let sort = window
+                    .location
+                    .pathname
+                    .split('/')[2];
+                if (document.getElementById(`${sort}-radio`)) {
+                    document
+                        .getElementById(`${sort}-radio`)
+                        .checked = true;
+                }
             }
             let pregenSearches = [
-              'metadata',
-              'robots',
-              'url',
-              'sitemap',
-              'security',
-              'performance',
-              'accessibility'
+                'metadata',
+                'robots',
+                'url',
+                'sitemap',
+                'security',
+                'performance',
+                'accessibility'
             ];
             document
-              .getElementById('search-form')
-              .addEventListener('submit', function (e) {
-                if (document.getElementById('search').value.trim() == '') {
-                  let redirecting = false;
-                  let destination = '';
-                  if (document.getElementById('filter').selectedIndex === 0) {
-                    if (document.getElementById(`overall-radio`).checked) {
-                      redirecting = true;
-                      destination = `/`
-                    }
-                    pregenSearches.forEach(p => {
-                      if (document.getElementById(`${p}-radio`).checked) {
-                        redirecting = true;
-                        destination = `/sorts/${p}/`
-                      }
-                    })
-                  } else {
-                    if (document.getElementById(`overall-radio`).checked) {
-                      if (document.getElementById('filter').selectedIndex === 2) {
-                        redirecting = true;
-                        destination = '/rankings/states/';
-                      }
-                    }
-                    // there is no cities sort yet
-                    // /rankings/cities/#sort
+                .getElementById('search-form')
+                .addEventListener('submit', function (e) {
+                    if (document.getElementById('search').value.trim() == '') {
+                        let redirecting = false;
+                        let destination = '';
+                        if (document.getElementById('filter').selectedIndex === 0) {
+                            if (document.getElementById(`overall-radio`).checked) {
+                                redirecting = true;
+                                destination = `/`
+                            }
+                            pregenSearches.forEach(p => {
+                                if (document.getElementById(`${p}-radio`).checked) {
+                                    redirecting = true;
+                                    destination = `/sorts/${p}/`
+                                }
+                            })
+                        } else {
+                            if (document.getElementById(`overall-radio`).checked) {
+                                if (document.getElementById('filter').selectedIndex === 2) {
+                                    redirecting = true;
+                                    destination = '/rankings/states/';
+                                }
+                            }
+                            // there is no cities sort yet
+                            // /rankings/cities/#sort
 
-                    pregenSearches.forEach(p => {
-                      if (document.getElementById(`${p}-radio`).checked) {
+                            pregenSearches.forEach(p => {
+                                if (document.getElementById(`${p}-radio`).checked) {
 
-                        if (document.getElementById('filter').selectedIndex === 2) {
-                          redirecting = true;
-                          destination = '/sorts/states/${p}/';
+                                    if (document.getElementById('filter').selectedIndex === 2) {
+                                        redirecting = true;
+                                        destination = '/sorts/states/${p}/';
+                                    }
+                                }
+                            })
                         }
-                      }
-                    })
-                  }
-                  if (redirecting) {
-                    e.preventDefault();
-                    window.location.href = destination;
-                  }
-                }
-              })
-          </script>
-          <div class="row d-none" id="share">
-            {% include "share.html" %}
-          </div>
+                        if (redirecting) {
+                            e.preventDefault();
+                            window.location.href = destination;
+                        }
+                    }
+                })
+            </script>
+            <div class="row d-none" id="share">
+                {% include "share.html" %}
+            </div>
         </div>
-      </div>
+    </div>
     {% elif profile %}
-      <div class="py-4 mb-3 border-bottom">
+    <div class="py-4 mb-3 border-bottom">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-12">
-              <h1 class="display-5" id="jumbotron-title">
-                <span id="site">{{ title }}</span>
-              </h1>
-              <ul class="small list-unstyled">
-                {% if not mapPage and not orgPage %}
-                    <li class="text-body-secondary">
-                        Managed by: <a href="/org/{{ domain.name | slugify }}/">{{ domain.name }}</a>
-                    </li>
-                {% endif %}
-                {% include "updated.html" %}
-                <li class="text-body-secondary">
-                    Scan: Homepage only &middot; <a href="https://scangov.com">Get full site scan</a>
-                </li>
-              </ul>
-              {% include "share.html" %}
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="display-5" id="jumbotron-title">
+                        <span id="site">{{ title }}</span>
+                    </h1>
+                    <ul class="small list-unstyled">
+                        {% if not mapPage and not orgPage %}
+                        <li class="text-body-secondary">
+                            Managed by: <a href="/org/{{ domain.name | slugify }}/">{{ domain.name }}</a>
+                        </li>
+                        {% endif %}
+                        {% include "updated.html" %}
+                        <li class="text-body-secondary">
+                            Scan: Homepage only &middot; <a href="https://scangov.com">Get full site scan</a>
+                        </li>
+                    </ul>
+                    {% include "share.html" %}
+                    {% if mapPage %}
+                    <ul class="nav nav-pills mt-2">
+                        <li class="nav-item">
+                            <a class="nav-link {% if mapPage == "states" %}active{% endif %}" href="/map/">States</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if mapPage == "cities" %}active{% endif %}" href="/map/cities/">Cities</a>
+                        </li>
+                    </ul>
+                    {% endif %}
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
     {% elif layout == "docs" %}
-      {% if title %}
-        <h1 class="display-5">{{ title }}</h1>
-      {% endif %}
-      {% if description %}
-        <p class="lead pb-3 mb-5">{{ description }}</p>
-      {% endif %}
+    {% if title %}
+    <h1 class="display-5">{{ title }}</h1>
+    {% endif %}
+    {% if description %}
+    <p class="lead pb-3 mb-5">{{ description }}</p>
+    {% endif %}
     {% else %}
-      <div class="pt-5 pb-4 mb-3 border-bottom">
+    <div class="pt-5 pb-4 mb-3 border-bottom">
         <div class="container">
-          <div class="row">
-            <div class="col-12">
-              {% if title %}
-                <h1 class="display-5">{{ title }}</h1>
-              {% endif %}
-              {% if description %}
-                <p class="lead">{{ description }}</p>
-              {% endif %}
+            <div class="row">
+                <div class="col-12">
+                    {% if title %}
+                    <h1 class="display-5">{{ title }}</h1>
+                    {% endif %}
+                    {% if description %}
+                    <p class="lead">{{ description }}</p>
+                    {% endif %}
+                </div>
             </div>
-          </div>
-          {% if displaySearch %}
+            {% if displaySearch %}
             <form id="search-form" action="/search/" class="row mt-3">
-              <div class="littlesearch">
-                <label class="" for="search">Domain:</label>
-                <input name="search" type="text" class="form-control" placeholder="ex: ca.gov" id="search">
-                <input type="submit" value="Go" class="btn btn-primary">
-              </div>
+                <div class="littlesearch">
+                    <label class="" for="search">Domain:</label>
+                    <input name="search" type="text" class="form-control" placeholder="ex: ca.gov" id="search">
+                    <input type="submit" value="Go" class="btn btn-primary">
+                </div>
             </form>
             <style>
-              .littlesearch {
-                display: flex;
-                align-items: center;
-                justify-items: flex-start;
-                justify-content: flex-start;
-                max-width: 65%;
-              }
-              .littlesearch .awesomplete {
-                flex-grow: 2;
-                margin: 0 0.75rem;
-              }
-              .littlesearch .awesomplete .form-control {
-                padding: 0.55rem 0.75rem;
-              }
+            .littlesearch {
+            display: flex;
+            align-items: center;
+            justify-items: flex-start;
+            justify-content: flex-start;
+            max-width: 65%;
+            }
+            .littlesearch .awesomplete {
+            flex-grow: 2;
+            margin: 0 0.75rem;
+            }
+            .littlesearch .awesomplete .form-control {
+            padding: 0.55rem 0.75rem;
+            }
             </style>
-          {% endif %}
+            {% endif %}
 
         </div>
-      </div>
+    </div>
     {% endif %}
-  </div>
+</div>
