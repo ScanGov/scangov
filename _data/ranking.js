@@ -58,6 +58,7 @@ export const createDomainList = (
             process.env.ELEVENTY_RUN_MODE !== 'serve' ||
             truncateCount < devModeDomainLimit ||
             truncateCount > metaData.length - devModeDomainLimit
+            // || m.name.startsWith('City of') // used for local testing
         ) {
             allDataMap.set(m.url, newObject)
         }

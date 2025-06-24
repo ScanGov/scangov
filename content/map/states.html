@@ -3,7 +3,16 @@ layout: layouts/page
 title: States Map
 profile: true
 mapPage: states
+
+pagination:
+    data: site.mapFields
+    size: 1
+    alias: topic
+
+permalink: "map/states/{{ topic | lower }}/"
 ---
+
+{% set topic = topic | lower %}
 
 <style>
     svg#map {
@@ -36,9 +45,10 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
 <svg id="map" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 959 593">
     <g>
         {% for state in map %}
-            <a href="/profile/{{ state.url | slugify }}/overall/">
-                <path style="fill: var(--bs-{{ state.score  | colorify }})" d="{{ state.path }}" {% if state.url == "dc.gov" %}class="borders"{% endif %}>
-                    <title>{{ state.url }} / {% if state.score >= 0 %}Grade: {{ state.score | gradify }} / Score: {{ state.score }}%{% else %}Inaccessible ({{ state.status }}){% endif %}</title>
+            <a href="/profile/{{ state.url | slugify }}/{% if topic != "overview" %}details/?attr={{ topic }}{% else %}overview/{% endif %}">
+                {% set score = state.scores[topic] %}
+                <path style="fill: var(--bs-{{ score | colorify }})" d="{{ state.path }}" {% if state.url == "dc.gov" %}class="borders"{% endif %}>
+                <title>{{ state.url }} / {% if score >= 0 %}Grade: {{ score | gradify }} / Score: {{ score }}%{% else %}{% if state.status >= 300 %}Inaccessible ({{ state.status }}){% else %}No data{% endif %}{% endif %}</title>
                 </path>
             </a>
         {% endfor %}

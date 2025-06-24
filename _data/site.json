@@ -23,6 +23,16 @@
     "Security",
     "Social"
   ],
+  "mapFields": [
+    "Overall",
+    "Accessibility",
+    "Content",
+    "Domain",
+    "Performance",
+    "SEO",
+    "Security",
+    "Social"
+  ],
   "nav": [
     {
       "url": "/#sort",

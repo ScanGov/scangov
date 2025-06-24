@@ -223,12 +223,17 @@ export default () => {
             if (domain.name === path.name) {
                 paths.splice(j, 1);
 
+                const scores = { overall: domain.status < 300 ? domain.overallScore : -1 };
+                for (const key in domain.scores)
+                    if (domain.scores[key].score >= 0)
+                        scores[key] = domain.status < 300 ? domain.scores[key].score : -1;
+
                 returnPaths.push({
                     url: domain.urlkey,
                     name: path.name,
                     status: domain.status,
                     path: path.path,
-                    score: domain.status < 300 ? domain.overallScore : -1
+                    scores
                 });
 
                 break;

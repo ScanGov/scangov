@@ -149,14 +149,26 @@
                     </ul>
                     {% include "share.html" %}
                     {% if mapPage %}
-                    <ul class="nav nav-pills mt-2">
-                        <li class="nav-item">
-                            <a class="nav-link {% if mapPage == "states" %}active{% endif %}" href="/map/">States</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if mapPage == "cities" %}active{% endif %}" href="/map/cities/">Cities</a>
-                        </li>
-                    </ul>
+                        <ul class="nav nav-pills mt-2">
+                            <li class="nav-item">
+                                <a class="nav-link {% if mapPage == "states" %}active{% endif %}" href="/map/states/overall/">States</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if mapPage == "cities" %}active{% endif %}" href="/map/cities/">Cities</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-pills mt-2">
+                            {% for field in site.mapFields %}
+                                <li class="nav-item">
+                                    <a
+                                        id="{{ field | lower }}-button"
+                                        class="map-category nav-link {% if topic == field %}active{% endif %}" href="/map/{{ mapPage }}/{% if mapPage == "cities" %}#{% endif %}{{ field | lower }}{% if mapPage == "states" %}/{% endif %}"
+                                    >
+                                        {{ field }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
                     {% endif %}
                 </div>
             </div>
