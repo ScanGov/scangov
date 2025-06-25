@@ -83,7 +83,7 @@ const updateTime = parseInt(readFileSync('public/data/updated_time', 'utf8'));
 
 export const domainHistories = (async () => {
 
-    let domainDataFilled = domainData();
+    let domainDataFilled = await domainData();
     let writeChangelog = await appendChangelog(domainDataFilled);
 
     const changesFromMyScanGov = JSON.parse(readFileSync('./public/data/myscangov_changes.json'));
