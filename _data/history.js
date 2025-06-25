@@ -80,6 +80,10 @@ const createChangeItem = (topic, date, newItem, oldItem) => {
 const updateTime = parseInt(readFileSync('public/data/updated_time', 'utf8'));
 
 export const domainHistories = (() => {
+    let log = true;
+
+    const changesFromMyScanGov = JSON.parse(readFileSync('./scripts/changes.json'));
+
     const histories = [
         ['metadata', JSON.parse(readFileSync('./public/data/metadata.json'))],
         ['robots', JSON.parse(readFileSync('./public/data/robots.json'))],
@@ -203,8 +207,39 @@ export const domainHistories = (() => {
             }
         }
 
+        // appending additional changes from my.scangov data
+        for(var dateItem in changesFromMyScanGov[domain[0]]) {
+            domainChanges.set(parseInt(dateItem), changesFromMyScanGov[domain[0]][dateItem]);
+        }
+
         history.push({ url: domain[0], changes: domainChanges });
     }
 
     return history;
 })();
+
+
+
+/*
+history is an array
+    of objects like:
+    { 
+      "url":"myflorida.gov",
+     "changes":
+    }
+    changes is a map
+      date is they key: 20250421
+      the value is an array:
+      [  {
+        statusCode: 200,
+        topic: 'Domain',
+        date: 20250421,
+        oldScore: 2,
+        newScore: 3,
+        oldPercent: 67,
+        newPercent: 100,
+        oldTotal: 3,
+        newTotal: 3
+      }  ]
+
+*/

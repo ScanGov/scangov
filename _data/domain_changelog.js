@@ -12,7 +12,7 @@ export default function () {
     const history = [];
     for (const domain of domains) {
         // Skip domains without a page if on local
-        if (process.env.ELEVENTY_RUN_MODE === 'serve') {
+        if (1==2 && process.env.ELEVENTY_RUN_MODE === 'serve') {
             let found = false;
             for (let i = 0; i < domainList.length; i++) {
                 const d = domainList[i];
