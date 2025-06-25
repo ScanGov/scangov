@@ -1,8 +1,14 @@
-import * as fs from 'fs';
+import { getData } from '../scripts/getdata.js';
 
-export default function () {
+export default async function () {
+  let latestScansFile = 'https://github.com/ScanGov/data/raw/refs/heads/main/myscangov_homepage_audits.json';
 
-  const data = JSON.parse(fs.readFileSync('./public/data/projectscangov.json'));
+  let getDataLocally = false;
+  if(process.env.ELEVENTY_RUN_MODE === 'serve') {
+    getDataLocally = true;
+  }
 
-  return data;
+  const scanData = await getData(latestScansFile, getDataLocally);
+
+  return scanData;
 }

@@ -1,4 +1,6 @@
 import { SITEMAP_COMPLETION_THRESHOLD, variablesMap, variableTopics, dataFiles, elementToDataFile } from './variables.js';
+import { appendChangelog } from '../scripts/changelog.js';
+import { default as domainData } from './domains.js';
 import { readFileSync } from 'fs';
 
 const createDateNumber = time => {
@@ -79,10 +81,12 @@ const createChangeItem = (topic, date, newItem, oldItem) => {
 
 const updateTime = parseInt(readFileSync('public/data/updated_time', 'utf8'));
 
-export const domainHistories = (() => {
-    let log = true;
+export const domainHistories = (async () => {
 
-    const changesFromMyScanGov = JSON.parse(readFileSync('./scripts/changes.json'));
+    let domainDataFilled = domainData();
+    let writeChangelog = await appendChangelog(domainDataFilled);
+
+    const changesFromMyScanGov = JSON.parse(readFileSync('./public/data/myscangov_changes.json'));
 
     const histories = [
         ['metadata', JSON.parse(readFileSync('./public/data/metadata.json'))],
@@ -217,29 +221,3 @@ export const domainHistories = (() => {
 
     return history;
 })();
-
-
-
-/*
-history is an array
-    of objects like:
-    { 
-      "url":"myflorida.gov",
-     "changes":
-    }
-    changes is a map
-      date is they key: 20250421
-      the value is an array:
-      [  {
-        statusCode: 200,
-        topic: 'Domain',
-        date: 20250421,
-        oldScore: 2,
-        newScore: 3,
-        oldPercent: 67,
-        newPercent: 100,
-        oldTotal: 3,
-        newTotal: 3
-      }  ]
-
-*/
