@@ -72,9 +72,7 @@ export async function appendChangelog(newdata) {
     }
   }
 
-  fs.writeFileSync('./public/data/myscangov_changes_test.json',JSON.stringify(pastChangesData),'utf8');
-  // TODO verify and if good remove the _test in filename
-
+  fs.writeFileSync('./public/data/myscangov_changes.json',JSON.stringify(pastChangesData),'utf8');
   
   if(newDataToAppend) { // I have new data which I have appended to the changelog json
     fs.writeFileSync('./public/data/lastscan.json',JSON.stringify(newdata),'utf8')
