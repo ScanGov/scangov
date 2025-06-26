@@ -1,6 +1,4 @@
 import { SITEMAP_COMPLETION_THRESHOLD, variablesMap, variableTopics, dataFiles, elementToDataFile } from './variables.js';
-import { appendChangelog } from '../scripts/changelog.js';
-import { default as domainData } from './domains.js';
 import { readFileSync } from 'fs';
 
 const createDateNumber = time => {
@@ -81,10 +79,7 @@ const createChangeItem = (topic, date, newItem, oldItem) => {
 
 const updateTime = parseInt(readFileSync('public/data/updated_time', 'utf8'));
 
-export const domainHistories = (async () => {
-
-    let domainDataFilled = await domainData();
-    let writeChangelog = await appendChangelog(domainDataFilled);
+export const domainHistories = ( () => {
 
     const changesFromMyScanGov = JSON.parse(readFileSync('./public/data/myscangov_changes.json'));
 

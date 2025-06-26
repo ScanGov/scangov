@@ -56,9 +56,31 @@ export async function appendChangelog(newdata) {
     return `${year}${month}${day}`;
   }
 
-  fs.writeFileSync('./public/data/myscangov_changes_test.json',JSON.stringify(changes),'utf8');
+  let newDataToAppend = false;
+  let lastScanTime = 0;
+  let pastChangesData = JSON.parse(fs.readFileSync('./public/data/myscangov_changes.json','utf8'));
+  for(urlItem in changes) {
+    for(dateItem in changes[urlItem]) {
+      if(!pastChangesData[urlItem][dateItem]) {
+        newDataToAppend = true;
+        pastChangesData[urlItem][dateItem] = changes[urlItem][dateItem];
+      } else {
+        if(dateItem > lastScanTime) {
+          lastScanTime = dateItem;
+        }
+      }
+    }
+  }
+
+  fs.writeFileSync('./public/data/myscangov_changes_test.json',JSON.stringify(pastChangesData),'utf8');
+  // TODO verify and if good remove the _test in filename
+
   
-  // overwritelastscan with newdata
-  // write new file using olddata naming it with timestamp
+  if(newDataToAppend) { // I have new data which I have appended to the changelog json
+    fs.writeFileSync('./public/data/lastscan.json',JSON.stringify(newdata),'utf8')
+    fs.writeFileSync('./public/data/scan_'+lastScanTime+'.json',JSON.stringify(olddata),'utf8')
+    // save the newdata locally for use by non async use by _data files (This is called in eleventy.config before)
+    // also save the last stored json in timestamped file
+  }
   
 }
