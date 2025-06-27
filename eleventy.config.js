@@ -13,7 +13,8 @@ import pluginFilters from './_config/filters.js'
 import fontAwesomePlugin from '@11ty/font-awesome'
 import { PurgeCSS } from 'purgecss'
 import { getData } from './scripts/getdata.js'
-
+import { appendChangelog } from './scripts/changelog.js';
+import { default as domainData } from './_data/domains.js';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function (eleventyConfig) {
@@ -355,7 +356,7 @@ export default async function (eleventyConfig) {
     // eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
 
     eleventyConfig.on("eleventy.before", async ({ dir, runMode, outputMode }) => {
-        let allFileNames = ['accessibility', 'metadata', 'performance', 'robots', 'security', 'sitemap', 'url'];
+        let allFileNames = ['accessibility', 'metadata', 'performance', 'robots', 'security', 'sitemap', 'url', 'myscangov_homepage_audits'];
         for (let i = 0; i < allFileNames.length; i++) {
             let filename = allFileNames[i];
             if (process.env.ELEVENTY_RUN_MODE === 'serve' && fs.existsSync(`./public/data/${filename}.json`))
@@ -370,8 +371,11 @@ export default async function (eleventyConfig) {
         }
         let gitUpdateTime = await getGithubData('https://github.com/ScanGov/data/raw/refs/heads/main/updated_time');
         const currentUpdateTime = fs.readFileSync('./public/data/updated_time', 'utf8');
-        if (currentUpdateTime !== gitUpdateTime)
+        if (currentUpdateTime !== gitUpdateTime) {
             fs.writeFileSync('./public/data/updated_time', gitUpdateTime, 'utf8');
+        }
+        let domainDataFilled = domainData();
+        let writeChangelog = await appendChangelog(domainDataFilled);
     });
 
     eleventyConfig.on(

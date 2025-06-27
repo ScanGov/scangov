@@ -21,7 +21,6 @@ export const createDomainList = (
     // Loop through each indicator and add the domain with the indicator to a large list
     metaData.forEach((m) => {
         let newObject = {}
-        newObject.metadata = m
         /* create social object */
         newObject.social = {};
         socialDataVariables.forEach(v => {
@@ -163,30 +162,6 @@ export const createDomainList = (
         }
         overallPossibleScore += contentDataVariables.length;
         overallScoreCount += contentTotal;
-
-        /* old metadata score section which is now removed
-        let metadataTotal = 0
-        d.scores = {}
-        let metaDataAttributeResults = {}
-        metaDataVariables.forEach((v) => {
-          if (d.metadata[v] === true) {
-            metadataTotal++
-          }
-          metaDataAttributeResults[v] = d.metadata[v]
-        })
-        let metadataScore = Math.round(
-          (metadataTotal / metaDataVariables.length) * 100,
-        )
-        d.scores['metadata'] = {
-          score: metadataScore,
-          correct: metadataTotal,
-          all: metaDataVariables.length,
-          attributes: metaDataAttributeResults,
-        }
-        overallPossibleScore += metaDataVariables.length
-        overallScoreCount += metadataTotal
-        end old metadatasection */
-
 
         /* begin combining robots and sitemap into SEO */
         let seoTotal = 0

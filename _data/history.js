@@ -79,7 +79,10 @@ const createChangeItem = (topic, date, newItem, oldItem) => {
 
 const updateTime = parseInt(readFileSync('public/data/updated_time', 'utf8'));
 
-export const domainHistories = (() => {
+export const domainHistories = ( () => {
+
+    const changesFromMyScanGov = JSON.parse(readFileSync('./public/data/myscangov_changes.json'));
+
     const histories = [
         ['metadata', JSON.parse(readFileSync('./public/data/metadata.json'))],
         ['robots', JSON.parse(readFileSync('./public/data/robots.json'))],
@@ -201,6 +204,11 @@ export const domainHistories = (() => {
                 dateChanges.push(changeItem);
                 domainChanges.set(date, dateChanges);
             }
+        }
+
+        // appending additional changes from my.scangov data
+        for(var dateItem in changesFromMyScanGov[domain[0]]) {
+            domainChanges.set(parseInt(dateItem), changesFromMyScanGov[domain[0]][dateItem]);
         }
 
         history.push({ url: domain[0], changes: domainChanges });
