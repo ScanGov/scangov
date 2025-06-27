@@ -1,8 +1,6 @@
 import * as fs from 'fs';
 
-export async function appendChangelog(newdata) {
-
-  const olddata = JSON.parse(fs.readFileSync('./public/data/lastscan.json'));
+export async function appendChangelog(newdata, olddata) {
 
   let changes = {};
 

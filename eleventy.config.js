@@ -333,7 +333,8 @@ export default async function (eleventyConfig) {
             fs.writeFileSync('./public/data/updated_time', gitUpdateTime, 'utf8');
         }
         let domainDataFilled = domainData();
-        let writeChangelog = await appendChangelog(domainDataFilled);
+        const olddata = JSON.parse(fs.readFileSync('./public/data/lastscan.json'));
+        let writeChangelog = await appendChangelog(domainDataFilled, olddata);
     });  
 
     eleventyConfig.on(
