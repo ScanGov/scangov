@@ -283,40 +283,6 @@ export default async function (eleventyConfig) {
         return 'secondary'
     }
 
-    eleventyConfig.addFilter('colorify', (score) => {
-        return gradeColor(score)
-    })
-
-    eleventyConfig.addFilter('encodeParameter', (param) => {
-        return encodeURIComponent(param.trim());
-    })
-
-    // Features to make your build faster (when you need them)
-
-    // If your passthrough copy gets heavy and cumbersome, add this line
-    // to emulate the file copy on the dev server. Learn more:
-    // https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
-
-    // eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
-
-    eleventyConfig.on("eleventy.before", async ({ dir, runMode, outputMode }) => {
-        let allFileNames = ['accessibility', 'metadata', 'performance', 'robots', 'security', 'sitemap', 'url'];
-        let i = 0;
-        while (i < allFileNames.length) {
-            let filename = allFileNames[i];
-            let gitUrl = `https://github.com/ScanGov/data/raw/refs/heads/main/${filename}.json`;
-            if (process.env.ELEVENTY_RUN_MODE === 'serve' && fs.existsSync(`../data/${filename}.json`)) {
-                fs.copyFileSync(`../data/${filename}.json`, `./public/data/${filename}.json`)
-            } else {
-                let gitFileData = await getGithubData(gitUrl);
-                fs.writeFileSync(`./public/data/${filename}.json`, gitFileData, 'utf8');
-            }
-            i++;
-        }
-        let gitCSVFileData = await getGithubData(`https://github.com/ScanGov/data/raw/refs/heads/main/domains.csv`);
-        fs.writeFileSync(`./public/data/domains.csv`, gitCSVFileData, 'utf8');
-    });
-
     async function getData(url, local = false) {
         return new Promise(async (resolve) => {
             if (local) {
@@ -347,14 +313,6 @@ export default async function (eleventyConfig) {
         return encodeURIComponent(param.trim());
     })
 
-    // Features to make your build faster (when you need them)
-
-    // If your passthrough copy gets heavy and cumbersome, add this line
-    // to emulate the file copy on the dev server. Learn more:
-    // https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
-
-    // eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
-
     eleventyConfig.on("eleventy.before", async ({ dir, runMode, outputMode }) => {
         let allFileNames = ['accessibility', 'metadata', 'performance', 'robots', 'security', 'sitemap', 'url', 'myscangov_homepage_audits'];
         for (let i = 0; i < allFileNames.length; i++) {
@@ -376,7 +334,7 @@ export default async function (eleventyConfig) {
         }
         let domainDataFilled = domainData();
         let writeChangelog = await appendChangelog(domainDataFilled);
-    });
+    });  
 
     eleventyConfig.on(
         'eleventy.after',
