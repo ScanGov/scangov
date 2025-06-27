@@ -56,7 +56,7 @@ export async function appendChangelog(newdata, olddata) {
 
   let newDataToAppend = false;
   let lastScanTime = 0;
-  let pastChangesData = JSON.parse(fs.readFileSync('./public/data/myscangov_changes.json','utf8'));
+  let pastChangesData = JSON.parse(fs.readFileSync('./scripts/data/myscangov_changes.json','utf8'));
   for(urlItem in changes) {
     for(dateItem in changes[urlItem]) {
       if(!pastChangesData[urlItem][dateItem]) {
@@ -70,7 +70,7 @@ export async function appendChangelog(newdata, olddata) {
     }
   }
 
-  fs.writeFileSync('./public/data/myscangov_changes.json',JSON.stringify(pastChangesData),'utf8');
+  fs.writeFileSync('./scripts/data/myscangov_changes.json',JSON.stringify(pastChangesData),'utf8');
   
   if(newDataToAppend) { // I have new data which I have appended to the changelog json
     fs.writeFileSync('./scripts/data/lastscan.json',JSON.stringify(newdata),'utf8')

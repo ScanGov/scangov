@@ -81,7 +81,7 @@ const updateTime = parseInt(readFileSync('public/data/updated_time', 'utf8'));
 
 export const domainHistories = ( () => {
 
-    const changesFromMyScanGov = JSON.parse(readFileSync('./public/data/myscangov_changes.json'));
+    const changesFromMyScanGov = JSON.parse(readFileSync('./scripts/data/myscangov_changes.json'));
 
     const histories = [
         ['metadata', JSON.parse(readFileSync('./public/data/metadata.json'))],
