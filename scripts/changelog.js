@@ -30,7 +30,7 @@ export async function appendChangelog(newdata, olddata) {
             changeObj.newScore = newItem.scores[topic].correct;
             changeObj.oldPercent = o.scores[topic].score;
             changeObj.newPercent = newItem.scores[topic].score;
-            changeObj.oldTotal = o.scores[topic].all;;
+            changeObj.oldTotal = o.scores[topic].all;
             changeObj.newTotal = newItem.scores[topic].all;
             allChangesThisScan.push(changeObj);
           }
@@ -42,7 +42,26 @@ export async function appendChangelog(newdata, olddata) {
       }
 
     } else {
-      // console.log('nope '+o.urlkey)
+      // /* This is a new site, we have no history for it yet */
+      // let newSiteInfo = [];
+      // for(var topic in newItem.scores) {
+      //   if(newItem.scores[topic]) {
+      //     let changeObj = {};
+      //     changeObj.statusCode = 200;
+      //     changeObj.topic = topic;
+      //     changeObj.date = formatToYYYYMMDD(new Date(newItem.time));
+      //     changeObj.oldScore = 'unknown';
+      //     changeObj.newScore = newItem.scores[topic].correct;
+      //     changeObj.oldPercent = 'unknown';
+      //     changeObj.newPercent = newItem.scores[topic].score;
+      //     changeObj.oldTotal = 'unknown';
+      //     changeObj.newTotal = newItem.scores[topic].all;
+      //     newSiteInfo.push(changeObj);
+      //   }
+      // }
+      // changes[newItem.urlkey] = {};
+      // changes[newItem.urlkey][formatToYYYYMMDD(new Date(newItem.time))] = newSiteInfo;
+      // /* new item will have a record so the changelog page doesn't break */
     }
   })
 
@@ -57,8 +76,12 @@ export async function appendChangelog(newdata, olddata) {
   let newDataToAppend = false;
   let lastScanTime = 0;
   let pastChangesData = JSON.parse(fs.readFileSync('./scripts/data/myscangov_changes.json','utf8'));
-  for(urlItem in changes) {
-    for(dateItem in changes[urlItem]) {
+  for(var urlItem in changes) {
+    for(var dateItem in changes[urlItem]) {
+      if(!pastChangesData[urlItem]) {
+        pastChangesData[urlItem] = {};
+        console.log(urlItem)
+      }
       if(!pastChangesData[urlItem][dateItem]) {
         newDataToAppend = true;
         pastChangesData[urlItem][dateItem] = changes[urlItem][dateItem];
@@ -80,3 +103,6 @@ export async function appendChangelog(newdata, olddata) {
   }
   
 }
+
+
+// TODO need to write an object for a domain which didn't exist before

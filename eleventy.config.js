@@ -332,9 +332,9 @@ export default async function (eleventyConfig) {
         if (currentUpdateTime !== gitUpdateTime) {
             fs.writeFileSync('./public/data/updated_time', gitUpdateTime, 'utf8');
         }
-        let domainDataFilled = domainData();
-        const olddata = JSON.parse(fs.readFileSync('./scripts/data/lastscan.json'));
-        let writeChangelog = await appendChangelog(domainDataFilled, olddata);
+        // let domainDataFilled = domainData();
+        // const olddata = JSON.parse(fs.readFileSync('./scripts/data/lastscan.json'));
+        // let writeChangelog = await appendChangelog(domainDataFilled, olddata);
     });  
 
     eleventyConfig.on(
