@@ -1,5 +1,6 @@
 import { SITEMAP_COMPLETION_THRESHOLD, variablesMap, variableTopics, dataFiles, elementToDataFile } from './variables.js';
 import { readFileSync } from 'fs';
+import { default as domainJS } from './domains.js';
 
 const createDateNumber = time => {
     const date = new Date(time);
@@ -213,6 +214,14 @@ export const domainHistories = ( () => {
 
         history.push({ url: domain[0], changes: domainChanges });
     }
+
+    // also add objects to history for domains that are in changesFromMyScanGov but not already here
+    const domainList = domainJS();
+    domainList.forEach(domainItem => {
+        if(!domains.get(domainItem.urlkey)) {
+            history.push({ url: domainItem.urlkey, changes: [] });
+        }
+    })
 
     return history;
 })();
