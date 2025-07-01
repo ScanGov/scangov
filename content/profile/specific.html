@@ -18,7 +18,7 @@ eleventyComputed:
 
 
 {% set domainSlug = domain.urlkey %}
-{% set domainLink = domain.metadata.redirect %}
+{% set domainLink = domain.redirect %}
 {% include "profilelinks.html" %}
 
 {% set cards = site.data %}

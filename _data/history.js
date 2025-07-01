@@ -1,5 +1,6 @@
 import { SITEMAP_COMPLETION_THRESHOLD, variablesMap, variableTopics, dataFiles, elementToDataFile } from './variables.js';
 import { readFileSync } from 'fs';
+import { default as domainJS } from './domains.js';
 
 const createDateNumber = time => {
     const date = new Date(time);
@@ -79,7 +80,10 @@ const createChangeItem = (topic, date, newItem, oldItem) => {
 
 const updateTime = parseInt(readFileSync('public/data/updated_time', 'utf8'));
 
-export const domainHistories = (() => {
+export const domainHistories = ( () => {
+
+    const changesFromMyScanGov = JSON.parse(readFileSync('./scripts/data/myscangov_changes.json'));
+
     const histories = [
         ['metadata', JSON.parse(readFileSync('./public/data/metadata.json'))],
         ['robots', JSON.parse(readFileSync('./public/data/robots.json'))],
@@ -203,8 +207,21 @@ export const domainHistories = (() => {
             }
         }
 
+        // appending additional changes from my.scangov data
+        for(var dateItem in changesFromMyScanGov[domain[0]]) {
+            domainChanges.set(parseInt(dateItem), changesFromMyScanGov[domain[0]][dateItem]);
+        }
+
         history.push({ url: domain[0], changes: domainChanges });
     }
+
+    // also add objects to history for domains that are in changesFromMyScanGov but not already here
+    const domainList = domainJS();
+    domainList.forEach(domainItem => {
+        if(!domains.get(domainItem.urlkey)) {
+            history.push({ url: domainItem.urlkey, changes: [] });
+        }
+    })
 
     return history;
 })();
