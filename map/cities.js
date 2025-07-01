@@ -17,17 +17,21 @@ const warningIcon = new ColoredMarker({ iconUrl: '/assets/img/marker_warning.png
 const dangerIcon = new ColoredMarker({ iconUrl: '/assets/img/marker_danger.png' });
 const inaccessibleIcon = new ColoredMarker({ iconUrl: '/assets/img/marker_inaccessible.png' });
 
-const getIcon = score => {
+const getIcon = city => {
+    if (city.status >= 300 || city.scores[topic] === undefined)
+        return inaccessibleIcon;
+
+    const score = city.scores[topic];
     if (score >= 90)
         return successIcon;
     if (score >= 70)
         return warningIcon;
     if (score >= 0)
         return dangerIcon;
-    return inaccessibleIcon;
 }
 
-const getGrade = score => {
+const getGrade = city => {
+    const score = city.scores[topic];
     if (score >= 90)
         return 'A';
     if (score >= 80)
@@ -41,13 +45,40 @@ const getGrade = score => {
 
 for (let i = 0; i < cities.length; i++) {
     const city = cities[i];
-    console.log(city)
-
-    L.marker([city.lat, city.long], { icon: getIcon(city.score) })
-        .bindPopup(`<a href="/profile/${city.url.replaceAll('.', '-')}/overall/">${city.url}</a> ` +
-            (city.score >= 0 ?
-                `/ Grade ${getGrade(city.score)} / Score: ${city.score}%` :
-                '/ Inaccessible')
-        )
-        .addTo(map);
+    city.marker = L.marker([city.lat, city.long]).addTo(map);
 }
+
+let topic;
+window.onhashchange = () => {
+    topic = location.hash;
+    let topicValid = false;
+    if (topic.length > 1) {
+        topic = topic.substring(1);
+        for (const field of mapFields)
+            if (field.toLowerCase() === topic) {
+                topicValid = true;
+                break;
+            }
+    }
+    if (!topicValid)
+        topic = 'overall';
+    const previousActive = document.getElementsByClassName('map-category active')[0];
+    if (previousActive)
+        previousActive.classList.remove('active');
+    document.getElementById(topic + '-button').classList.add('active');
+
+    for (let i = 0; i < cities.length; i++) {
+        const city = cities[i];
+        city.marker
+            .setIcon(getIcon(city))
+            .bindPopup(`<a href="/profile/${city.url.replaceAll('.', '-')}/overall/">${city.url}</a> ` +
+                (city.status < 300 ?
+                    (city.scores[topic] === undefined ?
+                        'No data' :
+                        `/ Grade ${getGrade(city)} / Score: ${city.scores[topic]}%`
+                    ) :
+                    `/ Inaccessible (${city.status})`)
+            );
+    }
+};
+window.onhashchange();
