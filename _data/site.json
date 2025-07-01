@@ -45,7 +45,7 @@
       "icon": "timeline"
     },
     {
-      "url": "/map",
+      "url": "/map/states/overall",
       "title": "Map",
       "icon": "map"
     }
