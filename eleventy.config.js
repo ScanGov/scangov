@@ -151,10 +151,10 @@ export default async function (eleventyConfig) {
     eleventyConfig.addFilter('averageElements', (data) => {
         let elementTally = 0
         let respondingDomains = 0
-        let overallPossibleElements = data[0].overallPossibleScore
+        let overallPossibleElements = data[0].overallScoreCount
         data.forEach((d) => {
             if (d.status === 200) {
-                elementTally += d.overallScoreCount
+                elementTally += d.overallPossibleScore;
                 respondingDomains++
             }
         })
