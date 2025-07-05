@@ -1,25 +1,24 @@
-<div class="container-fluid">
-  <footer>
-    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-      <p class="small">
-        Built with
-        <i class="fa-solid fa-heart" aria-label="Heart"></i>
-        by
-        <a href="{{ site['org-url'] }}">{{ site.org }}</a>.       
-        2025
-      </p>
+<footer>
+  <div class="container-fluid py-4 mt-4 border-top">
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="small">
+          built with
+          <i class="fa-solid fa-heart" aria-label="Heart"></i>
+          by
+          <a href="{{ site['org-url'] }}">{{ site.org }}</a>
+        </p>
+      </div>
     </div>
-  </footer>
-</div>
-<div id="feedback-container" class="text-center">
-  <a
-    href="https://my.scangov.com/scan"
-    id="feedback-button"
-    aria-label="Scan my site"
-    class="feedback btn btn-lg">
-    Scan my site
-  </a>
-</div>
+  </div>
+</footer>
+<a
+  href="https://my.scangov.com/scan"
+  id="feedback-button"
+  aria-label="Scan my site"
+  class="feedback btn btn-lg">
+  Scan my site
+</a>
 <script>
   const feedbackButton = document.getElementById("feedback-button");
   window.addEventListener('scroll', () => {
