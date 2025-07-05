@@ -1,22 +1,25 @@
-<div class="container">
-  {% include "supporters.html" %}
+<div class="container-fluid">
   <footer>
     <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
       <p class="small">
-        <a href="{{ site['org-url'] }}" style="text-decoration: none;">{{ site.org }}</a>
+        Built with
+        <i class="fa-solid fa-heart" aria-label="Heart"></i>
+        by
+        <a href="{{ site['org-url'] }}">{{ site.org }}</a>.       
         2025
       </p>
     </div>
   </footer>
 </div>
-<a
-  href="https://my.scangov.com/scan"
-  id="feedback-button"
-  aria-label="Scan my site"
-  class="feedback"
-  style="">
-  Scan my site
-</a>
+<div id="feedback-container" class="text-center">
+  <a
+    href="https://my.scangov.com/scan"
+    id="feedback-button"
+    aria-label="Scan my site"
+    class="feedback btn btn-lg">
+    Scan my site
+  </a>
+</div>
 <script>
   const feedbackButton = document.getElementById("feedback-button");
   window.addEventListener('scroll', () => {
