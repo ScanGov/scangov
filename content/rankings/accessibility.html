@@ -1,0 +1,19 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (accessibility)
+keywords: government domains, government websites
+
+pagination:
+  data: accessibility.overall
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Accessibility Results" %}
+{% set dataset = accessibility.overall %}
+{% set specificAttribute = "accessibility" %}
+{% set currentsort = "" %}
+{% set showPagination = true %}
+
+{% include "sortcontent.html" %}

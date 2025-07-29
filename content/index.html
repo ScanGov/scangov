@@ -4,18 +4,44 @@ displaySearch: true
 layout: layouts/default
 title: Government digital experience monitor
 keywords: government domains, government websites
-
-pagination:
-  data: sorts.overall
-  size: 100
-  alias: member
 ---
 
-{% set pageHeader = "Results" %}
-{% set dataset = sorts.overall %}
-{% set specificAttribute = "" %}
-{% set currentsort = "" %}
-{% set currentScore = member[0].overallScore %}
-{% set showPagination = true %}
-
-{% include "sortcontent.html" %}
+<main id="home">
+    <div class="container">
+        <div class="row">
+            <h2>Grades</h2>
+            <div class="col-12">
+                <div class="row mt-3">
+                    {% set topics = {
+                        overall: sorts.overall,
+                        accessibility: accessibility.overall,
+                        content: contenttags.overall,
+                        performance: performance.overall,
+                        security: security.overall,
+                        seo: seo.overall,
+                        social: social.overall,
+                        domain: url.overall
+                    } %}
+                    {% for specificAttribute, dataset in topics %}
+                        {% if specificAttribute === "overall" %}
+                            {% set cardLink = "/rankings/" %}
+                        {% else %}
+                            {% set cardLink = "/rankings/" + specificAttribute %}
+                        {% endif %}
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
+                            <div class="card mb-3 text-bg-{{ dataset | specificAverageScore(specificAttribute) | colorify }}">
+                                <a href="{{ cardLink }}" class="stretched-link"></a>
+                                <div class="card-header">
+                                    Average {% if specificAttribute %}{{ specificAttribute }}{% else %}overall{% endif %} grade
+                                </div>
+                                <div class="card-body text-center pt-5">
+                                    <p class="display-1">{{ dataset | specificAverageScore(specificAttribute) | gradify }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

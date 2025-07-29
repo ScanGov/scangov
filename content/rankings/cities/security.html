@@ -1,0 +1,20 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (cities / security)
+keywords: government domains, government websites
+
+pagination:
+  data: security.cities
+  size: 500
+  alias: member
+---
+
+{% set pageHeader = "Security results" %}
+{% set dataset = security.cities %}
+{% set specificAttribute = "security" %}
+{% set currentsort = "cities" %}
+{% set currentScore = member[0].scores['security'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

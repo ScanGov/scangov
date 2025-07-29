@@ -1,0 +1,20 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (federal / domain)
+keywords: government domains, government websites
+
+pagination:
+  data: url.federal
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Domain Results" %}
+{% set dataset = url.federal %}
+{% set specificAttribute = "domain" %}
+{% set currentsort = "federal" %}
+{% set currentScore = member[0].scores['domain'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

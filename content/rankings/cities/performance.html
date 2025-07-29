@@ -1,0 +1,20 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (cities / performance)
+keywords: government domains, government websites
+
+pagination:
+  data: performance.cities
+  size: 500
+  alias: member
+---
+
+{% set pageHeader = "Performance results" %}
+{% set dataset = performance.cities %}
+{% set specificAttribute = "performance" %}
+{% set currentsort = "cities" %}
+{% set currentScore = member[0].scores['performance'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

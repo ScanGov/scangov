@@ -5,22 +5,8 @@
         {% include "rankingtabs.html" %}
       </div>
     </div>
-    <h2>Grades</h2>
-    {% include "cumulativescores.html" %}
     <div class="row">
       <div class="col-12">
-        <ul class="small list-unstyled">
-          {% include "updated.html" %}
-          {% if showPagination %}
-            <li class="text-body-secondary">
-              Showing: {{ pagination.pageNumber * pagination.size + 1 }} - {{ (pagination.pageNumber + 1) * pagination.size }}
-              <span id="showing-count"></span>
-              of {{ dataset.length }}
-              <span id="showing-total"></span>
-            </li>
-          {% endif %}
-        </ul>
-        <h2>Rankings</h2>
         <div class="table-responsive">
           <table class="table table-responsive table-bordered table-hover mt-3">
             <thead class="table-dark">

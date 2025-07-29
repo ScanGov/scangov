@@ -187,7 +187,7 @@ export default async function (eleventyConfig) {
     })
 
     eleventyConfig.addFilter('specificAverageScore', (data, attribute = null) => {
-        if (!attribute) {
+        if (!attribute || attribute === 'overall') {
             return scoreCalc(data)
         } else {
             let totalScores = 0
@@ -335,7 +335,7 @@ export default async function (eleventyConfig) {
         let domainDataFilled = domainData();
         const olddata = JSON.parse(fs.readFileSync('./scripts/data/lastscan.json'));
         let writeChangelog = await appendChangelog(domainDataFilled, olddata);
-    });  
+    });
 
     eleventyConfig.on(
         'eleventy.after',

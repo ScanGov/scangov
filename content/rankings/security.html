@@ -1,0 +1,20 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (security)
+keywords: government domains, government websites
+
+pagination:
+  data: security.overall
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Security Results" %}
+{% set dataset = security.overall %}
+{% set specificAttribute = "security" %}
+{% set currentsort = "" %}
+{% set currentScore = member[0].scores['security'].score %}
+{% set showPagination = true %}
+
+{% include "sortcontent.html" %}

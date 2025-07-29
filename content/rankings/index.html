@@ -1,0 +1,20 @@
+---
+home: false
+layout: layouts/default
+title: Rankings
+keywords: government domains, government websites, rankings
+
+pagination:
+    data: sorts.overall
+    size: 100
+    alias: member
+---
+
+{% set pageHeader = "Results" %}
+{% set dataset = sorts.overall %}
+{% set specificAttribute = "" %}
+{% set currentsort = "" %}
+{% set currentScore = member[0].overallScore %}
+{% set showPagination = true %}
+
+{% include "sortcontent.html" %}

@@ -1,0 +1,20 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (federal / accessibility)
+keywords: government domains, government websites
+
+pagination:
+  data: accessibility.federal
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Accessibility Results" %}
+{% set dataset = accessibility.cities %}
+{% set specificAttribute = "accessibility" %}
+{% set currentsort = "federal" %}
+{% set currentScore = member[0].scores['accessibility'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

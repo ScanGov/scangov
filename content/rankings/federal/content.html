@@ -1,0 +1,20 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (federal / content)
+keywords: government domains, government websites
+
+pagination:
+  data: contenttags.federal
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Content Results" %}
+{% set dataset = contenttags.federal %}
+{% set specificAttribute = "content" %}
+{% set currentsort = "federal" %}
+{% set currentScore = member[0].scores['content'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

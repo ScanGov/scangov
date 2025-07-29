@@ -1,0 +1,20 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (SEO)
+keywords: government domains, government websites
+
+pagination:
+  data: seo.overall
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "SEO Results" %}
+{% set dataset = seo.overall %}
+{% set specificAttribute = "seo" %}
+{% set currentsort = "" %}
+{% set currentScore = member[0].scores['seo'].score %}
+{% set showPagination = true %}
+
+{% include "sortcontent.html" %}

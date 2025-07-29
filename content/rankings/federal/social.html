@@ -1,0 +1,20 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (federal / social)
+keywords: government domains, government websites
+
+pagination:
+  data: social.federal
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Social Results" %}
+{% set dataset = social.federal %}
+{% set specificAttribute = "social" %}
+{% set currentsort = "federal" %}
+{% set currentScore = member[0].scores['social'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}
