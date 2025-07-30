@@ -35,9 +35,9 @@
   ],
   "nav": [
     {
-      "url": "/#sort",
-      "title": "Filter",
-      "icon": "filter"
+        "url": "/rankings/",
+        "title": "Rankings",
+        "icon": "ranking-star"
     },
     {
       "url": "/changelog",
