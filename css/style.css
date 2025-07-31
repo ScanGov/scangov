@@ -212,17 +212,19 @@ a.btn-primary, a.btn-primary:visited, .btn-primary {
   transition: opacity 0.5s ease-in-out;
 }
 
-.feedback:hover, a.btn:hover, .btn-primary:hover {
-  background-color: var(--bs-body-bg) !important;
-  box-shadow: var(--bs-box-shadow-md) !important;
-  border: 1px solid var(--bs-border-color);
-  color: var(--bs-body-color) !important;
-  transition: all 0.5s ease;
+.feedback, a.btn, .btn-primary {
+  transition: background-color 0.5s, color 0.5s, box-shadow 0.5s;
 }
 
-.feedback:hover svg, a.btn:hover svg {
+.feedback:hover, .btn:hover, .btn-primary:hover {
+  color: var(--bs-body-color);
+  box-shadow: var(--bs-box-shadow-md);
+  background-color: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color);
+}
+
+.feedback:hover svg, a.btn:not(.active):hover svg {
   color: var(--bs-body-color) !important;
-  transition: all 0.5s ease;
 }
 
 /* Cards */
