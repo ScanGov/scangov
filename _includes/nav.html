@@ -69,10 +69,16 @@
         {% for item in site.nav %}
           {% if item.url %}
             <li class="nav-item me-3 me-lg-0 small">
-              <a class="nav-item nav-link mx-1 {% if page.url in item.url %}active{% endif %}" href="{{ site.baseurl }}{{ item.url }}">
+                <a class="nav-link mx-1" href="{{ item.url }}">
+                    <i class="fa-solid fa-{{ item.icon }} me-2" title="{{ item.title }}"></i>
+                    {{ item.title }}
+                </a>
+                    {#
+              <a class="nav-item nav-link mx-1" href="{{ item.url }}">
                 <i class="fa-solid fa-{{ item.icon }}"></i>
                 {{ item.title }}
               </a>
+                    #}
             </li>
           {% endif %}
         {% endfor %}

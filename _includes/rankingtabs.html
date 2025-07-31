@@ -9,41 +9,24 @@
     {% set topLevel = true %}
 {% endif %}
 
-<a id="sort"></a>
-    <ul class="nav nav-pills">
-        <li class="nav-item">
-            {% if specificAttribute %}
-                <a class="nav-link{% if topLevel %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/{{ specificAttribute }}">All</a>
-            {% else %}
-                <a class="nav-link{% if topLevel %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/">All</a>
-            {% endif %}
-        </li>
+<ul class="nav nav-pills small">
     <li class="nav-item">
-        {% if specificAttribute %}
-            <a class="nav-link{% if page.url.indexOf("/cities/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/cities/{{ specificAttribute }}/">Cities</a>
-        {% else %}
-            <a class="nav-link{% if page.url.indexOf("/cities/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/cities/">Cities</a>
-        {% endif %}
+        <a class="nav-link btn btn-primary-outline mx-1{% if topLevel %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/{{ specificAttribute }}">All</a>
     </li>
     <li class="nav-item">
-        {% if specificAttribute %}
-            <a class="nav-link{% if page.url.indexOf("/states/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/states/{{ specificAttribute }}/">States</a>
-        {% else %}
-            <a class="nav-link{% if page.url.indexOf("/states/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/states/">States</a>
-        {% endif %}
+        <a class="nav-link btn btn-primary-outline mx-1{% if page.url.indexOf("/cities/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/cities/{{ specificAttribute }}/">Cities</a>
     </li>
     <li class="nav-item">
-        {% if specificAttribute %}
-            <a class="nav-link{% if page.url.indexOf("/federal/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/federal/{{ specificAttribute }}/">Federal</a>
-        {% else %}
-            <a class="nav-link{% if page.url.indexOf("/federal/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/federal/">Federal</a>
-        {% endif %}
+        <a class="nav-link btn btn-primary-outline mx-1{% if page.url.indexOf("/states/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/states/{{ specificAttribute }}/">States</a>
     </li>
-    </ul>
+    <li class="nav-item">
+        <a class="nav-link btn btn-primary-outline mx-1{% if page.url.indexOf("/federal/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/federal/{{ specificAttribute }}/">Federal</a>
+    </li>
+</ul>
 
 <ul class="nav nav-pills mt-2 mb-2 small">
     <li class="nav-item">
-        <a class="nav-link
+        <a class="nav-link btn btn-primary-outline mx-1
             {% if not specificAttribute %}
                 active" aria-current="page
             {% endif %}
@@ -51,7 +34,7 @@
     </li>
     {% for topic in site.data %}
         <li class="nav-item">
-            <a class="nav-link
+            <a class="nav-link btn btn-primary-outline mx-1
                 {% if specificAttribute === topic.toLowerCase() %}
                     active" aria-current="page
                 {% endif %}

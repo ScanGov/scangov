@@ -1,9 +1,114 @@
 /* This file is maintaned in https://github.com/ScanGov/components and copied to multiple projects during startup */
 
-.fa-solid {}
+/* Root */
+
+:root, [data-bs-theme=dark], [data-bs-theme=light] {
+    --bs-body-color: #fff;
+    --bs-body-color-rgb: 255, 255, 255;
+    --bs-body-bg: #13171f;
+    --bs-body-bg-rgb: 19, 23, 31;
+    --scangov-green: #70e17b;
+    --scangov-green-rgb: 112, 225, 123;
+    --bs-link-color: var(--scangov-green);
+    --bs-link-color-rgb: var(--scangov-green-rgb);
+    --bs-success-rgb: var(--scangov-green-rgb);
+    --bs-link-hover-color: var(--bs-link-color);
+    --bs-link-hover-color-rgb: 112, 225, 123;
+    --bs-selection-bg: var(--bs-link-color);
+    --bs-selection-color: var(--bs-body-bg);
+    --bs-font-monospace: "JetBrains Mono Medium", monospace;
+    --bs-font-light: "Public Sans Light", sans-serif;
+    --bs-font-bold: "Public Sans Bold", sans-serif;
+    --bs-font-regular: "Public Sans Regular", sans-serif;
+    --bs-font-serif: "Merriweather Light", sans-serif;
+    --bs-font-thin: "Public Sans Thin", sans-serif;
+    --bs-font-extra-bold: "Public Sans ExtraBold", sans-serif;
+    --bs-font-sans-serif: "Public Sans Regular", sans-serif;
+}
+
+/* General */
+
+body {
+    color: var(--bs-body-color);
+    background: var(--bs-body-bg);
+    background-color: var(--bs-body-bg);
+    font-family: var(--bs-font-sans-serif);
+}
+
+strong {
+    font-family: var(--bs-font-bold);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
+    font-family: var(--bs-font-bold);
+}
+
+.text-bg-success {
+    color: #000 !important;
+}
+
+/* Selection */
+
+::selection {
+    background-color: var(--bs-selection-bg);
+    color: var(--bs-selection-color);
+}
+
+/* Navbar */
+
+#logo {
+    max-width: 35px;
+    width: 100%;
+    height: 100%;
+}
+
+/* Breadcrumb */
+
+.breadcrumb-item a, .breadcrumb-item a:visited {
+    color: var(--bs-link-color);
+    font-family: var(--bs-font-bold);
+    text-decoration: none;
+}
+
+/* Icons */
+
+/* Brands */
+
+.fa-github {
+    color: #96abee !important;
+}
+
+.fa-discord {
+    color: #f8b9c5 !important;
+}
+
+.fa-linkedin {
+    color: #c3ebfa !important;
+}
+
+.fa-youtube {
+    color: #fd8ba0 !important;
+}
+
+/* General */
 
 .fa-arrows-rotate {
-    color: #ffe396 !important;
+    color: #c5ee93 !important;
 }
 
 .fa-bell {
@@ -18,8 +123,16 @@
     color: #face00 !important;
 }
 
+.fa-book-open-reader {
+    color: #c3ebfa !important;
+}
+
 .fa-brain {
     color: #fdb8ae !important;
+}
+
+.fa-building {
+    color: #b7f5bd !important;
 }
 
 .fa-bullhorn {
@@ -34,12 +147,28 @@
     color: #ffbe2e !important;
 }
 
+.fa-check {
+    color: #e7f434 !important;
+}
+
 .fa-check-to-slot {
     color: #ffb4cf !important;
 }
 
 .fa-circle-check {
     color: #70e17b !important;
+}
+
+.fa-circle-down {
+    color: #e41d3d !important;
+}
+
+.fa-circle-nodes {
+    color: #c3ebfa;
+}
+
+.fa-circle-up {
+    color: #21c834 !important;
 }
 
 /*
@@ -60,6 +189,10 @@
     color: #c5c5f3 !important;
 }
 
+.fa-crown {
+    color: #ffe396 !important;
+}
+
 .fa-dashboard {
     color: #ffbc78;
 }
@@ -68,8 +201,16 @@
     color: #7efbe1 !important;
 }
 
+.fa-dolly {
+    color: #f5fbc1 !important;
+}
+
 .fa-envelope-open-text {
     color: #7efbe1 !important;
+}
+
+.fa-eye {
+    color: #f8b9c5;
 }
 
 .fa-face-smile {
@@ -88,6 +229,18 @@
     color: #cbc4f2;
 }
 
+.fa-filter-circle-xmark {
+    color: #f8b9c5;
+}
+
+.fa-fire {
+    color: #ffbc78 !important;
+}
+
+.fa-flag {
+    color: #f45d79;
+}
+
 .fa-gauge-simple {
     color: #ffbc78;
 }
@@ -96,12 +249,32 @@
     color: #ffbc78;
 }
 
+.fa-gear {
+    color: #a1d3ff;
+}
+
 .fa-graduation-cap {
     color: #c7efe2;
 }
 
+.fa-hand, .fa-hands, .fa-hands-clapping, .fa-handshake-simple, .fa-handshake-angle, .fa-hand-peace, .fa-hand-pointer, .fa-hand-point-up, .fa-hand-point-down, .fa-hand-point-right, .fa-hand-point-left {
+    color: #face00;
+}
+
 .fa-heart {
     color: #ff8d7b;
+}
+
+.fa-heart-crack {
+    color: #ff8d7b;
+}
+
+.fa-highlighter {
+    color: #e7f434;
+}
+
+.fa-house {
+    color: #f4b2ff;
 }
 
 .fa-laptop {
@@ -110,6 +283,14 @@
 
 .fa-landmark {
     color: #ffffff !important;
+}
+
+.fa-lightbulb {
+    color: #ffe396;
+}
+
+.fa-key {
+    color: #f8b9c5;
 }
 
 .fa-link {
@@ -132,12 +313,16 @@
     color: #f8b9c5;
 }
 
-.fa-circle-nodes {
+.fa-paper-plane {
     color: #c3ebfa;
 }
 
 .fa-percent {
     color: #a8f2ff;
+}
+
+.fa-plug-circle-bolt {
+    color: #fff5c2;
 }
 
 .fa-ranking-star {
@@ -148,8 +333,20 @@
     color: #f8b9c5;
 }
 
+.fa-right-from-bracket {
+    color: #ff8d7b;
+}
+
 .fa-robot {
-    color: #e6e6e6;
+    color: #e7f434;
+}
+
+.fa-rocket {
+    color: #d0c3e9;
+}
+
+.fa-rss {
+    color: #ffbc78;
 }
 
 .fa-satellite-dish {
@@ -164,8 +361,16 @@
     color: #e6c74c;
 }
 
+.fa-seedling {
+    color: #c5ee93;
+}
+
 .fa-server {
     color: #fbbaa7;
+}
+
+.fa-share-from-square {
+    color: #f8b9c5;
 }
 
 .fa-share-nodes {
@@ -196,6 +401,14 @@
     color: #a8f2ff;
 }
 
+.fa-user-astronaut {
+    color: #f8b9c5;
+}
+
+.fa-user-group {
+    color: #f8b9c5;
+}
+
 .fa-user-shield {
     color: #f3bf90;
 }
@@ -206,4 +419,148 @@
 
 .fa-window-maximize {
     color: #ffcdd5;
+}
+
+/* Buttons */
+
+.btn-primary,
+a.btn-primary,
+a.btn-primary:visited {
+  background-color: var(--bs-link-color);
+  color: var(--bs-body-bg);
+  border-radius: var(--bs-border-radius);
+  border: 1px solid var(--bs-border-color);
+  box-shadow: var(--bs-card-shadow);
+  cursor: pointer;
+  font-family: var(--bs-font-bold);
+  padding: 0.55rem;
+}
+
+a.btn-primary-outline {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+  border-radius: var(--bs-border-radius-sm);
+  border: 1px solid var(--bs-border-color);
+  box-shadow: var(--bs-card-shadow);
+  cursor: pointer;
+  font-family: var(--bs-font-sans-serif);
+  padding: 0.55rem;
+}
+
+.btn-primary-outline:not(.active):hover,
+a.btn-primary-outline:not(.active):hover {
+  background-color: var(--bs-btn-bg)!important;
+  color: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color);
+  box-shadow: var(--bs-box-shadow-md)!important
+}
+
+a.btn:not(.active):hover svg, .nav-link:not(.active):hover svg {
+  color: var(--bs-link-color) !important;
+}
+
+/* Cards */
+
+.card-hover {
+    transition: 0.5s filter;
+}
+
+.card-hover:hover {
+    filter: brightness(1.3);
+}
+
+/* iframe */
+
+iframe {
+    border: 1px solid var(--bs-border-color) !important;
+}
+
+/* Forms */
+
+.form-control:focus {
+    border-color: var(--bs-link-color);
+}
+
+/* Anchor links */
+
+h2 a#heading-hashtag,
+h3 a#heading-hashtag {
+    display: none;
+}
+
+h2:hover a#heading-hashtag,
+h3:hover a#heading-hashtag {
+    display: revert;
+}
+
+/* News posts */
+
+.post-content h2 {
+    margin-top: 2.75rem;
+}
+
+.post-content ul, .post-content p {
+    margin-bottom: 1.75rem;
+}
+
+/* File types */
+a[href$=".doc"]::after,
+a[href$=".docx"]::after,
+a[href$=".ppt"]::after,
+a[href$=".pptx"]::after,
+a[href$=".xls"]::after,
+a[href$=".xlsx"]::after,
+a[href$=".pdf"]::after,
+a[href$=".mp3"]::after,
+a[href$=".mp4"]::after,
+a[href$=".avi"]::after,
+a[href$=".mpg"]::after,
+a[href$=".mpeg"]::after,
+a[href$=".mov"]::after,
+a[href$=".wmv"]::after,
+a[href$=".mkv"]::after,
+a[href$=".jpg"]::after,
+a[href$=".jpeg"]::after,
+a[href$=".png"]::after,
+a[href$=".gif"]::after {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-left: 0.5rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Doc */
+a[href$=".doc"]::after,
+a[href$=".docx"]::after {
+    background-image: url(/assets/font-awesome/svgs/solid/file-word.svg);
+}
+
+/* PowerPoint */
+a[href$=".ppt"]::after,
+a[href$=".pptx"]::after {
+    background-image: url(/assets/font-awesome/svgs/solid/file-powerpoint.svg);
+}
+
+/* Excel */
+a[href$=".xls"]::after,
+a[href$=".xlsx"]::after {
+    background-image: url(/assets/font-awesome/svgs/solid/file-excel.svg);
+}
+
+/* PDF */
+a[href$=".pdf"]::after {
+    background-image: url(/assets/font-awesome/svgs/solid/file-pdf.svg);
+}
+
+/* MP3 */
+a[href$=".mp3"]::after {
+    background-image: url(/assets/font-awesome/svgs/solid/file-audio.svg);
+}
+
+/* MP4 */
+a[href$=".mp4"]::after {
+    background-image: url(/assets/font-awesome/svgs/solid/file-video.svg);
 }
