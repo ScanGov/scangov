@@ -12,8 +12,8 @@ export async function appendChangelog(newdata, olddata) {
 
   newdata.forEach(newItem => {
 
-    if(oldMap.get[newItem.urlkey]) {
-      let o = oldMap.get[newItem.urlkey];
+    if(oldMap.get(newItem.urlkey)) {
+      let o = oldMap.get(newItem.urlkey);
       
       let foundDiff = false;
       
