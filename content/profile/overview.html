@@ -28,9 +28,6 @@ eleventyComputed:
         <div class="card mb-3 {% if (domain.status != 200) %}{% else %}text-bg-{{ domain.overallScore | colorify }}{% endif %}" id="overall-card" score="{{ domain.overallScore }}">
           <div class="card-header">
             <a href="#" class="text-decoration-none" style="color: inherit">Overall</a>
-            <a href="https://docs.scangov.org/">
-              <i class="fa-solid fa-circle-question"></i>
-            </a>
           </div>
           <a href="/profile/{{ domain.urlkey | slugify }}/overall/" class="card-body text-center pt-5 text-decoration-none">
             <p class="display-1" id="overall-grade">{% if (domain.status != 200) %}-{% else %}{{ domain.overallScore | gradify }}{% endif %}</p>
@@ -45,9 +42,6 @@ eleventyComputed:
             <div class="card mb-3 {% if (domain.status != 200) or (domain.scores[lower] | length === 0) %}{% else %}text-bg-{{ domain.scores[lower].score | colorify }}{% endif %}" id="{{ lower }}-card" score="{{ domain.scores[lower].score }}">
               <div class="card-header">
                 <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr={{ lower }}" class="text-decoration-none" style="color: inherit">{{ card }}</a>
-                <a href="https://docs.scangov.org/topics/{{ lower }}">
-                  <i class="fa-solid fa-circle-question"></i>
-                </a>
               </div>
               <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr={{ lower }}" class="card-body text-center pt-5 text-decoration-none">
                 <p class="display-1" id="{{ lower }}-grade">

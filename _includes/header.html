@@ -40,18 +40,6 @@
       <meta name="dc.date.modified" content="{{ page.modified }}">
       <meta name="dcterms.modified" content="{{ page.modified }}">
     {% endif %}
-    <!-- Meta site -->
-    <meta property="linkedin:site" content="{{ site.linkedin-url }}">
-    <!-- Twitter -->
-    <meta name="twitter:site" content="{{ site.twitter }}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ page.title }}">
-    <meta name="twitter:description" content="{{ page.description }}">
-    {% if page.img-twitter %}
-      <meta property="twitter:image" content="{{ site.url }}/assets/img/{{ page.img-path }}/{{ page.img-twitter }}">
-    {% else %}
-      <meta property="twitter:image" content="{{ site.url }}/assets/img/avatar-twitter.png">
-    {% endif %}
     {% if page.img-og %}
       <meta property="og:image" content="{{ site.url }}/assets/img/{{ page.img-path }}/{{ page.img-og }}">
     {% else %}
