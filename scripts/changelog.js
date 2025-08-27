@@ -80,13 +80,15 @@ export async function appendChangelog(newdata, olddata) {
     for(var dateItem in changes[urlItem]) {
       if(!pastChangesData[urlItem]) {
         pastChangesData[urlItem] = {};
-        console.log(urlItem)
+        console.log('writing changelog for: '+urlItem)
       }
       if(!pastChangesData[urlItem][dateItem]) {
         newDataToAppend = true;
         pastChangesData[urlItem][dateItem] = changes[urlItem][dateItem];
+        console.log('could have set last scan time to: ',dateItem)
       } else {
         if(dateItem > lastScanTime) {
+          console.log('setting last scan to',dateItem)
           lastScanTime = dateItem;
         }
       }
