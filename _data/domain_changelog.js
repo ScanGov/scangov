@@ -17,7 +17,7 @@ export default function () {
             for (let i = 0; i < domainList.length; i++) {
                 const d = domainList[i];
 
-                if (d.url === domain.url) {
+                if (d.urlkey === domain.url) {
                     found = true;
                     domainList.splice(i, 1);
                     break;

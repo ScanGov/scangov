@@ -17,26 +17,61 @@ eleventyComputed:
   description: "Domains managed by the {{ org.name }}."
 ---
 
-<main>
-    <div class="container">
-        <div class="row">
-            {% for domain in org.domains %}
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
-                    <div class="card mb-3 text-bg-{{ domain.overallScore | colorify }}">
+{% include "profilelinks.html" %}
+<div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+    <div class="row">
+        {% for domain in org.domains %}
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch overall-card">
+                <div class="card mb-3 text-bg-{{ domain.overallScore | colorify }}">
+                    <div class="card-header">
+                        <a href="/profile/{{ domain.urlkey | slugify }}/overall/" class="text-decoration-none">{{ domain.urlkey }}</a>
+                    </div>
+                    <a href="/profile/{{ domain.urlkey | slugify }}/overall/" class="card-body text-center pt-5 text-decoration-none">
+                        <p class="display-1">
+                            {{ domain.overallScore | gradify }}
+                        </p>
+                    </a>
+                    <a class="card-footer text-center text-decoration-none" href="/profile/{{ domain.urlkey | slugify }}/overall/">
+                        Overall score {{ domain.overallScore }}%
+                    </a>
+                </div>
+            </div>
+            {% for card in site.data %}
+                {% set scorekey = card.toLowerCase() %}
+                {% set score = domain.scores[scorekey].score %}
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-none align-items-stretch {{ scorekey }}-card">
+                    <div class="card mb-3 text-bg-{{ score | colorify }}">
                         <div class="card-header">
-                            <a href="/profile/{{ domain.urlkey | slugify }}/overall/" class="text-decoration-none">{{ domain.urlkey }}</a>
+                            <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr={{ scorekey }}" class="text-decoration-none">{{ domain.urlkey }}</a>
                         </div>
-                        <a href="/profile/{{ domain.urlkey | slugify }}/overall/" class="card-body text-center pt-5 text-decoration-none">
+                        <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr={{ scorekey }}" class="card-body text-center pt-5 text-decoration-none">
                             <p class="display-1">
-                                {{ domain.overallScore | gradify }}
+                                {{ score | gradify }}
                             </p>
                         </a>
                         <a class="card-footer text-center text-decoration-none" href="/profile/{{ domain.urlkey | slugify }}/overall/">
-                            Overall score {{ domain.overallScore }}%
+                            {{ card }} score {{ score }}%
                         </a>
                     </div>
                 </div>
             {% endfor %}
-        </div>
+        {% endfor %}
     </div>
-</main>
+</div>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const topicToShow = params.get('attr');
+
+    if (topicToShow) {
+        const topicCards = document.getElementsByClassName(topicToShow + '-card');
+        if (topicCards) {
+            const overallCards = document.getElementsByClassName('overall-card');
+            for (let i = 0; i < overallCards.length; i++) {
+                overallCards[i].classList.add('d-none');
+                overallCards[i].classList.remove('d-flex');
+                topicCards[i].classList.add('d-flex');
+                topicCards[i].classList.remove('d-none');
+            }
+        }
+    }
+</script>
