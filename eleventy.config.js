@@ -327,10 +327,12 @@ export default async function (eleventyConfig) {
             let gitCSVFileData = await getGithubData(`https://github.com/ScanGov/data/raw/refs/heads/main/domains.csv`);
             fs.writeFileSync(`./public/data/domains.csv`, gitCSVFileData, 'utf8');
         }
-        let gitUpdateTime = await getGithubData('https://github.com/ScanGov/data/raw/refs/heads/main/updated_time');
-        const currentUpdateTime = fs.readFileSync('./public/data/updated_time', 'utf8');
-        if (currentUpdateTime !== gitUpdateTime) {
-            fs.writeFileSync('./public/data/updated_time', gitUpdateTime, 'utf8');
+        if (!process.env.NO_UPDATE_TIME) {
+            let gitUpdateTime = await getGithubData('https://github.com/ScanGov/data/raw/refs/heads/main/updated_time');
+            const currentUpdateTime = fs.readFileSync('./public/data/updated_time', 'utf8');
+            if (currentUpdateTime !== gitUpdateTime) {
+                fs.writeFileSync('./public/data/updated_time', gitUpdateTime, 'utf8');
+            }
         }
         let domainDataFilled = domainData();
         const olddata = JSON.parse(fs.readFileSync('./scripts/data/lastscan.json'));
