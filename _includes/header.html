@@ -23,6 +23,18 @@
     <meta property="og:title" content="{{ title }}">
     <meta property="og:description" content="{{ description }}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    {% if page.img-og %}
+      <meta property="og:image" content="{{ site.url }}/assets/img/{{ page.img-path }}/{{ page.img-og }}">
+    {% else %}
+      <meta property="og:image" content="{{ site.url }}/assets/img/avatar-og.png">
+    {% endif %}
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      {% if ogImageAlt %}
+      <meta property="og:image:alt" content="{{ ogImageAlt }}">
+      {% else %}
+      <meta property="og:image:alt" content="Project ScanGov logo">
+      {% endif %}
     {% if page.date %}
       <!-- Created date -->
       <meta property="article:published_time" content="{{ page.date }}"/>
@@ -39,21 +51,6 @@
       <meta property="article:modified_time" content="{{ page.modified }}">
       <meta name="dc.date.modified" content="{{ page.modified }}">
       <meta name="dcterms.modified" content="{{ page.modified }}">
-    {% endif %}
-    {% if page.img-og %}
-      <meta property="og:image" content="{{ site.url }}/assets/img/{{ page.img-path }}/{{ page.img-og }}">
-    {% else %}
-      <meta property="og:image" content="{{ site.url }}/assets/img/avatar-og.png">
-    {% endif %}
-    {% if page.img-feat %}
-      <!-- Featured image -->
-      <meta property="og:image:width" content="1200">
-      <meta property="og:image:height" content="630">
-      {% if page.img-alt %}
-        <meta property="og:image:alt" content="{{ page.img-alt }}">
-      {% else %}
-        <meta property="og:image:alt" content="{{ page.title }} image">
-      {% endif %}
     {% endif %}
     <!-- Favicon -->
     {% include "favicon.html" %}
