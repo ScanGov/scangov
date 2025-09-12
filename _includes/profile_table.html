@@ -16,27 +16,30 @@
         <tbody id="table-compliance-{{ scorekey }}">
         {% set attributeCards = audits[scorekey].attributes %}
         {% for attribute in attributeCards %}
-            <tr>
-            <td>
-                <a href="https://standards.scangov.org/{{ attribute.key }}">{{ attribute.displayName }}</a><br>
-                <small>{{ attribute.description }}</small>
-            </td>
-            <td>
-                {% if domain.status != 200 %}
-                <i class="fa-solid fa-circle-exclamation text-warning"></i>
-                <span class="d-xl-inline">Can't access (<a href="https://docs.scangov.org/status#500">500</a>)</span>
-                {% else %}
-                {% if (domain.scores[scorekey] | length === 0) %}
-                    N/A
-                {% else %}
-                    <i class="fa-solid {% if domain[scorekey][attribute.key] %}fa-circle-check text-success{% else %}fa-circle-xmark text-danger{% endif %}"></i>
-                    <span class="d-xl-inline">
-                    {% if domain[scorekey][attribute.key] %}Active{% else %}Missing{% endif %}
-                    </span>
-                {% endif %}
-                {% endif %}
-            </td>
-            </tr>
+            {% set score = domain[scorekey][attribute.scorekey] %}
+            {% if score !== undefined %} {# only show row if the domain has the key #}
+                <tr>
+                <td>
+                    <a href="https://standards.scangov.org/{{ attribute.key }}">{{ attribute.displayName }}</a><br>
+                    <small>{{ attribute.description }}</small>
+                </td>
+                <td>
+                    {% if domain.status != 200 %}
+                    <i class="fa-solid fa-circle-exclamation text-warning"></i>
+                    <span class="d-xl-inline">Can't access (<a href="https://docs.scangov.org/status#500">500</a>)</span>
+                    {% else %}
+                    {% if (domain.scores[scorekey] | length === 0) %}
+                        N/A
+                    {% else %}
+                        <i class="fa-solid {% if score %}fa-circle-check text-success{% else %}fa-circle-xmark text-danger{% endif %}"></i>
+                        <span class="d-xl-inline">
+                        {% if score %}Active{% else %}Missing{% endif %}
+                        </span>
+                    {% endif %}
+                    {% endif %}
+                </td>
+                </tr>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>
