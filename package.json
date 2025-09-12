@@ -33,7 +33,6 @@
 	"dependencies": {
 		"@11ty/font-awesome": "github:aaronhans/eleventy-plugin-font-awesome",
 		"@11ty/is-land": "^4.0.0",
-		"cheerio": "^1.0.0",
 		"leaflet": "^1.9.4",
 		"purgecss": "^7.0.2"
 	}
