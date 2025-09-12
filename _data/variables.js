@@ -80,7 +80,7 @@ export const robotsDataVariables = ['valid', 'allowed', 'sitemap']
 
 export const sitemapDataVariables = ['status', 'xml', 'completion']
 
-export const SITEMAP_COMPLETION_THRESHOLD = 1.0
+export const SITEMAP_COMPLETION_THRESHOLD = 1.0;
 
 export const securityDataVariables = [
     'hsts',
