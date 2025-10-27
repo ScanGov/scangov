@@ -1,27 +1,29 @@
-<div class="d-flex justify-content-end border-bottom py-1">
-  <ul class="nav nav-pills small">
-    <li class="nav-item">
-      <a
-        class="nav-link btn btn-primary-outline mx-1"
-        aria-current="page"
-        href="https://scangov.com">
-        <i class="fa-solid fa-landmark me-1"></i>ScanGov</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link btn btn-primary-outline mx-1" href="https://standards.scangov.org">
-        <i class="fa-solid fa-certificate me-1"></i>Standards</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link btn btn-primary-outline mx-1 active" href="https://scangov.org">
-        <i class="fa-solid fa-diagram-project active me-1"></i>
-        Project</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link btn btn-primary-outline mx-1" href="https://docs.scangov.org">
-        <i class="fa-solid fa-file-lines me-1"></i>
-        Docs</a>
-    </li>
-  </ul>
+<div class="d-none d-md-block">
+  <div class="d-flex justify-content-end border-bottom py-1">
+    <ul class="nav nav-pills small">
+      <li class="nav-item">
+        <a
+          class="nav-link btn btn-primary-outline mx-1"
+          aria-current="page"
+          href="https://scangov.com">
+          <i class="fa-solid fa-landmark me-1"></i>ScanGov</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn btn-primary-outline mx-1" href="https://standards.scangov.org">
+          <i class="fa-solid fa-certificate me-1"></i>Standards</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn btn-primary-outline mx-1 active" href="https://scangov.org">
+          <i class="fa-solid fa-diagram-project active me-1"></i>
+          Project</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link btn btn-primary-outline mx-1" href="https://docs.scangov.org">
+          <i class="fa-solid fa-file-lines me-1"></i>
+          Docs</a>
+      </li>
+    </ul>
+  </div>
 </div>
 <nav class="navbar navbar-expand-md border-bottom">
   <div class="container-fluid">
@@ -69,16 +71,16 @@
         {% for item in site.nav %}
           {% if item.url %}
             <li class="nav-item me-3 me-lg-0 small">
-                <a class="nav-link mx-1" href="{{ item.url }}">
-                    <i class="fa-solid fa-{{ item.icon }} me-2" title="{{ item.title }}"></i>
-                    {{ item.title }}
-                </a>
-                    {#
+              <a class="nav-link mx-1" href="{{ item.url }}">
+                <i class="fa-solid fa-{{ item.icon }} me-2" title="{{ item.title }}"></i>
+                {{ item.title }}
+              </a>
+              {#
               <a class="nav-item nav-link mx-1" href="{{ item.url }}">
                 <i class="fa-solid fa-{{ item.icon }}"></i>
                 {{ item.title }}
               </a>
-                    #}
+              #}
             </li>
           {% endif %}
         {% endfor %}
