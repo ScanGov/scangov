@@ -12,23 +12,7 @@
     </div>
   </div>
 </footer>
-<!--
-  <a  href="https://my.scangov.com/scan"
-  id="feedback-button"
-  aria-label="Scan my site"
-  class="feedback btn btn-lg">
-  Scan my site
-</a>
-<script>
-  const feedbackButton = document.getElementById("feedback-button");
-  window.addEventListener('scroll', () => {
-    if (document.documentElement.scrollTop > window.innerHeight * .3)
-      feedbackButton.style.opacity = '1';
-    else
-      feedbackButton.style.opacity = '0';
-  });
-</script>
--->
+{% include "feedback.html" %}
 <script
   async
   defer

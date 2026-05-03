@@ -1,0 +1,27 @@
+<a
+  href="https://scangov.com/"
+  id="feedback-button"
+  aria-label="Get ScanGov"
+  class="feedback btn"
+  aria-hidden="false">
+  Get ScanGov
+</a>
+
+<script>
+  const feedbackButton = document.getElementById("feedback-button");
+  const footer = document.querySelector("footer");
+
+  function updateButton() {
+  const scrolled = document.documentElement.scrollTop > window.innerHeight * 0.3;
+  const footerVisible = footer && footer.getBoundingClientRect().top < window.innerHeight;
+  const visible = scrolled && !footerVisible;
+
+  feedbackButton.style.opacity = visible ? '1' : '0';
+  feedbackButton.style.pointerEvents = visible ? 'auto' : 'none';
+  feedbackButton.setAttribute('aria-hidden', visible ? 'false' : 'true');
+  feedbackButton.setAttribute('tabindex', visible ? '0' : '-1');
+  }
+
+  window.addEventListener('scroll', updateButton);
+  updateButton();
+</script>

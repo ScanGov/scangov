@@ -18,7 +18,7 @@ keywords: government domains, government websites
       <div class="col-12">
         <div class="table-responsive">
           <table class="table table-responsive table-bordered table-hover mt-3">
-            <thead class="table-dark">
+            <thead class="">
               <tr>
                 <th scope="col" style="width: 85%;">Domain</th>
                 <th scope="col" class="text-center">Grade</th>
@@ -70,9 +70,9 @@ keywords: government domains, government websites
     }
   }
 
-searching();
+  searching();
 
-function letterGrade(score) {
+  function letterGrade(score) {
   if (score >= 90) 
     return 'A'
   if (score >= 80) 
@@ -82,11 +82,11 @@ function letterGrade(score) {
   if (score >= 60) 
     return 'D'
   return 'F'
-}
+  }
 
-function gradeColor(score) {
+  function gradeColor(score) {
   if (score >= 90) return 'success'
   if (score >= 70) return 'warning'
   return 'danger'
-}
+  }
 </script>
