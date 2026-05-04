@@ -248,10 +248,6 @@
 
 /* General */
 
-body footer a {
-    color: var(--bs-body-color);
-}
-
 blockquote {
     padding: 1rem 1rem .5rem 1rem;
     margin: 1rem 0 1rem 1.5rem;
@@ -553,6 +549,12 @@ a.btn:hover, a.btn:focus,
     --bs-nav-link-hover-border-color: #b0bac8;
 }
 
+.nav-pills .nav-link svg {
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+}
+
 .nav-pills .nav-link {
     border: 1px solid var(--bs-border-color);
     box-shadow: var(--bs-shadow);
@@ -564,6 +566,8 @@ a.btn:hover, a.btn:focus,
     padding-bottom: 0.25rem;
     margin-top: 0.35rem;
     margin-bottom: 0.35rem;
+    width: auto;
+    flex-shrink: 0;
 }
 
 .nav-pills .nav-link:not(.active):hover,
@@ -586,6 +590,9 @@ a.btn:hover, a.btn:focus,
     color: #13171f !important;
     border-color: #70e17b !important;
     box-shadow: var(--bs-shadow);
+    display: inline-flex !important;
+    width: auto;
+    align-items: center;
 }
 
 .nav-pills .nav-link.active:hover,
@@ -784,8 +791,9 @@ svg {
     height: 1em;
     overflow: visible;
     vertical-align: -.125em;
-    max-width: 1rem;
     margin: 0 .3rem;
+    flex-shrink: 0;
+    width: 1em;
 }
 
 svg.sizeicon-xl {
@@ -796,6 +804,67 @@ svg.sizeicon-xl {
 
 table td svg {
     margin: 0;
+}
+
+/* FA size classes override the default 1em height */
+.fa-2xs svg {
+    height: 0.625em;
+}
+
+.fa-xs svg {
+    height: 0.75em;
+}
+
+.fa-sm svg {
+    height: 0.875em;
+}
+
+.fa-lg svg {
+    height: 1.25em;
+}
+
+.fa-xl svg {
+    height: 1.5em;
+}
+
+.fa-2xl svg {
+    height: 2em;
+}
+
+.fa-2x svg {
+    height: 2em;
+}
+
+.fa-3x svg {
+    height: 3em;
+}
+
+.fa-4x svg {
+    height: 4em;
+}
+
+.fa-5x svg {
+    height: 5em;
+}
+
+.fa-6x svg {
+    height: 6em;
+}
+
+.fa-7x svg {
+    height: 7em;
+}
+
+.fa-8x svg {
+    height: 8em;
+}
+
+.fa-9x svg {
+    height: 9em;
+}
+
+.fa-10x svg {
+    height: 10em;
 }
 
 svg.fa-circle-check {
@@ -1584,4 +1653,69 @@ a[href*="docs.scangov.org"] svg,
 a[href*="docs.scangov.org"] i {
     color: inherit !important;
     fill: currentColor !important;
+}
+
+/* Font Awesome size utilities */
+.fa-2xs {
+    font-size: 0.625em;
+}
+
+.fa-xs {
+    font-size: 0.75em;
+}
+
+.fa-sm {
+    font-size: 0.875em;
+}
+
+.fa-lg {
+    font-size: 1.25em;
+}
+
+.fa-xl {
+    font-size: 1.5em;
+}
+
+.fa-2xl {
+    font-size: 2em;
+}
+
+.fa-1x {
+    font-size: 1em;
+}
+
+.fa-2x {
+    font-size: 2em;
+}
+
+.fa-3x {
+    font-size: 3em;
+}
+
+.fa-4x {
+    font-size: 4em;
+}
+
+.fa-5x {
+    font-size: 5em;
+}
+
+.fa-6x {
+    font-size: 6em;
+}
+
+.fa-7x {
+    font-size: 7em;
+}
+
+.fa-8x {
+    font-size: 8em;
+}
+
+.fa-9x {
+    font-size: 9em;
+}
+
+.fa-10x {
+    font-size: 10em;
 }
