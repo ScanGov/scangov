@@ -1,7 +1,5 @@
 /* This file is maintaned in https://github.com/ScanGov/components and copied to multiple projects during startup */
 
-@import url('code.css');
-
 /* Fonts */
 
 @font-face {
@@ -497,8 +495,10 @@ a.btn-primary-outline:not(.active):focus {
 
 .feedback {
     opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
     background-color: var(--bs-primary);
-    color: var(--bs-primary-text);
+    color: var(--bs-primary-text) !important;
     border-radius: var(--bs-border-radius);
     border: 1px solid var(--bs-primary);
     box-shadow: var(--bs-shadow);
@@ -510,7 +510,13 @@ a.btn-primary-outline:not(.active):focus {
     right: 2rem;
     z-index: 1000;
     text-decoration: none;
-    transition: filter 0.25s ease, box-shadow 0.25s ease;
+    transition: opacity 0.25s ease, visibility 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feedback.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
 }
 
 .feedback svg, a.btn svg {
@@ -566,6 +572,8 @@ a.btn:hover, a.btn:focus,
     padding-bottom: 0.25rem;
     margin-top: 0.35rem;
     margin-bottom: 0.35rem;
+    display: inline-flex !important;
+    align-items: center;
     width: auto;
     flex-shrink: 0;
 }
@@ -590,9 +598,6 @@ a.btn:hover, a.btn:focus,
     color: #13171f !important;
     border-color: #70e17b !important;
     box-shadow: var(--bs-shadow);
-    display: inline-flex !important;
-    width: auto;
-    align-items: center;
 }
 
 .nav-pills .nav-link.active:hover,
@@ -1718,4 +1723,14 @@ a[href*="docs.scangov.org"] i {
 
 .fa-10x {
     font-size: 10em;
+}
+
+/* Table header icons match text color */
+th a i, th a svg,
+th a:link i, th a:link svg,
+th a:visited i, th a:visited svg,
+th a:hover i, th a:hover svg,
+th a:focus i, th a:focus svg {
+    color: var(--bs-body-color) !important;
+    fill: var(--bs-body-color) !important;
 }

@@ -61,7 +61,13 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-bs-theme', theme);
+      })();
+    </script>
+</head>
 
   <body class="{{ page.layout }}" data-bs-theme="dark">
     <a class="sr-only sr-only-focusable skip-link" href="#main-content">
