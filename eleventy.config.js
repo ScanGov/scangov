@@ -131,15 +131,19 @@ export default async function (eleventyConfig) {
         )} / Score: ${score}% (${numCorrect} of ${scoreAttributeCount} tags)`
     })
 
+    function escapeAttr(str) {
+        return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+    }
+
     function writeStatusIconsForAttribute(log, scorekey) {
         let output = ''
         if (!log) return output
         for (var attr in log) {
-            let attrDisplayName = findAuditDisplayName(scorekey, attr)
+            let attrDisplayName = escapeAttr(findAuditDisplayName(scorekey, attr))
             if (log[attr]) {
-                output += ` <span title="${attrDisplayName} (${scorekey})"><i class="fa-solid fa-circle-check text-success" >check</i></span>`
+                output += ` <span title="${attrDisplayName} (${scorekey})"><i class="fa-solid fa-circle-check text-success"></i></span>`
             } else {
-                output += ` <span title="${attrDisplayName} (${scorekey})"><i class="fa-solid fa-circle-xmark text-danger">x</i></span>`
+                output += ` <span title="${attrDisplayName} (${scorekey})"><i class="fa-solid fa-circle-xmark text-danger"></i></span>`
             }
         }
         return output
@@ -152,7 +156,7 @@ export default async function (eleventyConfig) {
     eleventyConfig.addFilter('allAuditStatusIcons', (domainData) => {
         let output = ''
         if (domainData.status !== 200) {
-            output = `<span title="Inaccessible (status 500)"><i class="fa-solid fa-circle-exclamation text-warning">!</i></span>`
+            output = `<span title="Inaccessible (status 500)"><i class="fa-solid fa-circle-exclamation text-warning"></i></span>`
         } else {
             for (var a in domainData.scores) {
                 output += writeStatusIconsForAttribute(domainData[a], a)
