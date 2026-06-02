@@ -4,9 +4,6 @@ import { stateDomainList } from '../_data/variables.js';
 
 const AUDITOR_URL = 'https://audits.my.scangov.com/all';
 const HASH_SECRET = process.env.SCANGOV_HASH_SECRET;
-if (!HASH_SECRET) {
-    throw new Error('SCANGOV_HASH_SECRET environment variable is not set');
-}
 const REQUIRED_TOPICS = ['botability', 'accessibility', 'security', 'usability'];
 const OUTPUT_FILE = './public/data/myscangov_homepage_audits.json';
 const MIN_RECORD_COUNT = 900;
@@ -99,6 +96,10 @@ function validateData(complete) {
 }
 
 export async function fetchAuditorData() {
+    if (!HASH_SECRET) {
+        console.log('SCANGOV_HASH_SECRET not set, skipping data fetch');
+        return null;
+    }
     const { time, hash } = generateAuthParams();
     const url = `${AUDITOR_URL}?homepages=true&time=${time}&hash=${hash}`;
 
@@ -165,6 +166,10 @@ export async function fetchAuditorData() {
 // Run standalone
 const isMainModule = process.argv[1] && process.argv[1].includes('fetch-auditor-data');
 if (isMainModule) {
+    if (!HASH_SECRET) {
+        console.error('Error: SCANGOV_HASH_SECRET environment variable is not set');
+        process.exit(1);
+    }
     try {
         const data = await fetchAuditorData();
         if (data === null) {

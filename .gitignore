@@ -5,7 +5,8 @@ package-lock.json
 vendor/
 ssl/
 .DS_Store
-public/data/
+public/data/*
+!public/data/myscangov_homepage_audits.json
 .claude
 extra-ca-certs.pem
 scripts/data/scan_*.json
