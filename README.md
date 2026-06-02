@@ -14,10 +14,12 @@ Audit data is fetched from the auditor API at build time. The `eleventy.before` 
 
 In serve mode, the fetch is skipped if the data file already exists. To force a refresh, delete the file and restart the dev server.
 
+The fetch script requires the `SCANGOV_HASH_SECRET` environment variable. Find the value in the closed auditor repo.
+
 To fetch data manually:
 
 ```
-node scripts/fetch-auditor-data.js
+SCANGOV_HASH_SECRET='...' node scripts/fetch-auditor-data.js
 ```
 
 ### Build triggers
