@@ -6,21 +6,17 @@
 
 ## Data
 
-Audit data is fetched from the auditor API at build time. The `eleventy.before` hook in `eleventy.config.js` calls `scripts/fetch-auditor-data.js`, which:
+Audit data is committed to the repo at `public/data/myscangov_homepage_audits.json`. The build uses this file directly.
 
-1. Fetches domain audit data from `https://audits.my.scangov.com/all?homepages=true`
-2. Filters out incomplete records (missing scores, NaN values, etc.)
-3. Writes the result to `public/data/myscangov_homepage_audits.json`
-
-In serve mode, the fetch is skipped if the data file already exists. To force a refresh, delete the file and restart the dev server.
-
-The fetch script requires the `SCANGOV_HASH_SECRET` environment variable. Find the value in the closed auditor repo.
-
-To fetch data manually:
+To refresh the data, run the fetch script with the `SCANGOV_HASH_SECRET` environment variable (find the value in the closed auditor repo):
 
 ```
 SCANGOV_HASH_SECRET='...' node scripts/fetch-auditor-data.js
 ```
+
+The fetch script pulls from the auditor API, filters incomplete records, validates state coverage, and overwrites the data file. Commit the updated file to deploy new data.
+
+If `SCANGOV_HASH_SECRET` is not set, the build skips the fetch and uses the committed data file.
 
 ### Build triggers
 
