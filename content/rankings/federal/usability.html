@@ -1,0 +1,20 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (federal / usability)
+keywords: government domains, government websites
+
+pagination:
+  data: usabilitytags.federal
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Usability Results" %}
+{% set dataset = usabilitytags.federal %}
+{% set specificAttribute = "usability" %}
+{% set currentsort = "federal" %}
+{% set currentScore = member[0].scores['usability'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

@@ -16,22 +16,16 @@
   "timezone": "America/Los_Angeles",
   "data": [
     "Accessibility",
-    "Content",
-    "Domain",
-    "Performance",
-    "SEO",
+    "Botability",
     "Security",
-    "Social"
+    "Usability"
   ],
   "mapFields": [
     "Overall",
     "Accessibility",
-    "Content",
-    "Domain",
-    "Performance",
-    "SEO",
+    "Botability",
     "Security",
-    "Social"
+    "Usability"
   ],
   "nav": [
     {
