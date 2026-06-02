@@ -1,136 +1,60 @@
-// Map variables from the data files to their sections
-export const variablesMap = new Map([
-    ['title', 'content'],
-    ['description', 'content'],
-    ['viewport', 'content'],
-    ['canonical', 'seo'],
-    ['ogSiteName', 'social'],
-    ['ogType', 'social'],
-    ['ogTitle', 'social'],
-    ['ogDescription', 'social'],
-    ['ogUrl', 'social'],
-    ['ogImage', 'social'],
-    ['ogImageAlt', 'social'],
-    ['valid', 'seo'],
-    ['allowed', 'seo'],
-    ['sitemap', 'seo'],
-    ['status', 'seo'],
-    ['xml', 'seo'],
-    ['completion', 'seo'],
-    ['a11y-best-practices', 'accessibility'],
-    ['a11y-color-contrast', 'accessibility'],
-    ['a11y-names-labels', 'accessibility'],
-    ['a11y-navigation', 'accessibility'],
-    ['a11y-aria', 'accessibility'],
-    ['a11y-language', 'accessibility'],
-    ['a11y-audio-video', 'accessibility'],
-    ['a11y-tables-lists', 'accessibility'],
-    ['hidden', 'accessibility'],
-    ['hsts', 'security'],
-    ['csp', 'security'],
-    ['xContentTypeOptions', 'security'],
-    ['securityTxt', 'security'],
-    ['https', 'domain'],
-    ['www', 'domain'],
-    ['dotgov', 'domain'],
-    ['ttfb', 'performance'],
-    ['fcp', 'performance'],
-    ['lcp', 'performance'],
-    ['cls', 'performance'],
-    ['inp', 'performance']
-]);
-
-export const metaDataVariables = [
-    'title',
-    'description',
-    'viewport',
-    'canonical',
-    'ogSiteName',
-    'ogType',
-    'ogTitle',
-    'ogDescription',
-    'ogUrl',
-    'ogImage',
-    'ogImageAlt',
+// Attribute lists per topic (matching standards/audits.json)
+export const botabilityDataVariables = [
+    'crawlable', 'text-content', 'schema-government-organization',
+    'status', 'xml', 'valid', 'allowed', 'sitemap-robots',
+    'canonical', 'link-text', 'hreflang'
 ]
-
-export const socialDataVariables = [
-    'ogSiteName',
-    'ogType',
-    'ogTitle',
-    'ogDescription',
-    'ogUrl',
-    'ogImage',
-    'ogImageAlt'
-]
-
-export const contentDataVariables = [
-    'title',
-    'description',
-    'viewport'
-]
-
-export const seoDataVariables = [
-    'valid', 'allowed', 'sitemap',
-    'status', 'xml', 'completion',
-    'canonical'
-]
-
-export const robotsDataVariables = ['valid', 'allowed', 'sitemap']
-
-export const sitemapDataVariables = ['status', 'xml', 'completion']
-
-export const SITEMAP_COMPLETION_THRESHOLD = 1.0;
-
-export const securityDataVariables = [
-    'hsts',
-    'csp',
-    'xContentTypeOptions',
-    'securityTxt',
-]
-
-export const urlDataVariables = ['https', 'dotgov', 'www']
-
-export const performanceDataVariables = ['ttfb', 'fcp', 'lcp', 'cls', 'inp']
 
 export const accessibilityDataVariables = [
-    'a11y-best-practices',
-    'a11y-color-contrast',
-    'a11y-names-labels',
-    'a11y-navigation',
-    'a11y-aria',
-    'a11y-language',
-    'a11y-audio-video',
-    'a11y-tables-lists',
-    'hidden',
+    'accesskeys', 'aria-allowed-attr', 'aria-allowed-role', 'aria-command-name',
+    'aria-conditional-attr', 'aria-deprecated-role', 'aria-dialog-name',
+    'aria-hidden-body', 'aria-hidden-focus', 'aria-input-field-name',
+    'aria-meter-name', 'aria-progressbar-name', 'aria-prohibited-attr',
+    'aria-required-attr', 'aria-required-children', 'aria-required-parent',
+    'aria-roles', 'aria-text', 'aria-toggle-field-name', 'aria-tooltip-name',
+    'aria-treeitem-name', 'aria-valid-attr-value', 'aria-valid-attr',
+    'button-name', 'bypass', 'color-contrast', 'definition-list', 'dlitem',
+    'document-title', 'duplicate-id-aria', 'form-field-multiple-labels',
+    'frame-title', 'heading-order', 'html-has-lang', 'html-lang-valid',
+    'html-xml-lang-mismatch', 'image-alt', 'image-redundant-alt',
+    'input-button-name', 'input-image-alt', 'label', 'link-in-text-block',
+    'link-name', 'list', 'listitem', 'meta-refresh', 'meta-viewport',
+    'object-alt', 'select-name', 'skip-link', 'tabindex',
+    'table-duplicate-name', 'target-size', 'td-headers-attr',
+    'th-has-data-cells', 'valid-lang', 'video-caption', 'empty-heading',
+    'identical-links-same-purpose', 'landmark-one-main',
+    'label-content-name-mismatch', 'table-fake-caption', 'td-has-header',
+    'image-aspect-ratio', 'doctype', 'charset'
 ]
 
+export const usabilityDataVariables = [
+    'title', 'description', 'readability', 'viewport', 'www',
+    'cls', 'fcp', 'inp', 'lcp', 'ttfb',
+    'ogsitename', 'ogtype', 'ogtitle', 'ogdescription',
+    'ogurl', 'ogimage', 'ogimagealt'
+]
+
+export const securityDataVariables = [
+    'csp', 'hsts', 'securitytxt', 'xcontenttypeoptions',
+    'errors-in-console', 'clickjacking-mitigation',
+    'paste-preventing-inputs', 'https', 'dotgov'
+]
+
+// Map each attribute to its topic
+export const variablesMap = new Map([
+    ...botabilityDataVariables.map(v => [v, 'botability']),
+    ...accessibilityDataVariables.map(v => [v, 'accessibility']),
+    ...usabilityDataVariables.map(v => [v, 'usability']),
+    ...securityDataVariables.map(v => [v, 'security']),
+]);
+
+// Map topics to their attribute lists
 export const variableTopics = new Map([
-    ['content', contentDataVariables],
-    ['performance', performanceDataVariables],
+    ['botability', botabilityDataVariables],
     ['accessibility', accessibilityDataVariables],
+    ['usability', usabilityDataVariables],
     ['security', securityDataVariables],
-    ['content', contentDataVariables],
-    ['domain', urlDataVariables],
-    ['social', socialDataVariables],
-    ['seo', seoDataVariables]
 ]);
-
-export const dataFiles = new Map([
-    ['metadata', metaDataVariables],
-    ['robots', robotsDataVariables],
-    ['security', securityDataVariables],
-    ['sitemap', sitemapDataVariables],
-    ['url', urlDataVariables],
-    ['performance', performanceDataVariables],
-    ['accessibility', accessibilityDataVariables]
-]);
-
-const elementFilesArray = [];
-for (const file of dataFiles)
-    for (const element of file[1])
-        elementFilesArray.push([element, file[0]]);
-export const elementToDataFile = new Map(elementFilesArray);
 
 export const stateDomainList = [
     'alabama.gov',
@@ -498,6 +422,7 @@ export const cityDomainList = [
 ]
 
 export const addRankingPosition = function (data, attribute) {
+    if (!data || data.length === 0) return data;
     let currentScore = 100;
     let rankingPosition = 1;
     if (attribute) {

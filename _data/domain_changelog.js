@@ -1,12 +1,16 @@
 import { domainHistories as domains, dateNumberToString } from './history.js';
 import { default as domainJS } from './domains.js';
-import { readFileSync } from 'fs';
 
 const domainList = domainJS();
 
 export default function () {
-    // Used for the visit page link in the profile links
-    const redirects = JSON.parse(readFileSync('public/data/url.json'));
+    // Build redirect/name lookup from main domain data
+    const domainInfo = new Map();
+    domainList.forEach(d => {
+        domainInfo.set(d.urlkey, { redirect: d.redirect, name: d.name });
+    });
+
+    const remainingDomains = [...domainList];
 
     // History is a list of every domain and its changes
     const history = [];
@@ -14,12 +18,12 @@ export default function () {
         // Skip domains without a page if on local
         if (process.env.ELEVENTY_RUN_MODE === 'serve') {
             let found = false;
-            for (let i = 0; i < domainList.length; i++) {
-                const d = domainList[i];
+            for (let i = 0; i < remainingDomains.length; i++) {
+                const d = remainingDomains[i];
 
                 if (d.urlkey === domain.url) {
                     found = true;
-                    domainList.splice(i, 1);
+                    remainingDomains.splice(i, 1);
                     break;
                 }
             }
@@ -31,17 +35,12 @@ export default function () {
         const obj = { url: domain.url };
 
         // Get domain data
-        for (let i = 0; i < redirects.length; i++) {
-            const r = redirects[i];
-
-            if (r.url === domain.url) {
-                obj.redirect = r.redirect;
-                obj.name = r.name;
-                redirects.splice(i, 1);
-                break;
-            }
-
+        const info = domainInfo.get(domain.url);
+        if (info) {
+            obj.redirect = info.redirect;
+            obj.name = info.name;
         }
+
         obj.log = [...domain.changes]
             .sort((a, b) => b[0] - a[0])
             .map(c => {

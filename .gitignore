@@ -1,10 +1,12 @@
-.jekyll-cache/
 _site/
 node_modules/
 test/
-Gemfile.lock
 package-lock.json
 vendor/
 ssl/
 .DS_Store
 public/data/
+.claude
+extra-ca-certs.pem
+scripts/data/scan_*.json
+scripts/data/baseline_domains.json

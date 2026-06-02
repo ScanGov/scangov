@@ -105,13 +105,16 @@
     --bs-form-control-focus-color: var(--bs-body-color);
     --bs-card-focus-box-shadow: 0 0 0 0.25rem rgba(112, 225, 123, 0.25);
     /* Status colors */
+    --bs-success: #70e17b;
     --bs-bg-success: #70e17b;
     --bs-bg-success-rgb: 112, 225, 123;
     --bs-border-success: #70e17b;
+    --bs-warning: #face00;
     --bs-text-warning: #000000;
     --bs-bg-warning: #face00;
     --bs-bg-warning-rgb: 250, 206, 0;
     --bs-border-warning: #face00;
+    --bs-danger: #e41d3d;
     --bs-text-danger: #ffffff;
     --bs-bg-danger: #e41d3d;
     --bs-bg-danger-rgb: 228, 29, 61;

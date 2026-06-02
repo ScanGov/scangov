@@ -15,6 +15,7 @@ import { PurgeCSS } from 'purgecss'
 import { getData } from './scripts/getdata.js'
 import { appendChangelog } from './scripts/changelog.js';
 import { default as domainData } from './_data/domains.js';
+import { fetchAuditorData } from './scripts/fetch-auditor-data.js';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function (eleventyConfig) {
@@ -87,22 +88,44 @@ export default async function (eleventyConfig) {
         })
     })
 
+    // Look up display name for an attribute key from audits.json; returns the key itself if not found
+    function findAuditDisplayName(scorekey, attrKey) {
+        if (audits[scorekey] && audits[scorekey].attributes) {
+            for (const attrEl of audits[scorekey].attributes) {
+                if (attrEl.key === attrKey || attrEl.scorekey === attrKey) {
+                    return attrEl.displayName
+                }
+            }
+        }
+        return attrKey
+    }
+
+    // Look up full attribute info from audits.json; returns null if not found
+    function findAuditAttributeInfo(scorekey, attrKey) {
+        if (audits[scorekey] && audits[scorekey].attributes) {
+            for (const attrEl of audits[scorekey].attributes) {
+                if (attrEl.key === attrKey || attrEl.scorekey === attrKey) {
+                    return attrEl
+                }
+            }
+        }
+        return null
+    }
+
+    eleventyConfig.addFilter('findAuditAttribute', (log, scorekey, attrKey) => {
+        return findAuditAttributeInfo(scorekey, attrKey)
+    })
+
     eleventyConfig.addFilter('scanResultWriteUp', (log, scorekey) => {
         let scoreAttributeCount = 0
         let numCorrect = 0
-        let attributesToCheck = []
-        for (var a in audits[scorekey].attributes) {
-            attributesToCheck.push(audits[scorekey].attributes[a].key)
-        }
         for (var attr in log) {
-            if (attributesToCheck.indexOf(attr) > -1) {
-                if (log[attr]) {
-                    numCorrect++
-                }
-                scoreAttributeCount++
+            if (log[attr]) {
+                numCorrect++
             }
+            scoreAttributeCount++
         }
-        let score = Math.round((numCorrect / scoreAttributeCount) * 100)
+        let score = scoreAttributeCount > 0 ? Math.round((numCorrect / scoreAttributeCount) * 100) : 0
         return `Grade: ${gradeThis(
             score,
         )} / Score: ${score}% (${numCorrect} of ${scoreAttributeCount} tags)`
@@ -110,23 +133,13 @@ export default async function (eleventyConfig) {
 
     function writeStatusIconsForAttribute(log, scorekey) {
         let output = ''
-        let attributesToCheck = []
-        for (var a in audits[scorekey].attributes) {
-            attributesToCheck.push(audits[scorekey].attributes[a].key)
-        }
+        if (!log) return output
         for (var attr in log) {
-            if (attributesToCheck.indexOf(attr) > -1) {
-                let attrDisplayName = attr
-                audits[scorekey].attributes.forEach((attrEl) => {
-                    if (attrEl.key === attr) {
-                        attrDisplayName = attrEl.displayName
-                    }
-                })
-                if (log[attr]) {
-                    output += ` <span title="${attrDisplayName} (${scorekey})"><i class="fa-solid fa-circle-check text-success" >check</i></span>`
-                } else {
-                    output += ` <span title="${attrDisplayName} (${scorekey})"><i class="fa-solid fa-circle-xmark text-danger">x</i></span>`
-                }
+            let attrDisplayName = findAuditDisplayName(scorekey, attr)
+            if (log[attr]) {
+                output += ` <span title="${attrDisplayName} (${scorekey})"><i class="fa-solid fa-circle-check text-success" >check</i></span>`
+            } else {
+                output += ` <span title="${attrDisplayName} (${scorekey})"><i class="fa-solid fa-circle-xmark text-danger">x</i></span>`
             }
         }
         return output
@@ -141,7 +154,7 @@ export default async function (eleventyConfig) {
         if (domainData.status !== 200) {
             output = `<span title="Inaccessible (status 500)"><i class="fa-solid fa-circle-exclamation text-warning">!</i></span>`
         } else {
-            for (var a in audits) {
+            for (var a in domainData.scores) {
                 output += writeStatusIconsForAttribute(domainData[a], a)
             }
         }
@@ -205,23 +218,15 @@ export default async function (eleventyConfig) {
     eleventyConfig.addFilter('specificAverageElements', (data, attribute) => {
         let elementTally = 0
         let respondingDomains = 0
-        let overallPossibleElements = 0
 
-        for (var attr in audits[attribute].attributes) {
-            overallPossibleElements++
-        }
         data.forEach((d) => {
-            if (d.status === 200) {
-                for (var attr in audits[attribute].attributes) {
-                    let key = audits[attribute].attributes[attr].key
-                    if (d[attribute][key] === true) {
-                        elementTally++
-                    }
-                }
+            if (d.status === 200 && d.scores[attribute]) {
+                elementTally += d.scores[attribute].correct
                 respondingDomains++
             }
         })
-        let averageElements = Math.round(elementTally / respondingDomains)
+        let averageElements = respondingDomains > 0 ? Math.round(elementTally / respondingDomains) : 0
+        let overallPossibleElements = data[0] && data[0].scores[attribute] ? data[0].scores[attribute].all : 0
         return `${averageElements} out of ${overallPossibleElements} elements`
     })
 
@@ -314,15 +319,20 @@ export default async function (eleventyConfig) {
     })
 
     eleventyConfig.on("eleventy.before", async ({ dir, runMode, outputMode }) => {
-        let allFileNames = ['accessibility', 'metadata', 'performance', 'robots', 'security', 'sitemap', 'url', 'myscangov_homepage_audits'];
-        for (let i = 0; i < allFileNames.length; i++) {
-            let filename = allFileNames[i];
-            if (process.env.ELEVENTY_RUN_MODE === 'serve' && fs.existsSync(`./public/data/${filename}.json`))
-                continue;
-
-            let gitFileData = await getGithubData(`https://github.com/ScanGov/data/raw/refs/heads/main/${filename}.json`);
-            fs.writeFileSync(`./public/data/${filename}.json`, gitFileData, 'utf8');
+        // Fetch audit data from auditor API (or skip if already cached in serve mode)
+        if (process.env.ELEVENTY_RUN_MODE !== 'serve' || !fs.existsSync('./public/data/myscangov_homepage_audits.json')) {
+            const auditData = await fetchAuditorData();
+            if (auditData === null) {
+                if (fs.existsSync('./public/data/myscangov_homepage_audits.json')) {
+                    console.warn('\n⚠ New audit data failed validation. Building with previous data.\n');
+                } else {
+                    throw new Error('Audit data failed validation and no previous data file exists. Cannot build.');
+                }
+            } else {
+                fs.writeFileSync('./public/data/myscangov_homepage_audits.json', JSON.stringify(auditData), 'utf8');
+            }
         }
+
         if (process.env.ELEVENTY_RUN_MODE !== 'serve' || !fs.existsSync(`./public/data/domains.csv`)) {
             let gitCSVFileData = await getGithubData(`https://github.com/ScanGov/data/raw/refs/heads/main/domains.csv`);
             fs.writeFileSync(`./public/data/domains.csv`, gitCSVFileData, 'utf8');

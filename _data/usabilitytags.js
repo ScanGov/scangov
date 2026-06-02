@@ -1,31 +1,30 @@
 import { default as domainData } from './domains.js'
 import { stateDomainList, cityDomainList, addRankingPosition } from './variables.js';
-import * as fs from 'fs'
 
+/* this file is named usabilitytags.js because "content" was an 11ty reserved word
+   and the pattern was continued for consistency */
 export default function () {
     let domainDataFilled = domainData()
 
-    let seo = {}
-    let currentAttribute = 'seo';
+    let usability = {};
+    let currentAttribute = 'usability';
     let overall = domainDataFilled.sort(function (a, b) {
-        return (
-            parseInt(b.scores[currentAttribute].score) - parseInt(a.scores[currentAttribute].score)
-        )
+        return b.scores[currentAttribute].score - a.scores[currentAttribute].score
     })
-    seo.overall = addRankingPosition(overall, currentAttribute);
+    usability.overall = addRankingPosition(overall, currentAttribute);
 
     const filteredStatesOnly = overall.filter(
         (obj) => stateDomainList.lastIndexOf(obj.urlkey) > -1,
     )
-    seo.states = addRankingPosition(filteredStatesOnly, currentAttribute);
+    usability.states = addRankingPosition(filteredStatesOnly, currentAttribute);
 
     const filteredCitiesOnly = overall.filter(
         (obj) => cityDomainList.lastIndexOf(obj.urlkey) > -1,
     )
-    seo.cities = addRankingPosition(filteredCitiesOnly, currentAttribute);
+    usability.cities = addRankingPosition(filteredCitiesOnly, currentAttribute);
 
     const filteredFedsOnly = overall.filter(obj => (cityDomainList.lastIndexOf(obj.urlkey) === -1 && stateDomainList.lastIndexOf(obj.urlkey) === -1));
-    seo.federal = addRankingPosition(filteredFedsOnly, currentAttribute);
+    usability.federal = addRankingPosition(filteredFedsOnly, currentAttribute);
 
-    return seo
+    return usability
 }
