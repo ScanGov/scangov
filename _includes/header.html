@@ -11,8 +11,7 @@
     {% if author %}
     <meta name="author" content="{{ author }}">
     {% endif %}
-    <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta property="og:locale" content="en_US">
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url }}">
@@ -40,9 +39,6 @@
     {% if date %}
     <!-- Created date -->
     <meta property="article:published_time" content="{{ date }}" />
-    <meta name="dc.date" content="{{ date }}">
-    <meta name="dc.date.created" content="{{ date }}">
-    <meta name="dcterms.created" content="{{ date }}">
     {% endif %}
     {% if author %}
     <!-- Author -->
@@ -51,8 +47,12 @@
     {% if modified %}
     <!-- Modified date -->
     <meta property="article:modified_time" content="{{ modified }}">
-    <meta name="dc.date.modified" content="{{ modified }}">
-    <meta name="dcterms.modified" content="{{ modified }}">
+    {% endif %}
+    {% if schema %}
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {{ schema | safe }}
+    </script>
     {% endif %}
     <!-- Favicon -->
     {% include "favicon.html" %}
