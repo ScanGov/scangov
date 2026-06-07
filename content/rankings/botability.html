@@ -1,0 +1,20 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (botability)
+keywords: government domains, government websites
+
+pagination:
+  data: botability.overall
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Botability Results" %}
+{% set dataset = botability.overall %}
+{% set specificAttribute = "botability" %}
+{% set currentsort = "" %}
+{% set currentScore = member[0].scores['botability'].score %}
+{% set showPagination = true %}
+
+{% include "sortcontent.html" %}

@@ -16,12 +16,9 @@ description: A project by ScanGov, gives insights into the digital experience of
                     {% set topics = {
                         overall: sorts.overall,
                         accessibility: accessibility.overall,
-                        content: contenttags.overall,
-                        performance: performance.overall,
+                        botability: botability.overall,
                         security: security.overall,
-                        seo: seo.overall,
-                        social: social.overall,
-                        domain: url.overall
+                        usability: usabilitytags.overall
                     } %}
                     {% for specificAttribute, dataset in topics %}
                         {% if specificAttribute === "overall" %}
