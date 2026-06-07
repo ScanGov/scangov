@@ -1,6 +1,10 @@
 .highlight pre,
 pre.highlight {
-    background-color: #272822
+    background-color: #000000;
+    border-radius: .15rem;
+    font-family: var(--bs-font-monospace);
+    margin-bottom: 2rem;
+    padding: 1rem;
 }
 
 .highlight .hll {
@@ -92,7 +96,7 @@ pre.highlight {
 }
 
 .highlight .s {
-    color: #ec7600
+    color: #a1d3ff
 }
 
 .highlight .na {
