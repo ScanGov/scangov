@@ -104,13 +104,40 @@ export async function fetchAuditorData() {
     const url = `${AUDITOR_URL}?homepages=true&time=${time}&hash=${hash}`;
 
     console.log('Fetching data from auditor API...');
+    console.log(`[DEBUG] Request URL: ${AUDITOR_URL}?homepages=true&time=${time}&hash=<redacted>`);
     const response = await fetch(url);
+    console.log(`[DEBUG] Response status: ${response.status} ${response.statusText}`);
+    console.log(`[DEBUG] Response headers: content-type=${response.headers.get('content-type')}, content-length=${response.headers.get('content-length')}`);
     if (!response.ok) {
+        const errorBody = await response.text();
+        console.error(`[DEBUG] Error response body: ${errorBody.substring(0, 500)}`);
         throw new Error(`Auditor API returned status ${response.status}`);
     }
 
-    const data = await response.json();
+    const rawText = await response.text();
+    console.log(`[DEBUG] Response body length: ${rawText.length} characters`);
+    console.log(`[DEBUG] Response body preview (first 300 chars): ${rawText.substring(0, 300)}`);
+
+    let data;
+    try {
+        data = JSON.parse(rawText);
+    } catch (e) {
+        console.error(`[DEBUG] JSON parse failed: ${e.message}`);
+        console.error(`[DEBUG] Full response body: ${rawText.substring(0, 1000)}`);
+        throw new Error(`Failed to parse auditor API response as JSON: ${e.message}`);
+    }
+
+    console.log(`[DEBUG] Parsed data type: ${typeof data}, isArray: ${Array.isArray(data)}`);
+    console.log(`[DEBUG] Top-level keys: ${typeof data === 'object' && data !== null ? Object.keys(data).join(', ') : 'N/A'}`);
+    if (data.meta) {
+        console.log(`[DEBUG] data.meta: ${JSON.stringify(data.meta)}`);
+    }
+
     const records = data.records || data;
+    console.log(`[DEBUG] Records isArray: ${Array.isArray(records)}, length: ${Array.isArray(records) ? records.length : 'N/A'}`);
+    if (Array.isArray(records) && records.length > 0) {
+        console.log(`[DEBUG] First record sample: ${JSON.stringify(records[0]).substring(0, 500)}`);
+    }
 
     if (!Array.isArray(records)) {
         throw new Error('Auditor API did not return an array of records');
