@@ -1,11 +1,9 @@
-<!-- Google tag (gtag.js) -->
-<script
-  async
-  defer
-  src="https://www.googletagmanager.com/gtag/js?id=G-MM5GF482X0"></script>
+{% if site.gaId %}
+<script async defer src="https://www.googletagmanager.com/gtag/js?id={{ site.gaId }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-MM5GF482X0');
+  gtag('config', '{{ site.gaId }}');
 </script>
+{% endif %}
