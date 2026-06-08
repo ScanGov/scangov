@@ -14,6 +14,8 @@
   "twitter": "",
   "date": "%B %-d, %Y",
   "timezone": "America/Los_Angeles",
+  "gaId": "G-MM5GF482X0",
+  "securityExpires": "2027-01-01T00:00:00.000Z",
   "data": [
     "Accessibility",
     "Botability",
