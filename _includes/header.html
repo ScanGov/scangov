@@ -17,12 +17,12 @@
     <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url }}">
     <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url }}">
     <!-- Title -->
-    <title>{{ title }} - {{ site.title }}</title>
+    <title>{% if title %}{{ title }} - {% endif %}{{ site.title }}</title>
     <!-- Open Graph -->
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{{ description }}">
+    {% if title %}<meta property="og:title" content="{{ title }}">{% endif %}
+    {% if description %}<meta property="og:description" content="{{ description }}">{% endif %}
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     {% if ogImage %}
     <meta property="og:image" content="{{ site.url }}/assets/img/{{ ogImage }}">
@@ -67,7 +67,7 @@
     </script>
 </head>
 
-<body class="{{ layout }}" data-bs-theme="dark">
+<body{% if layout %} class="{{ layout }}"{% endif %} data-bs-theme="dark">
     <a class="visually-hidden visually-hidden-focusable skip-link" href="#main-content">
         Skip to main content
     </a>
