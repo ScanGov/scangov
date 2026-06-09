@@ -18,7 +18,7 @@
     <meta property="og:site_name" content="Project ScanGov">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Rankings (accessibility)">
-    <meta property="og:description" content="">
+    
     <meta property="og:url" content="https://scangov.org/rankings/accessibility/1/">
     
     <meta property="og:image" content="https://scangov.org/assets/img/avatar-og.png">
@@ -2336,7 +2336,8 @@
 
 <script>
   /* mobile menu */
-  document.querySelectorAll('.navbar-toggler')[0].addEventListener('click',function(e) { document.getElementById('navbarSupportedContent').classList.toggle('show'); })
+  const toggler = document.querySelectorAll('.navbar-toggler')[0];
+  if (toggler) { toggler.addEventListener('click',function(e) { document.getElementById('navbarSupportedContent').classList.toggle('show'); }); }
 
   /* autocomplete search */
   // Awesomplete - Lea Verou - MIT license

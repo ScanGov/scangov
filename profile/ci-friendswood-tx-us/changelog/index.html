@@ -576,7 +576,8 @@
 
 <script>
   /* mobile menu */
-  document.querySelectorAll('.navbar-toggler')[0].addEventListener('click',function(e) { document.getElementById('navbarSupportedContent').classList.toggle('show'); })
+  const toggler = document.querySelectorAll('.navbar-toggler')[0];
+  if (toggler) { toggler.addEventListener('click',function(e) { document.getElementById('navbarSupportedContent').classList.toggle('show'); }); }
 
   /* autocomplete search */
   // Awesomplete - Lea Verou - MIT license
