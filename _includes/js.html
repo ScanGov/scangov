@@ -1,7 +1,11 @@
 <script>
   /* mobile menu */
-  const toggler = document.querySelectorAll('.navbar-toggler')[0];
-  if (toggler) { toggler.addEventListener('click',function(e) { document.getElementById('navbarSupportedContent').classList.toggle('show'); }); }
+  const toggler = document.querySelector('button.navbar-toggler');
+  if (toggler) {
+    toggler.addEventListener('click', function(e) {
+      document.querySelector(this.dataset.target).classList.toggle('show');
+    });
+  }
 
   /* autocomplete search */
   // Awesomplete - Lea Verou - MIT license
