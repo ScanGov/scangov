@@ -28,22 +28,5 @@
     "Botability",
     "Security",
     "Usability"
-  ],
-  "nav": [
-    {
-        "url": "/rankings/",
-        "title": "Rankings",
-        "icon": "ranking-star"
-    },
-    {
-      "url": "/changelog",
-      "title": "Changelog",
-      "icon": "timeline"
-    },
-    {
-      "url": "/map/states/overall",
-      "title": "Map",
-      "icon": "map"
-    }
   ]
 }
