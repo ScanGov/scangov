@@ -25,15 +25,18 @@
 </ul>
 
 <ul class="nav nav-pills filter small">
-    <li class="nav-item">
-        <a class="nav-link btn btn-primary-outline mx-1{% if not specificAttribute %} active{% endif %}"{% if not specificAttribute %} aria-current="page"{% endif %} href="/rankings/{{ directory }}">
-            <i class="fa-solid fa-circle-notch"></i>All</a>
-    </li>
+    {% set pillTitle = "All" %}
+    {% set pillUrl = "/rankings/" + directory %}
+    {% set pillIcon = "fa-solid fa-circle-notch" %}
+    {% set pillActive = not specificAttribute %}
+    {% include "filter-pill.html" %}
+
     {% for topic in site.data %}
         {% set topicKey = topic.toLowerCase() %}
-        <li class="nav-item">
-            <a class="nav-link btn btn-primary-outline mx-1{% if specificAttribute === topicKey %} active{% endif %}"{% if specificAttribute === topicKey %} aria-current="page"{% endif %} href="/rankings/{{ directory }}{{ topicKey }}/">
-                <i class="fa-solid fa-{{ audits[topicKey].icon }}"></i>{{ topic }}</a>
-        </li>
+        {% set pillTitle = topic %}
+        {% set pillUrl = "/rankings/" + directory + topicKey + "/" %}
+        {% set pillIcon = "fa-solid fa-" + audits[topicKey].icon %}
+        {% set pillActive = specificAttribute === topicKey %}
+        {% include "filter-pill.html" %}
     {% endfor %}
 </ul>
