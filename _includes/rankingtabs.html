@@ -9,7 +9,7 @@
     {% set topLevel = true %}
 {% endif %}
 
-<ul class="nav nav-pills small">
+<ul class="nav nav-pills filter small">
     <li class="nav-item">
         <a class="nav-link btn btn-primary-outline mx-1{% if topLevel %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/{{ specificAttribute }}">All</a>
     </li>
@@ -24,21 +24,16 @@
     </li>
 </ul>
 
-<ul class="nav nav-pills mt-2 mb-2 small">
+<ul class="nav nav-pills filter small">
     <li class="nav-item">
-        <a class="nav-link btn btn-primary-outline mx-1
-            {% if not specificAttribute %}
-                active" aria-current="page
-            {% endif %}
-        " href="/rankings/{{ directory }}">Overall</a>
+        <a class="nav-link btn btn-primary-outline mx-1{% if not specificAttribute %} active{% endif %}"{% if not specificAttribute %} aria-current="page"{% endif %} href="/rankings/{{ directory }}">
+            <i class="fa-solid fa-circle-notch"></i>All</a>
     </li>
     {% for topic in site.data %}
+        {% set topicKey = topic.toLowerCase() %}
         <li class="nav-item">
-            <a class="nav-link btn btn-primary-outline mx-1
-                {% if specificAttribute === topic.toLowerCase() %}
-                    active" aria-current="page
-                {% endif %}
-            " href="/rankings/{{ directory }}{{ topic.toLowerCase() }}/">{{ topic }}</a>
+            <a class="nav-link btn btn-primary-outline mx-1{% if specificAttribute === topicKey %} active{% endif %}"{% if specificAttribute === topicKey %} aria-current="page"{% endif %} href="/rankings/{{ directory }}{{ topicKey }}/">
+                <i class="fa-solid fa-{{ audits[topicKey].icon }}"></i>{{ topic }}</a>
         </li>
     {% endfor %}
 </ul>

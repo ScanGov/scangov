@@ -202,23 +202,25 @@
             </ul>
             {% include "share.html" %}
             {% if mapPage %}
-              <ul class="nav nav-pills mt-2">
+              <ul class="nav nav-pills filter small">
                 <li class="nav-item">
-                  <a class="nav-link {% if mapPage == "states" %}active{% endif %}" href="/map/states/overall/">States</a>
+                  <a class="nav-link btn btn-primary-outline mx-1{% if mapPage == "states" %} active{% endif %}"{% if mapPage == "states" %} aria-current="page"{% endif %} href="/map/states/overall/">
+                    <i class="fa-solid fa-flag-usa"></i>States</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {% if mapPage == "cities" %}active{% endif %}" href="/map/cities/">Cities</a>
+                  <a class="nav-link btn btn-primary-outline mx-1{% if mapPage == "cities" %} active{% endif %}"{% if mapPage == "cities" %} aria-current="page"{% endif %} href="/map/cities/">
+                    <i class="fa-solid fa-city"></i>Cities</a>
                 </li>
               </ul>
-              <ul class="nav nav-pills mt-2">
+              <ul class="nav nav-pills filter small">
                 {% for field in site.mapFields %}
                   <li class="nav-item">
                     <a
                       id="{{ field | lower }}-button"
-                      class="map-category nav-link {% if topic == field %}active{% endif %}"
+                      class="map-category nav-link btn btn-primary-outline mx-1{% if topic == field %} active{% endif %}"
+                      {% if topic == field %}aria-current="page"{% endif %}
                       href="/map/{{ mapPage }}/{% if mapPage == "cities" %}#{% endif %}{{ field | lower }}{% if mapPage == "states" %}/{% endif %}">
-                      {{ field }}
-                    </a>
+                      {% if field == "Overall" %}<i class="fa-solid fa-circle-notch"></i>All{% else %}<i class="fa-solid fa-{{ audits[field | lower].icon }}"></i>{{ field }}{% endif %}</a>
                   </li>
                 {% endfor %}
               </ul>
