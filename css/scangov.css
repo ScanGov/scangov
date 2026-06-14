@@ -629,6 +629,17 @@ a.btn:hover, a.btn:focus,
     --bs-link-color: var(--bs-body-bg);
 }
 
+/* Topic filter pills (standards/guidance switcher, rankings/map tabs, etc.) */
+
+.filter {
+    margin-bottom: 1rem;
+}
+
+.filter .nav-link i,
+.filter .nav-link svg {
+    margin-right: 0.5rem;
+}
+
 /* Pagination */
 
 .active>.page-link, .page-link.active {
@@ -1842,6 +1853,9 @@ th a:focus i, th a:focus svg {
     fill: var(--bs-body-color) !important;
 }
 /* Docs */
+#post h2 {
+    margin-top: 2.5rem;
+}
 #post h3 {
     margin-top: 2rem;
 }
