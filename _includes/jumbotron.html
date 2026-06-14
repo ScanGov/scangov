@@ -202,24 +202,33 @@
             </ul>
             {% include "share.html" %}
             {% if mapPage %}
-              <ul class="nav nav-pills mt-2">
-                <li class="nav-item">
-                  <a class="nav-link {% if mapPage == "states" %}active{% endif %}" href="/map/states/overall/">States</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link {% if mapPage == "cities" %}active{% endif %}" href="/map/cities/">Cities</a>
-                </li>
+              <ul class="nav nav-pills filter small">
+                {% set pillTitle = "States" %}
+                {% set pillUrl = "/map/states/overall/" %}
+                {% set pillIcon = "fa-solid fa-flag-usa" %}
+                {% set pillActive = mapPage == "states" %}
+                {% include "filter-pill.html" %}
+
+                {% set pillTitle = "Cities" %}
+                {% set pillUrl = "/map/cities/" %}
+                {% set pillIcon = "fa-solid fa-city" %}
+                {% set pillActive = mapPage == "cities" %}
+                {% include "filter-pill.html" %}
               </ul>
-              <ul class="nav nav-pills mt-2">
+              <ul class="nav nav-pills filter small">
                 {% for field in site.mapFields %}
-                  <li class="nav-item">
-                    <a
-                      id="{{ field | lower }}-button"
-                      class="map-category nav-link {% if topic == field %}active{% endif %}"
-                      href="/map/{{ mapPage }}/{% if mapPage == "cities" %}#{% endif %}{{ field | lower }}{% if mapPage == "states" %}/{% endif %}">
-                      {{ field }}
-                    </a>
-                  </li>
+                  {% if field == "Overall" %}
+                    {% set pillTitle = "All" %}
+                    {% set pillIcon = "fa-solid fa-circle-notch" %}
+                  {% else %}
+                    {% set pillTitle = field %}
+                    {% set pillIcon = "fa-solid fa-" + audits[field | lower].icon %}
+                  {% endif %}
+                  {% set pillId = (field | lower) + "-button" %}
+                  {% set pillExtraClass = "map-category" %}
+                  {% set pillUrl = "/map/" + mapPage + "/" + ("#" if mapPage == "cities" else "") + (field | lower) + ("/" if mapPage == "states" else "") %}
+                  {% set pillActive = topic == field %}
+                  {% include "filter-pill.html" %}
                 {% endfor %}
               </ul>
             {% endif %}

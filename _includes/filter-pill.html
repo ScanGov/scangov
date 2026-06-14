@@ -1,0 +1,7 @@
+{# Renders one filter-pill <li>. Set before including:
+   pillTitle, pillUrl, pillIcon (optional), pillIconTitle (optional),
+   pillActive (optional bool), pillId (optional), pillExtraClass (optional) #}
+<li class="nav-item">
+  <a{% if pillId %} id="{{ pillId }}"{% endif %} class="{% if pillExtraClass %}{{ pillExtraClass }} {% endif %}nav-link btn btn-primary-outline mx-1{% if pillActive %} active{% endif %}"{% if pillActive %} aria-current="page"{% endif %} href="{{ pillUrl }}">
+    {% if pillIcon %}<i class="{{ pillIcon }}"{% if pillIconTitle %} title="{{ pillIconTitle }}"{% endif %}></i>{% endif %}{{ pillTitle }}</a>
+</li>
