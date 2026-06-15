@@ -629,6 +629,28 @@ a.btn:hover, a.btn:focus,
     --bs-link-color: var(--bs-body-bg);
 }
 
+/* Profile leftnav active state — same treatment as filter pills */
+.list-group-item.active,
+.list-group-item.active:focus,
+[data-bs-theme=light] .list-group-item.active,
+[data-bs-theme=light] .list-group-item.active:focus {
+    background-color: #70e17b !important;
+    color: #13171f !important;
+    border-color: #70e17b !important;
+}
+
+.list-group-item.active:hover,
+[data-bs-theme=light] .list-group-item.active:hover {
+    filter: brightness(1.3);
+}
+
+.list-group-item.active i,
+.list-group-item.active svg,
+[data-bs-theme=light] .list-group-item.active i,
+[data-bs-theme=light] .list-group-item.active svg {
+    color: #13171f !important;
+}
+
 /* Topic filter pills (standards/guidance switcher, rankings/map tabs, etc.) */
 
 .filter {

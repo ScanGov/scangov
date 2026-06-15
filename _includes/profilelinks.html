@@ -1,28 +1,18 @@
 {% if orgPage %}
     {% set base = "/org/" +  org.name | slugify %}
     {% set baseDetails = base + "/" %}
+    {% set dashboardUrl = base + "/" %}
 {% else %}
     {% set base = "/profile/" + domainSlug | slugify %}
     {% set baseDetails = base + "/details/" %}
+    {% set dashboardUrl = base + "/overall/" %}
 {% endif %}
 <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
-    <div class="list-group mb-5">
-        <a href="{{ base }}/{% if not orgPage %}overall/{% endif %}" class="list-group-item list-group-item-action">
+    <div class="list-group mb-5 position-sticky" style="top: 1rem;">
+        <a href="{{ base }}/{% if not orgPage %}overall/{% endif %}" class="list-group-item list-group-item-action{% if page.url == dashboardUrl %} active{% endif %}"{% if page.url == dashboardUrl %} aria-current="page"{% endif %}>
             <i class="fa-solid fa-gauge"></i>
-            <small>
-                {% if orgPage %}
-                    Overall
-                {% else %}
-                    Dashboard
-                {% endif %}
-            </small>
+            <small>Dashboard</small>
         </a>
-        {% if not orgPage %}
-            <a href="{{ base }}/changelog/" class="list-group-item list-group-item-action">
-                <i class="fa-solid fa-timeline"></i>
-                <small>Changelog</small>
-            </a>
-        {% endif %}
         <a href="{{ baseDetails }}?attr=accessibility" class="list-group-item list-group-item-action">
             <i class="fa-solid fa-universal-access"></i>
             <small>Accessibility</small>
@@ -32,18 +22,33 @@
             <small>Botability</small>
         </a>
         <a href="{{ baseDetails }}?attr=security" class="list-group-item list-group-item-action">
-            <i class="fa-solid fa-lock"></i>
+            <i class="fa-solid fa-shield-halved"></i>
             <small>Security</small>
         </a>
         <a href="{{ baseDetails }}?attr=usability" class="list-group-item list-group-item-action">
-            <i class="fa-solid fa-file-lines"></i>
+            <i class="fa-solid fa-hand-pointer"></i>
             <small>Usability</small>
         </a>
-        {% if domainLink %}
-        <a class="list-group-item list-group-item-action" id="visit-link" target="_blank" href="{{ domainLink }}">
-            <i class="fa-solid fa-up-right-from-square"></i>
-            <small>Visit site</small>
-        </a>
+        {% if not orgPage %}
+            <a href="{{ base }}/changelog/" class="list-group-item list-group-item-action{% if page.url == base + '/changelog/' %} active{% endif %}"{% if page.url == base + '/changelog/' %} aria-current="page"{% endif %}>
+                <i class="fa-solid fa-timeline"></i>
+                <small>Changelog</small>
+            </a>
         {% endif %}
     </div>
 </div>
+<script>
+    (function () {
+        var attr = new URLSearchParams(window.location.search).get('attr');
+        if (!attr) return;
+        var target = document.querySelector('.list-group a[href$="?attr=' + attr + '"]');
+        if (!target) return;
+        var current = document.querySelector('.list-group a.active');
+        if (current) {
+            current.classList.remove('active');
+            current.removeAttribute('aria-current');
+        }
+        target.classList.add('active');
+        target.setAttribute('aria-current', 'page');
+    })();
+</script>

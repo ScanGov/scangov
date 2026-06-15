@@ -12,16 +12,20 @@ permalink: "profile/{{ domain.urlkey | slugify }}/overall/"
 
 eleventyComputed:
   title: "{{ domain.urlkey }} digital experience monitor"
-  description: "Managed by: {{ domain.name }}"
+  description: "{{ domain.urlkey }} dashboard."
   agency: by {{ domain.name }}
 ---
 
 {% set domainSlug = domain.urlkey %}
-{% set domainLink = domain.redirect %}
 {% include "profilelinks.html" %}
 
 <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
-  <h2 class="h2" id="page">Dashboard</h2>
+  {% include "breadcrumb.html" %}
+  {% set pageHeading = "Dashboard" %}
+  {% set headingPrefix = domainSlug %}
+  {% include "page-heading.html" %}
+  {% include "details.html" %}
+  {% include "actions.html" %}
   <div id="overall-section">
     <div class="row">
       <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
