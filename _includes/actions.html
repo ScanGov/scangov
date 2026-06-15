@@ -1,18 +1,35 @@
 {#
   Page actions row: Rescan, Download (PDF report), and Share.
 
-  Required context:
-    - profile, mapPage, orgPage: page-type flags from front matter, used to
-      gate the Download and Dashboard items (they need domain.urlkey, which
-      only exists on individual domain profile pages).
-    - domain: the current domain object (only needed when Download/Dashboard
-      render), used for domain.urlkey to build the report and dashboard links.
+  Single source of truth, maintained in https://github.com/ScanGov/components
+  and copied into each site repo's _includes/ (scangov, standards,
+  scangov-com, docs), alongside public/css/scangov.css and feedback.html.
 
-  Usage: include on any profile-type page (individual domain profile, org
-  page, or map page) where the standard page actions should appear:
+  Usage: include on any page where the standard page actions should appear:
 
     {% include "actions.html" %}
+
+  Everything below is conditional, so it's safe to include anywhere - items
+  that don't apply to the current page or site simply don't render.
+
+  Conditional axes:
+
+  1. Page front matter (profile, mapPage, orgPage, domain) - gates the
+     Download and Dashboard items, which need domain.urlkey. Only individual
+     domain profile pages (scangov) set these, so these items are a no-op
+     everywhere else - e.g. on docs/standards pages, only "Share" renders.
+
+  2. window.location.hostname - gates deployment-specific items (e.g. Rescan
+     only shows on my.scangov.com), same pattern used in feedback.html.
+
+  3. site.url (build-time, from each repo's _data/site.json, same value used
+     by nav.html's topnavUrls) - gates the social/email share links below.
+     To add a new platform or enable one for another site, edit
+     actionsSocialSites/actionsEmailSites or add a new conditional block
+     here - the change propagates everywhere this file is synced.
 #}
+{% set actionsSocialSites = ["https://docs.scangov.org", "https://standards.scangov.org"] %}
+{% set actionsEmailSites = ["https://scangov.org", "https://standards.scangov.org", "https://docs.scangov.org"] %}
 <ul class="actions list-unstyled d-flex flex-wrap gap-3 mt-3">
     <li id="rescan-action" class="d-none">
         <a href="https://scangov.com" aria-label="Rescan">
@@ -74,6 +91,58 @@
                     This page
                 </a>
             </li>
+            {% if site.url in actionsSocialSites %}
+            <li class="small">
+                <a
+                    href="https://www.linkedin.com/sharing/share-offsite/?url={{ (site.url + page.url) | encodeParameter }}"
+                    class="dropdown-item"
+                    rel="nofollow"
+                    target="_blank">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    LinkedIn
+                </a>
+            </li>
+            <li class="small">
+                <a
+                    href="https://bsky.app/intent/compose?text={{ ((title | default('')) + ' ' + site.url + page.url) | encodeParameter }}"
+                    class="dropdown-item"
+                    rel="nofollow"
+                    target="_blank">
+                    <i class="fa-brands fa-bluesky"></i>
+                    Bluesky
+                </a>
+            </li>
+            <li class="small">
+                <a
+                    href="https://mastodon.social/share?text={{ ((title | default('')) + ' ' + site.url + page.url) | encodeParameter }}"
+                    class="dropdown-item"
+                    rel="nofollow"
+                    target="_blank">
+                    <i class="fa-brands fa-mastodon"></i>
+                    Mastodon
+                </a>
+            </li>
+            <li class="small">
+                <a
+                    href="https://x.com/intent/tweet?text={{ (title | default('')) | encodeParameter }}&url={{ (site.url + page.url) | encodeParameter }}&via=ScanGov"
+                    class="dropdown-item"
+                    rel="nofollow"
+                    target="_blank">
+                    <i class="fa-brands fa-x-twitter"></i>
+                    X
+                </a>
+            </li>
+            {% endif %}
+            {% if site.url in actionsEmailSites %}
+            <li class="small">
+                <a
+                    href="mailto:?subject={{ (title | default('')) | encodeParameter }}&body={{ (site.url + page.url) | encodeParameter }}"
+                    class="dropdown-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    Email
+                </a>
+            </li>
+            {% endif %}
         </ul>
     </li>
 </ul>
