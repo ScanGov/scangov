@@ -1,0 +1,99 @@
+{#
+  Page actions row: Rescan, Download (PDF report), and Share.
+
+  Required context:
+    - profile, mapPage, orgPage: page-type flags from front matter, used to
+      gate the Download and Dashboard items (they need domain.urlkey, which
+      only exists on individual domain profile pages).
+    - domain: the current domain object (only needed when Download/Dashboard
+      render), used for domain.urlkey to build the report and dashboard links.
+
+  Usage: include on any profile-type page (individual domain profile, org
+  page, or map page) where the standard page actions should appear:
+
+    {% include "actions.html" %}
+#}
+<ul class="actions list-unstyled d-flex flex-wrap gap-3 mt-3">
+    <li id="rescan-action" class="d-none">
+        <a href="https://scangov.com" aria-label="Rescan">
+            <i class="fa-solid fa-arrows-rotate"></i>
+            <small class="d-none d-sm-inline">Rescan</small>
+        </a>
+    </li>
+    {% if profile and not mapPage and not orgPage %}
+    <li class="dropdown">
+        <a
+            href="#"
+            id="download-menu"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            aria-label="Download">
+            <i class="fa-solid fa-download"></i>
+            <small class="d-none d-sm-inline">Download</small>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="download-menu">
+            <li class="small">
+                <a href="/profile/{{ domain.urlkey | slugify }}/report/" class="dropdown-item">
+                    <i class="fa-regular fa-file-pdf"></i>
+                    .pdf
+                </a>
+            </li>
+        </ul>
+    </li>
+    {% endif %}
+    <li class="dropdown">
+        <a
+            href="#"
+            id="share-menu"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            aria-label="Share">
+            <i class="fa-solid fa-share-nodes"></i>
+            <small class="d-none d-sm-inline">Share</small>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="share-menu">
+            {% if profile and not mapPage and not orgPage %}
+            <li class="small">
+                <a
+                    href="javascript:void(0);"
+                    onclick="navigator.clipboard.writeText(location.origin + '/profile/{{ domain.urlkey | slugify }}/overall/');"
+                    class="dropdown-item copy-link">
+                    <i class="fa-solid fa-gauge"></i>
+                    Dashboard
+                </a>
+            </li>
+            {% endif %}
+            <li class="small">
+                <a
+                    href="javascript:void(0);"
+                    onclick="navigator.clipboard.writeText(location.href);"
+                    class="dropdown-item copy-link">
+                    <i class="fa-solid fa-link"></i>
+                    This page
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
+<div class="alert alert-success d-none mt-2" role="alert" id="copy-alert">
+    Link copied!
+</div>
+<script>
+    if (window.location.hostname === 'my.scangov.com') {
+        document.getElementById('rescan-action').classList.remove('d-none');
+    }
+
+    const copyAlert = document.getElementById('copy-alert');
+    let copyAlertTimeout;
+    document.querySelectorAll('.copy-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+            copyAlert.classList.remove('d-none');
+            clearTimeout(copyAlertTimeout);
+            copyAlertTimeout = setTimeout(function () {
+                copyAlert.classList.add('d-none');
+            }, 2000);
+        });
+    });
+</script>

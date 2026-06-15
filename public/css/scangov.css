@@ -665,6 +665,21 @@ a.btn:hover, a.btn:focus,
     color: var(--bs-btn-hover-color) !important;
 }
 
+/* Page actions (Rescan / Download / Share) */
+
+.actions > li > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--bs-body-color);
+    text-decoration: none;
+}
+
+.actions > li > a:hover,
+.actions > li > a:focus {
+    color: var(--bs-link-color);
+}
+
 .dropdown-menu.show {
     display: block;
 }

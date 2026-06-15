@@ -174,9 +174,6 @@
                     }
                 })
         </script>
-        <div class="row d-none" id="share">
-          {% include "share.html" %}
-        </div>
       </div>
     </div>
     {% elif profile %}
@@ -200,7 +197,7 @@
                 <a href="https://scangov.com">Get full site scan</a>
               </li>
             </ul>
-            {% include "share.html" %}
+            {% include "actions.html" %}
             {% if mapPage %}
               <ul class="nav nav-pills filter small">
                 {% set pillTitle = "States" %}
