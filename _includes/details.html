@@ -1,0 +1,72 @@
+{#
+  Page details row: link to the scanned site, managing organization, pages
+  scanned, and last-scan info - rendered below the <h1> on profile-layout
+  pages.
+
+  Single source of truth, maintained in https://github.com/ScanGov/components
+  and copied into each site repo's _includes/ (scangov, standards,
+  scangov-com, docs). Only scangov sets `profile`/`domain` today, so this is
+  a no-op everywhere else - kept in sync for file parity, same as
+  actions.html.
+
+  Usage: include directly below the page's <h1>:
+
+    {% include "details.html" %}
+
+  Conditional axes:
+
+  1. `profile` - true on any profile-layout page. Today set by scangov's
+     domain-pagination front matter; a forthcoming shared profile layout for
+     my.scangov.com + scangov.org would set the same flag, so this file is
+     safe to include anywhere.
+
+  2. not mapPage and not orgPage (within `profile`) - the homepage link,
+     "Managed by", and "Pages" items need a specific `domain`
+     (urlkey/name/redirect), so they only render on individual domain pages,
+     not map/org overview pages. "Last scan" has no such requirement.
+
+  3. site.url - each item below branches explicitly on
+     'https://scangov.org' vs 'https://my.scangov.com' for whatever differs
+     per deployment (managing org, full-scan upsell, request-update link). To
+     support another deployment, add a branch here and re-sync - don't fork
+     the file.
+#}
+{% if profile %}
+<ul class="small list-unstyled text-body-secondary">
+    {% if not mapPage and not orgPage %}
+    <li>
+        <a class="js-title-link" target="_blank" href="{{ domain.redirect }}">
+            / <i class="fa-solid fa-up-right-from-square"></i>
+        </a>
+    </li>
+    {% if site.url == 'https://scangov.org' and domain.name %}
+    <li>
+        Managed by:
+        <a href="/org/{{ domain.name | slugify }}/">{{ domain.name }}</a>
+    </li>
+    {% endif %}
+    {% if site.url == 'https://scangov.org' %}
+    <li>
+        Pages: 1
+        &middot; <a href="https://scangov.com/plans">Get full site scan</a>
+    </li>
+    {% elif site.url == 'https://my.scangov.com' %}
+    <li>
+        Pages: 1
+    </li>
+    {% endif %}
+    {% endif %}
+    {% if site.url == 'https://scangov.org' %}
+    <li>
+        Last scan:
+        <span id="updated">{{ updates }}</span>
+    </li>
+    {% elif site.url == 'https://my.scangov.com' %}
+    <li>
+        Last scan:
+        <span id="updated">{{ updates }}</span>
+        &middot; <a target="_blank" href="{{ site.repo }}/issues/new/choose">Request update</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}
