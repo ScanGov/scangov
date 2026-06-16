@@ -13,22 +13,32 @@ permalink: "profile/{{ domain.urlkey | slugify }}/details/"
 
 eleventyComputed:
   title: "{{ domain.urlkey }} digital experience monitor"
-  description: "Managed by: {{ domain.name }}"
+  description: "{{ domain.urlkey }} details."
   agency: by {{ domain.name }}
 ---
 
 
 {% set domainSlug = domain.urlkey %}
-{% set domainLink = domain.redirect %}
 {% include "profilelinks.html" %}
 
-{% set cards = site.data %}
-{% for card in cards %}
-  {% set scorekey = card.toLowerCase() %}
-  <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 d-none" id="details-{{ scorekey }}">
-    <h2 class="h2" id="page-title-{{ scorekey }}">{{ card }}</h2>
-    <div id="specific-{{ scorekey }}">
-      <div class="row">
+<div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+  {% set cards = site.data %}
+  {% for card in cards %}
+    {% set scorekey = card.toLowerCase() %}
+    <div class="d-none" id="heading-{{ scorekey }}">
+      {% set pageHeading = card %}
+      {% set headingPrefix = domainSlug %}
+      {% include "page-heading.html" %}
+    </div>
+  {% endfor %}
+  {% include "details.html" %}
+  {% include "actions.html" %}
+  {% for card in cards %}
+    {% set scorekey = card.toLowerCase() %}
+    <div class="d-none" id="details-{{ scorekey }}">
+      <div id="specific-{{ scorekey }}">
+        <h2 class="my-3">Grade / score</h2>
+        <div class="row">
         <div class="col-12 col-sm-12 col-md-6 d-flex align-items-stretch">
           <div class="card mb-3 {% if (domain.status != 200) or (domain.scores[scorekey] | length === 0) %}{% else %}text-bg-{{ domain.scores[scorekey].score | colorify }}{% endif %}" id="grade-card-{{ scorekey }}">
             <div class="card-header">
@@ -75,7 +85,7 @@ eleventyComputed:
       </div>
       <div class="row">
         <div class="col-12">
-          <h3 class="mt-3">Standards</h3>
+          <h2 class="my-3">Standards</h2>
             {% include "profile_table.html" %}
         </div>
       </div>
@@ -91,10 +101,12 @@ eleventyComputed:
     attrToShow = params.get('attr');
   }
   let elToShow = document.getElementById(`details-${attrToShow}`);
+  let headingToShow = document.getElementById(`heading-${attrToShow}`);
   if(elToShow) {
     elToShow.classList.remove('d-none');
-  } else {
-    //document.getElementById(`details-metadata`).classList.remove('d-none');
+  }
+  if(headingToShow) {
+    headingToShow.classList.remove('d-none');
   }
   })();
 </script>

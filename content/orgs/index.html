@@ -19,6 +19,10 @@ eleventyComputed:
 
 {% include "profilelinks.html" %}
 <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+    {% set pageHeading = org.name %}
+    {% include "page-heading.html" %}
+    {% include "details.html" %}
+    {% include "actions.html" %}
     <div class="row">
         {% for domain in org.domains %}
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch overall-card">
