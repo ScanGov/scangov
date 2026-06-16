@@ -19,19 +19,28 @@ eleventyComputed:
 
 
 {% set domainSlug = domain.urlkey %}
+
+<div class="col-12">
+  {% include "breadcrumb.html" %}
+</div>
+
 {% include "profilelinks.html" %}
 
 <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
-  {% include "breadcrumb.html" %}
-  {% include "details.html" %}
-  {% include "actions.html" %}
   {% set cards = site.data %}
   {% for card in cards %}
     {% set scorekey = card.toLowerCase() %}
-    <div class="d-none" id="details-{{ scorekey }}">
+    <div class="d-none" id="heading-{{ scorekey }}">
       {% set pageHeading = card %}
       {% set headingPrefix = domainSlug %}
       {% include "page-heading.html" %}
+    </div>
+  {% endfor %}
+  {% include "details.html" %}
+  {% include "actions.html" %}
+  {% for card in cards %}
+    {% set scorekey = card.toLowerCase() %}
+    <div class="d-none" id="details-{{ scorekey }}">
       <div id="specific-{{ scorekey }}">
         <h2 class="h2 mt-3">Grade / score</h2>
         <div class="row">
@@ -97,10 +106,12 @@ eleventyComputed:
     attrToShow = params.get('attr');
   }
   let elToShow = document.getElementById(`details-${attrToShow}`);
+  let headingToShow = document.getElementById(`heading-${attrToShow}`);
   if(elToShow) {
     elToShow.classList.remove('d-none');
-  } else {
-    //document.getElementById(`details-metadata`).classList.remove('d-none');
+  }
+  if(headingToShow) {
+    headingToShow.classList.remove('d-none');
   }
   })();
 </script>

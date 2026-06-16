@@ -17,10 +17,14 @@ eleventyComputed:
 ---
 
 {% set domainSlug = domain.url %}
+
+<div class="col-12">
+    {% include "breadcrumb.html" %}
+</div>
+
 {% include "profilelinks.html" %}
 
 <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
-    {% include "breadcrumb.html" %}
     {% set pageHeading = "Changelog" %}
     {% set headingPrefix = domainSlug %}
     {% include "page-heading.html" %}
