@@ -37,7 +37,7 @@ eleventyComputed:
     {% set scorekey = card.toLowerCase() %}
     <div class="d-none" id="details-{{ scorekey }}">
       <div id="specific-{{ scorekey }}">
-        <h2 class="h2 mt-3">Grade / score</h2>
+        <h2 class="my-3">Grade / score</h2>
         <div class="row">
         <div class="col-12 col-sm-12 col-md-6 d-flex align-items-stretch">
           <div class="card mb-3 {% if (domain.status != 200) or (domain.scores[scorekey] | length === 0) %}{% else %}text-bg-{{ domain.scores[scorekey].score | colorify }}{% endif %}" id="grade-card-{{ scorekey }}">
@@ -85,7 +85,7 @@ eleventyComputed:
       </div>
       <div class="row">
         <div class="col-12">
-          <h3 class="mt-3">Standards</h3>
+          <h2 class="my-3">Standards</h2>
             {% include "profile_table.html" %}
         </div>
       </div>
