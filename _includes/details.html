@@ -56,6 +56,7 @@
     </li>
     {% endif %}
     {% endif %}
+    {% if not orgPage %}
     {% if site.url == 'https://scangov.org' %}
     <li>
         Last scan:
@@ -67,6 +68,7 @@
         <span id="updated">{{ updates }}</span>
         &middot; <a target="_blank" href="{{ site.repo }}/issues/new/choose">Request update</a>
     </li>
+    {% endif %}
     {% endif %}
 </ul>
 {% endif %}
