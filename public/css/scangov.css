@@ -1216,6 +1216,10 @@ a[href$=".mp4"]::after {
     color: #f5fbc1 !important;
 }
 
+.fa-download {
+    color: #c3ebfa;
+}
+
 .fa-file-contract {
     color: #fee685 !important;
 }
@@ -1358,6 +1362,10 @@ a[href$=".mp4"]::after {
     color: #7efbe1 !important;
 }
 
+.fa-envelope {
+    color: #f8b9c5;
+}
+
 .fa-envelope-open-text {
     color: #7efbe1 !important;
 }
@@ -1386,6 +1394,10 @@ a[href$=".mp4"]::after {
     color: #f45d79;
 }
 
+.fa-gauge {
+    color: #ffbc78;
+}
+
 .fa-gauge-simple {
     color: #ffbc78;
 }
@@ -1404,10 +1416,14 @@ a[href$=".mp4"]::after {
 
 .fa-hand, .fa-hands, .fa-hands-clapping,
 .fa-handshake-simple, .fa-handshake-angle,
-.fa-hand-peace, .fa-hand-pointer,
+.fa-hand-peace,
 .fa-hand-point-up, .fa-hand-point-down,
 .fa-hand-point-right, .fa-hand-point-left {
     color: #face00;
+}
+
+.fa-hand-pointer {
+    color: #d5bfff;
 }
 
 .fa-heart {
@@ -1479,7 +1495,7 @@ a[href$=".mp4"]::after {
 }
 
 .fa-robot {
-    color: #e6e6e6;
+    color: #e7f434 !important;
 }
 
 .fa-rocket {
@@ -1514,6 +1530,10 @@ a[href$=".mp4"]::after {
     color: #ffb4cf;
 }
 
+.fa-shield-halved {
+    color: #ff8d7b;
+}
+
 .fa-spray-can-sparkles {
     color: #d0b4f5;
 }
@@ -1536,6 +1556,10 @@ a[href$=".mp4"]::after {
 
 .fa-universal-access {
     color: #a8f2ff;
+}
+
+.fa-up-right-from-square {
+    color: #7efbe1;
 }
 
 .fa-user-astronaut {
@@ -1579,7 +1603,8 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-graduation-cap,
 [data-bs-theme=light] .fa-link,
 [data-bs-theme=light] .fa-ranking-star,
-[data-bs-theme=light] .fa-table {
+[data-bs-theme=light] .fa-table,
+[data-bs-theme=light] .fa-up-right-from-square {
     /* → #0d7a6e = 5.22:1 ✓ */
     color: #0d7a6e !important;
 }
@@ -1604,7 +1629,6 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-handshake-simple,
 [data-bs-theme=light] .fa-handshake-angle,
 [data-bs-theme=light] .fa-hand-peace,
-[data-bs-theme=light] .fa-hand-pointer,
 [data-bs-theme=light] .fa-hand-point-up,
 [data-bs-theme=light] .fa-hand-point-down,
 [data-bs-theme=light] .fa-hand-point-right,
@@ -1613,6 +1637,7 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-lightbulb,
 [data-bs-theme=light] .fa-magnifying-glass,
 [data-bs-theme=light] .fa-plug-circle-bolt,
+[data-bs-theme=light] .fa-robot,
 [data-bs-theme=light] .fa-scale-balanced,
 [data-bs-theme=light] .fa-scroll,
 [data-bs-theme=light] .fa-star,
@@ -1624,6 +1649,7 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-bars-progress,
 [data-bs-theme=light] .fa-dashboard,
 [data-bs-theme=light] .fa-fire,
+[data-bs-theme=light] .fa-gauge,
 [data-bs-theme=light] .fa-gauge-simple,
 [data-bs-theme=light] .fa-gauge-high,
 [data-bs-theme=light] .fa-rss {
@@ -1633,6 +1659,7 @@ a[href$=".mp4"]::after {
 
 [data-bs-theme=light] .fa-book-open-reader,
 [data-bs-theme=light] .fa-circle-nodes,
+[data-bs-theme=light] .fa-download,
 [data-bs-theme=light] .fa-file,
 [data-bs-theme=light] .fa-file-lines,
 [data-bs-theme=light] .fa-linkedin,
@@ -1662,8 +1689,7 @@ a[href$=".mp4"]::after {
     color: #5b4ea0 !important;
 }
 
-[data-bs-theme=light] .fa-circle-notch,
-[data-bs-theme=light] .fa-robot {
+[data-bs-theme=light] .fa-circle-notch {
     /* → #5a5a5a = 6.90:1 ✓ */
     color: #5a5a5a !important;
 }
@@ -1676,6 +1702,7 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-discord,
 [data-bs-theme=light] .fa-calendar,
 [data-bs-theme=light] .fa-circle-exclamation,
+[data-bs-theme=light] .fa-envelope,
 [data-bs-theme=light] .fa-eye,
 [data-bs-theme=light] .fa-file-pdf,
 [data-bs-theme=light] .fa-filter-circle-xmark,
@@ -1709,7 +1736,8 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-heart,
 [data-bs-theme=light] .fa-heart-crack,
 [data-bs-theme=light] .fa-lock,
-[data-bs-theme=light] .fa-right-from-bracket {
+[data-bs-theme=light] .fa-right-from-bracket,
+[data-bs-theme=light] .fa-shield-halved {
     /* → #c0392b = 5.44:1 ✓ */
     color: #c0392b !important;
 }
@@ -1736,6 +1764,7 @@ a[href$=".mp4"]::after {
     color: #9e2060 !important;
 }
 
+[data-bs-theme=light] .fa-hand-pointer,
 [data-bs-theme=light] .fa-spray-can-sparkles {
     /* → #6b3fa0 = 7.38:1 ✓ */
     color: #6b3fa0 !important;
