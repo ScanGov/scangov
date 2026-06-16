@@ -641,6 +641,7 @@ a.btn:hover, a.btn:focus,
 
 .list-group-item.active:hover,
 [data-bs-theme=light] .list-group-item.active:hover {
+    color: #13171f !important;
     filter: brightness(1.3);
 }
 
