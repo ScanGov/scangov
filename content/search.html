@@ -2,7 +2,7 @@
 home: false
 layout: layouts/default
 title: Search
-description: Search government domains monitored by ScanGov.
+description: Search domains monitored by ScanGov.
 keywords: government domains, government websites
 ---
 
@@ -30,7 +30,7 @@ keywords: government domains, government websites
         </form>
       </div>
     </div>
-    <div class="row" id="results-section" class="d-none">
+    <div class="row d-none" id="results-section">
       <div class="col-12">
         <div class="table-responsive">
           <table class="table table-responsive table-bordered table-hover mt-3">
@@ -83,6 +83,9 @@ keywords: government domains, government websites
           '</tr>';
       });
       document.getElementById('results-table').innerHTML = outputHTML;
+      if (outputHTML) {
+        document.getElementById('results-section').classList.remove('d-none');
+      }
     } catch (error) {
       console.error(error.message);
     }

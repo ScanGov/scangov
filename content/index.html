@@ -2,16 +2,20 @@
 home: false
 layout: layouts/default
 title: Digital experience monitor
-description: A project by ScanGov that measures web accessibility, botability, security and usability optimization.
-descriptionHtml: 'A project by ScanGov that measures web <a href="https://standards.scangov.org/accessibility/">accessibility</a>, <a href="https://standards.scangov.org/botability/">botability</a>, <a href="https://standards.scangov.org/security/">security</a> and <a href="https://standards.scangov.org/usability/">usability</a> optimization.'
+description: A ScanGov project that tracks digital accessibility, botability, security and usability optimization.
+descriptionHtml: 'A ScanGov project that tracks digital <a href="https://standards.scangov.org/accessibility/">accessibility</a>, <a href="https://standards.scangov.org/botability/">botability</a>, <a href="https://standards.scangov.org/security/">security</a> and <a href="https://standards.scangov.org/usability/">usability</a> optimization.'
 hideDescription: true
 keywords: government domains, government websites
+
+pagination:
+    data: sorts.overall
+    size: 100
+    alias: member
 ---
 
-{% set member = sorts.overall | slice(0, 100) %}
 {% set dataset = sorts.overall %}
 {% set specificAttribute = "" %}
 {% set currentsort = "" %}
-{% set showPagination = false %}
+{% set showPagination = true %}
 
 {% include "sortcontent.html" %}
