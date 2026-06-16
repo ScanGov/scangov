@@ -1,17 +1,12 @@
 [
   {
-    "title": "Rankings",
-    "url": "/rankings/",
-    "icon": "fa-solid fa-ranking-star"
-  },
-  {
     "title": "Changelog",
     "url": "/changelog",
     "icon": "fa-solid fa-timeline"
   },
   {
-    "title": "Map",
-    "url": "/map/states/overall",
-    "icon": "fa-solid fa-map"
+    "title": "Search",
+    "url": "/search/",
+    "icon": "fa-solid fa-magnifying-glass"
   }
 ]

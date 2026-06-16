@@ -665,11 +665,62 @@ a.btn:hover, a.btn:focus,
 
 /* Pagination */
 
-.active>.page-link, .page-link.active {
-    z-index: 3;
-    color: var(--bs-pagination-active-color);
-    background-color: var(--bs-pagination-active-bg);
-    border-color: var(--bs-pagination-active-border-color);
+.page-link {
+    color: inherit;
+    background-color: transparent;
+    border-color: var(--bs-border-color);
+}
+
+.page-link:hover {
+    color: #13171f;
+    background-color: #70e17b;
+    border-color: #70e17b;
+}
+
+.active > .page-link,
+.page-link.active {
+    background-color: #70e17b;
+    border-color: #70e17b;
+    color: #13171f;
+}
+
+.page-item.disabled .page-link {
+    color: var(--bs-secondary-color);
+    background-color: transparent;
+    border-color: var(--bs-border-color);
+}
+
+[data-bs-theme=light] .page-link {
+    color: inherit;
+}
+
+[data-bs-theme=light] .page-link:hover,
+[data-bs-theme=light] .active > .page-link,
+[data-bs-theme=light] .page-link.active {
+    color: #13171f;
+}
+
+/* Rankings table */
+
+.rankings-table {
+    table-layout: fixed;
+}
+
+.rankings-col-rank {
+    width: 8%;
+}
+
+.rankings-col-site {
+    width: 52%;
+    word-break: break-word;
+}
+
+.rankings-col-status {
+    width: 30%;
+}
+
+.rankings-col-grade {
+    width: 10%;
 }
 
 /* Dropdown */
@@ -966,9 +1017,6 @@ main#home img {
     display: none;
 }
 
-.biggest {
-    width: 50%;
-}
 
 /* Timeline */
 

@@ -1,17 +1,17 @@
-<div class="row">
+<div class="row mt-3">
   <div class="col-12">
-    <nav>
-      <ul class="pagination flex-wrap" id="pagination">
-        <li class="page-item" id="previous">
-          <a class="page-link" href="#1" id="previous-link">Previous</a>
+    <nav aria-label="Page navigation">
+      <ul class="pagination flex-wrap">
+        <li class="page-item{% if not pagination.href.previous %} disabled{% endif %}">
+          <a class="page-link" href="{{ pagination.href.previous or '#' }}" aria-label="Previous">Previous</a>
         </li>
         {%- for pageEntry in pagination.pages %}
-          <li class="page-item {% if page.url == pagination.hrefs[ loop.index0 ] %}active{% endif %}">
-            <a class="page-link" href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a>
+          <li class="page-item{% if page.url == pagination.hrefs[ loop.index0 ] %} active{% endif %}">
+            <a class="page-link" href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>{{ loop.index }}</a>
           </li>
         {%- endfor %}
-        <li class="page-item" id="next">
-          <a class="page-link" href="#1" id="next-link">Next</a>
+        <li class="page-item{% if not pagination.href.next %} disabled{% endif %}">
+          <a class="page-link" href="{{ pagination.href.next or '#' }}" aria-label="Next">Next</a>
         </li>
       </ul>
     </nav>
