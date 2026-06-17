@@ -113,15 +113,6 @@
         
           
             <li class="nav-item me-3 me-lg-0 small">
-              <a class="nav-link mx-1 active" href="/rankings/">
-                <svg class="fa-solid fa-ranking-star me-2" aria-hidden="true"><use href="#fas-fa-ranking-star" xlink:href="#fas-fa-ranking-star"></use></svg>
-                Rankings
-              </a>
-            </li>
-          
-        
-          
-            <li class="nav-item me-3 me-lg-0 small">
               <a class="nav-link mx-1" href="/changelog">
                 <svg class="fa-solid fa-timeline me-2" aria-hidden="true"><use href="#fas-fa-timeline" xlink:href="#fas-fa-timeline"></use></svg>
                 Changelog
@@ -131,9 +122,9 @@
         
           
             <li class="nav-item me-3 me-lg-0 small">
-              <a class="nav-link mx-1" href="/map/states/overall">
-                <svg class="fa-solid fa-map me-2" aria-hidden="true"><use href="#fas-fa-map" xlink:href="#fas-fa-map"></use></svg>
-                Map
+              <a class="nav-link mx-1" href="/search/">
+                <svg class="fa-solid fa-magnifying-glass me-2" aria-hidden="true"><use href="#fas-fa-magnifying-glass" xlink:href="#fas-fa-magnifying-glass"></use></svg>
+                Search
               </a>
             </li>
           
@@ -268,31 +259,31 @@
     <div class="row">
       <div class="col-12">
         <div class="table-responsive">
-          <table class="table table-responsive table-bordered table-hover mt-3">
+          <table class="table table-responsive table-bordered table-hover mt-3 rankings-table">
             <thead class="">
               <tr>
-  <th scope="col" style="white-space: nowrap">Rank <a href="https://docs.scangov.org/rankings" style="color: inherit;"><svg class="fa-solid fa-circle-question" aria-hidden="true"><use href="#fas-fa-circle-question" xlink:href="#fas-fa-circle-question"></use></svg></a></th>
-  <th scope="col">Site</th>
-  <th scope="col" class="biggest">Status <a href="https://docs.scangov.org/status" style="color: inherit;"><svg class="fa-solid fa-circle-question" aria-hidden="true"><use href="#fas-fa-circle-question" xlink:href="#fas-fa-circle-question"></use></svg></a></th>
-  <th scope="col" style="white-space: nowrap">Grade <a href="https://docs.scangov.org/grades" style="color: inherit;"><svg class="fa-solid fa-circle-question" aria-hidden="true"><use href="#fas-fa-circle-question" xlink:href="#fas-fa-circle-question"></use></svg></a></th>
+  <th scope="col" class="rankings-col-rank sortable" data-col="0">Rank <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+  <th scope="col" class="rankings-col-site sortable" data-col="1">Site <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+  <th scope="col" class="rankings-col-status sortable" data-col="2">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+  <th scope="col" class="rankings-col-grade sortable" data-col="3">Grade <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
 </tr>
 
             </thead>
             <tbody id="table">
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/thecommunityguide-org/details/?attr=security">thecommunityguide.org</a>
     <br>
     <a class="small text-muted" href="/org/department-of-health-and-human-services/">Department of Health and Human Services</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -301,18 +292,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/namrs-net/details/?attr=security">namrs.net</a>
     <br>
     <a class="small text-muted" href="/org/department-of-health-and-human-services/">Department of Health and Human Services</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -321,18 +312,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/federallabs-org/details/?attr=security">federallabs.org</a>
     <br>
     <a class="small text-muted" href="/org/interagency-collaboration/">Interagency Collaboration</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -341,18 +332,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/trainex-org/details/?attr=security">trainex.org</a>
     <br>
     <a class="small text-muted" href="/org/environmental-protection-agency/">Environmental Protection Agency</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -361,18 +352,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/oup-org/details/?attr=security">oup.org</a>
     <br>
     <a class="small text-muted" href="/org/department-of-housing-and-urban-development/">Department of Housing and Urban Development</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -381,18 +372,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/fedroom-com/details/?attr=security">fedroom.com</a>
     <br>
     <a class="small text-muted" href="/org/general-services-administration/">General Services Administration</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -401,18 +392,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/airdefenseartillery-com/details/?attr=security">airdefenseartillery.com</a>
     <br>
     <a class="small text-muted" href="/org/department-of-defense/">Department of Defense</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -421,18 +412,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/afthunderbirds-com/details/?attr=security">afthunderbirds.com</a>
     <br>
     <a class="small text-muted" href="/org/department-of-the-air-force/">Department of the Air Force</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -441,18 +432,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/amtrak-com/details/?attr=security">amtrak.com</a>
     <br>
     <a class="small text-muted" href="/org/national-railroad-passenger-corporation/">National Railroad Passenger Corporation</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -461,18 +452,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/cgaux-org/details/?attr=security">cgaux.org</a>
     <br>
     <a class="small text-muted" href="/org/u-s-coast-guard-auxiliary/">U.S. Coast Guard Auxiliary</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -481,18 +472,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/myflorida-com/details/?attr=security">myflorida.com</a>
     <br>
     <a class="small text-muted" href="/org/state-of-florida/">State of Florida</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -501,18 +492,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/fhlbsea-com/details/?attr=security">fhlbsea.com</a>
     <br>
     <a class="small text-muted" href="/org/interagency-collaboration/">Interagency Collaboration</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -521,18 +512,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/enviroflash-info/details/?attr=security">enviroflash.info</a>
     <br>
     <a class="small text-muted" href="/org/environmental-protection-agency/">Environmental Protection Agency</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -541,18 +532,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/medicalbillrights-net/details/?attr=security">medicalbillrights.net</a>
     <br>
     <a class="small text-muted" href="/org/department-of-health-and-human-services/">Department of Health and Human Services</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -561,18 +552,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/medicalbillrights-org/details/?attr=security">medicalbillrights.org</a>
     <br>
     <a class="small text-muted" href="/org/department-of-health-and-human-services/">Department of Health and Human Services</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -581,18 +572,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/clu-in-org/details/?attr=security">clu-in.org</a>
     <br>
     <a class="small text-muted" href="/org/environmental-protection-agency/">Environmental Protection Agency</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -601,18 +592,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/inclusiveapprenticeship-org/details/?attr=security">inclusiveapprenticeship.org</a>
     <br>
     <a class="small text-muted" href="/org/department-of-labor/">Department of Labor</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -621,18 +612,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/rewardsforjustice-net/details/?attr=security">rewardsforjustice.net</a>
     <br>
     <a class="small text-muted" href="/org/department-of-state/">Department of State</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -641,18 +632,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/smithsonianeducation-org/details/?attr=security">smithsonianeducation.org</a>
     <br>
     <a class="small text-muted" href="/org/smithsonian-institution/">Smithsonian Institution</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -661,18 +652,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/fatherhoodgov-info/details/?attr=security">fatherhoodgov.info</a>
     <br>
     <a class="small text-muted" href="/org/department-of-health-and-human-services/">Department of Health and Human Services</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -681,18 +672,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/uscgaux-info/details/?attr=security">uscgaux.info</a>
     <br>
     <a class="small text-muted" href="/org/u-s-coast-guard-auxiliary/">U.S. Coast Guard Auxiliary</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -701,18 +692,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/alhurra-com/details/?attr=security">alhurra.com</a>
     <br>
     <a class="small text-muted" href="/org/u-s-agency-for-global-media/">U.S. Agency for Global Media</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -721,18 +712,18 @@
 
               
                 <tr>
-  <td>4</td>
+  <td data-sort="4">4</td>
   <td>
         <a href="/profile/useuosh-org/details/?attr=security">useuosh.org</a>
     <br>
     <a class="small text-muted" href="/org/department-of-labor/">Department of Labor</a>
   </td>
-  <td>
+  <td data-sort="55">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="55">
     
       <span class="badge text-bg-danger" title="55%">F</span>
     
@@ -741,18 +732,18 @@
 
               
                 <tr>
-  <td>5</td>
+  <td data-sort="5">5</td>
   <td>
         <a href="/profile/nefl-sega-cfc-org/details/?attr=security">nefl-sega-cfc.org</a>
     <br>
     <a class="small text-muted" href="/org/combined-federal-campaign/">Combined Federal Campaign</a>
   </td>
-  <td>
+  <td data-sort="22">
     
        <span title="Content security policy (CSP) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="HTTP Strict Transport Security (HSTS) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Errors in the console (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Clickjacking mitigation (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Paste preventing inputs (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="Hypertext Transfer Protocol Secure (HTTPS) (security)"><svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg></span> <span title="X-Content-Type-Options (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="Sponsored top-level domain (sTLD) (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span> <span title="security.txt (security)"><svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg></span>
     
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="22">
     
       <span class="badge text-bg-danger" title="22%">F</span>
     
@@ -763,62 +754,250 @@
             </tbody>
           </table>
         </div>
+        <div class="alert alert-info small mt-2" role="alert">
+          <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
+          <a href="https://docs.scangov.org/rankings">Rank</a>
+          &middot;
+          <a href="https://docs.scangov.org/status">Status</a>
+          &middot;
+          <a href="https://docs.scangov.org/grades">Grade</a>
+        </div>
       </div>
     </div>
-    
-      <div class="row">
+    <div id="ranking-pagination">
+      
+        <div class="row mt-3">
   <div class="col-12">
-    <nav>
-      <ul class="pagination flex-wrap" id="pagination">
-        <li class="page-item" id="previous">
-          <a class="page-link" href="#1" id="previous-link">Previous</a>
+    <nav aria-label="Page navigation">
+      <ul class="pagination flex-wrap">
+        <li class="page-item">
+          <a class="page-link" href="/rankings/security/10/" aria-label="Previous">Previous</a>
         </li>
-          <li class="page-item ">
+          <li class="page-item">
             <a class="page-link" href="/rankings/security/">1</a>
           </li>
-          <li class="page-item ">
+          <li class="page-item">
             <a class="page-link" href="/rankings/security/1/">2</a>
           </li>
-          <li class="page-item ">
+          <li class="page-item">
             <a class="page-link" href="/rankings/security/2/">3</a>
           </li>
-          <li class="page-item ">
+          <li class="page-item">
             <a class="page-link" href="/rankings/security/3/">4</a>
           </li>
-          <li class="page-item ">
+          <li class="page-item">
             <a class="page-link" href="/rankings/security/4/">5</a>
           </li>
-          <li class="page-item ">
+          <li class="page-item">
             <a class="page-link" href="/rankings/security/5/">6</a>
           </li>
-          <li class="page-item ">
+          <li class="page-item">
             <a class="page-link" href="/rankings/security/6/">7</a>
           </li>
-          <li class="page-item ">
+          <li class="page-item">
             <a class="page-link" href="/rankings/security/7/">8</a>
           </li>
-          <li class="page-item ">
+          <li class="page-item">
             <a class="page-link" href="/rankings/security/8/">9</a>
           </li>
-          <li class="page-item ">
+          <li class="page-item">
             <a class="page-link" href="/rankings/security/9/">10</a>
           </li>
-          <li class="page-item ">
+          <li class="page-item">
             <a class="page-link" href="/rankings/security/10/">11</a>
           </li>
           <li class="page-item active">
-            <a class="page-link" href="/rankings/security/11/">12</a>
+            <a class="page-link" href="/rankings/security/11/" aria-current="page">12</a>
           </li>
-        <li class="page-item" id="next">
-          <a class="page-link" href="#1" id="next-link">Next</a>
+        <li class="page-item disabled">
+          <a class="page-link" href="#" aria-label="Next">Next</a>
         </li>
       </ul>
     </nav>
   </div>
 </div>
-    
+
+      
+    </div>
   </div>
 </main>
+<script>
+(function () {
+  var ATTR = 'security';
+  var PAGE_URL = '/rankings/security/11/';
+  var isSubset = /\/(cities|states|federal)\//.test(PAGE_URL);
+
+  var tbody = document.getElementById('table');
+  var headers = document.querySelectorAll('.rankings-table th.sortable');
+  var sortState = { col: -1, dir: 'asc' };
+  var fullData = null;
+
+  function setIcon(th, dir) {
+    th.querySelector('.sort-neutral').classList.toggle('d-none', dir !== null);
+    th.querySelector('.sort-asc').classList.toggle('d-none', dir !== 'asc');
+    th.querySelector('.sort-desc').classList.toggle('d-none', dir !== 'desc');
+  }
+
+  // Per-page sort for subset pages (cities/states/federal)
+  function sortPage(col, dir) {
+    var rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort(function (a, b) {
+      if (col === 1) {
+        var aLink = a.cells[1].querySelector('a');
+        var bLink = b.cells[1].querySelector('a');
+        var aVal = aLink ? aLink.textContent : '';
+        var bVal = bLink ? bLink.textContent : '';
+        return dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+      }
+      var aVal = parseFloat(a.cells[col].getAttribute('data-sort') || 0);
+      var bVal = parseFloat(b.cells[col].getAttribute('data-sort') || 0);
+      return dir === 'asc' ? aVal - bVal : bVal - aVal;
+    });
+    rows.forEach(function (row) { tbody.appendChild(row); });
+  }
+
+  // Full-dataset sort helpers
+  function slugify(str) {
+    return str ? str.toString().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') : '';
+  }
+
+  function gradeFor(s) {
+    if (s >= 90) return 'A';
+    if (s >= 80) return 'B';
+    if (s >= 70) return 'C';
+    if (s >= 60) return 'D';
+    return 'F';
+  }
+
+  function colorFor(s) {
+    return s >= 90 ? 'success' : s >= 70 ? 'warning' : 'danger';
+  }
+
+  var iconSvg = {};
+  function getIcon(cls) {
+    if (!iconSvg[cls]) {
+      var el = document.querySelector('svg.fa-' + cls);
+      iconSvg[cls] = el ? el.outerHTML : '';
+    }
+    return iconSvg[cls];
+  }
+
+  function primeIconCache() {
+    ['circle-check', 'circle-xmark', 'circle-exclamation'].forEach(getIcon);
+  }
+
+  function scoreOf(d) {
+    return ATTR ? (d.scores[ATTR] ? d.scores[ATTR].score : 0) : d.overallScore;
+  }
+
+  function statusIcons(d) {
+    if (d.status !== 200) {
+      return '<span>' + getIcon('circle-exclamation') + '</span>';
+    }
+    var out = '';
+    var cats = ATTR ? [ATTR] : Object.keys(d.scores);
+    cats.forEach(function (cat) {
+      var attrs = d[cat];
+      if (!attrs) return;
+      for (var a in attrs) {
+        out += '<span>' + (attrs[a] ? getIcon('circle-check') : getIcon('circle-xmark')) + '</span>';
+      }
+    });
+    return out;
+  }
+
+  function renderRow(d) {
+    var score = scoreOf(d);
+    var profilePath = ATTR
+      ? '/profile/' + slugify(d.urlkey) + '/details/?attr=' + ATTR
+      : '/profile/' + slugify(d.urlkey) + '/overall/';
+    return '<tr>' +
+      '<td data-sort="' + d.rankingPosition + '">' + d.rankingPosition + '</td>' +
+      '<td><a href="' + profilePath + '">' + d.urlkey + '</a><br>' +
+      '<a class="small text-muted" href="/org/' + slugify(d.name) + '/">' + d.name + '</a></td>' +
+      '<td data-sort="' + score + '">' + statusIcons(d) + '</td>' +
+      '<td class="text-center grade-display-column" data-sort="' + score + '">' +
+      '<span class="badge text-bg-' + colorFor(score) + '" title="' + score + '%">' + gradeFor(score) + '</span>' +
+      '</td></tr>';
+  }
+
+  function sortAndRender(col, dir) {
+    var sorted = fullData.slice().sort(function (a, b) {
+      if (col === 1) {
+        return dir === 'asc'
+          ? a.urlkey.localeCompare(b.urlkey)
+          : b.urlkey.localeCompare(a.urlkey);
+      }
+      var aVal = col === 0 ? a.rankingPosition : scoreOf(a);
+      var bVal = col === 0 ? b.rankingPosition : scoreOf(b);
+      return dir === 'asc' ? aVal - bVal : bVal - aVal;
+    });
+    tbody.innerHTML = sorted.map(renderRow).join('');
+    var pag = document.getElementById('ranking-pagination');
+    if (pag) pag.classList.add('d-none');
+  }
+
+  async function onSortFull(th, col) {
+    if (sortState.col === col) {
+      sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
+    } else {
+      sortState.col = col;
+      sortState.dir = 'asc';
+    }
+    headers.forEach(function (h) { setIcon(h, null); });
+    setIcon(th, sortState.dir);
+
+    if (!fullData) {
+      primeIconCache();
+      tbody.innerHTML = '<tr><td colspan="4" class="text-center py-3">Loading…</td></tr>';
+      try {
+        var res = await fetch('/data/myscangov_homepage_audits.json');
+        var raw = await res.json();
+        if (ATTR) {
+          raw = raw.filter(function (d) { return d.scores && d.scores[ATTR]; });
+        }
+        raw.sort(function (a, b) { return scoreOf(b) - scoreOf(a); });
+        var curScore = scoreOf(raw[0]);
+        var rankPos = 1;
+        raw.forEach(function (d) {
+          if (scoreOf(d) !== curScore) { curScore = scoreOf(d); rankPos++; }
+          d.rankingPosition = rankPos;
+        });
+        fullData = raw;
+      } catch (e) {
+        tbody.innerHTML = '<tr><td colspan="4" class="text-center text-danger py-3">Failed to load data.</td></tr>';
+        return;
+      }
+    }
+
+    sortAndRender(sortState.col, sortState.dir);
+  }
+
+  function onSortPage(th, col) {
+    if (sortState.col === col) {
+      sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
+    } else {
+      sortState.col = col;
+      sortState.dir = 'asc';
+    }
+    headers.forEach(function (h) { setIcon(h, null); });
+    setIcon(th, sortState.dir);
+    sortPage(col, sortState.dir);
+  }
+
+  headers.forEach(function (th) {
+    th.addEventListener('click', function () {
+      var col = parseInt(this.getAttribute('data-col'));
+      if (isSubset) {
+        onSortPage(this, col);
+      } else {
+        onSortFull(this, col);
+      }
+    });
+  });
+})();
+</script>
+
 
     </div>
   </div>
@@ -945,17 +1124,19 @@
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="certificate" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-certificate"><path fill="currentColor" d="M211 7.3C205 1 196-1.4 187.6 .8s-14.9 8.9-17.1 17.3L154.7 80.6l-62-17.5c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l17.5 62L18.1 170.6c-8.4 2.1-15 8.7-17.3 17.1S1 205 7.3 211l46.2 45L7.3 301C1 307-1.4 316 .8 324.4s8.9 14.9 17.3 17.1l62.5 15.8-17.5 62c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l62-17.5 15.8 62.5c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l45-46.2 45 46.2c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3l15.8-62.5 62 17.5c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-17.5-62 62.5-15.8c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-46.2-45 46.2-45c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-62.5-15.8 17.5-62c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1l-62 17.5L341.4 18.1c-2.1-8.4-8.7-15-17.1-17.3S307 1 301 7.3L256 53.5 211 7.3z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="diagram-project" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" id="fas-fa-diagram-project"><path fill="currentColor" d="M0 80C0 53.5 21.5 32 48 32l96 0c26.5 0 48 21.5 48 48l0 16 192 0 0-16c0-26.5 21.5-48 48-48l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48l0-16-192 0 0 16c0 1.7-.1 3.4-.3 5L272 288l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48l0-96c0-1.7 .1-3.4 .3-5L144 224l-96 0c-26.5 0-48-21.5-48-48L0 80z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-lines" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" id="fas-fa-file-lines"><path fill="currentColor" d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"></path></symbol></svg>
-<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ranking-star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" id="fas-fa-ranking-star"><path fill="currentColor" d="M353.8 54.1L330.2 6.3c-3.9-8.3-16.1-8.6-20.4 0L286.2 54.1l-52.3 7.5c-9.3 1.4-13.3 12.9-6.4 19.8l38 37-9 52.1c-1.4 9.3 8.2 16.5 16.8 12.2l46.9-24.8 46.6 24.4c8.6 4.3 18.3-2.9 16.8-12.2l-9-52.1 38-36.6c6.8-6.8 2.9-18.3-6.4-19.8l-52.3-7.5zM256 256c-17.7 0-32 14.3-32 32l0 192c0 17.7 14.3 32 32 32l128 0c17.7 0 32-14.3 32-32l0-192c0-17.7-14.3-32-32-32l-128 0zM32 320c-17.7 0-32 14.3-32 32L0 480c0 17.7 14.3 32 32 32l128 0c17.7 0 32-14.3 32-32l0-128c0-17.7-14.3-32-32-32L32 320zm416 96l0 64c0 17.7 14.3 32 32 32l128 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-128 0c-17.7 0-32 14.3-32 32z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="timeline" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" id="fas-fa-timeline"><path fill="currentColor" d="M128 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm32 97.3c28.3-12.3 48-40.5 48-73.3c0-44.2-35.8-80-80-80S48 51.8 48 96c0 32.8 19.7 61 48 73.3L96 224l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l256 0 0 54.7c-28.3 12.3-48 40.5-48 73.3c0 44.2 35.8 80 80 80s80-35.8 80-80c0-32.8-19.7-61-48-73.3l0-54.7 256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-54.7c28.3-12.3 48-40.5 48-73.3c0-44.2-35.8-80-80-80s-80 35.8-80 80c0 32.8 19.7 61 48 73.3l0 54.7-320 0 0-54.7zM488 96a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM320 392a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"></path></symbol></svg>
-<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" id="fas-fa-map"><path fill="currentColor" d="M384 476.1L192 421.2l0-385.3L384 90.8l0 385.3zm32-1.2l0-386.5L543.1 37.5c15.8-6.3 32.9 5.3 32.9 22.3l0 334.8c0 9.8-6 18.6-15.1 22.3L416 474.8zM15.1 95.1L160 37.2l0 386.5L32.9 474.5C17.1 480.8 0 469.2 0 452.2L0 117.4c0-9.8 6-18.6 15.1-22.3z"></path></symbol></svg>
+<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="magnifying-glass" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-magnifying-glass"><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-notch" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-notch"><path fill="currentColor" d="M222.7 32.1c5 16.9-4.6 34.8-21.5 39.8C121.8 95.6 64 169.1 64 256c0 106 86 192 192 192s192-86 192-192c0-86.9-57.8-160.4-137.1-184.1c-16.9-5-26.6-22.9-21.5-39.8s22.9-26.6 39.8-21.5C434.9 42.1 512 140 512 256c0 141.4-114.6 256-256 256S0 397.4 0 256C0 140 77.1 42.1 182.9 10.6c16.9-5 34.8 4.6 39.8 21.5z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="universal-access" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-universal-access"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm161.5-86.1c-12.2-5.2-26.3 .4-31.5 12.6s.4 26.3 12.6 31.5l11.9 5.1c17.3 7.4 35.2 12.9 53.6 16.3l0 50.1c0 4.3-.7 8.6-2.1 12.6l-28.7 86.1c-4.2 12.6 2.6 26.2 15.2 30.4s26.2-2.6 30.4-15.2l24.4-73.2c1.3-3.8 4.8-6.4 8.8-6.4s7.6 2.6 8.8 6.4l24.4 73.2c4.2 12.6 17.8 19.4 30.4 15.2s19.4-17.8 15.2-30.4l-28.7-86.1c-1.4-4.1-2.1-8.3-2.1-12.6l0-50.1c18.4-3.5 36.3-8.9 53.6-16.3l11.9-5.1c12.2-5.2 17.8-19.3 12.6-31.5s-19.3-17.8-31.5-12.6L338.7 175c-26.1 11.2-54.2 17-82.7 17s-56.5-5.8-82.7-17l-11.9-5.1zM256 160a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="robot" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" id="fas-fa-robot"><path fill="currentColor" d="M320 0c17.7 0 32 14.3 32 32l0 64 120 0c39.8 0 72 32.2 72 72l0 272c0 39.8-32.2 72-72 72l-304 0c-39.8 0-72-32.2-72-72l0-272c0-39.8 32.2-72 72-72l120 0 0-64c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zM264 256a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224l16 0 0 192-16 0c-26.5 0-48-21.5-48-48l0-96c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-16 0 0-192 16 0z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shield-halved" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-shield-halved"><path fill="currentColor" d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8l0 378.1C394 378 431.1 230.1 432 141.4L256 66.8s0 0 0 0z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hand-pointer" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" id="fas-fa-hand-pointer"><path fill="currentColor" d="M128 40c0-22.1 17.9-40 40-40s40 17.9 40 40l0 148.2c8.5-7.6 19.7-12.2 32-12.2c20.6 0 38.2 13 45 31.2c8.8-9.3 21.2-15.2 35-15.2c25.3 0 46 19.5 47.9 44.3c8.5-7.7 19.8-12.3 32.1-12.3c26.5 0 48 21.5 48 48l0 48 0 16 0 48c0 70.7-57.3 128-128 128l-16 0-64 0-.1 0-5.2 0c-5 0-9.9-.3-14.7-1c-55.3-5.6-106.2-34-140-79L8 336c-13.3-17.7-9.7-42.7 8-56s42.7-9.7 56 8l56 74.7L128 40zM240 304c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 96c0 8.8 7.2 16 16 16s16-7.2 16-16l0-96zm48-16c-8.8 0-16 7.2-16 16l0 96c0 8.8 7.2 16 16 16s16-7.2 16-16l0-96c0-8.8-7.2-16-16-16zm80 16c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 96c0 8.8 7.2 16 16 16s16-7.2 16-16l0-96z"></path></symbol></svg>
-<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-question" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-question"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM169.8 165.3c7.9-22.3 29.1-37.3 52.8-37.3l58.3 0c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24l0-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1l-58.3 0c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"></path></symbol></svg>
+<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" id="fas-fa-sort"><path fill="currentColor" d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"></path></symbol></svg>
+<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" id="fas-fa-sort-up"><path fill="currentColor" d="M182.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"></path></symbol></svg>
+<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" id="fas-fa-sort-down"><path fill="currentColor" d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-check"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-xmark"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"></path></symbol></svg>
+<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-info" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-info"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-heart"><path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"></path></symbol></svg>
 </body>
 </html>
@@ -965,15 +1146,17 @@
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="certificate" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-certificate"><path fill="currentColor" d="M211 7.3C205 1 196-1.4 187.6 .8s-14.9 8.9-17.1 17.3L154.7 80.6l-62-17.5c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l17.5 62L18.1 170.6c-8.4 2.1-15 8.7-17.3 17.1S1 205 7.3 211l46.2 45L7.3 301C1 307-1.4 316 .8 324.4s8.9 14.9 17.3 17.1l62.5 15.8-17.5 62c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l62-17.5 15.8 62.5c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l45-46.2 45 46.2c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3l15.8-62.5 62 17.5c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-17.5-62 62.5-15.8c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-46.2-45 46.2-45c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-62.5-15.8 17.5-62c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1l-62 17.5L341.4 18.1c-2.1-8.4-8.7-15-17.1-17.3S307 1 301 7.3L256 53.5 211 7.3z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="diagram-project" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" id="fas-fa-diagram-project"><path fill="currentColor" d="M0 80C0 53.5 21.5 32 48 32l96 0c26.5 0 48 21.5 48 48l0 16 192 0 0-16c0-26.5 21.5-48 48-48l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48l0-16-192 0 0 16c0 1.7-.1 3.4-.3 5L272 288l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48l0-96c0-1.7 .1-3.4 .3-5L144 224l-96 0c-26.5 0-48-21.5-48-48L0 80z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-lines" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" id="fas-fa-file-lines"><path fill="currentColor" d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"></path></symbol></svg>
-<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ranking-star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" id="fas-fa-ranking-star"><path fill="currentColor" d="M353.8 54.1L330.2 6.3c-3.9-8.3-16.1-8.6-20.4 0L286.2 54.1l-52.3 7.5c-9.3 1.4-13.3 12.9-6.4 19.8l38 37-9 52.1c-1.4 9.3 8.2 16.5 16.8 12.2l46.9-24.8 46.6 24.4c8.6 4.3 18.3-2.9 16.8-12.2l-9-52.1 38-36.6c6.8-6.8 2.9-18.3-6.4-19.8l-52.3-7.5zM256 256c-17.7 0-32 14.3-32 32l0 192c0 17.7 14.3 32 32 32l128 0c17.7 0 32-14.3 32-32l0-192c0-17.7-14.3-32-32-32l-128 0zM32 320c-17.7 0-32 14.3-32 32L0 480c0 17.7 14.3 32 32 32l128 0c17.7 0 32-14.3 32-32l0-128c0-17.7-14.3-32-32-32L32 320zm416 96l0 64c0 17.7 14.3 32 32 32l128 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-128 0c-17.7 0-32 14.3-32 32z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="timeline" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" id="fas-fa-timeline"><path fill="currentColor" d="M128 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm32 97.3c28.3-12.3 48-40.5 48-73.3c0-44.2-35.8-80-80-80S48 51.8 48 96c0 32.8 19.7 61 48 73.3L96 224l-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l256 0 0 54.7c-28.3 12.3-48 40.5-48 73.3c0 44.2 35.8 80 80 80s80-35.8 80-80c0-32.8-19.7-61-48-73.3l0-54.7 256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-54.7c28.3-12.3 48-40.5 48-73.3c0-44.2-35.8-80-80-80s-80 35.8-80 80c0 32.8 19.7 61 48 73.3l0 54.7-320 0 0-54.7zM488 96a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zM320 392a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"></path></symbol></svg>
-<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" id="fas-fa-map"><path fill="currentColor" d="M384 476.1L192 421.2l0-385.3L384 90.8l0 385.3zm32-1.2l0-386.5L543.1 37.5c15.8-6.3 32.9 5.3 32.9 22.3l0 334.8c0 9.8-6 18.6-15.1 22.3L416 474.8zM15.1 95.1L160 37.2l0 386.5L32.9 474.5C17.1 480.8 0 469.2 0 452.2L0 117.4c0-9.8 6-18.6 15.1-22.3z"></path></symbol></svg>
+<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="magnifying-glass" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-magnifying-glass"><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-notch" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-notch"><path fill="currentColor" d="M222.7 32.1c5 16.9-4.6 34.8-21.5 39.8C121.8 95.6 64 169.1 64 256c0 106 86 192 192 192s192-86 192-192c0-86.9-57.8-160.4-137.1-184.1c-16.9-5-26.6-22.9-21.5-39.8s22.9-26.6 39.8-21.5C434.9 42.1 512 140 512 256c0 141.4-114.6 256-256 256S0 397.4 0 256C0 140 77.1 42.1 182.9 10.6c16.9-5 34.8 4.6 39.8 21.5z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="universal-access" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-universal-access"><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm161.5-86.1c-12.2-5.2-26.3 .4-31.5 12.6s.4 26.3 12.6 31.5l11.9 5.1c17.3 7.4 35.2 12.9 53.6 16.3l0 50.1c0 4.3-.7 8.6-2.1 12.6l-28.7 86.1c-4.2 12.6 2.6 26.2 15.2 30.4s26.2-2.6 30.4-15.2l24.4-73.2c1.3-3.8 4.8-6.4 8.8-6.4s7.6 2.6 8.8 6.4l24.4 73.2c4.2 12.6 17.8 19.4 30.4 15.2s19.4-17.8 15.2-30.4l-28.7-86.1c-1.4-4.1-2.1-8.3-2.1-12.6l0-50.1c18.4-3.5 36.3-8.9 53.6-16.3l11.9-5.1c12.2-5.2 17.8-19.3 12.6-31.5s-19.3-17.8-31.5-12.6L338.7 175c-26.1 11.2-54.2 17-82.7 17s-56.5-5.8-82.7-17l-11.9-5.1zM256 160a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="robot" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" id="fas-fa-robot"><path fill="currentColor" d="M320 0c17.7 0 32 14.3 32 32l0 64 120 0c39.8 0 72 32.2 72 72l0 272c0 39.8-32.2 72-72 72l-304 0c-39.8 0-72-32.2-72-72l0-272c0-39.8 32.2-72 72-72l120 0 0-64c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s-7.2-16-16-16l-32 0zM264 256a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224l16 0 0 192-16 0c-26.5 0-48-21.5-48-48l0-96c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-16 0 0-192 16 0z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shield-halved" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-shield-halved"><path fill="currentColor" d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8l0 378.1C394 378 431.1 230.1 432 141.4L256 66.8s0 0 0 0z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="hand-pointer" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" id="fas-fa-hand-pointer"><path fill="currentColor" d="M128 40c0-22.1 17.9-40 40-40s40 17.9 40 40l0 148.2c8.5-7.6 19.7-12.2 32-12.2c20.6 0 38.2 13 45 31.2c8.8-9.3 21.2-15.2 35-15.2c25.3 0 46 19.5 47.9 44.3c8.5-7.7 19.8-12.3 32.1-12.3c26.5 0 48 21.5 48 48l0 48 0 16 0 48c0 70.7-57.3 128-128 128l-16 0-64 0-.1 0-5.2 0c-5 0-9.9-.3-14.7-1c-55.3-5.6-106.2-34-140-79L8 336c-13.3-17.7-9.7-42.7 8-56s42.7-9.7 56 8l56 74.7L128 40zM240 304c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 96c0 8.8 7.2 16 16 16s16-7.2 16-16l0-96zm48-16c-8.8 0-16 7.2-16 16l0 96c0 8.8 7.2 16 16 16s16-7.2 16-16l0-96c0-8.8-7.2-16-16-16zm80 16c0-8.8-7.2-16-16-16s-16 7.2-16 16l0 96c0 8.8 7.2 16 16 16s16-7.2 16-16l0-96z"></path></symbol></svg>
-<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-question" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-question"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM169.8 165.3c7.9-22.3 29.1-37.3 52.8-37.3l58.3 0c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24l0-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1l-58.3 0c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"></path></symbol></svg>
+<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" id="fas-fa-sort"><path fill="currentColor" d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8L32 224c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"></path></symbol></svg>
+<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" id="fas-fa-sort-up"><path fill="currentColor" d="M182.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"></path></symbol></svg>
+<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" id="fas-fa-sort-down"><path fill="currentColor" d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-check"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-xmark"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"></path></symbol></svg>
+<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-info" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-info"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-heart"><path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"></path></symbol></svg>
