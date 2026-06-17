@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-12">
         <div class="table-responsive">
-          <table class="table table-responsive table-bordered table-hover mt-3">
+          <table class="table table-responsive table-bordered table-hover mt-3 rankings-table">
             <thead class="">
               {% include "rankingheaders.html" %}
             </thead>
@@ -19,10 +19,196 @@
             </tbody>
           </table>
         </div>
+        <div class="alert alert-info small mt-2" role="alert">
+          <i class="fa-solid fa-circle-info"></i>
+          <a href="https://docs.scangov.org/rankings">Rank</a>
+          &middot;
+          <a href="https://docs.scangov.org/status">Status</a>
+          &middot;
+          <a href="https://docs.scangov.org/grades">Grade</a>
+        </div>
       </div>
     </div>
-    {% if showPagination %}
-      {% include "pagination.html" %}
-    {% endif %}
+    <div id="ranking-pagination">
+      {% if showPagination %}
+        {% include "pagination.html" %}
+      {% endif %}
+    </div>
   </div>
 </main>
+<script>
+(function () {
+  var ATTR = '{{ specificAttribute }}';
+  var PAGE_URL = '{{ page.url }}';
+  var isSubset = /\/(cities|states|federal)\//.test(PAGE_URL);
+
+  var tbody = document.getElementById('table');
+  var headers = document.querySelectorAll('.rankings-table th.sortable');
+  var sortState = { col: -1, dir: 'asc' };
+  var fullData = null;
+
+  function setIcon(th, dir) {
+    th.querySelector('.sort-neutral').classList.toggle('d-none', dir !== null);
+    th.querySelector('.sort-asc').classList.toggle('d-none', dir !== 'asc');
+    th.querySelector('.sort-desc').classList.toggle('d-none', dir !== 'desc');
+  }
+
+  // Per-page sort for subset pages (cities/states/federal)
+  function sortPage(col, dir) {
+    var rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort(function (a, b) {
+      if (col === 1) {
+        var aLink = a.cells[1].querySelector('a');
+        var bLink = b.cells[1].querySelector('a');
+        var aVal = aLink ? aLink.textContent : '';
+        var bVal = bLink ? bLink.textContent : '';
+        return dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+      }
+      var aVal = parseFloat(a.cells[col].getAttribute('data-sort') || 0);
+      var bVal = parseFloat(b.cells[col].getAttribute('data-sort') || 0);
+      return dir === 'asc' ? aVal - bVal : bVal - aVal;
+    });
+    rows.forEach(function (row) { tbody.appendChild(row); });
+  }
+
+  // Full-dataset sort helpers
+  function slugify(str) {
+    return str ? str.toString().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') : '';
+  }
+
+  function gradeFor(s) {
+    if (s >= 90) return 'A';
+    if (s >= 80) return 'B';
+    if (s >= 70) return 'C';
+    if (s >= 60) return 'D';
+    return 'F';
+  }
+
+  function colorFor(s) {
+    return s >= 90 ? 'success' : s >= 70 ? 'warning' : 'danger';
+  }
+
+  var iconSvg = {};
+  function getIcon(cls) {
+    if (!iconSvg[cls]) {
+      var el = document.querySelector('svg.fa-' + cls);
+      iconSvg[cls] = el ? el.outerHTML : '';
+    }
+    return iconSvg[cls];
+  }
+
+  function primeIconCache() {
+    ['circle-check', 'circle-xmark', 'circle-exclamation'].forEach(getIcon);
+  }
+
+  function scoreOf(d) {
+    return ATTR ? (d.scores[ATTR] ? d.scores[ATTR].score : 0) : d.overallScore;
+  }
+
+  function statusIcons(d) {
+    if (d.status !== 200) {
+      return '<span>' + getIcon('circle-exclamation') + '</span>';
+    }
+    var out = '';
+    var cats = ATTR ? [ATTR] : Object.keys(d.scores);
+    cats.forEach(function (cat) {
+      var attrs = d[cat];
+      if (!attrs) return;
+      for (var a in attrs) {
+        out += '<span>' + (attrs[a] ? getIcon('circle-check') : getIcon('circle-xmark')) + '</span>';
+      }
+    });
+    return out;
+  }
+
+  function renderRow(d) {
+    var score = scoreOf(d);
+    var profilePath = ATTR
+      ? '/profile/' + slugify(d.urlkey) + '/details/?attr=' + ATTR
+      : '/profile/' + slugify(d.urlkey) + '/overall/';
+    return '<tr>' +
+      '<td data-sort="' + d.rankingPosition + '">' + d.rankingPosition + '</td>' +
+      '<td><a href="' + profilePath + '">' + d.urlkey + '</a><br>' +
+      '<a class="small text-muted" href="/org/' + slugify(d.name) + '/">' + d.name + '</a></td>' +
+      '<td data-sort="' + score + '">' + statusIcons(d) + '</td>' +
+      '<td class="text-center grade-display-column" data-sort="' + score + '">' +
+      '<span class="badge text-bg-' + colorFor(score) + '" title="' + score + '%">' + gradeFor(score) + '</span>' +
+      '</td></tr>';
+  }
+
+  function sortAndRender(col, dir) {
+    var sorted = fullData.slice().sort(function (a, b) {
+      if (col === 1) {
+        return dir === 'asc'
+          ? a.urlkey.localeCompare(b.urlkey)
+          : b.urlkey.localeCompare(a.urlkey);
+      }
+      var aVal = col === 0 ? a.rankingPosition : scoreOf(a);
+      var bVal = col === 0 ? b.rankingPosition : scoreOf(b);
+      return dir === 'asc' ? aVal - bVal : bVal - aVal;
+    });
+    tbody.innerHTML = sorted.map(renderRow).join('');
+    var pag = document.getElementById('ranking-pagination');
+    if (pag) pag.classList.add('d-none');
+  }
+
+  async function onSortFull(th, col) {
+    if (sortState.col === col) {
+      sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
+    } else {
+      sortState.col = col;
+      sortState.dir = 'asc';
+    }
+    headers.forEach(function (h) { setIcon(h, null); });
+    setIcon(th, sortState.dir);
+
+    if (!fullData) {
+      primeIconCache();
+      tbody.innerHTML = '<tr><td colspan="4" class="text-center py-3">Loading…</td></tr>';
+      try {
+        var res = await fetch('/data/myscangov_homepage_audits.json');
+        var raw = await res.json();
+        if (ATTR) {
+          raw = raw.filter(function (d) { return d.scores && d.scores[ATTR]; });
+        }
+        raw.sort(function (a, b) { return scoreOf(b) - scoreOf(a); });
+        var curScore = scoreOf(raw[0]);
+        var rankPos = 1;
+        raw.forEach(function (d) {
+          if (scoreOf(d) !== curScore) { curScore = scoreOf(d); rankPos++; }
+          d.rankingPosition = rankPos;
+        });
+        fullData = raw;
+      } catch (e) {
+        tbody.innerHTML = '<tr><td colspan="4" class="text-center text-danger py-3">Failed to load data.</td></tr>';
+        return;
+      }
+    }
+
+    sortAndRender(sortState.col, sortState.dir);
+  }
+
+  function onSortPage(th, col) {
+    if (sortState.col === col) {
+      sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
+    } else {
+      sortState.col = col;
+      sortState.dir = 'asc';
+    }
+    headers.forEach(function (h) { setIcon(h, null); });
+    setIcon(th, sortState.dir);
+    sortPage(col, sortState.dir);
+  }
+
+  headers.forEach(function (th) {
+    th.addEventListener('click', function () {
+      var col = parseInt(this.getAttribute('data-col'));
+      if (isSubset) {
+        onSortPage(this, col);
+      } else {
+        onSortFull(this, col);
+      }
+    });
+  });
+})();
+</script>

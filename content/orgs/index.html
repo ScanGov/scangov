@@ -17,65 +17,113 @@ eleventyComputed:
   description: "Domains managed by the {{ org.name }}."
 ---
 
-{% include "profilelinks.html" %}
-<div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
-    {% set pageHeading = org.name %}
-    {% include "page-heading.html" %}
+<div class="col-12">
+    <h1 class="mt-4 mb-3">{{ org.name }}</h1>
     {% include "details.html" %}
     {% include "actions.html" %}
+    <ul class="nav nav-pills filter small mt-3 mb-3 org-pills">
+        <li class="nav-item">
+            <a class="nav-link active mx-1" href="#" data-attr="">
+                <i class="fa-solid fa-circle-notch"></i> Overall
+            </a>
+        </li>
+        {% for field in site.data %}
+            {% set attr = field | lower %}
+            <li class="nav-item">
+                <a class="nav-link mx-1" href="#" data-attr="{{ attr }}">
+                    <i class="fa-solid fa-{{ audits[attr].icon }}"></i> {{ field }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
     <div class="row">
-        {% for domain in org.domains %}
-            <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch overall-card">
-                <div class="card mb-3 text-bg-{{ domain.overallScore | colorify }}">
-                    <div class="card-header">
-                        <a href="/profile/{{ domain.urlkey | slugify }}/overall/" class="text-decoration-none">{{ domain.urlkey }}</a>
-                    </div>
-                    <a href="/profile/{{ domain.urlkey | slugify }}/overall/" class="card-body text-center pt-5 text-decoration-none">
-                        <p class="display-1">
-                            {{ domain.overallScore | gradify }}
-                        </p>
-                    </a>
-                    <a class="card-footer text-center text-decoration-none" href="/profile/{{ domain.urlkey | slugify }}/overall/">
-                        Overall score {{ domain.overallScore }}%
-                    </a>
-                </div>
-            </div>
-            {% for card in site.data %}
-                {% set scorekey = card.toLowerCase() %}
-                {% set score = domain.scores[scorekey].score %}
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-none align-items-stretch {{ scorekey }}-card">
-                    <div class="card mb-3 text-bg-{{ score | colorify }}">
+            {% for domain in org.domains | sort(attribute='urlkey') %}
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch overall-card">
+                    <div class="card mb-3 text-bg-{{ domain.overallScore | colorify }}">
                         <div class="card-header">
-                            <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr={{ scorekey }}" class="text-decoration-none">{{ domain.urlkey }}</a>
+                            <a href="/profile/{{ domain.urlkey | slugify }}/overall/" class="text-decoration-none">{{ domain.urlkey }}</a>
                         </div>
-                        <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr={{ scorekey }}" class="card-body text-center pt-5 text-decoration-none">
+                        <a href="/profile/{{ domain.urlkey | slugify }}/overall/" class="card-body text-center pt-5 text-decoration-none">
                             <p class="display-1">
-                                {{ score | gradify }}
+                                {{ domain.overallScore | gradify }}
                             </p>
                         </a>
                         <a class="card-footer text-center text-decoration-none" href="/profile/{{ domain.urlkey | slugify }}/overall/">
-                            {{ card }} score {{ score }}%
+                            Overall score {{ domain.overallScore }}%
                         </a>
                     </div>
                 </div>
+                {% for card in site.data %}
+                    {% set scorekey = card.toLowerCase() %}
+                    {% set score = domain.scores[scorekey].score %}
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-none align-items-stretch {{ scorekey }}-card">
+                        <div class="card mb-3 text-bg-{{ score | colorify }}">
+                            <div class="card-header">
+                                <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr={{ scorekey }}" class="text-decoration-none">{{ domain.urlkey }}</a>
+                            </div>
+                            <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr={{ scorekey }}" class="card-body text-center pt-5 text-decoration-none">
+                                <p class="display-1">
+                                    {{ score | gradify }}
+                                </p>
+                            </a>
+                            <a class="card-footer text-center text-decoration-none" href="/profile/{{ domain.urlkey | slugify }}/overall/">
+                                {{ card }} score {{ score }}%
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
             {% endfor %}
-        {% endfor %}
     </div>
 </div>
 <script>
-    const params = new URLSearchParams(window.location.search);
-    const topicToShow = params.get('attr');
+    var categories = ['accessibility', 'botability', 'security', 'usability'];
 
-    if (topicToShow) {
-        const topicCards = document.getElementsByClassName(topicToShow + '-card');
-        if (topicCards) {
-            const overallCards = document.getElementsByClassName('overall-card');
-            for (let i = 0; i < overallCards.length; i++) {
+    function showCards(attr) {
+        var overallCards = document.getElementsByClassName('overall-card');
+        document.querySelectorAll('.org-pills .nav-link').forEach(function(p) {
+            p.classList.remove('active');
+        });
+        var activePill = document.querySelector('.org-pills .nav-link[data-attr="' + (attr || '') + '"]');
+        if (activePill) activePill.classList.add('active');
+
+        if (!attr) {
+            for (var i = 0; i < overallCards.length; i++) {
+                overallCards[i].classList.remove('d-none');
+                overallCards[i].classList.add('d-flex');
+            }
+            categories.forEach(function(cat) {
+                var catCards = document.getElementsByClassName(cat + '-card');
+                for (var i = 0; i < catCards.length; i++) {
+                    catCards[i].classList.add('d-none');
+                    catCards[i].classList.remove('d-flex');
+                }
+            });
+        } else {
+            for (var i = 0; i < overallCards.length; i++) {
                 overallCards[i].classList.add('d-none');
                 overallCards[i].classList.remove('d-flex');
-                topicCards[i].classList.add('d-flex');
-                topicCards[i].classList.remove('d-none');
             }
+            categories.forEach(function(cat) {
+                var catCards = document.getElementsByClassName(cat + '-card');
+                for (var i = 0; i < catCards.length; i++) {
+                    if (cat === attr) {
+                        catCards[i].classList.add('d-flex');
+                        catCards[i].classList.remove('d-none');
+                    } else {
+                        catCards[i].classList.add('d-none');
+                        catCards[i].classList.remove('d-flex');
+                    }
+                }
+            });
         }
     }
+
+    showCards(new URLSearchParams(window.location.search).get('attr'));
+
+    document.querySelectorAll('.org-pills .nav-link').forEach(function(pill) {
+        pill.addEventListener('click', function(e) {
+            e.preventDefault();
+            showCards(this.getAttribute('data-attr'));
+        });
+    });
 </script>

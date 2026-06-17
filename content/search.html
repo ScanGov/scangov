@@ -1,24 +1,40 @@
 ---
 home: false
-displaySearch: true
 layout: layouts/default
-title: ScanGov search results
-description: Monitoring government digital experience.
+title: Search
+description: Search domains tracked by ScanGov.
 keywords: government domains, government websites
 ---
 
-<main id="home">
+<main id="search-page">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <h2>Results</h2>
+      <div class="col-12">
+        <form id="search-form" action="/search/" class="row mt-3 mb-4">
+          <div class="col-12 col-md-8 col-lg-6">
+            <label class="pb-2" for="search-input">Domain:</label>
+            <div class="d-flex gap-2">
+              <input
+                name="search"
+                type="text"
+                class="form-control"
+                placeholder="ex: ca.gov"
+                id="search-input"
+                autocomplete="off">
+              <input
+                type="submit"
+                value="Go"
+                class="btn btn-primary">
+            </div>
+          </div>
+        </form>
       </div>
     </div>
-    <div class="row">
+    <div class="row d-none" id="results-section">
       <div class="col-12">
         <div class="table-responsive">
           <table class="table table-responsive table-bordered table-hover mt-3">
-            <thead class="">
+            <thead>
               <tr>
                 <th scope="col" style="width: 85%;">Domain</th>
                 <th scope="col" class="text-center">Grade</th>
@@ -32,61 +48,60 @@ keywords: government domains, government websites
   </div>
 </main>
 <script>
-  async function searching() {
-    let query = new URLSearchParams(location.search).get('search');
+  var query = new URLSearchParams(location.search).get('search');
 
-    const url = "https://y10vxe2xw2.execute-api.us-west-2.amazonaws.com/search?q=" + query;
+  if (query) {
+    document.getElementById('search-input').value = query;
+    searching(query);
+  }
+
+  document.getElementById('search-form').addEventListener('submit', function (e) {
+    var val = document.getElementById('search-input').value.trim();
+    if (!val) {
+      e.preventDefault();
+      return;
+    }
+  });
+
+  async function searching(q) {
+    const url = "https://y10vxe2xw2.execute-api.us-west-2.amazonaws.com/search?q=" + encodeURIComponent(q);
     try {
       const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-      }
-
+      if (!response.ok) throw new Error('Response status: ' + response.status);
       const json = await response.json();
       let outputHTML = '';
-      json.forEach(j => {
-        outputHTML += `<tr>
-          <td>
-            <a href="/profile/${j
-            .domain
-            .replace(/\./g, '-')}/overall">${j
-            .domain}</a>
-            <br>
-            <a class="small text-muted" href="/search/?search=${j
-            .agency}">${j
-            .agency}</a>
-          </td>
-          <td class="text-center grade-display-column">
-            <span class="badge text-bg-${gradeColor(j.grade)}" title="${j
-            .grade}%">${letterGrade(j.grade)}</span>
-          </td>
-        </tr>`;
-      })
-      document
-        .getElementById('results-table')
-        .innerHTML = outputHTML;
+      json.forEach(function (j) {
+        outputHTML += '<tr>' +
+          '<td>' +
+          '<a href="/profile/' + j.domain.replace(/\./g, '-') + '/overall/">' + j.domain + '</a>' +
+          '<br>' +
+          '<a class="small text-muted" href="/search/?search=' + encodeURIComponent(j.agency) + '">' + j.agency + '</a>' +
+          '</td>' +
+          '<td class="text-center grade-display-column">' +
+          '<span class="badge text-bg-' + gradeColor(j.grade) + '" title="' + j.grade + '%">' + letterGrade(j.grade) + '</span>' +
+          '</td>' +
+          '</tr>';
+      });
+      document.getElementById('results-table').innerHTML = outputHTML;
+      if (outputHTML) {
+        document.getElementById('results-section').classList.remove('d-none');
+      }
     } catch (error) {
       console.error(error.message);
     }
   }
 
-  searching();
-
   function letterGrade(score) {
-  if (score >= 90) 
-    return 'A'
-  if (score >= 80) 
-    return 'B'
-  if (score >= 70) 
-    return 'C'
-  if (score >= 60) 
-    return 'D'
-  return 'F'
+    if (score >= 90) return 'A';
+    if (score >= 80) return 'B';
+    if (score >= 70) return 'C';
+    if (score >= 60) return 'D';
+    return 'F';
   }
 
   function gradeColor(score) {
-  if (score >= 90) return 'success'
-  if (score >= 70) return 'warning'
-  return 'danger'
+    if (score >= 90) return 'success';
+    if (score >= 70) return 'warning';
+    return 'danger';
   }
 </script>

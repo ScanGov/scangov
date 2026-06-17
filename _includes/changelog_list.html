@@ -14,7 +14,7 @@
                             <p class="timeline-domain">
                                 {% if not domain %}
                                 {# Don't show if on profile changelog #}
-                                {{ item.url }}:
+                                <a href="/profile/{{ item.url | slugify }}/overall/">{{ item.url }}</a>:
                                 {% endif %}
                                 <ul>
                                     {% set statusGood = true %}
