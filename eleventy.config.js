@@ -368,7 +368,7 @@ export default async function (eleventyConfig) {
                     '_site/map/index.html',
                 ],
                 css: ['public/assets/bootstrap/css/bootstrap.min.css'],
-                safelist: ['alert-dismissible', 'fade', 'show', 'btn-close'],
+                safelist: ['alert-dismissible', 'alert-primary', 'fade', 'show', 'btn-close'],
             })
 
             fs.writeFileSync(
