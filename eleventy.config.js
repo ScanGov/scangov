@@ -366,6 +366,7 @@ export default async function (eleventyConfig) {
                     '_site/filter/index.html',
                     '_site/profile/ca-gov/report/index.html',
                     '_site/map/index.html',
+                    '_site/report/index.html',
                 ],
                 css: ['public/assets/bootstrap/css/bootstrap.min.css'],
                 safelist: ['alert-dismissible', 'alert-primary', 'fade', 'show', 'btn-close'],

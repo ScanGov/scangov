@@ -1,5 +1,10 @@
 [
   {
+    "title": "Report",
+    "url": "/report/",
+    "icon": "fa-solid fa-bullhorn"
+  },
+  {
     "title": "Changelog",
     "url": "/changelog",
     "icon": "fa-solid fa-timeline"

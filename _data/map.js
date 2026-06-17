@@ -213,15 +213,16 @@ const paths = [
 
 export default () => {
     const returnPaths = [];
+    const localPaths = [...paths];
 
     for (let i = 0; i < domainList.length; i++) {
         const domain = domainList[i];
 
-        for (let j = 0; j < paths.length; j++) {
-            const path = paths[j];
+        for (let j = 0; j < localPaths.length; j++) {
+            const path = localPaths[j];
 
             if (domain.name === path.name) {
-                paths.splice(j, 1);
+                localPaths.splice(j, 1);
 
                 const scores = { overall: domain.status < 300 ? domain.overallScore : -1 };
                 for (const key in domain.scores)
