@@ -177,7 +177,7 @@
       </div>
     </div>
     {% elif profile %}
-    {% if not mapPage %}
+    {% if not mapPage and not orgPage %}
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 py-3">
@@ -186,12 +186,12 @@
             <ol class="breadcrumb mb-0">
               {% if orgPage %}
               <li class="breadcrumb-item" aria-current="page">
-                <i class="fa-solid fa-house"></i> {{ org.name }}
+                <i class="fa-solid fa-house"></i> <a href="/org/{{ org.name | slugify }}/" class="bc-org-current">{{ org.name }}</a>
               </li>
               {% else %}
               <li class="breadcrumb-item">
                 <i class="fa-solid fa-house"></i>
-                {% if domain.name %}<a href="/org/{{ domain.name | slugify }}/">{{ domain.name }}</a> / {% endif %}<a href="/profile/{{ breadcrumbSlug | slugify }}/overall/">{{ breadcrumbSlug }}</a>
+                {% if domain.name %}<a href="/org/{{ domain.name | slugify }}/" class="bc-org">{{ domain.name }}</a><span class="bc-sep"> / </span>{% endif %}<a href="/profile/{{ breadcrumbSlug | slugify }}/overall/" class="bc-domain">{{ breadcrumbSlug }}</a>
               </li>
               {% endif %}
             </ol>

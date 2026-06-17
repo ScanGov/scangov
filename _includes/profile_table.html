@@ -1,29 +1,16 @@
 <div class="table-responsive table-hover">
   <table class="table table-responsive table-bordered table-hover mb-2">
-    <thead class="">
+    <thead>
       <tr>
-        <th scope="col">Standard
-          <a
-            href="https://docs.scangov.org/standards"
-            style="color: inherit;"
-            class="text-decoration-none">
-            <i class="fa-solid fa-circle-question"></i>
-          </a>
-        </th>
-        <th scope="col" style="width: 25%">Status&nbsp;<a
-            href="https://docs.scangov.org/status"
-            style="color: inherit;"
-            class="text-decoration-none">
-            <i class="fa-solid fa-circle-question"></i>
-          </a>
-        </th>
+        <th scope="col" class="sortable" data-col="0">Standard <span class="sort-icons"><i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc d-none"></i><i class="fa-solid fa-sort-down sort-desc d-none"></i></span></th>
+        <th scope="col" style="width: 25%" class="sortable" data-col="1">Status <span class="sort-icons"><i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc d-none"></i><i class="fa-solid fa-sort-down sort-desc d-none"></i></span></th>
       </tr>
     </thead>
     <tbody id="table-compliance-{{ scorekey }}">
       {% for attrKey, score in domain[scorekey] %}
         {% set attrInfo = domain[scorekey] | findAuditAttribute(scorekey, attrKey) %}
           <tr>
-            <td>
+            <td data-sort="{{ attrInfo.displayName if attrInfo else attrKey }}">
               {% if attrInfo %}
                 <a href="https://standards.scangov.org/{{ attrInfo.key }}">{{ attrInfo.displayName }}</a><br>
                 <small>{{ attrInfo.description }}</small>
@@ -31,7 +18,7 @@
                 {{ attrKey }}
               {% endif %}
             </td>
-            <td>
+            <td data-sort="{% if domain.status != 200 %}0{% elif score %}1{% else %}0{% endif %}">
               {% if domain.status != 200 %}
                 <i class="fa-solid fa-circle-exclamation text-warning"></i>
                 <span class="d-xl-inline">Can't access (<a href="https://docs.scangov.org/status#500">500</a>)</span>
@@ -50,4 +37,52 @@
       {% endfor %}
     </tbody>
   </table>
+  <div class="alert alert-info small mt-2" role="alert">
+    <i class="fa-solid fa-circle-info"></i>
+    <a href="https://docs.scangov.org/standards">Standard</a>
+    &middot;
+    <a href="https://docs.scangov.org/status">Status</a>
+  </div>
 </div>
+<script>
+(function () {
+  var tbody = document.getElementById('table-compliance-{{ scorekey }}');
+  if (!tbody) return;
+  var table = tbody.closest('table');
+  var headers = table.querySelectorAll('th.sortable');
+  var sortState = { col: -1, dir: 'asc' };
+
+  function setIcon(th, dir) {
+    th.querySelector('.sort-neutral').classList.toggle('d-none', dir !== null);
+    th.querySelector('.sort-asc').classList.toggle('d-none', dir !== 'asc');
+    th.querySelector('.sort-desc').classList.toggle('d-none', dir !== 'desc');
+  }
+
+  headers.forEach(function (th) {
+    th.addEventListener('click', function () {
+      var col = parseInt(this.getAttribute('data-col'));
+      if (sortState.col === col) {
+        sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
+      } else {
+        sortState.col = col;
+        sortState.dir = 'asc';
+      }
+      headers.forEach(function (h) { setIcon(h, null); });
+      setIcon(this, sortState.dir);
+
+      var rows = Array.from(tbody.querySelectorAll('tr'));
+      rows.sort(function (a, b) {
+        var aVal = a.cells[col].getAttribute('data-sort') || '';
+        var bVal = b.cells[col].getAttribute('data-sort') || '';
+        if (col === 0) {
+          return sortState.dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+        }
+        return sortState.dir === 'asc'
+          ? parseInt(aVal) - parseInt(bVal)
+          : parseInt(bVal) - parseInt(aVal);
+      });
+      rows.forEach(function (row) { tbody.appendChild(row); });
+    });
+  });
+})();
+</script>

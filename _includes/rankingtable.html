@@ -1,18 +1,18 @@
 <tr>
-  <td>{{ d.rankingPosition }}</td>
+  <td data-sort="{{ d.rankingPosition }}">{{ d.rankingPosition }}</td>
   <td>
-        <a href="/profile/{{d.urlkey | slugify }}/{% if specificAttribute %}details/?attr={{ specificAttribute }}{% else %}overall{% endif %}">{{ d.urlkey }}</a>
+        <a href="/profile/{{d.urlkey | slugify }}/{% if specificAttribute %}details/?attr={{ specificAttribute }}{% else %}overall/{% endif %}">{{ d.urlkey }}</a>
     <br>
     <a class="small text-muted" href="/org/{{ d.name | slugify }}/">{{ d.name }}</a>
   </td>
-  <td>
+  <td data-sort="{% if specificAttribute %}{{ d.scores[specificAttribute].score }}{% else %}{{ d.overallScore }}{% endif %}">
     {% if specificAttribute %}
       {{ d[specificAttribute] | auditStatusIcons(specificAttribute) | safe }}
     {% else %}
       {{ d | allAuditStatusIcons | safe }}
     {% endif %}
   </td>
-  <td class="text-center grade-display-column">
+  <td class="text-center grade-display-column" data-sort="{% if specificAttribute %}{{ d.scores[specificAttribute].score }}{% else %}{{ d.overallScore }}{% endif %}">
     {% if specificAttribute %}
       <span class="badge text-bg-{{ d.scores[specificAttribute].score | colorify }}" title="{{ d.scores[specificAttribute].score }}%">{{ d.scores[specificAttribute].score | gradify }}</span>
     {% else %}

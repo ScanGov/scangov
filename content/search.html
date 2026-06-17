@@ -2,7 +2,7 @@
 home: false
 layout: layouts/default
 title: Search
-description: Search domains monitored by ScanGov.
+description: Search domains tracked by ScanGov.
 keywords: government domains, government websites
 ---
 
@@ -73,7 +73,7 @@ keywords: government domains, government websites
       json.forEach(function (j) {
         outputHTML += '<tr>' +
           '<td>' +
-          '<a href="/profile/' + j.domain.replace(/\./g, '-') + '/overall">' + j.domain + '</a>' +
+          '<a href="/profile/' + j.domain.replace(/\./g, '-') + '/overall/">' + j.domain + '</a>' +
           '<br>' +
           '<a class="small text-muted" href="/search/?search=' + encodeURIComponent(j.agency) + '">' + j.agency + '</a>' +
           '</td>' +

@@ -443,11 +443,19 @@ a.list-group-item:hover {
 
 /* Breadcrumb */
 
-.breadcrumb-item a, .breadcrumb-item a:visited {
+.breadcrumb-item, .breadcrumb-item a, .breadcrumb-item a:visited {
     color: var(--bs-link-color);
     font-family: var(--bs-font-bold);
     text-decoration: none;
 }
+
+.bc-sep { color: white; }
+.breadcrumb-item a.bc-org,
+.breadcrumb-item a.bc-org:visited { color: #70e17b; }
+.breadcrumb-item a.bc-domain,
+.breadcrumb-item a.bc-domain:visited,
+.breadcrumb-item a.bc-org-current,
+.breadcrumb-item a.bc-org-current:visited { color: white; }
 
 /* Links / Buttons */
 
@@ -699,6 +707,9 @@ a.btn:hover, a.btn:focus,
 [data-bs-theme=light] .page-link.active {
     color: #13171f;
 }
+
+/* Sortable tables */
+th.sortable { cursor: pointer; user-select: none; white-space: nowrap; }
 
 /* Rankings table */
 
