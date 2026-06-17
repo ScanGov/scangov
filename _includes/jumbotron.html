@@ -264,6 +264,11 @@
             {% elif description and not hideDescription %}
               <p class="lead">{{ description }}</p>
             {% endif %}
+            {% if showLastUpdated %}
+            <ul class="small list-unstyled text-body-secondary">
+              <li>Last updated: {{ updates }}</li>
+            </ul>
+            {% endif %}
           </div>
         </div>
         {% if displaySearch %}
