@@ -30,15 +30,15 @@
 #}
 {% set actionsSocialSites = ["https://docs.scangov.org", "https://standards.scangov.org"] %}
 {% set actionsEmailSites = ["https://scangov.org", "https://standards.scangov.org", "https://docs.scangov.org"] %}
-<ul class="actions list-unstyled d-flex flex-wrap gap-3 mt-3">
-    <li id="rescan-action" class="d-none">
+<ul class="actions list-group list-group-horizontal-sm mt-3 mb-3">
+    <li id="rescan-action" class="list-group-item d-none">
         <a href="https://scangov.com" aria-label="Rescan">
             <i class="fa-solid fa-arrows-rotate"></i>
             <small class="d-none d-sm-inline">Rescan</small>
         </a>
     </li>
     {% if profile and not mapPage and not orgPage %}
-    <li class="dropdown">
+    <li class="list-group-item dropdown">
         <a
             href="#"
             id="download-menu"
@@ -59,7 +59,7 @@
         </ul>
     </li>
     {% endif %}
-    <li class="dropdown">
+    <li class="list-group-item dropdown">
         <a
             href="#"
             id="share-menu"

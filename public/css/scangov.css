@@ -1989,3 +1989,12 @@ th a:focus i, th a:focus svg {
 .js-sidenav a:hover {
     color: var(--bs-link-color) !important;
 }
+
+/* Actions list: restore left border and radius — Bootstrap targets :first-child but rescan is a hidden first node */
+.actions .list-group-item + .list-group-item { border-left-width: 1px; }
+@media (min-width: 576px) {
+    .actions .list-group-item:nth-child(2) {
+        border-top-left-radius: var(--bs-list-group-border-radius);
+        border-bottom-left-radius: var(--bs-list-group-border-radius);
+    }
+}
