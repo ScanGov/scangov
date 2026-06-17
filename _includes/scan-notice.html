@@ -13,5 +13,13 @@
     sessionStorage.setItem('scan-notice-hidden', '1');
     window.dispatchEvent(new Event('scroll'));
   });
+  var footer = document.querySelector('footer');
+  function updateNotice() {
+    if (el.isConnected && footer) {
+      el.style.display = footer.getBoundingClientRect().top < window.innerHeight ? 'none' : '';
+    }
+  }
+  window.addEventListener('scroll', updateNotice);
+  updateNotice();
 })();
 </script>
