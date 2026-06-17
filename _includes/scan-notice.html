@@ -1,0 +1,17 @@
+<div id="scan-notice" class="alert alert-primary fade show scan-notice small" role="alert">
+  <span><i class="fa-solid fa-asterisk"></i> Project ScanGov only scans homepages and general website info key to digital experience. <a href="https://docs.scangov.org/scans/">Learn more.</a></span>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<script>
+(function () {
+  var el = document.getElementById('scan-notice');
+  if (sessionStorage.getItem('scan-notice-hidden')) {
+    el.remove();
+    return;
+  }
+  el.addEventListener('closed.bs.alert', function () {
+    sessionStorage.setItem('scan-notice-hidden', '1');
+    window.dispatchEvent(new Event('scroll'));
+  });
+})();
+</script>
