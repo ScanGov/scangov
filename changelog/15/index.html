@@ -8435,7 +8435,8 @@
   function updateButton() {
     const scrolled = document.documentElement.scrollTop > window.innerHeight * 0.3;
     const footerVisible = footer && footer.getBoundingClientRect().top < window.innerHeight;
-    const visible = scrolled && !footerVisible;
+    const noticeVisible = !!document.getElementById('scan-notice');
+    const visible = scrolled && !footerVisible && !noticeVisible;
     feedbackButton.classList.toggle('is-visible', visible);
     feedbackButton.setAttribute('aria-hidden', visible ? 'false' : 'true');
     feedbackButton.setAttribute('tabindex', visible ? '0' : '-1');

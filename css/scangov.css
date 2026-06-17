@@ -1990,6 +1990,32 @@ th a:focus i, th a:focus svg {
     color: var(--bs-link-color) !important;
 }
 
+.scan-notice {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    z-index: 1050;
+    margin: 0;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.scan-notice .btn-close {
+    flex-shrink: 0;
+    margin-left: auto;
+}
+@media (min-width: 768px) {
+    .scan-notice {
+        width: 75%;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+}
+
 /* Actions list: restore left border and radius — Bootstrap targets :first-child but rescan is a hidden first node */
 .actions .list-group-item + .list-group-item { border-left-width: 1px; }
 @media (min-width: 576px) {
