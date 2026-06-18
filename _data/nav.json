@@ -1,8 +1,8 @@
 [
   {
-    "title": "Report",
-    "url": "/report/",
-    "icon": "fa-solid fa-binoculars"
+    "title": "Pulse",
+    "url": "/pulse/",
+    "icon": "fa-solid fa-wave-square"
   },
   {
     "title": "Changelog",

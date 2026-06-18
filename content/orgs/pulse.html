@@ -1,0 +1,232 @@
+---
+layout: layouts/default
+profile: true
+orgPage: true
+
+pagination:
+  data: orgs
+  size: 1
+  addAllPagesToCollections: true
+  alias: org
+
+permalink: "org/{{ org.name | slugify }}/pulse/"
+
+eleventyComputed:
+  title: "{{ org.name }} pulse"
+  description: "{{ org.name }} pulse."
+---
+
+{% include "profilelinks.html" %}
+
+<div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
+  {% set pageHeading = "Pulse" %}
+  {% set headingPrefix = org.name %}
+  {% include "page-heading.html" %}
+  {% include "details.html" %}
+  {% include "actions.html" %}
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script>Chart.defaults.color = '#fff'; Chart.defaults.borderColor = '#252f3e';</script>
+
+  <div class="border-bottom pb-4 mb-4">
+    <h2 class="mb-3">Domains</h2>
+    <p>By overall grade.</p>
+    <div class="col-12 col-md-5">
+      <canvas id="domains-grade-chart"></canvas>
+    </div>
+    <script>
+      (function () {
+        var scores = [{% for domain in org.domains %}{{ domain.overallScore }}{% if not loop.last %},{% endif %}{% endfor %}];
+        var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
+        scores.forEach(function (s) {
+          if (s >= 90) gradeData.A++;
+          else if (s >= 80) gradeData.B++;
+          else if (s >= 70) gradeData.C++;
+          else if (s >= 60) gradeData.D++;
+          else gradeData.F++;
+        });
+        new Chart(document.getElementById('domains-grade-chart'), {
+          type: 'doughnut',
+          data: {
+            labels: ['A (' + gradeData.A + ')', 'B (' + gradeData.B + ')', 'C (' + gradeData.C + ')', 'D (' + gradeData.D + ')', 'F (' + gradeData.F + ')'],
+            datasets: [{ data: [gradeData.A, gradeData.B, gradeData.C, gradeData.D, gradeData.F], backgroundColor: ['#70e17b', '#c5ee93', '#face00', '#ffbc78', '#e41d3d'], hoverOffset: 4 }]
+          },
+          options: {
+            plugins: {
+              legend: { position: 'top', labels: { color: '#fff' } },
+              tooltip: { callbacks: { label: function (ctx) { var t = ctx.dataset.data.reduce(function (a, b) { return a + b; }, 0); var pct = t ? Math.round(ctx.parsed / t * 100) : 0; return ' ' + ctx.parsed + ' (' + pct + '%)'; } } }
+            }
+          }
+        });
+      })();
+    </script>
+  </div>
+
+  <div class="border-bottom pb-4 mb-4">
+    <h2 class="mb-3">Grades</h2>
+    <p>Average scores across all domains for each indicator.</p>
+    <div class="col-12 col-lg-10">
+      <canvas id="grades-chart"></canvas>
+    </div>
+    <script>
+      (function () {
+        function scoreToGrade(s) {
+          if (s >= 90) return 'A';
+          if (s >= 80) return 'B';
+          if (s >= 70) return 'C';
+          if (s >= 60) return 'D';
+          return 'F';
+        }
+        var orgSlug = '{{ org.name | slugify }}';
+        var gradesUrls = [
+          '/org/' + orgSlug + '/',
+          '/org/' + orgSlug + '/?attr=accessibility',
+          '/org/' + orgSlug + '/?attr=botability',
+          '/org/' + orgSlug + '/?attr=security',
+          '/org/' + orgSlug + '/?attr=usability'
+        ];
+        var gradesScores = [
+          {{ org.domains | averageScore }},
+          {{ org.domains | specificAverageScore('accessibility') }},
+          {{ org.domains | specificAverageScore('botability') }},
+          {{ org.domains | specificAverageScore('security') }},
+          {{ org.domains | specificAverageScore('usability') }}
+        ];
+        var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
+        var gradesEl = document.getElementById('grades-chart');
+        var gradesChart = new Chart(gradesEl, {
+          type: 'bar',
+          data: {
+            labels: baseLabels.map(function (l, i) { return l + ' (' + scoreToGrade(gradesScores[i]) + ')'; }),
+            datasets: [{
+              data: gradesScores,
+              backgroundColor: gradesScores.map(function (s) {
+                if (s >= 90) return '#70e17b';
+                if (s >= 70) return '#face00';
+                return '#e41d3d';
+              })
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { min: 0, max: 100, ticks: { color: '#fff' }, grid: { color: '#252f3e' } },
+              y: { ticks: { color: '#fff' }, grid: { color: '#252f3e' } }
+            },
+            onHover: function (e, els) { e.native.target.style.cursor = els.length ? 'pointer' : 'default'; },
+            onClick: function (e, els) { if (els.length) window.location.href = gradesUrls[els[0].index]; }
+          }
+        });
+      })();
+    </script>
+  </div>
+
+  <div class="pb-4 mb-4">
+    <h2 class="mb-3">Most common issues</h2>
+    <p>Top 10 failing checks across all domains in this organization per indicator.</p>
+    <div class="row">
+      {% for indicator in site.data %}
+        {% set lower = indicator.toLowerCase() %}
+        <div class="col-12 col-lg-10 mb-4">
+          <h3 class="h5">{{ indicator }}</h3>
+          <canvas id="chart-{{ lower }}"></canvas>
+        </div>
+      {% endfor %}
+    </div>
+    <script>
+      (function () {
+        var indicatorLabels = {{ dashboard.indicatorLabels | dump | safe }};
+        var indicatorColors = {{ dashboard.indicatorColors | dump | safe }};
+        var orgDomains = [
+          {% for domain in org.domains %}
+          {
+            accessibility: {{ domain.accessibility | dump | safe }},
+            botability: {{ domain.botability | dump | safe }},
+            security: {{ domain.security | dump | safe }},
+            usability: {{ domain.usability | dump | safe }}
+          }{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ];
+
+        ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
+          var counts = {};
+          orgDomains.forEach(function (domain) {
+            var attrs = domain[key] || {};
+            Object.entries(attrs).forEach(function (e) {
+              if (!e[1]) counts[e[0]] = (counts[e[0]] || 0) + 1;
+            });
+          });
+
+          var data = Object.entries(counts)
+            .map(function (e) {
+              var attr = e[0];
+              var label = (indicatorLabels[key] && indicatorLabels[key][attr])
+                || attr.split('-').map(function (w) { return w[0].toUpperCase() + w.slice(1); }).join(' ');
+              return { attr: attr, label: label, failCount: e[1] };
+            })
+            .sort(function (a, b) { return b.failCount - a.failCount; })
+            .slice(0, 10);
+
+          var urls = data.map(function (d) { return 'https://standards.scangov.org/' + d.attr; });
+          var el = document.getElementById('chart-' + key);
+          if (!el || !data.length) {
+            if (el) {
+              var p = document.createElement('p');
+              p.textContent = 'No failing checks.';
+              el.parentNode.replaceChild(p, el);
+            }
+            return;
+          }
+          var chart = new Chart(el, {
+            type: 'bar',
+            data: {
+              labels: data.map(function (d) { return d.label; }),
+              datasets: [{ data: data.map(function (d) { return d.failCount; }), backgroundColor: indicatorColors[key] || '#fff' }]
+            },
+            options: {
+              indexAxis: 'y',
+              plugins: { legend: { display: false } },
+              scales: {
+                x: { beginAtZero: true, ticks: { color: '#fff' }, grid: { color: '#252f3e' } },
+                y: {
+                  afterFit: function (scale) { scale.width = 280; },
+                  ticks: {
+                    color: '#fff',
+                    callback: function (value) {
+                      var label = this.getLabelForValue(value);
+                      if (!label || label.length <= 30) return label;
+                      var words = label.split(' ');
+                      var lines = [];
+                      var current = '';
+                      words.forEach(function (word) {
+                        var candidate = current ? current + ' ' + word : word;
+                        if (candidate.length > 30) {
+                          if (current) lines.push(current);
+                          current = word;
+                        } else {
+                          current = candidate;
+                        }
+                      });
+                      if (current) lines.push(current);
+                      return lines;
+                    }
+                  }
+                }
+              },
+              onHover: function (event, elements) {
+                event.native.target.style.cursor = elements.length ? 'pointer' : 'default';
+              }
+            }
+          });
+          el.addEventListener('click', function (event) {
+            var points = chart.getElementsAtEventForMode(event, 'nearest', { intersect: true }, true);
+            if (points.length > 0) {
+              window.open(urls[points[0].index], '_blank');
+            }
+          });
+        });
+      })();
+    </script>
+  </div>
+</div>

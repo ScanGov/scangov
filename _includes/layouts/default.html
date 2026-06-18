@@ -2,7 +2,7 @@
 {% include "nav.html" %}
 <main>
   {% include "jumbotron.html" %}
-  <div class="{% if orgPage %}container{% else %}container-fluid{% endif %}">
+  <div class="container-fluid">
     <div class="row">
       {{ content | safe }}
     </div>
