@@ -187,6 +187,7 @@ showLastUpdated: true
     </div>
     <script>
       var chartData = {{ dashboard.charts | dump | safe }};
+      var indicatorColors = {{ dashboard.indicatorColors | dump | safe }};
       ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
         var data = chartData[key] || [];
         var urls = data.map(function (d) { return 'https://standards.scangov.org/' + d.attr; });
@@ -195,7 +196,7 @@ showLastUpdated: true
           type: 'bar',
           data: {
             labels: data.map(function (d) { return d.label; }),
-            datasets: [{ data: data.map(function (d) { return d.failCount; }), backgroundColor: '#e41d3d' }]
+            datasets: [{ data: data.map(function (d) { return d.failCount; }), backgroundColor: indicatorColors[key] || '#fff' }]
           },
           options: {
             indexAxis: 'y',

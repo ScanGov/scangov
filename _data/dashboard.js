@@ -67,5 +67,10 @@ export default async function () {
     else gradeDistribution.F++;
   }
 
-  return { charts, totalDomains: domains.length, gradeDistribution, passRates };
+  const indicatorColors = {};
+  for (const key of indicators) {
+    indicatorColors[key] = (audits[key] && audits[key].color) || '#fff';
+  }
+
+  return { charts, totalDomains: domains.length, gradeDistribution, passRates, indicatorColors };
 }
