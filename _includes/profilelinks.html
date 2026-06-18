@@ -34,6 +34,12 @@
                 <i class="fa-solid fa-timeline"></i>
                 <small>Changelog</small>
             </a>
+            {% if site.url == 'https://scangov.org' %}
+            <a href="{{ domain.redirect }}" target="_blank" class="list-group-item list-group-item-action">
+                <i class="fa-solid fa-up-right-from-square"></i>
+                <small>Visit site</small>
+            </a>
+            {% endif %}
         {% endif %}
     </div>
 </div>
