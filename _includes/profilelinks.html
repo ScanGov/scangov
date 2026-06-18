@@ -29,6 +29,10 @@
             <i class="fa-solid fa-hand-pointer"></i>
             <small>Usability</small>
         </a>
+        <a href="{{ base }}/pulse/" class="list-group-item list-group-item-action{% if page.url == base + '/pulse/' %} active{% endif %}"{% if page.url == base + '/pulse/' %} aria-current="page"{% endif %}>
+            <i class="fa-solid fa-wave-square"></i>
+            <small>Pulse</small>
+        </a>
         {% if not orgPage %}
             <a href="{{ base }}/changelog/" class="list-group-item list-group-item-action{% if page.url == base + '/changelog/' %} active{% endif %}"{% if page.url == base + '/changelog/' %} aria-current="page"{% endif %}>
                 <i class="fa-solid fa-timeline"></i>

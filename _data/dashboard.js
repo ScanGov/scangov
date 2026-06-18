@@ -72,5 +72,5 @@ export default async function () {
     indicatorColors[key] = (audits[key] && audits[key].color) || '#fff';
   }
 
-  return { charts, totalDomains: domains.length, gradeDistribution, passRates, indicatorColors };
+  return { charts, totalDomains: domains.length, gradeDistribution, passRates, indicatorColors, indicatorLabels: lookup };
 }

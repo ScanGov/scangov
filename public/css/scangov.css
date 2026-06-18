@@ -1659,6 +1659,10 @@ a[href$=".mp4"]::after {
     color: #ffe396;
 }
 
+.fa-wave-square {
+    color: #96abee !important;
+}
+
 .fa-window-maximize {
     color: #ffcdd5;
 }
@@ -1767,7 +1771,8 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-code,
 [data-bs-theme=light] .fa-bullhorn,
 [data-bs-theme=light] .fa-github,
-[data-bs-theme=light] .fa-user-group {
+[data-bs-theme=light] .fa-user-group,
+[data-bs-theme=light] .fa-wave-square {
     /* → #4a6bb5 = 5.17:1 ✓ */
     color: #4a6bb5 !important;
 }
