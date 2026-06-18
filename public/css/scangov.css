@@ -1383,6 +1383,10 @@ a[href$=".mp4"]::after {
     color: #b7f5bd !important;
 }
 
+.fa-binoculars {
+    color: #7de8d0 !important;
+}
+
 .fa-bullhorn {
     color: #96abee !important;
 }
@@ -1752,6 +1756,11 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-universal-access {
     /* → #1a6fa0 = 5.49:1 ✓ */
     color: #1a6fa0 !important;
+}
+
+[data-bs-theme=light] .fa-binoculars {
+    /* → #1a7a6a = 5.21:1 ✓ */
+    color: #1a7a6a !important;
 }
 
 [data-bs-theme=light] .fa-bluesky,

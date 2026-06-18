@@ -18,7 +18,7 @@ showLastUpdated: true
         <canvas id="domains-chart"></canvas>
       </div>
       <div class="col-12 col-md-5">
-        <p class="text-center mb-1 small">By grade</p>
+        <p class="text-center mb-1 small">By overall grade</p>
         <canvas id="grades-dist-chart"></canvas>
       </div>
     </div>
@@ -66,12 +66,19 @@ showLastUpdated: true
 
   <div class="border-bottom pb-4 mb-4">
     <h2 class="mb-3">Grades</h2>
-    <p>Average score across all scanned domains for each indicator, color-coded by grade.</p>
+    <p>Average grades across all scanned domains for each indicator, color-coded by grade.</p>
     <div class="col-12 col-lg-10">
       <canvas id="grades-chart"></canvas>
     </div>
     <script>
       (function () {
+        function scoreToGrade(s) {
+          if (s >= 90) return 'A';
+          if (s >= 80) return 'B';
+          if (s >= 70) return 'C';
+          if (s >= 60) return 'D';
+          return 'F';
+        }
         var gradesUrls = ['/rankings/', '/rankings/accessibility/', '/rankings/botability/', '/rankings/security/', '/rankings/usability/'];
         var gradesScores = [
           {{ domains | averageScore }},
@@ -80,11 +87,12 @@ showLastUpdated: true
           {{ domains | specificAverageScore('security') }},
           {{ domains | specificAverageScore('usability') }}
         ];
+        var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
         var gradesChart = new Chart(gradesEl, {
           type: 'bar',
           data: {
-            labels: ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'],
+            labels: baseLabels.map(function (l, i) { return l + ' (' + scoreToGrade(gradesScores[i]) + ')'; }),
             datasets: [{
               data: gradesScores,
               backgroundColor: gradesScores.map(function (s) {
@@ -110,8 +118,8 @@ showLastUpdated: true
   </div>
 
   <div class="border-bottom pb-4 mb-4">
-    <h2 class="mb-3">Grades by indicator</h2>
-    <p>How federal, state, and city domains compare across each digital experience indicator.</p>
+    <h2 class="mb-3">Scores by indicator</h2>
+    <p>Comparison of average federal, state, and city domains scores across each digital experience indicator.</p>
     <div class="col-12 col-lg-10">
       <canvas id="indicator-chart"></canvas>
     </div>
@@ -169,13 +177,13 @@ showLastUpdated: true
 
   <div class="border-bottom pb-4 mb-4">
     <h2 class="mb-3">States</h2>
-    <p>ScanGov score for each state's main website.</p>
+    <p>ScanGov overall score for each state's main website.</p>
     {% include "report-map.html" %}
   </div>
 
   <div class="pb-4 mb-4">
     <h2 class="mb-3">Most common issues</h2>
-    <p>Top 10 failing checks per indicator. Click any bar to view the standard on <a href="https://standards.scangov.org" target="_blank">standards.scangov.org</a>.</p>
+    <p>Top 10 failing checks per indicator.</p>
     <div class="row">
       {% for indicator in site.data %}
         {% set lower = indicator.toLowerCase() %}
