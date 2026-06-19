@@ -219,6 +219,12 @@
     color: var(--bs-body-bg) !important;
 }
 
+/* Footer */
+
+footer a:hover { text-decoration: underline; }
+footer p.small a { text-decoration: underline; }
+footer p.small a:hover { text-decoration: none; }
+
 /* Theme-dependent: logo/image invert */
 
 :root body footer img,
@@ -454,6 +460,10 @@ a.list-group-item:hover {
     font-family: var(--bs-font-bold);
     text-decoration: none;
 }
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+    color: var(--bs-link-color);
+}
 
 .bc-sep { color: white; }
 .breadcrumb-item a.bc-org,
@@ -476,6 +486,11 @@ a.list-group-item:hover {
 a:hover {
     text-decoration: var(--bs-link-hover-decoration);
     color: var(--bs-link-hover-color);
+}
+
+#post a:hover,
+.post-content a:hover {
+    text-decoration: underline;
 }
 
 a.btn-primary, a.btn-primary:visited, .btn-primary {
