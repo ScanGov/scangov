@@ -69,8 +69,15 @@ export default async function () {
 
   const indicatorColors = {};
   for (const key of indicators) {
-    indicatorColors[key] = (audits[key] && audits[key].color) || '#fff';
+    indicatorColors[key] = (audits[key] && audits[key].color) || '#dee2e6';
   }
 
-  return { charts, totalDomains: domains.length, gradeDistribution, passRates, indicatorColors, indicatorLabels: lookup };
+  const indicatorColorsLight = {
+    accessibility: '#1d4e9a',
+    botability: '#4d7c00',
+    security: '#a85000',
+    usability: '#7b3fa0',
+  };
+
+  return { charts, totalDomains: domains.length, gradeDistribution, passRates, indicatorColors, indicatorColorsLight, indicatorLabels: lookup };
 }
