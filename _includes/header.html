@@ -20,7 +20,7 @@
     <title>{% if title %}{{ title }} - {% endif %}{{ site.title }}</title>
     <!-- Open Graph -->
     <meta property="og:site_name" content="{{ site.title }}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="{% if isStandard or isGuidance %}article{% else %}website{% endif %}">
     {% if title %}<meta property="og:title" content="{{ title }}">{% endif %}
     {% if description %}<meta property="og:description" content="{{ description }}">{% endif %}
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
@@ -37,26 +37,20 @@
     <meta property="og:image:alt" content="{{ site.title }} logo">
     {% endif %}
     {% if date %}
-    <!-- Created date -->
     <meta property="article:published_time" content="{{ date }}" />
     {% endif %}
     {% if author %}
-    <!-- Author -->
     <meta property="article:author" content="{{ author }}">
     {% endif %}
     {% if modified %}
-    <!-- Modified date -->
     <meta property="article:modified_time" content="{{ modified }}">
     {% endif %}
+    {% if isStandard %}{% include "schema-standard.html" %}{% endif %}
+    {% if isGuidance %}{% include "schema-guidance.html" %}{% endif %}
     {% if schema %}
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-    {{ schema | safe }}
-    </script>
+    <script type="application/ld+json">{{ schema | safe }}</script>
     {% endif %}
-    <!-- Favicon -->
     {% include "favicon.html" %}
-    <!-- CSS -->
     {% include "style.html" %}
     <script>
         (function() {
