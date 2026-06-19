@@ -26,7 +26,14 @@ eleventyComputed:
   {% include "actions.html" %}
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-  <script>Chart.defaults.color = '#fff'; Chart.defaults.borderColor = '#252f3e';</script>
+  <script>
+    var _isDark;
+    document.addEventListener('DOMContentLoaded', function () {
+      _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
+      Chart.defaults.color = _isDark ? '#fff' : '#000';
+      Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+    });
+  </script>
 
   <div class="border-bottom pb-4 mb-4">
     <h2 class="mb-3">Domains</h2>
@@ -35,7 +42,7 @@ eleventyComputed:
       <canvas id="domains-grade-chart"></canvas>
     </div>
     <script>
-      (function () {
+      document.addEventListener('DOMContentLoaded', function () {
         var scores = [{% for domain in org.domains %}{{ domain.overallScore }}{% if not loop.last %},{% endif %}{% endfor %}];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
@@ -49,16 +56,16 @@ eleventyComputed:
           type: 'doughnut',
           data: {
             labels: ['A (' + gradeData.A + ')', 'B (' + gradeData.B + ')', 'C (' + gradeData.C + ')', 'D (' + gradeData.D + ')', 'F (' + gradeData.F + ')'],
-            datasets: [{ data: [gradeData.A, gradeData.B, gradeData.C, gradeData.D, gradeData.F], backgroundColor: ['#70e17b', '#c5ee93', '#face00', '#ffbc78', '#e41d3d'], hoverOffset: 4 }]
+            datasets: [{ data: [gradeData.A, gradeData.B, gradeData.C, gradeData.D, gradeData.F], backgroundColor: _isDark ? ['#70e17b', '#c5ee93', '#face00', '#ffbc78', '#e41d3d'] : ['#1a7a27', '#4d7c00', '#8a6600', '#a85000', '#b91c1c'], hoverOffset: 4 }]
           },
           options: {
             plugins: {
-              legend: { position: 'top', labels: { color: '#fff' } },
+              legend: { position: 'top' },
               tooltip: { callbacks: { label: function (ctx) { var t = ctx.dataset.data.reduce(function (a, b) { return a + b; }, 0); var pct = t ? Math.round(ctx.parsed / t * 100) : 0; return ' ' + ctx.parsed + ' (' + pct + '%)'; } } }
             }
           }
         });
-      })();
+      });
     </script>
   </div>
 
@@ -69,7 +76,7 @@ eleventyComputed:
       <canvas id="grades-chart"></canvas>
     </div>
     <script>
-      (function () {
+      document.addEventListener('DOMContentLoaded', function () {
         function scoreToGrade(s) {
           if (s >= 90) return 'A';
           if (s >= 80) return 'B';
@@ -101,9 +108,15 @@ eleventyComputed:
             datasets: [{
               data: gradesScores,
               backgroundColor: gradesScores.map(function (s) {
-                if (s >= 90) return '#70e17b';
-                if (s >= 70) return '#face00';
-                return '#e41d3d';
+                if (_isDark) {
+                  if (s >= 90) return '#70e17b';
+                  if (s >= 70) return '#face00';
+                  return '#e41d3d';
+                } else {
+                  if (s >= 90) return '#1a7a27';
+                  if (s >= 70) return '#8a6600';
+                  return '#b91c1c';
+                }
               })
             }]
           },
@@ -111,19 +124,19 @@ eleventyComputed:
             indexAxis: 'y',
             plugins: { legend: { display: false } },
             scales: {
-              x: { min: 0, max: 100, ticks: { color: '#fff' }, grid: { color: '#252f3e' } },
-              y: { ticks: { color: '#fff' }, grid: { color: '#252f3e' } }
+              x: { min: 0, max: 100 }
             },
             onHover: function (e, els) { e.native.target.style.cursor = els.length ? 'pointer' : 'default'; },
             onClick: function (e, els) { if (els.length) window.location.href = gradesUrls[els[0].index]; }
           }
         });
-      })();
+      });
     </script>
   </div>
 
   <div class="pb-4 mb-4">
     <h2 class="mb-3">Most common issues</h2>
+    <span class="d-none" id="sg-clapping-ref"><i class="fa-solid fa-hands-clapping"></i></span>
     <p>Top 10 failing checks across all domains in this organization per indicator.</p>
     <div class="row">
       {% for indicator in site.data %}
@@ -135,9 +148,10 @@ eleventyComputed:
       {% endfor %}
     </div>
     <script>
-      (function () {
+      document.addEventListener('DOMContentLoaded', function () {
         var indicatorLabels = {{ dashboard.indicatorLabels | dump | safe }};
         var indicatorColors = {{ dashboard.indicatorColors | dump | safe }};
+        var indicatorColorsLight = {{ dashboard.indicatorColorsLight | dump | safe }};
         var orgDomains = [
           {% for domain in org.domains %}
           {
@@ -172,9 +186,11 @@ eleventyComputed:
           var el = document.getElementById('chart-' + key);
           if (!el || !data.length) {
             if (el) {
-              var p = document.createElement('p');
-              p.textContent = 'No failing checks.';
-              el.parentNode.replaceChild(p, el);
+              var div = document.createElement('div');
+              div.className = 'alert alert-success';
+              var iconHtml = (document.getElementById('sg-clapping-ref') || {}).innerHTML || '';
+              div.innerHTML = iconHtml + ' No ' + key + ' issues!';
+              el.parentNode.replaceChild(div, el);
             }
             return;
           }
@@ -182,17 +198,16 @@ eleventyComputed:
             type: 'bar',
             data: {
               labels: data.map(function (d) { return d.label; }),
-              datasets: [{ data: data.map(function (d) { return d.failCount; }), backgroundColor: indicatorColors[key] || '#fff' }]
+              datasets: [{ data: data.map(function (d) { return d.failCount; }), backgroundColor: _isDark ? (indicatorColors[key] || '#dee2e6') : (indicatorColorsLight[key] || '#212529') }]
             },
             options: {
               indexAxis: 'y',
               plugins: { legend: { display: false } },
               scales: {
-                x: { beginAtZero: true, ticks: { color: '#fff' }, grid: { color: '#252f3e' } },
+                x: { beginAtZero: true },
                 y: {
                   afterFit: function (scale) { scale.width = 280; },
                   ticks: {
-                    color: '#fff',
                     callback: function (value) {
                       var label = this.getLabelForValue(value);
                       if (!label || label.length <= 30) return label;
@@ -226,7 +241,7 @@ eleventyComputed:
             }
           });
         });
-      })();
+      });
     </script>
   </div>
 </div>

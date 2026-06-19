@@ -463,6 +463,14 @@ a.list-group-item:hover {
 .breadcrumb-item a.bc-org-current,
 .breadcrumb-item a.bc-org-current:visited { color: white; }
 
+[data-bs-theme=light] .bc-sep { color: var(--bs-body-color); }
+[data-bs-theme=light] .breadcrumb-item a.bc-org,
+[data-bs-theme=light] .breadcrumb-item a.bc-org:visited { color: var(--bs-link-color); }
+[data-bs-theme=light] .breadcrumb-item a.bc-domain,
+[data-bs-theme=light] .breadcrumb-item a.bc-domain:visited,
+[data-bs-theme=light] .breadcrumb-item a.bc-org-current,
+[data-bs-theme=light] .breadcrumb-item a.bc-org-current:visited { color: var(--bs-body-color); }
+
 /* Links / Buttons */
 
 a:hover {
