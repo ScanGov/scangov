@@ -34,7 +34,8 @@
     
     
     
-    <!-- Favicon -->
+    
+    
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
@@ -42,7 +43,6 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#ffffff">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
 <link href="/css/scangov.css" rel="stylesheet">
 <link href="/css/plyr.css" rel="stylesheet">
@@ -145,8 +145,8 @@
   </div>
 </nav>
 
-<main>
-  <div id="main-content">
+<main id="main-content">
+  <div>
   
     
     <div class="container-fluid">
@@ -533,11 +533,21 @@
           <ul class="nav flex-column">
             
               <li class="small mb-1">
-                <a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">Site scorecard</a>
+                <a href="https://discord.gg/EPCXEMAX5y" class="nav-link p-0 text-body-secondary">Community</a>
               </li>
             
               <li class="small mb-1">
                 <a href="https://github.com/scanGov/scangov" class="nav-link p-0 text-body-secondary">GitHub</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+        <div class="col-6 col-sm-6 col-md-3 mb-3">
+          <ul class="nav flex-column">
+            
+              <li class="small mb-1">
+                <a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">ScanGov scorecard</a>
               </li>
             
           </ul>
@@ -549,12 +559,8 @@
   <div class="container-fluid py-4 mt-4 border-top">
     <div class="row">
       <div class="col-12 text-center">
-        <p class="small">
-          Built with
-          <svg class="fa-solid fa-heart" aria-label="Heart" aria-hidden="true"><use href="#fas-fa-heart" xlink:href="#fas-fa-heart"></use></svg>
-          by
-          <a href="https://scangov.com">ScanGov</a>
-        </p>
+        <p class="small">Built with <svg class="fa-solid fa-heart" aria-label="Heart" aria-hidden="true"><use href="#fas-fa-heart" xlink:href="#fas-fa-heart"></use></svg> by
+          <a href="https://scangov.com">ScanGov</a></p>
       </div>
     </div>
   </div>
@@ -693,11 +699,15 @@
 </html>
 
 <div id="scan-notice" class="alert alert-primary fade show scan-notice small" role="alert">
-  <span><svg class="fa-solid fa-asterisk" aria-hidden="true"><use href="#fas-fa-asterisk" xlink:href="#fas-fa-asterisk"></use></svg> Project ScanGov only scans homepages and general website info key to digital experience. <a href="https://docs.scangov.org/scans/">Learn more.</a></span>
+  <span>
+    <svg class="fa-solid fa-asterisk" aria-hidden="true"><use href="#fas-fa-asterisk" xlink:href="#fas-fa-asterisk"></use></svg>
+    Project ScanGov only scans homepages and general website info key to digital experience.
+    <a href="https://docs.scangov.org/scans/">Learn more.</a>
+  </span>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 <script>
-(function () {
+  (function () {
   var el = document.getElementById('scan-notice');
   if (sessionStorage.getItem('scan-notice-hidden')) {
     el.remove();
@@ -715,9 +725,8 @@
   }
   window.addEventListener('scroll', updateNotice);
   updateNotice();
-})();
+  })();
 </script>
-
 <!-- outputs all the icons used on the page -->
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars-progress" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-bars-progress"><path fill="currentColor" d="M448 160l-128 0 0-32 128 0 0 32zM48 64C21.5 64 0 85.5 0 112l0 64c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-64c0-26.5-21.5-48-48-48L48 64zM448 352l0 32-256 0 0-32 256 0zM48 288c-26.5 0-48 21.5-48 48l0 64c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-64c0-26.5-21.5-48-48-48L48 288z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="certificate" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-certificate"><path fill="currentColor" d="M211 7.3C205 1 196-1.4 187.6 .8s-14.9 8.9-17.1 17.3L154.7 80.6l-62-17.5c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l17.5 62L18.1 170.6c-8.4 2.1-15 8.7-17.3 17.1S1 205 7.3 211l46.2 45L7.3 301C1 307-1.4 316 .8 324.4s8.9 14.9 17.3 17.1l62.5 15.8-17.5 62c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l62-17.5 15.8 62.5c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l45-46.2 45 46.2c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3l15.8-62.5 62 17.5c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-17.5-62 62.5-15.8c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-46.2-45 46.2-45c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-62.5-15.8 17.5-62c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1l-62 17.5L341.4 18.1c-2.1-8.4-8.7-15-17.1-17.3S307 1 301 7.3L256 53.5 211 7.3z"></path></symbol></svg>
