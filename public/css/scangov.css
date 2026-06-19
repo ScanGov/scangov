@@ -481,16 +481,17 @@ a.list-group-item:hover {
 [data-bs-theme=light] .breadcrumb-item a.bc-org-current,
 [data-bs-theme=light] .breadcrumb-item a.bc-org-current:visited { color: var(--bs-body-color); }
 
+/* Default (Bootstrap-style) breadcrumb — no bold, standard colors */
+.breadcrumb-default .breadcrumb-item,
+.breadcrumb-default .breadcrumb-item a,
+.breadcrumb-default .breadcrumb-item a:visited { font-family: inherit; }
+.breadcrumb-default .breadcrumb-item.active { color: var(--bs-secondary-color); }
+
 /* Links / Buttons */
 
 a:hover {
     text-decoration: var(--bs-link-hover-decoration);
     color: var(--bs-link-hover-color);
-}
-
-#post a:hover,
-.post-content a:hover {
-    text-decoration: underline;
 }
 
 a.btn-primary, a.btn-primary:visited, .btn-primary {
