@@ -57,7 +57,7 @@
     </script>
 </head>
 
-<body class="layouts/default" data-bs-theme="dark">
+<body class="layouts/page" data-bs-theme="dark">
     <a class="visually-hidden visually-hidden-focusable skip-link" href="#main-content">
         Skip to main content
     </a>
@@ -146,7 +146,7 @@
 </nav>
 
 <main>
-  <div id="main-content">
+    <div id="main-content">
   
     <div class="pt-5 pb-4 mb-3 border-bottom">
       <div class="container">
@@ -171,15 +171,22 @@
     </div>
   
 </div>
-  <div class="container-fluid">
-    <div class="row">
-      
-<div class="col-12">
-  <div class="border-bottom pb-4 mb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                
+<div class="border-bottom pb-4 mb-4">
     <h2 class="mb-3" id="domains">Domains</h2>
     <p>How scanned domains break down by type and overall grade.</p>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-    <script>Chart.defaults.color = '#fff'; Chart.defaults.borderColor = '#252f3e';</script>
+    <script>
+      var _isDark;
+      document.addEventListener('DOMContentLoaded', function () {
+        _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
+        Chart.defaults.color = _isDark ? '#fff' : '#000';
+        Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+      });
+    </script>
     <div class="row">
       <div class="col-12 col-md-5">
         <p class="text-center mb-1 small">By domain type</p>
@@ -191,18 +198,18 @@
       </div>
     </div>
     <script>
-      (function () {
+      document.addEventListener('DOMContentLoaded', function () {
         var donutUrls = ['/rankings/federal/', '/rankings/states/', '/rankings/cities/'];
         var donutEl = document.getElementById('domains-chart');
         var donutChart = new Chart(donutEl, {
           type: 'doughnut',
           data: {
             labels: ['Federal (801)', 'States (51)', 'Cities (272)'],
-            datasets: [{ data: [801, 51, 272], backgroundColor: ['#96abee', '#70e17b', '#ffbc78'], hoverOffset: 4 }]
+            datasets: [{ data: [801, 51, 272], backgroundColor: _isDark ? ['#96abee', '#70e17b', '#ffbc78'] : ['#1d4e9a', '#1a7a27', '#a85000'], hoverOffset: 4 }]
           },
           options: {
             plugins: {
-              legend: { position: 'top', labels: { color: '#fff' } },
+              legend: { position: 'top' },
               tooltip: { callbacks: { label: function (ctx) { var t = ctx.dataset.data.reduce(function (a, b) { return a + b; }, 0); var pct = t ? Math.round(ctx.parsed / t * 100) : 0; return ' ' + ctx.parsed + ' (' + pct + '%)'; } } }
             },
             onHover: function (e, els) { e.native.target.style.cursor = els.length ? 'pointer' : 'default'; }
@@ -219,16 +226,16 @@
           type: 'doughnut',
           data: {
             labels: ['A (' + gradeData.A + ')', 'B (' + gradeData.B + ')', 'C (' + gradeData.C + ')', 'D (' + gradeData.D + ')', 'F (' + gradeData.F + ')'],
-            datasets: [{ data: [gradeData.A, gradeData.B, gradeData.C, gradeData.D, gradeData.F], backgroundColor: ['#70e17b', '#c5ee93', '#face00', '#ffbc78', '#e41d3d'], hoverOffset: 4 }]
+            datasets: [{ data: [gradeData.A, gradeData.B, gradeData.C, gradeData.D, gradeData.F], backgroundColor: _isDark ? ['#70e17b', '#c5ee93', '#face00', '#ffbc78', '#e41d3d'] : ['#1a7a27', '#4d7c00', '#8a6600', '#a85000', '#b91c1c'], hoverOffset: 4 }]
           },
           options: {
             plugins: {
-              legend: { position: 'top', labels: { color: '#fff' } },
+              legend: { position: 'top' },
               tooltip: { callbacks: { label: function (ctx) { var t = ctx.dataset.data.reduce(function (a, b) { return a + b; }, 0); var pct = t ? Math.round(ctx.parsed / t * 100) : 0; return ' ' + ctx.parsed + ' (' + pct + '%)'; } } }
             }
           }
         });
-      })();
+      });
     </script>
   </div>
 
@@ -239,7 +246,7 @@
       <canvas id="grades-chart"></canvas>
     </div>
     <script>
-      (function () {
+      document.addEventListener('DOMContentLoaded', function () {
         function scoreToGrade(s) {
           if (s >= 90) return 'A';
           if (s >= 80) return 'B';
@@ -264,9 +271,15 @@
             datasets: [{
               data: gradesScores,
               backgroundColor: gradesScores.map(function (s) {
-                if (s >= 90) return '#70e17b';
-                if (s >= 70) return '#face00';
-                return '#e41d3d';
+                if (_isDark) {
+                  if (s >= 90) return '#70e17b';
+                  if (s >= 70) return '#face00';
+                  return '#e41d3d';
+                } else {
+                  if (s >= 90) return '#1a7a27';
+                  if (s >= 70) return '#8a6600';
+                  return '#b91c1c';
+                }
               })
             }]
           },
@@ -274,14 +287,13 @@
             indexAxis: 'y',
             plugins: { legend: { display: false } },
             scales: {
-              x: { min: 0, max: 100, ticks: { color: '#fff' }, grid: { color: '#252f3e' } },
-              y: { ticks: { color: '#fff' }, grid: { color: '#252f3e' } }
+              x: { min: 0, max: 100 }
             },
             onHover: function (e, els) { e.native.target.style.cursor = els.length ? 'pointer' : 'default'; },
             onClick: function (e, els) { if (els.length) window.location.href = gradesUrls[els[0].index]; }
           }
         });
-      })();
+      });
     </script>
   </div>
 
@@ -292,7 +304,7 @@
       <canvas id="indicator-chart"></canvas>
     </div>
     <script>
-      (function () {
+      document.addEventListener('DOMContentLoaded', function () {
         new Chart(document.getElementById('indicator-chart'), {
           type: 'bar',
           data: {
@@ -306,7 +318,7 @@
                   77,
                   57
                 ],
-                backgroundColor: '#96abee'
+                backgroundColor: _isDark ? '#96abee' : '#1d4e9a'
               },
               {
                 label: 'States',
@@ -316,7 +328,7 @@
                   80,
                   65
                 ],
-                backgroundColor: '#70e17b'
+                backgroundColor: _isDark ? '#70e17b' : '#1a7a27'
               },
               {
                 label: 'Cities',
@@ -326,20 +338,19 @@
                   80,
                   54
                 ],
-                backgroundColor: '#ffbc78'
+                backgroundColor: _isDark ? '#ffbc78' : '#a85000'
               }
             ]
           },
           options: {
             indexAxis: 'y',
-            plugins: { legend: { position: 'top', labels: { color: '#fff' } } },
+            plugins: { legend: { position: 'top' } },
             scales: {
-              x: { min: 0, max: 100, ticks: { color: '#fff' }, grid: { color: '#252f3e' } },
-              y: { ticks: { color: '#fff' }, grid: { color: '#252f3e' } }
+              x: { min: 0, max: 100 }
             }
           }
         });
-      })();
+      });
     </script>
   </div>
 
@@ -868,27 +879,29 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
       
     </div>
     <script>
+      document.addEventListener('DOMContentLoaded', function () {
       var chartData = {"accessibility":[{"attr":"heading-order","label":"Heading elements appear in a sequentially-descending order","failCount":340},{"attr":"color-contrast","label":"Background and foreground colors have a sufficient contrast ratio","failCount":297},{"attr":"link-name","label":"Links have a discernible name","failCount":293},{"attr":"target-size","label":"Touch targets have sufficient size and spacing","failCount":288},{"attr":"landmark-one-main","label":"Document has a main landmark","failCount":262},{"attr":"label-content-name-mismatch","label":"Elements with visible text labels have matching accessible names","failCount":195},{"attr":"image-alt","label":"Image elements have [alt] attributes","failCount":133},{"attr":"image-aspect-ratio","label":"Image aspect ratio","failCount":127},{"attr":"aria-required-children","label":"Elements with an ARIA [role] that require children to contain a specific [role] have all required children","failCount":106},{"attr":"aria-hidden-focus","label":"[aria-hidden=\"true\"] elements do not contain focusable descendents","failCount":96}],"botability":[{"attr":"schema-government-organization","label":"GovernmentOrganization Schema.org Type","failCount":1124},{"attr":"sitemap-robots","label":"Sitemap in robots.txt","failCount":705},{"attr":"xml","label":"Sitemap XML","failCount":508},{"attr":"status","label":"Sitemap status","failCount":508},{"attr":"link-text","label":"Link text","failCount":431},{"attr":"valid","label":"Robots valid","failCount":193},{"attr":"allowed","label":"Robots allowed","failCount":42},{"attr":"canonical","label":"Canonical","failCount":17},{"attr":"hreflang","label":"hreflang","failCount":4}],"security":[{"attr":"securitytxt","label":"security.txt","failCount":1124},{"attr":"errors-in-console","label":"Errors in the console","failCount":461},{"attr":"xcontenttypeoptions","label":"X-Content-Type-Options","failCount":308},{"attr":"dotgov","label":"Sponsored top-level domain (sTLD)","failCount":238},{"attr":"csp","label":"Content security policy (CSP)","failCount":6},{"attr":"hsts","label":"HTTP Strict Transport Security (HSTS)","failCount":1},{"attr":"clickjacking-mitigation","label":"Clickjacking mitigation","failCount":1},{"attr":"paste-preventing-inputs","label":"Paste preventing inputs","failCount":1}],"usability":[{"attr":"ogimagealt","label":"Open Graph image alt","failCount":1019},{"attr":"ogsitename","label":"Open Graph site name","failCount":791},{"attr":"ogtype","label":"Open Graph type","failCount":723},{"attr":"ogimage","label":"Open Graph image","failCount":723},{"attr":"ogdescription","label":"Open Graph description","failCount":704},{"attr":"ogurl","label":"Open Graph URL","failCount":681},{"attr":"ogtitle","label":"Open Graph title","failCount":602},{"attr":"description","label":"Page description","failCount":560},{"attr":"lcp","label":"Largest Contentful Paint (LCP)","failCount":556},{"attr":"fcp","label":"First Contentful Paint (FCP)","failCount":502}]};
       var indicatorColors = {"accessibility":"#a8f2ff","botability":"#e7f434","security":"#ff8d7b","usability":"#d5bfff"};
+      var indicatorColorsLight = {"accessibility":"#1d4e9a","botability":"#4d7c00","security":"#a85000","usability":"#7b3fa0"};
       ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
         var data = chartData[key] || [];
         var urls = data.map(function (d) { return 'https://standards.scangov.org/' + d.attr; });
         var el = document.getElementById('chart-' + key);
+        var barColor = _isDark ? (indicatorColors[key] || '#dee2e6') : (indicatorColorsLight[key] || '#212529');
         var chart = new Chart(el, {
           type: 'bar',
           data: {
             labels: data.map(function (d) { return d.label; }),
-            datasets: [{ data: data.map(function (d) { return d.failCount; }), backgroundColor: indicatorColors[key] || '#fff' }]
+            datasets: [{ data: data.map(function (d) { return d.failCount; }), backgroundColor: barColor }]
           },
           options: {
             indexAxis: 'y',
             plugins: { legend: { display: false } },
             scales: {
-              x: { beginAtZero: true, ticks: { color: '#fff' } },
+              x: { beginAtZero: true },
               y: {
                 afterFit: function (scale) { scale.width = 280; },
                 ticks: {
-                  color: '#fff',
                   callback: function (value) {
                     var label = this.getLabelForValue(value);
                     if (!label || label.length <= 30) return label;
@@ -922,12 +935,13 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
           }
         });
       });
+      });
     </script>
   </div>
-</div>
 
+            </div>
+        </div>
     </div>
-  </div>
 </main>
 <footer>
   
@@ -1077,37 +1091,9 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="magnifying-glass" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-magnifying-glass"><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-heart"><path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="wand-magic-sparkles" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" id="fas-fa-wand-magic-sparkles"><path fill="currentColor" d="M234.7 42.7L197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1L248.8 123c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2L277.3 42.7 263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5L234.7 42.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0L529.9 116.5c18.7-18.7 18.7-49.1 0-67.9L495.3 14.1c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96 106.8 39.5C105.1 35 100.8 32 96 32s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"></path></symbol></svg>
-<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="asterisk" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" id="fas-fa-asterisk"><path fill="currentColor" d="M192 32c17.7 0 32 14.3 32 32l0 135.5 111.5-66.9c15.2-9.1 34.8-4.2 43.9 11s4.2 34.8-11 43.9L254.2 256l114.3 68.6c15.2 9.1 20.1 28.7 11 43.9s-28.7 20.1-43.9 11L224 312.5 224 448c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-135.5L48.5 379.4c-15.2 9.1-34.8 4.2-43.9-11s-4.2-34.8 11-43.9L129.8 256 15.5 187.4c-15.2-9.1-20.1-28.7-11-43.9s28.7-20.1 43.9-11L160 199.5 160 64c0-17.7 14.3-32 32-32z"></path></symbol></svg>
 </body>
 </html>
 
-<div id="scan-notice" class="alert alert-primary fade show scan-notice small" role="alert">
-  <span><svg class="fa-solid fa-asterisk" aria-hidden="true"><use href="#fas-fa-asterisk" xlink:href="#fas-fa-asterisk"></use></svg> Project ScanGov only scans homepages and general website info key to digital experience. <a href="https://docs.scangov.org/scans/">Learn more.</a></span>
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-<script>
-(function () {
-  var el = document.getElementById('scan-notice');
-  if (sessionStorage.getItem('scan-notice-hidden')) {
-    el.remove();
-    return;
-  }
-  el.addEventListener('closed.bs.alert', function () {
-    sessionStorage.setItem('scan-notice-hidden', '1');
-    window.dispatchEvent(new Event('scroll'));
-  });
-  var footer = document.querySelector('footer');
-  function updateNotice() {
-    if (el.isConnected && footer) {
-      el.style.display = footer.getBoundingClientRect().top < window.innerHeight ? 'none' : '';
-    }
-  }
-  window.addEventListener('scroll', updateNotice);
-  updateNotice();
-})();
-</script>
-
-<!-- outputs all the icons used on the page -->
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars-progress" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-bars-progress"><path fill="currentColor" d="M448 160l-128 0 0-32 128 0 0 32zM48 64C21.5 64 0 85.5 0 112l0 64c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-64c0-26.5-21.5-48-48-48L48 64zM448 352l0 32-256 0 0-32 256 0zM48 288c-26.5 0-48 21.5-48 48l0 64c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-64c0-26.5-21.5-48-48-48L48 288z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="certificate" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-certificate"><path fill="currentColor" d="M211 7.3C205 1 196-1.4 187.6 .8s-14.9 8.9-17.1 17.3L154.7 80.6l-62-17.5c-8.4-2.4-17.4 0-23.5 6.1s-8.5 15.1-6.1 23.5l17.5 62L18.1 170.6c-8.4 2.1-15 8.7-17.3 17.1S1 205 7.3 211l46.2 45L7.3 301C1 307-1.4 316 .8 324.4s8.9 14.9 17.3 17.1l62.5 15.8-17.5 62c-2.4 8.4 0 17.4 6.1 23.5s15.1 8.5 23.5 6.1l62-17.5 15.8 62.5c2.1 8.4 8.7 15 17.1 17.3s17.3-.2 23.4-6.4l45-46.2 45 46.2c6.1 6.2 15 8.7 23.4 6.4s14.9-8.9 17.1-17.3l15.8-62.5 62 17.5c8.4 2.4 17.4 0 23.5-6.1s8.5-15.1 6.1-23.5l-17.5-62 62.5-15.8c8.4-2.1 15-8.7 17.3-17.1s-.2-17.4-6.4-23.4l-46.2-45 46.2-45c6.2-6.1 8.7-15 6.4-23.4s-8.9-14.9-17.3-17.1l-62.5-15.8 17.5-62c2.4-8.4 0-17.4-6.1-23.5s-15.1-8.5-23.5-6.1l-62 17.5L341.4 18.1c-2.1-8.4-8.7-15-17.1-17.3S307 1 301 7.3L256 53.5 211 7.3z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="diagram-project" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" id="fas-fa-diagram-project"><path fill="currentColor" d="M0 80C0 53.5 21.5 32 48 32l96 0c26.5 0 48 21.5 48 48l0 16 192 0 0-16c0-26.5 21.5-48 48-48l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48l0-16-192 0 0 16c0 1.7-.1 3.4-.3 5L272 288l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48l0-96c0-1.7 .1-3.4 .3-5L144 224l-96 0c-26.5 0-48-21.5-48-48L0 80z"></path></symbol></svg>
@@ -1117,4 +1103,3 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="magnifying-glass" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-magnifying-glass"><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-heart"><path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="wand-magic-sparkles" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" id="fas-fa-wand-magic-sparkles"><path fill="currentColor" d="M234.7 42.7L197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1L248.8 123c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2L277.3 42.7 263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5L234.7 42.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0L529.9 116.5c18.7-18.7 18.7-49.1 0-67.9L495.3 14.1c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96 106.8 39.5C105.1 35 100.8 32 96 32s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"></path></symbol></svg>
-<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="asterisk" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" id="fas-fa-asterisk"><path fill="currentColor" d="M192 32c17.7 0 32 14.3 32 32l0 135.5 111.5-66.9c15.2-9.1 34.8-4.2 43.9 11s4.2 34.8-11 43.9L254.2 256l114.3 68.6c15.2 9.1 20.1 28.7 11 43.9s-28.7 20.1-43.9 11L224 312.5 224 448c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-135.5L48.5 379.4c-15.2 9.1-34.8 4.2-43.9-11s-4.2-34.8 11-43.9L129.8 256 15.5 187.4c-15.2-9.1-20.1-28.7-11-43.9s28.7-20.1 43.9-11L160 199.5 160 64c0-17.7 14.3-32 32-32z"></path></symbol></svg>
