@@ -1,0 +1,20 @@
+{% include "header.html" %}
+{% include "nav.html" %}
+<main>
+  {% include "jumbotron.html" %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>Pages</h2>
+        <ul>
+          {% for post in collections.all | sort(false, false, 'data.title') %}
+            {% if post.data.title and post.data.sitemap != false and not post.data.hide and not post.data.profile %}
+              <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+{% include "footer.html" %}

@@ -1101,14 +1101,30 @@ main#home img {
 
 /* Anchor links */
 
+a.heading-anchor-text {
+    color: inherit !important;
+    text-decoration: none;
+}
+
 h2 a#heading-hashtag,
 h3 a#heading-hashtag {
     display: none;
+    color: var(--bs-link-color);
+    text-decoration: none;
+    margin-left: 0.4rem;
+    font-size: 0.75em;
+    vertical-align: middle;
+}
+
+h2 a#heading-hashtag svg,
+h3 a#heading-hashtag svg {
+    color: var(--bs-link-color) !important;
+    fill: var(--bs-link-color) !important;
 }
 
 h2:hover a#heading-hashtag,
 h3:hover a#heading-hashtag {
-    display: revert;
+    display: inline;
 }
 
 /* iframe */
@@ -1363,8 +1379,13 @@ a[href$=".mp4"]::after {
     color: #f8b9c5 !important;
 }
 
-.fa-linkedin {
+.fa-linkedin,
+.fa-linkedin-in {
     color: #c3ebfa !important;
+}
+
+.fa-x-twitter {
+    color: #e4e4e4 !important;
 }
 
 .fa-youtube {
@@ -1695,11 +1716,36 @@ a[href$=".mp4"]::after {
     color: #ffcdd5;
 }
 
+.fa-building-columns {
+    color: #b0d0f0 !important;
+}
+
+.fa-chart-simple {
+    color: #ffbc78 !important;
+}
+
+.fa-check-circle {
+    color: #70e17b !important;
+}
+
+.fa-circle-play {
+    color: #7de8d0 !important;
+}
+
+.fa-concierge-bell {
+    color: #dec69a !important;
+}
+
+.fa-photo-film {
+    color: #d5bfff !important;
+}
+
 /* Icons — light mode overrides (WCAG 2.2 AA compliant, min 4.5:1 on #fff) */
 
 [data-bs-theme=light] .fa-arrow-right-to-bracket,
 [data-bs-theme=light] .fa-arrows-rotate,
 [data-bs-theme=light] .fa-building,
+[data-bs-theme=light] .fa-check-circle,
 [data-bs-theme=light] .fa-circle-check,
 [data-bs-theme=light] .fa-circle-info,
 [data-bs-theme=light] .fa-circle-plus,
@@ -1724,6 +1770,7 @@ a[href$=".mp4"]::after {
 
 [data-bs-theme=light] .fa-bell-concierge,
 [data-bs-theme=light] .fa-brain,
+[data-bs-theme=light] .fa-concierge-bell,
 [data-bs-theme=light] .fa-map,
 [data-bs-theme=light] .fa-server {
     /* → #8a5e2d = 5.65:1 ✓ */
@@ -1766,6 +1813,7 @@ a[href$=".mp4"]::after {
 }
 
 [data-bs-theme=light] .fa-bars-progress,
+[data-bs-theme=light] .fa-chart-simple,
 [data-bs-theme=light] .fa-dashboard,
 [data-bs-theme=light] .fa-fire,
 [data-bs-theme=light] .fa-gauge,
@@ -1782,6 +1830,8 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-file,
 [data-bs-theme=light] .fa-file-lines,
 [data-bs-theme=light] .fa-linkedin,
+[data-bs-theme=light] .fa-linkedin-in,
+[data-bs-theme=light] .fa-x-twitter,
 [data-bs-theme=light] .fa-paper-plane,
 [data-bs-theme=light] .fa-percent,
 [data-bs-theme=light] .fa-satellite-dish,
@@ -1791,7 +1841,8 @@ a[href$=".mp4"]::after {
     color: #1a6fa0 !important;
 }
 
-[data-bs-theme=light] .fa-binoculars {
+[data-bs-theme=light] .fa-binoculars,
+[data-bs-theme=light] .fa-circle-play {
     /* → #1a7a6a = 5.21:1 ✓ */
     color: #1a7a6a !important;
 }
@@ -1852,6 +1903,7 @@ a[href$=".mp4"]::after {
     color: #1a7a2a !important;
 }
 
+[data-bs-theme=light] .fa-building-columns,
 [data-bs-theme=light] .fa-circle-dot,
 [data-bs-theme=light] .fa-gear {
     /* → #1a5e9e = 6.69:1 ✓ */
@@ -1890,6 +1942,7 @@ a[href$=".mp4"]::after {
 }
 
 [data-bs-theme=light] .fa-hand-pointer,
+[data-bs-theme=light] .fa-photo-film,
 [data-bs-theme=light] .fa-spray-can-sparkles {
     /* → #6b3fa0 = 7.38:1 ✓ */
     color: #6b3fa0 !important;
@@ -2050,6 +2103,7 @@ th a:focus i, th a:focus svg {
 }
 #post h3 {
     margin-top: 2rem;
+    font-size: 1.1rem;
 }
 
 .js-sidenav a:hover {
