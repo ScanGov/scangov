@@ -28,6 +28,25 @@
 {% include "analytics.html" %}
 {% include "js.html" %}
 {% include "feedback.html" %}
+<i class="fa-solid fa-link" style="display:none" aria-hidden="true"></i>
+<script>
+(function() {
+    document.querySelectorAll('#post h2[id], #post h3[id]').forEach(function(h) {
+        if (h.closest('.card')) return;
+        var wrap = document.createElement('a');
+        wrap.className = 'heading-anchor-text';
+        wrap.href = '#' + h.id;
+        while (h.firstChild) { wrap.appendChild(h.firstChild); }
+        h.appendChild(wrap);
+        var icon = document.createElement('a');
+        icon.id = 'heading-hashtag';
+        icon.href = '#' + h.id;
+        icon.setAttribute('aria-hidden', 'true');
+        icon.innerHTML = '<svg aria-hidden="true"><use href="#fas-fa-link" xlink:href="#fas-fa-link"></use></svg>';
+        h.appendChild(icon);
+    });
+})();
+</script>
 {% getBundle "fontawesome" %}
 </body>
 </html>

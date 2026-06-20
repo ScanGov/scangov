@@ -1,18 +1,11 @@
 [
   [
-    {
-      "title": "Community",
-      "url": "https://discord.gg/EPCXEMAX5y"
-    },
-    {
-      "title": "GitHub",
-      "url": "https://github.com/scanGov/scangov"
-    }
+    { "title": "Community", "url": "https://docs.scangov.com/community" }
   ],
   [
-    {
-      "title": "ScanGov scorecard",
-      "url": "https://my.scangov.com/public/key5279-1751598352407/scangov-org/report"
-    }
+    { "title": "ScanGov scorecard", "url": "https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" }
+  ],
+  [
+    { "title": "Site index", "url": "/site-index/" }
   ]
 ]

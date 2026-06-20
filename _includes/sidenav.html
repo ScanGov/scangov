@@ -1,0 +1,24 @@
+<nav class="d-none d-md-block js-sidenav position-sticky" style="top: 1rem;">
+  <ul class="nav flex-column small">
+    {% for item in sidenav %}
+      {% if item.items %}
+        <li class="nav-item mt-3 mb-1 text-secondary">
+          {% if item.icon %}<i class="{{ item.icon }} me-2 fa-fw"></i>{% endif %}{{ item.title }}
+        </li>
+        {% for sub in item.items %}
+          <li class="nav-item mb-0 border-bottom">
+            <a href="{{ sub.url }}" class="text-body text-decoration-none d-block py-2 ps-3{% if page.url == sub.url %} fw-bold{% endif %}">
+              {% if sub.icon %}<i class="{{ sub.icon }} me-2 fa-fw"></i>{% endif %}{{ sub.title }}
+            </a>
+          </li>
+        {% endfor %}
+      {% else %}
+        <li class="nav-item mb-0 border-bottom">
+          <a href="{{ item.url }}" class="text-body text-decoration-none d-block py-2{% if page.url == item.url %} fw-bold{% endif %}">
+            {% if item.icon %}<i class="{{ item.icon }} me-2 fa-fw"></i>{% endif %}{{ item.title }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</nav>
