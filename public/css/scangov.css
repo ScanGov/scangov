@@ -1479,6 +1479,10 @@ a[href$=".mp4"]::after {
     color: #f8b9c5;
 }
 
+.fa-face-sad-tear {
+    color: #face00;
+}
+
 .fa-face-smile {
     color: #fffb00;
 }
@@ -1731,6 +1735,7 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-check,
 [data-bs-theme=light] .fa-crown,
 [data-bs-theme=light] .fa-dolly,
+[data-bs-theme=light] .fa-face-sad-tear,
 [data-bs-theme=light] .fa-face-smile,
 [data-bs-theme=light] .fa-file-contract,
 [data-bs-theme=light] .fa-hand, [data-bs-theme=light] .fa-hands,
