@@ -1,0 +1,14 @@
+{% include "header.html" %}
+{% include "nav.html" %}
+<main id="main-content">
+  <div class="pt-5 pb-5 mb-5 border-bottom">
+    <div class="container">
+      {% if title %}<h1 class="display-5">{{ title | safe }}</h1>{% endif %}
+      {% if description %}<p class="lead fs-5">{{ description | safe }}</p>{% endif %}
+    </div>
+  </div>
+  <div class="container">
+    {% include "404.html" %}
+  </div>
+</main>
+{% include "footer.html" %}
