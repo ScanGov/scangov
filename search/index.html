@@ -150,21 +150,31 @@
 <main id="main-content">
   <div>
   
-    <div class="pt-5 pb-4 mb-3 border-bottom">
-      <div class="container">
+    <div class="py-4 mb-4 border-bottom">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             
-              <h1 class="display-5" id="search">Search</h1>
+              <h1 class="display-5 mb-0" id="search">Search</h1>
             
             
-              <p class="lead">Search domains tracked by ScanGov.</p>
             
+            
+            <div class="row mt-3 mb-0">
+              <div class="col-12 col-md-6">
+                <form id="search-form" action="/search/">
+  <label class="pb-2 d-block" for="search-input">Domain:</label>
+  <div class="d-flex gap-2">
+    <input name="search" type="text" class="form-control" placeholder="ex: ca.gov" id="search-input" autocomplete="off">
+    <input type="submit" value="Go" class="btn btn-primary">
+  </div>
+</form>
+
+              </div>
+            </div>
             
           </div>
         </div>
-        
-
       </div>
     </div>
   
@@ -172,38 +182,19 @@
   <div class="container-fluid">
     <div class="row">
       
-<main id="search-page">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <form id="search-form" action="/search/" class="row mt-3 mb-4">
-          <div class="col-12 col-md-8 col-lg-6">
-            <label class="pb-2" for="search-input">Domain:</label>
-            <div class="d-flex gap-2">
-              <input name="search" type="text" class="form-control" placeholder="ex: ca.gov" id="search-input" autocomplete="off">
-              <input type="submit" value="Go" class="btn btn-primary">
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="row d-none" id="results-section">
-      <div class="col-12">
-        <div class="table-responsive">
-          <table class="table table-responsive table-bordered table-hover mt-3">
-            <thead>
-              <tr>
-                <th scope="col" style="width: 85%;">Domain</th>
-                <th scope="col" class="text-center">Grade</th>
-              </tr>
-            </thead>
-            <tbody id="results-table"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+<div class="col-12 d-none" id="results-section">
+  <div class="table-responsive">
+    <table class="table table-responsive table-bordered table-hover mt-3">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 85%;">Domain</th>
+          <th scope="col" class="text-center">Grade</th>
+        </tr>
+      </thead>
+      <tbody id="results-table"></tbody>
+    </table>
   </div>
-</main>
+</div>
 <script>
   var query = new URLSearchParams(location.search).get('search');
 
