@@ -4,49 +4,22 @@ layout: layouts/default
 title: Search
 description: Search domains tracked by ScanGov.
 keywords: government domains, government websites
+search: true
 ---
 
-<main id="search-page">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <form id="search-form" action="/search/" class="row mt-3 mb-4">
-          <div class="col-12 col-md-8 col-lg-6">
-            <label class="pb-2" for="search-input">Domain:</label>
-            <div class="d-flex gap-2">
-              <input
-                name="search"
-                type="text"
-                class="form-control"
-                placeholder="ex: ca.gov"
-                id="search-input"
-                autocomplete="off">
-              <input
-                type="submit"
-                value="Go"
-                class="btn btn-primary">
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="row d-none" id="results-section">
-      <div class="col-12">
-        <div class="table-responsive">
-          <table class="table table-responsive table-bordered table-hover mt-3">
-            <thead>
-              <tr>
-                <th scope="col" style="width: 85%;">Domain</th>
-                <th scope="col" class="text-center">Grade</th>
-              </tr>
-            </thead>
-            <tbody id="results-table"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+<div class="col-12 d-none" id="results-section">
+  <div class="table-responsive">
+    <table class="table table-responsive table-bordered table-hover mt-3">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 85%;">Domain</th>
+          <th scope="col" class="text-center">Grade</th>
+        </tr>
+      </thead>
+      <tbody id="results-table"></tbody>
+    </table>
   </div>
-</main>
+</div>
 <script>
   var query = new URLSearchParams(location.search).get('search');
 

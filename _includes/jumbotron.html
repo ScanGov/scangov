@@ -1,6 +1,6 @@
 <div>
   {% if home %}
-    <div class="py-5 mb-5 border-bottom">
+    <div class="py-4 mb-5 border-bottom">
       <div class="container">
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -252,85 +252,32 @@
       <p class="lead pb-3 mb-5">{{ description }}</p>
     {% endif %}
   {% else %}
-    <div class="pt-5 pb-4 mb-3 border-bottom">
-      <div class="container">
+    <div class="py-4{% if not noBorder %} mb-4 border-bottom{% endif %}">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             {% if title %}
-              <h1 class="display-5">{{ title }}</h1>
+              <h1 class="display-5 mb-0">{{ title }}</h1>
             {% endif %}
-            {% if descriptionHtml %}
-              <p class="lead">{{ descriptionHtml | safe }}</p>
-            {% elif description and not hideDescription %}
-              <p class="lead">{{ description }}</p>
+            {% if showDescription and descriptionHtml %}
+              <p class="lead fs-5 mt-2 mb-0">{{ descriptionHtml | safe }}</p>
+            {% elif showDescription %}
+              <p class="lead fs-5 mt-2 mb-0">{{ description }}</p>
             {% endif %}
             {% if showLastUpdated %}
-            <ul class="small list-unstyled text-body-secondary">
+            <ul class="small list-unstyled text-body-secondary mt-2 mb-0">
               <li>Last updated: {{ updates }}</li>
             </ul>
             {% endif %}
+            {% if search %}
+            <div class="row mt-3 mb-0">
+              <div class="col-12 col-md-6">
+                {% include "search.html" %}
+              </div>
+            </div>
+            {% endif %}
           </div>
         </div>
-        {% if displaySearch %}
-          <form
-            id="search-form"
-            action="/search/"
-            class="row mt-3">
-            <div class="littlesearch">
-              <label for="search">Domain:</label>
-              <input
-                name="search"
-                type="text"
-                class="form-control"
-                placeholder="ex: ca.gov"
-                id="search">
-              <input
-                type="submit"
-                value="Go"
-                class="btn btn-primary">
-            </div>
-          </form>
-
-          <style>
-            .littlesearch {
-              display: flex;
-              align-items: center;
-              justify-content: flex-start;
-              max-width: 65%;
-              gap: 0.75rem;
-            }
-
-            .littlesearch .awesomplete {
-              flex-grow: 2;
-            }
-
-            .littlesearch .awesomplete .form-control {
-              padding: 0.55rem 0.75rem;
-            }
-
-            /* Mobile: stack each element on its own line */
-            @media (max-width: 575.98px) {
-              .littlesearch {
-                flex-direction: column;
-                align-items: stretch;
-                max-width: 100%;
-              }
-
-              .littlesearch label {
-                width: 100%;
-              }
-
-              .littlesearch .form-control {
-                width: 100%;
-              }
-
-              .littlesearch .btn {
-                width: 100%;
-              }
-            }
-          </style>
-        {% endif %}
-
       </div>
     </div>
   {% endif %}
