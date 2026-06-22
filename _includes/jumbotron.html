@@ -253,16 +253,18 @@
     {% endif %}
   {% else %}
     <div class="py-4{% if not noBorder %} mb-4 border-bottom{% endif %}">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
           <div class="col-12">
             {% if title %}
               <h1 class="display-5 mb-0">{{ title }}</h1>
             {% endif %}
-            {% if showDescription and descriptionHtml %}
-              <p class="lead fs-5 mt-2 mb-0">{{ descriptionHtml | safe }}</p>
-            {% elif showDescription %}
-              <p class="lead fs-5 mt-2 mb-0">{{ description }}</p>
+            {% if not search %}
+              {% if descriptionHtml %}
+                <p class="lead fs-5 mt-2 mb-0">{{ descriptionHtml | safe }}</p>
+              {% elif description %}
+                <p class="lead fs-5 mt-2 mb-0">{{ description }}</p>
+              {% endif %}
             {% endif %}
             {% if showLastUpdated %}
             <ul class="small list-unstyled text-body-secondary mt-2 mb-0">
