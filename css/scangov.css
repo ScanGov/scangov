@@ -655,6 +655,15 @@ a.btn:hover, a.btn:focus,
     border: 1px solid var(--bs-nav-link-hover-border-color);
 }
 
+.nav-pills .nav-link:not(.active):hover i {
+    color: var(--bs-body-color) !important;
+}
+
+.nav-pills .nav-link.active i,
+.nav-pills .nav-link.active:hover i {
+    color: #13171f !important;
+}
+
 /* Nav pills active — #13171f on #70e17b = 8.19:1 ✓ (both themes) */
 .nav-pills .nav-link.active,
 .nav-pills .nav-link.active:focus,
@@ -1378,6 +1387,10 @@ a[href$=".mp4"]::after {
     color: #ffbc78 !important;
 }
 
+.fa-screwdriver-wrench {
+    color: #ffbc78;
+}
+
 .fa-highlighter {
     color: #e7f434 !important;
 }
@@ -1897,7 +1910,8 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-gauge,
 [data-bs-theme=light] .fa-gauge-simple,
 [data-bs-theme=light] .fa-gauge-high,
-[data-bs-theme=light] .fa-rss {
+[data-bs-theme=light] .fa-rss,
+[data-bs-theme=light] .fa-screwdriver-wrench {
     /* → #8a4f00 = 6.56:1 ✓ */
     color: #8a4f00 !important;
 }
@@ -2239,4 +2253,12 @@ th a:focus i, th a:focus svg {
 }
 .card .stretched-link:hover {
     text-decoration: underline;
+}
+
+/* Dark mode — indigo-slate theme */
+[data-bs-theme=dark] {
+    --bs-body-bg: #1a1b2e;
+    --bs-body-bg-rgb: 26, 27, 46;
+    --bs-body-secondary-bg: #13141f;
+    --bs-border-color: rgba(255, 255, 255, 0.07);
 }
