@@ -1318,6 +1318,10 @@ a[href$=".mp4"]::after {
     color: #f8b9c5 !important;
 }
 
+.fa-book-open {
+    color: #c3ebfa !important;
+}
+
 .fa-book-open-reader {
     color: #c3ebfa !important;
 }
@@ -1425,6 +1429,10 @@ a[href$=".mp4"]::after {
     color: #70e17b !important;
 }
 
+.fa-arrow-pointer {
+    color: #d5bfff;
+}
+
 .fa-asterisk {
     color: #face00;
 }
@@ -1447,6 +1455,10 @@ a[href$=".mp4"]::after {
 
 .fa-brain {
     color: #fdb8ae !important;
+}
+
+.fa-bug {
+    color: #fbbaa7;
 }
 
 .fa-building {
@@ -1561,6 +1573,10 @@ a[href$=".mp4"]::after {
     color: #ffbc78;
 }
 
+.fa-chart-line {
+    color: #ffbc78;
+}
+
 .fa-gear {
     color: #a1d3ff;
 }
@@ -1570,6 +1586,7 @@ a[href$=".mp4"]::after {
 }
 
 .fa-hand, .fa-hands, .fa-hands-clapping,
+.fa-handshake,
 .fa-handshake-simple, .fa-handshake-angle,
 .fa-hand-peace,
 .fa-hand-point-up, .fa-hand-point-down,
@@ -1602,7 +1619,7 @@ a[href$=".mp4"]::after {
 }
 
 .fa-landmark {
-    color: #ffffff !important;
+    color: #b0d0f0 !important;
 }
 
 .fa-lightbulb {
@@ -1611,6 +1628,10 @@ a[href$=".mp4"]::after {
 
 .fa-link {
     color: #7efbe1;
+}
+
+.fa-list-check {
+    color: #c3ebfa;
 }
 
 .fa-lock {
@@ -1645,8 +1666,12 @@ a[href$=".mp4"]::after {
     color: #f8b9c5;
 }
 
+.fa-folder-tree {
+    color: #ffbc78;
+}
+
 .fa-right-from-bracket {
-    color: #ff8d7b;
+    color: #70e17b !important;
 }
 
 .fa-robot {
@@ -1702,6 +1727,10 @@ a[href$=".mp4"]::after {
 }
 
 .fa-table {
+    color: #7efbe1;
+}
+
+.fa-table-columns {
     color: #7efbe1;
 }
 
@@ -1791,6 +1820,7 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-circle-info,
 [data-bs-theme=light] .fa-circle-plus,
 [data-bs-theme=light] .fa-puzzle-piece,
+[data-bs-theme=light] .fa-right-from-bracket,
 [data-bs-theme=light] .fa-rotate,
 [data-bs-theme=light] .fa-seedling {
     /* → #2d7a3a = 5.31:1 ✓ */
@@ -1805,6 +1835,7 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-link,
 [data-bs-theme=light] .fa-ranking-star,
 [data-bs-theme=light] .fa-table,
+[data-bs-theme=light] .fa-table-columns,
 [data-bs-theme=light] .fa-up-right-from-square {
     /* → #0d7a6e = 5.22:1 ✓ */
     color: #0d7a6e !important;
@@ -1812,6 +1843,7 @@ a[href$=".mp4"]::after {
 
 [data-bs-theme=light] .fa-bell-concierge,
 [data-bs-theme=light] .fa-brain,
+[data-bs-theme=light] .fa-bug,
 [data-bs-theme=light] .fa-concierge-bell,
 [data-bs-theme=light] .fa-face-frown,
 [data-bs-theme=light] .fa-map,
@@ -1830,6 +1862,7 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-file-contract,
 [data-bs-theme=light] .fa-hand, [data-bs-theme=light] .fa-hands,
 [data-bs-theme=light] .fa-hands-clapping,
+[data-bs-theme=light] .fa-handshake,
 [data-bs-theme=light] .fa-handshake-simple,
 [data-bs-theme=light] .fa-handshake-angle,
 [data-bs-theme=light] .fa-hand-peace,
@@ -1857,8 +1890,10 @@ a[href$=".mp4"]::after {
 
 [data-bs-theme=light] .fa-bars-progress,
 [data-bs-theme=light] .fa-chart-simple,
+[data-bs-theme=light] .fa-chart-line,
 [data-bs-theme=light] .fa-dashboard,
 [data-bs-theme=light] .fa-fire,
+[data-bs-theme=light] .fa-folder-tree,
 [data-bs-theme=light] .fa-gauge,
 [data-bs-theme=light] .fa-gauge-simple,
 [data-bs-theme=light] .fa-gauge-high,
@@ -1868,6 +1903,7 @@ a[href$=".mp4"]::after {
 }
 
 [data-bs-theme=light] .fa-arrow-right,
+[data-bs-theme=light] .fa-book-open,
 [data-bs-theme=light] .fa-book-open-reader,
 [data-bs-theme=light] .fa-circle-nodes,
 [data-bs-theme=light] .fa-download,
@@ -1878,6 +1914,7 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-x-twitter,
 [data-bs-theme=light] .fa-paper-plane,
 [data-bs-theme=light] .fa-percent,
+[data-bs-theme=light] .fa-list-check,
 [data-bs-theme=light] .fa-satellite-dish,
 [data-bs-theme=light] .fa-square-check,
 [data-bs-theme=light] .fa-universal-access {
@@ -1958,7 +1995,6 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-heart,
 [data-bs-theme=light] .fa-heart-crack,
 [data-bs-theme=light] .fa-lock,
-[data-bs-theme=light] .fa-right-from-bracket,
 [data-bs-theme=light] .fa-shield-halved {
     /* → #c0392b = 5.44:1 ✓ */
     color: #c0392b !important;
@@ -1975,8 +2011,8 @@ a[href$=".mp4"]::after {
 }
 
 [data-bs-theme=light] .fa-landmark {
-    /* → #3a3a3a = 11.37:1 ✓ */
-    color: #3a3a3a !important;
+    /* → #1a5e9e = 6.69:1 ✓ */
+    color: #1a5e9e !important;
 }
 
 [data-bs-theme=light] .fa-share-nodes,
@@ -1986,6 +2022,7 @@ a[href$=".mp4"]::after {
     color: #9e2060 !important;
 }
 
+[data-bs-theme=light] .fa-arrow-pointer,
 [data-bs-theme=light] .fa-hand-pointer,
 [data-bs-theme=light] .fa-photo-film,
 [data-bs-theme=light] .fa-spray-can-sparkles {
