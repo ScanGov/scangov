@@ -16,6 +16,11 @@
   "timezone": "America/Los_Angeles",
   "gaId": "G-MM5GF482X0",
   "securityExpires": "2027-01-01T00:00:00.000Z",
+  "substack": "https://scangov.substack.com",
+  "linkedin": "https://linkedin.com/company/scangov",
+  "youtube": "https://youtube.com/@scangov",
+  "discord": "https://discord.gg/EPCXEMAX5y",
+  "github": "https://github.com/scangov",
   "data": [
     "Accessibility",
     "Botability",

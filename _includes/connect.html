@@ -1,0 +1,13 @@
+<div class="alert alert-info small mt-5" role="alert">
+  <h2 class="h3 mb-3">Connect with ScanGov</h2>
+  <nav aria-label="Social media links" class="social fs-4">
+    <ul class="list-unstyled d-flex gap-1 mb-0">
+      {% if site.substack %}<li><a href="{{ site.substack }}" aria-label="Subscribe to ScanGov on Substack" target="_blank" rel="noopener"><i class="fa-solid fa-envelope-open-text"></i></a></li>{% endif %}
+      {% if site.linkedin %}<li><a href="{{ site.linkedin }}" aria-label="Follow ScanGov on LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a></li>{% endif %}
+      {% if site.youtube %}<li><a href="{{ site.youtube }}" aria-label="Follow ScanGov on YouTube" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a></li>{% endif %}
+      {% if site.discord %}<li><a href="{{ site.discord }}" aria-label="Join ScanGov on Discord" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i></a></li>{% endif %}
+      {% if site.github %}<li><a href="{{ site.github }}" aria-label="Visit ScanGov on GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a></li>{% endif %}
+      {% if site.rss %}<li><a href="{{ site.rss }}" aria-label="Subscribe to RSS feed" target="_blank" rel="noopener"><i class="fa-solid fa-rss"></i></a></li>{% endif %}
+    </ul>
+  </nav>
+</div>

@@ -1,0 +1,17 @@
+<div class="pt-5 pb-4{% if not noBorder %} mb-4 border-bottom{% endif %}">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        {% if title %}<h1 class="display-5">{{ title | safe }}</h1>{% endif %}
+        {% if description %}<p class="lead fs-5">{{ description | safe }}</p>{% endif %}
+        {% if search %}
+        <div class="row mt-3">
+          <div class="col-12 col-md-6">
+            {% include "search.html" %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
