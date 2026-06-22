@@ -438,18 +438,27 @@ a.list-group-item:hover {
     color: var(--bs-link-color);
 }
 
-/* External link icon (post content only) */
+/* External link icon (post/page content) */
 
-.post-content a[href^="http"]:not([href^="https://scangov.org"]):not([href^="https://standards.scangov.org"]):not([href^="https://scangov.com"]):not([href^="https://data.scangov.org"]):not([href^="http://localhost:4000/"]):not([href^="https://docs.scangov.org"])::after {
-    content: "\f35d";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    margin-left: 5px;
-    font-size: 0.8em;
+.post-content a[href^="http"]:not([href^="https://scangov.org"]):not([href^="https://standards.scangov.org"]):not([href^="https://scangov.com"]):not([href^="https://my.scangov.com"]):not([href^="https://data.scangov.org"]):not([href^="http://localhost:4000/"]):not([href^="https://docs.scangov.org"])::after,
+.page-content a[href^="http"]:not([href^="https://scangov.org"]):not([href^="https://standards.scangov.org"]):not([href^="https://scangov.com"]):not([href^="https://my.scangov.com"]):not([href^="https://data.scangov.org"]):not([href^="http://localhost:4000/"]):not([href^="https://docs.scangov.org"])::after {
+    content: '';
     display: inline-block;
+    width: 0.65em;
+    height: 0.65em;
+    margin-left: 0.25em;
+    vertical-align: text-top;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%237efbe1' d='M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-128c0-17.7-14.3-32-32-32L352 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
-.social a[href^="http"]:not([href^="https://scangov.org"]):not([href^="https://scangov.com"]):not([href^="http://localhost:4000/"]):not([href^="https://docs.scangov.org"])::after {
+[data-bs-theme=light] .post-content a[href^="http"]:not([href^="https://scangov.org"]):not([href^="https://standards.scangov.org"]):not([href^="https://scangov.com"]):not([href^="https://my.scangov.com"]):not([href^="https://data.scangov.org"]):not([href^="http://localhost:4000/"]):not([href^="https://docs.scangov.org"])::after,
+[data-bs-theme=light] .page-content a[href^="http"]:not([href^="https://scangov.org"]):not([href^="https://standards.scangov.org"]):not([href^="https://scangov.com"]):not([href^="https://my.scangov.com"]):not([href^="https://data.scangov.org"]):not([href^="http://localhost:4000/"]):not([href^="https://docs.scangov.org"])::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%230d7a6e' d='M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6l0-128c0-17.7-14.3-32-32-32L352 0zM80 32C35.8 32 0 67.8 0 112L0 432c0 44.2 35.8 80 80 80l320 0c44.2 0 80-35.8 80-80l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 112c0 8.8-7.2 16-16 16L80 448c-8.8 0-16-7.2-16-16l0-320c0-8.8 7.2-16 16-16l112 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 32z'/%3E%3C/svg%3E");
+}
+
+.social a::after {
     display: none !important;
 }
 
@@ -534,6 +543,21 @@ a.btn-primary-outline:not(.active):focus {
     border: 1px solid var(--bs-border-color);
 }
 
+.btn.btn-outline-primary {
+    --bs-btn-color: var(--bs-body-color);
+    --bs-btn-border-color: var(--bs-border-color);
+    --bs-btn-hover-color: var(--bs-body-bg);
+    --bs-btn-hover-bg: var(--bs-body-color);
+    --bs-btn-hover-border-color: var(--bs-body-color);
+    --bs-btn-active-color: var(--bs-body-bg);
+    --bs-btn-active-bg: var(--bs-body-color);
+    --bs-btn-active-border-color: var(--bs-body-color);
+}
+
+.btn.btn-outline-primary svg {
+    color: inherit;
+}
+
 .feedback {
     opacity: 0;
     pointer-events: none;
@@ -564,8 +588,9 @@ a.btn-primary-outline:not(.active):focus {
     transition: filter 0.25s ease;
 }
 
-.feedback i, .feedback svg {
-    color: var(--bs-primary-text) !important;
+.feedback i, .feedback svg,
+.btn-primary i, .btn-primary svg {
+    color: inherit !important;
 }
 
 .feedback:hover, .feedback:focus,
@@ -1688,6 +1713,22 @@ a[href$=".mp4"]::after {
     color: #a8f2ff;
 }
 
+.fa-arrow-right {
+    color: #c3ebfa;
+}
+
+.fa-copy {
+    color: #7efbe1;
+}
+
+.fa-face-frown {
+    color: #fbbaa7;
+}
+
+.fa-print {
+    color: #d0c3e9;
+}
+
 .fa-up-right-from-square {
     color: #7efbe1;
 }
@@ -1757,6 +1798,7 @@ a[href$=".mp4"]::after {
 }
 
 [data-bs-theme=light] .fa-bell,
+[data-bs-theme=light] .fa-copy,
 [data-bs-theme=light] .fa-diagram-project,
 [data-bs-theme=light] .fa-envelope-open-text,
 [data-bs-theme=light] .fa-graduation-cap,
@@ -1771,6 +1813,7 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-bell-concierge,
 [data-bs-theme=light] .fa-brain,
 [data-bs-theme=light] .fa-concierge-bell,
+[data-bs-theme=light] .fa-face-frown,
 [data-bs-theme=light] .fa-map,
 [data-bs-theme=light] .fa-server {
     /* → #8a5e2d = 5.65:1 ✓ */
@@ -1824,6 +1867,7 @@ a[href$=".mp4"]::after {
     color: #8a4f00 !important;
 }
 
+[data-bs-theme=light] .fa-arrow-right,
 [data-bs-theme=light] .fa-book-open-reader,
 [data-bs-theme=light] .fa-circle-nodes,
 [data-bs-theme=light] .fa-download,
@@ -1860,6 +1904,7 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-comment,
 [data-bs-theme=light] .fa-comments,
 [data-bs-theme=light] .fa-filter,
+[data-bs-theme=light] .fa-print,
 [data-bs-theme=light] .fa-rocket {
     /* → #5b4ea0 = 6.90:1 ✓ */
     color: #5b4ea0 !important;
@@ -2143,4 +2188,18 @@ th a:focus i, th a:focus svg {
         border-top-left-radius: var(--bs-list-group-border-radius);
         border-bottom-left-radius: var(--bs-list-group-border-radius);
     }
+}
+
+/* Card links: underline on hover only */
+.card a:not(.btn):not(.stretched-link) {
+    text-decoration: none;
+}
+.card a:not(.btn):not(.stretched-link):hover {
+    text-decoration: underline;
+}
+.card .stretched-link {
+    text-decoration: none;
+}
+.card .stretched-link:hover {
+    text-decoration: underline;
 }
