@@ -1667,7 +1667,8 @@ a[href$=".mp4"]::after {
     color: #ff8d7b;
 }
 
-.fa-magnifying-glass {
+.fa-magnifying-glass,
+.fa-magnifying-glass-chart {
     color: #ffe396;
 }
 
@@ -1902,6 +1903,7 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-highlighter,
 [data-bs-theme=light] .fa-lightbulb,
 [data-bs-theme=light] .fa-magnifying-glass,
+[data-bs-theme=light] .fa-magnifying-glass-chart,
 [data-bs-theme=light] .fa-plug-circle-bolt,
 [data-bs-theme=light] .fa-robot,
 [data-bs-theme=light] .fa-scale-balanced,
