@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             {% if description %}
-              <h1 id="jumbotron-title" class="display-5 mb-3">{{ title }}</h1>
+              <h1 id="jumbotron-title" class="display-5">{{ title }}</h1>
             {% endif %}
           </div>
         </div>
@@ -249,7 +249,7 @@
       <h1 class="display-5">{{ title }}</h1>
     {% endif %}
     {% if description %}
-      <p class="lead pb-3 mb-5">{{ description }}</p>
+      <p class="lead fs-5">{{ description }}</p>
     {% endif %}
   {% else %}
     <div class="pt-5 pb-4{% if not noBorder %} mb-4 border-bottom{% endif %}">
@@ -257,13 +257,13 @@
         <div class="row">
           <div class="col-12">
             {% if title %}
-              <h1 class="display-5 mb-0">{{ title }}</h1>
+              <h1 class="display-5">{{ title }}</h1>
             {% endif %}
             {% if not search %}
               {% if descriptionHtml %}
-                <p class="lead fs-5 mt-2 mb-0">{{ descriptionHtml | safe }}</p>
+                <p class="lead fs-5">{{ descriptionHtml | safe }}</p>
               {% elif description %}
-                <p class="lead fs-5 mt-2 mb-0">{{ description }}</p>
+                <p class="lead fs-5">{{ description }}</p>
               {% endif %}
             {% endif %}
             {% if showLastUpdated %}
