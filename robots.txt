@@ -1,3 +1,4 @@
-Disallow: /404.html
+User-agent: *
+Allow: /
 
 Sitemap: https://scangov.org/sitemap.xml
