@@ -15,6 +15,7 @@
   "date": "%B %-d, %Y",
   "timezone": "America/Los_Angeles",
   "gaId": "G-MM5GF482X0",
+  "googleVerify": ["10895162be5e592f"],
   "securityExpires": "2027-01-01T00:00:00.000Z",
   "substack": "https://scangov.substack.com",
   "linkedin": "https://linkedin.com/company/scangov",
