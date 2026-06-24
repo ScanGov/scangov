@@ -1768,6 +1768,10 @@ a[href$=".mp4"]::after {
     color: #7efbe1;
 }
 
+.fa-database {
+    color: #a8f5d5;
+}
+
 .fa-timeline {
     color: #ffb4cf;
 }
@@ -2056,6 +2060,11 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-timeline {
     /* → #9e2060 = 7.42:1 ✓ */
     color: #9e2060 !important;
+}
+
+[data-bs-theme=light] .fa-database {
+    /* → #0d6b52 = 7.3:1 ✓ */
+    color: #0d6b52 !important;
 }
 
 [data-bs-theme=light] .fa-arrow-pointer,
