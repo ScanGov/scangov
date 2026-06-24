@@ -1,9 +1,10 @@
 ---
+layout: false
 permalink: /.well-known/security.txt
 eleventyExcludeFromCollections: true
 ---
 Contact: {{ site['org-url'] }}/contact
-Expires: {{ site.securityExpires }}
-Preferred-Languages: en
+{% if site.securityExpires %}Expires: {{ site.securityExpires }}
+{% endif %}Preferred-Languages: en
 Canonical: {{ site.url }}/.well-known/security.txt
 Policy: {{ site['org-url'] }}/contact
