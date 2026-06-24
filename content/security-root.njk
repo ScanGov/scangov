@@ -1,0 +1,10 @@
+---
+layout: false
+permalink: /security.txt
+eleventyExcludeFromCollections: true
+---
+Contact: {{ site['org-url'] }}/contact
+{% if site.securityExpires %}Expires: {{ site.securityExpires }}
+{% endif %}Preferred-Languages: en
+Canonical: {{ site.url }}/.well-known/security.txt
+Policy: {{ site['org-url'] }}/contact
