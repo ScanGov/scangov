@@ -13,6 +13,9 @@
     {% endif %}
     {% if isGuidance %}<meta name="keywords" content="{{ guide.topics | join(', ') }}">{% endif %}
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    {% for id in site.googleVerify %}
+    <meta name="google-site-verification" content="{{ id }}">
+    {% endfor %}
     <meta property="og:locale" content="en_US">
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url }}">
