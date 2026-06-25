@@ -1,0 +1,15 @@
+{% set breadcrumbSlug = domain.urlkey if domain.urlkey else domain.url %}
+<nav aria-label="breadcrumb" class="fs-5 font-monospace">
+  <ol class="breadcrumb mb-0">
+    {% if orgPage %}
+    <li class="breadcrumb-item" aria-current="page">
+      <i class="fa-solid fa-hand-point-right"></i> <a href="/org/{{ org.name | slugify }}/" class="bc-org-current">{{ org.name }}</a>
+    </li>
+    {% else %}
+    <li class="breadcrumb-item">
+      <i class="fa-solid fa-hand-point-right"></i>
+      {% if domain.name %}<a href="/org/{{ domain.name | slugify }}/" class="bc-org">{{ domain.name }}</a><span class="bc-sep"> / </span>{% endif %}<a href="/profile/{{ breadcrumbSlug | slugify }}/overall/" class="bc-domain">{{ breadcrumbSlug }}</a>
+    </li>
+    {% endif %}
+  </ol>
+</nav>
