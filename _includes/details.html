@@ -30,9 +30,18 @@
      per deployment (managing org, full-scan upsell, request-update link). To
      support another deployment, add a branch here and re-sync - don't fork
      the file.
+
+  4. `showLastUpdated` - set in page front matter for non-profile pages that
+     need a "Last updated" row (e.g. /pulse/). Renders a single-item ul with
+     the same mono/border-bottom styling as the profile list above.
 #}
+{% if showLastUpdated and not profile %}
+<ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
+    <li>Last updated: <span id="updated">{{ updates }}</span></li>
+</ul>
+{% endif %}
 {% if profile %}
-<ul class="small list-unstyled text-body-secondary font-monospace">
+<ul class="small list-unstyled text-body-secondary font-monospace pb-3 mb-3 border-bottom">
     {% if not mapPage and not orgPage %}
     {% if site.url == 'https://scangov.org' and domain.name %}
     <li>

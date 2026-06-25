@@ -1,9 +1,10 @@
 <div class="table-responsive table-hover">
-  <table class="table table-responsive table-bordered table-hover mb-2">
+  <table class="table table-responsive table-bordered table-hover mb-2 table-desc-cols">
     <thead>
       <tr>
-        <th scope="col" class="sortable" data-col="0">Standard <span class="sort-icons"><i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc d-none"></i><i class="fa-solid fa-sort-down sort-desc d-none"></i></span></th>
-        <th scope="col" style="width: 25%" class="sortable" data-col="1">Status <span class="sort-icons"><i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc d-none"></i><i class="fa-solid fa-sort-down sort-desc d-none"></i></span></th>
+        <th scope="col" class="sortable" data-col="0">Standards <span class="sort-icons"><i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc d-none"></i><i class="fa-solid fa-sort-down sort-desc d-none"></i></span></th>
+        <th scope="col">Risk</th>
+        <th scope="col" class="sortable" data-col="2">Status <span class="sort-icons"><i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc d-none"></i><i class="fa-solid fa-sort-down sort-desc d-none"></i></span></th>
       </tr>
     </thead>
     <tbody id="table-compliance-{{ scorekey }}">
@@ -16,6 +17,11 @@
                 <small>{{ attrInfo.description }}</small>
               {% else %}
                 {{ attrKey }}
+              {% endif %}
+            </td>
+            <td data-sort="{{ attrInfo.risk if attrInfo else '' }}">
+              {% if attrInfo and attrInfo.risk %}
+                <small>{{ attrInfo.risk }}</small>
               {% endif %}
             </td>
             <td data-sort="{% if domain.status != 200 %}0{% elif score %}1{% else %}0{% endif %}">
@@ -39,7 +45,7 @@
   </table>
   <div class="alert alert-info small mt-2" role="alert">
     <i class="fa-solid fa-circle-info"></i>
-    <a href="https://docs.scangov.org/standards">Standard</a>
+    <a href="https://docs.scangov.org/standards/">Standards</a>
     &middot;
     <a href="https://docs.scangov.org/status">Status</a>
   </div>
@@ -84,5 +90,17 @@
       rows.forEach(function (row) { tbody.appendChild(row); });
     });
   });
+
+  // Default sort: Standard (col 0) ascending
+  (function () {
+    var rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort(function (a, b) {
+      return (a.cells[0].getAttribute('data-sort') || '').localeCompare(b.cells[0].getAttribute('data-sort') || '');
+    });
+    rows.forEach(function (row) { tbody.appendChild(row); });
+    sortState.col = 0;
+    sortState.dir = 'asc';
+    setIcon(headers[0], 'asc');
+  })();
 })();
 </script>

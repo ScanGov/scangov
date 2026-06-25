@@ -13,7 +13,7 @@ permalink: "profile/{{ domain.urlkey | slugify }}/details/"
 
 eleventyComputed:
   title: "{{ domain.urlkey }} digital experience monitor"
-  description: "{{ domain.urlkey }} details."
+  description: "{{ domain.urlkey }} accessibility, botability, security, and usability grades and standards."
   agency: by {{ domain.name }}
 ---
 
@@ -89,9 +89,66 @@ eleventyComputed:
             {% include "profile_table.html" %}
         </div>
       </div>
+      {% set catInfo = audits[scorekey] %}
+      {% if catInfo %}
+      <div class="alert alert-info small mt-4 p-5" role="alert">
+        <i class="fa-solid fa-{{ catInfo.icon }} fa-2x d-block mb-3"></i>
+        <h2>About {{ catInfo.displayName | lower }}</h2>
+        <p class="pb-3 mb-3 border-bottom">{{ catInfo.description }}</p>
+        <h3>Why it's important</h3>
+        <p>{{ catInfo.why }}</p>
+        <h3>Risks</h3>
+        <ul>
+          <li>{{ catInfo.risk }}</li>
+        </ul>
+        <h3>Guidance</h3>
+        <p>What we use to grade {{ catInfo.displayName | lower }}:</p>
+        <ul>
+          {% for item in scorekey | getCategoryGuidance %}
+          <li><a href="https://standards.scangov.org{{ item.url }}">{{ item.displayName }}</a></li>
+          {% endfor %}
+        </ul>
+        <h3>Grades/scores</h3>
+        <ul>
+          <li><a href="{{ site.url }}{{ catInfo.rankingsUrl }}">{{ catInfo.displayName }} grades/scores on Project ScanGov</a></li>
+        </ul>
+        <h3>ScanGov</h3>
+        <ul>
+          <li><a href="https://scangov.com{{ catInfo.scangovUrl }}">How ScanGov supports {{ catInfo.displayName | lower }}</a></li>
+        </ul>
+      </div>
+      {% endif %}
     </div>
   </div>
 {% endfor %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for card in site.data %}
+    {% set sk = card | lower %}
+    {% set ci = audits[sk] %}
+    {
+      "@type": "Question",
+      "name": "Why is {{ sk }} important for government websites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ ci.why | dump | safe }}
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the risks of poor {{ sk }} on government websites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ ("If not implemented correctly: " + ci.risk) | dump | safe }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
 <script>
   // generating these all during build was ballooning the file count too much so doing minimal show/hide here
   (function () {

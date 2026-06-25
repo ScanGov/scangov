@@ -6,6 +6,8 @@ description: The state of federal, state, and local government digital experienc
 showLastUpdated: true
 ---
 
+{% include "actions.html" %}
+
 <div class="border-bottom pb-4 mb-4">
     <h2 class="mb-3">Domains</h2>
     <p>How scanned domains break down by type and overall grade.</p>
@@ -126,6 +128,12 @@ showLastUpdated: true
         });
       });
     </script>
+    <div class="alert alert-info small mt-2" role="alert">
+      <i class="fa-solid fa-circle-info"></i>
+      <a href="https://docs.scangov.org/grades/">Grades</a>
+      &middot;
+      <a href="https://docs.scangov.org/standards/">Standards</a>
+    </div>
   </div>
 
   <div class="border-bottom pb-4 mb-4">
@@ -183,6 +191,10 @@ showLastUpdated: true
         });
       });
     </script>
+    <div class="alert alert-info small mt-2" role="alert">
+      <i class="fa-solid fa-circle-info"></i>
+      <a href="https://docs.scangov.org/scores/">Scores</a>
+    </div>
   </div>
 
   <div class="border-bottom pb-4 mb-4">
@@ -192,14 +204,28 @@ showLastUpdated: true
   </div>
 
   <div class="pb-4 mb-4">
-    <h2 class="mb-3">Most common issues</h2>
+    <h2 class="mb-3">Top issues</h2>
     <p>Top 10 failing checks per indicator.</p>
     <div class="row">
       {% for indicator in site.data %}
         {% set lower = indicator.toLowerCase() %}
+        {% set catInfo = audits[lower] %}
         <div class="col-12 col-lg-10 mb-4">
           <h3 class="h5">{{ indicator }}</h3>
           <canvas id="chart-{{ lower }}"></canvas>
+          {% if catInfo %}
+          <div class="alert alert-info small mt-2" role="alert">
+            <i class="fa-solid fa-circle-info"></i>
+            {{ catInfo.displayName }}:
+            <a href="https://standards.scangov.org/{{ lower }}/">Standards</a>
+            &middot;
+            <a href="https://standards.scangov.org{{ catInfo.url }}/">Guidance</a>
+            &middot;
+            <a href="{{ site.url }}{{ catInfo.rankingsUrl }}">Project ScanGov</a>
+            &middot;
+            <a href="https://scangov.com{{ catInfo.scangovUrl }}">ScanGov</a>
+          </div>
+          {% endif %}
         </div>
       {% endfor %}
     </div>
