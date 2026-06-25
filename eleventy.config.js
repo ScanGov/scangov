@@ -116,6 +116,22 @@ export default async function (eleventyConfig) {
         return findAuditAttributeInfo(scorekey, attrKey)
     })
 
+    eleventyConfig.addFilter('getCategoryGuidance', (scorekey) => {
+        const seen = new Set()
+        const result = []
+        if (audits[scorekey] && audits[scorekey].attributes) {
+            for (const attr of audits[scorekey].attributes) {
+                for (const g of (attr.guidance || [])) {
+                    if (!seen.has(g.url)) {
+                        seen.add(g.url)
+                        result.push(g)
+                    }
+                }
+            }
+        }
+        return result
+    })
+
     eleventyConfig.addFilter('scanResultWriteUp', (log, scorekey) => {
         let scoreAttributeCount = 0
         let numCorrect = 0
