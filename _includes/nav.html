@@ -22,12 +22,11 @@
   </div>
 </div>
 {% endif %}
-<nav class="navbar navbar-expand-md border-bottom" aria-label="Main navigation">
+<nav class="navbar navbar-expand-md border-bottom">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
       <svg
         id="logo"
-        class="d-inline-block align-middle"
         viewBox="0 0 1500 1500"
         fill="none"
         xmlns="http://www.w3.org/2000/svg">
@@ -50,15 +49,16 @@
           fill="" />
         <path d="M636.699 1139.65C636.699 1136.54 639.224 1134.01 642.339 1134.01H1225.52C1228.63 1134.01 1231.16 1136.54 1231.16 1139.65V1313.3C1231.16 1316.41 1228.63 1318.94 1225.52 1318.94H642.339C639.224 1318.94 636.699 1316.41 636.699 1313.3V1139.65Z" fill="" />
       </svg>
-      {{ site.title }}
+      <span class="d-none d-md-inline">{{ site.title }}</span>
+      <span class="d-inline d-md-none">{{ site.titleShort or site.title }}</span>
     </a>
     <button
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
       aria-label="Toggle navigation"
       class="navbar-toggler ml-auto collapsed"
-      data-bs-target="#navbarSupportedContent"
-      data-bs-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      data-toggle="collapse"
       type="button">
       <span class="navbar-toggler-icon"></span>
     </button>
