@@ -261,11 +261,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive table-hover">
-  <table class="table table-responsive table-bordered table-hover mb-2">
+  <table class="table table-responsive table-bordered table-hover mb-2 table-desc-cols">
     <thead>
       <tr>
-        <th scope="col" class="sortable" data-col="0">Standard <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
-        <th scope="col" style="width: 25%" class="sortable" data-col="1">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" class="sortable" data-col="0">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col">Risk</th>
+        <th scope="col" class="sortable" data-col="2">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
       </tr>
     </thead>
     <tbody id="table-compliance-accessibility">
@@ -275,7 +276,12 @@
             <td data-sort="[aria-*] attributes match their roles">
               
                 <a href="https://standards.scangov.org/aria-allowed-attr">[aria-*] attributes match their roles</a><br>
-                <small>Each ARIA `role` supports a specific subset of `aria-*` attributes. Mismatching these invalidates the `aria-*` attributes. [Learn how to match ARIA attributes to their roles](https://dequeuniversity.c</small>
+                <small>Accessibility attributes are only used where they are supported.</small>
+              
+            </td>
+            <td data-sort="Screen readers ignore attributes that don&#39;t match the element&#39;s role.">
+              
+                <small>Screen readers ignore attributes that don&#39;t match the element&#39;s role.</small>
               
             </td>
             <td data-sort="1">
@@ -295,7 +301,12 @@
             <td data-sort="ARIA attributes are used as specified for the element&#39;s role">
               
                 <a href="https://standards.scangov.org/aria-conditional-attr">ARIA attributes are used as specified for the element&#39;s role</a><br>
-                <small>Some ARIA attributes are only allowed on an element under certain conditions.</small>
+                <small>Accessibility attributes are only used when the element&#39;s role allows them.</small>
+              
+            </td>
+            <td data-sort="Screen readers ignore attributes used outside their allowed conditions.">
+              
+                <small>Screen readers ignore attributes used outside their allowed conditions.</small>
               
             </td>
             <td data-sort="1">
@@ -315,7 +326,12 @@
             <td data-sort="[aria-hidden=&quot;true&quot;] is not present on the document &lt;body&gt;">
               
                 <a href="https://standards.scangov.org/aria-hidden-body">[aria-hidden=&quot;true&quot;] is not present on the document &lt;body&gt;</a><br>
-                <small>Assistive technologies, like screen readers, work inconsistently when `aria-hidden=&quot;true&quot;` is set on the document `&lt;body&gt;`. [Learn how `aria-hidden` affects the document body](https://dequeuniversity.</small>
+                <small>The page body is not hidden from screen readers.</small>
+              
+            </td>
+            <td data-sort="Screen readers cannot read any content on the page.">
+              
+                <small>Screen readers cannot read any content on the page.</small>
               
             </td>
             <td data-sort="1">
@@ -335,7 +351,12 @@
             <td data-sort="[aria-hidden=&quot;true&quot;] elements do not contain focusable descendents">
               
                 <a href="https://standards.scangov.org/aria-hidden-focus">[aria-hidden=&quot;true&quot;] elements do not contain focusable descendents</a><br>
-                <small>Focusable descendents within an `[aria-hidden=&quot;true&quot;]` element prevent those interactive elements from being available to users of assistive technologies like screen readers. [Learn how `aria-hidden` </small>
+                <small>Interactive elements are not hidden from screen reader users.</small>
+              
+            </td>
+            <td data-sort="Keyboard users can focus elements that screen readers cannot announce.">
+              
+                <small>Keyboard users can focus elements that screen readers cannot announce.</small>
               
             </td>
             <td data-sort="1">
@@ -355,7 +376,12 @@
             <td data-sort="Elements use only permitted ARIA attributes">
               
                 <a href="https://standards.scangov.org/aria-prohibited-attr">Elements use only permitted ARIA attributes</a><br>
-                <small>Using ARIA attributes in roles where they are prohibited can mean that important information is not communicated to users of assistive technologies.</small>
+                <small>Accessibility attributes are not used where they are prohibited.</small>
+              
+            </td>
+            <td data-sort="Screen readers ignore prohibited attributes, hiding important information.">
+              
+                <small>Screen readers ignore prohibited attributes, hiding important information.</small>
               
             </td>
             <td data-sort="1">
@@ -375,7 +401,12 @@
             <td data-sort="[aria-*] attributes have valid values">
               
                 <a href="https://standards.scangov.org/aria-valid-attr-value">[aria-*] attributes have valid values</a><br>
-                <small>Assistive technologies, like screen readers, can&#39;t interpret ARIA attributes with invalid values.</small>
+                <small>Accessibility attributes use valid values so screen readers can interpret them.</small>
+              
+            </td>
+            <td data-sort="Screen readers cannot interpret attributes with unrecognized values.">
+              
+                <small>Screen readers cannot interpret attributes with unrecognized values.</small>
               
             </td>
             <td data-sort="1">
@@ -395,7 +426,12 @@
             <td data-sort="[aria-*] attributes are valid and not misspelled">
               
                 <a href="https://standards.scangov.org/aria-valid-attr">[aria-*] attributes are valid and not misspelled</a><br>
-                <small>Assistive technologies, like screen readers, can&#39;t interpret ARIA attributes with invalid names.</small>
+                <small>Accessibility attributes use valid, recognized names.</small>
+              
+            </td>
+            <td data-sort="Screen readers ignore misspelled or unrecognized attribute names.">
+              
+                <small>Screen readers ignore misspelled or unrecognized attribute names.</small>
               
             </td>
             <td data-sort="1">
@@ -415,7 +451,12 @@
             <td data-sort="Buttons have an accessible name">
               
                 <a href="https://standards.scangov.org/button-name">Buttons have an accessible name</a><br>
-                <small>When a button doesn&#39;t have an accessible name, screen readers announce it as &quot;button&quot;, making it unusable for users who rely on screen readers. [Learn how to make buttons more accessible](https://dequ</small>
+                <small>Buttons have labels so screen readers can describe their action.</small>
+              
+            </td>
+            <td data-sort="Screen reader users cannot identify or interact with elements.">
+              
+                <small>Screen reader users cannot identify or interact with elements.</small>
               
             </td>
             <td data-sort="1">
@@ -435,7 +476,12 @@
             <td data-sort="Background and foreground colors have a sufficient contrast ratio">
               
                 <a href="https://standards.scangov.org/color-contrast">Background and foreground colors have a sufficient contrast ratio</a><br>
-                <small>Low-contrast text is difficult or impossible for many users to read. [Learn how to provide sufficient color contrast](https://dequeuniversity.com/rules/axe/4.10/color-contrast).</small>
+                <small>Text and background colors meet minimum contrast ratios.</small>
+              
+            </td>
+            <td data-sort="Users with low vision cannot read your text.">
+              
+                <small>Users with low vision cannot read your text.</small>
               
             </td>
             <td data-sort="1">
@@ -455,7 +501,12 @@
             <td data-sort="Document has a &lt;title&gt; element">
               
                 <a href="https://standards.scangov.org/document-title">Document has a &lt;title&gt; element</a><br>
-                <small>The title gives screen reader users an overview of the page, and search engine users rely on it heavily to determine if a page is relevant to their search.</small>
+                <small>The page has a descriptive title visible in browser tabs and search results.</small>
+              
+            </td>
+            <td data-sort="Screen reader users cannot identify or interact with elements.">
+              
+                <small>Screen reader users cannot identify or interact with elements.</small>
               
             </td>
             <td data-sort="1">
@@ -475,7 +526,12 @@
             <td data-sort="Heading elements appear in a sequentially-descending order">
               
                 <a href="https://standards.scangov.org/heading-order">Heading elements appear in a sequentially-descending order</a><br>
-                <small>Properly ordered headings that do not skip levels convey the semantic structure of the page, making it easier to navigate and understand when using assistive technologies.</small>
+                <small>Page headings follow a logical order without skipping levels.</small>
+              
+            </td>
+            <td data-sort="Keyboard users cannot efficiently navigate your site.">
+              
+                <small>Keyboard users cannot efficiently navigate your site.</small>
               
             </td>
             <td data-sort="1">
@@ -495,7 +551,12 @@
             <td data-sort="&lt;html&gt; element has a [lang] attribute">
               
                 <a href="https://standards.scangov.org/html-has-lang">&lt;html&gt; element has a [lang] attribute</a><br>
-                <small>If a page doesn&#39;t specify a `lang` attribute, a screen reader assumes that the page is in the default language that the user chose when setting up the screen reader. If the page isn&#39;t actually in the </small>
+                <small>The page declares its language so screen readers use the correct voice.</small>
+              
+            </td>
+            <td data-sort="Screen readers mispronounce content, confusing users.">
+              
+                <small>Screen readers mispronounce content, confusing users.</small>
               
             </td>
             <td data-sort="1">
@@ -515,7 +576,12 @@
             <td data-sort="&lt;html&gt; element has a valid value for its [lang] attribute">
               
                 <a href="https://standards.scangov.org/html-lang-valid">&lt;html&gt; element has a valid value for its [lang] attribute</a><br>
-                <small>Specifying a valid [BCP 47 language](https://www.w3.org/International/questions/qa-choosing-language-tags#question) helps screen readers announce text properly. [Learn how to use the `lang` attribute]</small>
+                <small>The page has a valid language code so screen readers pronounce content correctly.</small>
+              
+            </td>
+            <td data-sort="Screen readers mispronounce content, confusing users.">
+              
+                <small>Screen readers mispronounce content, confusing users.</small>
               
             </td>
             <td data-sort="1">
@@ -535,7 +601,12 @@
             <td data-sort="Image elements have [alt] attributes">
               
                 <a href="https://standards.scangov.org/image-alt">Image elements have [alt] attributes</a><br>
-                <small>Informative elements should aim for short, descriptive alternate text. Decorative elements can be ignored with an empty alt attribute.</small>
+                <small>Images have descriptive alt text or are marked as decorative.</small>
+              
+            </td>
+            <td data-sort="Screen reader users cannot identify or interact with elements.">
+              
+                <small>Screen reader users cannot identify or interact with elements.</small>
               
             </td>
             <td data-sort="1">
@@ -555,7 +626,12 @@
             <td data-sort="Form elements have associated labels">
               
                 <a href="https://standards.scangov.org/label">Form elements have associated labels</a><br>
-                <small>Labels ensure that form controls are announced properly by assistive technologies, like screen readers.</small>
+                <small>Form fields have labels so screen readers can identify them.</small>
+              
+            </td>
+            <td data-sort="Screen reader users cannot identify or interact with elements.">
+              
+                <small>Screen reader users cannot identify or interact with elements.</small>
               
             </td>
             <td data-sort="1">
@@ -575,7 +651,12 @@
             <td data-sort="Links have a discernible name">
               
                 <a href="https://standards.scangov.org/link-name">Links have a discernible name</a><br>
-                <small>Link text (and alternate text for images, when used as links) that is discernible, unique, and focusable improves the navigation experience for screen reader users. [Learn how to make links accessible</small>
+                <small>Links have unique, descriptive text so users know where they go.</small>
+              
+            </td>
+            <td data-sort="Screen reader users cannot identify or interact with elements.">
+              
+                <small>Screen reader users cannot identify or interact with elements.</small>
               
             </td>
             <td data-sort="1">
@@ -595,7 +676,12 @@
             <td data-sort="Lists contain only &lt;li&gt; elements and script supporting elements (&lt;script&gt; and &lt;template&gt;)">
               
                 <a href="https://standards.scangov.org/list">Lists contain only &lt;li&gt; elements and script supporting elements (&lt;script&gt; and &lt;template&gt;)</a><br>
-                <small>Screen readers have a specific way of announcing lists. Ensuring proper list structure aids screen reader output.</small>
+                <small>Lists use correct markup so screen readers can announce them properly.</small>
+              
+            </td>
+            <td data-sort="Screen readers announce structured content incorrectly.">
+              
+                <small>Screen readers announce structured content incorrectly.</small>
               
             </td>
             <td data-sort="1">
@@ -615,7 +701,12 @@
             <td data-sort="List items (&lt;li&gt;) are contained within &lt;ul&gt;, &lt;ol&gt; or &lt;menu&gt; parent elements">
               
                 <a href="https://standards.scangov.org/listitem">List items (&lt;li&gt;) are contained within &lt;ul&gt;, &lt;ol&gt; or &lt;menu&gt; parent elements</a><br>
-                <small>Screen readers require list items (`&lt;li&gt;`) to be contained within a parent `&lt;ul&gt;`, `&lt;ol&gt;` or `&lt;menu&gt;` to be announced properly.</small>
+                <small>List items are nested inside a valid parent list element.</small>
+              
+            </td>
+            <td data-sort="Screen readers announce structured content incorrectly.">
+              
+                <small>Screen readers announce structured content incorrectly.</small>
               
             </td>
             <td data-sort="1">
@@ -635,7 +726,12 @@
             <td data-sort="[user-scalable=&quot;no&quot;] is not used in the &lt;meta name=&quot;viewport&quot;&gt; element and the [maximum-scale] attribute is not less than 5">
               
                 <a href="https://standards.scangov.org/meta-viewport">[user-scalable=&quot;no&quot;] is not used in the &lt;meta name=&quot;viewport&quot;&gt; element and the [maximum-scale] attribute is not less than 5</a><br>
-                <small>Disabling zooming is problematic for users with low vision who rely on screen magnification to properly see the contents of a web page.</small>
+                <small>The page allows users to zoom in on mobile devices.</small>
+              
+            </td>
+            <td data-sort="Mobile users with low vision cannot zoom in to read content.">
+              
+                <small>Mobile users with low vision cannot zoom in to read content.</small>
               
             </td>
             <td data-sort="1">
@@ -655,7 +751,12 @@
             <td data-sort="Touch targets have sufficient size and spacing">
               
                 <a href="https://standards.scangov.org/target-size">Touch targets have sufficient size and spacing</a><br>
-                <small>Touch targets with sufficient size and spacing help users who may have difficulty targeting small controls to activate the targets.</small>
+                <small>Buttons and interactive elements are large enough to tap easily on touch screens.</small>
+              
+            </td>
+            <td data-sort="Users with motor disabilities struggle to tap small buttons.">
+              
+                <small>Users with motor disabilities struggle to tap small buttons.</small>
               
             </td>
             <td data-sort="1">
@@ -675,7 +776,12 @@
             <td data-sort="Document has a main landmark">
               
                 <a href="https://standards.scangov.org/landmark-one-main">Document has a main landmark</a><br>
-                <small>One main landmark helps screen reader users navigate a web page.</small>
+                <small>The page has exactly one main content area so screen readers can navigate to it.</small>
+              
+            </td>
+            <td data-sort="Screen reader users cannot skip directly to main content.">
+              
+                <small>Screen reader users cannot skip directly to main content.</small>
               
             </td>
             <td data-sort="0">
@@ -697,6 +803,9 @@
                 presentation-role-conflict
               
             </td>
+            <td data-sort="">
+              
+            </td>
             <td data-sort="1">
               
                 
@@ -714,7 +823,12 @@
             <td data-sort="Elements with visible text labels have matching accessible names">
               
                 <a href="https://standards.scangov.org/label-content-name-mismatch">Elements with visible text labels have matching accessible names</a><br>
-                <small>Visible text labels that do not match the accessible name can result in a confusing experience for screen reader users.</small>
+                <small>A button or link&#39;s visible label matches what screen readers announce.</small>
+              
+            </td>
+            <td data-sort="Voice control users cannot activate elements by their visible label.">
+              
+                <small>Voice control users cannot activate elements by their visible label.</small>
               
             </td>
             <td data-sort="0">
@@ -734,7 +848,12 @@
             <td data-sort="Image aspect ratio">
               
                 <a href="https://standards.scangov.org/image-aspect-ratio">Image aspect ratio</a><br>
-                <small>Ratio of image width to height.</small>
+                <small>Images display at their intended proportions.</small>
+              
+            </td>
+            <td data-sort="Images look stretched or squished.">
+              
+                <small>Images look stretched or squished.</small>
               
             </td>
             <td data-sort="0">
@@ -754,7 +873,12 @@
             <td data-sort="Valid doctype">
               
                 <a href="https://standards.scangov.org/doctype">Valid doctype</a><br>
-                <small>Tells browser how to read code.</small>
+                <small>The page has a doctype declaration so browsers render it correctly.</small>
+              
+            </td>
+            <td data-sort="Browsers display your page wrong.">
+              
+                <small>Browsers display your page wrong.</small>
               
             </td>
             <td data-sort="1">
@@ -774,7 +898,12 @@
             <td data-sort="Character encoding">
               
                 <a href="https://standards.scangov.org/charset">Character encoding</a><br>
-                <small>Character set for text encoding.</small>
+                <small>The page declares its character encoding so text displays correctly.</small>
+              
+            </td>
+            <td data-sort="Special characters show up as weird symbols.">
+              
+                <small>Special characters show up as weird symbols.</small>
               
             </td>
             <td data-sort="1">
@@ -793,7 +922,7 @@
   </table>
   <div class="alert alert-info small mt-2" role="alert">
     <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
-    <a href="https://docs.scangov.org/standards">Standard</a>
+    <a href="https://docs.scangov.org/standards/">Standards</a>
     &middot;
     <a href="https://docs.scangov.org/status">Status</a>
   </div>
@@ -838,6 +967,18 @@
       rows.forEach(function (row) { tbody.appendChild(row); });
     });
   });
+
+  // Default sort: Standard (col 0) ascending
+  (function () {
+    var rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort(function (a, b) {
+      return (a.cells[0].getAttribute('data-sort') || '').localeCompare(b.cells[0].getAttribute('data-sort') || '');
+    });
+    rows.forEach(function (row) { tbody.appendChild(row); });
+    sortState.col = 0;
+    sortState.dir = 'asc';
+    setIcon(headers[0], 'asc');
+  })();
 })();
 </script>
 
@@ -873,11 +1014,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive table-hover">
-  <table class="table table-responsive table-bordered table-hover mb-2">
+  <table class="table table-responsive table-bordered table-hover mb-2 table-desc-cols">
     <thead>
       <tr>
-        <th scope="col" class="sortable" data-col="0">Standard <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
-        <th scope="col" style="width: 25%" class="sortable" data-col="1">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" class="sortable" data-col="0">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col">Risk</th>
+        <th scope="col" class="sortable" data-col="2">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
       </tr>
     </thead>
     <tbody id="table-compliance-botability">
@@ -887,7 +1029,12 @@
             <td data-sort="Canonical">
               
                 <a href="https://standards.scangov.org/canonical">Canonical</a><br>
-                <small>Use preferred page URLs to avoid duplication.</small>
+                <small>Each page declares a preferred URL so search engines show the right link.</small>
+              
+            </td>
+            <td data-sort="Search rankings split across duplicate pages.">
+              
+                <small>Search rankings split across duplicate pages.</small>
               
             </td>
             <td data-sort="1">
@@ -907,7 +1054,12 @@
             <td data-sort="Link text">
               
                 <a href="https://standards.scangov.org/link-text">Link text</a><br>
-                <small>Links have descriptive text.</small>
+                <small>Links use descriptive text that tells users and search engines where they go.</small>
+              
+            </td>
+            <td data-sort="Users cannot tell where links go.">
+              
+                <small>Users cannot tell where links go.</small>
               
             </td>
             <td data-sort="1">
@@ -927,7 +1079,12 @@
             <td data-sort="hreflang">
               
                 <a href="https://standards.scangov.org/hreflang">hreflang</a><br>
-                <small>Specifies language and region for webpages.</small>
+                <small>Pages declare their language and region for international users.</small>
+              
+            </td>
+            <td data-sort="Users see pages in wrong language.">
+              
+                <small>Users see pages in wrong language.</small>
               
             </td>
             <td data-sort="1">
@@ -947,7 +1104,12 @@
             <td data-sort="Crawlable">
               
                 <a href="https://standards.scangov.org/crawlable">Crawlable</a><br>
-                <small>Site is available for indexing by well-behaved agents.</small>
+                <small>The site allows search engines and AI agents to index its pages.</small>
+              
+            </td>
+            <td data-sort="Search engines cannot find your pages.">
+              
+                <small>Search engines cannot find your pages.</small>
               
             </td>
             <td data-sort="1">
@@ -967,7 +1129,12 @@
             <td data-sort="Content available in document">
               
                 <a href="https://standards.scangov.org/text-content">Content available in document</a><br>
-                <small>Page main content is available in initial document.</small>
+                <small>The page&#39;s main content loads without requiring JavaScript.</small>
+              
+            </td>
+            <td data-sort="Bots cannot read your content.">
+              
+                <small>Bots cannot read your content.</small>
               
             </td>
             <td data-sort="1">
@@ -987,7 +1154,12 @@
             <td data-sort="GovernmentOrganization Schema.org Type">
               
                 <a href="https://standards.scangov.org/schema-government-organization">GovernmentOrganization Schema.org Type</a><br>
-                <small>Homepage has Schema.org government organization type tags.</small>
+                <small>Homepage is marked up as an official government organization.</small>
+              
+            </td>
+            <td data-sort="Systems cannot verify you are an official government site.">
+              
+                <small>Systems cannot verify you are an official government site.</small>
               
             </td>
             <td data-sort="0">
@@ -1007,7 +1179,12 @@
             <td data-sort="Robots valid">
               
                 <a href="https://standards.scangov.org/valid">Robots valid</a><br>
-                <small>The site has a valid robots policy.</small>
+                <small>The site has a robots.txt file that guides search engines.</small>
+              
+            </td>
+            <td data-sort="Search engines ignore your instructions.">
+              
+                <small>Search engines ignore your instructions.</small>
               
             </td>
             <td data-sort="1">
@@ -1027,7 +1204,12 @@
             <td data-sort="Sitemap XML">
               
                 <a href="https://standards.scangov.org/xml">Sitemap XML</a><br>
-                <small>The sitemap file type is XML.</small>
+                <small>The sitemap file uses the required XML format.</small>
+              
+            </td>
+            <td data-sort="Search engines cannot read your sitemap.">
+              
+                <small>Search engines cannot read your sitemap.</small>
               
             </td>
             <td data-sort="1">
@@ -1047,7 +1229,12 @@
             <td data-sort="Robots allowed">
               
                 <a href="https://standards.scangov.org/allowed">Robots allowed</a><br>
-                <small>The robots policy allows access to browsers and scrapers.</small>
+                <small>The robots.txt file allows search engines and AI agents to crawl the site.</small>
+              
+            </td>
+            <td data-sort="Your site is blocked from search results.">
+              
+                <small>Your site is blocked from search results.</small>
               
             </td>
             <td data-sort="1">
@@ -1067,7 +1254,12 @@
             <td data-sort="Sitemap status">
               
                 <a href="https://standards.scangov.org/status">Sitemap status</a><br>
-                <small>The HTTP status of /sitemap.xml is OK.</small>
+                <small>The sitemap file loads and returns a successful response.</small>
+              
+            </td>
+            <td data-sort="Search engines cannot find all your pages.">
+              
+                <small>Search engines cannot find all your pages.</small>
               
             </td>
             <td data-sort="1">
@@ -1087,7 +1279,12 @@
             <td data-sort="Sitemap in robots.txt">
               
                 <a href="https://standards.scangov.org/sitemap-robots">Sitemap in robots.txt</a><br>
-                <small>The robots.txt file points to a sitemap file.</small>
+                <small>The robots.txt file links to the sitemap.</small>
+              
+            </td>
+            <td data-sort="Search engines take longer to find your pages.">
+              
+                <small>Search engines take longer to find your pages.</small>
               
             </td>
             <td data-sort="0">
@@ -1106,7 +1303,7 @@
   </table>
   <div class="alert alert-info small mt-2" role="alert">
     <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
-    <a href="https://docs.scangov.org/standards">Standard</a>
+    <a href="https://docs.scangov.org/standards/">Standards</a>
     &middot;
     <a href="https://docs.scangov.org/status">Status</a>
   </div>
@@ -1151,6 +1348,18 @@
       rows.forEach(function (row) { tbody.appendChild(row); });
     });
   });
+
+  // Default sort: Standard (col 0) ascending
+  (function () {
+    var rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort(function (a, b) {
+      return (a.cells[0].getAttribute('data-sort') || '').localeCompare(b.cells[0].getAttribute('data-sort') || '');
+    });
+    rows.forEach(function (row) { tbody.appendChild(row); });
+    sortState.col = 0;
+    sortState.dir = 'asc';
+    setIcon(headers[0], 'asc');
+  })();
 })();
 </script>
 
@@ -1186,11 +1395,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive table-hover">
-  <table class="table table-responsive table-bordered table-hover mb-2">
+  <table class="table table-responsive table-bordered table-hover mb-2 table-desc-cols">
     <thead>
       <tr>
-        <th scope="col" class="sortable" data-col="0">Standard <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
-        <th scope="col" style="width: 25%" class="sortable" data-col="1">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" class="sortable" data-col="0">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col">Risk</th>
+        <th scope="col" class="sortable" data-col="2">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
       </tr>
     </thead>
     <tbody id="table-compliance-security">
@@ -1200,7 +1410,12 @@
             <td data-sort="Content security policy (CSP)">
               
                 <a href="https://standards.scangov.org/csp">Content security policy (CSP)</a><br>
-                <small>The site restricts what can be loaded.</small>
+                <small>The site has a policy that limits what external content can load on its pages.</small>
+              
+            </td>
+            <td data-sort="Hackers can inject bad code into your site.">
+              
+                <small>Hackers can inject bad code into your site.</small>
               
             </td>
             <td data-sort="1">
@@ -1220,7 +1435,12 @@
             <td data-sort="HTTP Strict Transport Security (HSTS)">
               
                 <a href="https://standards.scangov.org/hsts">HTTP Strict Transport Security (HSTS)</a><br>
-                <small>Site upgrades to a secure connection.</small>
+                <small>The site forces an encrypted HTTPS connection for all users.</small>
+              
+            </td>
+            <td data-sort="Hackers can downgrade your connection and steal data.">
+              
+                <small>Hackers can downgrade your connection and steal data.</small>
               
             </td>
             <td data-sort="1">
@@ -1240,7 +1460,12 @@
             <td data-sort="Errors in the console">
               
                 <a href="https://standards.scangov.org/errors-in-console">Errors in the console</a><br>
-                <small>Tracks mistakes in code for debugging.</small>
+                <small>The page loads without JavaScript or network errors.</small>
+              
+            </td>
+            <td data-sort="Site may have hidden bugs that break features.">
+              
+                <small>Site may have hidden bugs that break features.</small>
               
             </td>
             <td data-sort="1">
@@ -1260,7 +1485,12 @@
             <td data-sort="Clickjacking mitigation">
               
                 <a href="https://standards.scangov.org/clickjacking-mitigation">Clickjacking mitigation</a><br>
-                <small>Stops fake clicks on hidden content.</small>
+                <small>The site prevents other websites from embedding its pages to trick users into clicking.</small>
+              
+            </td>
+            <td data-sort="Hackers can trick users into clicking wrong things.">
+              
+                <small>Hackers can trick users into clicking wrong things.</small>
               
             </td>
             <td data-sort="1">
@@ -1280,7 +1510,12 @@
             <td data-sort="Paste preventing inputs">
               
                 <a href="https://standards.scangov.org/paste-preventing-inputs">Paste preventing inputs</a><br>
-                <small>Page doesn&#39;t allow copy-paste into inputs.</small>
+                <small>The page lets users paste content into form fields.</small>
+              
+            </td>
+            <td data-sort="Users cannot use password managers safely.">
+              
+                <small>Users cannot use password managers safely.</small>
               
             </td>
             <td data-sort="1">
@@ -1300,7 +1535,12 @@
             <td data-sort="Hypertext Transfer Protocol Secure (HTTPS)">
               
                 <a href="https://standards.scangov.org/https">Hypertext Transfer Protocol Secure (HTTPS)</a><br>
-                <small>Privacy and integrity protection.</small>
+                <small>The site uses HTTPS to encrypt data between the server and users.</small>
+              
+            </td>
+            <td data-sort="Hackers can see and steal personal information.">
+              
+                <small>Hackers can see and steal personal information.</small>
               
             </td>
             <td data-sort="1">
@@ -1320,7 +1560,12 @@
             <td data-sort="X-Content-Type-Options">
               
                 <a href="https://standards.scangov.org/xcontenttypeoptions">X-Content-Type-Options</a><br>
-                <small>The site prevents mime type sniffing.</small>
+                <small>The site tells browsers not to guess the type of files it serves.</small>
+              
+            </td>
+            <td data-sort="Browsers might run dangerous files by mistake.">
+              
+                <small>Browsers might run dangerous files by mistake.</small>
               
             </td>
             <td data-sort="1">
@@ -1340,7 +1585,12 @@
             <td data-sort="Sponsored top-level domain (sTLD)">
               
                 <a href="https://standards.scangov.org/dotgov">Sponsored top-level domain (sTLD)</a><br>
-                <small>Sponsored top-level domain (.gov / .edu / .mil).</small>
+                <small>The site uses a government-issued domain (.gov, .edu, or .mil).</small>
+              
+            </td>
+            <td data-sort="People cannot tell if your site is real government.">
+              
+                <small>People cannot tell if your site is real government.</small>
               
             </td>
             <td data-sort="0">
@@ -1360,7 +1610,12 @@
             <td data-sort="security.txt">
               
                 <a href="https://standards.scangov.org/securitytxt">security.txt</a><br>
-                <small>The site has a security.txt file.</small>
+                <small>The site has a security.txt file so researchers know how to report issues.</small>
+              
+            </td>
+            <td data-sort="Security researchers cannot report problems to you.">
+              
+                <small>Security researchers cannot report problems to you.</small>
               
             </td>
             <td data-sort="0">
@@ -1379,7 +1634,7 @@
   </table>
   <div class="alert alert-info small mt-2" role="alert">
     <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
-    <a href="https://docs.scangov.org/standards">Standard</a>
+    <a href="https://docs.scangov.org/standards/">Standards</a>
     &middot;
     <a href="https://docs.scangov.org/status">Status</a>
   </div>
@@ -1424,6 +1679,18 @@
       rows.forEach(function (row) { tbody.appendChild(row); });
     });
   });
+
+  // Default sort: Standard (col 0) ascending
+  (function () {
+    var rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort(function (a, b) {
+      return (a.cells[0].getAttribute('data-sort') || '').localeCompare(b.cells[0].getAttribute('data-sort') || '');
+    });
+    rows.forEach(function (row) { tbody.appendChild(row); });
+    sortState.col = 0;
+    sortState.dir = 'asc';
+    setIcon(headers[0], 'asc');
+  })();
 })();
 </script>
 
@@ -1459,11 +1726,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive table-hover">
-  <table class="table table-responsive table-bordered table-hover mb-2">
+  <table class="table table-responsive table-bordered table-hover mb-2 table-desc-cols">
     <thead>
       <tr>
-        <th scope="col" class="sortable" data-col="0">Standard <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
-        <th scope="col" style="width: 25%" class="sortable" data-col="1">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" class="sortable" data-col="0">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col">Risk</th>
+        <th scope="col" class="sortable" data-col="2">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
       </tr>
     </thead>
     <tbody id="table-compliance-usability">
@@ -1473,7 +1741,12 @@
             <td data-sort="Page title">
               
                 <a href="https://standards.scangov.org/title">Page title</a><br>
-                <small>Describes webpage content in a few words.</small>
+                <small>The page has a unique, descriptive title shown in browser tabs and search results.</small>
+              
+            </td>
+            <td data-sort="Users cannot tell what your page is about.">
+              
+                <small>Users cannot tell what your page is about.</small>
               
             </td>
             <td data-sort="1">
@@ -1493,7 +1766,12 @@
             <td data-sort="Page description">
               
                 <a href="https://standards.scangov.org/description">Page description</a><br>
-                <small>Describes webpage content in a few words.</small>
+                <small>The page has a meta description that summarizes its content for search results.</small>
+              
+            </td>
+            <td data-sort="Search results do not show what your page does.">
+              
+                <small>Search results do not show what your page does.</small>
               
             </td>
             <td data-sort="1">
@@ -1513,7 +1791,12 @@
             <td data-sort="Viewport meta tag">
               
                 <a href="https://standards.scangov.org/viewport">Viewport meta tag</a><br>
-                <small>Makes websites fit all screen sizes.</small>
+                <small>The page scales correctly on mobile devices and tablets.</small>
+              
+            </td>
+            <td data-sort="Mobile users see broken pages on their phones.">
+              
+                <small>Mobile users see broken pages on their phones.</small>
               
             </td>
             <td data-sort="1">
@@ -1533,7 +1816,12 @@
             <td data-sort="Open Graph site name">
               
                 <a href="https://standards.scangov.org/ogsitename">Open Graph site name</a><br>
-                <small>Website title for social sharing.</small>
+                <small>The site has a name for social media and browser display.</small>
+              
+            </td>
+            <td data-sort="Site name missing in social media shares.">
+              
+                <small>Site name missing in social media shares.</small>
               
             </td>
             <td data-sort="0">
@@ -1553,7 +1841,12 @@
             <td data-sort="Open Graph type">
               
                 <a href="https://standards.scangov.org/ogtype">Open Graph type</a><br>
-                <small>Content category for social media.</small>
+                <small>The page declares its content type for social media cards.</small>
+              
+            </td>
+            <td data-sort="Social media shows wrong content type.">
+              
+                <small>Social media shows wrong content type.</small>
               
             </td>
             <td data-sort="0">
@@ -1573,7 +1866,12 @@
             <td data-sort="Open Graph title">
               
                 <a href="https://standards.scangov.org/ogtitle">Open Graph title</a><br>
-                <small>Page title for social sharing.</small>
+                <small>The page has a title for social media previews.</small>
+              
+            </td>
+            <td data-sort="Shared links have no title on social media.">
+              
+                <small>Shared links have no title on social media.</small>
               
             </td>
             <td data-sort="0">
@@ -1593,7 +1891,12 @@
             <td data-sort="Open Graph description">
               
                 <a href="https://standards.scangov.org/ogdescription">Open Graph description</a><br>
-                <small>Short description of your webpage content.</small>
+                <small>The page has a description for social media previews.</small>
+              
+            </td>
+            <td data-sort="Shared links have no description on social media.">
+              
+                <small>Shared links have no description on social media.</small>
               
             </td>
             <td data-sort="0">
@@ -1613,7 +1916,12 @@
             <td data-sort="Open Graph URL">
               
                 <a href="https://standards.scangov.org/ogurl">Open Graph URL</a><br>
-                <small>Canonical link for social sharing.</small>
+                <small>The page has a canonical URL for social media sharing.</small>
+              
+            </td>
+            <td data-sort="Shared links may point to wrong page.">
+              
+                <small>Shared links may point to wrong page.</small>
               
             </td>
             <td data-sort="0">
@@ -1633,7 +1941,12 @@
             <td data-sort="Open Graph image">
               
                 <a href="https://standards.scangov.org/ogimage">Open Graph image</a><br>
-                <small>Preview image for social sharing.</small>
+                <small>The page has a preview image for social media cards.</small>
+              
+            </td>
+            <td data-sort="Shared links have no image on social media.">
+              
+                <small>Shared links have no image on social media.</small>
               
             </td>
             <td data-sort="0">
@@ -1653,7 +1966,12 @@
             <td data-sort="Open Graph image alt">
               
                 <a href="https://standards.scangov.org/ogimagealt">Open Graph image alt</a><br>
-                <small>Image description for accessibility</small>
+                <small>The social media preview image has alt text for screen readers.</small>
+              
+            </td>
+            <td data-sort="Screen readers cannot describe shared images.">
+              
+                <small>Screen readers cannot describe shared images.</small>
               
             </td>
             <td data-sort="0">
@@ -1673,7 +1991,12 @@
             <td data-sort="Readability">
               
                 <a href="https://standards.scangov.org/readability">Readability</a><br>
-                <small>How easy text is to read.</small>
+                <small>Page content is written at a reading level most users can understand.</small>
+              
+            </td>
+            <td data-sort="People struggle to understand your content.">
+              
+                <small>People struggle to understand your content.</small>
               
             </td>
             <td data-sort="1">
@@ -1693,7 +2016,12 @@
             <td data-sort="First Contentful Paint (FCP)">
               
                 <a href="https://standards.scangov.org/fcp">First Contentful Paint (FCP)</a><br>
-                <small>The page begins to display within 1.8 seconds.</small>
+                <small>The page starts displaying content within 1.8 seconds.</small>
+              
+            </td>
+            <td data-sort="Users see blank screen and think site is broken.">
+              
+                <small>Users see blank screen and think site is broken.</small>
               
             </td>
             <td data-sort="1">
@@ -1713,7 +2041,12 @@
             <td data-sort="Largest Contentful Paint (LCP)">
               
                 <a href="https://standards.scangov.org/lcp">Largest Contentful Paint (LCP)</a><br>
-                <small>Major content loads in 2.5 seconds.</small>
+                <small>The page&#39;s main content loads within 2.5 seconds.</small>
+              
+            </td>
+            <td data-sort="Users wait too long and leave your page.">
+              
+                <small>Users wait too long and leave your page.</small>
               
             </td>
             <td data-sort="1">
@@ -1733,7 +2066,12 @@
             <td data-sort="Time to First Byte (TTFB)">
               
                 <a href="https://standards.scangov.org/ttfb">Time to First Byte (TTFB)</a><br>
-                <small>Code received in 0.8 seconds.</small>
+                <small>The server sends the first byte of content within 0.8 seconds.</small>
+              
+            </td>
+            <td data-sort="Slow server delays everything on your page.">
+              
+                <small>Slow server delays everything on your page.</small>
               
             </td>
             <td data-sort="1">
@@ -1753,7 +2091,12 @@
             <td data-sort="Cumulative Layout Shift (CLS)">
               
                 <a href="https://standards.scangov.org/cls">Cumulative Layout Shift (CLS)</a><br>
-                <small>Measures unexpected webpage content shifts.</small>
+                <small>Page content stays in place as the page loads.</small>
+              
+            </td>
+            <td data-sort="Users click wrong buttons by mistake.">
+              
+                <small>Users click wrong buttons by mistake.</small>
               
             </td>
             <td data-sort="1">
@@ -1773,7 +2116,12 @@
             <td data-sort="Interaction to Next Paint (INP)">
               
                 <a href="https://standards.scangov.org/inp">Interaction to Next Paint (INP)</a><br>
-                <small>Page responds in under 0.2 seconds.</small>
+                <small>The page responds to user interactions in under 0.2 seconds.</small>
+              
+            </td>
+            <td data-sort="Site feels frozen when users click things.">
+              
+                <small>Site feels frozen when users click things.</small>
               
             </td>
             <td data-sort="1">
@@ -1792,7 +2140,7 @@
   </table>
   <div class="alert alert-info small mt-2" role="alert">
     <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
-    <a href="https://docs.scangov.org/standards">Standard</a>
+    <a href="https://docs.scangov.org/standards/">Standards</a>
     &middot;
     <a href="https://docs.scangov.org/status">Status</a>
   </div>
@@ -1837,6 +2185,18 @@
       rows.forEach(function (row) { tbody.appendChild(row); });
     });
   });
+
+  // Default sort: Standard (col 0) ascending
+  (function () {
+    var rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort(function (a, b) {
+      return (a.cells[0].getAttribute('data-sort') || '').localeCompare(b.cells[0].getAttribute('data-sort') || '');
+    });
+    rows.forEach(function (row) { tbody.appendChild(row); });
+    sortState.col = 0;
+    sortState.dir = 'asc';
+    setIcon(headers[0], 'asc');
+  })();
 })();
 </script>
 
