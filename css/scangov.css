@@ -5,36 +5,49 @@
 @font-face {
     font-family: "Public Sans ExtraBold";
     src: url("../assets/fonts/public-sans/ttf/PublicSans-ExtraBold.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Public Sans Bold";
     src: url("../assets/fonts/public-sans/ttf/PublicSans-Bold.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Public Sans Regular";
     src: url("../assets/fonts/public-sans/ttf/PublicSans-Regular.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Public Sans Light";
     src: url("../assets/fonts/public-sans/ttf/PublicSans-Light.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Public Sans Thin";
     src: url("../assets/fonts/public-sans/ttf/PublicSans-Thin.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "JetBrains Mono Regular";
+    src: url("../assets/fonts/jetbrains-mono/JetBrainsMono-Regular.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "JetBrains Mono Medium";
     src: url("../assets/fonts/jetbrains-mono/JetBrainsMono-Medium.ttf") format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "JetBrains Mono ExtraBold";
     src: url("../assets/fonts/jetbrains-mono/JetBrainsMono-ExtraBold.ttf") format("truetype");
+    font-display: swap;
 }
 
 /* Dark mode (default) */
@@ -93,7 +106,7 @@
     --bs-primary-border-subtle: #1d4ed8;
     --bs-primary-text-emphasis: #93c5fd;
     --bs-text-muted: var(--bs-body-color);
-    --bs-font-monospace: "JetBrains Mono Medium", monospace;
+    --bs-font-monospace: "JetBrains Mono Regular", monospace;
     --bs-font-light: "Public Sans Light", sans-serif;
     --bs-font-bold: "Public Sans Bold", sans-serif;
     --bs-font-regular: "Public Sans Regular", sans-serif;
@@ -301,10 +314,34 @@ h1, h2, h3, h4, h5, h6,
 
 body.docs h2,
 body.page h2,
-body.docs h3,
-body.page h3 {
+body.post h2,
+body.default h2 {
     margin-bottom: 1rem;
     margin-top: 3rem;
+}
+
+body.docs h3,
+body.page h3,
+body.post h3,
+body.default h3 {
+    margin-bottom: 0.75rem;
+    margin-top: 2.5rem;
+}
+
+body.docs h4,
+body.page h4,
+body.post h4,
+body.default h4,
+body.docs h5,
+body.page h5,
+body.post h5,
+body.default h5,
+body.docs h6,
+body.page h6,
+body.post h6,
+body.default h6 {
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
 }
 
 /* Lead */
@@ -393,6 +430,9 @@ button:not(.card *) {
 .navbar-brand {
     font-family: var(--bs-font-bold);
     color: var(--bs-body-color) !important;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
 }
 
 .navbar-brand>svg {
@@ -516,7 +556,8 @@ a:hover {
     color: var(--bs-link-hover-color);
 }
 
-a.btn-primary, a.btn-primary:visited, .btn-primary {
+.btn-primary,
+.btn-primary:visited {
     background-color: var(--bs-primary) !important;
     color: var(--bs-primary-text) !important;
     border-radius: var(--bs-border-radius);
@@ -524,8 +565,16 @@ a.btn-primary, a.btn-primary:visited, .btn-primary {
     box-shadow: var(--bs-shadow);
     cursor: pointer;
     font-family: var(--bs-font-bold);
-    padding: .55rem;
+    padding: 0.5rem 0.875rem;
     transition: filter 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary.btn-lg {
+    padding: 0.625rem 1.25rem;
+}
+
+.btn-primary.btn-sm {
+    padding: 0.3rem 0.6rem;
 }
 
 a.btn-primary-outline {
@@ -536,24 +585,8 @@ a.btn-primary-outline {
     box-shadow: var(--bs-shadow);
     cursor: pointer;
     font-family: var(--bs-font-sans-serif);
-    padding: .55rem;
+    padding: 0.5rem 0.875rem;
     transition: filter 0.25s ease, box-shadow 0.25s ease;
-}
-
-a.btn-primary:hover, a.btn-primary:focus,
-input[type="submit"].btn-primary:hover, input[type="submit"].btn-primary:focus {
-    filter: brightness(1.3);
-    box-shadow: var(--bs-box-shadow-md);
-    background-color: var(--bs-primary) !important;
-    color: var(--bs-primary-text) !important;
-    border: 1px solid var(--bs-primary) !important;
-}
-
-a.btn-primary-outline:not(.active):hover, .btn-primary-outline:not(.active):hover,
-a.btn-primary-outline:not(.active):focus {
-    filter: brightness(1.3);
-    box-shadow: var(--bs-box-shadow-md);
-    border: 1px solid var(--bs-border-color);
 }
 
 .btn.btn-outline-primary {
@@ -565,10 +598,28 @@ a.btn-primary-outline:not(.active):focus {
     --bs-btn-active-color: var(--bs-body-bg);
     --bs-btn-active-bg: var(--bs-body-color);
     --bs-btn-active-border-color: var(--bs-body-color);
+    padding: 0.5rem 0.875rem;
+}
+
+.btn.btn-outline-primary.btn-lg {
+    padding: 0.625rem 1.25rem;
+}
+
+.btn.btn-outline-primary.btn-sm {
+    padding: 0.3rem 0.6rem;
+}
+
+.btn.btn-outline-primary:not(.btn-lg) {
+    margin-top: 1rem;
 }
 
 .btn.btn-outline-primary svg {
     color: inherit;
+}
+
+.btn[download] {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .feedback {
@@ -582,7 +633,7 @@ a.btn-primary-outline:not(.active):focus {
     box-shadow: var(--bs-shadow);
     cursor: pointer;
     font-family: var(--bs-font-bold);
-    padding: .55rem;
+    padding: 0.5rem 0.875rem;
     position: fixed;
     bottom: 2rem;
     right: 2rem;
@@ -597,23 +648,34 @@ a.btn-primary-outline:not(.active):focus {
     visibility: visible;
 }
 
-.feedback svg, a.btn svg {
+.btn-primary i, .btn-primary svg,
+.feedback i, .feedback svg {
+    color: inherit !important;
     transition: filter 0.25s ease;
 }
 
-.feedback i, .feedback svg,
-.btn-primary i, .btn-primary svg {
-    color: inherit !important;
-}
-
-.feedback:hover, .feedback:focus,
-a.btn:hover, a.btn:focus,
-.btn-primary:hover, .btn-primary:focus {
+.btn-primary:hover, .btn-primary:focus,
+.feedback:hover, .feedback:focus {
     filter: brightness(1.3);
     box-shadow: var(--bs-box-shadow-md);
     background-color: var(--bs-primary) !important;
     color: var(--bs-primary-text) !important;
     border-color: var(--bs-primary) !important;
+}
+
+a.btn-primary-outline:not(.active):hover,
+.btn-primary-outline:not(.active):hover,
+a.btn-primary-outline:not(.active):focus {
+    filter: brightness(1.3);
+    box-shadow: var(--bs-box-shadow-md);
+    border: 1px solid var(--bs-border-color);
+}
+
+@media (max-width: 767.98px) {
+    .feedback {
+        font-size: 0.875rem;
+        padding: 0.4rem 0.65rem;
+    }
 }
 
 /* js-triggered Bootstrap classes */
@@ -712,6 +774,22 @@ a.btn:hover, a.btn:focus,
 
 .nav-pills .fa-bars-progress {
     color: var(--bs-primary) !important;
+}
+
+.nav-pills .fa-certificate {
+    color: #ffbe2e !important;
+}
+
+.nav-pills .fa-diagram-project {
+    color: #7efbe1 !important;
+}
+
+.nav-pills .fa-file-lines {
+    color: #a8f2ff !important;
+}
+
+.nav-pills .fa-database {
+    color: #a8f5d5 !important;
 }
 
 .nav-pills .nav-link.active i,
@@ -877,6 +955,40 @@ th.sortable { cursor: pointer; user-select: none; white-space: nowrap; }
     color: #13171f !important;
 }
 
+/* Page sections */
+
+.page-section {
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+.page-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* CTA */
+
+.cta {
+    margin-top: 3rem;
+}
+
+.cta .alert {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.cta .alert h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta .alert p {
+    margin-bottom: 1.5rem;
+}
+
 /* Cards */
 
 .card {
@@ -885,6 +997,7 @@ th.sortable { cursor: pointer; user-select: none; white-space: nowrap; }
     width: 100%;
     transition: filter 0.25s ease, box-shadow 0.25s ease;
 }
+
 
 .card:focus,
 .card:focus-within {
@@ -898,6 +1011,22 @@ a.card {
 .card:not(.text-bg-success):not(.text-bg-warning):not(.text-bg-danger):hover {
     filter: brightness(1.3);
     box-shadow: var(--bs-box-shadow-md);
+}
+
+.card-body i + h3 {
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.card:has(.stretched-link) {
+    border-color: rgba(var(--bs-link-color-rgb), 0.25) !important;
+    transition: border-color 0.2s ease, box-shadow 0.25s ease;
+}
+
+.card:has(.stretched-link):hover {
+    border-color: rgba(var(--bs-link-color-rgb), 0.5) !important;
+    box-shadow: var(--bs-box-shadow-md);
+    filter: none;
 }
 
 .card-header>a,

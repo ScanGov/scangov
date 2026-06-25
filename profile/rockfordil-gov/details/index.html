@@ -48,10 +48,9 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="preload" href="/assets/bootstrap/css/bootstrap.min.css" as="style">
+<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
 <link href="/css/scangov.css" rel="stylesheet">
-<link href="/css/plyr.css" rel="stylesheet">
-<link href="/css/code.css" rel="stylesheet">
 
     <script>
         (function() {
@@ -103,10 +102,10 @@
   </div>
 </div>
 
-<nav class="navbar navbar-expand-md border-bottom" aria-label="Main navigation">
+<nav class="navbar navbar-expand-md border-bottom">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
-      <svg id="logo" class="d-inline-block align-middle" viewBox="0 0 1500 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg id="logo" viewBox="0 0 1500 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M474.266 408.965H1023.61C1054.76 408.965 1080.01 434.207 1080.01 465.345V1040.42C1080.01 1071.56 1054.76 1096.8 1023.61 1096.8H474.266C443.117 1096.8 417.865 1071.56 417.865 1040.42V465.345C417.865 434.207 443.117 408.965 474.266 408.965ZM474.266 442.793C461.806 442.793 451.706 452.89 451.706 465.345V1040.42C451.706 1052.88 461.806 1062.97 474.266 1062.97H1023.61C1036.07 1062.97 1046.17 1052.88 1046.17 1040.42V465.345C1046.17 452.89 1036.07 442.793 1023.61 442.793H474.266Z" fill=""></path>
         <path d="M636.699 440.538H1061.96V1075.38H636.699V440.538Z" fill=""></path>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M290.4 153H1208.6C1239.75 153 1265 178.242 1265 209.38V337.926C1265 369.064 1239.75 394.306 1208.6 394.306H290.4C259.251 394.306 234 369.064 234 337.926V209.38C234 178.242 259.251 153 290.4 153ZM290.4 186.828C277.941 186.828 267.84 196.925 267.84 209.38V337.926C267.84 350.381 277.941 360.478 290.4 360.478H1208.6C1221.06 360.478 1231.16 350.381 1231.16 337.926V209.38C1231.16 196.925 1221.06 186.828 1208.6 186.828H290.4Z" fill=""></path>
@@ -114,9 +113,10 @@
         <path fill-rule="evenodd" clip-rule="evenodd" d="M290.4 1104.69H1208.6C1239.75 1104.69 1265 1129.94 1265 1161.07V1289.62C1265 1320.76 1239.75 1346 1208.6 1346H290.4C259.251 1346 234 1320.76 234 1289.62V1161.07C234 1129.94 259.251 1104.69 290.4 1104.69ZM290.4 1138.52C277.941 1138.52 267.84 1148.62 267.84 1161.07V1289.62C267.84 1302.08 277.941 1312.17 290.4 1312.17H1208.6C1221.06 1312.17 1231.16 1302.08 1231.16 1289.62V1161.07C1231.16 1148.62 1221.06 1138.52 1208.6 1138.52H290.4Z" fill=""></path>
         <path d="M636.699 1139.65C636.699 1136.54 639.224 1134.01 642.339 1134.01H1225.52C1228.63 1134.01 1231.16 1136.54 1231.16 1139.65V1313.3C1231.16 1316.41 1228.63 1318.94 1225.52 1318.94H642.339C639.224 1318.94 636.699 1316.41 636.699 1313.3V1139.65Z" fill=""></path>
       </svg>
-      Project ScanGov
+      <span class="d-none d-md-inline">Project ScanGov</span>
+      <span class="d-inline d-md-none">Project</span>
     </a>
-    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler ml-auto collapsed" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler ml-auto collapsed" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Collapsible wrapper -->
@@ -163,16 +163,17 @@
       <div class="row">
         <div class="col-12 py-3">
           
-          <nav aria-label="breadcrumb" class="fs-5">
-            <ol class="breadcrumb mb-0">
-              
-              <li class="breadcrumb-item">
-                <svg class="fa-solid fa-hand-point-right" aria-hidden="true"><use href="#fas-fa-hand-point-right" xlink:href="#fas-fa-hand-point-right"></use></svg>
-                <a href="/org/city-of-rockford-il/" class="bc-org">City of Rockford, IL</a><span class="bc-sep"> / </span><a href="/profile/rockfordil-gov/overall/" class="bc-domain">rockfordil.gov</a>
-              </li>
-              
-            </ol>
-          </nav>
+<nav aria-label="breadcrumb" class="fs-5 font-monospace">
+  <ol class="breadcrumb mb-0">
+    
+    <li class="breadcrumb-item">
+      <svg class="fa-solid fa-hand-point-right" aria-hidden="true"><use href="#fas-fa-hand-point-right" xlink:href="#fas-fa-hand-point-right"></use></svg>
+      <a href="/org/city-of-rockford-il/" class="bc-org">City of Rockford, IL</a><span class="bc-sep"> / </span><a href="/profile/rockfordil-gov/overall/" class="bc-domain">rockfordil.gov</a>
+    </li>
+    
+  </ol>
+</nav>
+
         </div>
       </div>
     </div>
@@ -292,7 +293,13 @@
   
   
 
-<ul class="small list-unstyled text-body-secondary">
+<ul class="small list-unstyled text-body-secondary font-monospace">
+    
+    
+    <li>
+        Managed by:
+        <a href="/org/city-of-rockford-il/">City of Rockford, IL</a>
+    </li>
     
     
     <li>
@@ -2447,8 +2454,8 @@
 
   }
 </script>
-<script src="/assets/bootstrap/js/popper.min.js"></script>
-<script src="/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/bootstrap/js/popper.min.js" defer=""></script>
+<script src="/assets/bootstrap/js/bootstrap.bundle.min.js" defer=""></script>
 <script>
   const setTheme = (dark) => {
     document.body.setAttribute('data-bs-theme', dark ? 'dark' : 'light');
@@ -2464,7 +2471,7 @@
   darkQuery.addEventListener('change', e => setTheme(e.matches));
 </script>
 <a href="https://scangov.com/plans" id="feedback-button" class="feedback btn" aria-hidden="true" tabindex="-1">
-  <svg class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"><use href="#fas-fa-wand-magic-sparkles" xlink:href="#fas-fa-wand-magic-sparkles"></use></svg> Get ScanGov
+  <svg class="fa-solid fa-rocket" aria-hidden="true"><use href="#fas-fa-rocket" xlink:href="#fas-fa-rocket"></use></svg> Get ScanGov
 </a>
 
 <script>
@@ -2535,7 +2542,7 @@
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-xmark"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-info" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-info"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-heart"><path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"></path></symbol></svg>
-<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="wand-magic-sparkles" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" id="fas-fa-wand-magic-sparkles"><path fill="currentColor" d="M234.7 42.7L197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1L248.8 123c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2L277.3 42.7 263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5L234.7 42.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0L529.9 116.5c18.7-18.7 18.7-49.1 0-67.9L495.3 14.1c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96 106.8 39.5C105.1 35 100.8 32 96 32s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"></path></symbol></svg>
+<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rocket" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-rocket"><path fill="currentColor" d="M156.6 384.9L125.7 354c-8.5-8.5-11.5-20.8-7.7-32.2c3-8.9 7-20.5 11.8-33.8L24 288c-8.6 0-16.6-4.6-20.9-12.1s-4.2-16.7 .2-24.1l52.5-88.5c13-21.9 36.5-35.3 61.9-35.3l82.3 0c2.4-4 4.8-7.7 7.2-11.3C289.1-4.1 411.1-8.1 483.9 5.3c11.6 2.1 20.6 11.2 22.8 22.8c13.4 72.9 9.3 194.8-111.4 276.7c-3.5 2.4-7.3 4.8-11.3 7.2l0 82.3c0 25.4-13.4 49-35.3 61.9l-88.5 52.5c-7.4 4.4-16.6 4.5-24.1 .2s-12.1-12.2-12.1-20.9l0-107.2c-14.1 4.9-26.4 8.9-35.7 11.9c-11.2 3.6-23.4 .5-31.8-7.8zM384 168a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="asterisk" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" id="fas-fa-asterisk"><path fill="currentColor" d="M192 32c17.7 0 32 14.3 32 32l0 135.5 111.5-66.9c15.2-9.1 34.8-4.2 43.9 11s4.2 34.8-11 43.9L254.2 256l114.3 68.6c15.2 9.1 20.1 28.7 11 43.9s-28.7 20.1-43.9 11L224 312.5 224 448c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-135.5L48.5 379.4c-15.2 9.1-34.8 4.2-43.9-11s-4.2-34.8 11-43.9L129.8 256 15.5 187.4c-15.2-9.1-20.1-28.7-11-43.9s28.7-20.1 43.9-11L160 199.5 160 64c0-17.7 14.3-32 32-32z"></path></symbol></svg>
 </body>
 </html>
@@ -2599,5 +2606,5 @@
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-xmark"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-info" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-info"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-heart"><path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"></path></symbol></svg>
-<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="wand-magic-sparkles" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" id="fas-fa-wand-magic-sparkles"><path fill="currentColor" d="M234.7 42.7L197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1L248.8 123c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2L277.3 42.7 263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5L234.7 42.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0L529.9 116.5c18.7-18.7 18.7-49.1 0-67.9L495.3 14.1c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96 106.8 39.5C105.1 35 100.8 32 96 32s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"></path></symbol></svg>
+<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rocket" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-rocket"><path fill="currentColor" d="M156.6 384.9L125.7 354c-8.5-8.5-11.5-20.8-7.7-32.2c3-8.9 7-20.5 11.8-33.8L24 288c-8.6 0-16.6-4.6-20.9-12.1s-4.2-16.7 .2-24.1l52.5-88.5c13-21.9 36.5-35.3 61.9-35.3l82.3 0c2.4-4 4.8-7.7 7.2-11.3C289.1-4.1 411.1-8.1 483.9 5.3c11.6 2.1 20.6 11.2 22.8 22.8c13.4 72.9 9.3 194.8-111.4 276.7c-3.5 2.4-7.3 4.8-11.3 7.2l0 82.3c0 25.4-13.4 49-35.3 61.9l-88.5 52.5c-7.4 4.4-16.6 4.5-24.1 .2s-12.1-12.2-12.1-20.9l0-107.2c-14.1 4.9-26.4 8.9-35.7 11.9c-11.2 3.6-23.4 .5-31.8-7.8zM384 168a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="asterisk" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" id="fas-fa-asterisk"><path fill="currentColor" d="M192 32c17.7 0 32 14.3 32 32l0 135.5 111.5-66.9c15.2-9.1 34.8-4.2 43.9 11s4.2 34.8-11 43.9L254.2 256l114.3 68.6c15.2 9.1 20.1 28.7 11 43.9s-28.7 20.1-43.9 11L224 312.5 224 448c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-135.5L48.5 379.4c-15.2 9.1-34.8 4.2-43.9-11s-4.2-34.8 11-43.9L129.8 256 15.5 187.4c-15.2-9.1-20.1-28.7-11-43.9s28.7-20.1 43.9-11L160 199.5 160 64c0-17.7 14.3-32 32-32z"></path></symbol></svg>
