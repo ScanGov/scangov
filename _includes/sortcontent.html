@@ -29,6 +29,45 @@
         </div>
       </div>
     </div>
+    {% if specificAttribute and audits[specificAttribute] %}
+    {% set catInfo = audits[specificAttribute] %}
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="alert alert-info small p-5" role="alert">
+          <i class="fa-solid fa-{{ catInfo.icon }} fa-2x d-block mb-3"></i>
+          <h2>About {{ catInfo.displayName | lower }}</h2>
+          <p class="pb-3 mb-3 border-bottom">{{ catInfo.description }}</p>
+          <h3>Why it's important</h3>
+          <p>{{ catInfo.why }}</p>
+          <h3>Risks</h3>
+          <ul>
+            <li>{{ catInfo.risk }}</li>
+          </ul>
+          <h3>Guidance</h3>
+          <p>What we use to grade {{ catInfo.displayName | lower }}:</p>
+          <ul>
+            {% for item in specificAttribute | getCategoryGuidance %}
+            <li><a href="https://standards.scangov.org{{ item.url }}">{{ item.displayName }}</a></li>
+            {% endfor %}
+          </ul>
+          <h3>Standards</h3>
+          <ul>
+            {% for attr in catInfo.attributes %}
+            <li><a href="https://standards.scangov.org/{{ attr.key }}">{{ attr.displayName }}</a></li>
+            {% endfor %}
+          </ul>
+          <h3>Grades/scores</h3>
+          <ul>
+            <li><a href="{{ site.url }}{{ catInfo.rankingsUrl }}">{{ catInfo.displayName }} grades/scores on Project ScanGov</a></li>
+          </ul>
+          <h3>ScanGov</h3>
+          <ul>
+            <li><a href="https://scangov.com{{ catInfo.scangovUrl }}">How ScanGov supports {{ catInfo.displayName | lower }}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endif %}
     <div id="ranking-pagination">
       {% if showPagination %}
         {% include "pagination.html" %}

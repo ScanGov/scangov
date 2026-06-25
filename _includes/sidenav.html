@@ -7,14 +7,14 @@
         </li>
         {% for sub in item.items %}
           <li class="nav-item mb-0 border-bottom">
-            <a href="{{ sub.url }}" class="text-body text-decoration-none d-block py-2 ps-3{% if page.url == sub.url %} fw-bold{% endif %}">
+            <a href="{{ sub.url }}" class="text-body text-decoration-none d-block py-2 ps-3{% if page.url == sub.url %} active{% endif %}">
               {% if sub.icon %}<i class="{{ sub.icon }} me-2 fa-fw"></i>{% endif %}{{ sub.title }}
             </a>
           </li>
         {% endfor %}
       {% else %}
         <li class="nav-item mb-0 border-bottom">
-          <a href="{{ item.url }}" class="text-body text-decoration-none d-block py-2{% if page.url == item.url %} fw-bold{% endif %}">
+          <a href="{{ item.url }}" class="text-body text-decoration-none d-block py-2{% if page.url == item.url %} active{% endif %}">
             {% if item.icon %}<i class="{{ item.icon }} me-2 fa-fw"></i>{% endif %}{{ item.title }}
           </a>
         </li>
