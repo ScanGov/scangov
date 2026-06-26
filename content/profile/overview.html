@@ -30,11 +30,11 @@ eleventyComputed:
       <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
         <div class="card mb-3 {% if (domain.status != 200) %}{% else %}text-bg-{{ domain.overallScore | colorify }}{% endif %}" id="overall-card" score="{{ domain.overallScore }}">
           <div class="card-header">
-            <a href="#" class="text-decoration-none" style="color: inherit">Overall</a>
+            <span>Overall</span>
           </div>
-          <a href="/profile/{{ domain.urlkey | slugify }}/overall/" class="card-body text-center pt-5 text-decoration-none">
+          <div class="card-body text-center pt-5">
             <p class="display-1" id="overall-grade">{% if (domain.status != 200) %}-{% else %}{{ domain.overallScore | gradify }}{% endif %}</p>
-          </a>
+          </div>
         </div>
       </div>
       {% set cards = site.data %}
