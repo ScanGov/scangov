@@ -1279,6 +1279,10 @@ svg.fa-circle-right {
     fill: var(--bs-info);
 }
 
+svg.fa-arrow-right-arrow-left {
+    fill: var(--bs-warning);
+}
+
 /* Images */
 
 main#home img {
@@ -1647,6 +1651,10 @@ a[href$=".mp4"]::after {
     color: #70e17b !important;
 }
 
+.fa-arrow-right-arrow-left {
+    color: #face00 !important;
+}
+
 .fa-arrow-pointer {
     color: #d5bfff;
 }
@@ -1705,6 +1713,10 @@ a[href$=".mp4"]::after {
 
 .fa-circle-check {
     color: #70e17b !important;
+}
+
+.fa-circle-xmark {
+    color: #e41d3d !important;
 }
 
 .fa-circle-nodes {
@@ -2107,6 +2119,7 @@ a[href$=".mp4"]::after {
     color: #8a6500 !important;
 }
 
+[data-bs-theme=light] .fa-arrow-right-arrow-left,
 [data-bs-theme=light] .fa-asterisk {
     /* → #8a6500 on #fff = 5.33:1 ✓ */
     color: #8a6500 !important;
@@ -2200,6 +2213,7 @@ a[href$=".mp4"]::after {
 }
 
 [data-bs-theme=light] .fa-circle-down,
+[data-bs-theme=light] .fa-circle-xmark,
 [data-bs-theme=light] .fa-flag {
     /* → #b52040 = 6.47:1 ✓ */
     color: #b52040 !important;

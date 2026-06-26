@@ -10,6 +10,11 @@
     "icon": "fa-solid fa-timeline"
   },
   {
+    "title": "Status",
+    "url": "/status/",
+    "icon": "fa-solid fa-server"
+  },
+  {
     "title": "Search",
     "url": "/search/",
     "icon": "fa-solid fa-magnifying-glass"
