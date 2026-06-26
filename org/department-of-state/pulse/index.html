@@ -326,7 +326,7 @@
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [83,82,80,75,74,73,70,69,68,66,63];
+        var scores = [82,81,77,75,74,69,69,68,67,66,60];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -376,11 +376,11 @@
           '/org/' + orgSlug + '/?attr=usability'
         ];
         var gradesScores = [
-          73,
+          72,
           86,
           62,
-          69,
-          56
+          67,
+          54
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -518,80 +518,80 @@
         var orgDomains = [
           
           {
-            accessibility: {"aria-hidden-body":true,"button-name":true,"color-contrast":false,"document-title":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"label":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"target-size":true,"landmark-one-main":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
-            botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":false,"status":true,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":true,"dotgov":false,"securitytxt":false},
-            usability: {"title":true,"description":true,"viewport":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"ogsitename":false,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":true}
+            accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"select-name":true,"skip-link":true,"target-size":true,"landmark-one-main":true,"label-content-name-mismatch":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
+            botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
+            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
+            usability: {"title":true,"description":true,"viewport":true,"ogsitename":false,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":false,"cls":true,"inp":true,"www":false}
           },
           
           {
-            accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"select-name":true,"skip-link":true,"target-size":true,"landmark-one-main":true,"label-content-name-mismatch":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
-            botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":true,"dotgov":true,"securitytxt":false},
-            usability: {"title":true,"description":true,"viewport":true,"ogsitename":false,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":false,"lcp":false,"ttfb":false,"cls":true,"inp":true}
+            accessibility: {"aria-hidden-body":true,"button-name":true,"color-contrast":false,"document-title":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"label":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"target-size":true,"landmark-one-main":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
+            botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":false,"status":true,"sitemap-robots":false},
+            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":false,"xcontenttypeoptions":true},
+            usability: {"title":true,"description":true,"viewport":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"ogsitename":false,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":true,"www":false}
           },
           
           {
             accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":false,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-required-children":true,"aria-required-parent":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":false,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"label":true,"link-in-text-block":true,"link-name":false,"list":true,"listitem":true,"meta-viewport":true,"skip-link":true,"tabindex":true,"target-size":false,"landmark-one-main":true,"presentation-role-conflict":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
             botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":true,"dotgov":true,"securitytxt":false},
-            usability: {"title":true,"description":false,"viewport":true,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":false,"ogimagealt":false,"readability":false,"fcp":false,"lcp":true,"ttfb":true,"cls":true,"inp":true}
+            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
+            usability: {"title":true,"description":false,"viewport":true,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":false,"ogimagealt":false,"readability":false,"fcp":false,"lcp":true,"ttfb":true,"cls":true,"inp":true,"www":false}
           },
           
           {
             accessibility: {"aria-allowed-attr":true,"aria-command-name":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-dialog-name":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"tabindex":true,"target-size":true,"landmark-one-main":true,"presentation-role-conflict":true,"svg-img-alt":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
             botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":false,"xml":true,"allowed":true,"status":true,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":false,"dotgov":true,"securitytxt":false},
-            usability: {"title":true,"description":true,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":false,"lcp":true,"ttfb":false,"cls":true,"inp":true}
+            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
+            usability: {"title":true,"description":true,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":false,"lcp":true,"ttfb":false,"cls":true,"inp":true,"www":true}
           },
           
           {
             accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"tabindex":true,"target-size":true,"landmark-one-main":true,"svg-img-alt":true,"label-content-name-mismatch":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
             botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":false,"dotgov":false,"securitytxt":false},
-            usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":false,"lcp":true,"ttfb":true,"cls":true,"inp":true}
-          },
-          
-          {
-            accessibility: {"aria-allowed-attr":true,"aria-command-name":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-dialog-name":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-in-text-block":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"tabindex":false,"target-size":false,"landmark-one-main":true,"label-content-name-mismatch":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
-            botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":false,"xml":true,"allowed":false,"status":true,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":false,"dotgov":true,"securitytxt":false},
-            usability: {"title":true,"description":true,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true}
-          },
-          
-          {
-            accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-required-children":true,"aria-required-parent":true,"aria-roles":true,"aria-treeitem-name":false,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":false,"document-title":true,"frame-title":false,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-in-text-block":true,"link-name":false,"list":true,"listitem":true,"meta-viewport":true,"tabindex":true,"target-size":false,"landmark-one-main":false,"presentation-role-conflict":true,"label-content-name-mismatch":true,"image-aspect-ratio":false,"doctype":true,"charset":true},
-            botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":false,"dotgov":false,"securitytxt":false},
-            usability: {"title":true,"description":true,"viewport":true,"ogsitename":true,"ogtype":false,"ogtitle":true,"ogdescription":true,"ogurl":false,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":true}
+            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":false,"xcontenttypeoptions":false},
+            usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":false,"lcp":true,"ttfb":true,"cls":true,"inp":true,"www":true}
           },
           
           {
             accessibility: {"aria-hidden-body":true,"color-contrast":true,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-in-text-block":true,"link-name":true,"meta-viewport":true,"target-size":true,"landmark-one-main":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
             botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":false,"dotgov":true,"securitytxt":false},
-            usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true}
+            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
+            usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"www":true}
+          },
+          
+          {
+            accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-required-children":true,"aria-required-parent":true,"aria-roles":true,"aria-treeitem-name":false,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":false,"document-title":true,"frame-title":false,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-in-text-block":true,"link-name":false,"list":true,"listitem":true,"meta-viewport":true,"tabindex":true,"target-size":false,"landmark-one-main":false,"presentation-role-conflict":true,"label-content-name-mismatch":true,"image-aspect-ratio":false,"doctype":true,"charset":true},
+            botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
+            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":false,"xcontenttypeoptions":false},
+            usability: {"title":true,"description":true,"viewport":true,"ogsitename":true,"ogtype":false,"ogtitle":true,"ogdescription":true,"ogurl":false,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":false,"lcp":false,"ttfb":false,"cls":true,"inp":true,"www":true}
+          },
+          
+          {
+            accessibility: {"aria-allowed-attr":true,"aria-command-name":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-dialog-name":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-in-text-block":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"tabindex":false,"target-size":false,"landmark-one-main":true,"label-content-name-mismatch":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
+            botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":false,"xml":true,"allowed":false,"status":true,"sitemap-robots":false},
+            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
+            usability: {"title":true,"description":true,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"www":false}
           },
           
           {
             accessibility: {"accesskeys":true,"aria-allowed-attr":true,"aria-command-name":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-dialog-name":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-required-children":true,"aria-required-parent":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":false,"document-title":true,"frame-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-name":false,"list":true,"listitem":true,"meta-viewport":true,"skip-link":false,"tabindex":false,"target-size":true,"landmark-one-main":true,"presentation-role-conflict":true,"label-content-name-mismatch":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
             botability: {"canonical":true,"link-text":false,"hreflang":false,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":false,"dotgov":false,"securitytxt":false},
-            usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":false,"lcp":true,"ttfb":false,"cls":true,"inp":true}
+            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":false,"xcontenttypeoptions":false},
+            usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":false,"lcp":false,"ttfb":false,"cls":true,"inp":true,"www":true}
           },
           
           {
             accessibility: {"aria-allowed-attr":false,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":false,"aria-input-field-name":false,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-required-children":false,"aria-required-parent":true,"aria-roles":true,"aria-toggle-field-name":false,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":false,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"input-image-alt":true,"label":true,"link-name":false,"list":true,"listitem":true,"meta-viewport":true,"tabindex":true,"target-size":false,"landmark-one-main":false,"presentation-role-conflict":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
             botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":false,"dotgov":false,"securitytxt":false},
-            usability: {"title":true,"description":true,"viewport":true,"ogsitename":true,"ogtype":false,"ogtitle":true,"ogdescription":true,"ogurl":false,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":true,"lcp":false,"ttfb":false,"cls":true,"inp":true}
+            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":false,"xcontenttypeoptions":false},
+            usability: {"title":true,"description":true,"viewport":true,"ogsitename":true,"ogtype":false,"ogtitle":true,"ogdescription":true,"ogurl":false,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":true,"lcp":false,"ttfb":false,"cls":true,"inp":true,"www":true}
           },
           
           {
             accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"color-contrast":false,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"skip-link":true,"target-size":true,"landmark-one-main":true,"presentation-role-conflict":true,"image-aspect-ratio":false,"doctype":true,"charset":true},
             botability: {"canonical":false,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":false,"dotgov":true,"securitytxt":false},
-            usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":false}
+            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
+            usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":false,"www":false}
           }
           
         ];

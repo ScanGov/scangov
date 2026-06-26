@@ -396,11 +396,11 @@
           '/profile/banknet-gov/details/?attr=usability'
         ];
         var gradesScores = [
-          71,
+          69,
           95,
           54,
-          77,
-          43
+          66,
+          47
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -538,8 +538,8 @@
         var domainAttrs = {
           accessibility: {"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-required-attr":true,"aria-roles":true,"color-contrast":true,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-in-text-block":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"skip-link":false,"target-size":true,"landmark-one-main":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
           botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-          security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":true,"dotgov":true,"securitytxt":false},
-          usability: {"title":true,"description":true,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true}
+          security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
+          usability: {"title":true,"description":true,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"www":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

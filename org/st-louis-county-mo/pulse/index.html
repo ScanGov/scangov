@@ -326,7 +326,7 @@
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [74];
+        var scores = [75];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -376,10 +376,10 @@
           '/org/' + orgSlug + '/?attr=usability'
         ];
         var gradesScores = [
-          74,
+          75,
           94,
           54,
-          66,
+          77,
           68
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
@@ -520,7 +520,7 @@
           {
             accessibility: {"aria-deprecated-role":true,"aria-hidden-body":true,"aria-required-attr":true,"aria-roles":true,"color-contrast":true,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"link-name":true,"meta-refresh":false,"meta-viewport":true,"target-size":true,"landmark-one-main":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
             botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":false,"status":false,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":false,"dotgov":true,"securitytxt":false},
+            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":true},
             usability: {"title":true,"description":false,"viewport":true,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":false,"lcp":false,"ttfb":false,"cls":true,"inp":true}
           }
           

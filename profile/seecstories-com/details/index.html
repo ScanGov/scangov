@@ -406,7 +406,7 @@
         <h2 class="my-3" id="grade-score">Grade / score</h2>
         <div class="row">
         <div class="col-12 col-sm-12 col-md-6 d-flex align-items-stretch">
-          <div class="card mb-3 text-bg-danger" id="grade-card-accessibility">
+          <div class="card mb-3 text-bg-warning" id="grade-card-accessibility">
             <div class="card-header">
               Grade
               <a href="https://docs.scangov.org/grades" class="text-decoration-none">
@@ -416,7 +416,7 @@
             <div class="card-body text-center pt-5">
               <p class="display-1" id="grade-accessibility">
                 
-                  F
+                  B
               </p>
             </div>
           </div>
@@ -434,14 +434,14 @@
                 <span id="percent-accessibility">
                   
                     
-                      58%
+                      82%
                   
                 </span>
               </p>
             </div>
             <div class="card-footer text-center" id="amount-accessibility">
               
-                10 of 17 elements
+                19 of 23 elements
             </div>
           </div>
         </div>
@@ -462,15 +462,15 @@
       
         
           <tr>
-            <td data-sort="[accesskey] values are unique">
+            <td data-sort="Deprecated ARIA roles were not used">
               
-                <a href="https://standards.scangov.org/accesskeys">[accesskey] values are unique</a><br>
-                <small>Each access key shortcut is unique so keyboard navigation works correctly.</small>
+                <a href="https://standards.scangov.org/aria-deprecated-role">Deprecated ARIA roles were not used</a><br>
+                <small>Accessibility roles use current, supported values.</small>
               
             </td>
-            <td data-sort="Keyboard users cannot efficiently navigate your site.">
+            <td data-sort="Screen readers may not recognize deprecated roles, breaking navigation.">
               
-                <small>Keyboard users cannot efficiently navigate your site.</small>
+                <small>Screen readers may not recognize deprecated roles, breaking navigation.</small>
               
             </td>
             <td data-sort="1">
@@ -496,6 +496,56 @@
             <td data-sort="Screen readers cannot read any content on the page.">
               
                 <small>Screen readers cannot read any content on the page.</small>
+              
+            </td>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="[role]s have all required [aria-*] attributes">
+              
+                <a href="https://standards.scangov.org/aria-required-attr">[role]s have all required [aria-*] attributes</a><br>
+                <small>Accessibility roles include all required attributes so screen readers can describe the element.</small>
+              
+            </td>
+            <td data-sort="Screen readers cannot describe the state of interactive elements.">
+              
+                <small>Screen readers cannot describe the state of interactive elements.</small>
+              
+            </td>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="[role] values are valid">
+              
+                <a href="https://standards.scangov.org/aria-roles">[role] values are valid</a><br>
+                <small>Accessibility roles use valid, recognized values.</small>
+              
+            </td>
+            <td data-sort="Screen readers ignore invalid roles and treat elements as plain text.">
+              
+                <small>Screen readers ignore invalid roles and treat elements as plain text.</small>
               
             </td>
             <td data-sort="1">
@@ -623,12 +673,12 @@
                 <small>Screen readers mispronounce content, confusing users.</small>
               
             </td>
-            <td data-sort="0">
+            <td data-sort="1">
               
                 
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
                   <span class="d-xl-inline">
-                    Missing
+                    Active
                   </span>
                 
               
@@ -637,10 +687,35 @@
       
         
           <tr>
-            <td data-sort="Input buttons have discernible text">
+            <td data-sort="&lt;html&gt; element has a valid value for its [lang] attribute">
               
-                <a href="https://standards.scangov.org/input-button-name">Input buttons have discernible text</a><br>
-                <small>Input buttons have labels so screen readers can describe their action.</small>
+                <a href="https://standards.scangov.org/html-lang-valid">&lt;html&gt; element has a valid value for its [lang] attribute</a><br>
+                <small>The page has a valid language code so screen readers pronounce content correctly.</small>
+              
+            </td>
+            <td data-sort="Screen readers mispronounce content, confusing users.">
+              
+                <small>Screen readers mispronounce content, confusing users.</small>
+              
+            </td>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="Image elements have [alt] attributes">
+              
+                <a href="https://standards.scangov.org/image-alt">Image elements have [alt] attributes</a><br>
+                <small>Images have descriptive alt text or are marked as decorative.</small>
               
             </td>
             <td data-sort="Screen reader users cannot identify or interact with elements.">
@@ -673,12 +748,12 @@
                 <small>Screen reader users cannot identify or interact with elements.</small>
               
             </td>
-            <td data-sort="0">
+            <td data-sort="1">
               
                 
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
                   <span class="d-xl-inline">
-                    Missing
+                    Active
                   </span>
                 
               
@@ -723,6 +798,31 @@
                 <small>Screen reader users cannot identify or interact with elements.</small>
               
             </td>
+            <td data-sort="0">
+              
+                
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <span class="d-xl-inline">
+                    Missing
+                  </span>
+                
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="Lists contain only &lt;li&gt; elements and script supporting elements (&lt;script&gt; and &lt;template&gt;)">
+              
+                <a href="https://standards.scangov.org/list">Lists contain only &lt;li&gt; elements and script supporting elements (&lt;script&gt; and &lt;template&gt;)</a><br>
+                <small>Lists use correct markup so screen readers can announce them properly.</small>
+              
+            </td>
+            <td data-sort="Screen readers announce structured content incorrectly.">
+              
+                <small>Screen readers announce structured content incorrectly.</small>
+              
+            </td>
             <td data-sort="1">
               
                 
@@ -737,23 +837,48 @@
       
         
           <tr>
-            <td data-sort="No element has a [tabindex] value greater than 0">
+            <td data-sort="List items (&lt;li&gt;) are contained within &lt;ul&gt;, &lt;ol&gt; or &lt;menu&gt; parent elements">
               
-                <a href="https://standards.scangov.org/tabindex">No element has a [tabindex] value greater than 0</a><br>
-                <small>The page uses natural keyboard tab order without manual overrides.</small>
-              
-            </td>
-            <td data-sort="Keyboard users cannot efficiently navigate your site.">
-              
-                <small>Keyboard users cannot efficiently navigate your site.</small>
+                <a href="https://standards.scangov.org/listitem">List items (&lt;li&gt;) are contained within &lt;ul&gt;, &lt;ol&gt; or &lt;menu&gt; parent elements</a><br>
+                <small>List items are nested inside a valid parent list element.</small>
               
             </td>
-            <td data-sort="0">
+            <td data-sort="Screen readers announce structured content incorrectly.">
+              
+                <small>Screen readers announce structured content incorrectly.</small>
+              
+            </td>
+            <td data-sort="1">
               
                 
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
                   <span class="d-xl-inline">
-                    Missing
+                    Active
+                  </span>
+                
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="[user-scalable=&quot;no&quot;] is not used in the &lt;meta name=&quot;viewport&quot;&gt; element and the [maximum-scale] attribute is not less than 5">
+              
+                <a href="https://standards.scangov.org/meta-viewport">[user-scalable=&quot;no&quot;] is not used in the &lt;meta name=&quot;viewport&quot;&gt; element and the [maximum-scale] attribute is not less than 5</a><br>
+                <small>The page allows users to zoom in on mobile devices.</small>
+              
+            </td>
+            <td data-sort="Mobile users with low vision cannot zoom in to read content.">
+              
+                <small>Mobile users with low vision cannot zoom in to read content.</small>
+              
+            </td>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
                   </span>
                 
               
@@ -798,12 +923,34 @@
                 <small>Screen reader users cannot skip directly to main content.</small>
               
             </td>
-            <td data-sort="0">
+            <td data-sort="1">
               
                 
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
                   <span class="d-xl-inline">
-                    Missing
+                    Active
+                  </span>
+                
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="presentation-role-conflict">
+              
+                presentation-role-conflict
+              
+            </td>
+            <td data-sort="">
+              
+            </td>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
                   </span>
                 
               
@@ -1638,31 +1785,6 @@
       
         
           <tr>
-            <td data-sort="X-Content-Type-Options">
-              
-                <a href="https://standards.scangov.org/xcontenttypeoptions">X-Content-Type-Options</a><br>
-                <small>The site tells browsers not to guess the type of files it serves.</small>
-              
-            </td>
-            <td data-sort="Browsers might run dangerous files by mistake.">
-              
-                <small>Browsers might run dangerous files by mistake.</small>
-              
-            </td>
-            <td data-sort="0">
-              
-                
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
-                  <span class="d-xl-inline">
-                    Missing
-                  </span>
-                
-              
-            </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Sponsored top-level domain (sTLD)">
               
                 <a href="https://standards.scangov.org/dotgov">Sponsored top-level domain (sTLD)</a><br>
@@ -1697,6 +1819,31 @@
             <td data-sort="Security researchers cannot report problems to you.">
               
                 <small>Security researchers cannot report problems to you.</small>
+              
+            </td>
+            <td data-sort="0">
+              
+                
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <span class="d-xl-inline">
+                    Missing
+                  </span>
+                
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="X-Content-Type-Options">
+              
+                <a href="https://standards.scangov.org/xcontenttypeoptions">X-Content-Type-Options</a><br>
+                <small>The site tells browsers not to guess the type of files it serves.</small>
+              
+            </td>
+            <td data-sort="Browsers might run dangerous files by mistake.">
+              
+                <small>Browsers might run dangerous files by mistake.</small>
               
             </td>
             <td data-sort="0">
@@ -1855,14 +2002,14 @@
                 <span id="percent-usability">
                   
                     
-                      62%
+                      64%
                   
                 </span>
               </p>
             </div>
             <div class="card-footer text-center" id="amount-usability">
               
-                10 of 16 elements
+                11 of 17 elements
             </div>
           </div>
         </div>
@@ -1994,12 +2141,12 @@
                 <small>Users wait too long and leave your page.</small>
               
             </td>
-            <td data-sort="1">
+            <td data-sort="0">
               
                 
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
                   <span class="d-xl-inline">
-                    Active
+                    Missing
                   </span>
                 
               
@@ -2069,12 +2216,12 @@
                 <small>Site feels frozen when users click things.</small>
               
             </td>
-            <td data-sort="0">
+            <td data-sort="1">
               
                 
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
                   <span class="d-xl-inline">
-                    Missing
+                    Active
                   </span>
                 
               
@@ -2275,6 +2422,31 @@
                   <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
                   <span class="d-xl-inline">
                     Missing
+                  </span>
+                
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="www resolution">
+              
+                <a href="https://standards.scangov.org/www">www resolution</a><br>
+                <small>The site works whether users type www or not.</small>
+              
+            </td>
+            <td data-sort="Users get errors when typing your web address.">
+              
+                <small>Users get errors when typing your web address.</small>
+              
+            </td>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
                   </span>
                 
               

@@ -396,11 +396,11 @@
           '/profile/senate-gov/details/?attr=usability'
         ];
         var gradesScores = [
-          63,
+          64,
           66,
           63,
           77,
-          50
+          52
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -538,8 +538,8 @@
         var domainAttrs = {
           accessibility: {"aria-hidden-body":true,"color-contrast":false,"document-title":true,"heading-order":false,"html-has-lang":false,"image-alt":true,"label":false,"link-in-text-block":true,"link-name":true,"list":false,"listitem":true,"meta-viewport":true,"select-name":false,"skip-link":true,"tabindex":true,"target-size":true,"landmark-one-main":true,"presentation-role-conflict":true,"image-aspect-ratio":true,"doctype":false,"charset":true},
           botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":false,"xml":true,"allowed":true,"status":true,"sitemap-robots":false},
-          security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":false,"dotgov":true,"securitytxt":false},
-          usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true}
+          security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
+          usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"www":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

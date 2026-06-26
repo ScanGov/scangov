@@ -326,7 +326,7 @@
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [73];
+        var scores = [72];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -376,11 +376,11 @@
           '/org/' + orgSlug + '/?attr=usability'
         ];
         var gradesScores = [
-          73,
-          77,
+          72,
+          78,
           54,
-          88,
-          68
+          77,
+          64
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -518,10 +518,10 @@
         var orgDomains = [
           
           {
-            accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":false,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-required-parent":false,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"color-contrast":false,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"label":true,"link-in-text-block":true,"link-name":true,"list":false,"listitem":true,"meta-viewport":true,"select-name":false,"skip-link":false,"target-size":false,"td-headers-attr":true,"landmark-one-main":false,"presentation-role-conflict":true,"label-content-name-mismatch":true,"table-fake-caption":true,"td-has-header":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
+            accessibility: {"aria-allowed-attr":true,"aria-command-name":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":false,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-required-parent":false,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"color-contrast":false,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"label":true,"link-in-text-block":true,"link-name":true,"list":false,"listitem":true,"meta-viewport":true,"select-name":false,"skip-link":false,"tabindex":true,"target-size":false,"td-headers-attr":true,"landmark-one-main":false,"presentation-role-conflict":true,"label-content-name-mismatch":true,"table-fake-caption":true,"td-has-header":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
             botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":true,"dotgov":true,"securitytxt":false},
-            usability: {"title":true,"description":true,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":true,"ogdescription":true,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true}
+            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
+            usability: {"title":true,"description":true,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":true,"ogdescription":true,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"www":false}
           }
           
         ];

@@ -400,7 +400,7 @@
           61,
           63,
           88,
-          25
+          29
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -538,8 +538,8 @@
         var domainAttrs = {
           accessibility: {"aria-hidden-body":true,"button-name":true,"color-contrast":false,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":false,"label":false,"link-name":true,"list":false,"listitem":true,"meta-viewport":true,"target-size":true,"landmark-one-main":false,"image-aspect-ratio":false,"doctype":true,"charset":true},
           botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":false,"xml":true,"allowed":true,"status":true,"sitemap-robots":false},
-          security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":true,"dotgov":true,"securitytxt":false},
-          usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":false}
+          security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":true},
+          usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":false,"www":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

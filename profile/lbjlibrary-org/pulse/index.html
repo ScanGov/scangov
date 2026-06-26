@@ -396,11 +396,11 @@
           '/profile/lbjlibrary-org/details/?attr=usability'
         ];
         var gradesScores = [
-          66,
+          65,
           75,
           72,
-          66,
-          43
+          55,
+          47
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -538,8 +538,8 @@
         var domainAttrs = {
           accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":false,"aria-prohibited-attr":false,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":false,"color-contrast":true,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"label":true,"link-name":true,"list":false,"listitem":false,"meta-viewport":true,"tabindex":false,"target-size":true,"landmark-one-main":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
           botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":false},
-          security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":true,"dotgov":false,"securitytxt":false},
-          usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":true,"ttfb":true,"cls":true,"inp":false,"ogsitename":false,"ogtype":false,"ogtitle":true,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true}
+          security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":false,"xcontenttypeoptions":false},
+          usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":true,"ttfb":true,"cls":true,"inp":false,"ogsitename":false,"ogtype":false,"ogtitle":true,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"www":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

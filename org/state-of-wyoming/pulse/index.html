@@ -326,7 +326,7 @@
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [80];
+        var scores = [77];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -376,11 +376,11 @@
           '/org/' + orgSlug + '/?attr=usability'
         ];
         var gradesScores = [
-          80,
+          77,
           92,
           63,
-          66,
-          75
+          55,
+          70
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -520,8 +520,8 @@
           {
             accessibility: {"aria-allowed-attr":true,"aria-command-name":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"frame-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":false,"link-in-text-block":true,"link-name":false,"meta-viewport":true,"tabindex":true,"target-size":true,"landmark-one-main":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
             botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-            security: {"csp":false,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":true,"dotgov":true,"securitytxt":false},
-            usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":false,"cls":true,"inp":true}
+            security: {"csp":false,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
+            usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":false,"cls":true,"inp":true,"www":false}
           }
           
         ];

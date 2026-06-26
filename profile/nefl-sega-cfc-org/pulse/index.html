@@ -396,11 +396,11 @@
           '/profile/nefl-sega-cfc-org/details/?attr=usability'
         ];
         var gradesScores = [
-          33,
-          28,
-          27,
-          22,
-          43
+          76,
+          81,
+          81,
+          55,
+          70
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -536,10 +536,10 @@
         var indicatorColors = {"accessibility":"#a8f2ff","botability":"#e7f434","security":"#ff8d7b","usability":"#d5bfff"};
         var indicatorColorsLight = {"accessibility":"#1d4e9a","botability":"#4d7c00","security":"#a85000","usability":"#7b3fa0"};
         var domainAttrs = {
-          accessibility: {"aria-hidden-body":true,"document-title":false,"html-has-lang":false,"landmark-one-main":false,"image-aspect-ratio":true,"doctype":false,"charset":false},
-          botability: {"canonical":false,"link-text":true,"hreflang":false,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":false,"xml":false,"allowed":false,"status":false,"sitemap-robots":false},
-          security: {"csp":false,"hsts":false,"errors-in-console":false,"clickjacking-mitigation":false,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":false,"dotgov":false,"securitytxt":false},
-          usability: {"title":false,"description":false,"viewport":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true}
+          accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-dialog-name":false,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-required-children":true,"aria-required-parent":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":false,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-in-text-block":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"tabindex":true,"target-size":true,"landmark-one-main":true,"presentation-role-conflict":true,"label-content-name-mismatch":false,"image-aspect-ratio":false,"doctype":true,"charset":false},
+          botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":false},
+          security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":false,"xcontenttypeoptions":false},
+          usability: {"title":true,"description":false,"viewport":true,"fcp":true,"lcp":false,"ttfb":true,"cls":true,"inp":false,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":false,"www":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

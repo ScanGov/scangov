@@ -396,11 +396,11 @@
           '/profile/seecstories-com/details/?attr=usability'
         ];
         var gradesScores = [
-          68,
-          58,
+          77,
+          82,
           90,
           66,
-          62
+          64
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -536,10 +536,10 @@
         var indicatorColors = {"accessibility":"#a8f2ff","botability":"#e7f434","security":"#ff8d7b","usability":"#d5bfff"};
         var indicatorColorsLight = {"accessibility":"#1d4e9a","botability":"#4d7c00","security":"#a85000","usability":"#7b3fa0"};
         var domainAttrs = {
-          accessibility: {"accesskeys":true,"aria-hidden-body":true,"color-contrast":false,"document-title":false,"frame-title":false,"heading-order":true,"html-has-lang":false,"input-button-name":true,"label":false,"link-in-text-block":true,"link-name":true,"tabindex":false,"target-size":true,"landmark-one-main":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
+          accessibility: {"aria-deprecated-role":true,"aria-hidden-body":true,"aria-required-attr":true,"aria-roles":true,"color-contrast":false,"document-title":false,"frame-title":false,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"label":true,"link-in-text-block":true,"link-name":false,"list":true,"listitem":true,"meta-viewport":true,"target-size":true,"landmark-one-main":true,"presentation-role-conflict":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
           botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":true},
-          security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":false,"dotgov":false,"securitytxt":false},
-          usability: {"title":false,"description":true,"viewport":true,"fcp":false,"lcp":true,"ttfb":true,"cls":true,"inp":false,"ogsitename":false,"ogtype":true,"ogtitle":true,"ogdescription":false,"ogurl":true,"ogimage":true,"ogimagealt":true,"readability":false}
+          security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":false,"xcontenttypeoptions":false},
+          usability: {"title":false,"description":true,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":true,"ogsitename":false,"ogtype":true,"ogtitle":true,"ogdescription":false,"ogurl":true,"ogimage":true,"ogimagealt":true,"readability":false,"www":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

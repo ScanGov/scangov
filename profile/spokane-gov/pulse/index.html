@@ -396,11 +396,11 @@
           '/profile/spokane-gov/details/?attr=usability'
         ];
         var gradesScores = [
-          62,
+          61,
           66,
           63,
           77,
-          50
+          47
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -538,8 +538,8 @@
         var domainAttrs = {
           accessibility: {"aria-hidden-body":true,"color-contrast":true,"document-title":true,"html-has-lang":false,"meta-viewport":true,"landmark-one-main":false,"image-aspect-ratio":true,"doctype":true,"charset":false},
           botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-          security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":false,"dotgov":true,"securitytxt":false},
-          usability: {"title":true,"description":false,"viewport":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true}
+          security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
+          usability: {"title":true,"description":false,"viewport":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"www":false}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

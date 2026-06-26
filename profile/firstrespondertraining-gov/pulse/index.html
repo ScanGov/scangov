@@ -396,11 +396,11 @@
           '/profile/firstrespondertraining-gov/details/?attr=usability'
         ];
         var gradesScores = [
-          72,
+          71,
           92,
           63,
-          77,
-          37
+          66,
+          41
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -538,8 +538,8 @@
         var domainAttrs = {
           accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"tabindex":true,"target-size":true,"landmark-one-main":true,"label-content-name-mismatch":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
           botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-          security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":true,"dotgov":true,"securitytxt":false},
-          usability: {"title":true,"description":true,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":false,"lcp":false,"ttfb":false,"cls":true,"inp":true}
+          security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
+          usability: {"title":true,"description":true,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":false,"lcp":false,"ttfb":false,"cls":true,"inp":true,"www":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

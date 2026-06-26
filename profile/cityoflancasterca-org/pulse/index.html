@@ -396,11 +396,11 @@
           '/profile/cityoflancasterca-org/details/?attr=usability'
         ];
         var gradesScores = [
-          76,
-          83,
+          73,
+          81,
           63,
-          77,
-          68
+          66,
+          64
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -536,10 +536,10 @@
         var indicatorColors = {"accessibility":"#a8f2ff","botability":"#e7f434","security":"#ff8d7b","usability":"#d5bfff"};
         var indicatorColorsLight = {"accessibility":"#1d4e9a","botability":"#4d7c00","security":"#a85000","usability":"#7b3fa0"};
         var domainAttrs = {
-          accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":false,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":false,"label":true,"link-in-text-block":false,"link-name":false,"list":true,"listitem":true,"meta-viewport":true,"select-name":true,"skip-link":true,"tabindex":true,"target-size":false,"td-headers-attr":true,"landmark-one-main":true,"presentation-role-conflict":true,"label-content-name-mismatch":true,"table-fake-caption":true,"td-has-header":true,"image-aspect-ratio":false,"doctype":true,"charset":true},
+          accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":false,"document-title":true,"frame-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":false,"label":true,"link-in-text-block":false,"link-name":false,"list":false,"listitem":true,"meta-viewport":true,"select-name":true,"skip-link":true,"tabindex":true,"target-size":false,"td-headers-attr":true,"landmark-one-main":true,"presentation-role-conflict":true,"label-content-name-mismatch":true,"table-fake-caption":true,"td-has-header":true,"image-aspect-ratio":false,"doctype":true,"charset":true},
           botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-          security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":true,"dotgov":false,"securitytxt":false},
-          usability: {"title":true,"description":true,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":true,"ogdescription":true,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true}
+          security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":false,"xcontenttypeoptions":false},
+          usability: {"title":true,"description":true,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":true,"ogdescription":true,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"www":false}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

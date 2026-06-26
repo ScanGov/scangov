@@ -396,11 +396,11 @@
           '/profile/ecosystemsontheedge-org/details/?attr=usability'
         ];
         var gradesScores = [
-          76,
+          77,
           73,
           90,
           66,
-          75
+          76
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -538,8 +538,8 @@
         var domainAttrs = {
           accessibility: {"aria-hidden-body":true,"color-contrast":false,"document-title":true,"frame-title":false,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-name":true,"meta-viewport":false,"target-size":true,"landmark-one-main":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
           botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":true},
-          security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"xcontenttypeoptions":false,"dotgov":false,"securitytxt":false},
-          usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":true,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":false,"ogurl":true,"ogimage":true,"ogimagealt":true,"readability":true}
+          security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":false,"xcontenttypeoptions":false},
+          usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":true,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":false,"ogurl":true,"ogimage":true,"ogimagealt":true,"readability":true,"www":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};
