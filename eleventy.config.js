@@ -354,14 +354,22 @@ export default async function (eleventyConfig) {
         }
 
         if (process.env.ELEVENTY_RUN_MODE !== 'serve' || !fs.existsSync(`./public/data/domains.csv`)) {
-            let gitCSVFileData = await getGithubData(`https://github.com/ScanGov/data/raw/refs/heads/main/domains.csv`);
-            fs.writeFileSync(`./public/data/domains.csv`, gitCSVFileData, 'utf8');
+            try {
+                let gitCSVFileData = await getGithubData(`https://github.com/ScanGov/data/raw/refs/heads/main/domains.csv`);
+                fs.writeFileSync(`./public/data/domains.csv`, gitCSVFileData, 'utf8');
+            } catch (e) {
+                console.warn(`\n⚠ Could not fetch domains.csv: ${e.message}. Skipping update.\n`);
+            }
         }
         if (!process.env.NO_UPDATE_TIME) {
-            let gitUpdateTime = await getGithubData('https://github.com/ScanGov/data/raw/refs/heads/main/updated_time');
-            const currentUpdateTime = fs.readFileSync('./public/data/updated_time', 'utf8');
-            if (currentUpdateTime !== gitUpdateTime) {
-                fs.writeFileSync('./public/data/updated_time', gitUpdateTime, 'utf8');
+            try {
+                let gitUpdateTime = await getGithubData('https://github.com/ScanGov/data/raw/refs/heads/main/updated_time');
+                const currentUpdateTime = fs.readFileSync('./public/data/updated_time', 'utf8');
+                if (currentUpdateTime !== gitUpdateTime) {
+                    fs.writeFileSync('./public/data/updated_time', gitUpdateTime, 'utf8');
+                }
+            } catch (e) {
+                console.warn(`\n⚠ Could not fetch updated_time: ${e.message}. Skipping update.\n`);
             }
         }
         let domainDataFilled = domainData();
@@ -420,7 +428,7 @@ export const config = {
 
 
 async function getGithubData(url) {
-    return new Promise(async (resolve) => {
+    return new Promise(async (resolve, reject) => {
         try {
             const response = await fetch(url);
             if (!response.ok) {
@@ -431,7 +439,7 @@ async function getGithubData(url) {
             console.log('got ' + url);
             resolve(json);
         } catch (error) {
-            throw new Error(`Fetch error: ${error.message}`);
+            reject(new Error(`Fetch error: ${error.message}`));
         }
     });
 }
