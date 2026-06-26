@@ -91,7 +91,7 @@ eleventyComputed:
       </div>
       {% set catInfo = audits[scorekey] %}
       {% if catInfo %}
-      <div class="alert alert-info small mt-4 p-5" role="alert">
+      <div class="alert alert-info small mt-4" role="alert">
         <i class="fa-solid fa-{{ catInfo.icon }} fa-2x d-block mb-3"></i>
         <h2>About {{ catInfo.displayName | lower }}</h2>
         <p class="pb-3 mb-3 border-bottom">{{ catInfo.description }}</p>
