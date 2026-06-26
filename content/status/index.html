@@ -1,0 +1,35 @@
+---
+layout: layouts/page
+title: Status
+description: HTTP status types for websites monitored by ScanGov.
+showLastUpdated: true
+---
+
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Type</th>
+        <th>Label</th>
+        <th>Sites</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in statusGroups %}
+      <tr>
+        <td><a href="/status/{{ s.code }}/">{{ s.code }}</a></td>
+        <td>
+          {% if s.type == 'active' %}<i class="fa-solid fa-circle-check"></i>
+          {% elif s.type == 'redirect' %}<i class="fa-solid fa-arrow-right-arrow-left"></i>
+          {% elif s.type == 'inaccessible' %}<i class="fa-solid fa-circle-xmark"></i>
+          {% endif %}
+          {{ s.type | capitalize }}
+        </td>
+        <td>{{ s.label }}</td>
+        <td><a href="/status/{{ s.code }}/">{{ s.count }}</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

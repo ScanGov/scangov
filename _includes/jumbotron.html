@@ -242,6 +242,9 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
+            {% if breadcrumbParent %}
+              {% include "breadcrumb-default.html" %}
+            {% endif %}
             {% if title %}
               <h1 class="display-5">{{ title }}</h1>
             {% endif %}

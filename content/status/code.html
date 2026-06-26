@@ -1,0 +1,65 @@
+---
+layout: layouts/page
+sitemap: false
+showLastUpdated: true
+pagination:
+  data: statusPages
+  size: 1
+  alias: statusPage
+  addAllPagesToCollections: false
+permalink: "status/{{ statusPage.code }}/{% if statusPage.pageNum > 0 %}{{ statusPage.pageNum + 1 }}/{% endif %}"
+eleventyComputed:
+  title: "{{ statusPage.code }} {{ statusPage.label }}"
+  description: "{{ statusPage.description }}"
+  breadcrumbParent:
+    - url: "/status/"
+      title: "Status"
+  breadcrumbCurrent: "{{ statusPage.code }} {{ statusPage.label }}"
+---
+
+{% if statusPage.count > 0 %}
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Site</th>
+        <th>Organization</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in statusPage.domains %}
+      <tr>
+        <td><a href="/profile/{{ d.urlkey | slugify }}/overall/">{{ d.urlkey }}</a></td>
+        <td>{{ d.name }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="alert alert-info" role="alert">
+  No sites with this status.
+</div>
+{% endif %}
+
+{% if statusPage.totalPages > 1 %}
+<div class="row mt-3">
+  <div class="col-12">
+    <nav aria-label="Page navigation">
+      <ul class="pagination flex-wrap">
+        <li class="page-item{% if statusPage.pageNum == 0 %} disabled{% endif %}">
+          <a class="page-link" href="/status/{{ statusPage.code }}/{% if statusPage.pageNum > 1 %}{{ statusPage.pageNum }}/{% endif %}" aria-label="Previous">Previous</a>
+        </li>
+        {% for i in range(0, statusPage.totalPages) %}
+          <li class="page-item{% if i == statusPage.pageNum %} active{% endif %}">
+            <a class="page-link" href="/status/{{ statusPage.code }}/{% if i > 0 %}{{ i + 1 }}/{% endif %}"{% if i == statusPage.pageNum %} aria-current="page"{% endif %}>{{ i + 1 }}</a>
+          </li>
+        {% endfor %}
+        <li class="page-item{% if statusPage.pageNum == statusPage.totalPages - 1 %} disabled{% endif %}">
+          <a class="page-link" href="/status/{{ statusPage.code }}/{% if statusPage.pageNum < statusPage.totalPages - 1 %}{{ statusPage.pageNum + 2 }}/{% endif %}" aria-label="Next">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+{% endif %}
