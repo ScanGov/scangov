@@ -352,7 +352,7 @@ body.default h6 {
 .alert h4,
 .alert h5,
 .alert h6 {
-    margin-top: 2rem;
+    margin-top: 0.75rem;
     margin-bottom: 0.75rem;
 }
 
