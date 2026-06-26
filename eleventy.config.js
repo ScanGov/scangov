@@ -35,6 +35,9 @@ export default async function (eleventyConfig) {
         }
     })
 
+    // Use symlinks on dev server to avoid race condition with eleventy.before writes to ./public/data/
+    eleventyConfig.setServerPassthroughCopyBehavior('passthrough');
+
     // Copy the contents of the `public` folder to the output folder
     // For example, `./public/css/` ends up in `_site/css/`
     eleventyConfig
