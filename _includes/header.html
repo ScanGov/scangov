@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark light">
     {% if description %}
     <meta name="description" content="{{ description }}">
     {% endif %}
@@ -31,14 +32,14 @@
     {% if ogImage %}
     <meta property="og:image" content="{{ site.url }}/assets/img/{{ ogImage }}">
     {% else %}
-    <meta property="og:image" content="{{ site.url }}/assets/img/avatar-og.png">
+    <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
     {% endif %}
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     {% if ogImageAlt %}
     <meta property="og:image:alt" content="{{ ogImageAlt }}">
     {% else %}
-    <meta property="og:image:alt" content="{{ site.title }} logo">
+    <meta property="og:image:alt" content="ScanGov logo">
     {% endif %}
     {% if date %}
     <meta property="article:published_time" content="{{ date }}" />
@@ -58,15 +59,11 @@
     {% include "favicon.html" %}
     {% include "style.html" %}
     <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-bs-theme', theme);
-            document.body?.setAttribute('data-bs-theme', theme);
-        })();
+        document.documentElement.setAttribute('data-bs-theme', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     </script>
 </head>
 
-<body{% if layout %} class="{{ layout }}"{% endif %} data-bs-theme="dark">
+<body{% if layout %} class="{{ layout }}"{% endif %}>
     <a class="visually-hidden visually-hidden-focusable skip-link" href="#main-content">
         Skip to main content
     </a>
