@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark light">
     
     <meta name="description" content="federalcourts.gov changelog.">
     
@@ -27,12 +28,12 @@
     <meta property="og:description" content="federalcourts.gov changelog.">
     <meta property="og:url" content="https://scangov.org/profile/federalcourts-gov/changelog/">
     
-    <meta property="og:image" content="https://scangov.org/assets/img/avatar-og.png">
+    <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
     
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
-    <meta property="og:image:alt" content="Project ScanGov logo">
+    <meta property="og:image:alt" content="ScanGov logo">
     
     
     
@@ -46,22 +47,19 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#1a1b2e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 
     <link rel="preload" href="/assets/bootstrap/css/bootstrap.min.css" as="style">
 <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
 <link href="/css/scangov.css" rel="stylesheet">
 
     <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-bs-theme', theme);
-            document.body?.setAttribute('data-bs-theme', theme);
-        })();
+        document.documentElement.setAttribute('data-bs-theme', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     </script>
 </head>
 
-<body class="layouts/default" data-bs-theme="dark">
+<body class="layouts/default">
     <a class="visually-hidden visually-hidden-focusable skip-link" href="#main-content">
         Skip to main content
     </a>
@@ -69,9 +67,50 @@
 
 
 
+<style>
+.nav-tabs.topnav {
+    border-bottom: 0;
+}
+.nav-tabs.topnav .nav-link {
+    border-radius: var(--bs-border-radius) var(--bs-border-radius) 0 0;
+    border: 1px solid var(--bs-border-color);
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+    margin-bottom: 0;
+    color: var(--bs-body-color);
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+.nav-tabs.topnav .nav-link:not(.active):hover {
+    background-color: var(--bs-primary) !important;
+    color: var(--bs-primary-text) !important;
+    border-color: var(--bs-primary) !important;
+}
+.nav-tabs.topnav .nav-link:not(.active):hover i,
+.nav-tabs.topnav .nav-link:not(.active):hover svg {
+    color: var(--bs-primary-text) !important;
+}
+.nav-tabs.topnav .nav-link.active,
+.nav-tabs.topnav .nav-link.active:focus {
+    background-color: var(--bs-primary) !important;
+    color: var(--bs-primary-text) !important;
+    border-color: var(--bs-primary) !important;
+}
+.nav-tabs.topnav .nav-link.active i,
+.nav-tabs.topnav .nav-link.active svg {
+    color: var(--bs-primary-text) !important;
+}
+.nav-tabs.topnav .nav-link.active:hover {
+    filter: brightness(1.3);
+}
+.nav-tabs.topnav .nav-link:not(.active) .fa-bars-progress { color: var(--bs-primary) !important; }
+.nav-tabs.topnav .nav-link:not(.active) .fa-certificate { color: #ffbe2e !important; }
+.nav-tabs.topnav .nav-link:not(.active) .fa-diagram-project { color: #7efbe1 !important; }
+.nav-tabs.topnav .nav-link:not(.active) .fa-file-lines { color: #a8f2ff !important; }
+.nav-tabs.topnav .nav-link:not(.active) .fa-database { color: #a8f5d5 !important; }
+</style>
 <div class="d-none d-md-block">
-  <div class="d-flex justify-content-end border-bottom py-1">
-    <ul class="nav nav-pills small">
+  <div class="d-flex justify-content-end border-bottom pt-1 pb-0">
+    <ul class="nav nav-tabs topnav small mb-0">
       
         <li class="nav-item">
           <a class="nav-link btn btn-primary-outline mx-1" href="https://scangov.com">
@@ -116,7 +155,7 @@
       <span class="d-none d-md-inline">Project ScanGov</span>
       <span class="d-inline d-md-none">Project</span>
     </a>
-    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler ml-auto collapsed" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler ml-auto collapsed" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- Collapsible wrapper -->
@@ -134,7 +173,7 @@
         
           
             <li class="nav-item me-3 me-lg-0 small">
-              <a class="nav-link mx-1 active" href="/changelog">
+              <a class="nav-link mx-1 active" aria-current="page" href="/changelog">
                 <svg class="fa-solid fa-timeline me-2" aria-hidden="true"><use href="#fas-fa-timeline" xlink:href="#fas-fa-timeline"></use></svg>
                 Changelog
               </a>
@@ -550,7 +589,19 @@
           <ul class="nav flex-column">
             
               <li class="small mb-1">
-                <a href="https://docs.scangov.com/community" class="nav-link p-0 text-body-secondary">Community</a>
+                <a href="https://docs.scangov.org/community" class="nav-link p-0 text-body-secondary">Community</a>
+              </li>
+            
+              <li class="small mb-1">
+                <a href="https://scangov.substack.com" class="nav-link p-0 text-body-secondary">Newsletter</a>
+              </li>
+            
+              <li class="small mb-1">
+                <a href="https://github.com/ScanGov" class="nav-link p-0 text-body-secondary">GitHub</a>
+              </li>
+            
+              <li class="small mb-1">
+                <a href="https://scangov.com/contact" class="nav-link p-0 text-body-secondary">Contact</a>
               </li>
             
           </ul>
@@ -583,7 +634,7 @@
     <div class="row">
       <div class="col-12 text-center">
         <p class="small">Built with <svg class="fa-solid fa-heart" aria-label="Heart" aria-hidden="true"><use href="#fas-fa-heart" xlink:href="#fas-fa-heart"></use></svg> by
-          <a href="https://scangov.com">ScanGov</a></p>
+          <a href="https://scangov.com" rel="noopener noreferrer">ScanGov</a></p>
       </div>
     </div>
   </div>
@@ -652,23 +703,13 @@
 
   }
 </script>
-<script src="/assets/bootstrap/js/popper.min.js" defer=""></script>
 <script src="/assets/bootstrap/js/bootstrap.bundle.min.js" defer=""></script>
 <script>
-  const setTheme = (dark) => {
-    document.body.setAttribute('data-bs-theme', dark ? 'dark' : 'light');
-  };
-
-  const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
-  const lightQuery = window.matchMedia("(prefers-color-scheme: light)");
-
-  // Only use light if explicitly set to light, otherwise dark
-  setTheme(!lightQuery.matches);
-
-  // Update instantly when OS preference changes
-  darkQuery.addEventListener('change', e => setTheme(e.matches));
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    document.documentElement.setAttribute('data-bs-theme', e.matches ? 'dark' : 'light');
+  });
 </script>
-<a href="https://scangov.com/plans" id="feedback-button" class="feedback btn" aria-hidden="true" tabindex="-1">
+<a href="https://scangov.com/plans" id="feedback-button" class="feedback btn btn-sm" aria-hidden="true" tabindex="-1">
   <svg class="fa-solid fa-rocket" aria-hidden="true"><use href="#fas-fa-rocket" xlink:href="#fas-fa-rocket"></use></svg> Get ScanGov
 </a>
 

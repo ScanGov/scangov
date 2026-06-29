@@ -1,11 +1,12 @@
 
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark light">
     
     <meta name="description" content="Managed by: Department of Veterans Affairs">
     
@@ -28,12 +29,12 @@
     <meta property="og:description" content="Managed by: Department of Veterans Affairs">
     <meta property="og:url" content="https://scangov.org/profile/veteranscrisisline-net/report/">
     
-    <meta property="og:image" content="https://scangov.org/assets/img/avatar-og.png">
+    <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
     
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
-    <meta property="og:image:alt" content="Project ScanGov logo">
+    <meta property="og:image:alt" content="ScanGov logo">
     
     
     
@@ -47,22 +48,19 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#1a1b2e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 
     <link rel="preload" href="/assets/bootstrap/css/bootstrap.min.css" as="style">
 <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
 <link href="/css/scangov.css" rel="stylesheet">
 
     <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-bs-theme', theme);
-            document.body?.setAttribute('data-bs-theme', theme);
-        })();
+        document.documentElement.setAttribute('data-bs-theme', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     </script>
 </head>
 
-<body data-bs-theme="dark">
+<body>
     <a class="visually-hidden visually-hidden-focusable skip-link" href="#main-content">
         Skip to main content
     </a>
