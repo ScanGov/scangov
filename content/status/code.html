@@ -19,7 +19,8 @@ eleventyComputed:
 
 {% if statusPage.count > 0 %}
 <div class="table-responsive">
-  <table class="table table-bordered table-hover">
+  <table class="table">
+    <caption class="visually-hidden">Sites returning status {{ statusPage.code }} {{ statusPage.label }}</caption>
     <thead>
       <tr>
         <th>Site</th>
