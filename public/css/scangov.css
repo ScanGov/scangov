@@ -1070,50 +1070,29 @@ th.sortable {
     white-space: nowrap;
 }
 
+/* Default table styling: border, hover, and shadow without per-table modifier
+   classes. Excludes dense .table-sm data tables, which stay minimal. */
+.table:not(.table-sm) > :not(caption) > * {
+    border-width: var(--bs-border-width) 0;
+}
+
+.table:not(.table-sm) > :not(caption) > * > * {
+    border-width: 0 var(--bs-border-width);
+}
+
+.table:not(.table-sm) > tbody > tr:hover > * {
+    --bs-table-color-state: var(--bs-table-hover-color);
+    --bs-table-bg-state: var(--bs-table-hover-bg);
+}
+
+.table:not(.table-sm) {
+    box-shadow: var(--bs-box-shadow);
+}
+
 /* Rankings table */
 
-.rankings-table {
-    table-layout: fixed;
-}
-
-.rankings-col-rank {
-    width: 8%;
-}
-
 .rankings-col-site {
-    width: 52%;
     word-break: break-word;
-}
-
-.rankings-col-status {
-    width: 30%;
-}
-
-.rankings-col-grade {
-    width: 10%;
-}
-
-/* Compliance table: decreasing column widths (triangular distribution)
-   Formula: col_i width = (n - i + 1) / (n * (n + 1) / 2)
-   3 cols → 50% / 33% / 17%  (parts 3/2/1 of 6) */
-
-.table-desc-cols {
-    table-layout: fixed;
-}
-
-.table-desc-cols th:nth-child(1),
-.table-desc-cols td:nth-child(1) {
-    width: 50%;
-}
-
-.table-desc-cols th:nth-child(2),
-.table-desc-cols td:nth-child(2) {
-    width: 33%;
-}
-
-.table-desc-cols th:nth-child(3),
-.table-desc-cols td:nth-child(3) {
-    width: 17%;
 }
 
 /* Dropdown */
