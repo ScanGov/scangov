@@ -159,10 +159,14 @@ export default async function (eleventyConfig) {
         if (!log) return output
         for (var attr in log) {
             let attrDisplayName = escapeAttr(findAuditDisplayName(scorekey, attr))
-            if (log[attr]) {
-                output += ` <span title="${attrDisplayName} (${scorekey})"><i class="fa-solid fa-circle-check text-success"></i></span>`
+            let attrInfo = findAuditAttributeInfo(scorekey, attr)
+            let icon = log[attr]
+                ? `<i class="fa-solid fa-circle-check text-success"></i>`
+                : `<i class="fa-solid fa-circle-xmark text-danger"></i>`
+            if (attrInfo && attrInfo.key) {
+                output += ` <a href="https://standards.scangov.org/${attrInfo.key}" title="${attrDisplayName} (${scorekey})">${icon}</a>`
             } else {
-                output += ` <span title="${attrDisplayName} (${scorekey})"><i class="fa-solid fa-circle-xmark text-danger"></i></span>`
+                output += ` <span title="${attrDisplayName} (${scorekey})">${icon}</span>`
             }
         }
         return output
