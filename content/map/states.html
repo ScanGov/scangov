@@ -14,31 +14,6 @@ permalink: "map/states/{{ topic | lower }}/"
 
 {% set topic = topic | lower %}
 
-<style>
-    svg#map {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-    }
-
-    svg#map a {
-        transition: 0.5s filter;
-    }
-
-    svg#map a:hover {
-        filter: brightness(1.3);
-    }
-
-    .borders {
-        stroke: var(--bs-body-bg);
-        stroke-width: 1px;
-    }
-
-    #legend > span {
-        margin-left: 1rem;
-    }
-</style>
-
 <!--
 Heitordp, CC0, via Wikimedia Commons
 https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
