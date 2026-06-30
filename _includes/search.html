@@ -1,16 +1,13 @@
 <form id="search-form" action="/search/">
-  <label class="pb-2 d-block" for="search-input">Domain:</label>
-  <div class="d-flex gap-2">
+  <label class="form-label visually-hidden" for="search-input">Domain</label>
+  <div class="input-group input-group-lg">
     <input
       name="search"
       type="text"
-      class="form-control"
+      class="form-control shadow"
       placeholder="ex: ca.gov"
       id="search-input"
       autocomplete="off">
-    <input
-      type="submit"
-      value="Go"
-      class="btn btn-primary">
+    <button type="submit" class="btn btn-primary">Go</button>
   </div>
 </form>

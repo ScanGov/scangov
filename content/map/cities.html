@@ -5,13 +5,6 @@ profile: true
 mapPage: cities
 ---
 
-<style>
-
-    #legend > span {
-        margin-left: 1rem;
-    }
-</style>
-
 <script>
     window.cities = {{ city_map | dump | safe }};
     window.mapFields = {{ site.mapFields | dump | safe }}
