@@ -8,8 +8,9 @@
     <div class="row">
       <div class="col-12">
         <div class="table-responsive">
-          <table class="table table-responsive table-bordered table-hover rankings-table">
-            <thead class="">
+          <table class="table rankings-table">
+            <caption class="visually-hidden">Site rankings</caption>
+            <thead>
               {% include "rankingheaders.html" %}
             </thead>
             <tbody id="table">
@@ -80,6 +81,10 @@
   var ATTR = '{{ specificAttribute }}';
   var PAGE_URL = '{{ page.url }}';
   var isSubset = /\/(cities|states|federal)\//.test(PAGE_URL);
+  var STANDARDS_URLS = {
+    {% for catKey, cat in audits %}{% if cat.attributes %}'{{ catKey }}': { {% for attr in cat.attributes %}'{{ attr.key }}': 'https://standards.scangov.org/{{ attr.key }}', {% endfor %} },
+    {% endif %}{% endfor %}
+  };
 
   var tbody = document.getElementById('table');
   var headers = document.querySelectorAll('.rankings-table th.sortable');
@@ -154,7 +159,11 @@
       var attrs = d[cat];
       if (!attrs) return;
       for (var a in attrs) {
-        out += '<span>' + (attrs[a] ? getIcon('circle-check') : getIcon('circle-xmark')) + '</span>';
+        var icon = attrs[a] ? getIcon('circle-check') : getIcon('circle-xmark');
+        var stdUrl = STANDARDS_URLS[cat] && STANDARDS_URLS[cat][a];
+        out += stdUrl
+          ? ' <a href="' + stdUrl + '">' + icon + '</a>'
+          : ' <span>' + icon + '</span>';
       }
     });
     return out;

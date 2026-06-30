@@ -1,5 +1,6 @@
-<div class="table-responsive table-hover">
-  <table class="table table-responsive table-bordered table-hover mb-2 table-desc-cols">
+<div class="table-responsive">
+  <table class="table mb-2">
+    <caption class="visually-hidden">Compliance status by standard</caption>
     <thead>
       <tr>
         <th scope="col" class="sortable" data-col="0">Standards <span class="sort-icons"><i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc d-none"></i><i class="fa-solid fa-sort-down sort-desc d-none"></i></span></th>
@@ -43,12 +44,12 @@
       {% endfor %}
     </tbody>
   </table>
-  <div class="alert alert-info small mt-2" role="alert">
-    <i class="fa-solid fa-circle-info"></i>
-    <a href="https://docs.scangov.org/standards/">Standards</a>
-    &middot;
-    <a href="https://docs.scangov.org/status">Status</a>
-  </div>
+</div>
+<div class="alert alert-info small mt-2" role="alert">
+  <i class="fa-solid fa-circle-info"></i>
+  <a href="https://docs.scangov.org/standards/">Standards</a>
+  &middot;
+  <a href="https://docs.scangov.org/status">Status</a>
 </div>
 <script>
 (function () {
