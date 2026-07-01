@@ -18,7 +18,7 @@ import { default as domainData } from './_data/domains.js';
 import { fetchAuditorData } from './scripts/fetch-auditor-data.js';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
-export default async function (eleventyConfig) {
+export default async function(eleventyConfig) {
     let auditsFile = 'https://github.com/ScanGov/data/raw/refs/heads/main/standards/audits.json';
     let getDataLocally = false;
     if (process.env.ELEVENTY_RUN_MODE === 'serve') {
@@ -360,14 +360,6 @@ export default async function (eleventyConfig) {
             }
         }
 
-        if (process.env.ELEVENTY_RUN_MODE !== 'serve' || !fs.existsSync(`./public/data/domains.csv`)) {
-            try {
-                let gitCSVFileData = await getGithubData(`https://github.com/ScanGov/data/raw/refs/heads/main/domains.csv`);
-                fs.writeFileSync(`./public/data/domains.csv`, gitCSVFileData, 'utf8');
-            } catch (e) {
-                console.warn(`\n⚠ Could not fetch domains.csv: ${e.message}. Skipping update.\n`);
-            }
-        }
         if (!process.env.NO_UPDATE_TIME) {
             try {
                 let gitUpdateTime = await getGithubData('https://github.com/ScanGov/data/raw/refs/heads/main/updated_time');
