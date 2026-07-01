@@ -1866,6 +1866,10 @@ a[href$=".mp4"]::after {
     color: #fdb8ae !important;
 }
 
+.fa-broom {
+    color: #face00 !important;
+}
+
 .fa-bug {
     color: #fbbaa7;
 }
@@ -2275,6 +2279,7 @@ a[href$=".mp4"]::after {
 }
 
 [data-bs-theme=light] .fa-bolt,
+[data-bs-theme=light] .fa-broom,
 [data-bs-theme=light] .fa-certificate,
 [data-bs-theme=light] .fa-check,
 [data-bs-theme=light] .fa-crown,
