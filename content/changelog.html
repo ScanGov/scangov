@@ -7,28 +7,34 @@ pagination:
     data: changelog
     size: 200
     alias: historyPage
+    generatePageOnEmptyData: true
 ---
 
-<div class="alert alert-info" role="alert">
-    <i class="fa-solid fa-asterisk"></i> Changelog reflects ScanGov scan times and not when actual changes were made.
-</div>
 {% include 'changelog_list.html' %}
-<div class="row">
+{% if historyPage | length %}
+  <div class="row">
     <div class="col-12">
-    <nav>
+      <nav>
         <ul class="pagination flex-wrap" id="pagination">
-            <li class="page-item" id="previous">
-                <a class="page-link {% if pagination.pageNumber == 0 %}disabled{% endif %}" href="{{ pagination.hrefs[pagination.pageNumber - 1] }}" id="previous-link">Previous</a>
+          <li class="page-item" id="previous">
+            <a
+              class="page-link {% if pagination.pageNumber == 0 %}disabled{% endif %}"
+              href="{{ pagination.hrefs[pagination.pageNumber - 1] }}"
+              id="previous-link">Previous</a>
+          </li>
+          {%- for pageEntry in pagination.pages %}
+            <li class="page-item {% if page.url == pagination.hrefs[ loop.index0 ] %}active{% endif %}">
+              <a class="page-link" href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a>
             </li>
-            {%- for pageEntry in pagination.pages %}
-                <li class="page-item {% if page.url == pagination.hrefs[ loop.index0 ] %}active{% endif %}">
-                    <a class="page-link" href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a>
-                </li>
-            {%- endfor %}
-            <li class="page-item" id="next">
-                <a class="page-link {% if pagination.pageNumber == pagination.hrefs.length - 1 %}disabled{% endif %}" href="{{ pagination.hrefs[pagination.pageNumber + 1] }}" id="next-link">Next</a>
-            </li>
+          {%- endfor %}
+          <li class="page-item" id="next">
+            <a
+              class="page-link {% if pagination.pageNumber == pagination.hrefs.length - 1 %}disabled{% endif %}"
+              href="{{ pagination.hrefs[pagination.pageNumber + 1] }}"
+              id="next-link">Next</a>
+          </li>
         </ul>
-    </nav>
+      </nav>
     </div>
-</div>
+  </div>
+{% endif %}

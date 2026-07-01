@@ -53,9 +53,9 @@
         {% endfor %}
         </ul>
         {% else %}
-        <p class="text-muted">No history
-            {% if domain %}for {{ domain.url }}{% endif %}
-        </p>
+        <div class="alert alert-info" role="alert">
+            <i class="fa-solid fa-broom"></i> We cleaned up our scans and reset the changelog. This will update on the next scan.
+        </div>
         {% endif %}
     </section>
 </div>
