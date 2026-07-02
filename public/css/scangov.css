@@ -536,8 +536,14 @@ a.list-group-item:hover {
 
 .breadcrumb-item, .breadcrumb-item a, .breadcrumb-item a:visited {
     color: var(--bs-link-color);
-    font-family: var(--bs-font-bold);
+    font-family: var(--bs-font-monospace);
     text-decoration: none;
+}
+
+.breadcrumb-profile .breadcrumb-item,
+.breadcrumb-profile .breadcrumb-item a,
+.breadcrumb-profile .breadcrumb-item a:visited {
+    font-size: 1.2rem;
 }
 
 .breadcrumb-item a:hover {
