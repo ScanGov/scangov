@@ -1032,6 +1032,24 @@ a.btn-primary-outline:not(.active):focus {
     color: var(--bs-primary-text) !important;
 }
 
+
+/* Page icon colors */
+.fa-face-grin-hearts {
+    color: #face00;
+}
+
+[data-bs-theme=light] .fa-face-grin-hearts {
+    color: #8a6500 !important;
+}
+
+.fa-dove {
+    color: #74c0fc;
+}
+
+[data-bs-theme=light] .fa-dove {
+    color: #1a6fa0;
+}
+
 /* Pagination */
 
 .page-link {
