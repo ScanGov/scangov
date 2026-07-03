@@ -634,6 +634,16 @@ a.btn-primary-outline {
     transition: filter 0.25s ease, box-shadow 0.25s ease;
 }
 
+button.btn-primary-outline:hover,
+button.btn-primary-outline:focus {
+    color: var(--bs-body-bg) !important;
+}
+
+.btn-primary-outline:hover i,
+.btn-primary-outline:hover svg {
+    color: inherit !important;
+}
+
 .btn.btn-outline-primary {
     --bs-btn-color: var(--bs-body-color);
     --bs-btn-border-color: var(--bs-border-color);
@@ -1030,24 +1040,6 @@ a.btn-primary-outline:not(.active):focus {
 [data-bs-theme=light] .nav-tabs.topnav .nav-link:not(.active):hover .fa-file-lines,
 [data-bs-theme=light] .nav-tabs.topnav .nav-link:not(.active):hover .fa-database {
     color: var(--bs-primary-text) !important;
-}
-
-
-/* Page icon colors */
-.fa-face-grin-hearts {
-    color: #face00;
-}
-
-[data-bs-theme=light] .fa-face-grin-hearts {
-    color: #8a6500 !important;
-}
-
-.fa-dove {
-    color: #74c0fc;
-}
-
-[data-bs-theme=light] .fa-dove {
-    color: #1a6fa0;
 }
 
 /* Pagination */
@@ -1854,6 +1846,10 @@ a[href$=".mp4"]::after {
     color: #c5ee93 !important;
 }
 
+.fa-compact-disc {
+    color: #c5ee93 !important;
+}
+
 .fa-arrow-right-to-bracket {
     color: var(--bs-success) !important;
 }
@@ -1940,6 +1936,11 @@ a[href$=".mp4"]::after {
 
 .fa-circle-question {
     color: #97d4ea;
+}
+
+a .fa-circle-question,
+a:hover .fa-circle-question {
+    color: inherit;
 }
 
 .fa-triangle-exclamation {
@@ -2264,6 +2265,7 @@ a[href$=".mp4"]::after {
 
 [data-bs-theme=light] .fa-arrow-right-to-bracket,
 [data-bs-theme=light] .fa-arrows-rotate,
+[data-bs-theme=light] .fa-compact-disc,
 [data-bs-theme=light] .fa-building,
 [data-bs-theme=light] .fa-check-circle,
 [data-bs-theme=light] .fa-circle-check,
@@ -2419,6 +2421,11 @@ a[href$=".mp4"]::after {
 [data-bs-theme=light] .fa-circle-question {
     /* → #1a6fa0 = 5.49:1 ✓ */
     color: #1a6fa0;
+}
+
+[data-bs-theme=light] a .fa-circle-question,
+[data-bs-theme=light] a:hover .fa-circle-question {
+    color: inherit;
 }
 
 [data-bs-theme=light] .fa-triangle-exclamation {
@@ -2639,9 +2646,33 @@ a[href*="docs.scangov.org"] i {
     font-size: 10em;
 }
 
-/* Table header links and icons match text color */
+select.js-subfilters {
+    width: 100%;
+    border-radius: 0;
+}
+
+select.js-subfilters:hover {
+    --bs-body-bg: var(--bs-primary);
+    background-color: var(--bs-primary) !important;
+    color: var(--bs-primary-text) !important;
+    border-color: var(--bs-primary) !important;
+    box-shadow: var(--bs-shadow) !important;
+    border-radius: 0 !important;
+}
+
+thead th {
+    font-family: var(--bs-font-monospace);
+}
+
+/* Table header links */
 th a {
-    color: inherit;
+    color: var(--bs-link-color);
+    text-decoration: none;
+}
+
+th a:hover {
+    color: var(--bs-link-hover-color);
+    text-decoration: underline;
 }
 
 th a i, th a svg,
@@ -2651,6 +2682,7 @@ th a:hover i, th a:hover svg,
 th a:focus i, th a:focus svg {
     color: var(--bs-body-color) !important;
     fill: var(--bs-body-color) !important;
+    text-decoration: none;
 }
 
 /* Docs */
