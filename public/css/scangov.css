@@ -1352,6 +1352,10 @@ a.card {
 
 /* Forms */
 
+form {
+    padding-bottom: 2rem;
+}
+
 .form-control {
     color: var(--bs-body-color) !important;
     border: 1px solid var(--bs-border-color);
@@ -1987,6 +1991,8 @@ a:hover .fa-circle-question {
     color: #face00;
 }
 
+.fa-dove,
+.fa-face-grin-hearts,
 .fa-face-smile {
     color: #fffb00;
 }
@@ -2068,8 +2074,9 @@ a:hover .fa-circle-question {
     color: #b0d0f0 !important;
 }
 
-.fa-lightbulb {
-    color: #ffe396;
+.fa-lightbulb,
+.fa-message {
+    color: #ffe396 !important;
 }
 
 .fa-link {
@@ -2310,6 +2317,8 @@ a:hover .fa-circle-question {
 [data-bs-theme=light] .fa-check,
 [data-bs-theme=light] .fa-crown,
 [data-bs-theme=light] .fa-dolly,
+[data-bs-theme=light] .fa-dove,
+[data-bs-theme=light] .fa-face-grin-hearts,
 [data-bs-theme=light] .fa-face-sad-tear,
 [data-bs-theme=light] .fa-face-smile,
 [data-bs-theme=light] .fa-file-contract,
@@ -2326,6 +2335,7 @@ a:hover .fa-circle-question {
 [data-bs-theme=light] .fa-hand-point-left,
 [data-bs-theme=light] .fa-highlighter,
 [data-bs-theme=light] .fa-lightbulb,
+[data-bs-theme=light] .fa-message,
 [data-bs-theme=light] .fa-magnifying-glass,
 [data-bs-theme=light] .fa-magnifying-glass-chart,
 [data-bs-theme=light] .fa-plug-circle-bolt,
