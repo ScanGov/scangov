@@ -2921,6 +2921,79 @@ svg#map a:hover {
     }
 }
 
+/* Issue report modal */
+.popoverstyling {
+    width: min(700px, 95vw);
+    max-width: 700px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    margin: auto;
+    --bs-modal-padding: 1rem;
+    --bs-modal-bg: var(--bs-body-bg);
+    --bs-modal-color: var(--bs-body-color);
+    --bs-modal-border-color: var(--bs-border-color);
+    --bs-modal-border-width: var(--bs-border-width);
+    --bs-modal-border-radius: var(--bs-border-radius-lg);
+    --bs-modal-inner-border-radius: calc(var(--bs-border-radius-lg) - var(--bs-border-width));
+    --bs-modal-header-padding-x: 1rem;
+    --bs-modal-header-padding-y: 1rem;
+    --bs-modal-header-padding: 1rem 1rem;
+    --bs-modal-header-border-color: var(--bs-border-color);
+    --bs-modal-header-border-width: var(--bs-border-width);
+    --bs-modal-title-line-height: 1.5;
+    --bs-modal-footer-gap: 0.5rem;
+    --bs-modal-footer-border-color: var(--bs-border-color);
+    --bs-modal-footer-border-width: var(--bs-border-width);
+}
+
+body:has(dialog.popoverstyling[open]) {
+    overflow: hidden;
+}
+
+dialog.popoverstyling .modal-content {
+    max-height: 85vh;
+    overflow: hidden;
+}
+
+dialog.popoverstyling .modal-body {
+    overflow-y: auto;
+}
+
+dialog.popoverstyling .modal-header .modal-title {
+    font-size: 1rem;
+    font-family: var(--bs-font-sans-serif);
+    margin-bottom: 0;
+}
+
+dialog.popoverstyling .modal-footer .btn {
+    padding: 0.375rem 0.75rem;
+    font-family: var(--bs-font-sans-serif);
+}
+
+dialog.popoverstyling .modal-body h3,
+dialog.popoverstyling .modal-body h4 {
+    margin-top: 1.75rem;
+}
+
+dialog.popoverstyling .modal-body > h3:first-child {
+    margin-top: 0;
+}
+
+dialog.popoverstyling .modal-body table {
+    width: 100%;
+}
+
+dialog[open] {
+    animation: slide-in-up .3s cubic-bezier(.25, 0, .3, 1);
+}
+
+dialog::backdrop { }
+
+@keyframes slide-in-up {
+    0% { transform: translateY(100%); }
+}
+
 /* Dark mode — indigo-slate theme */
 [data-bs-theme=dark] {
     --bs-body-bg: #1a1b2e;
