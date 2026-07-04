@@ -898,7 +898,7 @@ a.btn-primary-outline:not(.active):focus {
 }
 
 .nav-tabs.filter {
-    border-bottom: 0;
+    border-bottom: var(--bs-border-width) solid var(--bs-border-color);
 }
 
 .nav-tabs.filter .nav-link {
@@ -1945,6 +1945,11 @@ a[href$=".mp4"]::after {
 a .fa-circle-question,
 a:hover .fa-circle-question {
     color: inherit;
+}
+
+td a .fa-circle-question,
+td a:hover .fa-circle-question {
+    color: var(--bs-body-color);
 }
 
 .fa-triangle-exclamation {
