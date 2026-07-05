@@ -34,7 +34,7 @@
 
 @font-face {
     font-family: "JetBrains Mono Regular";
-    src: url("../assets/fonts/jetbrains-mono/JetBrainsMono-Regular.ttf") format("truetype");
+    src: local("JetBrains Mono"), url("../assets/fonts/jetbrains-mono/JetBrainsMono-Regular.ttf") format("truetype");
     font-display: swap;
 }
 
@@ -477,6 +477,8 @@ button:not(.card *) {
 a.list-group-item {
     color: var(--bs-body-color) !important;
     font-family: "Public Sans Regular", sans-serif !important;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
 }
 
 .nav-link {
@@ -622,7 +624,8 @@ a:hover {
     padding: 0.3rem 0.6rem;
 }
 
-a.btn-primary-outline {
+a.btn-primary-outline,
+button.btn-primary-outline {
     background-color: var(--bs-body-bg);
     color: var(--bs-body-color);
     border-radius: var(--bs-border-radius-sm);
@@ -721,7 +724,9 @@ button.btn-primary-outline:focus {
 
 a.btn-primary-outline:not(.active):hover,
 .btn-primary-outline:not(.active):hover,
-a.btn-primary-outline:not(.active):focus {
+a.btn-primary-outline:not(.active):focus,
+a.btn-primary-outline.active,
+.btn-primary-outline.active {
     filter: brightness(1.3);
     box-shadow: var(--bs-box-shadow-md);
     border: 1px solid var(--bs-border-color);
@@ -1103,6 +1108,7 @@ th.sortable {
 
 .table:not(.table-sm) {
     box-shadow: var(--bs-box-shadow);
+    font-size: 0.95rem;
 }
 
 /* Rankings table */
@@ -1143,20 +1149,21 @@ code.language-plaintext {
 
 /* Page actions (Rescan / Download / Share) */
 
-.actions.list-group .list-group-item {
-    padding: 0;
-}
-
-.actions>li>a {
+.actions>li>a,
+.actions>li>button {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.65rem 0.9rem;
     color: var(--bs-body-color);
     text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.actions>li>a small {
+.actions>li>a small,
+.actions>li>button small {
     border-left: 1px solid var(--bs-border-color);
     padding-left: 0.5rem;
     align-self: stretch;
@@ -1165,8 +1172,24 @@ code.language-plaintext {
 }
 
 .actions>li>a:hover,
-.actions>li>a:focus {
+.actions>li>a:focus,
+.actions>li>button:hover,
+.actions>li>button:focus {
     color: var(--bs-link-color);
+}
+
+.actions .list-group-item:hover {
+    background-color: var(--bs-body-secondary-bg);
+}
+
+.actions .dropdown-item {
+    border-bottom: 1px solid var(--bs-border-color);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.actions .dropdown-menu li:last-child .dropdown-item {
+    border-bottom: none;
 }
 
 .actions .dropdown-item:hover,
@@ -1352,8 +1375,29 @@ a.card {
 
 /* Forms */
 
-form {
-    padding-bottom: 2rem;
+form button[type="submit"],
+form input[type="submit"] {
+    margin-bottom: 2rem;
+}
+
+td form button[type="submit"],
+td form input[type="submit"] {
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label .fa-asterisk {
+    margin-left: 0.25rem;
+}
+
+.form-error {
+    color: var(--bs-danger);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
 }
 
 .form-control {
@@ -1943,13 +1987,17 @@ a[href$=".mp4"]::after {
 }
 
 a .fa-circle-question,
-a:hover .fa-circle-question {
-    color: inherit;
+a:hover .fa-circle-question,
+a .fa-circle-info,
+a:hover .fa-circle-info {
+    color: inherit !important;
 }
 
 td a .fa-circle-question,
-td a:hover .fa-circle-question {
-    color: var(--bs-body-color);
+td a:hover .fa-circle-question,
+td a .fa-circle-info,
+td a:hover .fa-circle-info {
+    color: var(--bs-body-color) !important;
 }
 
 .fa-triangle-exclamation {
@@ -2225,6 +2273,10 @@ td a:hover .fa-circle-question {
     color: #7efbe1;
 }
 
+a .fa-up-right-from-square {
+    margin-left: 0.3em;
+}
+
 .fa-user-astronaut {
     color: #f8b9c5;
 }
@@ -2439,8 +2491,10 @@ td a:hover .fa-circle-question {
 }
 
 [data-bs-theme=light] a .fa-circle-question,
-[data-bs-theme=light] a:hover .fa-circle-question {
-    color: inherit;
+[data-bs-theme=light] a:hover .fa-circle-question,
+[data-bs-theme=light] a .fa-circle-info,
+[data-bs-theme=light] a:hover .fa-circle-info {
+    color: inherit !important;
 }
 
 [data-bs-theme=light] .fa-triangle-exclamation {
@@ -2755,16 +2809,14 @@ th a:focus i, th a:focus svg {
     }
 }
 
-/* Actions list: restore left border and radius — Bootstrap targets :first-child but rescan is a hidden first node */
-.actions .list-group-item+.list-group-item {
-    border-left-width: 1px;
+/* Actions list: separate boxes — restore left border + full radius on every item */
+.actions.list-group .list-group-item {
+    padding: 0;
+    border-radius: var(--bs-list-group-border-radius) !important;
 }
 
-@media (min-width: 576px) {
-    .actions .list-group-item:nth-child(2) {
-        border-top-left-radius: var(--bs-list-group-border-radius);
-        border-bottom-left-radius: var(--bs-list-group-border-radius);
-    }
+.actions .list-group-item+.list-group-item {
+    border-left-width: var(--bs-list-group-border-width);
 }
 
 /* Card links: underline on hover only */
