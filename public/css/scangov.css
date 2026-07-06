@@ -1427,6 +1427,10 @@ input[type="submit"] {
     min-width: 80px;
 }
 
+.progress {
+    height: 6px;
+}
+
 /* SVG */
 
 svg {
@@ -2325,6 +2329,10 @@ a .fa-up-right-from-square {
     color: #d5bfff !important;
 }
 
+.fa-stop-circle {
+    color: #ffbc78 !important;
+}
+
 /* Icons — light mode overrides (WCAG 2.2 AA compliant, min 4.5:1 on #fff) */
 
 [data-bs-theme=light] .fa-arrow-right-to-bracket,
@@ -2400,6 +2408,7 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] .fa-scale-balanced,
 [data-bs-theme=light] .fa-scroll,
 [data-bs-theme=light] .fa-star,
+[data-bs-theme=light] .fa-stop-circle,
 [data-bs-theme=light] .fa-wand-magic-sparkles {
     /* → #8a6500 = 5.33:1 ✓ */
     color: #8a6500 !important;
