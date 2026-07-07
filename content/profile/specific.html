@@ -38,16 +38,16 @@ eleventyComputed:
     <div class="d-none" id="details-{{ scorekey }}">
       <div id="specific-{{ scorekey }}">
         <h2 class="my-3">Grade / score</h2>
-        <div class="row">
+        <div class="row g-3">
         <div class="col-12 col-sm-12 col-md-6 d-flex align-items-stretch">
-          <div class="card mb-3 {% if (domain.status != 200) or (domain.scores[scorekey] | length === 0) %}{% else %}text-bg-{{ domain.scores[scorekey].score | colorify }}{% endif %}" id="grade-card-{{ scorekey }}">
+          <div class="card card-grade {% if (domain.status != 200) or (domain.scores[scorekey] | length === 0) %}{% else %}text-bg-{{ domain.scores[scorekey].score | colorify }}{% endif %}" id="grade-card-{{ scorekey }}">
             <div class="card-header">
               Grade
               <a href="https://docs.scangov.org/grades" class="text-decoration-none">
                 <i class="fa-solid fa-circle-question"></i>
               </a>
             </div>
-            <div class="card-body text-center pt-5">
+            <div class="card-body">
               <p class="display-1" id="grade-{{ scorekey }}">
                 {% if (domain.status != 200) or (domain.scores[scorekey] | length === 0) %}-
                 {% else %}
@@ -57,7 +57,7 @@ eleventyComputed:
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-6 d-flex align-items-stretch">
-          <div class="card mb-3 text-bg-dark" id="score-{{ scorekey }}">
+          <div class="card text-bg-dark" id="score-{{ scorekey }}">
             <div class="card-header">
               Score
               <a href="https://docs.scangov.org/scores" class="text-decoration-none">
