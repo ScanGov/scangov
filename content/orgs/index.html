@@ -25,38 +25,32 @@ eleventyComputed:
     {% include "page-heading.html" %}
     {% include "details.html" %}
     {% include "actions.html" %}
-    <div class="row">
+    <div class="row g-3">
             {% for domain in org.domains | sort(attribute='urlkey') %}
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch overall-card">
-                    <div class="card mb-3 text-bg-{{ domain.overallScore | colorify }}">
+                <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch overall-card">
+                    <div class="card card-grade-sm text-bg-{{ domain.overallScore | colorify }}">
                         <div class="card-header">
                             <a href="/profile/{{ domain.urlkey | slugify }}/overall/" class="text-decoration-none">{{ domain.urlkey }}</a>
                         </div>
-                        <a href="/profile/{{ domain.urlkey | slugify }}/overall/" class="card-body text-center pt-5 text-decoration-none">
-                            <p class="display-1">
+                        <a href="/profile/{{ domain.urlkey | slugify }}/overall/" class="card-body text-decoration-none">
+                            <div class="display-2">
                                 {{ domain.overallScore | gradify }}
-                            </p>
-                        </a>
-                        <a class="card-footer text-center text-decoration-none" href="/profile/{{ domain.urlkey | slugify }}/overall/">
-                            Overall score {{ domain.overallScore }}%
+                            </div>
                         </a>
                     </div>
                 </div>
                 {% for card in site.data %}
                     {% set scorekey = card.toLowerCase() %}
                     {% set score = domain.scores[scorekey].score %}
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-none align-items-stretch {{ scorekey }}-card">
-                        <div class="card mb-3 text-bg-{{ score | colorify }}">
+                    <div class="col-12 col-sm-6 col-md-3 d-none align-items-stretch {{ scorekey }}-card">
+                        <div class="card card-grade-sm text-bg-{{ score | colorify }}">
                             <div class="card-header">
                                 <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr={{ scorekey }}" class="text-decoration-none">{{ domain.urlkey }}</a>
                             </div>
-                            <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr={{ scorekey }}" class="card-body text-center pt-5 text-decoration-none">
-                                <p class="display-1">
+                            <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr={{ scorekey }}" class="card-body text-decoration-none">
+                                <div class="display-2">
                                     {{ score | gradify }}
-                                </p>
-                            </a>
-                            <a class="card-footer text-center text-decoration-none" href="/profile/{{ domain.urlkey | slugify }}/overall/">
-                                {{ card }} score {{ score }}%
+                                </div>
                             </a>
                         </div>
                     </div>
