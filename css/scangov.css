@@ -1373,6 +1373,29 @@ a.card {
     padding: 1rem;
 }
 
+/* Grade cards */
+
+.card-grade,
+.card-grade-sm {
+    margin-bottom: 0;
+}
+
+.card-grade .card-body {
+    text-align: center;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.card-grade-sm .card-body {
+    text-align: center;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+.card-grade-sm .card-body .display-2 {
+    margin-bottom: 0;
+}
+
 /* Forms */
 
 form button[type="submit"],
