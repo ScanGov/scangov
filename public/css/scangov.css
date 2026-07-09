@@ -1830,6 +1830,10 @@ a[href$=".mp4"]::after {
     color: var(--bs-success) !important;
 }
 
+.fa-user-plus {
+    color: var(--bs-success) !important;
+}
+
 .fa-circle-dot {
     color: #f3bf90 !important;
 }
@@ -1950,6 +1954,10 @@ a[href$=".mp4"]::after {
 }
 
 .fa-bell-concierge {
+    color: #dec69a !important;
+}
+
+.fa-life-ring {
     color: #dec69a !important;
 }
 
@@ -2109,7 +2117,12 @@ td a:hover .fa-circle-info {
     color: #ffbc78;
 }
 
-.fa-gear {
+.fa-gear,
+.fa-gears {
+    color: #a1d3ff;
+}
+
+.fa-network-wired {
     color: #a1d3ff;
 }
 
@@ -2393,6 +2406,7 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] .fa-bug,
 [data-bs-theme=light] .fa-concierge-bell,
 [data-bs-theme=light] .fa-face-frown,
+[data-bs-theme=light] .fa-life-ring,
 [data-bs-theme=light] .fa-map,
 [data-bs-theme=light] .fa-server {
     /* → #8a5e2d = 5.65:1 ✓ */
@@ -2558,6 +2572,8 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] .fa-building-columns,
 [data-bs-theme=light] .fa-circle-dot,
 [data-bs-theme=light] .fa-gear,
+[data-bs-theme=light] .fa-gears,
+[data-bs-theme=light] .fa-network-wired,
 [data-bs-theme=light] .fa-newspaper {
     /* → #1a5e9e = 6.69:1 ✓ */
     color: #1a5e9e !important;
