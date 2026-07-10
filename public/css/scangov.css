@@ -676,6 +676,15 @@ button.btn-primary-outline:focus {
     color: inherit !important;
 }
 
+.btn.btn-outline-primary .fa-sitemap {
+    color: #ffbc78 !important;
+}
+
+.btn.btn-outline-primary:hover .fa-sitemap,
+.btn.btn-outline-primary:focus .fa-sitemap {
+    color: inherit !important;
+}
+
 .btn[download] {
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
@@ -1826,7 +1835,8 @@ a[href$=".mp4"]::after {
     color: #ffbc78 !important;
 }
 
-.fa-circle-plus {
+.fa-circle-plus,
+.fa-toggle-on {
     color: var(--bs-success) !important;
 }
 
@@ -1867,6 +1877,10 @@ a[href$=".mp4"]::after {
 }
 
 .fa-filter-circle-xmark {
+    color: #f8b9c5 !important;
+}
+
+.fa-box-archive {
     color: #f8b9c5 !important;
 }
 
@@ -2213,8 +2227,9 @@ td a:hover .fa-circle-info {
     color: #f8b9c5;
 }
 
-.fa-folder-tree {
-    color: #ffbc78;
+.fa-folder-tree,
+.fa-sitemap {
+    color: #ffbc78 !important;
 }
 
 .fa-right-from-bracket {
@@ -2293,7 +2308,8 @@ td a:hover .fa-circle-info {
     color: #a8f2ff;
 }
 
-.fa-arrow-right {
+.fa-arrow-right,
+.fa-arrow-right-long {
     color: #c3ebfa;
 }
 
@@ -2382,7 +2398,8 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] .fa-puzzle-piece,
 [data-bs-theme=light] .fa-right-from-bracket,
 [data-bs-theme=light] .fa-rotate,
-[data-bs-theme=light] .fa-seedling {
+[data-bs-theme=light] .fa-seedling,
+[data-bs-theme=light] .fa-toggle-on {
     /* → #2d7a3a = 5.31:1 ✓ */
     color: #2d7a3a !important;
 }
@@ -2468,12 +2485,23 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] .fa-gauge-simple,
 [data-bs-theme=light] .fa-gauge-high,
 [data-bs-theme=light] .fa-rss,
-[data-bs-theme=light] .fa-screwdriver-wrench {
+[data-bs-theme=light] .fa-screwdriver-wrench,
+[data-bs-theme=light] .fa-sitemap {
     /* → #8a4f00 = 6.56:1 ✓ */
     color: #8a4f00 !important;
 }
 
+[data-bs-theme=light] .btn.btn-outline-primary .fa-sitemap {
+    color: #8a4f00 !important;
+}
+
+[data-bs-theme=light] .btn.btn-outline-primary:hover .fa-sitemap,
+[data-bs-theme=light] .btn.btn-outline-primary:focus .fa-sitemap {
+    color: inherit !important;
+}
+
 [data-bs-theme=light] .fa-arrow-right,
+[data-bs-theme=light] .fa-arrow-right-long,
 [data-bs-theme=light] .fa-book-open,
 [data-bs-theme=light] .fa-book-open-reader,
 [data-bs-theme=light] .fa-calendar,
@@ -2548,6 +2576,7 @@ a .fa-up-right-from-square {
     color: #b03030;
 }
 
+[data-bs-theme=light] .fa-box-archive,
 [data-bs-theme=light] .fa-file-pdf,
 [data-bs-theme=light] .fa-filter-circle-xmark,
 [data-bs-theme=light] .fa-rectangle-list,
