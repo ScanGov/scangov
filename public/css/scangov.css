@@ -4,49 +4,49 @@
 
 @font-face {
     font-family: "Public Sans ExtraBold";
-    src: url("../assets/fonts/public-sans/ttf/PublicSans-ExtraBold.ttf") format("truetype");
+    src: url("/assets/fonts/public-sans/ttf/PublicSans-ExtraBold.ttf") format("truetype");
     font-display: swap;
 }
 
 @font-face {
     font-family: "Public Sans Bold";
-    src: url("../assets/fonts/public-sans/ttf/PublicSans-Bold.ttf") format("truetype");
+    src: url("/assets/fonts/public-sans/ttf/PublicSans-Bold.ttf") format("truetype");
     font-display: swap;
 }
 
 @font-face {
     font-family: "Public Sans Regular";
-    src: url("../assets/fonts/public-sans/ttf/PublicSans-Regular.ttf") format("truetype");
+    src: url("/assets/fonts/public-sans/ttf/PublicSans-Regular.ttf") format("truetype");
     font-display: swap;
 }
 
 @font-face {
     font-family: "Public Sans Light";
-    src: url("../assets/fonts/public-sans/ttf/PublicSans-Light.ttf") format("truetype");
+    src: url("/assets/fonts/public-sans/ttf/PublicSans-Light.ttf") format("truetype");
     font-display: swap;
 }
 
 @font-face {
     font-family: "Public Sans Thin";
-    src: url("../assets/fonts/public-sans/ttf/PublicSans-Thin.ttf") format("truetype");
+    src: url("/assets/fonts/public-sans/ttf/PublicSans-Thin.ttf") format("truetype");
     font-display: swap;
 }
 
 @font-face {
     font-family: "JetBrains Mono Regular";
-    src: local("JetBrains Mono"), url("../assets/fonts/jetbrains-mono/JetBrainsMono-Regular.ttf") format("truetype");
+    src: local("JetBrains Mono"), url("/assets/fonts/jetbrains-mono/JetBrainsMono-Regular.ttf") format("truetype");
     font-display: swap;
 }
 
 @font-face {
     font-family: "JetBrains Mono Medium";
-    src: url("../assets/fonts/jetbrains-mono/JetBrainsMono-Medium.ttf") format("truetype");
+    src: url("/assets/fonts/jetbrains-mono/JetBrainsMono-Medium.ttf") format("truetype");
     font-display: swap;
 }
 
 @font-face {
     font-family: "JetBrains Mono ExtraBold";
-    src: url("../assets/fonts/jetbrains-mono/JetBrainsMono-ExtraBold.ttf") format("truetype");
+    src: url("/assets/fonts/jetbrains-mono/JetBrainsMono-ExtraBold.ttf") format("truetype");
     font-display: swap;
 }
 
@@ -477,6 +477,11 @@ button:not(.card *) {
 a.list-group-item {
     color: var(--bs-body-color) !important;
     font-family: "Public Sans Regular", sans-serif !important;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+}
+
+.navbar-nav .nav-link.active {
     padding-top: 0.65rem;
     padding-bottom: 0.65rem;
 }
