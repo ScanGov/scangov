@@ -2,11 +2,10 @@
     <section class="py-4">
         {% if historyPage | length %}
         <ul class="timeline" id="timeline"> {% set currentDate = "" %}
-        {% set changeDate = true %}
         {% for item in historyPage %}
             {% if item.date != currentDate %}
+                {% if not loop.first %}</li>{% endif %}
                 {% set currentDate = item.date %}
-                {% set changeDate = true %}
                 <li class="timeline-item">
                     <p class="timeline-date">{{ item.date }}</p>
             {% endif %}
@@ -46,11 +45,8 @@
                                 </ul>
                             </p>
                     </div>
-            {% if changeDate %}
-                {% set changeDate = false %}
-                </li>
-            {% endif %}
         {% endfor %}
+        </li>
         </ul>
         {% else %}
         <div class="alert alert-info" role="alert">

@@ -3,28 +3,14 @@
     <caption class="visually-hidden">Compliance status by standard</caption>
     <thead>
       <tr>
-        <th scope="col" class="sortable" data-col="0">Standards <span class="sort-icons"><i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc d-none"></i><i class="fa-solid fa-sort-down sort-desc d-none"></i></span></th>
-        <th scope="col">Risk</th>
-        <th scope="col" class="sortable" data-col="2">Status <span class="sort-icons"><i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc d-none"></i><i class="fa-solid fa-sort-down sort-desc d-none"></i></span></th>
+        <th scope="col" class="sortable" data-col="0">Status <span class="sort-icons"><i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc d-none"></i><i class="fa-solid fa-sort-down sort-desc d-none"></i></span></th>
+        <th scope="col" class="sortable" data-col="1">Standards <span class="sort-icons"><i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc d-none"></i><i class="fa-solid fa-sort-down sort-desc d-none"></i></span></th>
       </tr>
     </thead>
     <tbody id="table-compliance-{{ scorekey }}">
       {% for attrKey, score in domain[scorekey] %}
         {% set attrInfo = domain[scorekey] | findAuditAttribute(scorekey, attrKey) %}
           <tr>
-            <td data-sort="{{ attrInfo.displayName if attrInfo else attrKey }}">
-              {% if attrInfo %}
-                <a href="https://standards.scangov.org/{{ attrInfo.key }}">{{ attrInfo.displayName }}</a><br>
-                <small>{{ attrInfo.description }}</small>
-              {% else %}
-                {{ attrKey }}
-              {% endif %}
-            </td>
-            <td data-sort="{{ attrInfo.risk if attrInfo else '' }}">
-              {% if attrInfo and attrInfo.risk %}
-                <small>{{ attrInfo.risk }}</small>
-              {% endif %}
-            </td>
             <td data-sort="{% if domain.status != 200 %}0{% elif score %}1{% else %}0{% endif %}">
               {% if domain.status != 200 %}
                 <i class="fa-solid fa-circle-exclamation text-warning"></i>
@@ -38,6 +24,15 @@
                     {% if score %}Active{% else %}Missing{% endif %}
                   </span>
                 {% endif %}
+              {% endif %}
+            </td>
+            <td data-sort="{{ attrInfo.displayName if attrInfo else attrKey }}">
+              {% if attrInfo %}
+                {{ attrInfo.displayName }}
+                <a href="https://standards.scangov.org/{{ attrInfo.key }}" aria-label="View standard"><i class="fa-solid fa-circle-info"></i></a><br>
+                <small class="text-body-secondary font-monospace">{{ attrInfo.description }}</small>
+              {% else %}
+                {{ attrKey }}
               {% endif %}
             </td>
           </tr>
@@ -81,7 +76,7 @@
       rows.sort(function (a, b) {
         var aVal = a.cells[col].getAttribute('data-sort') || '';
         var bVal = b.cells[col].getAttribute('data-sort') || '';
-        if (col === 0) {
+        if (col === 1) {
           return sortState.dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
         }
         return sortState.dir === 'asc'
@@ -92,11 +87,11 @@
     });
   });
 
-  // Default sort: Standard (col 0) ascending
+  // Default sort: Status (col 0) ascending, missing/inaccessible first
   (function () {
     var rows = Array.from(tbody.querySelectorAll('tr'));
     rows.sort(function (a, b) {
-      return (a.cells[0].getAttribute('data-sort') || '').localeCompare(b.cells[0].getAttribute('data-sort') || '');
+      return parseInt(a.cells[0].getAttribute('data-sort') || '0') - parseInt(b.cells[0].getAttribute('data-sort') || '0');
     });
     rows.forEach(function (row) { tbody.appendChild(row); });
     sortState.col = 0;

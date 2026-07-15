@@ -38,7 +38,7 @@ eleventyComputed:
     <div class="d-none" id="details-{{ scorekey }}">
       <div id="specific-{{ scorekey }}">
         <h2 class="my-3">Grade / score</h2>
-        <div class="row g-3">
+        <div class="row g-3 pb-3 mb-3 border-bottom">
         <div class="col-12 col-sm-12 col-md-6 d-flex align-items-stretch">
           <div class="card card-grade {% if (domain.status != 200) or (domain.scores[scorekey] | length === 0) %}{% else %}text-bg-{{ domain.scores[scorekey].score | colorify }}{% endif %}" id="grade-card-{{ scorekey }}">
             <div class="card-header">
@@ -57,7 +57,7 @@ eleventyComputed:
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-6 d-flex align-items-stretch">
-          <div class="card text-bg-dark" id="score-{{ scorekey }}">
+          <div class="card" id="score-{{ scorekey }}">
             <div class="card-header">
               Score
               <a href="https://docs.scangov.org/scores" class="text-decoration-none">
@@ -91,7 +91,7 @@ eleventyComputed:
       </div>
       {% set catInfo = audits[scorekey] %}
       {% if catInfo %}
-      <div class="alert alert-info small mt-4" role="alert">
+      <div class="alert alert-info mt-4" role="alert">
         <i class="fa-solid fa-{{ catInfo.icon }} fa-2x d-block mb-3"></i>
         <h2>About {{ catInfo.displayName | lower }}</h2>
         <p class="pb-3 mb-3 border-bottom">{{ catInfo.description }}</p>
