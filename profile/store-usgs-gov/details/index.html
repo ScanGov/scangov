@@ -175,7 +175,7 @@
     
     <li class="breadcrumb-item">
       <svg class="fa-solid fa-hand-point-right" aria-hidden="true"><use href="#fas-fa-hand-point-right" xlink:href="#fas-fa-hand-point-right"></use></svg>
-      <a href="/org/united-states-geological-survey/" class="bc-org">United States Geological Survey</a><span class="bc-sep"> / </span><a href="/profile/store-usgs-gov/overall/" class="bc-domain">store.usgs.gov</a> <svg class="fa-solid fa-circle text-danger" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
+      <a href="/org/united-states-geological-survey/" class="bc-org">United States Geological Survey</a><span class="bc-sep"> / </span><a href="/profile/store-usgs-gov/overall/" class="bc-domain">store.usgs.gov</a> <svg class="fa-solid fa-circle text-warning" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
     </li>
     
   </ol>
@@ -206,7 +206,7 @@
         </a>
         <a href="/profile/store-usgs-gov/details/?attr=accessibility" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
             <span><svg class="fa-solid fa-universal-access" aria-hidden="true"><use href="#fas-fa-universal-access" xlink:href="#fas-fa-universal-access"></use></svg> <small>Accessibility</small></span>
-            <svg class="fa-solid fa-circle text-success fa-xs" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
+            <svg class="fa-solid fa-circle text-warning fa-xs" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
         </a>
         <a href="/profile/store-usgs-gov/details/?attr=botability" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
             <span><svg class="fa-solid fa-robot" aria-hidden="true"><use href="#fas-fa-robot" xlink:href="#fas-fa-robot"></use></svg> <small>Botability</small></span>
@@ -442,7 +442,7 @@
         <h2 class="my-3" id="grade-score">Grade / score</h2>
         <div class="row g-3 pb-3 mb-3 border-bottom">
         <div class="col-12 col-sm-12 col-md-6 d-flex align-items-stretch">
-          <div class="card card-grade text-bg-success" id="grade-card-accessibility">
+          <div class="card card-grade text-bg-warning" id="grade-card-accessibility">
             <div class="card-header">
               Grade
               <a href="https://docs.scangov.org/grades" class="text-decoration-none">
@@ -452,7 +452,7 @@
             <div class="card-body">
               <p class="display-1" id="grade-accessibility">
                 
-                  A
+                  B
               </p>
             </div>
           </div>
@@ -470,14 +470,14 @@
                 <span id="percent-accessibility">
                   
                     
-                      94%
+                      85%
                   
                 </span>
               </p>
             </div>
             <div class="card-footer text-center" id="amount-accessibility">
               
-                17 of 18 elements
+                30 of 35 elements
             </div>
           </div>
         </div>
@@ -495,6 +495,69 @@
       </tr>
     </thead>
     <tbody id="table-compliance-accessibility">
+      
+        
+          <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+            <td data-sort="[accesskey] values are unique">
+              
+                [accesskey] values are unique
+                <a href="https://standards.scangov.org/accesskeys" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Each access key shortcut is unique so keyboard navigation works correctly.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+            <td data-sort="[aria-*] attributes match their roles">
+              
+                [aria-*] attributes match their roles
+                <a href="https://standards.scangov.org/aria-allowed-attr" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Accessibility attributes are only used where they are supported.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+            <td data-sort="ARIA attributes are used as specified for the element&#39;s role">
+              
+                ARIA attributes are used as specified for the element&#39;s role
+                <a href="https://standards.scangov.org/aria-conditional-attr" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Accessibility attributes are only used when the element&#39;s role allows them.</small>
+              
+            </td>
+          </tr>
       
         
           <tr>
@@ -534,6 +597,48 @@
                 [aria-hidden=&quot;true&quot;] is not present on the document &lt;body&gt;
                 <a href="https://standards.scangov.org/aria-hidden-body" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
                 <small class="text-body-secondary font-monospace">The page body is not hidden from screen readers.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+            <td data-sort="[aria-hidden=&quot;true&quot;] elements do not contain focusable descendents">
+              
+                [aria-hidden=&quot;true&quot;] elements do not contain focusable descendents
+                <a href="https://standards.scangov.org/aria-hidden-focus" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Interactive elements are not hidden from screen reader users.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+            <td data-sort="Elements use only permitted ARIA attributes">
+              
+                Elements use only permitted ARIA attributes
+                <a href="https://standards.scangov.org/aria-prohibited-attr" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Accessibility attributes are not used where they are prohibited.</small>
               
             </td>
           </tr>
@@ -592,6 +697,69 @@
                 
               
             </td>
+            <td data-sort="[aria-*] attributes have valid values">
+              
+                [aria-*] attributes have valid values
+                <a href="https://standards.scangov.org/aria-valid-attr-value" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Accessibility attributes use valid values so screen readers can interpret them.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+            <td data-sort="[aria-*] attributes are valid and not misspelled">
+              
+                [aria-*] attributes are valid and not misspelled
+                <a href="https://standards.scangov.org/aria-valid-attr" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Accessibility attributes use valid, recognized names.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+            <td data-sort="Buttons have an accessible name">
+              
+                Buttons have an accessible name
+                <a href="https://standards.scangov.org/button-name" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Buttons have labels so screen readers can describe their action.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
             <td data-sort="Background and foreground colors have a sufficient contrast ratio">
               
                 Background and foreground colors have a sufficient contrast ratio
@@ -624,12 +792,12 @@
       
         
           <tr>
-            <td data-sort="1">
+            <td data-sort="0">
               
                 
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
                   <span class="d-xl-inline">
-                    Active
+                    Missing
                   </span>
                 
               
@@ -687,12 +855,12 @@
       
         
           <tr>
-            <td data-sort="1">
+            <td data-sort="0">
               
                 
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
                   <span class="d-xl-inline">
-                    Active
+                    Missing
                   </span>
                 
               
@@ -718,11 +886,116 @@
                 
               
             </td>
+            <td data-sort="Input buttons have discernible text">
+              
+                Input buttons have discernible text
+                <a href="https://standards.scangov.org/input-button-name" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Input buttons have labels so screen readers can describe their action.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+            <td data-sort="Form elements have associated labels">
+              
+                Form elements have associated labels
+                <a href="https://standards.scangov.org/label" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Form fields have labels so screen readers can identify them.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+            <td data-sort="Links are distinguishable without relying on color">
+              
+                Links are distinguishable without relying on color
+                <a href="https://standards.scangov.org/link-in-text-block" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Links in body text are visually distinct from surrounding text, not by color alone.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="0">
+              
+                
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <span class="d-xl-inline">
+                    Missing
+                  </span>
+                
+              
+            </td>
             <td data-sort="Links have a discernible name">
               
                 Links have a discernible name
                 <a href="https://standards.scangov.org/link-name" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
                 <small class="text-body-secondary font-monospace">Links have unique, descriptive text so users know where they go.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+            <td data-sort="Lists contain only &lt;li&gt; elements and script supporting elements (&lt;script&gt; and &lt;template&gt;)">
+              
+                Lists contain only &lt;li&gt; elements and script supporting elements (&lt;script&gt; and &lt;template&gt;)
+                <a href="https://standards.scangov.org/list" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Lists use correct markup so screen readers can announce them properly.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+            <td data-sort="List items (&lt;li&gt;) are contained within &lt;ul&gt;, &lt;ol&gt; or &lt;menu&gt; parent elements">
+              
+                List items (&lt;li&gt;) are contained within &lt;ul&gt;, &lt;ol&gt; or &lt;menu&gt; parent elements
+                <a href="https://standards.scangov.org/listitem" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">List items are nested inside a valid parent list element.</small>
               
             </td>
           </tr>
@@ -750,12 +1023,33 @@
       
         
           <tr>
-            <td data-sort="0">
+            <td data-sort="1">
               
                 
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
                   <span class="d-xl-inline">
-                    Missing
+                    Active
+                  </span>
+                
+              
+            </td>
+            <td data-sort="Select elements have associated label elements">
+              
+                Select elements have associated label elements
+                <a href="https://standards.scangov.org/select-name" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Dropdown menus have labels so screen readers can identify them.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
                   </span>
                 
               
@@ -777,6 +1071,27 @@
                   <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
                   <span class="d-xl-inline">
                     Active
+                  </span>
+                
+              
+            </td>
+            <td data-sort="No element has a [tabindex] value greater than 0">
+              
+                No element has a [tabindex] value greater than 0
+                <a href="https://standards.scangov.org/tabindex" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page uses natural keyboard tab order without manual overrides.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="0">
+              
+                
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <span class="d-xl-inline">
+                    Missing
                   </span>
                 
               
@@ -807,6 +1122,46 @@
                 Document has a main landmark
                 <a href="https://standards.scangov.org/landmark-one-main" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
                 <small class="text-body-secondary font-monospace">The page has exactly one main content area so screen readers can navigate to it.</small>
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
+            <td data-sort="presentation-role-conflict">
+              
+                presentation-role-conflict
+              
+            </td>
+          </tr>
+      
+        
+          <tr>
+            <td data-sort="0">
+              
+                
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <span class="d-xl-inline">
+                    Missing
+                  </span>
+                
+              
+            </td>
+            <td data-sort="Elements with visible text labels have matching accessible names">
+              
+                Elements with visible text labels have matching accessible names
+                <a href="https://standards.scangov.org/label-content-name-mismatch" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">A button or link&#39;s visible label matches what screen readers announce.</small>
               
             </td>
           </tr>
@@ -988,7 +1343,7 @@
             <div class="card-body">
               <p class="display-1" id="grade-botability">
                 
-                  B
+                  C
               </p>
             </div>
           </div>
@@ -1006,14 +1361,14 @@
                 <span id="percent-botability">
                   
                     
-                      81%
+                      72%
                   
                 </span>
               </p>
             </div>
             <div class="card-footer text-center" id="amount-botability">
               
-                9 of 11 elements
+                8 of 11 elements
             </div>
           </div>
         </div>
@@ -1055,12 +1410,12 @@
       
         
           <tr>
-            <td data-sort="1">
+            <td data-sort="0">
               
                 
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
                   <span class="d-xl-inline">
-                    Active
+                    Missing
                   </span>
                 
               
@@ -1385,7 +1740,7 @@
             <div class="card-body">
               <p class="display-1" id="grade-security">
                 
-                  C
+                  B
               </p>
             </div>
           </div>
@@ -1403,14 +1758,14 @@
                 <span id="percent-security">
                   
                     
-                      77%
+                      88%
                   
                 </span>
               </p>
             </div>
             <div class="card-footer text-center" id="amount-security">
               
-                7 of 9 elements
+                8 of 9 elements
             </div>
           </div>
         </div>
@@ -1473,12 +1828,12 @@
       
         
           <tr>
-            <td data-sort="0">
+            <td data-sort="1">
               
                 
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
                   <span class="d-xl-inline">
-                    Missing
+                    Active
                   </span>
                 
               
@@ -1742,7 +2097,7 @@
             <div class="card-body">
               <p class="display-1" id="grade-usability">
                 
-                  F
+                  D
               </p>
             </div>
           </div>
@@ -1760,14 +2115,14 @@
                 <span id="percent-usability">
                   
                     
-                      29%
+                      62%
                   
                 </span>
               </p>
             </div>
             <div class="card-footer text-center" id="amount-usability">
               
-                5 of 17 elements
+                10 of 16 elements
             </div>
           </div>
         </div>
@@ -1809,12 +2164,12 @@
       
         
           <tr>
-            <td data-sort="0">
+            <td data-sort="1">
               
                 
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
                   <span class="d-xl-inline">
-                    Missing
+                    Active
                   </span>
                 
               
@@ -1893,12 +2248,12 @@
       
         
           <tr>
-            <td data-sort="0">
+            <td data-sort="1">
               
                 
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
                   <span class="d-xl-inline">
-                    Missing
+                    Active
                   </span>
                 
               
@@ -1914,12 +2269,12 @@
       
         
           <tr>
-            <td data-sort="0">
+            <td data-sort="1">
               
                 
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
                   <span class="d-xl-inline">
-                    Missing
+                    Active
                   </span>
                 
               
@@ -1956,12 +2311,12 @@
       
         
           <tr>
-            <td data-sort="0">
+            <td data-sort="1">
               
                 
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
                   <span class="d-xl-inline">
-                    Missing
+                    Active
                   </span>
                 
               
@@ -1977,12 +2332,12 @@
       
         
           <tr>
-            <td data-sort="0">
+            <td data-sort="1">
               
                 
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
                   <span class="d-xl-inline">
-                    Missing
+                    Active
                   </span>
                 
               
@@ -2118,27 +2473,6 @@
                 Interaction to Next Paint (INP)
                 <a href="https://standards.scangov.org/inp" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
                 <small class="text-body-secondary font-monospace">The page responds to user interactions in under 0.2 seconds.</small>
-              
-            </td>
-          </tr>
-      
-        
-          <tr>
-            <td data-sort="0">
-              
-                
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
-                  <span class="d-xl-inline">
-                    Missing
-                  </span>
-                
-              
-            </td>
-            <td data-sort="www resolution">
-              
-                www resolution
-                <a href="https://standards.scangov.org/www" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
-                <small class="text-body-secondary font-monospace">The site works whether users type www or not.</small>
               
             </td>
           </tr>

@@ -432,11 +432,11 @@
           '/profile/jacintocity-tx-gov/details/?attr=usability'
         ];
         var gradesScores = [
-          73,
+          75,
           74,
           90,
           66,
-          64
+          68
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -575,7 +575,7 @@
           accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"color-contrast":false,"document-title":true,"frame-title":false,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":false,"input-button-name":true,"label":false,"link-in-text-block":true,"link-name":false,"list":true,"listitem":true,"tabindex":true,"target-size":true,"landmark-one-main":false,"presentation-role-conflict":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
           botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":true},
           security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
-          usability: {"title":true,"description":false,"viewport":true,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":false,"lcp":false,"ttfb":false,"cls":true,"inp":false,"www":true}
+          usability: {"title":true,"description":false,"viewport":true,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

@@ -175,7 +175,7 @@
     
     <li class="breadcrumb-item">
       <svg class="fa-solid fa-hand-point-right" aria-hidden="true"><use href="#fas-fa-hand-point-right" xlink:href="#fas-fa-hand-point-right"></use></svg>
-      <a href="/org/department-of-housing-and-urban-development/" class="bc-org">Department of Housing and Urban Development</a><span class="bc-sep"> / </span><a href="/profile/hud-gov/overall/" class="bc-domain">hud.gov</a> <svg class="fa-solid fa-circle text-danger" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
+      <a href="/org/department-of-housing-and-urban-development/" class="bc-org">Department of Housing and Urban Development</a><span class="bc-sep"> / </span><a href="/profile/hud-gov/overall/" class="bc-domain">hud.gov</a> <svg class="fa-solid fa-circle text-warning" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
     </li>
     
   </ol>
@@ -432,11 +432,11 @@
           '/profile/hud-gov/details/?attr=usability'
         ];
         var gradesScores = [
-          69,
+          71,
           85,
-          54,
+          63,
           88,
-          41
+          43
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -573,9 +573,9 @@
         var indicatorColorsLight = {"accessibility":"#1d4e9a","botability":"#4d7c00","security":"#a85000","usability":"#7b3fa0"};
         var domainAttrs = {
           accessibility: {"aria-allowed-attr":false,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"label":true,"link-in-text-block":true,"link-name":true,"meta-viewport":true,"target-size":true,"landmark-one-main":false,"label-content-name-mismatch":true,"image-aspect-ratio":false,"doctype":true,"charset":true},
-          botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
+          botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":true,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
           security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":true,"xcontenttypeoptions":false},
-          usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":false,"fcp":true,"lcp":false,"ttfb":true,"cls":true,"inp":true,"www":true}
+          usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":false,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

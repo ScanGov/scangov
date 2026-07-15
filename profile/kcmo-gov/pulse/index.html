@@ -175,7 +175,7 @@
     
     <li class="breadcrumb-item">
       <svg class="fa-solid fa-hand-point-right" aria-hidden="true"><use href="#fas-fa-hand-point-right" xlink:href="#fas-fa-hand-point-right"></use></svg>
-      <a href="/org/city-of-kansas-city-mo/" class="bc-org">City of Kansas City, MO</a><span class="bc-sep"> / </span><a href="/profile/kcmo-gov/overall/" class="bc-domain">kcmo.gov</a> <svg class="fa-solid fa-circle text-danger" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
+      <a href="/org/city-of-kansas-city-mo/" class="bc-org">City of Kansas City, MO</a><span class="bc-sep"> / </span><a href="/profile/kcmo-gov/overall/" class="bc-domain">kcmo.gov</a> <svg class="fa-solid fa-circle text-warning" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
     </li>
     
   </ol>
@@ -432,11 +432,11 @@
           '/profile/kcmo-gov/details/?attr=usability'
         ];
         var gradesScores = [
-          69,
+          70,
           81,
           54,
           66,
-          52
+          56
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -575,7 +575,7 @@
           accessibility: {"aria-allowed-attr":true,"aria-command-name":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-required-parent":false,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"frame-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":false,"label":true,"link-name":false,"list":false,"listitem":true,"meta-viewport":true,"tabindex":false,"target-size":true,"landmark-one-main":false,"presentation-role-conflict":true,"label-content-name-mismatch":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
           botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
           security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
-          usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":true,"ogdescription":true,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":true,"lcp":false,"ttfb":true,"cls":true,"inp":true,"www":false}
+          usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":true,"ogdescription":true,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":true,"lcp":false,"ttfb":true,"cls":true,"inp":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

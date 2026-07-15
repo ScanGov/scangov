@@ -432,11 +432,11 @@
           '/profile/cfcgive-org/details/?attr=usability'
         ];
         var gradesScores = [
-          32,
+          35,
           28,
           27,
-          22,
-          41
+          33,
+          43
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -574,8 +574,8 @@
         var domainAttrs = {
           accessibility: {"aria-hidden-body":true,"document-title":false,"html-has-lang":false,"landmark-one-main":false,"image-aspect-ratio":true,"doctype":false,"charset":false},
           botability: {"canonical":false,"link-text":true,"hreflang":false,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":false,"xml":false,"allowed":false,"status":false,"sitemap-robots":false},
-          security: {"csp":false,"hsts":false,"errors-in-console":false,"clickjacking-mitigation":false,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":false,"xcontenttypeoptions":false},
-          usability: {"title":false,"description":false,"viewport":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"www":false}
+          security: {"csp":false,"hsts":false,"errors-in-console":true,"clickjacking-mitigation":false,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":false,"xcontenttypeoptions":false},
+          usability: {"title":false,"description":false,"viewport":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

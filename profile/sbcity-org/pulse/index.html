@@ -175,7 +175,7 @@
     
     <li class="breadcrumb-item">
       <svg class="fa-solid fa-hand-point-right" aria-hidden="true"><use href="#fas-fa-hand-point-right" xlink:href="#fas-fa-hand-point-right"></use></svg>
-      <a href="/org/city-of-san-bernardino-ca/" class="bc-org">City of San Bernardino, CA</a><span class="bc-sep"> / </span><a href="/profile/sbcity-org/overall/" class="bc-domain">sbcity.org</a> <svg class="fa-solid fa-circle text-danger" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
+      <a href="/org/city-of-san-bernardino-ca/" class="bc-org">City of San Bernardino, CA</a><span class="bc-sep"> / </span><a href="/profile/sbcity-org/overall/" class="bc-domain">sbcity.org</a> <svg class="fa-solid fa-circle text-warning" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
     </li>
     
   </ol>
@@ -432,11 +432,11 @@
           '/profile/sbcity-org/details/?attr=usability'
         ];
         var gradesScores = [
-          69,
+          72,
           89,
           63,
           66,
-          29
+          37
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -575,7 +575,7 @@
           accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":false,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-required-children":false,"aria-required-parent":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"label":true,"link-in-text-block":true,"link-name":false,"list":true,"listitem":true,"meta-viewport":true,"select-name":true,"tabindex":true,"target-size":true,"td-headers-attr":true,"landmark-one-main":true,"autocomplete-valid":true,"presentation-role-conflict":true,"label-content-name-mismatch":true,"table-fake-caption":true,"td-has-header":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
           botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":false,"xml":false,"allowed":true,"status":false,"sitemap-robots":true},
           security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":false,"xcontenttypeoptions":true},
-          usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":false,"cls":true,"inp":false,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"www":true}
+          usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

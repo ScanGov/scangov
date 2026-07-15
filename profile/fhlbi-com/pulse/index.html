@@ -175,7 +175,7 @@
     
     <li class="breadcrumb-item">
       <svg class="fa-solid fa-hand-point-right" aria-hidden="true"><use href="#fas-fa-hand-point-right" xlink:href="#fas-fa-hand-point-right"></use></svg>
-      <a href="/org/interagency-collaboration/" class="bc-org">Interagency Collaboration</a><span class="bc-sep"> / </span><a href="/profile/fhlbi-com/overall/" class="bc-domain">fhlbi.com</a> <svg class="fa-solid fa-circle text-warning" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
+      <a href="/org/interagency-collaboration/" class="bc-org">Interagency Collaboration</a><span class="bc-sep"> / </span><a href="/profile/fhlbi-com/overall/" class="bc-domain">fhlbi.com</a> <svg class="fa-solid fa-circle text-success" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
     </li>
     
   </ol>
@@ -432,11 +432,11 @@
           '/profile/fhlbi-com/details/?attr=usability'
         ];
         var gradesScores = [
-          88,
+          90,
           96,
           81,
           88,
-          76
+          87
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -575,7 +575,7 @@
           accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-in-text-block":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"skip-link":true,"tabindex":true,"target-size":true,"landmark-one-main":true,"presentation-role-conflict":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
           botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":true},
           security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":true,"xcontenttypeoptions":true},
-          usability: {"title":true,"description":true,"viewport":true,"ogsitename":false,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":false,"cls":true,"inp":true,"www":false}
+          usability: {"title":true,"description":true,"viewport":true,"ogsitename":false,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

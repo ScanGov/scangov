@@ -175,7 +175,7 @@
     
     <li class="breadcrumb-item">
       <svg class="fa-solid fa-hand-point-right" aria-hidden="true"><use href="#fas-fa-hand-point-right" xlink:href="#fas-fa-hand-point-right"></use></svg>
-      <a href="/org/federal-reserve-board-of-governors/" class="bc-org">Federal Reserve Board of Governors</a><span class="bc-sep"> / </span><a href="/profile/fedpartnership-gov/overall/" class="bc-domain">fedpartnership.gov</a> <svg class="fa-solid fa-circle text-warning" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
+      <a href="/org/federal-reserve-board-of-governors/" class="bc-org">Federal Reserve Board of Governors</a><span class="bc-sep"> / </span><a href="/profile/fedpartnership-gov/overall/" class="bc-domain">fedpartnership.gov</a> <svg class="fa-solid fa-circle text-danger" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
     </li>
     
   </ol>
@@ -432,11 +432,11 @@
           '/profile/fedpartnership-gov/details/?attr=usability'
         ];
         var gradesScores = [
-          71,
+          69,
           88,
           72,
           66,
-          52
+          43
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -575,7 +575,7 @@
           accessibility: {"aria-hidden-body":true,"button-name":true,"color-contrast":true,"document-title":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":false,"link-in-text-block":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":false,"target-size":true,"landmark-one-main":true,"presentation-role-conflict":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
           botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":false,"status":true,"sitemap-robots":false},
           security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":false},
-          usability: {"title":true,"description":true,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":true,"ogsitename":false,"ogtype":true,"ogtitle":false,"ogdescription":false,"ogurl":true,"ogimage":false,"ogimagealt":false,"readability":false,"www":true}
+          usability: {"title":true,"description":true,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false,"ogsitename":false,"ogtype":true,"ogtitle":false,"ogdescription":false,"ogurl":true,"ogimage":false,"ogimagealt":false,"readability":false}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

@@ -432,11 +432,11 @@
           '/profile/rfa-org/details/?attr=usability'
         ];
         var gradesScores = [
-          72,
+          73,
           78,
           81,
           66,
-          58
+          62
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -575,7 +575,7 @@
           accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":false,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":false,"color-contrast":false,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"skip-link":false,"tabindex":true,"target-size":false,"landmark-one-main":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
           botability: {"canonical":false,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":true},
           security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"securitytxt":false,"xcontenttypeoptions":false},
-          usability: {"title":true,"description":false,"viewport":true,"ogsitename":true,"ogtype":false,"ogtitle":true,"ogdescription":false,"ogurl":false,"ogimage":true,"ogimagealt":true,"readability":false,"fcp":false,"lcp":true,"ttfb":false,"cls":true,"inp":true,"www":true}
+          usability: {"title":true,"description":false,"viewport":true,"ogsitename":true,"ogtype":false,"ogtitle":true,"ogdescription":false,"ogurl":false,"ogimage":true,"ogimagealt":true,"readability":false,"fcp":true,"lcp":true,"ttfb":false,"cls":true,"inp":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};

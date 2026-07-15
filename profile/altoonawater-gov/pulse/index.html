@@ -209,7 +209,7 @@
         </a>
         <a href="/profile/altoonawater-gov/details/?attr=botability" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
             <span><svg class="fa-solid fa-robot" aria-hidden="true"><use href="#fas-fa-robot" xlink:href="#fas-fa-robot"></use></svg> <small>Botability</small></span>
-            <svg class="fa-solid fa-circle text-warning fa-xs" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
+            <svg class="fa-solid fa-circle text-success fa-xs" aria-hidden="true"><use href="#fas-fa-circle" xlink:href="#fas-fa-circle"></use></svg>
         </a>
         <a href="/profile/altoonawater-gov/details/?attr=security" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
             <span><svg class="fa-solid fa-shield-halved" aria-hidden="true"><use href="#fas-fa-shield-halved" xlink:href="#fas-fa-shield-halved"></use></svg> <small>Security</small></span>
@@ -432,11 +432,11 @@
           '/profile/altoonawater-gov/details/?attr=usability'
         ];
         var gradesScores = [
-          95,
+          97,
           100,
-          81,
+          90,
           100,
-          94
+          93
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -573,9 +573,9 @@
         var indicatorColorsLight = {"accessibility":"#1d4e9a","botability":"#4d7c00","security":"#a85000","usability":"#7b3fa0"};
         var domainAttrs = {
           accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"skip-link":true,"target-size":true,"landmark-one-main":true,"presentation-role-conflict":true,"label-content-name-mismatch":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
-          botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":true},
+          botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":true,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":true},
           security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":true,"xcontenttypeoptions":true},
-          usability: {"title":true,"description":true,"viewport":true,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":true,"readability":false,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"www":true}
+          usability: {"title":true,"description":true,"viewport":true,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":true,"readability":false,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true}
         };
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
           var attrs = domainAttrs[key] || {};
