@@ -1,3 +1,5 @@
+import { default as domainData } from './domain_changelog.js';
+
 // Attribute lists per topic (matching standards/audits.json)
 export const botabilityDataVariables = [
     'crawlable', 'text-content', 'schema-government-organization',
@@ -419,9 +421,15 @@ export const cityDomainList = [
     'ellago-tx.gov',
     'cityofhumbletx.gov',
     'bellairetx.gov',
-]
+];
 
-export const addRankingPosition = function (data, attribute) {
+const domains = domainData();
+
+export const countyDomainList = domains.filter(d => d.name.includes('County') || d.name.includes('Parish')).map(d => d.url);
+
+export const eduDomainList = domains.filter(d => d.url.endsWith('edu')).map(d => d.url);
+
+export const addRankingPosition = function(data, attribute) {
     if (!data || data.length === 0) return data;
     let currentScore = 100;
     let rankingPosition = 1;

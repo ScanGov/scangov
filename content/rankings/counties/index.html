@@ -1,0 +1,21 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (counties)
+keywords: government domains, government websites
+
+pagination:
+    data: counties
+    size: 500
+    alias: member
+---
+
+{% set pageHeader = "Overall results" %}
+{% set dataset = counties %}
+{% set specificAttribute = "" %}
+{% set currentsort = "counties" %}
+{% set currentScore = member[0].overallScore %}
+{% set rankingScore = member.overallScore %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

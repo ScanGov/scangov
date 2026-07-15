@@ -1,0 +1,22 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (counties / security)
+descriptionHtml: 'Project ScanGov <a href="https://standards.scangov.org/security/">security</a> rankings for county government websites.'
+showLastUpdated: true
+keywords: government domains, government websites
+
+pagination:
+  data: security.counties
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Security results" %}
+{% set dataset = security.counties %}
+{% set specificAttribute = "security" %}
+{% set currentsort = "counties" %}
+{% set currentScore = member[0].scores['security'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

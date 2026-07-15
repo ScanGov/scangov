@@ -1,0 +1,22 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (edu / usability)
+descriptionHtml: 'Project ScanGov <a href="https://standards.scangov.org/usability/">usability</a> rankings for educational institution websites.'
+showLastUpdated: true
+keywords: government domains, government websites
+
+pagination:
+  data: usabilitytags.edu
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Usability Results" %}
+{% set dataset = usabilitytags.edu %}
+{% set specificAttribute = "usability" %}
+{% set currentsort = "edu" %}
+{% set currentScore = member[0].scores['usability'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

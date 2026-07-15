@@ -1,0 +1,21 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (edu)
+keywords: government domains, government websites
+
+pagination:
+  data: edu
+  size: 500
+  alias: member
+---
+
+{% set pageHeader = "Overall results" %}
+{% set dataset = edu %}
+{% set specificAttribute = "" %}
+{% set currentsort = "edu" %}
+{% set currentScore = member[0].overallScore %}
+{% set rankingScore = member.overallScore %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

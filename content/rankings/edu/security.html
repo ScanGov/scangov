@@ -1,0 +1,22 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (edu / security)
+descriptionHtml: 'Project ScanGov <a href="https://standards.scangov.org/security/">security</a> rankings for educational institution websites.'
+showLastUpdated: true
+keywords: government domains, government websites
+
+pagination:
+  data: security.edu
+  size: 100
+  alias: member
+---
+
+{% set pageHeader = "Security results" %}
+{% set dataset = security.edu %}
+{% set specificAttribute = "security" %}
+{% set currentsort = "edu" %}
+{% set currentScore = member[0].scores['security'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

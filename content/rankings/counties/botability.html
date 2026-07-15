@@ -1,0 +1,23 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (counties / botability)
+descriptionHtml: 'Project ScanGov <a href="https://standards.scangov.org/botability/">botability</a> rankings for county
+government websites.'
+showLastUpdated: true
+keywords: government domains, government websites
+
+pagination:
+    data: botability.counties
+    size: 100
+    alias: member
+---
+
+{% set pageHeader = "Botability Results" %}
+{% set dataset = botability.counties %}
+{% set specificAttribute = "botability" %}
+{% set currentsort = "counties" %}
+{% set currentScore = member[0].scores['botability'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}

@@ -1,26 +1,39 @@
 {% if currentsort %}
-    {% set directory = currentsort + "/" %}
+{% set directory = currentsort + "/" %}
 {% else %}
-    {% set directory = "" %}
+{% set directory = "" %}
 {% endif %}
 {% set currentHighlight = " active\" aria-current=\"page" %}
 {% set topLevel = false %}
-{% if page.url.indexOf("/cities/") == -1 and page.url.indexOf("/states/") == -1 and page.url.indexOf("/federal/") == -1 %}
-    {% set topLevel = true %}
+{% if page.url.indexOf("/cities/") == -1 and page.url.indexOf("/states/") == -1 and page.url.indexOf("/federal/") == -1
+%}
+{% set topLevel = true %}
 {% endif %}
 
 <ul class="nav nav-pills filter small mb-0">
     <li class="nav-item">
-        <a class="nav-link mx-1{% if topLevel %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/{{ specificAttribute }}">All</a>
+        <a class="nav-link mx-1{% if topLevel %}{{ currentHighlight | safe }}{% endif %}"
+            href="/rankings/{{ specificAttribute }}">All</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link mx-1{% if page.url.indexOf("/cities/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/cities/{{ specificAttribute }}/">Cities</a>
+        <a class="nav-link mx-1{% if page.url.indexOf("/cities/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
+            href="/rankings/cities/{{ specificAttribute }}">Cities</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link mx-1{% if page.url.indexOf("/states/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/states/{{ specificAttribute }}/">States</a>
+        <a class="nav-link mx-1{% if page.url.indexOf("/states/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
+            href="/rankings/states/{{ specificAttribute }}">States</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link mx-1{% if page.url.indexOf("/federal/") != -1 %}{{ currentHighlight | safe }}{% endif %}" href="/rankings/federal/{{ specificAttribute }}/">Federal</a>
+        <a class="nav-link mx-1{% if page.url.indexOf("/federal/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
+            href="/rankings/federal/{{ specificAttribute }}">Federal</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link mx-1{% if page.url.indexOf("/counties/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
+            href="/rankings/counties/{{ specificAttribute }}">Counties</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link mx-1{% if page.url.indexOf("/edu/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
+            href="/rankings/edu/{{ specificAttribute }}">Education</a>
     </li>
 </ul>
 
@@ -32,11 +45,11 @@
     {% include "filter-pill.html" %}
 
     {% for topic in site.data %}
-        {% set topicKey = topic.toLowerCase() %}
-        {% set pillTitle = topic %}
-        {% set pillUrl = "/rankings/" + directory + topicKey + "/" %}
-        {% set pillIcon = "fa-solid fa-" + audits[topicKey].icon %}
-        {% set pillActive = specificAttribute === topicKey %}
-        {% include "filter-pill.html" %}
+    {% set topicKey = topic.toLowerCase() %}
+    {% set pillTitle = topic %}
+    {% set pillUrl = "/rankings/" + directory + topicKey + "/" %}
+    {% set pillIcon = "fa-solid fa-" + audits[topicKey].icon %}
+    {% set pillActive = specificAttribute === topicKey %}
+    {% include "filter-pill.html" %}
     {% endfor %}
 </ul>

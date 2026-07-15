@@ -1,0 +1,23 @@
+---
+home: false
+layout: layouts/default
+title: Rankings (counties / accessibility)
+descriptionHtml: 'Project ScanGov <a href="https://standards.scangov.org/accessibility/">accessibility</a> rankings for
+county government websites.'
+showLastUpdated: true
+keywords: government domains, government websites
+
+pagination:
+    data: accessibility.counties
+    size: 100
+    alias: member
+---
+
+{% set pageHeader = "Accessibility Results" %}
+{% set dataset = accessibility.cities %}
+{% set specificAttribute = "accessibility" %}
+{% set currentsort = "counties" %}
+{% set currentScore = member[0].scores['accessibility'].score %}
+{% set showPagination = false %}
+
+{% include "sortcontent.html" %}
