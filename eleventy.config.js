@@ -360,17 +360,6 @@ export default async function(eleventyConfig) {
             }
         }
 
-        if (!process.env.NO_UPDATE_TIME) {
-            try {
-                let gitUpdateTime = await getGithubData('https://github.com/ScanGov/data/raw/refs/heads/main/updated_time');
-                const currentUpdateTime = fs.readFileSync('./public/data/updated_time', 'utf8');
-                if (currentUpdateTime !== gitUpdateTime) {
-                    fs.writeFileSync('./public/data/updated_time', gitUpdateTime, 'utf8');
-                }
-            } catch (e) {
-                console.warn(`\n⚠ Could not fetch updated_time: ${e.message}. Skipping update.\n`);
-            }
-        }
         let domainDataFilled = domainData();
         const olddata = JSON.parse(fs.readFileSync('./scripts/data/lastscan.json'));
         let writeChangelog = await appendChangelog(domainDataFilled, olddata);
