@@ -21,6 +21,11 @@ search: true
     </table>
   </div>
 </div>
+<div class="col-12 d-none" id="no-results-alert">
+  <div class="alert alert-info mt-3" role="alert">
+    <i class="fa-solid fa-not-equal"></i> We're not currently scanning that domain.
+  </div>
+</div>
 <script>
   var query = new URLSearchParams(location.search).get('search');
 
@@ -57,9 +62,8 @@ search: true
           '</tr>';
       });
       document.getElementById('results-table').innerHTML = outputHTML;
-      if (outputHTML) {
-        document.getElementById('results-section').classList.remove('d-none');
-      }
+      document.getElementById('results-section').classList.toggle('d-none', !outputHTML);
+      document.getElementById('no-results-alert').classList.toggle('d-none', !!outputHTML);
     } catch (error) {
       console.error(error.message);
     }

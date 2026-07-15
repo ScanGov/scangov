@@ -122,15 +122,18 @@
     --bs-card-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
     /* Status colors */
     --bs-success: #70e17b;
+    --bs-success-rgb: 112, 225, 123;
     --bs-bg-success: #70e17b;
     --bs-bg-success-rgb: 112, 225, 123;
     --bs-border-success: #70e17b;
     --bs-warning: #face00;
+    --bs-warning-rgb: 250, 206, 0;
     --bs-text-warning: #000000;
     --bs-bg-warning: #face00;
     --bs-bg-warning-rgb: 250, 206, 0;
     --bs-border-warning: #face00;
     --bs-danger: #e41d3d;
+    --bs-danger-rgb: 228, 29, 61;
     --bs-text-danger: #ffffff;
     --bs-bg-danger: #e41d3d;
     --bs-bg-danger-rgb: 228, 29, 61;
@@ -1224,6 +1227,11 @@ code.language-plaintext {
 .input-group>.btn:not(:first-child) {
     border-top-right-radius: var(--bs-border-radius-lg) !important;
     border-bottom-right-radius: var(--bs-border-radius-lg) !important;
+}
+
+.input-group-lg>.form-control,
+.input-group-lg>.btn {
+    height: 3rem;
 }
 
 .dropdown-menu.show {
@@ -2883,34 +2891,6 @@ th a:focus i, th a:focus svg {
 
 .js-sidenav a:hover {
     color: var(--bs-link-color) !important;
-}
-
-.scan-notice {
-    position: fixed;
-    bottom: 1rem;
-    left: 1rem;
-    right: 1rem;
-    z-index: 1050;
-    margin: 0;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.scan-notice .btn-close {
-    flex-shrink: 0;
-    margin-left: auto;
-}
-
-@media (min-width: 768px) {
-    .scan-notice {
-        width: 75%;
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
-    }
 }
 
 /* Actions list: separate boxes — restore left border + full radius on every item */
