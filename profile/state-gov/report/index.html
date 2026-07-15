@@ -212,7 +212,7 @@
                         </div>
                     </div>
                     <div class="d-flex col-6 align-items-stretch">
-                        <div class="card text-bg-dark">
+                        <div class="card">
                             <div class="card-header">Score</div>
                             <div class="card-body text-center">
                                 <p class="display-1">96%</p>
@@ -230,26 +230,35 @@
     <caption class="visually-hidden">Compliance status by standard</caption>
     <thead>
       <tr>
-        <th scope="col" class="sortable" data-col="0">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
-        <th scope="col">Risk</th>
-        <th scope="col" class="sortable" data-col="2">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" class="sortable" data-col="0">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" class="sortable" data-col="1">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
       </tr>
     </thead>
     <tbody id="table-compliance-accessibility">
       
         
           <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
             <td data-sort="[aria-*] attributes match their roles">
               
-                <a href="https://standards.scangov.org/aria-allowed-attr">[aria-*] attributes match their roles</a><br>
-                <small>Accessibility attributes are only used where they are supported.</small>
+                [aria-*] attributes match their roles
+                <a href="https://standards.scangov.org/aria-allowed-attr" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Accessibility attributes are only used where they are supported.</small>
               
             </td>
-            <td data-sort="Screen readers ignore attributes that don&#39;t match the element&#39;s role.">
-              
-                <small>Screen readers ignore attributes that don&#39;t match the element&#39;s role.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -260,21 +269,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="button, link, and menuitem elements have accessible names">
               
-                <a href="https://standards.scangov.org/aria-command-name">button, link, and menuitem elements have accessible names</a><br>
-                <small>Buttons, links, and menu items have labels that screen readers can announce.</small>
+                button, link, and menuitem elements have accessible names
+                <a href="https://standards.scangov.org/aria-command-name" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Buttons, links, and menu items have labels that screen readers can announce.</small>
               
             </td>
-            <td data-sort="Screen readers announce buttons and links without names, hiding their purpose.">
-              
-                <small>Screen readers announce buttons and links without names, hiding their purpose.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -285,21 +290,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="ARIA attributes are used as specified for the element&#39;s role">
               
-                <a href="https://standards.scangov.org/aria-conditional-attr">ARIA attributes are used as specified for the element&#39;s role</a><br>
-                <small>Accessibility attributes are only used when the element&#39;s role allows them.</small>
+                ARIA attributes are used as specified for the element&#39;s role
+                <a href="https://standards.scangov.org/aria-conditional-attr" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Accessibility attributes are only used when the element&#39;s role allows them.</small>
               
             </td>
-            <td data-sort="Screen readers ignore attributes used outside their allowed conditions.">
-              
-                <small>Screen readers ignore attributes used outside their allowed conditions.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -310,21 +311,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Deprecated ARIA roles were not used">
               
-                <a href="https://standards.scangov.org/aria-deprecated-role">Deprecated ARIA roles were not used</a><br>
-                <small>Accessibility roles use current, supported values.</small>
+                Deprecated ARIA roles were not used
+                <a href="https://standards.scangov.org/aria-deprecated-role" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Accessibility roles use current, supported values.</small>
               
             </td>
-            <td data-sort="Screen readers may not recognize deprecated roles, breaking navigation.">
-              
-                <small>Screen readers may not recognize deprecated roles, breaking navigation.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -335,21 +332,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Elements with role=&quot;dialog&quot; or role=&quot;alertdialog&quot; have accessible names">
               
-                <a href="https://standards.scangov.org/aria-dialog-name">Elements with role=&quot;dialog&quot; or role=&quot;alertdialog&quot; have accessible names</a><br>
-                <small>Dialog boxes have labels so screen readers can describe their purpose.</small>
+                Elements with role=&quot;dialog&quot; or role=&quot;alertdialog&quot; have accessible names
+                <a href="https://standards.scangov.org/aria-dialog-name" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Dialog boxes have labels so screen readers can describe their purpose.</small>
               
             </td>
-            <td data-sort="Screen readers cannot tell users what a dialog box is for.">
-              
-                <small>Screen readers cannot tell users what a dialog box is for.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -360,21 +353,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="[aria-hidden=&quot;true&quot;] is not present on the document &lt;body&gt;">
               
-                <a href="https://standards.scangov.org/aria-hidden-body">[aria-hidden=&quot;true&quot;] is not present on the document &lt;body&gt;</a><br>
-                <small>The page body is not hidden from screen readers.</small>
+                [aria-hidden=&quot;true&quot;] is not present on the document &lt;body&gt;
+                <a href="https://standards.scangov.org/aria-hidden-body" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page body is not hidden from screen readers.</small>
               
             </td>
-            <td data-sort="Screen readers cannot read any content on the page.">
-              
-                <small>Screen readers cannot read any content on the page.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -385,21 +374,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="[aria-hidden=&quot;true&quot;] elements do not contain focusable descendents">
               
-                <a href="https://standards.scangov.org/aria-hidden-focus">[aria-hidden=&quot;true&quot;] elements do not contain focusable descendents</a><br>
-                <small>Interactive elements are not hidden from screen reader users.</small>
+                [aria-hidden=&quot;true&quot;] elements do not contain focusable descendents
+                <a href="https://standards.scangov.org/aria-hidden-focus" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Interactive elements are not hidden from screen reader users.</small>
               
             </td>
-            <td data-sort="Keyboard users can focus elements that screen readers cannot announce.">
-              
-                <small>Keyboard users can focus elements that screen readers cannot announce.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -410,21 +395,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Elements use only permitted ARIA attributes">
               
-                <a href="https://standards.scangov.org/aria-prohibited-attr">Elements use only permitted ARIA attributes</a><br>
-                <small>Accessibility attributes are not used where they are prohibited.</small>
+                Elements use only permitted ARIA attributes
+                <a href="https://standards.scangov.org/aria-prohibited-attr" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Accessibility attributes are not used where they are prohibited.</small>
               
             </td>
-            <td data-sort="Screen readers ignore prohibited attributes, hiding important information.">
-              
-                <small>Screen readers ignore prohibited attributes, hiding important information.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -435,21 +416,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="[role]s have all required [aria-*] attributes">
               
-                <a href="https://standards.scangov.org/aria-required-attr">[role]s have all required [aria-*] attributes</a><br>
-                <small>Accessibility roles include all required attributes so screen readers can describe the element.</small>
+                [role]s have all required [aria-*] attributes
+                <a href="https://standards.scangov.org/aria-required-attr" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Accessibility roles include all required attributes so screen readers can describe the element.</small>
               
             </td>
-            <td data-sort="Screen readers cannot describe the state of interactive elements.">
-              
-                <small>Screen readers cannot describe the state of interactive elements.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -460,21 +437,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="[role] values are valid">
               
-                <a href="https://standards.scangov.org/aria-roles">[role] values are valid</a><br>
-                <small>Accessibility roles use valid, recognized values.</small>
+                [role] values are valid
+                <a href="https://standards.scangov.org/aria-roles" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Accessibility roles use valid, recognized values.</small>
               
             </td>
-            <td data-sort="Screen readers ignore invalid roles and treat elements as plain text.">
-              
-                <small>Screen readers ignore invalid roles and treat elements as plain text.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -485,21 +458,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="[aria-*] attributes have valid values">
               
-                <a href="https://standards.scangov.org/aria-valid-attr-value">[aria-*] attributes have valid values</a><br>
-                <small>Accessibility attributes use valid values so screen readers can interpret them.</small>
+                [aria-*] attributes have valid values
+                <a href="https://standards.scangov.org/aria-valid-attr-value" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Accessibility attributes use valid values so screen readers can interpret them.</small>
               
             </td>
-            <td data-sort="Screen readers cannot interpret attributes with unrecognized values.">
-              
-                <small>Screen readers cannot interpret attributes with unrecognized values.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -510,21 +479,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="[aria-*] attributes are valid and not misspelled">
               
-                <a href="https://standards.scangov.org/aria-valid-attr">[aria-*] attributes are valid and not misspelled</a><br>
-                <small>Accessibility attributes use valid, recognized names.</small>
+                [aria-*] attributes are valid and not misspelled
+                <a href="https://standards.scangov.org/aria-valid-attr" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Accessibility attributes use valid, recognized names.</small>
               
             </td>
-            <td data-sort="Screen readers ignore misspelled or unrecognized attribute names.">
-              
-                <small>Screen readers ignore misspelled or unrecognized attribute names.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -535,21 +500,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Buttons have an accessible name">
               
-                <a href="https://standards.scangov.org/button-name">Buttons have an accessible name</a><br>
-                <small>Buttons have labels so screen readers can describe their action.</small>
+                Buttons have an accessible name
+                <a href="https://standards.scangov.org/button-name" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Buttons have labels so screen readers can describe their action.</small>
               
             </td>
-            <td data-sort="Screen reader users cannot identify or interact with elements.">
-              
-                <small>Screen reader users cannot identify or interact with elements.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -560,21 +521,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Background and foreground colors have a sufficient contrast ratio">
               
-                <a href="https://standards.scangov.org/color-contrast">Background and foreground colors have a sufficient contrast ratio</a><br>
-                <small>Text and background colors meet minimum contrast ratios.</small>
+                Background and foreground colors have a sufficient contrast ratio
+                <a href="https://standards.scangov.org/color-contrast" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Text and background colors meet minimum contrast ratios.</small>
               
             </td>
-            <td data-sort="Users with low vision cannot read your text.">
-              
-                <small>Users with low vision cannot read your text.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -585,21 +542,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Document has a &lt;title&gt; element">
               
-                <a href="https://standards.scangov.org/document-title">Document has a &lt;title&gt; element</a><br>
-                <small>The page has a descriptive title visible in browser tabs and search results.</small>
+                Document has a &lt;title&gt; element
+                <a href="https://standards.scangov.org/document-title" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page has a descriptive title visible in browser tabs and search results.</small>
               
             </td>
-            <td data-sort="Screen reader users cannot identify or interact with elements.">
-              
-                <small>Screen reader users cannot identify or interact with elements.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -610,21 +563,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Heading elements appear in a sequentially-descending order">
               
-                <a href="https://standards.scangov.org/heading-order">Heading elements appear in a sequentially-descending order</a><br>
-                <small>Page headings follow a logical order without skipping levels.</small>
+                Heading elements appear in a sequentially-descending order
+                <a href="https://standards.scangov.org/heading-order" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Page headings follow a logical order without skipping levels.</small>
               
             </td>
-            <td data-sort="Keyboard users cannot efficiently navigate your site.">
-              
-                <small>Keyboard users cannot efficiently navigate your site.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -635,21 +584,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="&lt;html&gt; element has a [lang] attribute">
               
-                <a href="https://standards.scangov.org/html-has-lang">&lt;html&gt; element has a [lang] attribute</a><br>
-                <small>The page declares its language so screen readers use the correct voice.</small>
+                &lt;html&gt; element has a [lang] attribute
+                <a href="https://standards.scangov.org/html-has-lang" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page declares its language so screen readers use the correct voice.</small>
               
             </td>
-            <td data-sort="Screen readers mispronounce content, confusing users.">
-              
-                <small>Screen readers mispronounce content, confusing users.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -660,21 +605,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="&lt;html&gt; element has a valid value for its [lang] attribute">
               
-                <a href="https://standards.scangov.org/html-lang-valid">&lt;html&gt; element has a valid value for its [lang] attribute</a><br>
-                <small>The page has a valid language code so screen readers pronounce content correctly.</small>
+                &lt;html&gt; element has a valid value for its [lang] attribute
+                <a href="https://standards.scangov.org/html-lang-valid" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page has a valid language code so screen readers pronounce content correctly.</small>
               
             </td>
-            <td data-sort="Screen readers mispronounce content, confusing users.">
-              
-                <small>Screen readers mispronounce content, confusing users.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -685,21 +626,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Image elements have [alt] attributes">
               
-                <a href="https://standards.scangov.org/image-alt">Image elements have [alt] attributes</a><br>
-                <small>Images have descriptive alt text or are marked as decorative.</small>
+                Image elements have [alt] attributes
+                <a href="https://standards.scangov.org/image-alt" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Images have descriptive alt text or are marked as decorative.</small>
               
             </td>
-            <td data-sort="Screen reader users cannot identify or interact with elements.">
-              
-                <small>Screen reader users cannot identify or interact with elements.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -710,21 +647,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Links have a discernible name">
               
-                <a href="https://standards.scangov.org/link-name">Links have a discernible name</a><br>
-                <small>Links have unique, descriptive text so users know where they go.</small>
+                Links have a discernible name
+                <a href="https://standards.scangov.org/link-name" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Links have unique, descriptive text so users know where they go.</small>
               
             </td>
-            <td data-sort="Screen reader users cannot identify or interact with elements.">
-              
-                <small>Screen reader users cannot identify or interact with elements.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -735,21 +668,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Lists contain only &lt;li&gt; elements and script supporting elements (&lt;script&gt; and &lt;template&gt;)">
               
-                <a href="https://standards.scangov.org/list">Lists contain only &lt;li&gt; elements and script supporting elements (&lt;script&gt; and &lt;template&gt;)</a><br>
-                <small>Lists use correct markup so screen readers can announce them properly.</small>
+                Lists contain only &lt;li&gt; elements and script supporting elements (&lt;script&gt; and &lt;template&gt;)
+                <a href="https://standards.scangov.org/list" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Lists use correct markup so screen readers can announce them properly.</small>
               
             </td>
-            <td data-sort="Screen readers announce structured content incorrectly.">
-              
-                <small>Screen readers announce structured content incorrectly.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -760,21 +689,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="List items (&lt;li&gt;) are contained within &lt;ul&gt;, &lt;ol&gt; or &lt;menu&gt; parent elements">
               
-                <a href="https://standards.scangov.org/listitem">List items (&lt;li&gt;) are contained within &lt;ul&gt;, &lt;ol&gt; or &lt;menu&gt; parent elements</a><br>
-                <small>List items are nested inside a valid parent list element.</small>
+                List items (&lt;li&gt;) are contained within &lt;ul&gt;, &lt;ol&gt; or &lt;menu&gt; parent elements
+                <a href="https://standards.scangov.org/listitem" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">List items are nested inside a valid parent list element.</small>
               
             </td>
-            <td data-sort="Screen readers announce structured content incorrectly.">
-              
-                <small>Screen readers announce structured content incorrectly.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -785,21 +710,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="[user-scalable=&quot;no&quot;] is not used in the &lt;meta name=&quot;viewport&quot;&gt; element and the [maximum-scale] attribute is not less than 5">
               
-                <a href="https://standards.scangov.org/meta-viewport">[user-scalable=&quot;no&quot;] is not used in the &lt;meta name=&quot;viewport&quot;&gt; element and the [maximum-scale] attribute is not less than 5</a><br>
-                <small>The page allows users to zoom in on mobile devices.</small>
+                [user-scalable=&quot;no&quot;] is not used in the &lt;meta name=&quot;viewport&quot;&gt; element and the [maximum-scale] attribute is not less than 5
+                <a href="https://standards.scangov.org/meta-viewport" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page allows users to zoom in on mobile devices.</small>
               
             </td>
-            <td data-sort="Mobile users with low vision cannot zoom in to read content.">
-              
-                <small>Mobile users with low vision cannot zoom in to read content.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -810,21 +731,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="No element has a [tabindex] value greater than 0">
               
-                <a href="https://standards.scangov.org/tabindex">No element has a [tabindex] value greater than 0</a><br>
-                <small>The page uses natural keyboard tab order without manual overrides.</small>
+                No element has a [tabindex] value greater than 0
+                <a href="https://standards.scangov.org/tabindex" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page uses natural keyboard tab order without manual overrides.</small>
               
             </td>
-            <td data-sort="Keyboard users cannot efficiently navigate your site.">
-              
-                <small>Keyboard users cannot efficiently navigate your site.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -835,21 +752,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Touch targets have sufficient size and spacing">
               
-                <a href="https://standards.scangov.org/target-size">Touch targets have sufficient size and spacing</a><br>
-                <small>Buttons and interactive elements are large enough to tap easily on touch screens.</small>
+                Touch targets have sufficient size and spacing
+                <a href="https://standards.scangov.org/target-size" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Buttons and interactive elements are large enough to tap easily on touch screens.</small>
               
             </td>
-            <td data-sort="Users with motor disabilities struggle to tap small buttons.">
-              
-                <small>Users with motor disabilities struggle to tap small buttons.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -860,21 +773,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Document has a main landmark">
               
-                <a href="https://standards.scangov.org/landmark-one-main">Document has a main landmark</a><br>
-                <small>The page has exactly one main content area so screen readers can navigate to it.</small>
+                Document has a main landmark
+                <a href="https://standards.scangov.org/landmark-one-main" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page has exactly one main content area so screen readers can navigate to it.</small>
               
             </td>
-            <td data-sort="Screen reader users cannot skip directly to main content.">
-              
-                <small>Screen reader users cannot skip directly to main content.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -885,40 +794,15 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="presentation-role-conflict">
               
                 presentation-role-conflict
               
             </td>
-            <td data-sort="">
-              
-            </td>
-            <td data-sort="1">
-              
-                
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
-                  <span class="d-xl-inline">
-                    Active
-                  </span>
-                
-              
-            </td>
           </tr>
       
         
           <tr>
-            <td data-sort="svg-img-alt">
-              
-                svg-img-alt
-              
-            </td>
-            <td data-sort="">
-              
-            </td>
             <td data-sort="0">
               
                 
@@ -929,21 +813,36 @@
                 
               
             </td>
+            <td data-sort="svg-img-alt">
+              
+                svg-img-alt
+              
+            </td>
           </tr>
       
         
           <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
             <td data-sort="Image aspect ratio">
               
-                <a href="https://standards.scangov.org/image-aspect-ratio">Image aspect ratio</a><br>
-                <small>Images display at their intended proportions.</small>
+                Image aspect ratio
+                <a href="https://standards.scangov.org/image-aspect-ratio" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Images display at their intended proportions.</small>
               
             </td>
-            <td data-sort="Images look stretched or squished.">
-              
-                <small>Images look stretched or squished.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -954,46 +853,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Valid doctype">
               
-                <a href="https://standards.scangov.org/doctype">Valid doctype</a><br>
-                <small>The page has a doctype declaration so browsers render it correctly.</small>
-              
-            </td>
-            <td data-sort="Browsers display your page wrong.">
-              
-                <small>Browsers display your page wrong.</small>
-              
-            </td>
-            <td data-sort="1">
-              
-                
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
-                  <span class="d-xl-inline">
-                    Active
-                  </span>
-                
+                Valid doctype
+                <a href="https://standards.scangov.org/doctype" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page has a doctype declaration so browsers render it correctly.</small>
               
             </td>
           </tr>
       
         
           <tr>
-            <td data-sort="Character encoding">
-              
-                <a href="https://standards.scangov.org/charset">Character encoding</a><br>
-                <small>The page declares its character encoding so text displays correctly.</small>
-              
-            </td>
-            <td data-sort="Special characters show up as weird symbols.">
-              
-                <small>Special characters show up as weird symbols.</small>
-              
-            </td>
             <td data-sort="1">
               
                 
@@ -1002,6 +872,13 @@
                     Active
                   </span>
                 
+              
+            </td>
+            <td data-sort="Character encoding">
+              
+                Character encoding
+                <a href="https://standards.scangov.org/charset" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page declares its character encoding so text displays correctly.</small>
               
             </td>
           </tr>
@@ -1045,7 +922,7 @@
       rows.sort(function (a, b) {
         var aVal = a.cells[col].getAttribute('data-sort') || '';
         var bVal = b.cells[col].getAttribute('data-sort') || '';
-        if (col === 0) {
+        if (col === 1) {
           return sortState.dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
         }
         return sortState.dir === 'asc'
@@ -1056,11 +933,11 @@
     });
   });
 
-  // Default sort: Standard (col 0) ascending
+  // Default sort: Status (col 0) ascending, missing/inaccessible first
   (function () {
     var rows = Array.from(tbody.querySelectorAll('tr'));
     rows.sort(function (a, b) {
-      return (a.cells[0].getAttribute('data-sort') || '').localeCompare(b.cells[0].getAttribute('data-sort') || '');
+      return parseInt(a.cells[0].getAttribute('data-sort') || '0') - parseInt(b.cells[0].getAttribute('data-sort') || '0');
     });
     rows.forEach(function (row) { tbody.appendChild(row); });
     sortState.col = 0;
@@ -1088,7 +965,7 @@
                         </div>
                     </div>
                     <div class="d-flex col-6 align-items-stretch">
-                        <div class="card text-bg-dark">
+                        <div class="card">
                             <div class="card-header">Score</div>
                             <div class="card-body text-center">
                                 <p class="display-1">63%</p>
@@ -1106,76 +983,77 @@
     <caption class="visually-hidden">Compliance status by standard</caption>
     <thead>
       <tr>
-        <th scope="col" class="sortable" data-col="0">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
-        <th scope="col">Risk</th>
-        <th scope="col" class="sortable" data-col="2">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" class="sortable" data-col="0">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" class="sortable" data-col="1">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
       </tr>
     </thead>
     <tbody id="table-compliance-botability">
       
         
           <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
             <td data-sort="Canonical">
               
-                <a href="https://standards.scangov.org/canonical">Canonical</a><br>
-                <small>Each page declares a preferred URL so search engines show the right link.</small>
-              
-            </td>
-            <td data-sort="Search rankings split across duplicate pages.">
-              
-                <small>Search rankings split across duplicate pages.</small>
-              
-            </td>
-            <td data-sort="1">
-              
-                
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
-                  <span class="d-xl-inline">
-                    Active
-                  </span>
-                
+                Canonical
+                <a href="https://standards.scangov.org/canonical" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Each page declares a preferred URL so search engines show the right link.</small>
               
             </td>
           </tr>
       
         
           <tr>
+            <td data-sort="0">
+              
+                
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <span class="d-xl-inline">
+                    Missing
+                  </span>
+                
+              
+            </td>
             <td data-sort="Link text">
               
-                <a href="https://standards.scangov.org/link-text">Link text</a><br>
-                <small>Links use descriptive text that tells users and search engines where they go.</small>
-              
-            </td>
-            <td data-sort="Users cannot tell where links go.">
-              
-                <small>Users cannot tell where links go.</small>
-              
-            </td>
-            <td data-sort="0">
-              
-                
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
-                  <span class="d-xl-inline">
-                    Missing
-                  </span>
-                
+                Link text
+                <a href="https://standards.scangov.org/link-text" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Links use descriptive text that tells users and search engines where they go.</small>
               
             </td>
           </tr>
       
         
           <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
             <td data-sort="hreflang">
               
-                <a href="https://standards.scangov.org/hreflang">hreflang</a><br>
-                <small>Pages declare their language and region for international users.</small>
+                hreflang
+                <a href="https://standards.scangov.org/hreflang" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Pages declare their language and region for international users.</small>
               
             </td>
-            <td data-sort="Users see pages in wrong language.">
-              
-                <small>Users see pages in wrong language.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -1186,21 +1064,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Crawlable">
               
-                <a href="https://standards.scangov.org/crawlable">Crawlable</a><br>
-                <small>The site allows search engines and AI agents to index its pages.</small>
+                Crawlable
+                <a href="https://standards.scangov.org/crawlable" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The site allows search engines and AI agents to index its pages.</small>
               
             </td>
-            <td data-sort="Search engines cannot find your pages.">
-              
-                <small>Search engines cannot find your pages.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -1211,46 +1085,38 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Content available in document">
               
-                <a href="https://standards.scangov.org/text-content">Content available in document</a><br>
-                <small>The page&#39;s main content loads without requiring JavaScript.</small>
-              
-            </td>
-            <td data-sort="Bots cannot read your content.">
-              
-                <small>Bots cannot read your content.</small>
-              
-            </td>
-            <td data-sort="1">
-              
-                
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
-                  <span class="d-xl-inline">
-                    Active
-                  </span>
-                
+                Content available in document
+                <a href="https://standards.scangov.org/text-content" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page&#39;s main content loads without requiring JavaScript.</small>
               
             </td>
           </tr>
       
         
           <tr>
+            <td data-sort="0">
+              
+                
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <span class="d-xl-inline">
+                    Missing
+                  </span>
+                
+              
+            </td>
             <td data-sort="GovernmentOrganization Schema.org type">
               
-                <a href="https://standards.scangov.org/schema-government-organization">GovernmentOrganization Schema.org type</a><br>
-                <small>Homepage is marked up as an official government organization.</small>
+                GovernmentOrganization Schema.org type
+                <a href="https://standards.scangov.org/schema-government-organization" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Homepage is marked up as an official government organization.</small>
               
             </td>
-            <td data-sort="Systems cannot verify you are an official government site.">
-              
-                <small>Systems cannot verify you are an official government site.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="0">
               
                 
@@ -1261,46 +1127,38 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Robots valid">
               
-                <a href="https://standards.scangov.org/valid">Robots valid</a><br>
-                <small>The site has a robots.txt file that guides search engines.</small>
-              
-            </td>
-            <td data-sort="Search engines ignore your instructions.">
-              
-                <small>Search engines ignore your instructions.</small>
-              
-            </td>
-            <td data-sort="0">
-              
-                
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
-                  <span class="d-xl-inline">
-                    Missing
-                  </span>
-                
+                Robots valid
+                <a href="https://standards.scangov.org/valid" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The site has a robots.txt file that guides search engines.</small>
               
             </td>
           </tr>
       
         
           <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
             <td data-sort="Sitemap XML">
               
-                <a href="https://standards.scangov.org/xml">Sitemap XML</a><br>
-                <small>The sitemap file uses the required XML format.</small>
+                Sitemap XML
+                <a href="https://standards.scangov.org/xml" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The sitemap file uses the required XML format.</small>
               
             </td>
-            <td data-sort="Search engines cannot read your sitemap.">
-              
-                <small>Search engines cannot read your sitemap.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -1311,21 +1169,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Robots allowed">
               
-                <a href="https://standards.scangov.org/allowed">Robots allowed</a><br>
-                <small>The robots.txt file allows search engines and AI agents to crawl the site.</small>
+                Robots allowed
+                <a href="https://standards.scangov.org/allowed" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The robots.txt file allows search engines and AI agents to crawl the site.</small>
               
             </td>
-            <td data-sort="Your site is blocked from search results.">
-              
-                <small>Your site is blocked from search results.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -1336,46 +1190,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Sitemap status">
               
-                <a href="https://standards.scangov.org/status">Sitemap status</a><br>
-                <small>The sitemap file loads and returns a successful response.</small>
-              
-            </td>
-            <td data-sort="Search engines cannot find all your pages.">
-              
-                <small>Search engines cannot find all your pages.</small>
-              
-            </td>
-            <td data-sort="1">
-              
-                
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
-                  <span class="d-xl-inline">
-                    Active
-                  </span>
-                
+                Sitemap status
+                <a href="https://standards.scangov.org/status" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The sitemap file loads and returns a successful response.</small>
               
             </td>
           </tr>
       
         
           <tr>
-            <td data-sort="Sitemap in robots.txt">
-              
-                <a href="https://standards.scangov.org/sitemap-robots">Sitemap in robots.txt</a><br>
-                <small>The robots.txt file links to the sitemap.</small>
-              
-            </td>
-            <td data-sort="Search engines take longer to find your pages.">
-              
-                <small>Search engines take longer to find your pages.</small>
-              
-            </td>
             <td data-sort="0">
               
                 
@@ -1384,6 +1209,13 @@
                     Missing
                   </span>
                 
+              
+            </td>
+            <td data-sort="Sitemap in robots.txt">
+              
+                Sitemap in robots.txt
+                <a href="https://standards.scangov.org/sitemap-robots" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The robots.txt file links to the sitemap.</small>
               
             </td>
           </tr>
@@ -1427,7 +1259,7 @@
       rows.sort(function (a, b) {
         var aVal = a.cells[col].getAttribute('data-sort') || '';
         var bVal = b.cells[col].getAttribute('data-sort') || '';
-        if (col === 0) {
+        if (col === 1) {
           return sortState.dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
         }
         return sortState.dir === 'asc'
@@ -1438,11 +1270,11 @@
     });
   });
 
-  // Default sort: Standard (col 0) ascending
+  // Default sort: Status (col 0) ascending, missing/inaccessible first
   (function () {
     var rows = Array.from(tbody.querySelectorAll('tr'));
     rows.sort(function (a, b) {
-      return (a.cells[0].getAttribute('data-sort') || '').localeCompare(b.cells[0].getAttribute('data-sort') || '');
+      return parseInt(a.cells[0].getAttribute('data-sort') || '0') - parseInt(b.cells[0].getAttribute('data-sort') || '0');
     });
     rows.forEach(function (row) { tbody.appendChild(row); });
     sortState.col = 0;
@@ -1470,7 +1302,7 @@
                         </div>
                     </div>
                     <div class="d-flex col-6 align-items-stretch">
-                        <div class="card text-bg-dark">
+                        <div class="card">
                             <div class="card-header">Score</div>
                             <div class="card-body text-center">
                                 <p class="display-1">66%</p>
@@ -1488,26 +1320,35 @@
     <caption class="visually-hidden">Compliance status by standard</caption>
     <thead>
       <tr>
-        <th scope="col" class="sortable" data-col="0">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
-        <th scope="col">Risk</th>
-        <th scope="col" class="sortable" data-col="2">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" class="sortable" data-col="0">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" class="sortable" data-col="1">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
       </tr>
     </thead>
     <tbody id="table-compliance-security">
       
         
           <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
             <td data-sort="Content security policy (CSP)">
               
-                <a href="https://standards.scangov.org/csp">Content security policy (CSP)</a><br>
-                <small>The site has a policy that limits what external content can load on its pages.</small>
+                Content security policy (CSP)
+                <a href="https://standards.scangov.org/csp" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The site has a policy that limits what external content can load on its pages.</small>
               
             </td>
-            <td data-sort="Hackers can inject bad code into your site.">
-              
-                <small>Hackers can inject bad code into your site.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -1518,71 +1359,59 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="HTTP Strict Transport Security (HSTS)">
               
-                <a href="https://standards.scangov.org/hsts">HTTP Strict Transport Security (HSTS)</a><br>
-                <small>The site forces an encrypted HTTPS connection for all users.</small>
-              
-            </td>
-            <td data-sort="Hackers can downgrade your connection and steal data.">
-              
-                <small>Hackers can downgrade your connection and steal data.</small>
-              
-            </td>
-            <td data-sort="1">
-              
-                
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
-                  <span class="d-xl-inline">
-                    Active
-                  </span>
-                
+                HTTP Strict Transport Security (HSTS)
+                <a href="https://standards.scangov.org/hsts" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The site forces an encrypted HTTPS connection for all users.</small>
               
             </td>
           </tr>
       
         
           <tr>
+            <td data-sort="0">
+              
+                
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <span class="d-xl-inline">
+                    Missing
+                  </span>
+                
+              
+            </td>
             <td data-sort="Errors in the console">
               
-                <a href="https://standards.scangov.org/errors-in-console">Errors in the console</a><br>
-                <small>The page loads without JavaScript or network errors.</small>
-              
-            </td>
-            <td data-sort="Site may have hidden bugs that break features.">
-              
-                <small>Site may have hidden bugs that break features.</small>
-              
-            </td>
-            <td data-sort="0">
-              
-                
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
-                  <span class="d-xl-inline">
-                    Missing
-                  </span>
-                
+                Errors in the console
+                <a href="https://standards.scangov.org/errors-in-console" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page loads without JavaScript or network errors.</small>
               
             </td>
           </tr>
       
         
           <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
             <td data-sort="Clickjacking mitigation">
               
-                <a href="https://standards.scangov.org/clickjacking-mitigation">Clickjacking mitigation</a><br>
-                <small>The site prevents other websites from embedding its pages to trick users into clicking.</small>
+                Clickjacking mitigation
+                <a href="https://standards.scangov.org/clickjacking-mitigation" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The site prevents other websites from embedding its pages to trick users into clicking.</small>
               
             </td>
-            <td data-sort="Hackers can trick users into clicking wrong things.">
-              
-                <small>Hackers can trick users into clicking wrong things.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -1593,21 +1422,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Paste preventing inputs">
               
-                <a href="https://standards.scangov.org/paste-preventing-inputs">Paste preventing inputs</a><br>
-                <small>The page lets users paste content into form fields.</small>
+                Paste preventing inputs
+                <a href="https://standards.scangov.org/paste-preventing-inputs" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page lets users paste content into form fields.</small>
               
             </td>
-            <td data-sort="Users cannot use password managers safely.">
-              
-                <small>Users cannot use password managers safely.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -1618,21 +1443,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Hypertext Transfer Protocol Secure (HTTPS)">
               
-                <a href="https://standards.scangov.org/https">Hypertext Transfer Protocol Secure (HTTPS)</a><br>
-                <small>The site uses HTTPS to encrypt data between the server and users.</small>
+                Hypertext Transfer Protocol Secure (HTTPS)
+                <a href="https://standards.scangov.org/https" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The site uses HTTPS to encrypt data between the server and users.</small>
               
             </td>
-            <td data-sort="Hackers can see and steal personal information.">
-              
-                <small>Hackers can see and steal personal information.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -1643,71 +1464,38 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Sponsored top-level domain (sTLD)">
               
-                <a href="https://standards.scangov.org/dotgov">Sponsored top-level domain (sTLD)</a><br>
-                <small>The site uses a government-issued domain (.gov, .edu, or .mil).</small>
-              
-            </td>
-            <td data-sort="People cannot tell if your site is real government.">
-              
-                <small>People cannot tell if your site is real government.</small>
-              
-            </td>
-            <td data-sort="1">
-              
-                
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
-                  <span class="d-xl-inline">
-                    Active
-                  </span>
-                
+                Sponsored top-level domain (sTLD)
+                <a href="https://standards.scangov.org/dotgov" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The site uses a government-issued domain (.gov, .edu, or .mil).</small>
               
             </td>
           </tr>
       
         
           <tr>
+            <td data-sort="0">
+              
+                
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <span class="d-xl-inline">
+                    Missing
+                  </span>
+                
+              
+            </td>
             <td data-sort="security.txt">
               
-                <a href="https://standards.scangov.org/securitytxt">security.txt</a><br>
-                <small>The site has a security.txt file so researchers know how to report issues.</small>
-              
-            </td>
-            <td data-sort="Security researchers cannot report problems to you.">
-              
-                <small>Security researchers cannot report problems to you.</small>
-              
-            </td>
-            <td data-sort="0">
-              
-                
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
-                  <span class="d-xl-inline">
-                    Missing
-                  </span>
-                
+                security.txt
+                <a href="https://standards.scangov.org/securitytxt" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The site has a security.txt file so researchers know how to report issues.</small>
               
             </td>
           </tr>
       
         
           <tr>
-            <td data-sort="X-Content-Type-Options">
-              
-                <a href="https://standards.scangov.org/xcontenttypeoptions">X-Content-Type-Options</a><br>
-                <small>The site tells browsers not to guess the type of files it serves.</small>
-              
-            </td>
-            <td data-sort="Browsers might run dangerous files by mistake.">
-              
-                <small>Browsers might run dangerous files by mistake.</small>
-              
-            </td>
             <td data-sort="0">
               
                 
@@ -1716,6 +1504,13 @@
                     Missing
                   </span>
                 
+              
+            </td>
+            <td data-sort="X-Content-Type-Options">
+              
+                X-Content-Type-Options
+                <a href="https://standards.scangov.org/xcontenttypeoptions" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The site tells browsers not to guess the type of files it serves.</small>
               
             </td>
           </tr>
@@ -1759,7 +1554,7 @@
       rows.sort(function (a, b) {
         var aVal = a.cells[col].getAttribute('data-sort') || '';
         var bVal = b.cells[col].getAttribute('data-sort') || '';
-        if (col === 0) {
+        if (col === 1) {
           return sortState.dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
         }
         return sortState.dir === 'asc'
@@ -1770,11 +1565,11 @@
     });
   });
 
-  // Default sort: Standard (col 0) ascending
+  // Default sort: Status (col 0) ascending, missing/inaccessible first
   (function () {
     var rows = Array.from(tbody.querySelectorAll('tr'));
     rows.sort(function (a, b) {
-      return (a.cells[0].getAttribute('data-sort') || '').localeCompare(b.cells[0].getAttribute('data-sort') || '');
+      return parseInt(a.cells[0].getAttribute('data-sort') || '0') - parseInt(b.cells[0].getAttribute('data-sort') || '0');
     });
     rows.forEach(function (row) { tbody.appendChild(row); });
     sortState.col = 0;
@@ -1802,7 +1597,7 @@
                         </div>
                     </div>
                     <div class="d-flex col-6 align-items-stretch">
-                        <div class="card text-bg-dark">
+                        <div class="card">
                             <div class="card-header">Score</div>
                             <div class="card-body text-center">
                                 <p class="display-1">47%</p>
@@ -1820,26 +1615,35 @@
     <caption class="visually-hidden">Compliance status by standard</caption>
     <thead>
       <tr>
-        <th scope="col" class="sortable" data-col="0">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
-        <th scope="col">Risk</th>
-        <th scope="col" class="sortable" data-col="2">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" class="sortable" data-col="0">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" class="sortable" data-col="1">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
       </tr>
     </thead>
     <tbody id="table-compliance-usability">
       
         
           <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
             <td data-sort="Page title">
               
-                <a href="https://standards.scangov.org/title">Page title</a><br>
-                <small>The page has a unique, descriptive title shown in browser tabs and search results.</small>
+                Page title
+                <a href="https://standards.scangov.org/title" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page has a unique, descriptive title shown in browser tabs and search results.</small>
               
             </td>
-            <td data-sort="Users cannot tell what your page is about.">
-              
-                <small>Users cannot tell what your page is about.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -1850,21 +1654,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Page description">
               
-                <a href="https://standards.scangov.org/description">Page description</a><br>
-                <small>The page has a meta description that summarizes its content for search results.</small>
+                Page description
+                <a href="https://standards.scangov.org/description" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page has a meta description that summarizes its content for search results.</small>
               
             </td>
-            <td data-sort="Search results do not show what your page does.">
-              
-                <small>Search results do not show what your page does.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -1875,46 +1675,38 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Viewport meta tag">
               
-                <a href="https://standards.scangov.org/viewport">Viewport meta tag</a><br>
-                <small>The page scales correctly on mobile devices and tablets.</small>
-              
-            </td>
-            <td data-sort="Mobile users see broken pages on their phones.">
-              
-                <small>Mobile users see broken pages on their phones.</small>
-              
-            </td>
-            <td data-sort="1">
-              
-                
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
-                  <span class="d-xl-inline">
-                    Active
-                  </span>
-                
+                Viewport meta tag
+                <a href="https://standards.scangov.org/viewport" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page scales correctly on mobile devices and tablets.</small>
               
             </td>
           </tr>
       
         
           <tr>
+            <td data-sort="0">
+              
+                
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <span class="d-xl-inline">
+                    Missing
+                  </span>
+                
+              
+            </td>
             <td data-sort="Open Graph site name">
               
-                <a href="https://standards.scangov.org/ogsitename">Open Graph site name</a><br>
-                <small>The site has a name for social media and browser display.</small>
+                Open Graph site name
+                <a href="https://standards.scangov.org/ogsitename" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The site has a name for social media and browser display.</small>
               
             </td>
-            <td data-sort="Site name missing in social media shares.">
-              
-                <small>Site name missing in social media shares.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="0">
               
                 
@@ -1925,21 +1717,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Open Graph type">
               
-                <a href="https://standards.scangov.org/ogtype">Open Graph type</a><br>
-                <small>The page declares its content type for social media cards.</small>
+                Open Graph type
+                <a href="https://standards.scangov.org/ogtype" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page declares its content type for social media cards.</small>
               
             </td>
-            <td data-sort="Social media shows wrong content type.">
-              
-                <small>Social media shows wrong content type.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="0">
               
                 
@@ -1950,21 +1738,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Open Graph title">
               
-                <a href="https://standards.scangov.org/ogtitle">Open Graph title</a><br>
-                <small>The page has a title for social media previews.</small>
+                Open Graph title
+                <a href="https://standards.scangov.org/ogtitle" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page has a title for social media previews.</small>
               
             </td>
-            <td data-sort="Shared links have no title on social media.">
-              
-                <small>Shared links have no title on social media.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="0">
               
                 
@@ -1975,21 +1759,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Open Graph description">
               
-                <a href="https://standards.scangov.org/ogdescription">Open Graph description</a><br>
-                <small>The page has a description for social media previews.</small>
+                Open Graph description
+                <a href="https://standards.scangov.org/ogdescription" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page has a description for social media previews.</small>
               
             </td>
-            <td data-sort="Shared links have no description on social media.">
-              
-                <small>Shared links have no description on social media.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="0">
               
                 
@@ -2000,21 +1780,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Open Graph URL">
               
-                <a href="https://standards.scangov.org/ogurl">Open Graph URL</a><br>
-                <small>The page has a canonical URL for social media sharing.</small>
+                Open Graph URL
+                <a href="https://standards.scangov.org/ogurl" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page has a canonical URL for social media sharing.</small>
               
             </td>
-            <td data-sort="Shared links may point to wrong page.">
-              
-                <small>Shared links may point to wrong page.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="0">
               
                 
@@ -2025,21 +1801,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Open Graph image">
               
-                <a href="https://standards.scangov.org/ogimage">Open Graph image</a><br>
-                <small>The page has a preview image for social media cards.</small>
+                Open Graph image
+                <a href="https://standards.scangov.org/ogimage" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page has a preview image for social media cards.</small>
               
             </td>
-            <td data-sort="Shared links have no image on social media.">
-              
-                <small>Shared links have no image on social media.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="0">
               
                 
@@ -2050,121 +1822,80 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Open Graph image alt">
               
-                <a href="https://standards.scangov.org/ogimagealt">Open Graph image alt</a><br>
-                <small>The social media preview image has alt text for screen readers.</small>
-              
-            </td>
-            <td data-sort="Screen readers cannot describe shared images.">
-              
-                <small>Screen readers cannot describe shared images.</small>
-              
-            </td>
-            <td data-sort="0">
-              
-                
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
-                  <span class="d-xl-inline">
-                    Missing
-                  </span>
-                
+                Open Graph image alt
+                <a href="https://standards.scangov.org/ogimagealt" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The social media preview image has alt text for screen readers.</small>
               
             </td>
           </tr>
       
         
           <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
             <td data-sort="Readability">
               
-                <a href="https://standards.scangov.org/readability">Readability</a><br>
-                <small>Page content is written at a reading level most users can understand.</small>
-              
-            </td>
-            <td data-sort="People struggle to understand your content.">
-              
-                <small>People struggle to understand your content.</small>
-              
-            </td>
-            <td data-sort="1">
-              
-                
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
-                  <span class="d-xl-inline">
-                    Active
-                  </span>
-                
+                Readability
+                <a href="https://standards.scangov.org/readability" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Page content is written at a reading level most users can understand.</small>
               
             </td>
           </tr>
       
         
           <tr>
+            <td data-sort="0">
+              
+                
+                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
+                  <span class="d-xl-inline">
+                    Missing
+                  </span>
+                
+              
+            </td>
             <td data-sort="First Contentful Paint (FCP)">
               
-                <a href="https://standards.scangov.org/fcp">First Contentful Paint (FCP)</a><br>
-                <small>The page starts displaying content within 1.8 seconds.</small>
-              
-            </td>
-            <td data-sort="Users see blank screen and think site is broken.">
-              
-                <small>Users see blank screen and think site is broken.</small>
-              
-            </td>
-            <td data-sort="0">
-              
-                
-                  <svg class="fa-solid fa-circle-xmark text-danger" aria-hidden="true"><use href="#fas-fa-circle-xmark" xlink:href="#fas-fa-circle-xmark"></use></svg>
-                  <span class="d-xl-inline">
-                    Missing
-                  </span>
-                
+                First Contentful Paint (FCP)
+                <a href="https://standards.scangov.org/fcp" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page starts displaying content within 1.8 seconds.</small>
               
             </td>
           </tr>
       
         
           <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
             <td data-sort="Largest Contentful Paint (LCP)">
               
-                <a href="https://standards.scangov.org/lcp">Largest Contentful Paint (LCP)</a><br>
-                <small>The page&#39;s main content loads within 2.5 seconds.</small>
-              
-            </td>
-            <td data-sort="Users wait too long and leave your page.">
-              
-                <small>Users wait too long and leave your page.</small>
-              
-            </td>
-            <td data-sort="1">
-              
-                
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
-                  <span class="d-xl-inline">
-                    Active
-                  </span>
-                
+                Largest Contentful Paint (LCP)
+                <a href="https://standards.scangov.org/lcp" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page&#39;s main content loads within 2.5 seconds.</small>
               
             </td>
           </tr>
       
         
           <tr>
-            <td data-sort="Time to First Byte (TTFB)">
-              
-                <a href="https://standards.scangov.org/ttfb">Time to First Byte (TTFB)</a><br>
-                <small>The server sends the first byte of content within 0.8 seconds.</small>
-              
-            </td>
-            <td data-sort="Slow server delays everything on your page.">
-              
-                <small>Slow server delays everything on your page.</small>
-              
-            </td>
             <td data-sort="0">
               
                 
@@ -2175,21 +1906,38 @@
                 
               
             </td>
+            <td data-sort="Time to First Byte (TTFB)">
+              
+                Time to First Byte (TTFB)
+                <a href="https://standards.scangov.org/ttfb" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The server sends the first byte of content within 0.8 seconds.</small>
+              
+            </td>
           </tr>
       
         
           <tr>
+            <td data-sort="1">
+              
+                
+                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
+                  <span class="d-xl-inline">
+                    Active
+                  </span>
+                
+              
+            </td>
             <td data-sort="Cumulative Layout Shift (CLS)">
               
-                <a href="https://standards.scangov.org/cls">Cumulative Layout Shift (CLS)</a><br>
-                <small>Page content stays in place as the page loads.</small>
+                Cumulative Layout Shift (CLS)
+                <a href="https://standards.scangov.org/cls" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">Page content stays in place as the page loads.</small>
               
             </td>
-            <td data-sort="Users click wrong buttons by mistake.">
-              
-                <small>Users click wrong buttons by mistake.</small>
-              
-            </td>
+          </tr>
+      
+        
+          <tr>
             <td data-sort="1">
               
                 
@@ -2200,46 +1948,17 @@
                 
               
             </td>
-          </tr>
-      
-        
-          <tr>
             <td data-sort="Interaction to Next Paint (INP)">
               
-                <a href="https://standards.scangov.org/inp">Interaction to Next Paint (INP)</a><br>
-                <small>The page responds to user interactions in under 0.2 seconds.</small>
-              
-            </td>
-            <td data-sort="Site feels frozen when users click things.">
-              
-                <small>Site feels frozen when users click things.</small>
-              
-            </td>
-            <td data-sort="1">
-              
-                
-                  <svg class="fa-solid fa-circle-check text-success" aria-hidden="true"><use href="#fas-fa-circle-check" xlink:href="#fas-fa-circle-check"></use></svg>
-                  <span class="d-xl-inline">
-                    Active
-                  </span>
-                
+                Interaction to Next Paint (INP)
+                <a href="https://standards.scangov.org/inp" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The page responds to user interactions in under 0.2 seconds.</small>
               
             </td>
           </tr>
       
         
           <tr>
-            <td data-sort="www resolution">
-              
-                <a href="https://standards.scangov.org/www">www resolution</a><br>
-                <small>The site works whether users type www or not.</small>
-              
-            </td>
-            <td data-sort="Users get errors when typing your web address.">
-              
-                <small>Users get errors when typing your web address.</small>
-              
-            </td>
             <td data-sort="1">
               
                 
@@ -2248,6 +1967,13 @@
                     Active
                   </span>
                 
+              
+            </td>
+            <td data-sort="www resolution">
+              
+                www resolution
+                <a href="https://standards.scangov.org/www" aria-label="View standard"><svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg></a><br>
+                <small class="text-body-secondary font-monospace">The site works whether users type www or not.</small>
               
             </td>
           </tr>
@@ -2291,7 +2017,7 @@
       rows.sort(function (a, b) {
         var aVal = a.cells[col].getAttribute('data-sort') || '';
         var bVal = b.cells[col].getAttribute('data-sort') || '';
-        if (col === 0) {
+        if (col === 1) {
           return sortState.dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
         }
         return sortState.dir === 'asc'
@@ -2302,11 +2028,11 @@
     });
   });
 
-  // Default sort: Standard (col 0) ascending
+  // Default sort: Status (col 0) ascending, missing/inaccessible first
   (function () {
     var rows = Array.from(tbody.querySelectorAll('tr'));
     rows.sort(function (a, b) {
-      return (a.cells[0].getAttribute('data-sort') || '').localeCompare(b.cells[0].getAttribute('data-sort') || '');
+      return parseInt(a.cells[0].getAttribute('data-sort') || '0') - parseInt(b.cells[0].getAttribute('data-sort') || '0');
     });
     rows.forEach(function (row) { tbody.appendChild(row); });
     sortState.col = 0;
@@ -4606,7 +4332,7 @@
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" id="fas-fa-sort-up"><path fill="currentColor" d="M182.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l256 0c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-128-128z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" id="fas-fa-sort-down"><path fill="currentColor" d="M182.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8l256 0c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-check" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-check"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"></path></symbol></svg>
-<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-xmark"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-info" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-info"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></symbol></svg>
+<svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="fas-fa-circle-xmark"><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"></path></symbol></svg>
 <svg style="display: none;"><symbol aria-hidden="true" focusable="false" data-prefix="fas" data-icon="broom" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" id="fas-fa-broom"><path fill="currentColor" d="M566.6 54.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192-34.7-34.7c-4.2-4.2-10-6.6-16-6.6c-12.5 0-22.6 10.1-22.6 22.6l0 29.1L364.3 320l29.1 0c12.5 0 22.6-10.1 22.6-22.6c0-6-2.4-11.8-6.6-16l-34.7-34.7 192-192zM341.1 353.4L222.6 234.9c-42.7-3.7-85.2 11.7-115.8 42.3l-8 8C76.5 307.5 64 337.7 64 369.2c0 6.8 7.1 11.2 13.2 8.2l51.1-25.5c5-2.5 9.5 4.1 5.4 7.9L7.3 473.4C2.7 477.6 0 483.6 0 489.9C0 502.1 9.9 512 22.1 512l173.3 0c38.8 0 75.9-15.4 103.4-42.8c30.6-30.6 45.9-73.1 42.3-115.8z"></path></symbol></svg>
 </body></html>
