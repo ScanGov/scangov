@@ -10,6 +10,9 @@ pagination:
     alias: topic
 
 permalink: "map/states/{{ topic | lower }}/"
+
+eleventyComputed:
+    description: "State government domains mapped by {{ topic }} grade."
 ---
 
 {% set topic = topic | lower %}

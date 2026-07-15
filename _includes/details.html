@@ -41,7 +41,7 @@
 </ul>
 {% endif %}
 {% if profile %}
-<ul class="small list-unstyled text-body-secondary font-monospace pb-3 mb-3 border-bottom">
+<ul class="small list-unstyled text-body-secondary font-monospace">
     {% if not mapPage and not orgPage %}
     {% if site.url == 'https://scangov.org' and domain.name %}
     <li>
@@ -71,6 +71,7 @@
     <li>
         Last scan:
         <span id="updated">{{ updates }}</span>
+        &middot; <a href="https://docs.scangov.org/scans/">About scans</a>
     </li>
     {% elif site.url == 'https://my.scangov.com' %}
     <li>

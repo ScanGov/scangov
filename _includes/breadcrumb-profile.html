@@ -8,7 +8,7 @@
     {% else %}
     <li class="breadcrumb-item">
       <i class="fa-solid fa-hand-point-right"></i>
-      {% if domain.name %}<a href="/org/{{ domain.name | slugify }}/" class="bc-org">{{ domain.name }}</a><span class="bc-sep"> / </span>{% endif %}<a href="/profile/{{ breadcrumbSlug | slugify }}/overall/" class="bc-domain">{{ breadcrumbSlug }}</a>
+      {% if domain.name %}<a href="/org/{{ domain.name | slugify }}/" class="bc-org">{{ domain.name }}</a><span class="bc-sep"> / </span>{% endif %}<a href="/profile/{{ breadcrumbSlug | slugify }}/overall/" class="bc-domain">{{ breadcrumbSlug }}</a>{% if domain.status == 200 %} <i class="fa-solid fa-circle text-{{ domain.overallScore | colorify }}"></i>{% endif %}
     </li>
     {% endif %}
   </ol>
