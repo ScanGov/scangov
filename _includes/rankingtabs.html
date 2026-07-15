@@ -20,16 +20,16 @@
             href="/rankings/cities/{{ specificAttribute }}">Cities</a>
     </li>
     <li class="nav-item">
+        <a class="nav-link mx-1{% if page.url.indexOf("/counties/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
+            href="/rankings/counties/{{ specificAttribute }}">Counties</a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link mx-1{% if page.url.indexOf("/states/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
             href="/rankings/states/{{ specificAttribute }}">States</a>
     </li>
     <li class="nav-item">
         <a class="nav-link mx-1{% if page.url.indexOf("/federal/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
             href="/rankings/federal/{{ specificAttribute }}">Federal</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link mx-1{% if page.url.indexOf("/counties/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
-            href="/rankings/counties/{{ specificAttribute }}">Counties</a>
     </li>
     <li class="nav-item">
         <a class="nav-link mx-1{% if page.url.indexOf("/edu/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
