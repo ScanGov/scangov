@@ -164,118 +164,184 @@
 
 <main id="main-content">
   <div>
-  
+    
     <div class="pt-5 pb-4 mb-4 border-bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            
-            
-              <h1 class="display-5" id="search">Search</h1>
-            
-            
-            
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    
+                    
+                    <h1 class="display-5" id="search">Search</h1>
+                    
+                    
+                    
 
 
 
-            
-            <div class="row mt-3 mb-0">
-              <div class="col-12 col-md-6">
-                <form id="search-form" action="/search/">
-  <label class="form-label visually-hidden" for="search-input">Domain</label>
-  <div class="input-group input-group-lg">
-    <input name="search" type="text" class="form-control shadow" placeholder="ex: ca.gov" id="search-input" autocomplete="off">
-    <button type="submit" class="btn btn-primary">Go</button>
-  </div>
+                    
+                    <div class="row mt-3 mb-0">
+                        <div class="col-12 col-md-6">
+                            <form id="search-form" action="/search/">
+    <label class="form-label visually-hidden" for="search-input">Domain</label>
+    <div class="input-group input-group-lg">
+        <input name="search" type="text" class="form-control shadow" placeholder="ex: ca.gov" id="search-input" autocomplete="off">
+        <button type="submit" class="btn btn-primary">Go</button>
+    </div>
+    <div id="search-results"></div>
 </form>
 
-              </div>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
-            
-          </div>
         </div>
-      </div>
     </div>
-  
+    
 </div>
+
   <div class="container-fluid">
     <div class="row">
       
 <div class="col-12 d-none" id="results-section">
-  <div class="table-responsive">
-    <table class="table mt-3">
-      <caption class="visually-hidden">Search results</caption>
-      <thead>
-        <tr>
-          <th scope="col" style="width: 85%;">Domain</th>
-          <th scope="col" class="text-center">Grade</th>
-        </tr>
-      </thead>
-      <tbody id="results-table"></tbody>
-    </table>
-  </div>
+    <div class="table-responsive">
+        <table class="table mt-3">
+            <caption class="visually-hidden">Search results</caption>
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 85%;">Domain</th>
+                    <th scope="col" class="text-center">Grade</th>
+                </tr>
+            </thead>
+            <tbody id="results-table"></tbody>
+        </table>
+    </div>
 </div>
 <div class="col-12 d-none" id="no-results-alert">
-  <div class="alert alert-info mt-3" role="alert">
-    <svg class="fa-solid fa-not-equal" aria-hidden="true"><use href="#fas-fa-not-equal" xlink:href="#fas-fa-not-equal"></use></svg> We're not currently scanning that domain.
-  </div>
+    <div class="alert alert-info mt-3" role="alert">
+        <svg class="fa-solid fa-not-equal" aria-hidden="true"><use href="#fas-fa-not-equal" xlink:href="#fas-fa-not-equal"></use></svg> We're not currently scanning that domain.
+    </div>
 </div>
 <script>
-  var query = new URLSearchParams(location.search).get('search');
+    const resultsDiv = document.getElementById('search-results');
 
-  if (query) {
-    document.getElementById('search-input').value = query;
-    searching(query);
-  }
+    fetch('/data/search.csv').then(res => res.text()).then(data => {
+        data = data.split('\n').map(d => {
+            const separator = d.indexOf(',');
+            return [d.substring(0, separator), d.substring(separator + 2, d.length - 1) /* remove quotes */];
+        });
+        data.shift();
 
-  document.getElementById('search-form').addEventListener('submit', function (e) {
-    var val = document.getElementById('search-input').value.trim();
-    if (!val) {
-      e.preventDefault();
-      return;
+        const searchResults = [];
+        const searchInput = document.getElementById('search-input');
+        searchInput.addEventListener('input', () => {
+            // List up to first 10 matching results
+            let count = 0;
+            const query = searchInput.value.toLowerCase();
+            console.log(query)
+            if (query)
+                for (const domain of data) {
+                    if (domain[0].toLowerCase().includes(query) || domain[1].toLowerCase().includes(query)) {
+                        searchResults.push(domain);
+
+                        count++;
+                        if (count >= 10)
+                            break;
+                    }
+                }
+
+            // Remove elements that are no longer in results
+            let length = resultsDiv.childElementCount;
+            elementLoop: for (let i = 0; i < length; i++) {
+                const resultElement = resultsDiv.children[i];
+
+                const urlkey = resultElement.getAttribute('data-domain');
+                for (let j = 0; j < searchResults.length; j++) {
+                    if (urlkey === searchResults[j][0]) {
+                        searchResults.splice(j, 1);
+                        continue elementLoop;
+                    }
+                }
+
+                resultsDiv.removeChild(resultElement);
+                // Adjust count because list changed
+                i--;
+                length--;
+            }
+
+            // Add remaining results
+            length = searchResults.length;
+            for (let i = 0; i < length; i++) {
+                const domain = searchResults[0];
+
+                const resultElement = document.createElement('div');
+                resultElement.setAttribute('data-domain', domain[0]);
+                resultElement.classList.add('border-list-item');
+                resultElement.innerHTML = `
+                    <a href="/profile/${domain[0].replaceAll('.', '-')}/overall/">${domain[0]}</a>
+                    <br>
+                    <a class="small text-muted" href="/org/${domain[1].toLowerCase().replaceAll(/( |,)+/g, '-')}/">${domain[1]}</a>
+                `;
+                resultsDiv.appendChild(resultElement);
+
+                searchResults.splice(0, 1);
+            }
+        });
+    });
+
+    // Handle form submit
+    document.getElementById('search-form').addEventListener('submit', e => {
+        e.preventDefault();
+
+        const firstResult = resultsDiv.children[0];
+        if (!firstResult)
+            return;
+
+        location.href = '/profile/' + firstResult.getAttribute('data-domain').replaceAll('.', '-') + '/overall/';
+    });
+
+    /*
+    async function searching(q) {
+      const url = "https://y10vxe2xw2.execute-api.us-west-2.amazonaws.com/search?q=" + encodeURIComponent(q);
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Response status: ' + response.status);
+        const json = await response.json();
+        let outputHTML = '';
+        json.forEach(function (j) {
+          outputHTML += '<tr>' +
+            '<td>' +
+            '<a href="/profile/' + j.domain.replace(/\./g, '-') + '/overall/">' + j.domain + '</a>' +
+            '<br>' +
+            '<a class="small text-muted" href="/search/?search=' + encodeURIComponent(j.agency) + '">' + j.agency + '</a>' +
+            '</td>' +
+            '<td class="text-center grade-display-column">' +
+            '<span class="badge text-bg-' + gradeColor(j.grade) + '" title="' + j.grade + '%">' + letterGrade(j.grade) + '</span>' +
+            '</td>' +
+            '</tr>';
+        });
+        document.getElementById('results-table').innerHTML = outputHTML;
+        document.getElementById('results-section').classList.toggle('d-none', !outputHTML);
+        document.getElementById('no-results-alert').classList.toggle('d-none', !!outputHTML);
+      } catch (error) {
+        console.error(error.message);
+      }
     }
-  });
-
-  async function searching(q) {
-    const url = "https://y10vxe2xw2.execute-api.us-west-2.amazonaws.com/search?q=" + encodeURIComponent(q);
-    try {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Response status: ' + response.status);
-      const json = await response.json();
-      let outputHTML = '';
-      json.forEach(function (j) {
-        outputHTML += '<tr>' +
-          '<td>' +
-          '<a href="/profile/' + j.domain.replace(/\./g, '-') + '/overall/">' + j.domain + '</a>' +
-          '<br>' +
-          '<a class="small text-muted" href="/search/?search=' + encodeURIComponent(j.agency) + '">' + j.agency + '</a>' +
-          '</td>' +
-          '<td class="text-center grade-display-column">' +
-          '<span class="badge text-bg-' + gradeColor(j.grade) + '" title="' + j.grade + '%">' + letterGrade(j.grade) + '</span>' +
-          '</td>' +
-          '</tr>';
-      });
-      document.getElementById('results-table').innerHTML = outputHTML;
-      document.getElementById('results-section').classList.toggle('d-none', !outputHTML);
-      document.getElementById('no-results-alert').classList.toggle('d-none', !!outputHTML);
-    } catch (error) {
-      console.error(error.message);
+  
+    function letterGrade(score) {
+      if (score >= 90) return 'A';
+      if (score >= 80) return 'B';
+      if (score >= 70) return 'C';
+      if (score >= 60) return 'D';
+      return 'F';
     }
-  }
-
-  function letterGrade(score) {
-    if (score >= 90) return 'A';
-    if (score >= 80) return 'B';
-    if (score >= 70) return 'C';
-    if (score >= 60) return 'D';
-    return 'F';
-  }
-
-  function gradeColor(score) {
-    if (score >= 90) return 'success';
-    if (score >= 70) return 'warning';
-    return 'danger';
-  }
+  
+    function gradeColor(score) {
+      if (score >= 90) return 'success';
+      if (score >= 70) return 'warning';
+      return 'danger';
+    }
+    */
 </script>
 
     </div>
