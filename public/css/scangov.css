@@ -1229,11 +1229,6 @@ code.language-plaintext {
     border-bottom-right-radius: var(--bs-border-radius-lg) !important;
 }
 
-.input-group-lg>.form-control,
-.input-group-lg>.btn {
-    height: 3rem;
-}
-
 .dropdown-menu.show {
     display: block;
 }
@@ -1429,11 +1424,6 @@ a.card {
 
 /* Forms */
 
-form button[type="submit"],
-form input[type="submit"] {
-    margin-bottom: 2rem;
-}
-
 td form button[type="submit"],
 td form input[type="submit"] {
     margin-bottom: 0;
@@ -1483,6 +1473,25 @@ input[type="submit"] {
 
 .progress {
     height: 6px;
+}
+
+.border-list-item {
+    border: 1px solid var(--bs-border-color);
+    padding: 0.5rem;
+}
+
+.border-list-item:first-child {
+    border-top-left-radius: var(--bs-border-radius);
+    border-top-right-radius: var(--bs-border-radius);
+}
+
+.border-list-item:last-child {
+    border-bottom-left-radius: var(--bs-border-radius);
+    border-bottom-right-radius: var(--bs-border-radius);
+}
+
+.border-list-item:hover {
+    background-color: rgba(var(--bs-emphasis-color-rgb), 0.075);
 }
 
 /* SVG */

@@ -1,271 +1,227 @@
 <div>
-  {% if home %}
+    {% if home %}
     <div class="pt-5 pb-4 mb-4 border-bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            {% if description %}
-              <h1 id="jumbotron-title" class="display-5">{{ title }}</h1>
-            {% endif %}
-          </div>
-        </div>
-        <form
-          id="search-form"
-          action="/search/"
-          class="row">
-          <div class="col-12 col-lg-6 mt-3">
-            <label class="pb-2" for="search">Search:</label>
-            <div class="w-100">
-              <input
-                name="search"
-                type="text"
-                class="form-control w-100"
-                placeholder="enter domain"
-                id="search">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    {% if description %}
+                    <h1 id="jumbotron-title" class="display-5">{{ title }}</h1>
+                    {% endif %}
+                </div>
             </div>
+            <form id="search-form" action="/search/" class="row">
+                <div class="col-12 col-lg-6 mt-3">
+                    <label class="pb-2" for="search">Search:</label>
+                    <div class="w-100">
+                        <input name="search" type="text" class="form-control w-100" placeholder="enter domain"
+                            id="search">
+                    </div>
 
-            <!-- single-level delete start -->
-            <label class="pb-2 mt-3" for="filter">Filter:</label>
-            <select
-              class="form-select form-control-lg w-100"
-              aria-label="Default select example"
-              name="level"
-              id="filter">
-              <option value="1">all domains</option>
-              <option value="2">federal domains</option>
-              <option value="3">state domains</option>
-            </select>
-          <!-- single-level delete end -->
-          </div>
+                    <!-- single-level delete start -->
+                    <label class="pb-2 mt-3" for="filter">Filter:</label>
+                    <select class="form-select form-control-lg w-100" aria-label="Default select example" name="level"
+                        id="filter">
+                        <option value="1">all domains</option>
+                        <option value="2">federal domains</option>
+                        <option value="3">state domains</option>
+                    </select>
+                    <!-- single-level delete end -->
+                </div>
 
-          <div class="col-12 col-lg-6 mt-3">
-            <label for="overall-radio" class="d-block">
-              <input
-                type="radio"
-                name="field"
-                value="overall"
-                id="overall-radio"> Overall
-            </label>
-            <label for="metadata-radio" class="d-block">
-              <input
-                type="radio"
-                name="field"
-                value="metadata"
-                id="metadata-radio"> Metadata
-            </label>
-            <label for="url-radio" class="d-block">
-              <input
-                type="radio"
-                name="field"
-                value="url"
-                id="url-radio"> URL
-            </label>
-            <label for="sitemap-radio" class="d-block">
-              <input
-                type="radio"
-                name="field"
-                value="sitemap"
-                id="sitemap-radio"> Sitemap
-            </label>
-            <label for="robots-radio" class="d-block">
-              <input
-                type="radio"
-                name="field"
-                value="robots"
-                id="robots-radio"> Robots
-            </label>
-            <label for="security-radio" class="d-block">
-              <input
-                type="radio"
-                name="field"
-                value="security"
-                id="security-radio"> Security
-            </label>
-            <label for="performance-radio" class="d-block">
-              <input
-                type="radio"
-                name="field"
-                value="performance"
-                id="performance-radio"> Performance
-            </label>
-            <label for="accessibility-radio" class="d-block">
-              <input
-                type="radio"
-                name="field"
-                value="accessibility"
-                id="accessibility-radio"> Accessibility
-            </label>
+                <div class="col-12 col-lg-6 mt-3">
+                    <label for="overall-radio" class="d-block">
+                        <input type="radio" name="field" value="overall" id="overall-radio"> Overall
+                    </label>
+                    <label for="metadata-radio" class="d-block">
+                        <input type="radio" name="field" value="metadata" id="metadata-radio"> Metadata
+                    </label>
+                    <label for="url-radio" class="d-block">
+                        <input type="radio" name="field" value="url" id="url-radio"> URL
+                    </label>
+                    <label for="sitemap-radio" class="d-block">
+                        <input type="radio" name="field" value="sitemap" id="sitemap-radio"> Sitemap
+                    </label>
+                    <label for="robots-radio" class="d-block">
+                        <input type="radio" name="field" value="robots" id="robots-radio"> Robots
+                    </label>
+                    <label for="security-radio" class="d-block">
+                        <input type="radio" name="field" value="security" id="security-radio"> Security
+                    </label>
+                    <label for="performance-radio" class="d-block">
+                        <input type="radio" name="field" value="performance" id="performance-radio"> Performance
+                    </label>
+                    <label for="accessibility-radio" class="d-block">
+                        <input type="radio" name="field" value="accessibility" id="accessibility-radio"> Accessibility
+                    </label>
 
-            <div class="w-100 mt-2">
-              <input
-                type="submit"
-                value="Go"
-                class="btn btn-primary w-100 w-lg-auto">
-            </div>
-          </div>
-        </form>
-        <script>
-            if (window.location.pathname == '/') {
-                document
-                    .getElementById('overall-radio')
-                    .checked = true;
-            }
-            if (window.location.pathname.indexOf('/sorts/') == 0) {
-                let sort = window
-                    .location
-                    .pathname
-                    .split('/')[2];
-                if (document.getElementById(`${sort}-radio`)) {
+                    <div class="w-100 mt-2">
+                        <input type="submit" value="Go" class="btn btn-primary w-100 w-lg-auto">
+                    </div>
+                </div>
+            </form>
+            <script>
+                if (window.location.pathname == '/') {
                     document
-                        .getElementById(`${sort}-radio`)
+                        .getElementById('overall-radio')
                         .checked = true;
                 }
-            }
-            let pregenSearches = [
-                'metadata',
-                'robots',
-                'url',
-                'sitemap',
-                'security',
-                'performance',
-                'accessibility'
-            ];
-            document
-                .getElementById('search-form')
-                .addEventListener('submit', function (e) {
-                    if (document.getElementById('search').value.trim() == '') {
-                        let redirecting = false;
-                        let destination = '';
-                        if (document.getElementById('filter').selectedIndex === 0) {
-                            if (document.getElementById(`overall-radio`).checked) {
-                                redirecting = true;
-                                destination = `/`
-                            }
-                            pregenSearches.forEach(p => {
-                                if (document.getElementById(`${p}-radio`).checked) {
+                if (window.location.pathname.indexOf('/sorts/') == 0) {
+                    let sort = window
+                        .location
+                        .pathname
+                        .split('/')[2];
+                    if (document.getElementById(`${sort}-radio`)) {
+                        document
+                            .getElementById(`${sort}-radio`)
+                            .checked = true;
+                    }
+                }
+                let pregenSearches = [
+                    'metadata',
+                    'robots',
+                    'url',
+                    'sitemap',
+                    'security',
+                    'performance',
+                    'accessibility'
+                ];
+                document
+                    .getElementById('search-form')
+                    .addEventListener('submit', function (e) {
+                        if (document.getElementById('search').value.trim() == '') {
+                            let redirecting = false;
+                            let destination = '';
+                            if (document.getElementById('filter').selectedIndex === 0) {
+                                if (document.getElementById(`overall-radio`).checked) {
                                     redirecting = true;
-                                    destination = `/sorts/${p}/`
+                                    destination = `/`
                                 }
-                            })
-                        } else {
-                            if (document.getElementById(`overall-radio`).checked) {
-                                if (document.getElementById('filter').selectedIndex === 2) {
-                                    redirecting = true;
-                                    destination = '/rankings/states/';
-                                }
-                            }
-                            // there is no cities sort yet
-                            // /rankings/cities/#sort
-
-                            pregenSearches.forEach(p => {
-                                if (document.getElementById(`${p}-radio`).checked) {
-
+                                pregenSearches.forEach(p => {
+                                    if (document.getElementById(`${p}-radio`).checked) {
+                                        redirecting = true;
+                                        destination = `/sorts/${p}/`
+                                    }
+                                })
+                            } else {
+                                if (document.getElementById(`overall-radio`).checked) {
                                     if (document.getElementById('filter').selectedIndex === 2) {
                                         redirecting = true;
-                                        destination = '/sorts/states/${p}/';
+                                        destination = '/rankings/states/';
                                     }
                                 }
-                            })
+                                // there is no cities sort yet
+                                // /rankings/cities/#sort
+
+                                pregenSearches.forEach(p => {
+                                    if (document.getElementById(`${p}-radio`).checked) {
+
+                                        if (document.getElementById('filter').selectedIndex === 2) {
+                                            redirecting = true;
+                                            destination = '/sorts/states/${p}/';
+                                        }
+                                    }
+                                })
+                            }
+                            if (redirecting) {
+                                e.preventDefault();
+                                window.location.href = destination;
+                            }
                         }
-                        if (redirecting) {
-                            e.preventDefault();
-                            window.location.href = destination;
-                        }
-                    }
-                })
-        </script>
-      </div>
+                    })
+            </script>
+        </div>
     </div>
     {% elif profile %}
     {% if not mapPage %}
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 py-3">
-          {% include "breadcrumb-profile.html" %}
+        <div class="row">
+            <div class="col-12 py-3">
+                {% include "breadcrumb-profile.html" %}
+            </div>
         </div>
-      </div>
     </div>
     {% endif %}
     {% if mapPage %}
     <div class="pt-5 pb-4 mb-4 border-bottom">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <h1 class="display-5" id="jumbotron-title">
-              <span id="site">{{ title }}</span>
-            </h1>
-            {% include "details.html" %}
-            {% include "actions.html" %}
-            <ul class="nav nav-pills filter small">
-              {% set pillTitle = "States" %}
-              {% set pillUrl = "/map/states/overall/" %}
-              {% set pillIcon = "fa-solid fa-flag-usa" %}
-              {% set pillActive = mapPage == "states" %}
-              {% include "filter-pill.html" %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="display-5" id="jumbotron-title">
+                        <span id="site">{{ title }}</span>
+                    </h1>
+                    {% include "details.html" %}
+                    {% include "actions.html" %}
+                    <ul class="nav nav-pills filter small">
+                        {% set pillTitle = "States" %}
+                        {% set pillUrl = "/map/states/overall/" %}
+                        {% set pillIcon = "fa-solid fa-flag-usa" %}
+                        {% set pillActive = mapPage == "states" %}
+                        {% include "filter-pill.html" %}
 
-              {% set pillTitle = "Cities" %}
-              {% set pillUrl = "/map/cities/" %}
-              {% set pillIcon = "fa-solid fa-city" %}
-              {% set pillActive = mapPage == "cities" %}
-              {% include "filter-pill.html" %}
-            </ul>
-            <ul class="nav nav-pills filter small">
-              {% for field in site.mapFields %}
-                {% if field == "Overall" %}
-                  {% set pillTitle = "All" %}
-                  {% set pillIcon = "fa-solid fa-circle-notch" %}
-                {% else %}
-                  {% set pillTitle = field %}
-                  {% set pillIcon = "fa-solid fa-" + audits[field | lower].icon %}
-                {% endif %}
-                {% set pillId = (field | lower) + "-button" %}
-                {% set pillExtraClass = "map-category" %}
-                {% set pillUrl = "/map/" + mapPage + "/" + ("#" if mapPage == "cities" else "") + (field | lower) + ("/" if mapPage == "states" else "") %}
-                {% set pillActive = topic == field %}
-                {% include "filter-pill.html" %}
-              {% endfor %}
-            </ul>
-          </div>
+                        {% set pillTitle = "Cities" %}
+                        {% set pillUrl = "/map/cities/" %}
+                        {% set pillIcon = "fa-solid fa-city" %}
+                        {% set pillActive = mapPage == "cities" %}
+                        {% include "filter-pill.html" %}
+                    </ul>
+                    <ul class="nav nav-pills filter small">
+                        {% for field in site.mapFields %}
+                        {% if field == "Overall" %}
+                        {% set pillTitle = "All" %}
+                        {% set pillIcon = "fa-solid fa-circle-notch" %}
+                        {% else %}
+                        {% set pillTitle = field %}
+                        {% set pillIcon = "fa-solid fa-" + audits[field | lower].icon %}
+                        {% endif %}
+                        {% set pillId = (field | lower) + "-button" %}
+                        {% set pillExtraClass = "map-category" %}
+                        {% set pillUrl = "/map/" + mapPage + "/" + ("#" if mapPage == "cities" else "") + (field |
+                        lower) + ("/" if mapPage == "states" else "") %}
+                        {% set pillActive = topic == field %}
+                        {% include "filter-pill.html" %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     {% endif %}
     {% elif layout == "docs" %}
     {% if title %}
-      <h1 class="display-5">{{ title }}</h1>
+    <h1 class="display-5">{{ title }}</h1>
     {% endif %}
     {% if description %}
-      <p class="lead fs-5">{{ description }}</p>
+    <p class="lead fs-5">{{ description }}</p>
     {% endif %}
-  {% else %}
+    {% else %}
     <div class="pt-5 pb-4{% if not noBorder %} mb-4 border-bottom{% endif %}">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            {% if breadcrumbParent %}
-              {% include "breadcrumb-default.html" %}
-            {% endif %}
-            {% if title %}
-              <h1 class="display-5">{{ title }}</h1>
-            {% endif %}
-            {% if not search %}
-              {% if descriptionHtml %}
-                <p class="lead fs-5">{{ descriptionHtml | safe }}</p>
-              {% elif description %}
-                <p class="lead fs-5">{{ description }}</p>
-              {% endif %}
-            {% endif %}
-            {% include "details.html" %}
-            {% if search %}
-            <div class="row mt-3 mb-0">
-              <div class="col-12 col-md-6">
-                {% include "search.html" %}
-              </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    {% if breadcrumbParent %}
+                    {% include "breadcrumb-default.html" %}
+                    {% endif %}
+                    {% if title %}
+                    <h1 class="display-5">{{ title }}</h1>
+                    {% endif %}
+                    {% if not search %}
+                    {% if descriptionHtml %}
+                    <p class="lead fs-5">{{ descriptionHtml | safe }}</p>
+                    {% elif description %}
+                    <p class="lead fs-5">{{ description }}</p>
+                    {% endif %}
+                    {% endif %}
+                    {% include "details.html" %}
+                    {% if search %}
+                    <div class="row mt-3 mb-0">
+                        <div class="col-12 col-md-6">
+                            {% include "search.html" %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
             </div>
-            {% endif %}
-          </div>
         </div>
-      </div>
     </div>
-  {% endif %}
+    {% endif %}
 </div>

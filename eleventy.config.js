@@ -363,6 +363,9 @@ export default async function(eleventyConfig) {
         let domainDataFilled = domainData();
         const olddata = JSON.parse(fs.readFileSync('./scripts/data/lastscan.json'));
         let writeChangelog = await appendChangelog(domainDataFilled, olddata);
+
+        // Write search data
+        fs.writeFileSync('./public/data/search.csv', 'domain,agency\n' + domainDataFilled.map(d => d.urlkey + ',"' + d.name + '"').join('\n'));
     });
 
     eleventyConfig.on(
