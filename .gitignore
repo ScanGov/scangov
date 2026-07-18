@@ -7,8 +7,6 @@ ssl/
 .DS_Store
 public/data/*
 !public/data/myscangov_homepage_audits.json
-.claude
-docs/plans/
 extra-ca-certs.pem
 scripts/data/scan_*.json
 scripts/data/baseline_domains.json
