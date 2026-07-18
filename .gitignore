@@ -12,3 +12,7 @@ docs/plans/
 extra-ca-certs.pem
 scripts/data/scan_*.json
 scripts/data/baseline_domains.json
+
+# Claude Code local/generated content
+.claude/
+docs/plans/
