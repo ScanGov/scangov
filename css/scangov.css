@@ -2088,6 +2088,16 @@ td a:hover .fa-circle-info {
     color: var(--bs-body-color) !important;
 }
 
+.js-sidenav a .fa-circle-question,
+.js-sidenav a:hover .fa-circle-question {
+    color: #97d4ea !important;
+}
+
+.js-sidenav a .fa-circle-info,
+.js-sidenav a:hover .fa-circle-info {
+    color: #b8d293 !important;
+}
+
 .fa-triangle-exclamation {
     color: #f4a0a0;
 }
@@ -2620,6 +2630,16 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] a .fa-circle-info,
 [data-bs-theme=light] a:hover .fa-circle-info {
     color: inherit !important;
+}
+
+[data-bs-theme=light] .js-sidenav a .fa-circle-question,
+[data-bs-theme=light] .js-sidenav a:hover .fa-circle-question {
+    color: #1a6fa0 !important;
+}
+
+[data-bs-theme=light] .js-sidenav a .fa-circle-info,
+[data-bs-theme=light] .js-sidenav a:hover .fa-circle-info {
+    color: #2d7a3a !important;
 }
 
 [data-bs-theme=light] .fa-triangle-exclamation {
