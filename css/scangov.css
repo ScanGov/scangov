@@ -1865,6 +1865,10 @@ a[href$=".mp4"]::after {
     color: #c3ebfa !important;
 }
 
+.fa-truck-ramp-box {
+    color: #c3ebfa !important;
+}
+
 .fa-check {
     color: #e7f434 !important;
 }
@@ -2565,6 +2569,7 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] .fa-arrow-right-long,
 [data-bs-theme=light] .fa-book-open,
 [data-bs-theme=light] .fa-book-open-reader,
+[data-bs-theme=light] .fa-truck-ramp-box,
 [data-bs-theme=light] .fa-calendar,
 [data-bs-theme=light] .fa-circle-nodes,
 [data-bs-theme=light] .fa-download,
