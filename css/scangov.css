@@ -2160,6 +2160,22 @@ td a:hover .fa-circle-info {
     color: #a8f2ff;
 }
 
+.fa-file-arrow-down {
+    color: #a8f2ff;
+}
+
+.fa-file-csv {
+    color: #a8f2ff;
+}
+
+.fa-file-code {
+    color: #a8f2ff;
+}
+
+.fa-markdown {
+    color: #a8f2ff;
+}
+
 .fa-filter {
     color: #cbc4f2;
 }
@@ -2576,6 +2592,10 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] .fa-envelope,
 [data-bs-theme=light] .fa-file,
 [data-bs-theme=light] .fa-file-lines,
+[data-bs-theme=light] .fa-file-arrow-down,
+[data-bs-theme=light] .fa-file-csv,
+[data-bs-theme=light] .fa-file-code,
+[data-bs-theme=light] .fa-markdown,
 [data-bs-theme=light] .fa-linkedin,
 [data-bs-theme=light] .fa-linkedin-in,
 [data-bs-theme=light] .fa-x-twitter,
@@ -3174,4 +3194,37 @@ dialog::backdrop { }
 
 @keyframes slide-in-up {
     0% { transform: translateY(100%); }
+}
+
+.tooltip.show {
+    --bs-tooltip-opacity: 1;
+}
+
+.tooltip .tooltip-inner {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border: 1px solid var(--bs-border-color);
+    box-shadow: var(--bs-box-shadow);
+}
+
+.tooltip[data-popper-placement^="top"] .tooltip-arrow::before {
+    border-top-color: var(--bs-body-bg);
+}
+
+.tooltip[data-popper-placement^="bottom"] .tooltip-arrow::before {
+    border-bottom-color: var(--bs-body-bg);
+}
+
+.tooltip[data-popper-placement^="left"] .tooltip-arrow::before {
+    border-left-color: var(--bs-body-bg);
+}
+
+.tooltip[data-popper-placement^="right"] .tooltip-arrow::before {
+    border-right-color: var(--bs-body-bg);
+}
+
+.card-body.stretched-link:hover {
+    color: inherit !important;
 }
