@@ -21,12 +21,23 @@
           </table>
         </div>
         <div class="alert alert-info small mt-2" role="alert">
-          <i class="fa-solid fa-circle-info"></i>
-          <a href="https://docs.scangov.org/rankings">Rank</a>
+          Rank
+          {% set infoHref = "https://docs.scangov.org/rankings" %}
+          {% set infoLabel = "Rank" %}
+          {% set infoDescription = "How rank position is calculated." %}
+          {% include "info-icon.html" %}
           &middot;
-          <a href="https://docs.scangov.org/status">Status</a>
+          Status
+          {% set infoHref = "https://docs.scangov.org/status" %}
+          {% set infoLabel = "Status" %}
+          {% set infoDescription = "What each status icon means." %}
+          {% include "info-icon.html" %}
           &middot;
-          <a href="https://docs.scangov.org/grades">Grade</a>
+          Grade
+          {% set infoHref = "https://docs.scangov.org/grades" %}
+          {% set infoLabel = "Grade" %}
+          {% set infoDescription = "How we calculate letter grades." %}
+          {% include "info-icon.html" %}
         </div>
       </div>
     </div>

@@ -29,7 +29,10 @@
             <td data-sort="{{ attrInfo.displayName if attrInfo else attrKey }}">
               {% if attrInfo %}
                 {{ attrInfo.displayName }}
-                <a href="https://standards.scangov.org/{{ attrInfo.key }}" aria-label="View standard"><i class="fa-solid fa-circle-info"></i></a><br>
+                {% set infoHref = "https://standards.scangov.org/" + attrInfo.key %}
+                {% set infoLabel = attrInfo.displayName %}
+                {% set infoDescription = attrInfo.description %}
+                {% include "info-icon.html" %}<br>
                 <small class="text-body-secondary font-monospace">{{ attrInfo.description }}</small>
               {% else %}
                 {{ attrKey }}
@@ -41,10 +44,17 @@
   </table>
 </div>
 <div class="alert alert-info small mt-2" role="alert">
-  <i class="fa-solid fa-circle-info"></i>
-  <a href="https://docs.scangov.org/standards/">Standards</a>
+  Standards
+  {% set infoHref = "https://docs.scangov.org/standards/" %}
+  {% set infoLabel = "Standards" %}
+  {% set infoDescription = "The standards ScanGov checks against for this indicator." %}
+  {% include "info-icon.html" %}
   &middot;
-  <a href="https://docs.scangov.org/status">Status</a>
+  Status
+  {% set infoHref = "https://docs.scangov.org/status" %}
+  {% set infoLabel = "Status" %}
+  {% set infoDescription = "What each status icon means." %}
+  {% include "info-icon.html" %}
 </div>
 <script>
 (function () {

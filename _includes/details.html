@@ -37,7 +37,15 @@
 #}
 {% if showLastUpdated and not profile %}
 <ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
-    <li>Last updated: <span id="updated">{{ updates }}</span></li>
+    <li>
+        Last scan:
+        <span id="updated">{{ updates }}</span>
+        {% set infoHref = "https://docs.scangov.org/scans/" %}
+        {% set infoLabel = "Last scan" %}
+        {% set infoDescription = "How often ScanGov scans this site." %}
+        {% set infoMatchTextColor = true %}
+        {% include "info-icon.html" %}
+    </li>
 </ul>
 {% endif %}
 {% if profile %}
@@ -57,7 +65,7 @@
     {% endif %}
     {% if site.url == 'https://scangov.org' %}
     <li>
-        Pages: 1
+        Pages: 1 (homepage only)
         &middot; <a href="https://scangov.com/plans">Get full site scan</a>
     </li>
     {% elif site.url == 'https://my.scangov.com' %}
@@ -71,7 +79,11 @@
     <li>
         Last scan:
         <span id="updated">{{ updates }}</span>
-        &middot; <a href="https://docs.scangov.org/scans/">About scans</a>
+        {% set infoHref = "https://docs.scangov.org/scans/" %}
+        {% set infoLabel = "Last scan" %}
+        {% set infoDescription = "How often ScanGov scans this site." %}
+        {% set infoMatchTextColor = true %}
+        {% include "info-icon.html" %}
     </li>
     {% elif site.url == 'https://my.scangov.com' %}
     <li>

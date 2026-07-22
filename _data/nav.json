@@ -1,5 +1,10 @@
 [
   {
+    "title": "Rankings",
+    "url": "/rankings/",
+    "icon": "fa-solid fa-ranking-star"
+  },
+  {
     "title": "Pulse",
     "url": "/pulse/",
     "icon": "fa-solid fa-wave-square"

@@ -7,16 +7,104 @@ descriptionHtml: 'A <a href="https://scangov.com">ScanGov</a> project tracking w
 hideDescription: true
 showLastUpdated: true
 keywords: government domains, government websites
-
-pagination:
-    data: sorts.overall
-    size: 100
-    alias: member
 ---
 
-{% set dataset = sorts.overall %}
-{% set specificAttribute = "" %}
-{% set currentsort = "" %}
-{% set showPagination = true %}
+<main id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <ul class="nav nav-pills filter small mb-3" id="homepage-summary-tabs">
+          <li class="nav-item"><button type="button" class="nav-link mx-1 active" data-category="all" aria-current="page">All</button></li>
+          <li class="nav-item"><button type="button" class="nav-link mx-1" data-category="cities">Cities</button></li>
+          <li class="nav-item"><button type="button" class="nav-link mx-1" data-category="counties">Counties</button></li>
+          <li class="nav-item"><button type="button" class="nav-link mx-1" data-category="states">States</button></li>
+          <li class="nav-item"><button type="button" class="nav-link mx-1" data-category="federal">Federal</button></li>
+          <li class="nav-item"><button type="button" class="nav-link mx-1" data-category="edu">Education</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
+        <div class="card card-grade {% if homepagesummary.all.overall !== null %}text-bg-{{ homepagesummary.all.overall | colorify }}{% endif %}" id="summary-overall-card">
+          <div class="card-header">
+            Overall
+            {% set infoHref = "https://docs.scangov.org/grades" %}
+            {% set infoLabel = "Overall" %}
+            {% set infoDescription = "How we calculate letter grades." %}
+            {% include "info-icon.html" %}
+          </div>
+          <a href="/rankings/" id="summary-overall-link" class="card-body text-decoration-none stretched-link" style="position: relative;">
+            <p class="display-1" id="summary-overall-grade">{% if homepagesummary.all.overall !== null %}{{ homepagesummary.all.overall | gradify }}{% else %}&ndash;{% endif %}</p>
+          </a>
+        </div>
+      </div>
+      {% for card in site.data %}
+        {% set lower = card.toLowerCase() %}
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
+          <div class="card card-grade {% if homepagesummary.all[lower] !== null %}text-bg-{{ homepagesummary.all[lower] | colorify }}{% endif %}" id="summary-{{ lower }}-card">
+            <div class="card-header">
+              {{ card }}
+              {% set infoHref = "https://docs.scangov.org/indicators/" %}
+              {% set infoLabel = card %}
+              {% set infoDescription = audits[lower].description %}
+              {% include "info-icon.html" %}
+            </div>
+            <a href="/rankings/{{ lower }}/" id="summary-{{ lower }}-link" class="card-body text-decoration-none stretched-link" style="position: relative;">
+              <p class="display-1" id="summary-{{ lower }}-grade">{% if homepagesummary.all[lower] !== null %}{{ homepagesummary.all[lower] | gradify }}{% else %}&ndash;{% endif %}</p>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
 
-{% include "sortcontent.html" %}
+<script>
+  var homepageSummaryData = {{ homepagesummary | dump | safe }};
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var topics = ['overall', 'accessibility', 'botability', 'security', 'usability'];
+    var categoryPaths = { all: '', cities: 'cities/', counties: 'counties/', states: 'states/', federal: 'federal/', edu: 'edu/' };
+    var colorForScore = function(score) {
+      if (score === null || score === undefined) return null;
+      if (score >= 90) return 'success';
+      if (score >= 70) return 'warning';
+      return 'danger';
+    };
+    var gradeForScore = function(score) {
+      if (score === null || score === undefined) return '–';
+      if (score >= 90) return 'A';
+      if (score >= 80) return 'B';
+      if (score >= 70) return 'C';
+      if (score >= 60) return 'D';
+      return 'F';
+    };
+    document.querySelectorAll('#homepage-summary-tabs .nav-link').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('#homepage-summary-tabs .nav-link').forEach(function(b) {
+          b.classList.remove('active');
+          b.removeAttribute('aria-current');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-current', 'page');
+        var category = btn.dataset.category;
+        var categoryPath = categoryPaths[category] || '';
+        var summary = homepageSummaryData[category] || {};
+        topics.forEach(function(topic) {
+          var score = summary[topic];
+          var card = document.getElementById('summary-' + topic + '-card');
+          var grade = document.getElementById('summary-' + topic + '-grade');
+          var link = document.getElementById('summary-' + topic + '-link');
+          if (!card || !grade) return;
+          var color = colorForScore(score);
+          card.className = card.className.replace(/\btext-bg-\S+/, '').trim() + (color ? ' text-bg-' + color : '');
+          grade.textContent = gradeForScore(score);
+          if (link) {
+            link.href = topic === 'overall' ? '/rankings/' + categoryPath : '/rankings/' + categoryPath + topic + '/';
+          }
+        });
+      });
+    });
+  });
+</script>
