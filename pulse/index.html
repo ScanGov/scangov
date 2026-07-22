@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark light">
     
-    <meta name="description" content="The state of federal, state, and local government digital experience.">
+    <meta name="description" content="The state of digital experience.">
     
     
     
@@ -25,7 +25,7 @@
     <meta property="og:site_name" content="Project ScanGov">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Pulse">
-    <meta property="og:description" content="The state of federal, state, and local government digital experience.">
+    <meta property="og:description" content="The state of digital experience.">
     <meta property="og:url" content="https://scangov.org/pulse/">
     
     <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
@@ -141,7 +141,7 @@
         
           
             <li class="nav-item me-3 me-lg-0 small">
-              <a class="nav-link mx-1" href="/changelog">
+              <a class="nav-link mx-1" href="/changelog/">
                 <svg class="fa-solid fa-timeline me-2" aria-hidden="true"><use href="#fas-fa-timeline" xlink:href="#fas-fa-timeline"></use></svg>
                 Changelog
               </a>
@@ -174,7 +174,7 @@
 <main id="main-content">
     <div>
     
-    <div class="pt-5 pb-4 mb-4 border-bottom">
+    <div class="pt-5 pb-4">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -184,12 +184,18 @@
                     
                     
                     
-                    <p class="lead fs-5">The state of federal, state, and local government digital experience.</p>
+                    <p class="lead fs-5">The state of digital experience.</p>
                     
                     
                     
 
+
+
+
 <ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
+    <li>
+        Sites: 1381
+    </li>
     <li>
         Last scan:
         <span id="updated">6/24/2026</span>
@@ -208,18 +214,8 @@
 
 
                     
-                </div>
-            </div>
-        </div>
-    </div>
-    
-</div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                
-
+                    
+                    
 
 
 <ul class="actions list-group list-group-horizontal-sm gap-2 mt-3 mb-3 pb-3 border-bottom">
@@ -299,42 +295,53 @@
     });
 </script>
 
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                
 <div class="border-bottom pb-4 mb-4">
-    <h2 class="mb-3" id="domains">Domains</h2>
-    <p>How scanned domains break down by type and overall grade.</p>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-    <script>
+  <h2 class="mb-3" id="domains">Domains</h2>
+  <p>How scanned domains break down by type and overall grade.</p>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script>
       var _isDark;
       document.addEventListener('DOMContentLoaded', function () {
         _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
         Chart.defaults.color = _isDark ? '#fff' : '#000';
         Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
       });
-    </script>
-    <div class="row">
-      <div class="col-12 col-md-5">
-        <p class="text-center mb-1 small">By domain type</p>
-        <canvas id="domains-chart"></canvas>
-      </div>
-      <div class="col-12 col-md-5">
-        <p class="text-center mb-1 small">By overall grade</p>
-        <canvas id="grades-dist-chart"></canvas>
-      </div>
+  </script>
+  <div class="row">
+    <div class="col-12 col-md-6 text-center p-4">
+      <p class="text-center mb-1 small">By domain type</p>
+      <canvas id="domains-chart"></canvas>
     </div>
-    <script>
+    <div class="col-12 col-md-6 text-center p-4">
+      <p class="text-center mb-1 small">By overall grade</p>
+      <canvas id="grades-dist-chart"></canvas>
+    </div>
+  </div>
+  <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var donutUrls = ['/rankings/federal/', '/rankings/states/', '/rankings/cities/'];
+        var donutUrls = ['/rankings/federal/', '/rankings/states/', '/rankings/cities/', '/rankings/counties/', '/rankings/edu/'];
         var donutEl = document.getElementById('domains-chart');
         var donutChart = new Chart(donutEl, {
           type: 'doughnut',
           data: {
-            labels: ['Federal (829)', 'States (51)', 'Cities (272)'],
-            datasets: [{ data: [829, 51, 272], backgroundColor: _isDark ? ['#96abee', '#70e17b', '#ffbc78'] : ['#1d4e9a', '#1a7a27', '#a85000'], hoverOffset: 4 }]
+            labels: ['Federal (829)', 'States (51)', 'Cities (272)', 'Counties (179)', 'Education (51)'],
+            datasets: [{ data: [829, 51, 272, 179, 51], backgroundColor: _isDark ? ['#96abee', '#70e17b', '#ffbc78', '#c5ee93', '#e6a8ff'] : ['#1d4e9a', '#1a7a27', '#a85000', '#4d7c00', '#7b3fa0'], hoverOffset: 4 }]
           },
           options: {
             plugins: {
-              legend: { position: 'top' },
+              legend: { position: 'top', labels: { padding: 20 } },
               tooltip: { callbacks: { label: function (ctx) { var t = ctx.dataset.data.reduce(function (a, b) { return a + b; }, 0); var pct = t ? Math.round(ctx.parsed / t * 100) : 0; return ' ' + ctx.parsed + ' (' + pct + '%)'; } } }
             },
             onHover: function (e, els) { e.native.target.style.cursor = els.length ? 'pointer' : 'default'; }
@@ -355,22 +362,22 @@
           },
           options: {
             plugins: {
-              legend: { position: 'top' },
+              legend: { position: 'top', labels: { padding: 20 } },
               tooltip: { callbacks: { label: function (ctx) { var t = ctx.dataset.data.reduce(function (a, b) { return a + b; }, 0); var pct = t ? Math.round(ctx.parsed / t * 100) : 0; return ' ' + ctx.parsed + ' (' + pct + '%)'; } } }
             }
           }
         });
       });
-    </script>
-  </div>
+  </script>
+</div>
 
-  <div class="border-bottom pb-4 mb-4">
-    <h2 class="mb-3" id="grades">Grades</h2>
-    <p>Average grades across all scanned domains for each indicator, color-coded by grade.</p>
-    <div class="col-12 col-lg-10">
-      <canvas id="grades-chart"></canvas>
-    </div>
-    <script>
+<div class="border-bottom pb-4 mb-4">
+  <h2 class="mb-3" id="grades">Grades</h2>
+  <p>Average grades across all scanned domains for each indicator, color-coded by grade.</p>
+  <div class="col-12 col-lg-10">
+    <canvas id="grades-chart"></canvas>
+  </div>
+  <script>
       document.addEventListener('DOMContentLoaded', function () {
         function scoreToGrade(s) {
           if (s >= 90) return 'A';
@@ -419,37 +426,37 @@
           }
         });
       });
-    </script>
-    <div class="alert alert-info small mt-2" role="alert">
-      Grades
-      
-      
-      
-      
+  </script>
+  <div class="alert alert-info small mt-2" role="alert">
+    Grades
+    
+    
+    
+    
 <a href="https://docs.scangov.org/grades/" class="icon-link" style="position: relative; z-index: 2;" aria-label="More about Grades" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="How we calculate letter grades. <a href=&quot;https://docs.scangov.org/grades/&quot;>Learn more</a>">
   <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
 </a>
 
-      &middot;
+    &middot; 
       Standards
-      
-      
-      
-      
+    
+    
+    
+    
 <a href="https://docs.scangov.org/standards/" class="icon-link" style="position: relative; z-index: 2;" aria-label="More about Standards" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="The standards ScanGov checks against. <a href=&quot;https://docs.scangov.org/standards/&quot;>Learn more</a>">
   <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
 </a>
 
-    </div>
   </div>
+</div>
 
-  <div class="border-bottom pb-4 mb-4">
-    <h2 class="mb-3" id="scores-by-indicator">Scores by indicator</h2>
-    <p>Comparison of average federal, state, and city domains scores across each digital experience indicator.</p>
-    <div class="col-12 col-lg-10">
-      <canvas id="indicator-chart"></canvas>
-    </div>
-    <script>
+<div class="border-bottom pb-4 mb-4">
+  <h2 class="mb-3" id="scores-by-indicator">Scores by indicator</h2>
+  <p>Comparison of average federal, state, city, county, and education domains scores across each digital experience indicator.</p>
+  <div class="col-12 col-lg-10">
+    <canvas id="indicator-chart"></canvas>
+  </div>
+  <script>
       document.addEventListener('DOMContentLoaded', function () {
         new Chart(document.getElementById('indicator-chart'), {
           type: 'bar',
@@ -485,6 +492,26 @@
                   54
                 ],
                 backgroundColor: _isDark ? '#ffbc78' : '#a85000'
+              },
+              {
+                label: 'Counties',
+                data: [
+                  88,
+                  72,
+                  73,
+                  51
+                ],
+                backgroundColor: _isDark ? '#c5ee93' : '#4d7c00'
+              },
+              {
+                label: 'Education',
+                data: [
+                  92,
+                  83,
+                  74,
+                  61
+                ],
+                backgroundColor: _isDark ? '#e6a8ff' : '#7b3fa0'
               }
             ]
           },
@@ -497,34 +524,34 @@
           }
         });
       });
-    </script>
-    <div class="alert alert-info small mt-2" role="alert">
-      Scores
-      
-      
-      
-      
+  </script>
+  <div class="alert alert-info small mt-2" role="alert">
+    Scores
+    
+    
+    
+    
 <a href="https://docs.scangov.org/scores/" class="icon-link" style="position: relative; z-index: 2;" aria-label="More about Scores" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="How we calculate percentage scores. <a href=&quot;https://docs.scangov.org/scores/&quot;>Learn more</a>">
   <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
 </a>
 
-      &middot;
+    &middot; 
       Standards
-      
-      
-      
-      
+    
+    
+    
+    
 <a href="https://docs.scangov.org/standards/" class="icon-link" style="position: relative; z-index: 2;" aria-label="More about Standards" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="The standards ScanGov checks against. <a href=&quot;https://docs.scangov.org/standards/&quot;>Learn more</a>">
   <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
 </a>
 
-    </div>
   </div>
+</div>
 
-  <div class="border-bottom pb-4 mb-4">
-    <h2 class="mb-3" id="states">States</h2>
-    <p>ScanGov overall score for each state's main website.</p>
-    <!--
+<div class="border-bottom pb-4 mb-4">
+  <h2 class="mb-3" id="states">States</h2>
+  <p>ScanGov overall score for each state's main website.</p>
+  <!--
 Heitordp, CC0, via Wikimedia Commons
 https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
 -->
@@ -1006,19 +1033,22 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
     <span class="text-bg-secondary">　</span> Inaccessible
 </p>
 
-  </div>
+</div>
 
-  <div class="pb-4 mb-4">
-    <h2 class="mb-3" id="top-issues">Top issues</h2>
-    <p>Top 10 failing checks per indicator.</p>
-    <div class="row">
+<div class="pb-4 mb-4">
+  <h2 class="mb-3" id="top-issues">Top issues</h2>
+  <p>Top 5 failing checks per indicator.</p>
+  <div class="row">
+    
       
+      
+      <div class="col-12 col-lg-10 mb-4">
+        <h3 class="h5" id="accessibility">Accessibility</h3>
         
+          <p>Meet WCAG standards so every type of user can use your website.</p>
         
-        <div class="col-12 col-lg-10 mb-4">
-          <h3 class="h5" id="accessibility">Accessibility</h3>
-          <canvas id="chart-accessibility"></canvas>
-          
+        <canvas id="chart-accessibility"></canvas>
+        
           <div class="alert alert-info small mt-2" role="alert">
             <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
             Accessibility:
@@ -1030,15 +1060,18 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
             &middot;
             <a href="https://scangov.com/accessibility/">ScanGov</a>
           </div>
-          
-        </div>
+        
+      </div>
+    
       
+      
+      <div class="col-12 col-lg-10 mb-4">
+        <h3 class="h5" id="botability">Botability</h3>
         
+          <p>Help AI and search engines discover, crawl, and index your website.</p>
         
-        <div class="col-12 col-lg-10 mb-4">
-          <h3 class="h5" id="botability">Botability</h3>
-          <canvas id="chart-botability"></canvas>
-          
+        <canvas id="chart-botability"></canvas>
+        
           <div class="alert alert-info small mt-2" role="alert">
             <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
             Botability:
@@ -1050,15 +1083,18 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
             &middot;
             <a href="https://scangov.com/botability/">ScanGov</a>
           </div>
-          
-        </div>
+        
+      </div>
+    
       
+      
+      <div class="col-12 col-lg-10 mb-4">
+        <h3 class="h5" id="security">Security</h3>
         
+          <p>Secure your site and protect users with proper security practices.</p>
         
-        <div class="col-12 col-lg-10 mb-4">
-          <h3 class="h5" id="security">Security</h3>
-          <canvas id="chart-security"></canvas>
-          
+        <canvas id="chart-security"></canvas>
+        
           <div class="alert alert-info small mt-2" role="alert">
             <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
             Security:
@@ -1070,15 +1106,18 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
             &middot;
             <a href="https://scangov.com/security/">ScanGov</a>
           </div>
-          
-        </div>
+        
+      </div>
+    
       
+      
+      <div class="col-12 col-lg-10 mb-4">
+        <h3 class="h5" id="usability">Usability</h3>
         
+          <p>Optimize content structure so users quickly find what they need.</p>
         
-        <div class="col-12 col-lg-10 mb-4">
-          <h3 class="h5" id="usability">Usability</h3>
-          <canvas id="chart-usability"></canvas>
-          
+        <canvas id="chart-usability"></canvas>
+        
           <div class="alert alert-info small mt-2" role="alert">
             <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
             Usability:
@@ -1090,13 +1129,13 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
             &middot;
             <a href="https://scangov.com/usability/">ScanGov</a>
           </div>
-          
-        </div>
-      
-    </div>
-    <script>
+        
+      </div>
+    
+  </div>
+  <script>
       document.addEventListener('DOMContentLoaded', function () {
-      var chartData = {"accessibility":[{"attr":"heading-order","label":"Heading elements appear in a sequentially-descending order","failCount":424},{"attr":"link-name","label":"Links have a discernible name","failCount":405},{"attr":"color-contrast","label":"Background and foreground colors have a sufficient contrast ratio","failCount":398},{"attr":"target-size","label":"Touch targets have sufficient size and spacing","failCount":361},{"attr":"landmark-one-main","label":"Document has a main landmark","failCount":324},{"attr":"label-content-name-mismatch","label":"Elements with visible text labels have matching accessible names","failCount":235},{"attr":"image-alt","label":"Image elements have [alt] attributes","failCount":167},{"attr":"aria-required-children","label":"Elements with an ARIA [role] that require children to contain a specific [role] have all required children","failCount":163},{"attr":"image-aspect-ratio","label":"Image aspect ratio","failCount":154},{"attr":"aria-hidden-focus","label":"[aria-hidden=\"true\"] elements do not contain focusable descendents","failCount":151}],"botability":[{"attr":"schema-government-organization","label":"GovernmentOrganization Schema.org type","failCount":1273},{"attr":"sitemap-robots","label":"Sitemap in robots.txt","failCount":839},{"attr":"xml","label":"Sitemap XML","failCount":620},{"attr":"status","label":"Sitemap status","failCount":620},{"attr":"link-text","label":"Link text","failCount":504},{"attr":"valid","label":"Robots valid","failCount":256},{"attr":"allowed","label":"Robots allowed","failCount":36},{"attr":"canonical","label":"Canonical","failCount":16},{"attr":"hreflang","label":"hreflang","failCount":3}],"security":[{"attr":"securitytxt","label":"security.txt","failCount":1320},{"attr":"xcontenttypeoptions","label":"X-Content-Type-Options","failCount":749},{"attr":"errors-in-console","label":"Errors in the console","failCount":556},{"attr":"dotgov","label":"Sponsored top-level domain (sTLD)","failCount":318},{"attr":"csp","label":"Content security policy (CSP)","failCount":6},{"attr":"paste-preventing-inputs","label":"Paste preventing inputs","failCount":1},{"attr":"hsts","label":"HTTP Strict Transport Security (HSTS)","failCount":1},{"attr":"clickjacking-mitigation","label":"Clickjacking mitigation","failCount":1}],"usability":[{"attr":"ogimagealt","label":"Open Graph image alt","failCount":1260},{"attr":"ogsitename","label":"Open Graph site name","failCount":970},{"attr":"ogtype","label":"Open Graph type","failCount":888},{"attr":"ogimage","label":"Open Graph image","failCount":887},{"attr":"ogdescription","label":"Open Graph description","failCount":866},{"attr":"ogurl","label":"Open Graph URL","failCount":841},{"attr":"lcp","label":"Largest Contentful Paint (LCP)","failCount":746},{"attr":"ogtitle","label":"Open Graph title","failCount":728},{"attr":"description","label":"Page description","failCount":699},{"attr":"fcp","label":"First Contentful Paint (FCP)","failCount":666}]};
+      var chartData = {"accessibility":[{"attr":"heading-order","label":"Heading elements appear in a sequentially-descending order","failCount":424},{"attr":"link-name","label":"Links have a discernible name","failCount":405},{"attr":"color-contrast","label":"Background and foreground colors have a sufficient contrast ratio","failCount":398},{"attr":"target-size","label":"Touch targets have sufficient size and spacing","failCount":361},{"attr":"landmark-one-main","label":"Document has a main landmark","failCount":324}],"botability":[{"attr":"schema-government-organization","label":"GovernmentOrganization Schema.org type","failCount":1273},{"attr":"sitemap-robots","label":"Sitemap in robots.txt","failCount":839},{"attr":"xml","label":"Sitemap XML","failCount":620},{"attr":"status","label":"Sitemap status","failCount":620},{"attr":"link-text","label":"Link text","failCount":504}],"security":[{"attr":"securitytxt","label":"security.txt","failCount":1320},{"attr":"xcontenttypeoptions","label":"X-Content-Type-Options","failCount":749},{"attr":"errors-in-console","label":"Errors in the console","failCount":556},{"attr":"dotgov","label":"Sponsored top-level domain (sTLD)","failCount":318},{"attr":"csp","label":"Content security policy (CSP)","failCount":6}],"usability":[{"attr":"ogimagealt","label":"Open Graph image alt","failCount":1260},{"attr":"ogsitename","label":"Open Graph site name","failCount":970},{"attr":"ogtype","label":"Open Graph type","failCount":888},{"attr":"ogimage","label":"Open Graph image","failCount":887},{"attr":"ogdescription","label":"Open Graph description","failCount":866}]};
       var indicatorColors = {"accessibility":"#a8f2ff","botability":"#e7f434","security":"#ff8d7b","usability":"#d5bfff"};
       var indicatorColorsLight = {"accessibility":"#1d4e9a","botability":"#4d7c00","security":"#a85000","usability":"#7b3fa0"};
       ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
@@ -1152,9 +1191,8 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
         });
       });
       });
-    </script>
-  </div>
-
+  </script>
+</div>
             </div>
         </div>
     </div>

@@ -141,7 +141,7 @@
         
           
             <li class="nav-item me-3 me-lg-0 small">
-              <a class="nav-link mx-1" href="/changelog">
+              <a class="nav-link mx-1" href="/changelog/">
                 <svg class="fa-solid fa-timeline me-2" aria-hidden="true"><use href="#fas-fa-timeline" xlink:href="#fas-fa-timeline"></use></svg>
                 Changelog
               </a>
@@ -184,12 +184,18 @@
                     
                     
                     
-                    <p class="lead fs-5">A <a href="https://scangov.com">ScanGov</a> project tracking web <a href="https://scangov.com/accessibility/">accessibility</a>, <a href="https://scangov.com/botability/">botability</a>, <a href="https://scangov.com/security/">security</a>, and <a href="https://scangov.com/usability/">usability</a>.</p>
+                    <p>A <a href="https://scangov.com">ScanGov</a> project tracking web <a href="https://scangov.com/accessibility/">accessibility</a>, <a href="https://scangov.com/botability/">botability</a>, <a href="https://scangov.com/security/">security</a>, and <a href="https://scangov.com/usability/">usability</a>.</p>
                     
                     
                     
 
+
+
+
 <ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
+    <li>
+        Sites: 1381
+    </li>
     <li>
         Last scan:
         <span id="updated">6/24/2026</span>
@@ -207,6 +213,21 @@
 
 
 
+                    
+                    <div class="row mt-4 mb-0">
+                        <div class="col-12 col-md-6">
+                            <form id="search-form" action="/search/">
+    <label class="form-label visually-hidden" for="search-input">Search domains:</label>
+    <div class="input-group input-group-lg">
+        <input name="search" type="text" class="form-control shadow" placeholder="search domains" id="search-input" autocomplete="off">
+        <button type="submit" class="btn btn-primary">Go</button>
+    </div>
+    <div id="search-results"></div>
+</form>
+
+                        </div>
+                    </div>
+                    
                     
                 </div>
             </div>
@@ -332,6 +353,221 @@
           </div>
         </div>
       
+    </div>
+
+    <div class="border-top border-bottom pt-4 pb-4 mb-4 mt-4">
+      <h2 class="mb-3" id="domains">Domains</h2>
+      <p>How scanned domains break down by type and overall grade.</p>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+      <script>
+        var _isDark;
+        document.addEventListener('DOMContentLoaded', function () {
+          _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
+          Chart.defaults.color = _isDark ? '#fff' : '#000';
+          Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+        });
+      </script>
+      <div class="row">
+        <div class="col-12 col-md-6 text-center p-4">
+          <p class="text-center mb-1 small">By domain type</p>
+          <canvas id="domains-chart"></canvas>
+        </div>
+        <div class="col-12 col-md-6 text-center p-4">
+          <p class="text-center mb-1 small">By overall grade</p>
+          <canvas id="grades-dist-chart"></canvas>
+        </div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var donutUrls = ['/rankings/federal/', '/rankings/states/', '/rankings/cities/', '/rankings/counties/', '/rankings/edu/'];
+          var donutEl = document.getElementById('domains-chart');
+          var donutChart = new Chart(donutEl, {
+            type: 'doughnut',
+            data: {
+              labels: ['Federal (829)', 'States (51)', 'Cities (272)', 'Counties (179)', 'Education (51)'],
+              datasets: [{ data: [829, 51, 272, 179, 51], backgroundColor: _isDark ? ['#96abee', '#70e17b', '#ffbc78', '#c5ee93', '#e6a8ff'] : ['#1d4e9a', '#1a7a27', '#a85000', '#4d7c00', '#7b3fa0'], hoverOffset: 4 }]
+            },
+            options: {
+              plugins: {
+                legend: { position: 'top', labels: { padding: 20 } },
+                tooltip: { callbacks: { label: function (ctx) { var t = ctx.dataset.data.reduce(function (a, b) { return a + b; }, 0); var pct = t ? Math.round(ctx.parsed / t * 100) : 0; return ' ' + ctx.parsed + ' (' + pct + '%)'; } } }
+              },
+              onHover: function (e, els) { e.native.target.style.cursor = els.length ? 'pointer' : 'default'; }
+            }
+          });
+          donutEl.addEventListener('click', function (e) {
+            var pts = donutChart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
+            if (pts.length) window.location.href = donutUrls[pts[0].index];
+          });
+
+          var gradeData = {"A":77,"B":450,"C":632,"D":198,"F":24};
+          var gradeEl = document.getElementById('grades-dist-chart');
+          new Chart(gradeEl, {
+            type: 'doughnut',
+            data: {
+              labels: ['A (' + gradeData.A + ')', 'B (' + gradeData.B + ')', 'C (' + gradeData.C + ')', 'D (' + gradeData.D + ')', 'F (' + gradeData.F + ')'],
+              datasets: [{ data: [gradeData.A, gradeData.B, gradeData.C, gradeData.D, gradeData.F], backgroundColor: _isDark ? ['#70e17b', '#c5ee93', '#face00', '#ffbc78', '#e41d3d'] : ['#1a7a27', '#4d7c00', '#8a6600', '#a85000', '#b91c1c'], hoverOffset: 4 }]
+            },
+            options: {
+              plugins: {
+                legend: { position: 'top', labels: { padding: 20 } },
+                tooltip: { callbacks: { label: function (ctx) { var t = ctx.dataset.data.reduce(function (a, b) { return a + b; }, 0); var pct = t ? Math.round(ctx.parsed / t * 100) : 0; return ' ' + ctx.parsed + ' (' + pct + '%)'; } } }
+              }
+            }
+          });
+        });
+      </script>
+    </div>
+
+    <div class="pb-4 mb-4">
+      <h2 class="mb-3" id="top-issues">Top issues</h2>
+      <p>Top 5 failing checks per indicator.</p>
+      <div class="row">
+        
+          
+          
+          <div class="col-12 col-md-6 mb-4">
+            <h3 class="h5" id="accessibility">Accessibility</h3>
+            <p>Meet WCAG standards so every type of user can use your website.</p>
+            <canvas id="home-chart-accessibility"></canvas>
+            
+            <div class="alert alert-info small mt-2" role="alert">
+              <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
+              Accessibility:
+              <a href="https://standards.scangov.org/accessibility/">Standards</a>
+              &middot;
+              <a href="https://standards.scangov.org/guidance/accessibility/">Guidance</a>
+              &middot;
+              <a href="https://scangov.org/rankings/accessibility/">Project ScanGov</a>
+              &middot;
+              <a href="https://scangov.com/accessibility/">ScanGov</a>
+            </div>
+            
+          </div>
+        
+          
+          
+          <div class="col-12 col-md-6 mb-4">
+            <h3 class="h5" id="botability">Botability</h3>
+            <p>Help AI and search engines discover, crawl, and index your website.</p>
+            <canvas id="home-chart-botability"></canvas>
+            
+            <div class="alert alert-info small mt-2" role="alert">
+              <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
+              Botability:
+              <a href="https://standards.scangov.org/botability/">Standards</a>
+              &middot;
+              <a href="https://standards.scangov.org/guidance/botability/">Guidance</a>
+              &middot;
+              <a href="https://scangov.org/rankings/botability/">Project ScanGov</a>
+              &middot;
+              <a href="https://scangov.com/botability/">ScanGov</a>
+            </div>
+            
+          </div>
+        
+          
+          
+          <div class="col-12 col-md-6 mb-4">
+            <h3 class="h5" id="security">Security</h3>
+            <p>Secure your site and protect users with proper security practices.</p>
+            <canvas id="home-chart-security"></canvas>
+            
+            <div class="alert alert-info small mt-2" role="alert">
+              <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
+              Security:
+              <a href="https://standards.scangov.org/security/">Standards</a>
+              &middot;
+              <a href="https://standards.scangov.org/guidance/security/">Guidance</a>
+              &middot;
+              <a href="https://scangov.org/rankings/security/">Project ScanGov</a>
+              &middot;
+              <a href="https://scangov.com/security/">ScanGov</a>
+            </div>
+            
+          </div>
+        
+          
+          
+          <div class="col-12 col-md-6 mb-4">
+            <h3 class="h5" id="usability">Usability</h3>
+            <p>Optimize content structure so users quickly find what they need.</p>
+            <canvas id="home-chart-usability"></canvas>
+            
+            <div class="alert alert-info small mt-2" role="alert">
+              <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="#fas-fa-circle-info" xlink:href="#fas-fa-circle-info"></use></svg>
+              Usability:
+              <a href="https://standards.scangov.org/usability/">Standards</a>
+              &middot;
+              <a href="https://standards.scangov.org/guidance/usability/">Guidance</a>
+              &middot;
+              <a href="https://scangov.org/rankings/usability/">Project ScanGov</a>
+              &middot;
+              <a href="https://scangov.com/usability/">ScanGov</a>
+            </div>
+            
+          </div>
+        
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        var chartData = {"accessibility":[{"attr":"heading-order","label":"Heading elements appear in a sequentially-descending order","failCount":424},{"attr":"link-name","label":"Links have a discernible name","failCount":405},{"attr":"color-contrast","label":"Background and foreground colors have a sufficient contrast ratio","failCount":398},{"attr":"target-size","label":"Touch targets have sufficient size and spacing","failCount":361},{"attr":"landmark-one-main","label":"Document has a main landmark","failCount":324}],"botability":[{"attr":"schema-government-organization","label":"GovernmentOrganization Schema.org type","failCount":1273},{"attr":"sitemap-robots","label":"Sitemap in robots.txt","failCount":839},{"attr":"xml","label":"Sitemap XML","failCount":620},{"attr":"status","label":"Sitemap status","failCount":620},{"attr":"link-text","label":"Link text","failCount":504}],"security":[{"attr":"securitytxt","label":"security.txt","failCount":1320},{"attr":"xcontenttypeoptions","label":"X-Content-Type-Options","failCount":749},{"attr":"errors-in-console","label":"Errors in the console","failCount":556},{"attr":"dotgov","label":"Sponsored top-level domain (sTLD)","failCount":318},{"attr":"csp","label":"Content security policy (CSP)","failCount":6}],"usability":[{"attr":"ogimagealt","label":"Open Graph image alt","failCount":1260},{"attr":"ogsitename","label":"Open Graph site name","failCount":970},{"attr":"ogtype","label":"Open Graph type","failCount":888},{"attr":"ogimage","label":"Open Graph image","failCount":887},{"attr":"ogdescription","label":"Open Graph description","failCount":866}]};
+        var indicatorColors = {"accessibility":"#a8f2ff","botability":"#e7f434","security":"#ff8d7b","usability":"#d5bfff"};
+        var indicatorColorsLight = {"accessibility":"#1d4e9a","botability":"#4d7c00","security":"#a85000","usability":"#7b3fa0"};
+        ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
+          var data = chartData[key] || [];
+          var urls = data.map(function (d) { return 'https://standards.scangov.org/' + d.attr; });
+          var el = document.getElementById('home-chart-' + key);
+          var barColor = _isDark ? (indicatorColors[key] || '#dee2e6') : (indicatorColorsLight[key] || '#212529');
+          var chart = new Chart(el, {
+            type: 'bar',
+            data: {
+              labels: data.map(function (d) { return d.label; }),
+              datasets: [{ data: data.map(function (d) { return d.failCount; }), backgroundColor: barColor }]
+            },
+            options: {
+              indexAxis: 'y',
+              plugins: { legend: { display: false } },
+              scales: {
+                x: { beginAtZero: true },
+                y: {
+                  afterFit: function (scale) { scale.width = 280; },
+                  ticks: {
+                    callback: function (value) {
+                      var label = this.getLabelForValue(value);
+                      if (!label || label.length <= 30) return label;
+                      var words = label.split(' ');
+                      var lines = [];
+                      var current = '';
+                      words.forEach(function (word) {
+                        var candidate = current ? current + ' ' + word : word;
+                        if (candidate.length > 30) {
+                          if (current) lines.push(current);
+                          current = word;
+                        } else {
+                          current = candidate;
+                        }
+                      });
+                      if (current) lines.push(current);
+                      return lines;
+                    }
+                  }
+                }
+              },
+              onHover: function (event, elements) {
+                event.native.target.style.cursor = elements.length ? 'pointer' : 'default';
+              }
+            }
+          });
+          el.addEventListener('click', function (event) {
+            var points = chart.getElementsAtEventForMode(event, 'nearest', { intersect: true }, true);
+            if (points.length > 0) {
+              window.open(urls[points[0].index], '_blank');
+            }
+          });
+        });
+        });
+      </script>
     </div>
   </div>
 </main>
