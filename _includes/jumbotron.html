@@ -204,20 +204,23 @@
                     {% if title %}
                     <h1 class="display-5">{{ title }}</h1>
                     {% endif %}
-                    {% if not search %}
+                    {% if not hideDescription %}
                     {% if descriptionHtml %}
-                    <p class="lead fs-5">{{ descriptionHtml | safe }}</p>
+                    <p{% if not plainDescription %} class="lead fs-5"{% endif %}>{{ descriptionHtml | safe }}</p>
                     {% elif description %}
-                    <p class="lead fs-5">{{ description }}</p>
+                    <p{% if not plainDescription %} class="lead fs-5"{% endif %}>{{ description }}</p>
                     {% endif %}
                     {% endif %}
                     {% include "details.html" %}
                     {% if search %}
-                    <div class="row mt-3 mb-0">
+                    <div class="row mt-4 mb-0">
                         <div class="col-12 col-md-6">
                             {% include "search.html" %}
                         </div>
                     </div>
+                    {% endif %}
+                    {% if showActions %}
+                    {% include "actions.html" %}
                     {% endif %}
                 </div>
             </div>

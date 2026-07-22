@@ -42,7 +42,7 @@ export default async function () {
         failCount,
       }))
       .sort((a, b) => b.failCount - a.failCount)
-      .slice(0, 10);
+      .slice(0, 5);
   }
   const passRates = {};
   for (const key of indicators) {

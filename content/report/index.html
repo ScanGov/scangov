@@ -2,47 +2,47 @@
 layout: layouts/page
 permalink: /pulse/
 title: Pulse
-description: The state of federal, state, and local government digital experience.
+description: The state of digital experience.
 showLastUpdated: true
+noBorder: true
+showActions: true
 ---
 
-{% include "actions.html" %}
-
 <div class="border-bottom pb-4 mb-4">
-    <h2 class="mb-3">Domains</h2>
-    <p>How scanned domains break down by type and overall grade.</p>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-    <script>
+  <h2 class="mb-3">Domains</h2>
+  <p>How scanned domains break down by type and overall grade.</p>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <script>
       var _isDark;
       document.addEventListener('DOMContentLoaded', function () {
         _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
         Chart.defaults.color = _isDark ? '#fff' : '#000';
         Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
       });
-    </script>
-    <div class="row">
-      <div class="col-12 col-md-5">
-        <p class="text-center mb-1 small">By domain type</p>
-        <canvas id="domains-chart"></canvas>
-      </div>
-      <div class="col-12 col-md-5">
-        <p class="text-center mb-1 small">By overall grade</p>
-        <canvas id="grades-dist-chart"></canvas>
-      </div>
+  </script>
+  <div class="row">
+    <div class="col-12 col-md-6 text-center p-4">
+      <p class="text-center mb-1 small">By domain type</p>
+      <canvas id="domains-chart"></canvas>
     </div>
-    <script>
+    <div class="col-12 col-md-6 text-center p-4">
+      <p class="text-center mb-1 small">By overall grade</p>
+      <canvas id="grades-dist-chart"></canvas>
+    </div>
+  </div>
+  <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var donutUrls = ['/rankings/federal/', '/rankings/states/', '/rankings/cities/'];
+        var donutUrls = ['/rankings/federal/', '/rankings/states/', '/rankings/cities/', '/rankings/counties/', '/rankings/edu/'];
         var donutEl = document.getElementById('domains-chart');
         var donutChart = new Chart(donutEl, {
           type: 'doughnut',
           data: {
-            labels: ['Federal ({{ federal | length }})', 'States ({{ states | length }})', 'Cities ({{ cities | length }})'],
-            datasets: [{ data: [{{ federal | length }}, {{ states | length }}, {{ cities | length }}], backgroundColor: _isDark ? ['#96abee', '#70e17b', '#ffbc78'] : ['#1d4e9a', '#1a7a27', '#a85000'], hoverOffset: 4 }]
+            labels: ['Federal ({{ federal | length }})', 'States ({{ states | length }})', 'Cities ({{ cities | length }})', 'Counties ({{ counties | length }})', 'Education ({{ edu | length }})'],
+            datasets: [{ data: [{{ federal | length }}, {{ states | length }}, {{ cities | length }}, {{ counties | length }}, {{ edu | length }}], backgroundColor: _isDark ? ['#96abee', '#70e17b', '#ffbc78', '#c5ee93', '#e6a8ff'] : ['#1d4e9a', '#1a7a27', '#a85000', '#4d7c00', '#7b3fa0'], hoverOffset: 4 }]
           },
           options: {
             plugins: {
-              legend: { position: 'top' },
+              legend: { position: 'top', labels: { padding: 20 } },
               tooltip: { callbacks: { label: function (ctx) { var t = ctx.dataset.data.reduce(function (a, b) { return a + b; }, 0); var pct = t ? Math.round(ctx.parsed / t * 100) : 0; return ' ' + ctx.parsed + ' (' + pct + '%)'; } } }
             },
             onHover: function (e, els) { e.native.target.style.cursor = els.length ? 'pointer' : 'default'; }
@@ -63,22 +63,22 @@ showLastUpdated: true
           },
           options: {
             plugins: {
-              legend: { position: 'top' },
+              legend: { position: 'top', labels: { padding: 20 } },
               tooltip: { callbacks: { label: function (ctx) { var t = ctx.dataset.data.reduce(function (a, b) { return a + b; }, 0); var pct = t ? Math.round(ctx.parsed / t * 100) : 0; return ' ' + ctx.parsed + ' (' + pct + '%)'; } } }
             }
           }
         });
       });
-    </script>
-  </div>
+  </script>
+</div>
 
-  <div class="border-bottom pb-4 mb-4">
-    <h2 class="mb-3">Grades</h2>
-    <p>Average grades across all scanned domains for each indicator, color-coded by grade.</p>
-    <div class="col-12 col-lg-10">
-      <canvas id="grades-chart"></canvas>
-    </div>
-    <script>
+<div class="border-bottom pb-4 mb-4">
+  <h2 class="mb-3">Grades</h2>
+  <p>Average grades across all scanned domains for each indicator, color-coded by grade.</p>
+  <div class="col-12 col-lg-10">
+    <canvas id="grades-chart"></canvas>
+  </div>
+  <script>
       document.addEventListener('DOMContentLoaded', function () {
         function scoreToGrade(s) {
           if (s >= 90) return 'A';
@@ -127,29 +127,29 @@ showLastUpdated: true
           }
         });
       });
-    </script>
-    <div class="alert alert-info small mt-2" role="alert">
-      Grades
-      {% set infoHref = "https://docs.scangov.org/grades/" %}
-      {% set infoLabel = "Grades" %}
-      {% set infoDescription = "How we calculate letter grades." %}
-      {% include "info-icon.html" %}
-      &middot;
+  </script>
+  <div class="alert alert-info small mt-2" role="alert">
+    Grades
+    {% set infoHref = "https://docs.scangov.org/grades/" %}
+    {% set infoLabel = "Grades" %}
+    {% set infoDescription = "How we calculate letter grades." %}
+    {% include "info-icon.html" %}
+    &middot; 
       Standards
-      {% set infoHref = "https://docs.scangov.org/standards/" %}
-      {% set infoLabel = "Standards" %}
-      {% set infoDescription = "The standards ScanGov checks against." %}
-      {% include "info-icon.html" %}
-    </div>
+    {% set infoHref = "https://docs.scangov.org/standards/" %}
+    {% set infoLabel = "Standards" %}
+    {% set infoDescription = "The standards ScanGov checks against." %}
+    {% include "info-icon.html" %}
   </div>
+</div>
 
-  <div class="border-bottom pb-4 mb-4">
-    <h2 class="mb-3">Scores by indicator</h2>
-    <p>Comparison of average federal, state, and city domains scores across each digital experience indicator.</p>
-    <div class="col-12 col-lg-10">
-      <canvas id="indicator-chart"></canvas>
-    </div>
-    <script>
+<div class="border-bottom pb-4 mb-4">
+  <h2 class="mb-3">Scores by indicator</h2>
+  <p>Comparison of average federal, state, city, county, and education domains scores across each digital experience indicator.</p>
+  <div class="col-12 col-lg-10">
+    <canvas id="indicator-chart"></canvas>
+  </div>
+  <script>
       document.addEventListener('DOMContentLoaded', function () {
         new Chart(document.getElementById('indicator-chart'), {
           type: 'bar',
@@ -185,6 +185,26 @@ showLastUpdated: true
                   {{ cities | specificAverageScore('usability') }}
                 ],
                 backgroundColor: _isDark ? '#ffbc78' : '#a85000'
+              },
+              {
+                label: 'Counties',
+                data: [
+                  {{ counties | specificAverageScore('accessibility') }},
+                  {{ counties | specificAverageScore('botability') }},
+                  {{ counties | specificAverageScore('security') }},
+                  {{ counties | specificAverageScore('usability') }}
+                ],
+                backgroundColor: _isDark ? '#c5ee93' : '#4d7c00'
+              },
+              {
+                label: 'Education',
+                data: [
+                  {{ edu | specificAverageScore('accessibility') }},
+                  {{ edu | specificAverageScore('botability') }},
+                  {{ edu | specificAverageScore('security') }},
+                  {{ edu | specificAverageScore('usability') }}
+                ],
+                backgroundColor: _isDark ? '#e6a8ff' : '#7b3fa0'
               }
             ]
           },
@@ -197,39 +217,42 @@ showLastUpdated: true
           }
         });
       });
-    </script>
-    <div class="alert alert-info small mt-2" role="alert">
-      Scores
-      {% set infoHref = "https://docs.scangov.org/scores/" %}
-      {% set infoLabel = "Scores" %}
-      {% set infoDescription = "How we calculate percentage scores." %}
-      {% include "info-icon.html" %}
-      &middot;
+  </script>
+  <div class="alert alert-info small mt-2" role="alert">
+    Scores
+    {% set infoHref = "https://docs.scangov.org/scores/" %}
+    {% set infoLabel = "Scores" %}
+    {% set infoDescription = "How we calculate percentage scores." %}
+    {% include "info-icon.html" %}
+    &middot; 
       Standards
-      {% set infoHref = "https://docs.scangov.org/standards/" %}
-      {% set infoLabel = "Standards" %}
-      {% set infoDescription = "The standards ScanGov checks against." %}
-      {% include "info-icon.html" %}
-    </div>
+    {% set infoHref = "https://docs.scangov.org/standards/" %}
+    {% set infoLabel = "Standards" %}
+    {% set infoDescription = "The standards ScanGov checks against." %}
+    {% include "info-icon.html" %}
   </div>
+</div>
 
-  <div class="border-bottom pb-4 mb-4">
-    <h2 class="mb-3">States</h2>
-    <p>ScanGov overall score for each state's main website.</p>
-    {% include "report-map.html" %}
-  </div>
+<div class="border-bottom pb-4 mb-4">
+  <h2 class="mb-3">States</h2>
+  <p>ScanGov overall score for each state's main website.</p>
+  {% include "report-map.html" %}
+</div>
 
-  <div class="pb-4 mb-4">
-    <h2 class="mb-3">Top issues</h2>
-    <p>Top 10 failing checks per indicator.</p>
-    <div class="row">
-      {% for indicator in site.data %}
-        {% set lower = indicator.toLowerCase() %}
-        {% set catInfo = audits[lower] %}
-        <div class="col-12 col-lg-10 mb-4">
-          <h3 class="h5">{{ indicator }}</h3>
-          <canvas id="chart-{{ lower }}"></canvas>
-          {% if catInfo %}
+<div class="pb-4 mb-4">
+  <h2 class="mb-3">Top issues</h2>
+  <p>Top 5 failing checks per indicator.</p>
+  <div class="row">
+    {% for indicator in site.data %}
+      {% set lower = indicator.toLowerCase() %}
+      {% set catInfo = audits[lower] %}
+      <div class="col-12 col-lg-10 mb-4">
+        <h3 class="h5">{{ indicator }}</h3>
+        {% if catInfo %}
+          <p>{{ catInfo.description }}</p>
+        {% endif %}
+        <canvas id="chart-{{ lower }}"></canvas>
+        {% if catInfo %}
           <div class="alert alert-info small mt-2" role="alert">
             <i class="fa-solid fa-circle-info"></i>
             {{ catInfo.displayName }}:
@@ -241,11 +264,11 @@ showLastUpdated: true
             &middot;
             <a href="https://scangov.com{{ catInfo.scangovUrl }}">ScanGov</a>
           </div>
-          {% endif %}
-        </div>
-      {% endfor %}
-    </div>
-    <script>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  <script>
       document.addEventListener('DOMContentLoaded', function () {
       var chartData = {{ dashboard.charts | dump | safe }};
       var indicatorColors = {{ dashboard.indicatorColors | dump | safe }};
@@ -303,5 +326,5 @@ showLastUpdated: true
         });
       });
       });
-    </script>
-  </div>
+  </script>
+</div>
