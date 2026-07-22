@@ -1,0 +1,23 @@
+{#
+  Tooltip info icon. Set `infoHref`, `infoLabel`, `infoDescription` before including:
+
+    {% set infoHref = "https://docs.scangov.org/grades/" %}
+    {% set infoLabel = "Grade" %}
+    {% set infoDescription = "How we calculate letter grades." %}
+    {% include "info-icon.html" %}
+
+  Optional `infoMatchTextColor = true` makes the icon inherit the surrounding text color instead
+  of the default icon-link color - use inside muted/secondary text (e.g. a text-body-secondary
+  stat line), not inside card headers or other spots where the default link color is correct.
+  Reset it (`{% set infoMatchTextColor = false %}`) before the next include if a later one on the
+  same page shouldn't inherit it, since Nunjucks {% set %} persists for the rest of the template.
+
+  Mirrors my.scangov.com's src/shared/infoicon.mjs: click-to-open tooltip (not hover), dismissed
+  by clicking outside, with a "Learn more" link to infoHref inside the tooltip body. Requires the
+  tooltip init script in js.html and bootstrap-tooltip.min.js to be loaded - inert (a plain,
+  non-interactive icon) on sites/pages that don't load those.
+#}
+<a href="{{ infoHref }}" class="icon-link" style="{% if infoMatchTextColor %}color: inherit; {% endif %}position: relative; z-index: 2;" aria-label="More about {{ infoLabel }}"
+  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="{{ infoDescription }} <a href=&quot;{{ infoHref }}&quot;>Learn more</a>">
+  <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+</a>

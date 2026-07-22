@@ -43,9 +43,10 @@ eleventyComputed:
           <div class="card card-grade {% if (domain.status != 200) or (domain.scores[scorekey] | length === 0) %}{% else %}text-bg-{{ domain.scores[scorekey].score | colorify }}{% endif %}" id="grade-card-{{ scorekey }}">
             <div class="card-header">
               Grade
-              <a href="https://docs.scangov.org/grades" class="text-decoration-none">
-                <i class="fa-solid fa-circle-question"></i>
-              </a>
+              {% set infoHref = "https://docs.scangov.org/grades" %}
+              {% set infoLabel = "Grade" %}
+              {% set infoDescription = "How we calculate letter grades." %}
+              {% include "info-icon.html" %}
             </div>
             <div class="card-body">
               <p class="display-1" id="grade-{{ scorekey }}">
@@ -60,9 +61,10 @@ eleventyComputed:
           <div class="card" id="score-{{ scorekey }}">
             <div class="card-header">
               Score
-              <a href="https://docs.scangov.org/scores" class="text-decoration-none">
-                <i class="fa-solid fa-circle-question"></i>
-              </a>
+              {% set infoHref = "https://docs.scangov.org/scores" %}
+              {% set infoLabel = "Score" %}
+              {% set infoDescription = "How we calculate percentage scores." %}
+              {% include "info-icon.html" %}
             </div>
             <div class="card-body text-center">
               <p class="display-1">

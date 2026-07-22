@@ -1,10 +1,20 @@
 ---
-layout: false
-permalink: "rankings/"
-sitemap: false
+home: false
+layout: layouts/default
+title: Rankings
+description: Full rankings of every government website ScanGov tracks.
+keywords: government domains, government websites, rankings
+showLastUpdated: true
+
+pagination:
+    data: sorts.overall
+    size: 100
+    alias: member
 ---
-<!DOCTYPE html>
-<html>
-<head><meta http-equiv="refresh" content="0;url=/"><link rel="canonical" href="/"></head>
-<body><p>Redirecting to <a href="/">homepage</a></p></body>
-</html>
+
+{% set dataset = sorts.overall %}
+{% set specificAttribute = "" %}
+{% set currentsort = "" %}
+{% set showPagination = true %}
+
+{% include "sortcontent.html" %}

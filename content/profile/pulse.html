@@ -99,10 +99,17 @@ eleventyComputed:
       });
     </script>
     <div class="alert alert-info small mt-2" role="alert">
-      <i class="fa-solid fa-circle-info"></i>
-      <a href="https://docs.scangov.org/grades/">Grades</a>
+      Grades
+      {% set infoHref = "https://docs.scangov.org/grades/" %}
+      {% set infoLabel = "Grades" %}
+      {% set infoDescription = "How we calculate letter grades." %}
+      {% include "info-icon.html" %}
       &middot;
-      <a href="https://docs.scangov.org/standards/">Standards</a>
+      Standards
+      {% set infoHref = "https://docs.scangov.org/standards/" %}
+      {% set infoLabel = "Standards" %}
+      {% set infoDescription = "The standards ScanGov checks against." %}
+      {% include "info-icon.html" %}
     </div>
   </div>
 

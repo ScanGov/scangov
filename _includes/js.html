@@ -53,8 +53,29 @@
   }
 </script>
 <script src="{{ site.baseurl }}/assets/bootstrap/js/bootstrap-trimmed.min.js" defer></script>
+<script src="{{ site.baseurl }}/assets/bootstrap/js/bootstrap-tooltip.min.js" defer></script>
 <script>
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
     document.documentElement.setAttribute('data-bs-theme', e.matches ? 'dark' : 'light');
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
+      new bootstrap.Tooltip(el, { trigger: 'click' });
+      el.addEventListener('click', function(e) { e.preventDefault(); });
+    });
+    document.addEventListener('click', function(e) {
+      document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
+        var tipId = el.getAttribute('aria-describedby');
+        var tipEl = tipId ? document.getElementById(tipId) : null;
+        var isTrigger = el.contains(e.target);
+        var isInsideTooltip = tipEl && tipEl.contains(e.target);
+        if (!isTrigger && !isInsideTooltip) {
+          var instance = bootstrap.Tooltip.getInstance(el);
+          if (instance) instance.hide();
+        }
+      });
+    });
   });
 </script>
