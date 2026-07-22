@@ -36,7 +36,13 @@
      the same mono/border-bottom styling as the profile list above.
 #}
 {% if showLastUpdated and not profile %}
+{% set urlParts = page.url.split('/') %}
+{% set filterCounts = { federal: federal, states: states, cities: cities, counties: counties, edu: edu } %}
+{% set siteCount = (filterCounts[urlParts[2]] | length) if filterCounts[urlParts[2]] else (domains | length) %}
 <ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
+    <li>
+        Sites: {{ siteCount }}
+    </li>
     <li>
         Last scan:
         <span id="updated">{{ updates }}</span>
@@ -65,8 +71,7 @@
     {% endif %}
     {% if site.url == 'https://scangov.org' %}
     <li>
-        Pages: 1 (homepage only)
-        &middot; <a href="https://scangov.com/plans">Get full site scan</a>
+        Pages: 1 (homepage only &middot; <a href="https://scangov.com/plans">get full site scan</a>)
     </li>
     {% elif site.url == 'https://my.scangov.com' %}
     <li>

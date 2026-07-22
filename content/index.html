@@ -4,7 +4,8 @@ layout: layouts/default
 title: Digital experience monitor
 description: A ScanGov project tracking web accessibility, botability, security, and usability.
 descriptionHtml: 'A <a href="https://scangov.com">ScanGov</a> project tracking web <a href="https://scangov.com/accessibility/">accessibility</a>, <a href="https://scangov.com/botability/">botability</a>, <a href="https://scangov.com/security/">security</a>, and <a href="https://scangov.com/usability/">usability</a>.'
-hideDescription: true
+search: true
+plainDescription: true
 showLastUpdated: true
 keywords: government domains, government websites
 ---
@@ -55,6 +56,158 @@ keywords: government domains, government websites
           </div>
         </div>
       {% endfor %}
+    </div>
+
+    <div class="border-top border-bottom pt-4 pb-4 mb-4 mt-4">
+      <h2 class="mb-3">Domains</h2>
+      <p>How scanned domains break down by type and overall grade.</p>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+      <script>
+        var _isDark;
+        document.addEventListener('DOMContentLoaded', function () {
+          _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
+          Chart.defaults.color = _isDark ? '#fff' : '#000';
+          Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+        });
+      </script>
+      <div class="row">
+        <div class="col-12 col-md-6 text-center p-4">
+          <p class="text-center mb-1 small">By domain type</p>
+          <canvas id="domains-chart"></canvas>
+        </div>
+        <div class="col-12 col-md-6 text-center p-4">
+          <p class="text-center mb-1 small">By overall grade</p>
+          <canvas id="grades-dist-chart"></canvas>
+        </div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          var donutUrls = ['/rankings/federal/', '/rankings/states/', '/rankings/cities/', '/rankings/counties/', '/rankings/edu/'];
+          var donutEl = document.getElementById('domains-chart');
+          var donutChart = new Chart(donutEl, {
+            type: 'doughnut',
+            data: {
+              labels: ['Federal ({{ federal | length }})', 'States ({{ states | length }})', 'Cities ({{ cities | length }})', 'Counties ({{ counties | length }})', 'Education ({{ edu | length }})'],
+              datasets: [{ data: [{{ federal | length }}, {{ states | length }}, {{ cities | length }}, {{ counties | length }}, {{ edu | length }}], backgroundColor: _isDark ? ['#96abee', '#70e17b', '#ffbc78', '#c5ee93', '#e6a8ff'] : ['#1d4e9a', '#1a7a27', '#a85000', '#4d7c00', '#7b3fa0'], hoverOffset: 4 }]
+            },
+            options: {
+              plugins: {
+                legend: { position: 'top', labels: { padding: 20 } },
+                tooltip: { callbacks: { label: function (ctx) { var t = ctx.dataset.data.reduce(function (a, b) { return a + b; }, 0); var pct = t ? Math.round(ctx.parsed / t * 100) : 0; return ' ' + ctx.parsed + ' (' + pct + '%)'; } } }
+              },
+              onHover: function (e, els) { e.native.target.style.cursor = els.length ? 'pointer' : 'default'; }
+            }
+          });
+          donutEl.addEventListener('click', function (e) {
+            var pts = donutChart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
+            if (pts.length) window.location.href = donutUrls[pts[0].index];
+          });
+
+          var gradeData = {{ dashboard.gradeDistribution | dump | safe }};
+          var gradeEl = document.getElementById('grades-dist-chart');
+          new Chart(gradeEl, {
+            type: 'doughnut',
+            data: {
+              labels: ['A (' + gradeData.A + ')', 'B (' + gradeData.B + ')', 'C (' + gradeData.C + ')', 'D (' + gradeData.D + ')', 'F (' + gradeData.F + ')'],
+              datasets: [{ data: [gradeData.A, gradeData.B, gradeData.C, gradeData.D, gradeData.F], backgroundColor: _isDark ? ['#70e17b', '#c5ee93', '#face00', '#ffbc78', '#e41d3d'] : ['#1a7a27', '#4d7c00', '#8a6600', '#a85000', '#b91c1c'], hoverOffset: 4 }]
+            },
+            options: {
+              plugins: {
+                legend: { position: 'top', labels: { padding: 20 } },
+                tooltip: { callbacks: { label: function (ctx) { var t = ctx.dataset.data.reduce(function (a, b) { return a + b; }, 0); var pct = t ? Math.round(ctx.parsed / t * 100) : 0; return ' ' + ctx.parsed + ' (' + pct + '%)'; } } }
+              }
+            }
+          });
+        });
+      </script>
+    </div>
+
+    <div class="pb-4 mb-4">
+      <h2 class="mb-3">Top issues</h2>
+      <p>Top 5 failing checks per indicator.</p>
+      <div class="row">
+        {% for indicator in site.data %}
+          {% set lower = indicator.toLowerCase() %}
+          {% set catInfo = audits[lower] %}
+          <div class="col-12 col-md-6 mb-4">
+            <h3 class="h5">{{ indicator }}</h3>
+            {% if catInfo %}<p>{{ catInfo.description }}</p>{% endif %}
+            <canvas id="home-chart-{{ lower }}"></canvas>
+            {% if catInfo %}
+            <div class="alert alert-info small mt-2" role="alert">
+              <i class="fa-solid fa-circle-info"></i>
+              {{ catInfo.displayName }}:
+              <a href="https://standards.scangov.org/{{ lower }}/">Standards</a>
+              &middot;
+              <a href="https://standards.scangov.org{{ catInfo.url }}/">Guidance</a>
+              &middot;
+              <a href="{{ site.url }}{{ catInfo.rankingsUrl }}">Project ScanGov</a>
+              &middot;
+              <a href="https://scangov.com{{ catInfo.scangovUrl }}">ScanGov</a>
+            </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        var chartData = {{ dashboard.charts | dump | safe }};
+        var indicatorColors = {{ dashboard.indicatorColors | dump | safe }};
+        var indicatorColorsLight = {{ dashboard.indicatorColorsLight | dump | safe }};
+        ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
+          var data = chartData[key] || [];
+          var urls = data.map(function (d) { return 'https://standards.scangov.org/' + d.attr; });
+          var el = document.getElementById('home-chart-' + key);
+          var barColor = _isDark ? (indicatorColors[key] || '#dee2e6') : (indicatorColorsLight[key] || '#212529');
+          var chart = new Chart(el, {
+            type: 'bar',
+            data: {
+              labels: data.map(function (d) { return d.label; }),
+              datasets: [{ data: data.map(function (d) { return d.failCount; }), backgroundColor: barColor }]
+            },
+            options: {
+              indexAxis: 'y',
+              plugins: { legend: { display: false } },
+              scales: {
+                x: { beginAtZero: true },
+                y: {
+                  afterFit: function (scale) { scale.width = 280; },
+                  ticks: {
+                    callback: function (value) {
+                      var label = this.getLabelForValue(value);
+                      if (!label || label.length <= 30) return label;
+                      var words = label.split(' ');
+                      var lines = [];
+                      var current = '';
+                      words.forEach(function (word) {
+                        var candidate = current ? current + ' ' + word : word;
+                        if (candidate.length > 30) {
+                          if (current) lines.push(current);
+                          current = word;
+                        } else {
+                          current = candidate;
+                        }
+                      });
+                      if (current) lines.push(current);
+                      return lines;
+                    }
+                  }
+                }
+              },
+              onHover: function (event, elements) {
+                event.native.target.style.cursor = elements.length ? 'pointer' : 'default';
+              }
+            }
+          });
+          el.addEventListener('click', function (event) {
+            var points = chart.getElementsAtEventForMode(event, 'nearest', { intersect: true }, true);
+            if (points.length > 0) {
+              window.open(urls[points[0].index], '_blank');
+            }
+          });
+        });
+        });
+      </script>
     </div>
   </div>
 </main>

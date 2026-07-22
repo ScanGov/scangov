@@ -6,6 +6,7 @@
 {% set currentHighlight = " active\" aria-current=\"page" %}
 {% set topLevel = false %}
 {% if page.url.indexOf("/cities/") == -1 and page.url.indexOf("/states/") == -1 and page.url.indexOf("/federal/") == -1
+and page.url.indexOf("/counties/") == -1 and page.url.indexOf("/edu/") == -1
 %}
 {% set topLevel = true %}
 {% endif %}
