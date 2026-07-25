@@ -48,7 +48,7 @@
             title="Download">
             <i class="fa-solid fa-download"></i>
         </a>
-        <ul class="dropdown-menu" aria-labelledby="download-menu">
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="download-menu">
             <li class="small">
                 <a href="/profile/{{ domain.urlkey | slugify }}/report/" class="dropdown-item">
                     <i class="fa-regular fa-file-pdf"></i>
@@ -69,7 +69,7 @@
             title="Share">
             <i class="fa-solid fa-share-from-square"></i>
         </a>
-        <ul class="dropdown-menu" aria-labelledby="share-menu">
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="share-menu">
             {% if profile and not mapPage and not orgPage %}
             <li class="small">
                 <a
