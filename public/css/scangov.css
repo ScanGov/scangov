@@ -699,6 +699,24 @@ button.btn-primary-outline {
     color: inherit !important;
 }
 
+.btn.btn-outline-primary .fa-file-lines {
+    color: #a8f2ff !important;
+}
+
+.btn.btn-outline-primary:hover .fa-file-lines,
+.btn.btn-outline-primary:focus .fa-file-lines {
+    color: inherit !important;
+}
+
+.btn.btn-outline-primary .fa-rocket {
+    color: #d0c3e9 !important;
+}
+
+.btn.btn-outline-primary:hover .fa-rocket,
+.btn.btn-outline-primary:focus .fa-rocket {
+    color: inherit !important;
+}
+
 .btn[download] {
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
@@ -1901,6 +1919,10 @@ a[href$=".mp4"]::after {
     color: #c3ebfa;
 }
 
+.fa-expand {
+    color: #7ecbff !important;
+}
+
 .fa-file-contract {
     color: #fee685 !important;
 }
@@ -2360,6 +2382,10 @@ td a:hover .fa-circle-info {
     color: #a8f5d5;
 }
 
+.fa-terminal {
+    color: #8fd9c4 !important;
+}
+
 .fa-timeline {
     color: #ffb4cf;
 }
@@ -2479,6 +2505,16 @@ a .fa-up-right-from-square {
     color: #0d7a6e !important;
 }
 
+[data-bs-theme=light] .fa-expand {
+    /* → #0a6ebd = 5.28:1 ✓ */
+    color: #0a6ebd !important;
+}
+
+[data-bs-theme=light] .fa-terminal {
+    /* → #147a5f = 5.28:1 ✓ */
+    color: #147a5f !important;
+}
+
 [data-bs-theme=light] .fa-bell-concierge,
 [data-bs-theme=light] .fa-brain,
 [data-bs-theme=light] .fa-bug,
@@ -2569,6 +2605,24 @@ a .fa-up-right-from-square {
 
 [data-bs-theme=light] .btn.btn-outline-primary:hover .fa-wand-sparkles,
 [data-bs-theme=light] .btn.btn-outline-primary:focus .fa-wand-sparkles {
+    color: inherit !important;
+}
+
+[data-bs-theme=light] .btn.btn-outline-primary .fa-file-lines {
+    color: #1a6fa0 !important;
+}
+
+[data-bs-theme=light] .btn.btn-outline-primary:hover .fa-file-lines,
+[data-bs-theme=light] .btn.btn-outline-primary:focus .fa-file-lines {
+    color: inherit !important;
+}
+
+[data-bs-theme=light] .btn.btn-outline-primary .fa-rocket {
+    color: #5b4ea0 !important;
+}
+
+[data-bs-theme=light] .btn.btn-outline-primary:hover .fa-rocket,
+[data-bs-theme=light] .btn.btn-outline-primary:focus .fa-rocket {
     color: inherit !important;
 }
 
