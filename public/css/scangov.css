@@ -2817,6 +2817,47 @@ th a:focus i, th a:focus svg {
     text-decoration: none;
 }
 
+/* Sortable tables (tablesort library, public/js/tablesort-vendor.js): the icon is
+   driven entirely by the aria-sort attribute the library sets on the sorted <th> -
+   a plain CSS rule, not a second piece of JS guessing at sort state. */
+table[data-sortable] th[role="columnheader"] {
+    cursor: pointer;
+}
+
+th[aria-sort="ascending"] .fa-sort {
+    --fa: "\f0de" !important;
+}
+
+th[aria-sort="descending"] .fa-sort {
+    --fa: "\f0dd" !important;
+}
+
+/* Same aria-sort-driven icon convention, expressed as three sibling icons instead
+   of one - needed on the Eleventy static sites, where @11ty/font-awesome rewrites
+   every <i class="fa-*"> into an inline SVG <use> sprite at build time. A sprite's
+   shape is fixed by which <symbol> it references, so it can't be repainted via a
+   CSS content/custom-property swap the way a font glyph can; toggling which of
+   three fixed icons is visible works regardless of that rewrite. */
+th .sort-asc,
+th .sort-desc {
+    display: none;
+}
+
+th[aria-sort="ascending"] .sort-neutral,
+th[aria-sort="ascending"] .sort-desc,
+th[aria-sort="descending"] .sort-neutral,
+th[aria-sort="descending"] .sort-asc {
+    display: none;
+}
+
+th[aria-sort="ascending"] .sort-asc {
+    display: inline;
+}
+
+th[aria-sort="descending"] .sort-desc {
+    display: inline;
+}
+
 /* Docs */
 #post h2 {
     margin-top: 2.5rem;
