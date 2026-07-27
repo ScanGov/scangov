@@ -508,12 +508,12 @@
         <div class="col-12">
           <h2 class="my-3" id="standards">Standards</h2>
             <div class="table-responsive">
-  <table class="table mb-2">
+  <table class="table mb-2" data-sortable="">
     <caption class="visually-hidden">Compliance status by standard</caption>
     <thead>
       <tr>
-        <th scope="col" class="sortable" data-col="0">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
-        <th scope="col" class="sortable" data-col="1">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" data-sort-default="">Status <svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></th>
+        <th scope="col">Standards <svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></th>
       </tr>
     </thead>
     <tbody id="table-compliance-accessibility">
@@ -1448,60 +1448,6 @@
 </a>
 
 </div>
-<script>
-(function () {
-  var tbody = document.getElementById('table-compliance-accessibility');
-  if (!tbody) return;
-  var table = tbody.closest('table');
-  var headers = table.querySelectorAll('th.sortable');
-  var sortState = { col: -1, dir: 'asc' };
-
-  function setIcon(th, dir) {
-    th.querySelector('.sort-neutral').classList.toggle('d-none', dir !== null);
-    th.querySelector('.sort-asc').classList.toggle('d-none', dir !== 'asc');
-    th.querySelector('.sort-desc').classList.toggle('d-none', dir !== 'desc');
-  }
-
-  headers.forEach(function (th) {
-    th.addEventListener('click', function () {
-      var col = parseInt(this.getAttribute('data-col'));
-      if (sortState.col === col) {
-        sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
-      } else {
-        sortState.col = col;
-        sortState.dir = 'asc';
-      }
-      headers.forEach(function (h) { setIcon(h, null); });
-      setIcon(this, sortState.dir);
-
-      var rows = Array.from(tbody.querySelectorAll('tr'));
-      rows.sort(function (a, b) {
-        var aVal = a.cells[col].getAttribute('data-sort') || '';
-        var bVal = b.cells[col].getAttribute('data-sort') || '';
-        if (col === 1) {
-          return sortState.dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-        }
-        return sortState.dir === 'asc'
-          ? parseInt(aVal) - parseInt(bVal)
-          : parseInt(bVal) - parseInt(aVal);
-      });
-      rows.forEach(function (row) { tbody.appendChild(row); });
-    });
-  });
-
-  // Default sort: Status (col 0) ascending, missing/inaccessible first
-  (function () {
-    var rows = Array.from(tbody.querySelectorAll('tr'));
-    rows.sort(function (a, b) {
-      return parseInt(a.cells[0].getAttribute('data-sort') || '0') - parseInt(b.cells[0].getAttribute('data-sort') || '0');
-    });
-    rows.forEach(function (row) { tbody.appendChild(row); });
-    sortState.col = 0;
-    sortState.dir = 'asc';
-    setIcon(headers[0], 'asc');
-  })();
-})();
-</script>
 
         </div>
       </div>
@@ -1597,12 +1543,12 @@
         <div class="col-12">
           <h2 class="my-3" id="standards-2">Standards</h2>
             <div class="table-responsive">
-  <table class="table mb-2">
+  <table class="table mb-2" data-sortable="">
     <caption class="visually-hidden">Compliance status by standard</caption>
     <thead>
       <tr>
-        <th scope="col" class="sortable" data-col="0">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
-        <th scope="col" class="sortable" data-col="1">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" data-sort-default="">Status <svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></th>
+        <th scope="col">Standards <svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></th>
       </tr>
     </thead>
     <tbody id="table-compliance-botability">
@@ -1771,60 +1717,6 @@
 </a>
 
 </div>
-<script>
-(function () {
-  var tbody = document.getElementById('table-compliance-botability');
-  if (!tbody) return;
-  var table = tbody.closest('table');
-  var headers = table.querySelectorAll('th.sortable');
-  var sortState = { col: -1, dir: 'asc' };
-
-  function setIcon(th, dir) {
-    th.querySelector('.sort-neutral').classList.toggle('d-none', dir !== null);
-    th.querySelector('.sort-asc').classList.toggle('d-none', dir !== 'asc');
-    th.querySelector('.sort-desc').classList.toggle('d-none', dir !== 'desc');
-  }
-
-  headers.forEach(function (th) {
-    th.addEventListener('click', function () {
-      var col = parseInt(this.getAttribute('data-col'));
-      if (sortState.col === col) {
-        sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
-      } else {
-        sortState.col = col;
-        sortState.dir = 'asc';
-      }
-      headers.forEach(function (h) { setIcon(h, null); });
-      setIcon(this, sortState.dir);
-
-      var rows = Array.from(tbody.querySelectorAll('tr'));
-      rows.sort(function (a, b) {
-        var aVal = a.cells[col].getAttribute('data-sort') || '';
-        var bVal = b.cells[col].getAttribute('data-sort') || '';
-        if (col === 1) {
-          return sortState.dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-        }
-        return sortState.dir === 'asc'
-          ? parseInt(aVal) - parseInt(bVal)
-          : parseInt(bVal) - parseInt(aVal);
-      });
-      rows.forEach(function (row) { tbody.appendChild(row); });
-    });
-  });
-
-  // Default sort: Status (col 0) ascending, missing/inaccessible first
-  (function () {
-    var rows = Array.from(tbody.querySelectorAll('tr'));
-    rows.sort(function (a, b) {
-      return parseInt(a.cells[0].getAttribute('data-sort') || '0') - parseInt(b.cells[0].getAttribute('data-sort') || '0');
-    });
-    rows.forEach(function (row) { tbody.appendChild(row); });
-    sortState.col = 0;
-    sortState.dir = 'asc';
-    setIcon(headers[0], 'asc');
-  })();
-})();
-</script>
 
         </div>
       </div>
@@ -1928,12 +1820,12 @@
         <div class="col-12">
           <h2 class="my-3" id="standards-3">Standards</h2>
             <div class="table-responsive">
-  <table class="table mb-2">
+  <table class="table mb-2" data-sortable="">
     <caption class="visually-hidden">Compliance status by standard</caption>
     <thead>
       <tr>
-        <th scope="col" class="sortable" data-col="0">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
-        <th scope="col" class="sortable" data-col="1">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" data-sort-default="">Status <svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></th>
+        <th scope="col">Standards <svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></th>
       </tr>
     </thead>
     <tbody id="table-compliance-security">
@@ -2158,60 +2050,6 @@
 </a>
 
 </div>
-<script>
-(function () {
-  var tbody = document.getElementById('table-compliance-security');
-  if (!tbody) return;
-  var table = tbody.closest('table');
-  var headers = table.querySelectorAll('th.sortable');
-  var sortState = { col: -1, dir: 'asc' };
-
-  function setIcon(th, dir) {
-    th.querySelector('.sort-neutral').classList.toggle('d-none', dir !== null);
-    th.querySelector('.sort-asc').classList.toggle('d-none', dir !== 'asc');
-    th.querySelector('.sort-desc').classList.toggle('d-none', dir !== 'desc');
-  }
-
-  headers.forEach(function (th) {
-    th.addEventListener('click', function () {
-      var col = parseInt(this.getAttribute('data-col'));
-      if (sortState.col === col) {
-        sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
-      } else {
-        sortState.col = col;
-        sortState.dir = 'asc';
-      }
-      headers.forEach(function (h) { setIcon(h, null); });
-      setIcon(this, sortState.dir);
-
-      var rows = Array.from(tbody.querySelectorAll('tr'));
-      rows.sort(function (a, b) {
-        var aVal = a.cells[col].getAttribute('data-sort') || '';
-        var bVal = b.cells[col].getAttribute('data-sort') || '';
-        if (col === 1) {
-          return sortState.dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-        }
-        return sortState.dir === 'asc'
-          ? parseInt(aVal) - parseInt(bVal)
-          : parseInt(bVal) - parseInt(aVal);
-      });
-      rows.forEach(function (row) { tbody.appendChild(row); });
-    });
-  });
-
-  // Default sort: Status (col 0) ascending, missing/inaccessible first
-  (function () {
-    var rows = Array.from(tbody.querySelectorAll('tr'));
-    rows.sort(function (a, b) {
-      return parseInt(a.cells[0].getAttribute('data-sort') || '0') - parseInt(b.cells[0].getAttribute('data-sort') || '0');
-    });
-    rows.forEach(function (row) { tbody.appendChild(row); });
-    sortState.col = 0;
-    sortState.dir = 'asc';
-    setIcon(headers[0], 'asc');
-  })();
-})();
-</script>
 
         </div>
       </div>
@@ -2317,12 +2155,12 @@
         <div class="col-12">
           <h2 class="my-3" id="standards-4">Standards</h2>
             <div class="table-responsive">
-  <table class="table mb-2">
+  <table class="table mb-2" data-sortable="">
     <caption class="visually-hidden">Compliance status by standard</caption>
     <thead>
       <tr>
-        <th scope="col" class="sortable" data-col="0">Status <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
-        <th scope="col" class="sortable" data-col="1">Standards <span class="sort-icons"><svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc d-none" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc d-none" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></span></th>
+        <th scope="col" data-sort-default="">Status <svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></th>
+        <th scope="col">Standards <svg class="fa-solid fa-sort sort-neutral" aria-hidden="true"><use href="#fas-fa-sort" xlink:href="#fas-fa-sort"></use></svg><svg class="fa-solid fa-sort-up sort-asc" aria-hidden="true"><use href="#fas-fa-sort-up" xlink:href="#fas-fa-sort-up"></use></svg><svg class="fa-solid fa-sort-down sort-desc" aria-hidden="true"><use href="#fas-fa-sort-down" xlink:href="#fas-fa-sort-down"></use></svg></th>
       </tr>
     </thead>
     <tbody id="table-compliance-usability">
@@ -2799,60 +2637,6 @@
 </a>
 
 </div>
-<script>
-(function () {
-  var tbody = document.getElementById('table-compliance-usability');
-  if (!tbody) return;
-  var table = tbody.closest('table');
-  var headers = table.querySelectorAll('th.sortable');
-  var sortState = { col: -1, dir: 'asc' };
-
-  function setIcon(th, dir) {
-    th.querySelector('.sort-neutral').classList.toggle('d-none', dir !== null);
-    th.querySelector('.sort-asc').classList.toggle('d-none', dir !== 'asc');
-    th.querySelector('.sort-desc').classList.toggle('d-none', dir !== 'desc');
-  }
-
-  headers.forEach(function (th) {
-    th.addEventListener('click', function () {
-      var col = parseInt(this.getAttribute('data-col'));
-      if (sortState.col === col) {
-        sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
-      } else {
-        sortState.col = col;
-        sortState.dir = 'asc';
-      }
-      headers.forEach(function (h) { setIcon(h, null); });
-      setIcon(this, sortState.dir);
-
-      var rows = Array.from(tbody.querySelectorAll('tr'));
-      rows.sort(function (a, b) {
-        var aVal = a.cells[col].getAttribute('data-sort') || '';
-        var bVal = b.cells[col].getAttribute('data-sort') || '';
-        if (col === 1) {
-          return sortState.dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-        }
-        return sortState.dir === 'asc'
-          ? parseInt(aVal) - parseInt(bVal)
-          : parseInt(bVal) - parseInt(aVal);
-      });
-      rows.forEach(function (row) { tbody.appendChild(row); });
-    });
-  });
-
-  // Default sort: Status (col 0) ascending, missing/inaccessible first
-  (function () {
-    var rows = Array.from(tbody.querySelectorAll('tr'));
-    rows.sort(function (a, b) {
-      return parseInt(a.cells[0].getAttribute('data-sort') || '0') - parseInt(b.cells[0].getAttribute('data-sort') || '0');
-    });
-    rows.forEach(function (row) { tbody.appendChild(row); });
-    sortState.col = 0;
-    sortState.dir = 'asc';
-    setIcon(headers[0], 'asc');
-  })();
-})();
-</script>
 
         </div>
       </div>
@@ -3134,6 +2918,8 @@
 </script>
 <script src="/assets/bootstrap/js/bootstrap-trimmed.min.js" defer=""></script>
 <script src="/assets/bootstrap/js/bootstrap-tooltip.min.js" defer=""></script>
+<script src="/js/tablesort-vendor.js"></script>
+<script src="/js/tablesort-init.js"></script>
 <script>
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
     document.documentElement.setAttribute('data-bs-theme', e.matches ? 'dark' : 'light');
