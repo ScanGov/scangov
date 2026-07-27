@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-12">
         <div class="table-responsive">
-          <table class="table rankings-table">
+          <table class="table rankings-table"{% if currentsort %} data-sortable{% endif %}>
             <caption class="visually-hidden">Site rankings</caption>
             <thead>
               {% include "rankingheaders.html" %}
@@ -87,46 +87,24 @@
     </div>
   </div>
 </main>
+{% if not currentsort %}
 <script>
 (function () {
   var ATTR = '{{ specificAttribute }}';
-  var PAGE_URL = '{{ page.url }}';
-  var isSubset = /\/(cities|states|federal)\//.test(PAGE_URL);
   var STANDARDS_URLS = {
     {% for catKey, cat in audits %}{% if cat.attributes %}'{{ catKey }}': { {% for attr in cat.attributes %}'{{ attr.key }}': 'https://standards.scangov.org/{{ attr.key }}', {% endfor %} },
     {% endif %}{% endfor %}
   };
 
   var tbody = document.getElementById('table');
-  var headers = document.querySelectorAll('.rankings-table th.sortable');
-  var sortState = { col: -1, dir: 'asc' };
+  var headers = document.querySelectorAll('.rankings-table th');
+  var sortState = { col: -1, dir: 'ascending' };
   var fullData = null;
 
-  function setIcon(th, dir) {
-    th.querySelector('.sort-neutral').classList.toggle('d-none', dir !== null);
-    th.querySelector('.sort-asc').classList.toggle('d-none', dir !== 'asc');
-    th.querySelector('.sort-desc').classList.toggle('d-none', dir !== 'desc');
-  }
-
-  // Per-page sort for subset pages (cities/states/federal)
-  function sortPage(col, dir) {
-    var rows = Array.from(tbody.querySelectorAll('tr'));
-    rows.sort(function (a, b) {
-      if (col === 1) {
-        var aLink = a.cells[1].querySelector('a');
-        var bLink = b.cells[1].querySelector('a');
-        var aVal = aLink ? aLink.textContent : '';
-        var bVal = bLink ? bLink.textContent : '';
-        return dir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-      }
-      var aVal = parseFloat(a.cells[col].getAttribute('data-sort') || 0);
-      var bVal = parseFloat(b.cells[col].getAttribute('data-sort') || 0);
-      return dir === 'asc' ? aVal - bVal : bVal - aVal;
-    });
-    rows.forEach(function (row) { tbody.appendChild(row); });
-  }
-
-  // Full-dataset sort helpers
+  // Full-dataset sort helpers - this page fetches and rebuilds every row from a
+  // separate JSON dataset rather than re-sorting rows already in the DOM, so it
+  // can't use the shared tablesort library. It still signals state via aria-sort
+  // like every other sortable table, so the icon CSS stays the same everywhere.
   function slugify(str) {
     return str ? str.toString().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') : '';
   }
@@ -198,28 +176,29 @@
   function sortAndRender(col, dir) {
     var sorted = fullData.slice().sort(function (a, b) {
       if (col === 1) {
-        return dir === 'asc'
+        return dir === 'ascending'
           ? a.urlkey.localeCompare(b.urlkey)
           : b.urlkey.localeCompare(a.urlkey);
       }
       var aVal = col === 0 ? a.rankingPosition : scoreOf(a);
       var bVal = col === 0 ? b.rankingPosition : scoreOf(b);
-      return dir === 'asc' ? aVal - bVal : bVal - aVal;
+      return dir === 'ascending' ? aVal - bVal : bVal - aVal;
     });
     tbody.innerHTML = sorted.map(renderRow).join('');
     var pag = document.getElementById('ranking-pagination');
     if (pag) pag.classList.add('d-none');
   }
 
-  async function onSortFull(th, col) {
+  async function onSortFull(th) {
+    var col = th.cellIndex;
     if (sortState.col === col) {
-      sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
+      sortState.dir = sortState.dir === 'ascending' ? 'descending' : 'ascending';
     } else {
       sortState.col = col;
-      sortState.dir = 'asc';
+      sortState.dir = 'ascending';
     }
-    headers.forEach(function (h) { setIcon(h, null); });
-    setIcon(th, sortState.dir);
+    headers.forEach(function (h) { h.removeAttribute('aria-sort'); });
+    th.setAttribute('aria-sort', sortState.dir);
 
     if (!fullData) {
       primeIconCache();
@@ -247,27 +226,9 @@
     sortAndRender(sortState.col, sortState.dir);
   }
 
-  function onSortPage(th, col) {
-    if (sortState.col === col) {
-      sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
-    } else {
-      sortState.col = col;
-      sortState.dir = 'asc';
-    }
-    headers.forEach(function (h) { setIcon(h, null); });
-    setIcon(th, sortState.dir);
-    sortPage(col, sortState.dir);
-  }
-
   headers.forEach(function (th) {
-    th.addEventListener('click', function () {
-      var col = parseInt(this.getAttribute('data-col'));
-      if (isSubset) {
-        onSortPage(this, col);
-      } else {
-        onSortFull(this, col);
-      }
-    });
+    th.addEventListener('click', function () { onSortFull(this); });
   });
 })();
 </script>
+{% endif %}
