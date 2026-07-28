@@ -35,5 +35,8 @@
 		"@11ty/is-land": "^4.0.0",
 		"leaflet": "^1.9.4",
 		"purgecss": "^7.0.2"
+	},
+	"overrides": {
+		"sharp": "^0.35.3"
 	}
 }
