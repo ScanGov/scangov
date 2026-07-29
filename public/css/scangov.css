@@ -92,6 +92,7 @@
     --bs-card-shadow: var(--bs-shadow);
     --bs-box-shadow: var(--bs-shadow);
     --bs-box-shadow-md: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+    --bs-box-shadow-hover: 0 0.25rem 0.5rem rgba(0, 0, 0, 1);
     --bs-secondary: var(--bs-body-color);
     --bs-text-secondary: var(--bs-secondary);
     --bs-badge-bg: var(--bs-primary);
@@ -179,10 +180,11 @@
     --bs-nav-link-color: var(--bs-body-color);
     --bs-nav-link-hover-color: var(--bs-link-color);
     --bs-border-color: #d5dce8;
-    --bs-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.06);
+    --bs-shadow: .25rem 0.25rem 0 0 rgba(0, 0, 0, 0.20);
     --bs-card-shadow: var(--bs-shadow);
     --bs-box-shadow: var(--bs-shadow);
-    --bs-box-shadow-md: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+    --bs-box-shadow-md: .25rem 0.25rem 0 0 rgba(0, 0, 0, 0.15);
+    --bs-box-shadow-hover: .25rem 0.25rem 0 0 rgba(0, 0, 0, 1);
     --bs-secondary: var(--bs-body-color);
     --bs-text-secondary: var(--bs-secondary);
     --bs-badge-bg: var(--bs-primary);
@@ -215,6 +217,7 @@
     --bs-bg-success-rgb: 127, 177, 53;
     --bs-border-success: #7fb135;
     --bs-success-bg-subtle: #c5ee93;
+    --bs-danger-bg-subtle: #f5c2cb;
 }
 
 /* Status badge overrides */
@@ -494,7 +497,7 @@ button:not(.card *) {
 }
 
 .navbar-org {
-    font-family: var(--bs-font-monospace);
+    font-family: "JetBrains Mono ExtraBold", monospace !important;
     color: var(--bs-body-color) !important;
     text-decoration: none;
     margin-left: 0.5rem;
@@ -535,10 +538,6 @@ a.list-group-item:hover {
 
 a.list-group-item:hover {
     background-color: var(--bs-body-secondary-bg);
-}
-
-.border-end {
-    box-shadow: var(--bs-shadow);
 }
 
 /* Social links */
@@ -690,6 +689,31 @@ button.btn-primary-outline {
     transition: filter 0.25s ease, box-shadow 0.25s ease;
 }
 
+a.btn-secondary-outline,
+button.btn-secondary-outline {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border-radius: var(--bs-border-radius-sm);
+    border: 1px solid var(--bs-border-color);
+    box-shadow: var(--bs-shadow);
+    cursor: pointer;
+    font-family: var(--bs-font-sans-serif);
+    padding: 0.5rem 0.875rem;
+    transition: filter 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.btn-secondary-outline.btn-sm {
+    padding: 0.3rem 0.6rem;
+}
+
+.btn-secondary-outline:hover,
+.btn-secondary-outline:focus,
+.btn-secondary-outline:active {
+    background-color: var(--bs-secondary) !important;
+    color: var(--bs-body-bg) !important;
+    border-color: var(--bs-secondary) !important;
+}
+
 .btn.btn-outline-primary {
     --bs-btn-color: var(--bs-body-color);
     --bs-btn-border-color: var(--bs-border-color);
@@ -699,7 +723,9 @@ button.btn-primary-outline {
     --bs-btn-active-color: var(--bs-body-bg);
     --bs-btn-active-bg: var(--bs-body-color);
     --bs-btn-active-border-color: var(--bs-body-color);
+    box-shadow: var(--bs-shadow);
     padding: 0.5rem 0.875rem;
+    transition: filter 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn.btn-outline-primary.btn-lg {
@@ -765,6 +791,7 @@ button.btn-primary-outline {
     pointer-events: none;
     visibility: hidden;
     background-color: var(--bs-body-bg) !important;
+    border: 1px solid var(--bs-border-color);
     box-shadow: var(--bs-shadow);
     cursor: pointer;
     position: fixed;
@@ -857,7 +884,6 @@ button.btn-primary-outline {
 
 .nav-pills .nav-link {
     border: 1px solid var(--bs-border-color);
-    box-shadow: var(--bs-shadow);
     font-family: "Public Sans Regular", sans-serif !important;
     color: var(--bs-body-color);
     background-color: var(--bs-body-bg);
@@ -1011,7 +1037,6 @@ button.btn-primary-outline {
     background-color: var(--bs-primary) !important;
     color: var(--bs-primary-text) !important;
     border-color: var(--bs-primary) !important;
-    box-shadow: var(--bs-shadow);
 }
 
 .nav-tabs.filter .nav-link:not(.active):hover i,
@@ -1110,56 +1135,41 @@ button.btn-primary-outline {
     border-color: var(--bs-body-color) !important;
 }
 
-/* Form submit buttons only - other .btn-primary uses (links styled as buttons,
-   feedback CTA, etc.) keep the brand blue. */
+/* Form submit buttons and the modal copy button - other .btn-primary uses (links
+   styled as buttons, feedback CTA, etc.) keep the brand blue. */
 [data-bs-theme=light] button[type="submit"].btn-primary,
 [data-bs-theme=light] button[type="submit"].btn-primary:hover,
 [data-bs-theme=light] button[type="submit"].btn-primary:focus,
-[data-bs-theme=light] button[type="submit"].btn-primary:active {
+[data-bs-theme=light] button[type="submit"].btn-primary:active,
+[data-bs-theme=light] .btn-primary.js-copy,
+[data-bs-theme=light] .btn-primary.js-copy:hover,
+[data-bs-theme=light] .btn-primary.js-copy:focus,
+[data-bs-theme=light] .btn-primary.js-copy:active {
     background-color: var(--bs-body-color) !important;
     border-color: var(--bs-body-color) !important;
 }
 
-/* Per-icon colors (dark mode default) */
-.nav-tabs.topnav .nav-link:not(.active) .fa-bars-progress {
+/* Per-icon colors (dark mode only) - explicitly theme-gated so light mode isn't
+   beaten by this rule's specificity and falls through to the general
+   .fa-solid:not([class*="text-"]) inherit rule instead. */
+[data-bs-theme=dark] .nav-tabs.topnav .nav-link:not(.active) .fa-bars-progress {
     color: var(--bs-primary) !important;
 }
 
-.nav-tabs.topnav .nav-link:not(.active) .fa-certificate {
+[data-bs-theme=dark] .nav-tabs.topnav .nav-link:not(.active) .fa-certificate {
     color: #ffbe2e !important;
 }
 
-.nav-tabs.topnav .nav-link:not(.active) .fa-diagram-project {
+[data-bs-theme=dark] .nav-tabs.topnav .nav-link:not(.active) .fa-diagram-project {
     color: #7efbe1 !important;
 }
 
-.nav-tabs.topnav .nav-link:not(.active) .fa-file-lines {
+[data-bs-theme=dark] .nav-tabs.topnav .nav-link:not(.active) .fa-file-lines {
     color: #a8f2ff !important;
 }
 
-.nav-tabs.topnav .nav-link:not(.active) .fa-database {
+[data-bs-theme=dark] .nav-tabs.topnav .nav-link:not(.active) .fa-database {
     color: #a8f5d5 !important;
-}
-
-/* Per-icon colors (light mode) */
-[data-bs-theme=light] .nav-tabs.topnav .nav-link:not(.active) .fa-bars-progress {
-    color: #8a4f00 !important;
-}
-
-[data-bs-theme=light] .nav-tabs.topnav .nav-link:not(.active) .fa-certificate {
-    color: #8a6500 !important;
-}
-
-[data-bs-theme=light] .nav-tabs.topnav .nav-link:not(.active) .fa-diagram-project {
-    color: #0d7a6e !important;
-}
-
-[data-bs-theme=light] .nav-tabs.topnav .nav-link:not(.active) .fa-file-lines {
-    color: #1a6fa0 !important;
-}
-
-[data-bs-theme=light] .nav-tabs.topnav .nav-link:not(.active) .fa-database {
-    color: #0d6b52 !important;
 }
 
 /* Hover overrides for per-icon colors — must come after default icon rules, with :hover for higher specificity */
@@ -1239,7 +1249,6 @@ th.sortable {
 }
 
 .table:not(.table-sm) {
-    box-shadow: var(--bs-box-shadow);
     font-size: 0.95rem;
 }
 
@@ -1393,7 +1402,6 @@ code.language-plaintext {
 
 .card {
     border: 1px solid var(--bs-border-color);
-    box-shadow: var(--bs-shadow);
     width: 100%;
     transition: filter 0.25s ease, box-shadow 0.25s ease;
 }
@@ -1408,31 +1416,27 @@ a.card {
     text-decoration: none;
 }
 
-.card:not(.text-bg-success):not(.text-bg-warning):not(.text-bg-danger):hover {
-    filter: brightness(1.3);
-    box-shadow: var(--bs-box-shadow-md);
-}
-
-[data-bs-theme=light] .card:not(.text-bg-success):not(.text-bg-warning):not(.text-bg-danger):hover {
-    filter: brightness(0.97);
-}
-
 .card-body i+h3 {
     margin-top: 0.75rem;
     margin-bottom: 0.5rem;
 }
 
 .card:has(.stretched-link) {
-    border-color: rgba(var(--bs-link-color-rgb), 0.9) !important;
+    border-color: var(--bs-border-color) !important;
+    box-shadow: var(--bs-shadow);
     opacity: 0.9;
     transition: border-color 0.2s ease, box-shadow 0.25s ease, opacity 0.2s ease;
 }
 
-.card:has(.stretched-link):hover {
-    border-color: rgba(var(--bs-link-color-rgb), 1) !important;
-    box-shadow: var(--bs-box-shadow-md);
+.card:has(.stretched-link):not(.text-bg-success):not(.text-bg-warning):not(.text-bg-danger):hover {
+    border-color: var(--bs-border-color) !important;
+    box-shadow: var(--bs-box-shadow-hover);
     opacity: 1;
-    filter: none;
+    filter: brightness(1.3);
+}
+
+[data-bs-theme=light] .card:has(.stretched-link):not(.text-bg-success):not(.text-bg-warning):not(.text-bg-danger):hover {
+    filter: brightness(0.97);
 }
 
 .card-header>a,
@@ -1476,7 +1480,7 @@ a.card {
 .text-bg-danger.card:hover,
 .text-bg-info.card:hover {
     filter: brightness(1.3);
-    box-shadow: var(--bs-box-shadow-md);
+    box-shadow: var(--bs-box-shadow-hover);
 }
 
 [data-bs-theme=light] .text-bg-success.card:hover,
@@ -1530,7 +1534,23 @@ a.card {
 
 .card-grade,
 .card-grade-sm {
+    box-shadow: var(--bs-shadow);
     margin-bottom: 0;
+}
+
+/* Explicit hover, independent of the stretched-link/status-color routing other
+   card hover rules use - guarantees every .card-grade/.card-grade-sm card gets
+   the same hover shadow regardless of whether it happens to be a link or carry
+   a text-bg-* status color. */
+.card-grade:hover,
+.card-grade-sm:hover {
+    filter: brightness(1.3);
+    box-shadow: var(--bs-box-shadow-hover);
+}
+
+[data-bs-theme=light] .card-grade:hover,
+[data-bs-theme=light] .card-grade-sm:hover {
+    filter: brightness(0.97);
 }
 
 .card-grade .card-body {
@@ -1867,7 +1887,6 @@ iframe {
     background-color: var(--bs-body-bg);
     border: var(--bs-border-width) solid var(--bs-border-color);
     border-radius: var(--bs-border-radius);
-    box-shadow: 0.05em 0.2em 0.6em rgba(0, 0, 0, 0.2);
     text-shadow: none;
 }
 
@@ -2624,6 +2643,68 @@ a .fa-up-right-from-square {
     fill: var(--bs-body-color) !important;
 }
 
+/* Icons inside a plain link (sidebar nav, table cells, card links, breadcrumbs, etc.)
+   should read as body text color, not link-blue - "inherit" above only works when the
+   surrounding text is already body-colored, and anchors default to link-blue. Buttons
+   are excluded since a .btn's icon should keep matching its own (often white-on-color)
+   button text via .btn-primary i/.btn-primary svg further down. .active is excluded too -
+   selected/active nav states (nav-tabs, nav-pills, list-group) deliberately keep
+   var(--bs-primary-text) on their own colored fill, handled by their own rules. */
+[data-bs-theme=light] a:not(.btn):not(.active) .fa-solid:not([class*="text-"]),
+[data-bs-theme=light] a:not(.btn):not(.active) .fa-regular:not([class*="text-"]),
+[data-bs-theme=light] a:not(.btn):not(.active) .fa-brands:not([class*="text-"]) {
+    color: var(--bs-body-color) !important;
+    fill: var(--bs-body-color) !important;
+}
+
+/* Icons rendered via the <svg><use> sprite pattern (as opposed to <i> font-glyph
+   icons): currentColor can resolve against either the calling <svg> or the hidden
+   <symbol> definition depending on browser engine (see comment above on symbol
+   coverage), and the symbol itself carries the same fa-* class too - so any icon
+   used this way needs its own direct, theme-scoped override rather than relying
+   solely on the wrapper matching .fa-solid or the anchor-context rule above. Add
+   new icon classes here as the <svg class="fa-solid fa-X"><use>... pattern picks
+   up more icons (get-profile-000siteslug-details.mjs, get-docs.mjs, etc). */
+[data-bs-theme=light] .fa-universal-access:not([class*="text-"]),
+[data-bs-theme=light] .fa-bolt:not([class*="text-"]),
+[data-bs-theme=light] .fa-circle-question:not([class*="text-"]),
+[data-bs-theme=light] .fa-certificate:not([class*="text-"]),
+[data-bs-theme=light] .fa-scroll:not([class*="text-"]),
+[data-bs-theme=light] .fa-robot:not([class*="text-"]),
+[data-bs-theme=light] .fa-hand-pointer:not([class*="text-"]),
+[data-bs-theme=light] .fa-shield-halved:not([class*="text-"]),
+[data-bs-theme=light] .fa-truck-ramp-box:not([class*="text-"]),
+[data-bs-theme=light] .fa-circle-info:not([class*="text-"]),
+[data-bs-theme=light] .fa-user-group:not([class*="text-"]),
+[data-bs-theme=light] .fa-spray-can-sparkles:not([class*="text-"]),
+[data-bs-theme=light] .fa-timeline:not([class*="text-"]),
+[data-bs-theme=light] .fa-circle-nodes:not([class*="text-"]),
+[data-bs-theme=light] .fa-scale-balanced:not([class*="text-"]),
+[data-bs-theme=light] .fa-link:not([class*="text-"]),
+[data-bs-theme=light] .fa-concierge-bell:not([class*="text-"]),
+[data-bs-theme=light] .fa-table:not([class*="text-"]),
+[data-bs-theme=light] .fa-circle-play:not([class*="text-"]),
+[data-bs-theme=light] .fa-download:not([class*="text-"]),
+[data-bs-theme=light] .fa-bullhorn:not([class*="text-"]),
+[data-bs-theme=light] .fa-filter:not([class*="text-"]),
+[data-bs-theme=light] .fa-graduation-cap:not([class*="text-"]),
+[data-bs-theme=light] .fa-chart-simple:not([class*="text-"]),
+[data-bs-theme=light] .fa-photo-film:not([class*="text-"]),
+[data-bs-theme=light] .fa-crown:not([class*="text-"]),
+[data-bs-theme=light] .fa-user-shield:not([class*="text-"]),
+[data-bs-theme=light] .fa-wave-square:not([class*="text-"]),
+[data-bs-theme=light] .fa-ranking-star:not([class*="text-"]),
+[data-bs-theme=light] .fa-book-open:not([class*="text-"]),
+[data-bs-theme=light] .fa-file-lines:not([class*="text-"]),
+[data-bs-theme=light] .fa-bars-progress:not([class*="text-"]),
+[data-bs-theme=light] .fa-star:not([class*="text-"]),
+[data-bs-theme=light] .fa-arrow-right-to-bracket:not([class*="text-"]),
+[data-bs-theme=light] .fa-check-circle:not([class*="text-"]),
+[data-bs-theme=light] .fa-square-check:not([class*="text-"]) {
+    color: var(--bs-body-color) !important;
+    fill: var(--bs-body-color) !important;
+}
+
 /* Exceptions to the inherit-text-color rule above: these keep a fixed, meaningful color
    regardless of theme rather than blending into surrounding text. Selectors here need to
    match the blanket rule's specificity (three class-tier selectors) to win - a plain
@@ -2631,6 +2712,19 @@ a .fa-up-right-from-square {
    class/attribute tier first regardless of how many type selectors are added. */
 [data-bs-theme=light] .fa-solid.fa-heart {
     color: #e41d3d !important;
+}
+
+/* Status icons (pass/warning) keep their semantic color in light mode instead of
+   blending into body text - matches how .text-success/.text-danger utility icons
+   are already excluded from the blanket rule above. */
+[data-bs-theme=light] .fa-circle-check:not([class*="text-"]) {
+    color: var(--bs-success) !important;
+    fill: var(--bs-success) !important;
+}
+
+[data-bs-theme=light] .fa-triangle-exclamation:not([class*="text-"]) {
+    color: var(--bs-danger) !important;
+    fill: var(--bs-danger) !important;
 }
 
 [data-bs-theme=light] .bg-secondary-subtle {
@@ -2788,7 +2882,6 @@ select.js-subfilters:hover {
     background-color: var(--bs-primary) !important;
     color: var(--bs-primary-text) !important;
     border-color: var(--bs-primary) !important;
-    box-shadow: var(--bs-shadow) !important;
     border-radius: 0 !important;
 }
 
@@ -2815,6 +2908,17 @@ th a:focus i, th a:focus svg {
     color: var(--bs-body-color) !important;
     fill: var(--bs-body-color) !important;
     text-decoration: none;
+}
+
+/* Same treatment for td - icons wrapped in a table-cell link should read as
+   text color, not link color, unless they already carry their own text-* utility. */
+td a i:not([class*="text-"]), td a svg:not([class*="text-"]),
+td a:link i:not([class*="text-"]), td a:link svg:not([class*="text-"]),
+td a:visited i:not([class*="text-"]), td a:visited svg:not([class*="text-"]),
+td a:hover i:not([class*="text-"]), td a:hover svg:not([class*="text-"]),
+td a:focus i:not([class*="text-"]), td a:focus svg:not([class*="text-"]) {
+    color: var(--bs-body-color) !important;
+    fill: var(--bs-body-color) !important;
 }
 
 /* Sortable tables (tablesort library, public/js/tablesort-vendor.js): the icon is
@@ -3129,7 +3233,6 @@ dialog::backdrop { }
     background-color: var(--bs-body-bg);
     color: var(--bs-body-color);
     border: 1px solid var(--bs-border-color);
-    box-shadow: var(--bs-box-shadow);
 }
 
 .tooltip[data-popper-placement^="top"] .tooltip-arrow::before {
@@ -3216,6 +3319,7 @@ button.btn.btn-primary[disabled] {
 }
 
 .btn {
+  box-shadow: var(--bs-shadow);
   text-wrap: nowrap;
 }
 
