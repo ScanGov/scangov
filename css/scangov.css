@@ -2727,6 +2727,15 @@ a .fa-up-right-from-square {
     fill: var(--bs-danger) !important;
 }
 
+/* Opt-out marker for a status icon used decoratively (e.g. a "Risks" card label,
+   not an actual warning state) - excludes it from the light-mode rule above via
+   the "text-" substring match, without forcing a color in dark mode too, so the
+   icon's normal (non-light-mode) default color is untouched there. */
+[data-bs-theme=light] .text-neutral-icon {
+    color: var(--bs-body-color) !important;
+    fill: var(--bs-body-color) !important;
+}
+
 [data-bs-theme=light] .bg-secondary-subtle {
     color: var(--bs-body-color) !important;
     background-color: #ffffff !important;
