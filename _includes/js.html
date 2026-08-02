@@ -57,11 +57,6 @@
 <script src="{{ site.baseurl }}/js/tablesort-vendor.js"></script>
 <script src="{{ site.baseurl }}/js/tablesort-init.js"></script>
 <script>
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    document.documentElement.setAttribute('data-bs-theme', e.matches ? 'dark' : 'light');
-  });
-</script>
-<script>
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
       new bootstrap.Tooltip(el, { trigger: 'click' });
