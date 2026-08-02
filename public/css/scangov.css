@@ -796,10 +796,17 @@ button.btn-secondary-outline {
     cursor: pointer;
     position: fixed;
     bottom: 1rem;
-    right: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1000;
     text-decoration: none;
     transition: opacity 0.25s ease, visibility 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feedback.feedback-right {
+    left: auto;
+    right: 1rem;
+    transform: none;
 }
 
 .feedback.is-visible {
