@@ -55,7 +55,20 @@
 <link href="/css/scangov.css" rel="stylesheet">
 
     <script>
-        document.documentElement.setAttribute('data-bs-theme', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        (function () {
+            var syncTheme = function () {
+                var desired = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                if (document.documentElement.getAttribute('data-bs-theme') !== desired) {
+                    document.documentElement.setAttribute('data-bs-theme', desired);
+                }
+            };
+            syncTheme();
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncTheme);
+            new MutationObserver(syncTheme).observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-bs-theme']
+            });
+        })();
     </script>
 </head>
 
@@ -242,7 +255,7 @@
             
             <a href="https://warrencountyky.gov/" target="_blank" class="list-group-item list-group-item-action">
                 <svg class="fa-solid fa-up-right-from-square" aria-hidden="true"><use href="#fas-fa-up-right-from-square" xlink:href="#fas-fa-up-right-from-square"></use></svg>
-                <small>Visit site</small>
+                <small>Site</small>
             </a>
             
         
@@ -3121,11 +3134,6 @@
 <script src="/assets/bootstrap/js/bootstrap-tooltip.min.js" defer=""></script>
 <script src="/js/tablesort-vendor.js"></script>
 <script src="/js/tablesort-init.js"></script>
-<script>
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    document.documentElement.setAttribute('data-bs-theme', e.matches ? 'dark' : 'light');
-  });
-</script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {

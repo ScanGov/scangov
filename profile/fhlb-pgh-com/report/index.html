@@ -56,7 +56,20 @@
 <link href="/css/scangov.css" rel="stylesheet">
 
     <script>
-        document.documentElement.setAttribute('data-bs-theme', window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        (function () {
+            var syncTheme = function () {
+                var desired = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                if (document.documentElement.getAttribute('data-bs-theme') !== desired) {
+                    document.documentElement.setAttribute('data-bs-theme', desired);
+                }
+            };
+            syncTheme();
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncTheme);
+            new MutationObserver(syncTheme).observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-bs-theme']
+            });
+        })();
     </script>
 </head>
 
