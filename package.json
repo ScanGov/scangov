@@ -18,23 +18,23 @@
 	},
 	"devDependencies": {
 		"@11ty/eleventy": "^3.1.2",
-		"@11ty/eleventy-img": "^5.0.0",
-		"@11ty/eleventy-navigation": "^0.3.5",
-		"@11ty/eleventy-plugin-rss": "^2.0.2",
+		"@11ty/eleventy-img": "^7.0.0",
+		"@11ty/eleventy-navigation": "^1.0.5",
+		"@11ty/eleventy-plugin-rss": "^3.0.0",
 		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-		"cross-env": "^7.0.3",
-		"csv-parse": "^5.6.0",
+		"cross-env": "^10.1.0",
+		"csv-parse": "^7.0.2",
 		"follow-redirects": "^1.15.6",
 		"luxon": "^3.5.0",
 		"readline-sync": "^1.4.10",
-		"zod": "^3.23.8",
-		"zod-validation-error": "^3.3.1"
+		"zod": "^4.4.3",
+		"zod-validation-error": "^5.0.0"
 	},
 	"dependencies": {
 		"@11ty/font-awesome": "github:aaronhans/eleventy-plugin-font-awesome",
-		"@11ty/is-land": "^4.0.0",
+		"@11ty/is-land": "^5.0.1",
 		"leaflet": "^1.9.4",
-		"purgecss": "^7.0.2"
+		"purgecss": "^8.0.0"
 	},
 	"overrides": {
 		"sharp": "^0.35.3",
