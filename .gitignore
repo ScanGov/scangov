@@ -1,7 +1,6 @@
 _site/
 node_modules/
 test/
-package-lock.json
 vendor/
 ssl/
 .DS_Store
