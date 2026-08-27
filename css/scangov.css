@@ -500,8 +500,8 @@ button:not(.card *) {
     font-family: "JetBrains Mono ExtraBold", monospace !important;
     color: var(--bs-body-color) !important;
     text-decoration: none;
-    margin-left: 0.5rem;
-    padding-left: 0.5rem;
+    margin-left: 1.25rem;
+    padding-left: 1.25rem;
     border-left: 1px solid var(--bs-border-color);
 }
 
