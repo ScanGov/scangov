@@ -57,6 +57,24 @@ function isIntentionallyExcluded(frontmatter) {
     || /(^|\n)\s*sitemap:\s*false/.test(frontmatter);
 }
 
+// A directory data file (content/orgs/orgs.11tydata.js) can decide `sitemap`
+// per page with an eleventyComputed function, e.g. to drop single-domain org
+// pages that duplicate a profile. The decision is not visible in the page's
+// own frontmatter, so treat any page under such a directory as conditionally
+// excluded rather than reporting every excluded page as a bug.
+function hasComputedSitemapFlag(inputPath) {
+  if (!inputPath) return false;
+  const dir = path.dirname(inputPath);
+  const base = path.basename(dir);
+  for (const ext of ['.11tydata.js', '.11tydata.mjs', '.11tydata.cjs']) {
+    const dataFile = path.join(dir, base + ext);
+    if (!existsSync(dataFile)) continue;
+    const src = readFileSync(dataFile, 'utf8');
+    if (/eleventyComputed[\s\S]*?\bsitemap\s*:/.test(src)) return true;
+  }
+  return false;
+}
+
 function isNumberedListingPage(frontmatter) {
   if (!/(^|\n)pagination:\s*\n/.test(frontmatter)) return false;
 
@@ -100,6 +118,7 @@ async function checkViaNdjson(siteRoot, sitemapPaths) {
   });
 
   const missing = [];
+  const shouldNotBeListed = [];
   let total = 0;
 
   // Read line-by-line — the full ndjson dump (rendered HTML content included
@@ -114,15 +133,23 @@ async function checkViaNdjson(siteRoot, sitemapPaths) {
     if (!page.url) continue; // permalink: false or non-HTML output
     if (LOCAL_IGNORE_PREFIXES.some((prefix) => page.url.startsWith(prefix))) continue;
     total++;
-    if (sitemapPaths.has(page.url)) continue;
     const frontmatter = readFrontmatterBlock(page.inputPath);
+    if (sitemapPaths.has(page.url)) {
+      // Listed pages must be real, indexable destinations: a meta-refresh
+      // redirect page or a noindex page in the sitemap sends crawlers to a
+      // URL we have told them not to keep.
+      if (/(^|\n)\s*layout:\s*['"]?layouts\/redirect/.test(frontmatter)) shouldNotBeListed.push({ url: page.url, inputPath: page.inputPath, reason: 'redirect page' });
+      if (/(^|\n)\s*noindex:\s*true/.test(frontmatter)) shouldNotBeListed.push({ url: page.url, inputPath: page.inputPath, reason: 'noindex' });
+      continue;
+    }
     if (isIntentionallyExcluded(frontmatter)) continue;
+    if (hasComputedSitemapFlag(page.inputPath)) continue;
     if (isNumberedListingPage(frontmatter)) continue;
     missing.push({ url: page.url, inputPath: page.inputPath });
   }
   unlinkSync(ndjsonFile);
 
-  return { missing, total };
+  return { missing, total, shouldNotBeListed };
 }
 
 function checkViaFilesystemWalk(siteRoot, sitemapPaths) {
@@ -172,14 +199,44 @@ if (!existsSync(sitemapPath)) {
   process.exit(1);
 }
 
-const sitemapXml = readFileSync(sitemapPath, 'utf8');
+// sitemap.xml may be a plain urlset or a sitemapindex pointing at child
+// sitemaps (scangov.org splits its thousands of pages into per-section files).
+// Either way, collect every listed page URL and every <lastmod> for checking.
+function readSitemapTree(rootPath) {
+  const xml = readFileSync(rootPath, 'utf8');
+  if (!/<sitemapindex[\s>]/.test(xml)) return [xml];
+  return [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => {
+    const childPath = path.join(siteRoot, '_site', new URL(m[1]).pathname);
+    if (!existsSync(childPath)) {
+      console.error(`check-sitemap-completeness: sitemap index lists ${m[1]} but ${childPath} was not built.`);
+      process.exit(1);
+    }
+    return readFileSync(childPath, 'utf8');
+  });
+}
+
+const sitemapXml = readSitemapTree(sitemapPath).join('\n');
 const sitemapPaths = new Set(
   [...sitemapXml.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => new URL(m[1]).pathname)
+    .filter((p) => !/^\/sitemap-[a-z]+\.xml$/.test(p))
 );
 
-let missing, total;
+// Every <lastmod> must be a real W3C datetime (YYYY-MM-DD or full ISO 8601).
+// Empty or Date.toString()-style values are ignored by search engines, which
+// is exactly what the shared sitemap.njk used to emit before it was fixed.
+const badLastmod = [...sitemapXml.matchAll(/<lastmod>(.*?)<\/lastmod>/g)]
+  .map((m) => m[1])
+  .filter((v) => !/^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})?)?$/.test(v) || Number.isNaN(Date.parse(v)));
+if (badLastmod.length > 0) {
+  console.error(`check-sitemap-completeness: ${badLastmod.length} malformed or empty <lastmod> value(s) in sitemap.xml:\n`);
+  for (const v of badLastmod) console.error(`  "${v}"`);
+  console.error('\nEmit ISO 8601 (see components/sitemap.njk) or omit the element when no date exists.\n');
+  process.exit(1);
+}
+
+let missing, total, shouldNotBeListed = [];
 try {
-  ({ missing, total } = await checkViaNdjson(siteRoot, sitemapPaths));
+  ({ missing, total, shouldNotBeListed } = await checkViaNdjson(siteRoot, sitemapPaths));
 } catch (err) {
   console.error(
     'check-sitemap-completeness: "--to=ndjson" failed for this repo (likely a custom template ' +
@@ -187,6 +244,13 @@ try {
       'with reduced precision.\n'
   );
   ({ missing, total } = checkViaFilesystemWalk(siteRoot, sitemapPaths));
+}
+
+if (shouldNotBeListed.length > 0) {
+  console.error(`\ncheck-sitemap-completeness: ${shouldNotBeListed.length} page(s) in sitemap.xml that should not be listed:\n`);
+  for (const m of shouldNotBeListed) console.error(`  ${m.url}  (${m.reason}, from ${m.inputPath})`);
+  console.error('\nAdd "sitemap: false" to their frontmatter.\n');
+  process.exit(1);
 }
 
 if (missing.length > 0) {
