@@ -7,9 +7,12 @@ eleventyExcludeFromCollections: true
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {%- for item in collections.all %}
   {%- if item.url and item.data.sitemap != false %}
+  {%- set lastmod = item.data.modified or item.data.date %}
   <url>
     <loc>{{ site.url }}{{ item.url }}</loc>
-    <lastmod>{% if item.data.modified %}{{ item.data.modified }}{% else %}{{ item.data.date }}{% endif %}</lastmod>
+    {%- if lastmod %}
+    <lastmod>{% if lastmod.toISOString %}{{ lastmod.toISOString() }}{% else %}{{ lastmod }}{% endif %}</lastmod>
+    {%- endif %}
   </url>
   {%- endif %}
   {%- endfor %}
