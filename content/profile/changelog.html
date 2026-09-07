@@ -1,6 +1,7 @@
 ---
 layout: layouts/default
 profile: true
+profileView: changelog
 
 pagination:
   data: domain_changelog
@@ -12,7 +13,6 @@ permalink: "profile/{{ domain.url | slugify }}/changelog/"
 
 eleventyComputed:
   title: "{{ domain.url }} changelog"
-  description: "{{ domain.url }} changelog."
   agency: by {{ domain.name }}
 ---
 

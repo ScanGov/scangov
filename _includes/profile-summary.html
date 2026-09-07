@@ -1,0 +1,13 @@
+{#- Generated summary for a profile overview page. `summary` is computed in
+    content/profile/profile.11tydata.js; absent when the homepage could not be scanned. -#}
+{% if summary %}
+<p class="mt-3 mb-4" id="profile-summary">
+  <strong>{{ domain.urlkey }}</strong> scores {{ summary.grade }} ({{ summary.score }}%) overall,
+  {%- if summary.categoryMedian !== null %} {{ summary.categoryCompare }} the {{ summary.categoryLabel }} median of {{ summary.categoryMedian }}%{% if summary.nationalMedian !== null %} and {{ summary.nationalCompare }} the national median of {{ summary.nationalMedian }}%{% endif %},{% elif summary.nationalMedian !== null %} {{ summary.nationalCompare }} the national median of {{ summary.nationalMedian }}%,{% endif %}
+  passing {{ summary.passed }} of {{ summary.total }} standards on its homepage{% if summary.date %} as of {{ summary.date }}{% endif %}.
+  {%- if summary.failing | length %}
+  Top standards to fix:
+  {%- for f in summary.failing %} <a href="{{ f.url }}">{{ f.name }}</a>{% if not loop.last %},{% endif %}{% endfor %}.
+  {%- endif %}
+</p>
+{% endif %}

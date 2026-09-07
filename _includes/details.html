@@ -83,7 +83,7 @@
     {% if site.url == 'https://scangov.org' %}
     <li>
         Last scan:
-        <span id="updated">{{ updates }}</span>
+        <span id="updated">{% if domain.time %}{{ domain.time | standardFormatDate }}{% else %}{{ updates }}{% endif %}</span>
         {% set infoHref = "https://docs.scangov.org/scans/" %}
         {% set infoLabel = "Last scan" %}
         {% set infoDescription = "How often ScanGov scans this site." %}

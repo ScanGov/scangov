@@ -7,7 +7,7 @@ export default function () {
     // Build redirect/name lookup from main domain data
     const domainInfo = new Map();
     domainList.forEach(d => {
-        domainInfo.set(d.urlkey, { redirect: d.redirect, name: d.name, time: d.time });
+        domainInfo.set(d.urlkey, { redirect: d.redirect, name: d.name, time: d.time, status: d.status, overallScore: d.overallScore, scores: d.scores });
     });
 
     const remainingDomains = [...domainList];
@@ -40,6 +40,9 @@ export default function () {
             obj.redirect = info.redirect;
             obj.name = info.name;
             obj.time = info.time;
+            obj.status = info.status;
+            obj.overallScore = info.overallScore;
+            obj.scores = info.scores;
         }
 
         obj.log = [...domain.changes]
