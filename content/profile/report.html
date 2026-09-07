@@ -1,5 +1,6 @@
 ---
 profile: true
+profileView: report
 sitemap: false
 
 pagination:
@@ -12,7 +13,6 @@ permalink: "profile/{{ domain.urlkey | slugify }}/report/"
 
 eleventyComputed:
   title: "{{ domain.urlkey }} digital experience report"
-  description: "Managed by: {{ domain.name }}"
   agency: by {{ domain.name }}
 ---
 

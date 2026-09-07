@@ -3,14 +3,17 @@ layout: false
 permalink: /sitemap.xml
 eleventyExcludeFromCollections: true
 ---
+{#- Sitemap index. The site has thousands of generated pages, so each section
+    gets its own file (see scripts/sitemap-sections.js and sitemap-section.njk).
+    This intentionally diverges from components/sitemap.njk. -#}
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {%- for item in collections.all %}
-  {%- if item.url and item.data.sitemap != false %}
-  <url>
-    <loc>{{ site.url }}{{ item.url }}</loc>
-    <lastmod>{% if item.data.modified %}{{ item.data.modified }}{% else %}{{ item.data.date }}{% endif %}</lastmod>
-  </url>
-  {%- endif %}
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {%- for section in sitemapSections %}
+  <sitemap>
+    <loc>{{ site.url }}/sitemap-{{ section.name }}.xml</loc>
+    {%- if updatedTime.iso %}
+    <lastmod>{{ updatedTime.iso }}</lastmod>
+    {%- endif %}
+  </sitemap>
   {%- endfor %}
-</urlset>
+</sitemapindex>

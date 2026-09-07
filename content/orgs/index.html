@@ -2,6 +2,7 @@
 layout: layouts/default
 profile: true
 orgPage: true
+orgView: overview
 
 pagination:
   data: orgs
@@ -12,9 +13,7 @@ pagination:
 permalink: "org/{{ org.name | slugify }}/"
 
 eleventyComputed:
-  sitemap: "{{ org.domains | length > 1 }}"
   title: "{{ org.name }} digital experience monitor"
-  description: "Domains managed by the {{ org.name }}."
 ---
 
 {% include "profilelinks.html" %}

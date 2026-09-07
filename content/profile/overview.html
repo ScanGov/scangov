@@ -1,6 +1,7 @@
 ---
 layout: layouts/default
 profile: true
+profileView: overview
 
 pagination:
   data: domains
@@ -12,7 +13,6 @@ permalink: "profile/{{ domain.urlkey | slugify }}/overall/"
 
 eleventyComputed:
   title: "{{ domain.urlkey }} digital experience monitor"
-  description: "{{ domain.urlkey }} dashboard."
   agency: by {{ domain.name }}
 ---
 
@@ -25,6 +25,7 @@ eleventyComputed:
   {% include "page-heading.html" %}
   {% include "details.html" %}
   {% include "actions.html" %}
+  {% include "profile-summary.html" %}
   <div id="overall-section">
     <div class="row g-3">
       <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">

@@ -8,6 +8,8 @@
     <meta name="color-scheme" content="dark light">
     {% if description %}
     <meta name="description" content="{{ description }}">
+    {% elif descriptionHtml %}
+    <meta name="description" content="{{ descriptionHtml | striptags }}">
     {% endif %}
     {% if author %}
     <meta name="author" content="{{ author }}">

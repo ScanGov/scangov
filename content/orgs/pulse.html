@@ -2,6 +2,7 @@
 layout: layouts/default
 profile: true
 orgPage: true
+orgView: pulse
 
 pagination:
   data: orgs
@@ -13,7 +14,6 @@ permalink: "org/{{ org.name | slugify }}/pulse/"
 
 eleventyComputed:
   title: "{{ org.name }} pulse"
-  description: "{{ org.name }} pulse."
 ---
 
 {% include "profilelinks.html" %}

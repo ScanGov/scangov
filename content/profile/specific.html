@@ -1,6 +1,7 @@
 ---
 layout: layouts/default
 profile: true
+profileView: details
 sitemap: false
 
 pagination:
@@ -13,7 +14,6 @@ permalink: "profile/{{ domain.urlkey | slugify }}/details/"
 
 eleventyComputed:
   title: "{{ domain.urlkey }} digital experience monitor"
-  description: "{{ domain.urlkey }} accessibility, botability, security, and usability grades and standards."
   agency: by {{ domain.name }}
 ---
 

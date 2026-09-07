@@ -16,9 +16,11 @@ import { getData } from './scripts/getdata.js'
 import { appendChangelog } from './scripts/changelog.js';
 import { default as domainData } from './_data/domains.js';
 import { fetchAuditorData } from './scripts/fetch-auditor-data.js';
+import { sitemapSectionFor } from './scripts/sitemap-sections.js';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
+    eleventyConfig.addFilter('sitemapSection', (url) => sitemapSectionFor(url));
     let auditsFile = 'https://github.com/ScanGov/data/raw/refs/heads/main/standards/audits.json';
     let getDataLocally = false;
     if (process.env.ELEVENTY_RUN_MODE === 'serve') {

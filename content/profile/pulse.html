@@ -1,6 +1,7 @@
 ---
 layout: layouts/default
 profile: true
+profileView: pulse
 
 pagination:
   data: domains
@@ -12,7 +13,6 @@ permalink: "profile/{{ domain.urlkey | slugify }}/pulse/"
 
 eleventyComputed:
   title: "{{ domain.urlkey }} pulse"
-  description: "{{ domain.urlkey }} pulse."
   agency: by {{ domain.name }}
 ---
 
