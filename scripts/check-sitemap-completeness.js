@@ -186,6 +186,8 @@ function checkViaFilesystemWalk(siteRoot, sitemapPaths) {
   // Templated permalinks (e.g. "profile/{{ domain.urlkey | slugify }}/report/")
   // become patterns: each {{ ... }} matches one path segment.
   const exclusionPatterns = [];
+  // Numbered listing pages: only URLs whose last segment is a page number.
+  const numberedPatterns = [];
   for (const f of contentFiles) {
     const block = readFrontmatterBlock(f);
     const numbered = isNumberedListingPage(block);
@@ -205,15 +207,26 @@ function checkViaFilesystemWalk(siteRoot, sitemapPaths) {
     if (!value.startsWith('/')) value = `/${value}`;
     if (numbered && !isIntentionallyExcluded(block) && !hasComputedSitemapFlag(f)) {
       // Numbered listing pages (/rankings/2/) are deliberately unlisted; the
-      // first page (/rankings/) is still expected in the sitemap.
-      exclusionPatterns.push(new RegExp(`^${value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\d+/$`));
+      // first page (/rankings/) is still expected in the sitemap. A template
+      // that spells out its own page-number permalink (rankings/cities/index.html:
+      // "/rankings/cities/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber }}/{% endif %}")
+      // becomes a pattern the same way as any templated permalink; the digit
+      // guard in isExcluded keeps its first page subject to the check.
+      numberedPatterns.push(
+        /\{[{%]/.test(value)
+          ? permalinkToPattern(value)
+          : new RegExp(`^${value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\d+/$`)
+      );
     } else if (/\{[{%]/.test(value)) {
       exclusionPatterns.push(permalinkToPattern(value));
     } else {
       exclusionUrls.add(value);
     }
   }
-  const isExcluded = (url) => exclusionUrls.has(url) || exclusionPatterns.some((re) => re.test(url));
+  const isExcluded = (url) =>
+    exclusionUrls.has(url)
+    || exclusionPatterns.some((re) => re.test(url))
+    || (/\/\d+\/$/.test(url) && numberedPatterns.some((re) => re.test(url)));
 
   // Every directory under _site/ containing an index.html is one built page.
   // Undercounts non-HTML permalink output (robots.txt, sitemap.xml, etc.),
