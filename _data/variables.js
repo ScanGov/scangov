@@ -425,9 +425,9 @@ export const cityDomainList = [
 
 const domains = domainData();
 
-export const countyDomainList = domains.filter(d => d.name.includes('County') || d.name.includes('Parish')).map(d => d.url);
+export const countyDomainList = domains.filter(d => (d.name || '').includes('County') || (d.name || '').includes('Parish')).map(d => d.url);
 
-export const eduDomainList = domains.filter(d => d.url.endsWith('edu')).map(d => d.url);
+export const eduDomainList = domains.filter(d => (d.url || '').endsWith('edu')).map(d => d.url);
 
 export const addRankingPosition = function(data, attribute) {
     if (!data || data.length === 0) return data;

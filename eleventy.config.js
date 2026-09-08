@@ -17,6 +17,7 @@ import { appendChangelog } from './scripts/changelog.js';
 import { default as domainData } from './_data/domains.js';
 import { fetchAuditorData } from './scripts/fetch-auditor-data.js';
 import { sitemapSectionFor } from './scripts/sitemap-sections.js';
+import slimHtmlPlugin from './_config/slim-html.js';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
@@ -369,6 +370,9 @@ export default async function(eleventyConfig) {
         // Write search data
         fs.writeFileSync('./public/data/search.csv', 'domain,agency\n' + domainDataFilled.map(d => d.urlkey + ',"' + d.name + '"').join('\n'));
     });
+
+    // Last, so it runs after every other transform (Font Awesome inlines its sprite in a transform).
+    eleventyConfig.addPlugin(slimHtmlPlugin)
 
     eleventyConfig.on(
         'eleventy.after',
