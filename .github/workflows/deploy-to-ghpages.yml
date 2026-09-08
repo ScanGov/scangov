@@ -95,7 +95,19 @@ jobs:
 
       - run: npm install
 
+      # The artifact service occasionally answers ListArtifacts with a transient
+      # 403, which download-artifact treats as non-retryable. Try once more
+      # before giving up so one flaky call doesn't cancel every shard.
       - name: Use the prepared data
+        id: download-data
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: data
+          path: .
+
+      - name: Retry downloading the prepared data
+        if: steps.download-data.outcome == 'failure'
         uses: actions/download-artifact@v4
         with:
           name: data
