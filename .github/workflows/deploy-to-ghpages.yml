@@ -102,16 +102,22 @@ jobs:
       # which has answered its ListArtifacts call with a non-retryable 403 in
       # two runs out of two. `gh run download` goes through the public REST API
       # instead, and a shell loop can retry it.
+      # gh refuses to overwrite existing files, and the prepared files are
+      # tracked in git (the checkout has stale copies), so download to a
+      # scratch directory and copy over the checkout.
       - name: Use the prepared data
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           for attempt in 1 2 3 4 5; do
-            gh run download "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY" --name data --dir . && break
+            rm -rf prepared-data
+            gh run download "$GITHUB_RUN_ID" --repo "$GITHUB_REPOSITORY" --name data --dir prepared-data && break
             echo "download attempt $attempt failed; retrying in 20s"
             sleep 20
             [ "$attempt" = 5 ] && exit 1
           done
+          cp -R prepared-data/. .
+          rm -rf prepared-data
           ls -l public/data/myscangov_homepage_audits.json public/data/search.csv scripts/data/lastscan.json scripts/data/myscangov_changes.json
 
       - name: Build ${{ matrix.name }}
