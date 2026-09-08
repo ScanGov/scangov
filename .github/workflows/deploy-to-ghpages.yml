@@ -35,10 +35,8 @@ jobs:
 
       - run: npm install
       - run: npm run build
+        # Node heap for the build is set in .npmrc (node-options); npm overrides NODE_OPTIONS.
         env:
-          # Eleventy keeps every rendered page in memory; ~4,200 domains x 5 profile pages
-          # needs ~12GB of heap. Public-repo runners have 16GB.
-          NODE_OPTIONS: --max-old-space-size=14336
           # Optional: lets the build ask the auditor to refresh homepages/latest.json first.
           # Without it the build reads whatever payload is already in S3.
           SCANGOV_HASH_SECRET: ${{ secrets.SCANGOV_HASH_SECRET }}
