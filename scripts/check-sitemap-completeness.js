@@ -152,6 +152,29 @@ async function checkViaNdjson(siteRoot, sitemapPaths) {
   return { missing, total, shouldNotBeListed };
 }
 
+// Turn a templated permalink into a URL pattern: every {{ expression }} is one
+// path segment, {% if %}...{% endif %} makes its contents optional, {% else %}
+// becomes an alternative, other logic tags are dropped. Precise enough for the
+// fallback's purpose: excusing pages whose template opted out of the sitemap.
+function permalinkToPattern(value) {
+  const escape = (lit) => lit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  let out = '';
+  const tokens = value.split(/(\{\{[\s\S]*?\}\}|\{%[\s\S]*?%\})/);
+  for (const t of tokens) {
+    if (!t) continue;
+    if (t.startsWith('{{')) out += '[^/]*';
+    else if (/^\{%-?\s*if\b/.test(t)) out += '(?:';
+    else if (/^\{%-?\s*else\b/.test(t)) out += '|';
+    else if (/^\{%-?\s*endif\b/.test(t)) out += ')?';
+    else if (t.startsWith('{%')) continue;
+    else out += escape(t);
+  }
+  // A segment that renders empty (a blank org name slugifies to "") collapses
+  // with its trailing slash: "org/{{ name }}/" yields /org/. Make such segments optional.
+  out = out.replace(/\[\^\/\]\*\//g, '(?:[^/]+/)?');
+  return new RegExp(`^${out}$`);
+}
+
 function checkViaFilesystemWalk(siteRoot, sitemapPaths) {
   // Build a static exclusion set: every content template with an exclusion
   // flag and a literal (non-templated) permalink. Doesn't handle templated
@@ -160,15 +183,37 @@ function checkViaFilesystemWalk(siteRoot, sitemapPaths) {
   const contentDir = path.join(siteRoot, 'content');
   const contentFiles = walkFiles(contentDir, (f) => /\.(html|njk|md|11ty\.js)$/.test(f));
   const exclusionUrls = new Set();
+  // Templated permalinks (e.g. "profile/{{ domain.urlkey | slugify }}/report/")
+  // become patterns: each {{ ... }} matches one path segment.
+  const exclusionPatterns = [];
   for (const f of contentFiles) {
     const block = readFrontmatterBlock(f);
-    if (!isIntentionallyExcluded(block)) continue;
-    const match = block.match(/permalink:\s*['"]?([^\s'",{}]+)['"]?/);
-    if (!match) continue;
-    const value = match[1];
-    if (value.includes('{{') || value.includes('{%')) continue; // can't resolve statically
-    exclusionUrls.add(value.startsWith('/') ? value : `/${value}`);
+    const numbered = isNumberedListingPage(block);
+    // Templates whose directory data file computes `sitemap` per page (e.g.
+    // orgs.11tydata.js) are conditionally excluded, same as in ndjson mode.
+    if (!isIntentionallyExcluded(block) && !hasComputedSitemapFlag(f) && !numbered) continue;
+    const line = block.match(/(^|\n)\s*permalink:\s*(.+)$/m);
+    let value;
+    if (line) {
+      value = line[2].trim().replace(/^['"]|['"]$/g, '');
+    } else {
+      // No permalink: Eleventy's default URL is the file path under content/,
+      // minus the extension, with index files mapping to their directory.
+      const rel = path.relative(contentDir, f).replace(/\\/g, '/').replace(/\.(html|njk|md|11ty\.js)$/, '');
+      value = rel === 'index' ? '/' : `/${rel.replace(/\/index$/, '')}/`;
+    }
+    if (!value.startsWith('/')) value = `/${value}`;
+    if (numbered && !isIntentionallyExcluded(block) && !hasComputedSitemapFlag(f)) {
+      // Numbered listing pages (/rankings/2/) are deliberately unlisted; the
+      // first page (/rankings/) is still expected in the sitemap.
+      exclusionPatterns.push(new RegExp(`^${value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\d+/$`));
+    } else if (/\{[{%]/.test(value)) {
+      exclusionPatterns.push(permalinkToPattern(value));
+    } else {
+      exclusionUrls.add(value);
+    }
   }
+  const isExcluded = (url) => exclusionUrls.has(url) || exclusionPatterns.some((re) => re.test(url));
 
   // Every directory under _site/ containing an index.html is one built page.
   // Undercounts non-HTML permalink output (robots.txt, sitemap.xml, etc.),
@@ -184,7 +229,7 @@ function checkViaFilesystemWalk(siteRoot, sitemapPaths) {
     const url = rel ? `/${rel}/` : '/';
     if (LOCAL_IGNORE_PREFIXES.some((prefix) => url.startsWith(prefix))) continue;
     total++;
-    if (sitemapPaths.has(url) || exclusionUrls.has(url)) continue;
+    if (sitemapPaths.has(url) || isExcluded(url)) continue;
     missing.push({ url, inputPath: '(unknown — fallback mode, per-page source attribution unavailable)' });
   }
 
@@ -235,7 +280,11 @@ if (badLastmod.length > 0) {
 }
 
 let missing, total, shouldNotBeListed = [];
-try {
+if (process.env.SITEMAP_CHECK_MODE === 'walk') {
+  // Sharded deploys: --to=ndjson would re-render every page in one process.
+  console.log('check-sitemap-completeness: SITEMAP_CHECK_MODE=walk, checking the built _site/ directly.');
+  ({ missing, total } = checkViaFilesystemWalk(siteRoot, sitemapPaths));
+} else try {
   ({ missing, total, shouldNotBeListed } = await checkViaNdjson(siteRoot, sitemapPaths));
 } catch (err) {
   console.error(

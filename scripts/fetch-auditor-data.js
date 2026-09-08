@@ -25,6 +25,12 @@ function generateAuthParams() {
 }
 
 function isCompleteRecord(record) {
+    // Blocked or unreachable homepages arrive with the HTTP status the site gave
+    // the auditor and no scores; the site renders them as "unknown grade" and lists
+    // them on /status/<code>/, so they are complete as long as they carry a status.
+    if (record.status && record.status !== 200) {
+        return record.urlkey ? { complete: true } : { complete: false, reason: 'blocked record without urlkey' };
+    }
     if (!record.scores) return { complete: false, reason: 'no scores object' };
     if (isNaN(record.overallScore)) return { complete: false, reason: 'overallScore is NaN' };
 
@@ -203,7 +209,8 @@ export async function fetchAuditorData({ force = false } = {}) {
         }
     }
 
-    console.log(`\nSummary: Fetched ${records.length} domains, filtered ${filtered.length} incomplete, ${complete.length} valid records`);
+    const blocked = complete.filter((r) => r.status !== 200).length;
+    console.log(`\nSummary: Fetched ${records.length} domains, filtered ${filtered.length} incomplete, ${complete.length} valid records (${blocked} blocked/unreachable, shown as unknown grade)`);
 
     // Validate before returning
     const errors = validateData(complete);

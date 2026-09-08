@@ -8,7 +8,10 @@ export default function() {
 
     let usability = {};
     let currentAttribute = 'usability';
-    let overall = domainDataFilled.sort(function(a, b) {
+    // Rank only records that carry this topic; blocked/unreachable homepages
+    // arrive with status != 200 and no scores (they get "unknown grade" pages).
+    const filteredData = domainDataFilled.filter(obj => currentAttribute in obj);
+    let overall = filteredData.sort(function(a, b) {
         return b.scores[currentAttribute].score - a.scores[currentAttribute].score
     })
     usability.overall = addRankingPosition(overall, currentAttribute);
