@@ -58,10 +58,12 @@ export default function slimHtmlPlugin(eleventyConfig) {
     return stripIndentation(out);
   });
 
-  eleventyConfig.on('eleventy.after', ({ dir }) => {
+  eleventyConfig.on('eleventy.after', ({ dir, directories }) => {
     if (!symbols.size) return;
-    const outPath = join(dir.output, SPRITE_FILE);
-    mkdirSync(join(dir.output, 'assets'), { recursive: true });
+    // directories.output honours a --output override; dir.output is the config value.
+    const outDir = directories?.output || dir.output;
+    const outPath = join(outDir, SPRITE_FILE);
+    mkdirSync(join(outDir, 'assets'), { recursive: true });
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\n${[...symbols.values()].join('\n')}\n</svg>\n`;
     writeFileSync(outPath, svg, 'utf8');
     console.log(`slim-html: wrote ${symbols.size} icons to ${outPath}`);

@@ -1,5 +1,13 @@
 name: Deploy to GitHub Pages
 
+# Sharded build (see _config/build-role.js). Eleventy keeps every rendered page
+# in memory, so one process cannot build all ~4,000+ domain profiles. Instead:
+#   prepare  refresh the audit data once (scripts/prepare-data.js)
+#   build    matrix: one "core" job (every page except profiles) plus N
+#            "profiles" shards, each rendering every N-th domain's profile pages
+#   deploy   merge the shard outputs, purge CSS, check the sitemap, publish
+# To add capacity, add shards to the matrix and bump every BUILD_SHARD denominator.
+
 on:
   push:
     branches:
@@ -7,12 +15,64 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  prepare:
     runs-on: ubuntu-22.04
-    permissions:
-      contents: write
-    concurrency:
-      group: deploy-gh-pages
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - name: Persist npm cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+
+      - run: npm install
+
+      - name: Refresh audit data and changelog
+        run: node scripts/prepare-data.js
+        env:
+          # Optional: lets the build ask the auditor to refresh homepages/latest.json first.
+          # Without it the build reads whatever payload is already in S3.
+          SCANGOV_HASH_SECRET: ${{ secrets.SCANGOV_HASH_SECRET }}
+
+      - name: Share prepared data with the build jobs
+        uses: actions/upload-artifact@v4
+        with:
+          name: data
+          if-no-files-found: error
+          path: |
+            public/data/myscangov_homepage_audits.json
+            public/data/search.csv
+            scripts/data/lastscan.json
+            scripts/data/myscangov_changes.json
+
+  build:
+    needs: prepare
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - name: core
+            role: core
+            shard: ""
+          - name: profiles-1
+            role: profiles
+            shard: 1/4
+          - name: profiles-2
+            role: profiles
+            shard: 2/4
+          - name: profiles-3
+            role: profiles
+            shard: 3/4
+          - name: profiles-4
+            role: profiles
+            shard: 4/4
     steps:
       - uses: actions/checkout@v5
 
@@ -34,13 +94,74 @@ jobs:
           key: ${{ runner.os }}-eleventy-fetch-cache
 
       - run: npm install
-      - run: npm run build
+
+      - name: Use the prepared data
+        uses: actions/download-artifact@v4
+        with:
+          name: data
+          path: .
+
+      - name: Build ${{ matrix.name }}
         # Node heap for the build is set in .npmrc (node-options); npm overrides NODE_OPTIONS.
+        run: npm run build
         env:
-          # Optional: lets the build ask the auditor to refresh homepages/latest.json first.
-          # Without it the build reads whatever payload is already in S3.
-          SCANGOV_HASH_SECRET: ${{ secrets.SCANGOV_HASH_SECRET }}
-      - run: node scripts/check-sitemap-completeness.js
+          BUILD_ROLE: ${{ matrix.role }}
+          BUILD_SHARD: ${{ matrix.shard }}
+          SKIP_DATA_PREP: "1"
+
+      - name: Pack output
+        run: tar -czf site-${{ matrix.name }}.tgz -C _site .
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-${{ matrix.name }}
+          if-no-files-found: error
+          path: site-${{ matrix.name }}.tgz
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    concurrency:
+      group: deploy-gh-pages
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - name: Persist npm cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+
+      - run: npm install
+
+      - name: Collect shard outputs
+        uses: actions/download-artifact@v4
+        with:
+          pattern: site-*
+          path: shards
+          merge-multiple: true
+
+      - name: Merge shards, purge CSS, check sitemap
+        run: |
+          set -e
+          mkdir -p _site
+          inputs=""
+          for f in shards/site-*.tgz; do
+            name=$(basename "$f" .tgz)
+            mkdir -p "shards/$name"
+            tar -xzf "$f" -C "shards/$name"
+            inputs="$inputs shards/$name"
+          done
+          node scripts/merge-shards.js _site $inputs
+          node scripts/purge-css.js _site
+          SITEMAP_CHECK_MODE=walk node scripts/check-sitemap-completeness.js
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4

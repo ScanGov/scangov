@@ -11,13 +11,13 @@ import { EleventyRenderPlugin } from '@11ty/eleventy'
 import * as fs from 'fs'
 import pluginFilters from './_config/filters.js'
 import fontAwesomePlugin from '@11ty/font-awesome'
-import { PurgeCSS } from 'purgecss'
 import { getData } from './scripts/getdata.js'
-import { appendChangelog } from './scripts/changelog.js';
-import { default as domainData } from './_data/domains.js';
-import { fetchAuditorData } from './scripts/fetch-auditor-data.js';
 import { sitemapSectionFor } from './scripts/sitemap-sections.js';
 import slimHtmlPlugin from './_config/slim-html.js';
+import { isCore, isProfiles, isSingle, describeRole } from './_config/build-role.js';
+import { prepareData } from './scripts/prepare-data.js';
+import { purgeCss } from './scripts/purge-css.js';
+import { readdirSync, statSync } from 'fs';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
@@ -41,16 +41,32 @@ export default async function(eleventyConfig) {
     // Use symlinks on dev server to avoid race condition with eleventy.before writes to ./public/data/
     eleventyConfig.setServerPassthroughCopyBehavior('passthrough');
 
+    // Sharded builds (see _config/build-role.js): the core role skips the
+    // per-domain profile templates, a profiles shard skips everything else.
+    console.log(`build role: ${describeRole()}`);
+    if (isCore) {
+        eleventyConfig.ignores.add('content/profile/**');
+    }
+    if (isProfiles) {
+        for (const entry of readdirSync('content')) {
+            if (entry === 'profile' || entry === 'content.11tydata.js') continue;
+            eleventyConfig.ignores.add(statSync(`content/${entry}`).isDirectory() ? `content/${entry}/**` : `content/${entry}`);
+        }
+    }
+
     // Copy the contents of the `public` folder to the output folder
     // For example, `./public/css/` ends up in `_site/css/`
-    eleventyConfig
-        .addPassthroughCopy({
-            './public/': '/',
-            CNAME: 'CNAME',
-        })
-        .addPassthroughCopy('./content/feed/pretty-atom-feed.xsl')
-        .addPassthroughCopy('./content/map/cities.js')
-        .addPassthroughCopy({ './node_modules/leaflet/dist/': '/map/leaflet/' })
+    // (skipped in profile shards: the core build ships the static assets)
+    if (!isProfiles) {
+        eleventyConfig
+            .addPassthroughCopy({
+                './public/': '/',
+                CNAME: 'CNAME',
+            })
+            .addPassthroughCopy('./content/feed/pretty-atom-feed.xsl')
+            .addPassthroughCopy('./content/map/cities.js')
+            .addPassthroughCopy({ './node_modules/leaflet/dist/': '/map/leaflet/' })
+    }
     // Run Eleventy when these files change:
     // https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
@@ -349,57 +365,24 @@ export default async function(eleventyConfig) {
     })
 
     eleventyConfig.on("eleventy.before", async ({ dir, runMode, outputMode }) => {
-        // Fetch audit data from auditor API (or skip if already cached in serve mode)
-        if (process.env.ELEVENTY_RUN_MODE !== 'serve' || !fs.existsSync('./public/data/myscangov_homepage_audits.json')) {
-            const auditData = await fetchAuditorData();
-            if (auditData === null) {
-                if (fs.existsSync('./public/data/myscangov_homepage_audits.json')) {
-                    console.warn('\n⚠ New audit data failed validation. Building with previous data.\n');
-                } else {
-                    throw new Error('Audit data failed validation and no previous data file exists. Cannot build.');
-                }
-            } else {
-                fs.writeFileSync('./public/data/myscangov_homepage_audits.json', JSON.stringify(auditData), 'utf8');
-            }
+        // Refresh audit data, append the changelog, write search.csv. The sharded
+        // deploy does this once in its own job (scripts/prepare-data.js) and sets
+        // SKIP_DATA_PREP=1 for every build job so they all see identical data.
+        if (process.env.SKIP_DATA_PREP) {
+            console.log('eleventy.before: SKIP_DATA_PREP set, using prepared data files');
+            return;
         }
-
-        let domainDataFilled = domainData();
-        const olddata = JSON.parse(fs.readFileSync('./scripts/data/lastscan.json'));
-        let writeChangelog = await appendChangelog(domainDataFilled, olddata);
-
-        // Write search data
-        fs.writeFileSync('./public/data/search.csv', 'domain,agency\n' + domainDataFilled.map(d => d.urlkey + ',"' + d.name + '"').join('\n'));
+        await prepareData({ serve: process.env.ELEVENTY_RUN_MODE === 'serve' });
     });
 
     // Last, so it runs after every other transform (Font Awesome inlines its sprite in a transform).
     eleventyConfig.addPlugin(slimHtmlPlugin)
 
-    eleventyConfig.on(
-        'eleventy.after',
-        async ({ dir, results, runMode, outputMode }) => {
-            const purgeCSSResults = await new PurgeCSS().purge({
-                content: [
-                    '_site/assets/purge/states.html',
-                    '_site/index.html',
-                    '_site/changelog/index.html',
-                    '_site/rankings/states/index.html',
-                    '_site/sorts/accessibility/index.html',
-                    '_site/filter/index.html',
-                    '_site/profile/ca-gov/report/index.html',
-                    '_site/map/index.html',
-                    '_site/report/index.html',
-                ],
-                css: ['public/assets/bootstrap/css/bootstrap.min.css'],
-                safelist: ['alert-dismissible', 'alert-primary', 'fade', 'show', 'btn-close'],
-            })
-
-            fs.writeFileSync(
-                './_site/bootstrap-purged.css',
-                purgeCSSResults[0].css,
-                'utf8',
-            )
-        },
-    )
+    // PurgeCSS samples pages from several sections, so in a sharded build it runs
+    // after scripts/merge-shards.js instead (scripts/purge-css.js).
+    eleventyConfig.on('eleventy.after', async ({ dir, directories }) => {
+        if (isSingle) await purgeCss(directories?.output || dir.output);
+    });
 }
 
 export const config = {

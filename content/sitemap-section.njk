@@ -9,6 +9,18 @@ permalink: "/sitemap-{{ section.name }}.xml"
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {#- Profile pages come from data (_data/sitemapProfiles.js), not collections:
+      in a sharded build no single process renders them all. -#}
+  {%- if section.name == 'profiles' %}
+  {%- for item in sitemapProfiles %}
+  <url>
+    <loc>{{ site.url }}{{ item.url }}</loc>
+    {%- if item.lastmod %}
+    <lastmod>{{ item.lastmod }}</lastmod>
+    {%- endif %}
+  </url>
+  {%- endfor %}
+  {%- else %}
   {%- for item in collections.all %}
   {%- if item.url and item.data.sitemap != false and (item.url | sitemapSection) == section.name %}
   {%- set lastmod = item.data.modified or item.data.date %}
@@ -20,4 +32,5 @@ permalink: "/sitemap-{{ section.name }}.xml"
   </url>
   {%- endif %}
   {%- endfor %}
+  {%- endif %}
 </urlset>

@@ -6,7 +6,10 @@ export default function() {
 
     let botability = {}
     let currentAttribute = 'botability';
-    let overall = domainDataFilled.sort(function(a, b) {
+    // Rank only records that carry this topic; blocked/unreachable homepages
+    // arrive with status != 200 and no scores (they get "unknown grade" pages).
+    const filteredData = domainDataFilled.filter(obj => currentAttribute in obj);
+    let overall = filteredData.sort(function(a, b) {
         return (
             parseInt(b.scores[currentAttribute].score) - parseInt(a.scores[currentAttribute].score)
         )
