@@ -1,0 +1,3830 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Latest digital experience updates.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="google-site-verification" content="10895162be5e592f">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://scangov.org/changelog/7/">
+<link rel="alternate" hreflang="en" href="https://scangov.org/changelog/7/">
+<link rel="alternate" hreflang="x-default" href="https://scangov.org/changelog/7/">
+<!-- Title -->
+<title>Changelog - Project ScanGov</title>
+<!-- Open Graph -->
+<meta property="og:site_name" content="Project ScanGov">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Changelog">
+<meta property="og:description" content="Latest digital experience updates.">
+<meta property="og:url" content="https://scangov.org/changelog/7/">
+<meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ScanGov logo">
+<meta property="article:modified_time" content="2026-06-24T04:23:24.396Z">
+<link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1a1b2e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<link rel="preload" href="/assets/bootstrap/css/bootstrap.min.css" as="style">
+<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+<link href="/css/scangov.css" rel="stylesheet">
+<script>
+        (function () {
+            var syncTheme = function () {
+                var desired = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                if (document.documentElement.getAttribute('data-bs-theme') !== desired) {
+                    document.documentElement.setAttribute('data-bs-theme', desired);
+                }
+            };
+            syncTheme();
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncTheme);
+            new MutationObserver(syncTheme).observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-bs-theme']
+            });
+        })();
+    </script>
+</head>
+<body class="layouts/page">
+<a class="visually-hidden visually-hidden-focusable skip-link" href="#main-content">
+Skip to main content
+</a>
+<div class="d-none d-md-block">
+<div class="d-flex justify-content-end border-bottom pt-1 pb-0">
+<ul class="nav nav-tabs topnav small mb-0">
+<li class="nav-item">
+<a class="nav-link mx-1" href="https://scangov.com">
+<svg class="fa-solid fa-bars-progress me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-bars-progress" xlink:href="/assets/fa-sprite.svg#fas-fa-bars-progress"></use></svg>ScanGov</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1" href="https://standards.scangov.org">
+<svg class="fa-solid fa-certificate me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-certificate" xlink:href="/assets/fa-sprite.svg#fas-fa-certificate"></use></svg>Standards</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1 active" aria-current="page" href="https://scangov.org">
+<svg class="fa-solid fa-diagram-project me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-diagram-project" xlink:href="/assets/fa-sprite.svg#fas-fa-diagram-project"></use></svg>Project</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1" href="https://docs.scangov.org">
+<svg class="fa-solid fa-file-lines me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-lines" xlink:href="/assets/fa-sprite.svg#fas-fa-file-lines"></use></svg>Docs</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1" href="https://data.scangov.org">
+<svg class="fa-solid fa-database me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-database" xlink:href="/assets/fa-sprite.svg#fas-fa-database"></use></svg>Data</a>
+</li>
+</ul>
+</div>
+</div>
+<nav class="navbar navbar-expand-md border-bottom">
+<div class="container-fluid">
+<a class="navbar-brand" href="/">
+<svg id="logo" viewBox="0 0 1500 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M474.266 408.965H1023.61C1054.76 408.965 1080.01 434.207 1080.01 465.345V1040.42C1080.01 1071.56 1054.76 1096.8 1023.61 1096.8H474.266C443.117 1096.8 417.865 1071.56 417.865 1040.42V465.345C417.865 434.207 443.117 408.965 474.266 408.965ZM474.266 442.793C461.806 442.793 451.706 452.89 451.706 465.345V1040.42C451.706 1052.88 461.806 1062.97 474.266 1062.97H1023.61C1036.07 1062.97 1046.17 1052.88 1046.17 1040.42V465.345C1046.17 452.89 1036.07 442.793 1023.61 442.793H474.266Z" fill=""></path>
+<path d="M636.699 440.538H1061.96V1075.38H636.699V440.538Z" fill=""></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M290.4 153H1208.6C1239.75 153 1265 178.242 1265 209.38V337.926C1265 369.064 1239.75 394.306 1208.6 394.306H290.4C259.251 394.306 234 369.064 234 337.926V209.38C234 178.242 259.251 153 290.4 153ZM290.4 186.828C277.941 186.828 267.84 196.925 267.84 209.38V337.926C267.84 350.381 277.941 360.478 290.4 360.478H1208.6C1221.06 360.478 1231.16 350.381 1231.16 337.926V209.38C1231.16 196.925 1221.06 186.828 1208.6 186.828H290.4Z" fill=""></path>
+<path d="M636.699 187.956C636.699 184.842 639.224 182.318 642.339 182.318H1225.52C1228.63 182.318 1231.16 184.842 1231.16 187.956V361.606C1231.16 364.72 1228.63 367.244 1225.52 367.244H642.339C639.224 367.244 636.699 364.72 636.699 361.606V187.956Z" fill=""></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M290.4 1104.69H1208.6C1239.75 1104.69 1265 1129.94 1265 1161.07V1289.62C1265 1320.76 1239.75 1346 1208.6 1346H290.4C259.251 1346 234 1320.76 234 1289.62V1161.07C234 1129.94 259.251 1104.69 290.4 1104.69ZM290.4 1138.52C277.941 1138.52 267.84 1148.62 267.84 1161.07V1289.62C267.84 1302.08 277.941 1312.17 290.4 1312.17H1208.6C1221.06 1312.17 1231.16 1302.08 1231.16 1289.62V1161.07C1231.16 1148.62 1221.06 1138.52 1208.6 1138.52H290.4Z" fill=""></path>
+<path d="M636.699 1139.65C636.699 1136.54 639.224 1134.01 642.339 1134.01H1225.52C1228.63 1134.01 1231.16 1136.54 1231.16 1139.65V1313.3C1231.16 1316.41 1228.63 1318.94 1225.52 1318.94H642.339C639.224 1318.94 636.699 1316.41 636.699 1313.3V1139.65Z" fill=""></path>
+</svg>
+<span class="d-none d-md-inline">Project ScanGov</span>
+<span class="d-inline d-md-none">Project</span>
+</a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler ml-auto collapsed" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<!-- Collapsible wrapper -->
+<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+<ul class="navbar-nav mb-2 mb-lg-0">
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1" href="/rankings/">
+<svg class="fa-solid fa-ranking-star me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-ranking-star" xlink:href="/assets/fa-sprite.svg#fas-fa-ranking-star"></use></svg>
+Rankings
+</a>
+</li>
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1" href="/pulse/">
+<svg class="fa-solid fa-wave-square me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-wave-square" xlink:href="/assets/fa-sprite.svg#fas-fa-wave-square"></use></svg>
+Pulse
+</a>
+</li>
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1 active" aria-current="page" href="/changelog/">
+<svg class="fa-solid fa-timeline me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-timeline" xlink:href="/assets/fa-sprite.svg#fas-fa-timeline"></use></svg>
+Changelog
+</a>
+</li>
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1" href="/status/">
+<svg class="fa-solid fa-server me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-server" xlink:href="/assets/fa-sprite.svg#fas-fa-server"></use></svg>
+Status
+</a>
+</li>
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1" href="/search/">
+<svg class="fa-solid fa-magnifying-glass me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-magnifying-glass" xlink:href="/assets/fa-sprite.svg#fas-fa-magnifying-glass"></use></svg>
+Search
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<div>
+<div class="pt-5 pb-4 mb-4 border-bottom">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<h1 class="display-5" id="changelog">Changelog</h1>
+<p class="lead fs-5">Latest digital experience updates.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="col-12">
+<section class="py-4">
+<ul class="timeline" id="timeline"> 
+<li class="timeline-item">
+<p class="timeline-date">6/27/2026</p>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/riversideca-gov/overall/">riversideca.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/riversideca-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/denvergov-org/overall/">denvergov.org</a>:
+</p><ul>
+<li>
+<a href="/profile/denvergov-org/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 88% → 87%
+(14 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/denvergov-org/details/?attr=security">
+security
+</a>: 
+Grade: D → C /
+Score: 66% → 77%
+(7 of 9 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/acf-gov/overall/">acf.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/acf-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/charlottecountyfl-gov/overall/">charlottecountyfl.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/charlottecountyfl-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cdc-gov/overall/">cdc.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/cdc-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → A /
+Score: 81% → 90%
+(10 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/cdc-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/nativeamericanheritagemonth-gov/overall/">nativeamericanheritagemonth.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/nativeamericanheritagemonth-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/sandiegocounty-gov/overall/">sandiegocounty.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/sandiegocounty-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → A /
+Score: 88% → 93%
+(15 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/blackhistorymonth-gov/overall/">blackhistorymonth.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/blackhistorymonth-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fec-gov/overall/">fec.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/fec-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: A → A /
+Score: 94% → 93%
+(15 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/whistleblowers-gov/overall/">whistleblowers.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/whistleblowers-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/dodstarbase-org/overall/">dodstarbase.org</a>:
+</p><ul>
+<li>
+<a href="/profile/dodstarbase-org/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 88% → 87%
+(14 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/intel-gov/overall/">intel.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/intel-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/trumplibrary-gov/overall/">trumplibrary.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/trumplibrary-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fedpartnership-gov/overall/">fedpartnership.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/fedpartnership-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/augustaga-gov/overall/">augustaga.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/augustaga-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/safetyact-gov/overall/">safetyact.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/safetyact-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/americanmadechallenges-org/overall/">americanmadechallenges.org</a>:
+</p><ul>
+<li>
+<a href="/profile/americanmadechallenges-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/bnl-gov/overall/">bnl.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/bnl-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/osc-gov/overall/">osc.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/osc-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/sgcityutah-gov/overall/">sgcityutah.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/sgcityutah-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/staffordtx-gov/overall/">staffordtx.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/staffordtx-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → B /
+Score: 92% → 87%
+(34 of 39 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/staffordtx-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/treasurydirect-gov/overall/">treasurydirect.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/treasurydirect-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/jcmarketplace-com/overall/">jcmarketplace.com</a>:
+</p><ul>
+<li>
+<a href="/profile/jcmarketplace-com/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/slc-gov/overall/">slc.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/slc-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → C /
+Score: 82% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/clarksvilletn-gov/overall/">clarksvilletn.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/clarksvilletn-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → A /
+Score: 89% → 91%
+(34 of 37 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/clarksvilletn-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ssa-gov/overall/">ssa.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/ssa-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: F → D /
+Score: 54% → 63%
+(7 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/ssa-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → A /
+Score: 88% → 93%
+(15 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/dhs-gov/overall/">dhs.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/dhs-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: A → A /
+Score: 94% → 93%
+(15 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/presidio-gov/overall/">presidio.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/presidio-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: A → A /
+Score: 94% → 93%
+(15 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/financialresearch-gov/overall/">financialresearch.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/financialresearch-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/laportetx-gov/overall/">laportetx.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/laportetx-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/arkansas-gov/overall/">arkansas.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/arkansas-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/concordnh-gov/overall/">concordnh.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/concordnh-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → A /
+Score: 92% → 90%
+(36 of 40 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/concordnh-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/albemarle-org/overall/">albemarle.org</a>:
+</p><ul>
+<li>
+<a href="/profile/albemarle-org/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → A /
+Score: 96% → 93%
+(30 of 32 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/albemarle-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → D /
+Score: 58% → 62%
+(10 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/tempe-gov/overall/">tempe.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/tempe-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 70% → 75%
+(12 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fdicconnect-gov/overall/">fdicconnect.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/fdicconnect-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 31%
+(5 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fai-gov/overall/">fai.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/fai-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/gsaauctions-gov/overall/">gsaauctions.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/gsaauctions-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/solanocounty-gov/overall/">solanocounty.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/solanocounty-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 50%
+(8 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/myskillsmyfuture-org/overall/">myskillsmyfuture.org</a>:
+</p><ul>
+<li>
+<a href="/profile/myskillsmyfuture-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/southhoustontx-gov/overall/">southhoustontx.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/southhoustontx-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/consumer-gov/overall/">consumer.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/consumer-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/burbankca-gov/overall/">burbankca.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/burbankca-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 82% → 81%
+(13 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/getinternet-gov/overall/">getinternet.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/getinternet-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 23% → 25%
+(4 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/pomonaca-gov/overall/">pomonaca.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/pomonaca-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 56%
+(9 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/epa-maps-arcgis-com/overall/">epa.maps.arcgis.com</a>:
+</p><ul>
+<li>
+<a href="/profile/epa-maps-arcgis-com/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → A /
+Score: 92% → 93%
+(28 of 30 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/epa-maps-arcgis-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 31%
+(5 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/usna-edu/overall/">usna.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/usna-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/treatmentworksforvets-org/overall/">treatmentworksforvets.org</a>:
+</p><ul>
+<li>
+<a href="/profile/treatmentworksforvets-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/birthcontrol-gov/overall/">birthcontrol.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/birthcontrol-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fremont-gov/overall/">fremont.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/fremont-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 56%
+(9 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/wisconsin-gov/overall/">wisconsin.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/wisconsin-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 82% → 81%
+(13 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/santa-ana-org/overall/">santa-ana.org</a>:
+</p><ul>
+<li>
+<a href="/profile/santa-ana-org/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 88% → 87%
+(14 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/familyplanning-gov/overall/">familyplanning.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/familyplanning-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/pasadenatx-gov/overall/">pasadenatx.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/pasadenatx-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/yumaaz-gov/overall/">yumaaz.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/yumaaz-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 68%
+(11 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/nih-gov/overall/">nih.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/nih-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → B /
+Score: 76% → 81%
+(13 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/walkermi-gov/overall/">walkermi.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/walkermi-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/westutx-gov/overall/">westutx.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/westutx-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/murrietaca-gov/overall/">murrietaca.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/murrietaca-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/buffalony-gov/overall/">buffalony.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/buffalony-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/nebraska-gov/overall/">nebraska.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/nebraska-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: A → A /
+Score: 94% → 93%
+(15 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/findtreatment-gov/overall/">findtreatment.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/findtreatment-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 82% → 81%
+(13 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/forestryimages-org/overall/">forestryimages.org</a>:
+</p><ul>
+<li>
+<a href="/profile/forestryimages-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/dvbic-org/overall/">dvbic.org</a>:
+</p><ul>
+<li>
+<a href="/profile/dvbic-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/jobcorps-gov/overall/">jobcorps.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/jobcorps-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: F → D /
+Score: 54% → 63%
+(7 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/jobcorps-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fhlbsf-com/overall/">fhlbsf.com</a>:
+</p><ul>
+<li>
+<a href="/profile/fhlbsf-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/daytonohio-gov/overall/">daytonohio.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/daytonohio-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/smokefree-gov/overall/">smokefree.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/smokefree-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fmjfee-com/overall/">fmjfee.com</a>:
+</p><ul>
+<li>
+<a href="/profile/fmjfee-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/aoc-gov/overall/">aoc.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/aoc-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/whitehouse-gov/overall/">whitehouse.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/whitehouse-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 88% → 87%
+(14 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/durhamnc-gov/overall/">durhamnc.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/durhamnc-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/lansingmi-gov/overall/">lansingmi.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/lansingmi-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → A /
+Score: 91% → 97%
+(37 of 38 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/lansingmi-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/scuspd-gov/overall/">scuspd.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/scuspd-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cityofcarrollton-com/overall/">cityofcarrollton.com</a>:
+</p><ul>
+<li>
+<a href="/profile/cityofcarrollton-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → D /
+Score: 58% → 62%
+(10 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fsd-gov/overall/">fsd.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/fsd-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/nrd-gov/overall/">nrd.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/nrd-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/srcity-org/overall/">srcity.org</a>:
+</p><ul>
+<li>
+<a href="/profile/srcity-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ci-friendswood-tx-us/overall/">ci.friendswood.tx.us</a>:
+</p><ul>
+<li>
+<a href="/profile/ci-friendswood-tx-us/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → B /
+Score: 87% → 86%
+(33 of 38 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/ci-friendswood-tx-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/govinfo-gov/overall/">govinfo.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/govinfo-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 82% → 81%
+(13 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/nicic-gov/overall/">nicic.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/nicic-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/trumanlibrary-gov/overall/">trumanlibrary.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/trumanlibrary-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cooperhewitt-org/overall/">cooperhewitt.org</a>:
+</p><ul>
+<li>
+<a href="/profile/cooperhewitt-org/details/?attr=usability">
+usability
+</a>: 
+Grade: A → A /
+Score: 94% → 93%
+(15 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/geoplatform-gov/overall/">geoplatform.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/geoplatform-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/geoplatform-gov/details/?attr=security">
+security
+</a>: 
+Grade: C → B /
+Score: 77% → 88%
+(8 of 9 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/rockfordil-gov/overall/">rockfordil.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/rockfordil-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/hcgov-us/overall/">hcgov.us</a>:
+</p><ul>
+<li>
+<a href="/profile/hcgov-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 31%
+(5 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/openworld-gov/overall/">openworld.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/openworld-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/piedmont-ca-gov/overall/">piedmont.ca.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/piedmont-ca-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → C /
+Score: 81% → 72%
+(8 of 11 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/piedmont-ca-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/piedmont-ca-gov/details/?attr=security">
+security
+</a>: 
+Grade: C → C /
+Score: 77% → 75%
+(6 of 8 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/coronaviruspreventionnetwork-org/overall/">coronaviruspreventionnetwork.org</a>:
+</p><ul>
+<li>
+<a href="/profile/coronaviruspreventionnetwork-org/details/?attr=botability">
+botability
+</a>: 
+Grade: A → B /
+Score: 90% → 81%
+(9 of 11 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/coronaviruspreventionnetwork-org/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/safecom-gov/overall/">safecom.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/safecom-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fhlbcin-com/overall/">fhlbcin.com</a>:
+</p><ul>
+<li>
+<a href="/profile/fhlbcin-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 31%
+(5 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cstx-gov/overall/">cstx.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/cstx-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 82% → 81%
+(13 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cityofmadison-com/overall/">cityofmadison.com</a>:
+</p><ul>
+<li>
+<a href="/profile/cityofmadison-com/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/usich-gov/overall/">usich.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/usich-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ocwr-gov/overall/">ocwr.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/ocwr-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → A /
+Score: 96% → 93%
+(29 of 31 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/ocwr-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/victorvilleca-gov/overall/">victorvilleca.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/victorvilleca-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/banknet-gov/overall/">banknet.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/banknet-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/hirevets-gov/overall/">hirevets.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/hirevets-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/criticalminerals-gov/overall/">criticalminerals.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/criticalminerals-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/usagm-gov/overall/">usagm.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/usagm-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 88% → 87%
+(14 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/mynextmove-org/overall/">mynextmove.org</a>:
+</p><ul>
+<li>
+<a href="/profile/mynextmove-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/nsa-gov/overall/">nsa.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/nsa-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 31%
+(5 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/hhs-gov/overall/">hhs.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/hhs-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → B /
+Score: 76% → 81%
+(13 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/mymoney-gov/overall/">mymoney.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/mymoney-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: D → C /
+Score: 63% → 72%
+(8 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/mymoney-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/rcfl-gov/overall/">rcfl.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/rcfl-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/billingsmt-gov/overall/">billingsmt.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/billingsmt-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/shreveportla-gov/overall/">shreveportla.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/shreveportla-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/usccr-gov/overall/">usccr.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/usccr-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: A → A /
+Score: 94% → 93%
+(15 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/detroitmi-gov/overall/">detroitmi.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/detroitmi-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 82% → 81%
+(13 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/weather-gov/overall/">weather.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/weather-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: F → F /
+Score: 54% → 45%
+(5 of 11 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/weather-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/medicalcountermeasures-gov/overall/">medicalcountermeasures.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/medicalcountermeasures-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cfcmaine-org/overall/">cfcmaine.org</a>:
+</p><ul>
+<li>
+<a href="/profile/cfcmaine-org/details/?attr=usability">
+usability
+</a>: 
+Grade: B → C /
+Score: 82% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/e2-gov-cwtsatotravel-com/overall/">e2.gov.cwtsatotravel.com</a>:
+</p><ul>
+<li>
+<a href="/profile/e2-gov-cwtsatotravel-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/covidtest-gov/overall/">covidtest.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/covidtest-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/syr-gov/overall/">syr.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/syr-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/dsac-gov/overall/">dsac.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/dsac-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → B /
+Score: 76% → 81%
+(13 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/dashboard-waterdata-usgs-gov/overall/">dashboard.waterdata.usgs.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/dashboard-waterdata-usgs-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: D → C /
+Score: 64% → 75%
+(12 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/directoasucuenta-gov/overall/">directoasucuenta.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/directoasucuenta-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/sec-gov/overall/">sec.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/sec-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fbi-gov/overall/">fbi.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/fbi-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 50%
+(8 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cityofwarren-org/overall/">cityofwarren.org</a>:
+</p><ul>
+<li>
+<a href="/profile/cityofwarren-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ustraveldocs-com/overall/">ustraveldocs.com</a>:
+</p><ul>
+<li>
+<a href="/profile/ustraveldocs-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/euusosh-org/overall/">euusosh.org</a>:
+</p><ul>
+<li>
+<a href="/profile/euusosh-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/igs-org/overall/">igs.org</a>:
+</p><ul>
+<li>
+<a href="/profile/igs-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/friscotexas-gov/overall/">friscotexas.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/friscotexas-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → A /
+Score: 92% → 94%
+(37 of 39 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/friscotexas-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/highpointnc-gov/overall/">highpointnc.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/highpointnc-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → B /
+Score: 83% → 86%
+(32 of 37 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/highpointnc-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/gsaadvantage-gov/overall/">gsaadvantage.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/gsaadvantage-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/nationalguard-com/overall/">nationalguard.com</a>:
+</p><ul>
+<li>
+<a href="/profile/nationalguard-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/sanjoseca-gov/overall/">sanjoseca.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/sanjoseca-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → D /
+Score: 58% → 62%
+(10 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/wlci-gov/overall/">wlci.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/wlci-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/rfj-tips/overall/">rfj.tips</a>:
+</p><ul>
+<li>
+<a href="/profile/rfj-tips/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 82% → 87%
+(14 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/goldwaterscholarship-gov/overall/">goldwaterscholarship.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/goldwaterscholarship-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/acquisitiongateway-gov/overall/">acquisitiongateway.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/acquisitiongateway-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/nassaubay-com/overall/">nassaubay.com</a>:
+</p><ul>
+<li>
+<a href="/profile/nassaubay-com/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → A /
+Score: 89% → 92%
+(36 of 39 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/nassaubay-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/iarpa-gov/overall/">iarpa.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/iarpa-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/olatheks-gov/overall/">olatheks.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/olatheks-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 68%
+(11 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/grants-gov/overall/">grants.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/grants-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/transportation-gov/overall/">transportation.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/transportation-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 56%
+(9 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/abmc-gov/overall/">abmc.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/abmc-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → B /
+Score: 76% → 81%
+(13 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/missouricitytx-gov/overall/">missouricitytx.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/missouricitytx-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ngmdb-usgs-gov/overall/">ngmdb.usgs.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/ngmdb-usgs-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ginniemae-gov/overall/">ginniemae.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/ginniemae-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/medicaid-gov/overall/">medicaid.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/medicaid-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cityofvancouver-us/overall/">cityofvancouver.us</a>:
+</p><ul>
+<li>
+<a href="/profile/cityofvancouver-us/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cooperativepatentclassification-org/overall/">cooperativepatentclassification.org</a>:
+</p><ul>
+<li>
+<a href="/profile/cooperativepatentclassification-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/epolicyworks-org/overall/">epolicyworks.org</a>:
+</p><ul>
+<li>
+<a href="/profile/epolicyworks-org/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/kentwa-gov/overall/">kentwa.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/kentwa-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/firstnet-gov/overall/">firstnet.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/firstnet-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: A → A /
+Score: 94% → 93%
+(15 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/montgomeryal-gov/overall/">montgomeryal.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/montgomeryal-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 56%
+(9 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/montgomeryal-gov/details/?attr=security">
+security
+</a>: 
+Grade: D → C /
+Score: 66% → 77%
+(7 of 9 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/lowellma-gov/overall/">lowellma.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/lowellma-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/nmaahcstore-com/overall/">nmaahcstore.com</a>:
+</p><ul>
+<li>
+<a href="/profile/nmaahcstore-com/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 68%
+(11 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/eugene-or-gov/overall/">eugene-or.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/eugene-or-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/beaumonttexas-gov/overall/">beaumonttexas.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/beaumonttexas-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ftc-gov/overall/">ftc.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/ftc-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/stennis-gov/overall/">stennis.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/stennis-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/stgeorgela-gov/overall/">stgeorgela.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/stgeorgela-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: A → A /
+Score: 94% → 93%
+(15 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/getsmartaboutdrugs-gov/overall/">getsmartaboutdrugs.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/getsmartaboutdrugs-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 50%
+(8 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/militaryconsumer-gov/overall/">militaryconsumer.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/militaryconsumer-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/my-mo-gov/overall/">my.mo.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/my-mo-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/docsteach-org/overall/">docsteach.org</a>:
+</p><ul>
+<li>
+<a href="/profile/docsteach-org/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/gsafleet-gov/overall/">gsafleet.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/gsafleet-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/richmondca-gov/overall/">richmondca.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/richmondca-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fayetteville-ar-gov/overall/">fayetteville-ar.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/fayetteville-ar-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/lasvegasnevada-gov/overall/">lasvegasnevada.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/lasvegasnevada-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → C /
+Score: 80% → 79%
+(23 of 29 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/lasvegasnevada-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/sbrc-gov/overall/">sbrc.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/sbrc-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → D /
+Score: 58% → 62%
+(10 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/newhavenct-gov/overall/">newhavenct.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/newhavenct-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 68%
+(11 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/openpaymentsdata-cms-gov/overall/">openpaymentsdata.cms.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/openpaymentsdata-cms-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 82% → 87%
+(14 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/peoriagov-org/overall/">peoriagov.org</a>:
+</p><ul>
+<li>
+<a href="/profile/peoriagov-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cityoflaredo-com/overall/">cityoflaredo.com</a>:
+</p><ul>
+<li>
+<a href="/profile/cityoflaredo-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → D /
+Score: 58% → 62%
+(10 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cookcountyil-gov/overall/">cookcountyil.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/cookcountyil-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: A → A /
+Score: 94% → 93%
+(15 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/hampton-gov/overall/">hampton.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/hampton-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → A /
+Score: 91% → 94%
+(33 of 35 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/hampton-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/bendoregon-gov/overall/">bendoregon.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/bendoregon-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → C /
+Score: 82% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/asap-gov/overall/">asap.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/asap-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/g5-gov/overall/">g5.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/g5-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/reproductivehealthservices-gov/overall/">reproductivehealthservices.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/reproductivehealthservices-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/arvadaco-gov/overall/">arvadaco.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/arvadaco-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/acquisition-gov/overall/">acquisition.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/acquisition-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/census-gov/overall/">census.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/census-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: A → B /
+Score: 94% → 87%
+(14 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/smithsonianchannel-com/overall/">smithsonianchannel.com</a>:
+</p><ul>
+<li>
+<a href="/profile/smithsonianchannel-com/details/?attr=botability">
+botability
+</a>: 
+Grade: B → A /
+Score: 81% → 90%
+(10 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/smithsonianchannel-com/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 76% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/gocoastguard-com/overall/">gocoastguard.com</a>:
+</p><ul>
+<li>
+<a href="/profile/gocoastguard-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/gocoastguard-com/details/?attr=security">
+security
+</a>: 
+Grade: C → D /
+Score: 77% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/brla-gov/overall/">brla.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/brla-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/earthexplorer-usgs-gov/overall/">earthexplorer.usgs.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/earthexplorer-usgs-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/brokenarrowok-gov/overall/">brokenarrowok.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/brokenarrowok-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → D /
+Score: 58% → 62%
+(10 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/hillsboro-oregon-gov/overall/">hillsboro-oregon.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/hillsboro-oregon-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 68%
+(11 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/data-medicaid-gov/overall/">data.medicaid.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/data-medicaid-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → A /
+Score: 88% → 93%
+(15 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/data-medicaid-gov/details/?attr=security">
+security
+</a>: 
+Grade: C → D /
+Score: 77% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/bis-gov/overall/">bis.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/bis-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/apps-nationalmap-gov/overall/">apps.nationalmap.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/apps-nationalmap-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 50%
+(8 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fultoncountyga-gov/overall/">fultoncountyga.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/fultoncountyga-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cityoflancasterca-org/overall/">cityoflancasterca.org</a>:
+</p><ul>
+<li>
+<a href="/profile/cityoflancasterca-org/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 68%
+(11 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/neapmap-com/overall/">neapmap.com</a>:
+</p><ul>
+<li>
+<a href="/profile/neapmap-com/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/morganspoint-tx-com/overall/">morganspoint-tx.com</a>:
+</p><ul>
+<li>
+<a href="/profile/morganspoint-tx-com/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/eastgrmi-gov/overall/">eastgrmi.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/eastgrmi-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 23% → 25%
+(4 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/chico-ca-us/overall/">chico.ca.us</a>:
+</p><ul>
+<li>
+<a href="/profile/chico-ca-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/thorntonco-gov/overall/">thorntonco.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/thorntonco-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/spaceappschallenge-org/overall/">spaceappschallenge.org</a>:
+</p><ul>
+<li>
+<a href="/profile/spaceappschallenge-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/chandlerazpd-gov/overall/">chandlerazpd.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/chandlerazpd-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fletc-gov/overall/">fletc.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/fletc-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cityofdenton-com/overall/">cityofdenton.com</a>:
+</p><ul>
+<li>
+<a href="/profile/cityofdenton-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/jamescitycountyva-gov/overall/">jamescitycountyva.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/jamescitycountyva-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/spokane-gov/overall/">spokane.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/spokane-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 50%
+(8 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/lacoast-gov/overall/">lacoast.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/lacoast-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+</li>
+</ul>
+</section>
+</div>
+<div class="row">
+<div class="col-12">
+<nav>
+<ul class="pagination flex-wrap" id="pagination">
+<li class="page-item" id="previous">
+<a class="page-link " href="/changelog/6/" id="previous-link">Previous</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/">1</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/1/">2</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/2/">3</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/3/">4</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/4/">5</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/5/">6</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/6/">7</a>
+</li>
+<li class="page-item active">
+<a class="page-link" href="/changelog/7/">8</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/8/">9</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/9/">10</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/10/">11</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/11/">12</a>
+</li>
+<li class="page-item" id="next">
+<a class="page-link " href="/changelog/8/" id="next-link">Next</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer role="contentinfo">
+<div class="container mt-5 pt-5 border-top">
+<div class="row">
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://docs.scangov.org/community" class="nav-link p-0 text-body-secondary">Community</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.substack.com" class="nav-link p-0 text-body-secondary">Newsletter</a>
+</li>
+<li class="small mb-1">
+<a href="https://github.com/ScanGov" class="nav-link p-0 text-body-secondary">GitHub</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/contact" class="nav-link p-0 text-body-secondary">Contact</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">ScanGov scorecard</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="/site-index/" class="nav-link p-0 text-body-secondary">Site index</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="container-fluid py-4 mt-4 border-top">
+<div class="row">
+<div class="col-12 text-center">
+<p class="small">Built with <svg class="fa-solid fa-heart" aria-label="Heart" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-heart" xlink:href="/assets/fa-sprite.svg#fas-fa-heart"></use></svg> by
+<a href="https://scangov.com" rel="noopener noreferrer">ScanGov</a></p>
+</div>
+</div>
+</div>
+</footer>
+<script async="" defer="" src="https://www.googletagmanager.com/gtag/js?id=G-MM5GF482X0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MM5GF482X0');
+</script>
+<script>
+  /* mobile menu */
+  const toggler = document.querySelector('button.navbar-toggler');
+  if (toggler) {
+    toggler.addEventListener('click', function(e) {
+      document.querySelector(this.dataset.target).classList.toggle('show');
+    });
+  }
+
+  /* autocomplete search */
+  // Awesomplete - Lea Verou - MIT license
+  !function(){function t(t){var e=Array.isArray(t)?{label:t[0],value:t[1]}:"object"==typeof t&&"label"in t&&"value"in t?t:{label:t,value:t};this.label=e.label||e.value,this.value=e.value}function e(t,e,i){for(var s in e){var n=e[s],r=t.input.getAttribute("data-"+s.toLowerCase());"number"==typeof n?t[s]=parseInt(r):!1===n?t[s]=null!==r:n instanceof Function?t[s]=null:t[s]=r,t[s]||0===t[s]||(t[s]=s in i?i[s]:n)}}function i(t,e){return"string"==typeof t?(e||document).querySelector(t):t||null}function s(t,e){return o.call((e||document).querySelectorAll(t))}function n(){s("input.awesomplete").forEach(function(t){new r(t)})}var r=function(t,s){var n=this;r.count=(r.count||0)+1,this.count=r.count,this.isOpened=!1,this.input=i(t),this.input.setAttribute("autocomplete","off"),this.input.setAttribute("aria-autocomplete","list"),this.input.setAttribute("aria-expanded","false"),this.input.setAttribute("aria-owns","awesomplete_list_"+this.count),this.input.setAttribute("role","combobox"),this.options=s=s||{},e(this,{minChars:2,maxItems:10,autoFirst:!1,data:r.DATA,filter:r.FILTER_CONTAINS,sort:!1!==s.sort&&r.SORT_BYLENGTH,container:r.CONTAINER,item:r.ITEM,replace:r.REPLACE,tabSelect:!1,listLabel:"Results List",statusNoResults:"No results found",statusXResults:"{0} results found",statusTypeXChar:"Type {0} or more characters for results"},s),this.index=-1,this.container=this.container(t),this.ul=i.create("ul",{hidden:"hidden",role:"listbox",id:"awesomplete_list_"+this.count,inside:this.container,"aria-label":this.listLabel}),this.status=i.create("span",{className:"visually-hidden",role:"status","aria-live":"assertive","aria-atomic":!0,inside:this.container,textContent:""}),this._events={input:{input:this.evaluate.bind(this),blur:this.close.bind(this,{reason:"blur"}),keydown:function(t){var e=t.keyCode;n.opened&&(13===e&&n.selected?(t.preventDefault(),n.select(void 0,void 0,t)):9===e&&n.selected&&n.tabSelect?(t.preventDefault(),n.select(void 0,void 0,t)):27===e?n.close({reason:"esc"}):38!==e&&40!==e||(t.preventDefault(),n[38===e?"previous":"next"]()))}},form:{submit:this.close.bind(this,{reason:"submit"})},ul:{mousedown:function(t){t.preventDefault()},click:function(t){var e=t.target;if(e!==this){for(;e&&!/li/i.test(e.nodeName);)e=e.parentNode;e&&0===t.button&&(t.preventDefault(),n.select(e,t.target,t))}}}},i.bind(this.input,this._events.input),i.bind(this.input.form,this._events.form),i.bind(this.ul,this._events.ul),this.input.hasAttribute("list")?(this.list="#"+this.input.getAttribute("list"),this.input.removeAttribute("list")):this.list=this.input.getAttribute("data-list")||s.list||[],r.all.push(this)};r.prototype={set list(t){if(Array.isArray(t))this._list=t;else if("string"==typeof t&&t.indexOf(",")>-1)this._list=t.split(/\s*,\s*/);else if((t=i(t))&&t.children){var e=[];o.apply(t.children).forEach(function(t){if(!t.disabled){var i=t.textContent.trim(),s=t.value||i,n=t.label||i;""!==s&&e.push({label:n,value:s})}}),this._list=e}document.activeElement===this.input&&this.evaluate()},get selected(){return this.index>-1},get opened(){return this.isOpened},close:function(t){this.opened&&(this.input.setAttribute("aria-expanded","false"),this.ul.setAttribute("hidden",""),this.isOpened=!1,this.index=-1,this.status.setAttribute("hidden",""),this.input.setAttribute("aria-activedescendant",""),i.fire(this.input,"awesomplete-close",t||{}))},open:function(){this.input.setAttribute("aria-expanded","true"),this.ul.removeAttribute("hidden"),this.isOpened=!0,this.status.removeAttribute("hidden"),this.autoFirst&&-1===this.index&&this.goto(0),i.fire(this.input,"awesomplete-open")},destroy:function(){if(i.unbind(this.input,this._events.input),i.unbind(this.input.form,this._events.form),!this.options.container){var t=this.container.parentNode;t.insertBefore(this.input,this.container),t.removeChild(this.container)}this.input.removeAttribute("autocomplete"),this.input.removeAttribute("aria-autocomplete"),this.input.removeAttribute("aria-expanded"),this.input.removeAttribute("aria-owns"),this.input.removeAttribute("role");var e=r.all.indexOf(this);-1!==e&&r.all.splice(e,1)},next:function(){var t=this.ul.children.length;this.goto(this.index<t-1?this.index+1:t?0:-1)},previous:function(){var t=this.ul.children.length,e=this.index-1;this.goto(this.selected&&-1!==e?e:t-1)},goto:function(t){var e=this.ul.children;this.selected&&e[this.index].setAttribute("aria-selected","false"),this.index=t,t>-1&&e.length>0&&(e[t].setAttribute("aria-selected","true"),this.input.setAttribute("aria-activedescendant",this.ul.id+"_item_"+this.index),this.ul.scrollTop=e[t].offsetTop-this.ul.clientHeight+e[t].clientHeight,i.fire(this.input,"awesomplete-highlight",{text:this.suggestions[this.index]}))},select:function(t,e,s){if(t?this.index=i.siblingIndex(t):t=this.ul.children[this.index],t){var n=this.suggestions[this.index];i.fire(this.input,"awesomplete-select",{text:n,origin:e||t,originalEvent:s})&&(this.replace(n),this.close({reason:"select"}),i.fire(this.input,"awesomplete-selectcomplete",{text:n,originalEvent:s}))}},evaluate:function(){var e=this,i=this.input.value;i.length>=this.minChars&&this._list&&this._list.length>0?(this.index=-1,this.ul.innerHTML="",this.suggestions=this._list.map(function(s){return new t(e.data(s,i))}).filter(function(t){return e.filter(t,i)}),!1!==this.sort&&(this.suggestions=this.suggestions.sort(this.sort)),this.suggestions=this.suggestions.slice(0,this.maxItems),this.suggestions.forEach(function(t,s){e.ul.appendChild(e.item(t,i,s))}),0===this.ul.children.length?(this.status.textContent=this.statusNoResults,this.close({reason:"nomatches"})):(this.input.setAttribute("aria-activedescendant",""),this.open(),this.status.textContent=this.statusXResults.replaceAll("{0}",this.ul.children.length))):(this.close({reason:"nomatches"}),this.minChar<=1||i.length>=this.minChars?this.status.textContent=this.statusNoResults:this.status.textContent=this.statusTypeXChar.replaceAll("{0}",this.minChars))}},r.all=[],r.FILTER_CONTAINS=function(t,e){return RegExp(i.regExpEscape(e.trim()),"i").test(t)},r.FILTER_STARTSWITH=function(t,e){return RegExp("^"+i.regExpEscape(e.trim()),"i").test(t)},r.SORT_BYLENGTH=function(t,e){return t.length!==e.length?t.length-e.length:t<e?-1:1},r.CONTAINER=function(t){return i.create("div",{className:"awesomplete",around:t})},r.ITEM=function(t,e,s){return i.create("li",{innerHTML:""===e.trim()?t:t.replace(RegExp(i.regExpEscape(e.trim()),"gi"),"<mark>$&</mark>"),role:"option","aria-selected":"false",tabindex:"-1",id:"awesomplete_list_"+this.count+"_item_"+s})},r.REPLACE=function(t){this.input.value=t.value},r.DATA=function(t){return t},Object.defineProperty(t.prototype=Object.create(String.prototype),"length",{get:function(){return this.label.length}}),t.prototype.toString=t.prototype.valueOf=function(){return""+this.label};var o=Array.prototype.slice;i.create=function(t,e){var s=document.createElement(t);for(var n in e){var r=e[n];if("inside"===n)i(r).appendChild(s);else if("around"===n){var o=i(r);o.parentNode.insertBefore(s,o),s.appendChild(o),null!=o.getAttribute("autofocus")&&o.focus()}else n in s?s[n]=r:s.setAttribute(n,r)}return s},i.bind=function(t,e){if(t)for(var i in e){var s=e[i];i.split(/\s+/).forEach(function(e){t.addEventListener(e,s)})}},i.unbind=function(t,e){if(t)for(var i in e){var s=e[i];i.split(/\s+/).forEach(function(e){t.removeEventListener(e,s)})}},i.fire=function(t,e,i){var s=document.createEvent("HTMLEvents");s.initEvent(e,!0,!0);for(var n in i)s[n]=i[n];return t.dispatchEvent(s)},i.regExpEscape=function(t){return t.replace(/[-\\^$*+?.()|[\]{}]/g,"\\$&")},i.siblingIndex=function(t){for(var e=0;t=t.previousElementSibling;e++);return e},"undefined"!=typeof self&&(self.Awesomplete=r),"undefined"!=typeof Document&&("loading"!==document.readyState?n():document.addEventListener("DOMContentLoaded",n)),r.$=i,r.$$=s,"object"==typeof module&&module.exports&&(module.exports=r)}();
+  //# sourceMappingURL=awesomplete.min.js.map
+
+  if(document.getElementById('search')) {
+    const queryInput = document.getElementById('search');
+
+    const awesomplete = new Awesomplete(queryInput, {
+      filter: () => { // We will provide a list that is already filtered ...
+        return true;
+      },
+      sort: false,    // ... and sorted.
+      list: []
+    });
+
+    queryInput.addEventListener('awesomplete-selectcomplete',function(event) {
+      window.location.href = event.text.value;
+    })
+
+    queryInput.addEventListener("input", async (event) => {
+
+    const url = "https://y10vxe2xw2.execute-api.us-west-2.amazonaws.com/search?q="+event.target.value;
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+
+      const json = await response.json();
+        const inputText = event.target.value;
+        let outputList = [];
+        json.forEach(j => {
+          outputList.push({ "label": `<a href="/profile/${j.domain.replace(/\./g,'-')}/overall/">${j.domain}</a> by ${j.agency}`, "value": `/profile/${j.domain.replace(/\./g,'-')}/overall/` })
+        })
+        awesomplete.list = outputList;
+        awesomplete.evaluate();
+      } catch (error) {
+        console.error(error.message);
+      }
+
+    });
+
+  }
+</script>
+<script src="/assets/bootstrap/js/bootstrap-trimmed.min.js" defer=""></script>
+<script src="/assets/bootstrap/js/bootstrap-tooltip.min.js" defer=""></script>
+<script src="/js/tablesort-vendor.js"></script>
+<script src="/js/tablesort-init.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
+      new bootstrap.Tooltip(el, { trigger: 'click' });
+      el.addEventListener('click', function(e) { e.preventDefault(); });
+    });
+    document.addEventListener('click', function(e) {
+      document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
+        var tipId = el.getAttribute('aria-describedby');
+        var tipEl = tipId ? document.getElementById(tipId) : null;
+        var isTrigger = el.contains(e.target);
+        var isInsideTooltip = tipEl && tipEl.contains(e.target);
+        if (!isTrigger && !isInsideTooltip) {
+          var instance = bootstrap.Tooltip.getInstance(el);
+          if (instance) instance.hide();
+        }
+      });
+    });
+  });
+</script>
+<a href="https://scangov.com/plans" id="feedback-button" class="feedback btn btn-sm" aria-hidden="true" tabindex="-1">
+<svg class="fa-solid fa-rocket" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-rocket" xlink:href="/assets/fa-sprite.svg#fas-fa-rocket"></use></svg> Get ScanGov
+</a>
+<script>
+  const feedbackButton = document.getElementById("feedback-button");
+  const footer = document.querySelector("footer");
+
+  function updateButton() {
+    const scrolled = document.documentElement.scrollTop > window.innerHeight * 0.3;
+    const footerVisible = footer && footer.getBoundingClientRect().top < window.innerHeight;
+    const visible = scrolled && !footerVisible;
+    feedbackButton.classList.toggle('is-visible', visible);
+    feedbackButton.setAttribute('aria-hidden', visible ? 'false' : 'true');
+    feedbackButton.setAttribute('tabindex', visible ? '0' : '-1');
+  }
+
+  if (window.location.hostname !== 'my.scangov.com') {
+    window.addEventListener('scroll', updateButton);
+    updateButton();
+  }
+</script>
+<svg class="fa-solid fa-link" style="display:none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>
+<script>
+(function() {
+    document.querySelectorAll('#post h2[id], #post h3[id]').forEach(function(h) {
+        if (h.closest('.card')) return;
+        var wrap = document.createElement('a');
+        wrap.className = 'heading-anchor-text';
+        wrap.href = '#' + h.id;
+        while (h.firstChild) { wrap.appendChild(h.firstChild); }
+        h.appendChild(wrap);
+        var icon = document.createElement('a');
+        icon.id = 'heading-hashtag';
+        icon.href = '#' + h.id;
+        icon.setAttribute('aria-hidden', 'true');
+        icon.innerHTML = '<svg aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>';
+        h.appendChild(icon);
+    });
+})();
+</script>
+</body>
+</html>
