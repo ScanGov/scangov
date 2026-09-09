@@ -145,7 +145,7 @@ Search
 <p>A <a href="https://scangov.com">ScanGov</a> project tracking web <a href="https://scangov.com/accessibility/">accessibility</a>, <a href="https://scangov.com/botability/">botability</a>, <a href="https://scangov.com/security/">security</a>, and <a href="https://scangov.com/usability/">usability</a>.</p>
 <ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
 <li>
-Sites: 4178
+Sites: 4377
 </li>
 <li>
 Last scan:
@@ -284,8 +284,8 @@ Usability
           var donutChart = new Chart(donutEl, {
             type: 'doughnut',
             data: {
-              labels: ['Federal (783)', 'States (45)', 'Cities (258)', 'Counties (2330)', 'Education (769)'],
-              datasets: [{ data: [783, 45, 258, 2330, 769], backgroundColor: _isDark ? ['#96abee', '#70e17b', '#ffbc78', '#c5ee93', '#e6a8ff'] : ['#1d4e9a', '#1a7a27', '#a85000', '#4d7c00', '#7b3fa0'], hoverOffset: 4 }]
+              labels: ['Federal (811)', 'States (51)', 'Cities (262)', 'Counties (2474)', 'Education (787)'],
+              datasets: [{ data: [811, 51, 262, 2474, 787], backgroundColor: _isDark ? ['#96abee', '#70e17b', '#ffbc78', '#c5ee93', '#e6a8ff'] : ['#1d4e9a', '#1a7a27', '#a85000', '#4d7c00', '#7b3fa0'], hoverOffset: 4 }]
             },
             options: {
               plugins: {
@@ -300,7 +300,7 @@ Usability
             if (pts.length) window.location.href = donutUrls[pts[0].index];
           });
 
-          var gradeData = {"A":467,"B":1561,"C":1794,"D":327,"F":29};
+          var gradeData = {"A":468,"B":1563,"C":1794,"D":327,"F":29};
           var gradeEl = document.getElementById('grades-dist-chart');
           new Chart(gradeEl, {
             type: 'doughnut',
@@ -389,7 +389,7 @@ Usability:
 </div>
 <script>
         document.addEventListener('DOMContentLoaded', function () {
-        var chartData = {"accessibility":[{"attr":"link-name","label":"Links have a discernible name","failCount":1615},{"attr":"heading-order","label":"Heading elements appear in a sequentially-descending order","failCount":1412},{"attr":"color-contrast","label":"Background and foreground colors have a sufficient contrast ratio","failCount":1342},{"attr":"target-size","label":"Touch targets have sufficient size and spacing","failCount":966},{"attr":"landmark-one-main","label":"Document has a main landmark","failCount":936}],"botability":[{"attr":"schema-government-organization","label":"GovernmentOrganization Schema.org type","failCount":3060},{"attr":"link-text","label":"Link text","failCount":1276},{"attr":"sitemap-robots","label":"Sitemap in robots.txt","failCount":1253},{"attr":"xml","label":"Sitemap XML","failCount":1144},{"attr":"status","label":"Sitemap status","failCount":1144}],"security":[{"attr":"errors-in-console","label":"Errors in the console","failCount":1723},{"attr":"dotgov","label":"Sponsored top-level domain (sTLD)","failCount":1358},{"attr":"securitytxt","label":"security.txt","failCount":411},{"attr":"xcontenttypeoptions","label":"X-Content-Type-Options","failCount":36},{"attr":"csp","label":"Content security policy (CSP)","failCount":9}],"usability":[{"attr":"ogimagealt","label":"Open Graph image alt","failCount":3519},{"attr":"lcp","label":"Largest Contentful Paint (LCP)","failCount":2907},{"attr":"fcp","label":"First Contentful Paint (FCP)","failCount":2723},{"attr":"ogsitename","label":"Open Graph site name","failCount":2682},{"attr":"ogdescription","label":"Open Graph description","failCount":2545}]};
+        var chartData = {"accessibility":[{"attr":"link-name","label":"Links have a discernible name","failCount":1615},{"attr":"heading-order","label":"Heading elements appear in a sequentially-descending order","failCount":1413},{"attr":"color-contrast","label":"Background and foreground colors have a sufficient contrast ratio","failCount":1342},{"attr":"target-size","label":"Touch targets have sufficient size and spacing","failCount":967},{"attr":"landmark-one-main","label":"Document has a main landmark","failCount":936}],"botability":[{"attr":"schema-government-organization","label":"GovernmentOrganization Schema.org type","failCount":3064},{"attr":"link-text","label":"Link text","failCount":1277},{"attr":"sitemap-robots","label":"Sitemap in robots.txt","failCount":1255},{"attr":"xml","label":"Sitemap XML","failCount":1144},{"attr":"status","label":"Sitemap status","failCount":1144}],"security":[{"attr":"errors-in-console","label":"Errors in the console","failCount":1725},{"attr":"dotgov","label":"Sponsored top-level domain (sTLD)","failCount":1358},{"attr":"securitytxt","label":"security.txt","failCount":411},{"attr":"xcontenttypeoptions","label":"X-Content-Type-Options","failCount":36},{"attr":"csp","label":"Content security policy (CSP)","failCount":9}],"usability":[{"attr":"ogimagealt","label":"Open Graph image alt","failCount":3520},{"attr":"lcp","label":"Largest Contentful Paint (LCP)","failCount":2908},{"attr":"fcp","label":"First Contentful Paint (FCP)","failCount":2724},{"attr":"ogsitename","label":"Open Graph site name","failCount":2683},{"attr":"ogdescription","label":"Open Graph description","failCount":2546}]};
         var indicatorColors = {"accessibility":"#a8f2ff","botability":"#e7f434","security":"#ff8d7b","usability":"#d5bfff"};
         var indicatorColorsLight = {"accessibility":"#1d4e9a","botability":"#4d7c00","security":"#a85000","usability":"#7b3fa0"};
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
