@@ -24,8 +24,8 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ScanGov logo">
-<meta property="article:modified_time" content="2026-08-18T01:08:05.867Z">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"Oconto County, WI","item":"https://scangov.org/org/oconto-county-wi/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/oconto-county-wi/pulse/"}]},{"@type":"GovernmentOrganization","name":"Oconto County, WI","url":"https://ocontocountywi.gov/","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/oconto-county-wi/pulse/"}}]}</script>
+<meta property="article:modified_time" content="2026-09-09T04:18:38.543Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"Oconto County, WI","item":"https://scangov.org/org/oconto-county-wi/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/oconto-county-wi/pulse/"}]},{"@type":"GovernmentOrganization","name":"Oconto County, WI","url":"https://www.ocontocountywi.gov/","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/oconto-county-wi/pulse/"}}]}</script>
 <link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
@@ -286,7 +286,7 @@ Link copied!
 </div>
 <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [79];
+        var scores = [75];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -335,11 +335,11 @@ Link copied!
           '/org/' + orgSlug + '/?attr=usability'
         ];
         var gradesScores = [
-          79,
+          75,
           86,
-          55,
+          63,
           100,
-          50
+          43
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -461,9 +461,9 @@ Usability:
           
           {
             accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":false,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-required-children":false,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":false,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"label":true,"link-in-text-block":true,"link-name":false,"list":true,"listitem":true,"meta-viewport":true,"tabindex":true,"target-size":true,"td-headers-attr":true,"landmark-one-main":true,"autocomplete-valid":true,"presentation-role-conflict":true,"label-content-name-mismatch":false,"table-fake-caption":true,"td-has-header":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
-            botability: {"canonical":true,"link-text":true,"hreflang":true,"schema-government-organization":false,"valid":false,"xml":false,"allowed":true,"status":false,"sitemap-robots":true},
+            botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":false,"xml":false,"allowed":true,"status":false,"sitemap-robots":true},
             security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"xcontenttypeoptions":true},
-            usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false}
+            usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":true,"lcp":false,"ttfb":true,"cls":true,"inp":true}
           }
           
         ];

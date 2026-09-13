@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
-<meta name="description" content="How the 1 government website managed by Palm Beach County, FL have changed over time on Project ScanGov, average grade C. Includes pbc.gov.">
+<meta name="description" content="How the 2 government websites managed by Palm Beach County, FL have changed over time on Project ScanGov, average grade C. Includes pbc.gov, discover.pbc.gov.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="google-site-verification" content="10895162be5e592f">
 <meta property="og:locale" content="en_US">
@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Project ScanGov">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Palm Beach County, FL pulse">
-<meta property="og:description" content="How the 1 government website managed by Palm Beach County, FL have changed over time on Project ScanGov, average grade C. Includes pbc.gov.">
+<meta property="og:description" content="How the 2 government websites managed by Palm Beach County, FL have changed over time on Project ScanGov, average grade C. Includes pbc.gov, discover.pbc.gov.">
 <meta property="og:url" content="https://scangov.org/org/palm-beach-county-fl/pulse/">
 <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
 <meta property="og:image:width" content="1200">
@@ -286,7 +286,7 @@ Link copied!
 </div>
 <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [77];
+        var scores = [77,76];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -339,7 +339,7 @@ Link copied!
           85,
           81,
           87,
-          52
+          50
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -464,6 +464,13 @@ Usability:
             botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":true},
             security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"xcontenttypeoptions":true},
             usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":false,"cls":true,"inp":true,"www":true}
+          },
+          
+          {
+            accessibility: {"accesskeys":true,"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":false,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"frame-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":false,"label":true,"link-in-text-block":true,"link-name":false,"list":true,"listitem":true,"meta-viewport":true,"skip-link":true,"tabindex":true,"target-size":false,"landmark-one-main":true,"autocomplete-valid":true,"presentation-role-conflict":true,"label-content-name-mismatch":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
+            botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":true},
+            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"xcontenttypeoptions":true},
+            usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":true,"ogimagealt":false,"readability":false,"fcp":true,"lcp":true,"ttfb":false,"cls":true,"inp":true,"www":true}
           }
           
         ];

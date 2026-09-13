@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
-<meta name="description" content="How the 1 government website managed by Somerset County, PA have changed over time on Project ScanGov, average grade C. Includes co.somerset.pa.us.">
+<meta name="description" content="How the 1 government website managed by Somerset County, PA have changed over time on Project ScanGov. Includes co.somerset.pa.us.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="google-site-verification" content="10895162be5e592f">
 <meta property="og:locale" content="en_US">
@@ -18,14 +18,14 @@
 <meta property="og:site_name" content="Project ScanGov">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Somerset County, PA pulse">
-<meta property="og:description" content="How the 1 government website managed by Somerset County, PA have changed over time on Project ScanGov, average grade C. Includes co.somerset.pa.us.">
+<meta property="og:description" content="How the 1 government website managed by Somerset County, PA have changed over time on Project ScanGov. Includes co.somerset.pa.us.">
 <meta property="og:url" content="https://scangov.org/org/somerset-county-pa/pulse/">
 <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ScanGov logo">
-<meta property="article:modified_time" content="2026-08-18T08:43:46.117Z">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"Somerset County, PA","item":"https://scangov.org/org/somerset-county-pa/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/somerset-county-pa/pulse/"}]},{"@type":"GovernmentOrganization","name":"Somerset County, PA","url":"https://co.somerset.pa.us/","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/somerset-county-pa/pulse/"}}]}</script>
+<meta property="article:modified_time" content="2026-09-09T05:09:13.772Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"Somerset County, PA","item":"https://scangov.org/org/somerset-county-pa/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/somerset-county-pa/pulse/"}]},{"@type":"GovernmentOrganization","name":"Somerset County, PA","url":"https://www.co.somerset.pa.us/","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/somerset-county-pa/pulse/"}}]}</script>
 <link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
@@ -286,7 +286,7 @@ Link copied!
 </div>
 <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [75];
+        var scores = [];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -335,11 +335,11 @@ Link copied!
           '/org/' + orgSlug + '/?attr=usability'
         ];
         var gradesScores = [
-          75,
-          74,
-          55,
-          85,
-          88
+          NaN,
+          NaN,
+          NaN,
+          NaN,
+          NaN
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -460,10 +460,10 @@ Usability:
         var orgDomains = [
           
           {
-            accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-prohibited-attr":true,"aria-required-attr":false,"aria-required-children":false,"aria-roles":false,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":false,"link-name":true,"list":true,"listitem":false,"skip-link":false,"target-size":true,"landmark-one-main":true,"presentation-role-conflict":true,"image-aspect-ratio":false,"doctype":true,"charset":true},
-            botability: {"canonical":true,"link-text":true,"hreflang":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false},
-            usability: {"title":true,"description":false,"viewport":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"www":true}
+            accessibility: ,
+            botability: ,
+            security: ,
+            usability: 
           }
           
         ];
