@@ -9,6 +9,7 @@ search: true
 ---
 
 <div class="col-12 d-none" id="results-section">
+    <p class="mt-3 mb-0" id="results-count" role="status" aria-live="polite"></p>
     <div class="table-responsive">
         <table class="table mt-3">
             <caption class="visually-hidden">Search results</caption>
@@ -28,123 +29,140 @@ search: true
     </div>
 </div>
 <script>
-    const resultsDiv = document.getElementById('search-results');
+    (function () {
+        const CSV_URL = '/data/search.csv';
+        // The type-ahead stays short; the table below is the unabridged list.
+        const DROPDOWN_LIMIT = 10;
 
-    fetch('/data/search.csv').then(res => res.text()).then(data => {
-        data = data.split('\n').map(d => {
-            const separator = d.indexOf(',');
-            return [d.substring(0, separator), d.substring(separator + 2, d.length - 1) /* remove quotes */];
-        });
-        data.shift();
-
-        const searchResults = [];
         const searchInput = document.getElementById('search-input');
-        searchInput.addEventListener('input', () => {
-            // List up to first 10 matching results
-            let count = 0;
-            const query = searchInput.value.toLowerCase();
-            console.log(query)
-            if (query)
-                for (const domain of data) {
-                    if (domain[0].toLowerCase().includes(query) || domain[1].toLowerCase().includes(query)) {
-                        searchResults.push(domain);
+        const dropdown = document.getElementById('search-results');
+        const resultsSection = document.getElementById('results-section');
+        const resultsTable = document.getElementById('results-table');
+        const resultsCount = document.getElementById('results-count');
+        const noResults = document.getElementById('no-results-alert');
 
-                        count++;
-                        if (count >= 10)
-                            break;
-                    }
-                }
+        const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (c) => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        }[c]));
 
-            // Remove elements that are no longer in results
-            let length = resultsDiv.childElementCount;
-            elementLoop: for (let i = 0; i < length; i++) {
-                const resultElement = resultsDiv.children[i];
+        const profileUrl = (domain) => '/profile/' + domain.replaceAll('.', '-') + '/overall/';
+        const agencyUrl = (agency) => '/search/?search=' + encodeURIComponent(agency);
 
-                const urlkey = resultElement.getAttribute('data-domain');
-                for (let j = 0; j < searchResults.length; j++) {
-                    if (urlkey === searchResults[j][0]) {
-                        searchResults.splice(j, 1);
-                        continue elementLoop;
-                    }
-                }
+        function letterGrade(score) {
+            if (score >= 90) return 'A';
+            if (score >= 80) return 'B';
+            if (score >= 70) return 'C';
+            if (score >= 60) return 'D';
+            return 'F';
+        }
 
-                resultsDiv.removeChild(resultElement);
-                // Adjust count because list changed
-                i--;
-                length--;
+        // Mirrors gradeColor() in eleventy.config.js, including the inaccessible
+        // bucket that shares the state map legend's --bs-inaccessible gray.
+        function gradeClass(score) {
+            if (score >= 90) return 'success';
+            if (score >= 70) return 'warning';
+            if (score >= 0) return 'danger';
+            return 'inaccessible';
+        }
+
+        // Rows are domain,"agency",score,status. Older builds emitted only
+        // domain,"agency", so the trailing columns stay optional. Agency is quoted
+        // because 3k+ names contain a comma.
+        function parseRow(line) {
+            const row = line.trim();
+            const firstComma = row.indexOf(',');
+            if (firstComma < 0) return null;
+
+            const domain = row.slice(0, firstComma);
+            const rest = row.slice(firstComma + 1);
+            const toNumber = (value) => (value === '' ? null : Number(value));
+            const unquote = (value) => value.replaceAll('""', '"');
+
+            const withScores = rest.match(/^"(.*)",([^,"]*),([^,"]*)$/);
+            if (withScores) {
+                return {
+                    domain,
+                    agency: unquote(withScores[1]),
+                    score: toNumber(withScores[2]),
+                    status: toNumber(withScores[3])
+                };
             }
 
-            // Add remaining results
-            length = searchResults.length;
-            for (let i = 0; i < length; i++) {
-                const domain = searchResults[0];
+            const quoted = rest.match(/^"(.*)"$/);
+            return { domain, agency: quoted ? unquote(quoted[1]) : rest, score: null, status: null };
+        }
 
-                const resultElement = document.createElement('div');
-                resultElement.setAttribute('data-domain', domain[0]);
-                resultElement.classList.add('border-list-item');
-                resultElement.innerHTML = `
-                    <a href="/profile/${domain[0].replaceAll('.', '-')}/overall/">${domain[0]}</a>
-                    <br>
-                    <a class="small text-muted" href="/org/${domain[1].toLowerCase().replaceAll(/( |,)+/g, '-')}/">${domain[1]}</a>
-                `;
-                resultsDiv.appendChild(resultElement);
+        // Exact domain first, then domain prefix, then domain substring, then
+        // agency-only matches. Without this a query like "ca.gov" buries ca.gov
+        // itself behind the 48 other domains whose names merely contain it.
+        function rank(row, query) {
+            const domain = row.domain.toLowerCase();
+            if (domain === query) return 0;
+            if (domain.startsWith(query)) return 1;
+            if (domain.includes(query)) return 2;
+            if (row.agency.toLowerCase().includes(query)) return 3;
+            return -1;
+        }
 
-                searchResults.splice(0, 1);
+        function search(rows, query) {
+            const needle = query.trim().toLowerCase();
+            if (!needle) return [];
+            return rows
+                .map((row) => ({ row, tier: rank(row, needle) }))
+                .filter((match) => match.tier >= 0)
+                .sort((a, b) => a.tier - b.tier || a.row.domain.localeCompare(b.row.domain))
+                .map((match) => match.row);
+        }
+
+        function gradeBadge(row) {
+            if (row.status !== 200 || row.score === null) {
+                return '<span class="badge text-bg-inaccessible" title="Inaccessible / no data">n/a</span>';
             }
-        });
-    });
+            return '<span class="badge text-bg-' + gradeClass(row.score) + '" title="' + row.score + '%">'
+                + letterGrade(row.score) + '</span>';
+        }
 
-    // Handle form submit
-    document.getElementById('search-form').addEventListener('submit', e => {
-        e.preventDefault();
+        function renderTable(matches, query) {
+            resultsTable.innerHTML = matches.map((row) => '<tr>'
+                + '<td><a href="' + profileUrl(row.domain) + '">' + escapeHtml(row.domain) + '</a><br>'
+                + '<a class="small text-muted" href="' + agencyUrl(row.agency) + '">'
+                + escapeHtml(row.agency) + '</a></td>'
+                + '<td class="text-center grade-display-column">' + gradeBadge(row) + '</td>'
+                + '</tr>').join('');
 
-        const firstResult = resultsDiv.children[0];
-        if (!firstResult)
-            return;
+            resultsCount.textContent = matches.length + (matches.length === 1 ? ' result for ' : ' results for ')
+                + '"' + query + '"';
+            resultsSection.classList.toggle('d-none', matches.length === 0);
+            noResults.classList.toggle('d-none', matches.length > 0);
+        }
 
-        location.href = '/profile/' + firstResult.getAttribute('data-domain').replaceAll('.', '-') + '/overall/';
-    });
+        function renderDropdown(matches) {
+            dropdown.innerHTML = matches.slice(0, DROPDOWN_LIMIT).map((row) => '<div class="border-list-item">'
+                + '<a href="' + profileUrl(row.domain) + '">' + escapeHtml(row.domain) + '</a><br>'
+                + '<span class="small text-muted">' + escapeHtml(row.agency) + '</span>'
+                + '</div>').join('');
+        }
 
-    /*
-    async function searching(q) {
-      const url = "https://y10vxe2xw2.execute-api.us-west-2.amazonaws.com/search?q=" + encodeURIComponent(q);
-      try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Response status: ' + response.status);
-        const json = await response.json();
-        let outputHTML = '';
-        json.forEach(function (j) {
-          outputHTML += '<tr>' +
-            '<td>' +
-            '<a href="/profile/' + j.domain.replace(/\./g, '-') + '/overall/">' + j.domain + '</a>' +
-            '<br>' +
-            '<a class="small text-muted" href="/search/?search=' + encodeURIComponent(j.agency) + '">' + j.agency + '</a>' +
-            '</td>' +
-            '<td class="text-center grade-display-column">' +
-            '<span class="badge text-bg-' + gradeColor(j.grade) + '" title="' + j.grade + '%">' + letterGrade(j.grade) + '</span>' +
-            '</td>' +
-            '</tr>';
-        });
-        document.getElementById('results-table').innerHTML = outputHTML;
-        document.getElementById('results-section').classList.toggle('d-none', !outputHTML);
-        document.getElementById('no-results-alert').classList.toggle('d-none', !!outputHTML);
-      } catch (error) {
-        console.error(error.message);
-      }
-    }
-  
-    function letterGrade(score) {
-      if (score >= 90) return 'A';
-      if (score >= 80) return 'B';
-      if (score >= 70) return 'C';
-      if (score >= 60) return 'D';
-      return 'F';
-    }
-  
-    function gradeColor(score) {
-      if (score >= 90) return 'success';
-      if (score >= 70) return 'warning';
-      return 'danger';
-    }
-    */
+        fetch(CSV_URL)
+            .then((res) => res.text())
+            .then((text) => {
+                const rows = text.split('\n').slice(1).map(parseRow).filter(Boolean);
+
+                searchInput.addEventListener('input', () => renderDropdown(search(rows, searchInput.value)));
+
+                // Render the full, uncapped table for ?search=, so a results view is
+                // linkable and the exact match is never pushed off the end.
+                const query = new URLSearchParams(window.location.search).get('search');
+                if (query && query.trim()) {
+                    searchInput.value = query;
+                    renderTable(search(rows, query), query);
+                }
+            })
+            .catch((error) => console.error('search: ' + error.message));
+
+        // No submit handler on purpose. The form's default GET to /search/ is what
+        // produces the shareable ?search= URL; the previous handler preventDefault'd
+        // and jumped to the first type-ahead hit, so the results table was
+        // unreachable and the query string was never honoured.
+    })();
 </script>
