@@ -6,6 +6,17 @@ const TOPICS = ['accessibility', 'botability', 'security', 'usability'];
 const DATASET_URL = 'https://data.scangov.org/datasets/homepage-audits/';
 const CATALOG = { '@type': 'DataCatalog', name: 'ScanGov Data', url: 'https://data.scangov.org/' };
 const LICENSE = 'https://creativecommons.org/licenses/by/4.0/';
+// isPartOf points at the parent dataset, which is fully described at DATASET_URL.
+// It carries @id so Google treats it as that same entity rather than a new one on
+// every profile page, and a description because Dataset requires one - without it
+// Search Console flags one invalid Dataset per page.
+const PARENT_DATASET = {
+  '@type': 'Dataset',
+  '@id': DATASET_URL,
+  name: 'ScanGov homepage audits',
+  description: 'Accessibility, botability, security, and usability scan results for United States government website homepages, published as open data by ScanGov.',
+  url: DATASET_URL,
+};
 
 export function gradeThis(score) {
   if (score >= 90) return 'A';
@@ -146,7 +157,7 @@ export function profileSchema(domain, view, siteUrl, pageUrl) {
       license: LICENSE,
       creator: { '@type': 'Organization', name: 'ScanGov', url: 'https://scangov.com' },
       includedInDataCatalog: CATALOG,
-      isPartOf: { '@type': 'Dataset', name: 'ScanGov homepage audits', url: DATASET_URL },
+      isPartOf: PARENT_DATASET,
       variableMeasured: TOPICS.map((t) => ({ '@type': 'PropertyValue', name: `${t} score`, value: domain.scores?.[t]?.score })),
     });
   }
@@ -189,7 +200,7 @@ export function rankingsSchema(members, title, description, siteUrl, pageUrl, up
         license: LICENSE,
         creator: { '@type': 'Organization', name: 'ScanGov', url: 'https://scangov.com' },
         includedInDataCatalog: CATALOG,
-        isPartOf: { '@type': 'Dataset', name: 'ScanGov homepage audits', url: DATASET_URL },
+        isPartOf: PARENT_DATASET,
       },
       {
         '@type': 'ItemList',
