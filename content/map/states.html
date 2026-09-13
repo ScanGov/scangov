@@ -27,7 +27,7 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
         {% for state in map %}
             <a href="/profile/{{ state.url | slugify }}/{% if topic != "overview" %}details/?attr={{ topic }}{% else %}overview/{% endif %}">
                 {% set score = state.scores[topic] %}
-                <path style="fill: var(--bs-{{ score | colorify }})" d="{{ state.path }}" {% if state.url == "dc.gov" %}class="borders"{% endif %}>
+                <path style="fill: var(--bs-{{ score | colorVar }})" d="{{ state.path }}" {% if state.url == "dc.gov" %}class="borders"{% endif %}>
                 <title>{{ state.url }} / {% if score >= 0 %}Grade: {{ score | gradify }} / Score: {{ score }}%{% else %}{% if state.status >= 300 %}Inaccessible ({{ state.status }}){% else %}No data{% endif %}{% endif %}</title>
                 </path>
             </a>
@@ -147,5 +147,5 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
     <span class="text-bg-success">　</span> A
     <span class="text-bg-warning">　</span> B-C
     <span class="text-bg-danger">　</span> D-F
-    <span class="text-bg-secondary">　</span> Inaccessible
+    <span class="text-bg-inaccessible">　</span> Inaccessible / no data
 </p>

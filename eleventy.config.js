@@ -360,6 +360,15 @@ export default async function(eleventyConfig) {
         return gradeColor(score)
     })
 
+    // Same grade buckets as colorify, but names a CSS custom property instead of a
+    // Bootstrap utility class. Only the non-responding case differs: scangov.css
+    // repurposes --bs-secondary as var(--bs-body-color) for secondary *text*, so an
+    // SVG fill has to reach for --bs-inaccessible to match the legend swatch.
+    eleventyConfig.addFilter('colorVar', (score) => {
+        const color = gradeColor(score)
+        return color === 'secondary' ? 'inaccessible' : color
+    })
+
     eleventyConfig.addFilter('encodeParameter', (param) => {
         return encodeURIComponent(param.trim());
     })
