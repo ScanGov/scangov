@@ -139,6 +139,12 @@
     --bs-bg-danger: #e41d3d;
     --bs-bg-danger-rgb: 228, 29, 61;
     --bs-border-danger: #e41d3d;
+    /* Inaccessible / no data. Non-text graphical object (map fills, legend
+       swatch), WCAG 2.2 AA 1.4.11: #6c757d on #1a1b2e (dark) = 3.61:1 ✓, on
+       #ffffff (light) = 4.69:1 ✓. Deliberately NOT --bs-secondary, which this
+       file repurposes as var(--bs-body-color) for secondary *text*. */
+    --bs-inaccessible: #6c757d;
+    --bs-inaccessible-rgb: 108, 117, 125;
 }
 
 /* Light mode */
@@ -242,6 +248,12 @@
 .text-bg-danger {
     color: #ffffff !important;
     background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity, 1)) !important;
+}
+
+/* WCAG 2.2 AA: #fff on #6c757d = 4.69:1 ✓ */
+.text-bg-inaccessible {
+    color: #ffffff !important;
+    background-color: rgba(var(--bs-inaccessible-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
 .text-bg-primary {
