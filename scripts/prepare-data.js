@@ -39,9 +39,17 @@ export async function prepareData({ serve = false } = {}) {
   const olddata = JSON.parse(fs.readFileSync('./scripts/data/lastscan.json'));
   await appendChangelog(domainDataFilled, olddata);
 
+  // domain,agency are the original two columns; score,status are appended so the
+  // search page can render grades without a second fetch. Agency stays quoted (3k+
+  // names contain a comma) and the new columns go last, so anything reading only
+  // the first two columns keeps working.
+  const csvAgency = (name) => '"' + String(name ?? '').replaceAll('"', '""') + '"';
   fs.writeFileSync(
     './public/data/search.csv',
-    'domain,agency\n' + domainDataFilled.map((d) => d.urlkey + ',"' + d.name + '"').join('\n')
+    'domain,agency,score,status\n' +
+      domainDataFilled
+        .map((d) => [d.urlkey, csvAgency(d.name), d.overallScore ?? '', d.status ?? ''].join(','))
+        .join('\n')
   );
   console.log(`prepare-data: ${domainDataFilled.length} domains ready`);
 }
