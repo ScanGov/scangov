@@ -1869,6 +1869,14 @@ iframe {
     margin-top: 2.75rem;
 }
 
+/* Bootstrap's accordion markup requires an <h2 class="accordion-header">
+   wrapper around the toggle button - not a real section heading, so it
+   shouldn't get the post's h2 spacing (e.g. .report-chart's data-table
+   accordion in _includes/report-chart.html). */
+.post-content .accordion-header {
+    margin-top: 0;
+}
+
 .post-content ul, .post-content p {
     margin-bottom: 1.75rem;
 }
@@ -3406,4 +3414,61 @@ blockquote .lead {
 
 #pageInfo th {
   min-width: 80px;
+}
+
+/* Report charts (Chart.js, vendored — see public/js/chartjs-vendor.js and
+   public/js/report-charts-init.js). Used via _includes/report-chart.html.
+   Bar = the highlighted/flagged category (bold red); muted = everything
+   else (bold green) — not a light/dark pair, a deliberate red/green
+   semantic contrast, so pick colors per report accordingly.
+   Defined on :root, not .report-chart: report-charts-init.js reads these
+   via getComputedStyle(document.documentElement), which only sees custom
+   properties set on an ancestor of <html> — scoping them to .report-chart
+   itself made them invisible to the script, which silently fell back to
+   its own hardcoded old blue/gray defaults instead. */
+:root {
+  --report-chart-bar: #d6362a;
+  --report-chart-muted: #1e8a4c;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --report-chart-bar: #ff6b5b;
+    --report-chart-muted: #4fd17a;
+  }
+}
+[data-bs-theme="dark"] {
+  --report-chart-bar: #ff6b5b;
+  --report-chart-muted: #4fd17a;
+}
+.report-chart {
+  margin: 2rem 0;
+}
+.report-chart canvas {
+  max-width: 100%;
+}
+.report-chart figcaption {
+  margin-bottom: .5rem;
+}
+.report-chart figcaption .sub {
+  opacity: .75;
+  font-size: .9em;
+}
+.report-chart .accordion {
+  font-size: .9em;
+  margin-top: .5rem;
+}
+.report-chart .accordion-button {
+  padding: .5rem .75rem;
+}
+.report-chart .accordion-body {
+  padding: .75rem;
+}
+.report-chart-credit {
+  margin: .25rem 0 0;
+}
+
+/* "Who's responsible" report section (_includes/who-list.html) — a plain
+   bulleted list of role names from who.json, text only, no icons. */
+.who-list li {
+  margin-bottom: .5rem;
 }
