@@ -47,6 +47,7 @@ jobs:
           if-no-files-found: error
           path: |
             public/data/myscangov_homepage_audits.json
+            public/data/updated_time
             public/data/search.csv
             scripts/data/lastscan.json
             scripts/data/myscangov_changes.json

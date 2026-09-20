@@ -1,0 +1,44 @@
+{#
+  County map for a state page: every county in the state as an inline SVG
+  path, filled by the grade of its site for the page's topic.
+
+  Expects: st (with st.map from scripts/county-states.js), topic ("overall"
+  or a topic key), topicName.
+
+  Accessibility: the map is a supplementary view of the county table on the
+  same page. County links are out of the tab order (tabindex="-1") so
+  keyboard users are not walked through hundreds of stops; the table is the
+  keyboard path. Pointer users get a tooltip per county and click-through to
+  the site's report. Grade colors reuse the site's status tokens through the
+  colorVar filter and the legend spells out each range in text.
+#}
+{% if st.map %}
+{% set mapId = "county-map-" + st.slug %}
+<figure class="sg-chart sg-chart--map" id="{{ mapId }}" aria-labelledby="{{ mapId }}-title">
+  <figcaption>
+    <h2 class="sg-chart-title" id="{{ mapId }}-title">{{ st.name }} counties by {{ topicName }} grade</h2>
+    <p class="sg-chart-sub" id="{{ mapId }}-sub">Each county with a site on our list is colored by that site's grade. Select a county to open its report. The table lists every site.</p>
+  </figcaption>
+  <svg class="sg-map" viewBox="{{ st.map.viewBox }}" role="img" aria-labelledby="{{ mapId }}-title {{ mapId }}-sub" focusable="false">
+    {% for c in st.map.counties %}
+      {% if c.urlkey %}
+        {% set s = c.scores[topic] %}
+        <a href="/profile/{{ c.urlkey | slugify }}/overall/" tabindex="-1"><path class="sg-map-county" d="{{ c.d }}" style="fill: var(--bs-{{ s | colorVar }})"><title>{{ c.name }}: {% if s >= 0 %}grade {{ s | gradify }}, {{ topicName }} score {{ s }}{% else %}no response{% if c.status %} ({{ c.status }}){% endif %}{% endif %}</title></path></a>
+      {% else %}
+        <path class="sg-map-county sg-map-county--none" d="{{ c.d }}">{% if c.name %}<title>{{ c.name }}: not scanned</title>{% endif %}</path>
+      {% endif %}
+    {% endfor %}
+    <path class="sg-map-outline" d="{{ st.map.outline }}"/>
+  </svg>
+  <ul class="sg-legend">
+    <li><span class="sg-swatch text-bg-success" aria-hidden="true"></span>A (90 to 100)</li>
+    <li><span class="sg-swatch text-bg-warning" aria-hidden="true"></span>B to C (70 to 89)</li>
+    <li><span class="sg-swatch text-bg-danger" aria-hidden="true"></span>D to F (below 70)</li>
+    {% if st.map.hasNoResponse %}<li><span class="sg-swatch sg-fill-inaccessible" aria-hidden="true"></span>No response</li>{% endif %}
+    {% if st.map.hasUnscanned %}<li><span class="sg-swatch sg-fill-track" aria-hidden="true"></span>Not scanned</li>{% endif %}
+  </ul>
+  {% if st.map.unjoinedCount %}
+  <p class="sg-chart-caveat">{{ st.map.unjoinedCount }} of the {{ st.count }} sites on our list could not be matched to a county boundary and appear only in the table.</p>
+  {% endif %}
+</figure>
+{% endif %}

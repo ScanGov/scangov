@@ -1,4 +1,7 @@
-{% if currentsort %}
+{# stateContext + st: a per-state county page, so the topic pills stay within that state #}
+{% if stateContext and st %}
+{% set directory = "counties/" + st.slug + "/" %}
+{% elif currentsort %}
 {% set directory = currentsort + "/" %}
 {% else %}
 {% set directory = "" %}
@@ -54,3 +57,6 @@ and page.url.indexOf("/counties/") == -1 and page.url.indexOf("/edu/") == -1
     {% include "filter-pill.html" %}
     {% endfor %}
 </ul>
+{% if stateContext and st %}
+<p class="small text-muted mt-2 mb-0">Showing {{ st.name }} county sites. <a href="/rankings/counties/{{ specificAttribute }}{% if specificAttribute %}/{% endif %}">All U.S. county sites</a></p>
+{% endif %}

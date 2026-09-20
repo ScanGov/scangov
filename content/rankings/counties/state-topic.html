@@ -1,0 +1,22 @@
+---
+layout: layouts/default
+home: false
+showLastUpdated: true
+keywords: county government websites, rankings, accessibility, security, usability
+stateContext: true
+pagination:
+  data: countyStateTopics
+  size: 1
+  alias: item
+  addAllPagesToCollections: true
+permalink: "rankings/counties/{{ item.state.slug }}/{{ item.topic }}/"
+---
+
+{% set st = item.state %}
+{% set specificAttribute = item.topic %}
+{% set currentsort = "counties" %}
+{% set showPagination = false %}
+{% set member = st.byTopic[item.topic] %}
+{% set siteCountOverride = st.count %}
+
+{% include "county-state.html" %}

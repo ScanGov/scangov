@@ -4,9 +4,35 @@
         <a href="/profile/{{d.urlkey | slugify }}/{% if specificAttribute %}details/?attr={{ specificAttribute }}{% else %}overall/{% endif %}">{{ d.urlkey }}</a>
     <br>
     <a class="small text-muted" href="/org/{{ d.name | slugify }}/">{{ d.name }}</a>
+    {% if stateContext %}
+    {% if d.partial %}<span class="sg-partial d-block" title="The site did not return page content to the scanner, so content checks were not scored">Partial scan</span>{% endif %}
+    {% if d.nationalRank %}<span class="small text-muted d-block">U.S. rank {{ d.nationalRank }}</span>{% endif %}
+    {% endif %}
   </td>
   <td data-sort="{% if specificAttribute %}{{ d.scores[specificAttribute].score }}{% else %}{{ d.overallScore }}{% endif %}">
-    {% if specificAttribute %}
+    {% if stateContext and not specificAttribute %}
+      {# State pages list every county in the state, so per-check icons (about 64 per row) are replaced by one grade per indicator. #}
+      {% if d.status == 200 and d.scores %}
+      <ul class="list-inline small mb-0 text-nowrap">
+        {% for t in ["accessibility", "botability", "security", "usability"] %}
+        <li class="list-inline-item me-2"><i class="fa-solid fa-{{ audits[t].icon }} text-muted" aria-hidden="true"></i> <span class="badge text-bg-{{ d.scores[t].score | colorify }}" title="{{ audits[t].displayName }}: {{ d.scores[t].score }}"><span class="visually-hidden">{{ audits[t].displayName }} grade </span>{{ d.scores[t].score | gradify }}</span></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <span class="text-muted small">No response{% if d.status %} ({{ d.status }}){% endif %}</span>
+      {% endif %}
+    {% elif stateContext and specificAttribute %}
+      {# One pass count and meter per row instead of one icon per check; the profile link in the site column opens the per-check view. #}
+      {% if d.status == 200 and d.scores[specificAttribute] %}
+      {% set s = d.scores[specificAttribute] %}
+      <span class="sg-checks small text-nowrap" title="{{ s.correct }} of {{ s.all }} {{ audits[specificAttribute].displayName | lower }} checks pass">
+        <span class="sg-meter" aria-hidden="true"><span class="sg-meter-fill sg-fill-{{ s.score | colorVar }}" style="--r:{{ (s.correct / s.all) if s.all else 0 }}"></span></span>
+        {{ s.correct }} of {{ s.all }} checks pass{% if d.partial and specificAttribute in ["botability", "usability"] %} <span class="sg-partial">(partial scan)</span>{% endif %}
+      </span>
+      {% else %}
+      <span class="text-muted small">No response{% if d.status %} ({{ d.status }}){% endif %}</span>
+      {% endif %}
+    {% elif specificAttribute %}
       {{ d[specificAttribute] | auditStatusIcons(specificAttribute) | safe }}
     {% else %}
       {{ d | allAuditStatusIcons | safe }}

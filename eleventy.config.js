@@ -17,6 +17,9 @@ import slimHtmlPlugin from './_config/slim-html.js';
 import { isCore, isProfiles, isSingle, describeRole } from './_config/build-role.js';
 import { prepareData } from './scripts/prepare-data.js';
 import { purgeCss } from './scripts/purge-css.js';
+import { renderChart } from './scripts/charts/render.js';
+import { humanizeLabel } from './scripts/charts/format.js';
+import { ordinal } from './scripts/counties.js';
 import { readdirSync, statSync } from 'fs';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
@@ -103,6 +106,20 @@ export default async function(eleventyConfig) {
     eleventyConfig.addShortcode('currentBuildDate', () => {
         return new Date().toISOString()
     })
+
+    // Build-time charts: {% chart spec %} renders a figure (HTML bars, or SVG
+    // where CSS cannot draw the form) plus its data table from one spec object.
+    // Pass a prebuilt spec variable, not an inline object literal; see
+    // scripts/charts/render.js for the spec shape.
+    eleventyConfig.addShortcode('chart', function (spec) {
+        if (!spec || typeof spec !== 'object') {
+            throw new Error(`chart: spec object required (got ${typeof spec} on ${this.page && this.page.url})`)
+        }
+        return renderChart(spec)
+    })
+    // "8" -> "8th"; audits.json display names without their angle brackets.
+    eleventyConfig.addFilter('ordinal', (n) => ordinal(n))
+    eleventyConfig.addFilter('humanizeLabel', (label) => humanizeLabel(label))
 
     eleventyConfig.addFilter('standardFormatDate', (time) => {
         return new Date(time).toLocaleDateString('en-US', {
