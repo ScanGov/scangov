@@ -3944,3 +3944,15 @@ blockquote .lead {
     stroke: CanvasText;
   }
 }
+/* Not fully scanned: a 45° hatch in the inaccessible tone, on the map and in
+   its legend swatch, so the state reads without color. */
+.sg-map-hatch line {
+  stroke: var(--bs-inaccessible);
+  stroke-width: 1.2;
+}
+.sg-map-county--partial {
+  stroke: var(--bs-inaccessible);
+}
+.sg-swatch--hatch {
+  background: repeating-linear-gradient(45deg, var(--bs-inaccessible) 0 2px, transparent 2px 5px);
+}

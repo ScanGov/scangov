@@ -25,9 +25,9 @@
       </div>
     </div>
 
-    {% if st.respondingCount == 0 %}
+    {% if st.scoredCount == 0 %}
     <div class="alert alert-info mt-4" role="status">
-      None of the {{ st.count }} {{ st.name }} county sites on our list responded to the last scan, so there are no scores to show yet.
+      We weren't able to fully scan any of the {{ st.count }} {{ st.name }} county sites on our list, so there are no scores to show yet.
     </div>
     {% else %}
 
@@ -35,7 +35,7 @@
       <div class="col-6 col-lg-3">
         <div class="card h-100"><div class="card-body">
           <p class="sg-stat-value"><span class="badge text-bg-{{ avg | colorify }}">{{ avg | gradify }}</span> {{ avg }}</p>
-          <p class="sg-stat-label">Average {{ topicName }} score of {{ st.respondingCount }} responding {{ st.name }} county sites</p>
+          <p class="sg-stat-label">Average {{ topicName }} score of {{ st.scoredCount }} fully scanned {{ st.name }} county sites</p>
         </div></div>
       </div>
       <div class="col-6 col-lg-3">
@@ -46,14 +46,15 @@
       </div>
       <div class="col-6 col-lg-3">
         <div class="card h-100"><div class="card-body">
-          <p class="sg-stat-value">{{ st.respondingCount }} <span class="fs-5 text-muted">of {{ st.count }}</span></p>
-          <p class="sg-stat-label">Sites responding to the last scan{% if st.partialCount %}. {{ st.partialCount }} did not return page content and were scored on fewer checks{% endif %}</p>
+          {% set noResponseCount = st.count - st.respondingCount %}
+          <p class="sg-stat-value">{{ st.scoredCount }} <span class="fs-5 text-muted">of {{ st.count }}</span></p>
+          <p class="sg-stat-label">Sites fully scanned{% if st.partialCount or noResponseCount %}. We couldn't fully scan {{ st.partialCount + noResponseCount }}, so they're listed without grades{% endif %}</p>
         </div></div>
       </div>
       <div class="col-6 col-lg-3">
         <div class="card h-100"><div class="card-body">
           <p class="sg-stat-value"><span class="badge text-bg-{{ natAvg | colorify }}">{{ natAvg | gradify }}</span> {{ natAvg }}</p>
-          <p class="sg-stat-label">U.S. county average {{ topicName }} score, {{ st.national.respondingCount }} responding sites</p>
+          <p class="sg-stat-label">U.S. county average {{ topicName }} score, {{ st.national.scoredCount }} fully scanned sites</p>
         </div></div>
       </div>
     </div>
@@ -81,7 +82,7 @@
           <div class="card-body">
             <p class="small text-muted mb-1">#{{ d.rankingPosition }} in {{ st.name }}{% if d.nationalRank %} &middot; U.S. rank {{ d.nationalRank }}{% endif %}</p>
             <h3 class="h5 mb-1"><a href="/profile/{{ d.urlkey | slugify }}/overall/">{{ d.name }}</a></h3>
-            <p class="mb-2"><span class="badge text-bg-{{ d.score | colorify }}">{{ d.score | gradify }}</span> {{ d.score }} {{ topicName }}{% if d.partial %} <span class="sg-partial">(partial scan)</span>{% endif %}</p>
+            <p class="mb-2"><span class="badge text-bg-{{ d.score | colorify }}">{{ d.score | gradify }}</span> {{ d.score }} {{ topicName }}</p>
             <ul class="list-inline small mb-0">
               {% for t in indicatorKeys %}
               <li class="list-inline-item">{{ audits[t].displayName }} <span class="badge text-bg-{{ d.scores[t].score | colorify }}">{{ d.scores[t].score | gradify }}</span></li>
@@ -109,7 +110,7 @@
         {% for t in indicatorKeys %}
         {% set f = st.topFailures[t][0] %}
         {% if f %}
-        <li><strong>{{ (f.share * 100) | round }}% ({{ f.failCount }} of {{ st.respondingCount }} sites)</strong> fail this {{ audits[t].displayName | lower }} check: <a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} <a href="/rankings/counties/{{ st.slug }}/{{ t }}/">More {{ audits[t].displayName | lower }} failures in {{ st.name }}</a>.</li>
+        <li><strong>{{ (f.share * 100) | round }}% ({{ f.failCount }} of {{ st.scoredCount }} sites)</strong> fail this {{ audits[t].displayName | lower }} check: <a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} <a href="/rankings/counties/{{ st.slug }}/{{ t }}/">More {{ audits[t].displayName | lower }} failures in {{ st.name }}</a>.</li>
         {% endif %}
         {% endfor %}
       </ul>
@@ -131,7 +132,9 @@
 
     {% set footnoteScope = "in " + st.name %}
     {% set footnoteRespondingCount = st.respondingCount %}
+    {% set footnoteScoredCount = st.scoredCount %}
     {% set footnotePartialCount = st.partialCount %}
+    {% set footnoteNoResponseCount = st.count - st.respondingCount %}
     {% set footnoteScanWindow = st.scanWindow %}
     {% include "data-footnote.html" %}
   </div>
