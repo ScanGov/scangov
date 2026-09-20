@@ -5,8 +5,9 @@
   from the same data record the page's charts use.
 
   Variables: footnoteScope (e.g. "in Texas"), footnoteRespondingCount,
-  footnotePartialCount, footnoteScanWindow ({ from, to } in ms) and the
-  global `updates` (the dataset's newest scan date) as the fallback.
+  footnoteScoredCount, footnotePartialCount, footnoteNoResponseCount,
+  footnoteScanWindow ({ from, to } in ms) and the global `updates` (the
+  dataset's newest scan date) as the fallback.
 #}
 <section class="small text-muted border-top pt-3 mt-5" aria-labelledby="about-this-data">
   <h2 class="h6" id="about-this-data">About this data</h2>
@@ -14,9 +15,9 @@
     ScanGov scans the homepage of each county government site on our county list{% if footnoteScope %} {{ footnoteScope }}{% endif %}.
     Scores come from the checks listed on <a href="https://standards.scangov.org/">standards.scangov.org</a>.
     {% if footnoteScanWindow %}Sites were scanned between {{ footnoteScanWindow.from | standardFormatDate }} and {{ footnoteScanWindow.to | standardFormatDate }}; each site's report shows its own scan date.{% else %}The last scan finished on {{ updates }}.{% endif %}
-    A site counts as responding when its homepage returned successfully.
-    Averages, grade shares, and failure rates use responding sites only.
-    {% if footnotePartialCount %}{{ footnotePartialCount }} of the {{ footnoteRespondingCount }} responding sites did not return page content to the scanner, so content checks (text, Open Graph tags, readability) were not scored. They are included in every figure and marked "partial scan" in the table.{% endif %}
+    A site counts as fully scanned when its homepage returned successfully and sent the scanner its page content.
+    Averages, grade shares, failure rates, and ranks use fully scanned sites only.
+    {% if footnotePartialCount or footnoteNoResponseCount %}We weren't able to fully scan {{ footnotePartialCount + footnoteNoResponseCount }} sites because they did not respond, blocked the scanner, or returned no page content. They appear in the table without grades, each with its <a href="/status/">scan status</a>, and are left out of every figure.{% endif %}
     Grades follow the <a href="https://docs.scangov.org/grades/">ScanGov grade scale</a>, and rank follows the <a href="https://docs.scangov.org/rankings">ScanGov ranking method</a>.
     The full dataset, including every county's raw results, is published in the <a href="https://data.scangov.org/">ScanGov data repository</a>.
   </p>

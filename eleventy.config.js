@@ -215,7 +215,7 @@ export default async function(eleventyConfig) {
     eleventyConfig.addFilter('allAuditStatusIcons', (domainData) => {
         let output = ''
         if (domainData.status !== 200) {
-            output = `<span title="Inaccessible (status 500)"><i class="fa-solid fa-circle-exclamation text-warning"></i></span>`
+            output = `<span title="Not fully scanned, so not graded (status ${domainData.status})"><i class="fa-solid fa-circle-exclamation text-warning"></i></span>`
         } else {
             for (var a in domainData.scores) {
                 output += writeStatusIconsForAttribute(domainData[a], a)
@@ -311,11 +311,20 @@ export default async function(eleventyConfig) {
 
     eleventyConfig.addPlugin(EleventyRenderPlugin)
 
+    // A site the scanner could not fully read has no score. It is never an F:
+    // gradify shows a dash, colorify paints it with the inaccessible tone, and
+    // percentify shows a dash, so every template renders the same ungraded
+    // state without its own status check.
+    function hasScore(score) {
+        return typeof score === 'number' && Number.isFinite(score)
+    }
+
     eleventyConfig.addFilter('gradify', (score) => {
         return gradeThis(score)
     })
 
     function gradeThis(score) {
+        if (!hasScore(score)) return '-'
         if (score >= 90) return 'A'
         if (score >= 80) return 'B'
         if (score >= 70) return 'C'
@@ -324,31 +333,15 @@ export default async function(eleventyConfig) {
     }
 
     eleventyConfig.addFilter('percentify', (score) => {
-        return Math.round(score) + '%'
-    })
-
-    eleventyConfig.addFilter('gradify', (score) => {
-        return gradeThis(score)
-    })
-
-    function gradeThis(score) {
-        if (score >= 90) return 'A'
-        if (score >= 80) return 'B'
-        if (score >= 70) return 'C'
-        if (score >= 60) return 'D'
-        return 'F'
-    }
-
-    eleventyConfig.addFilter('percentify', (score) => {
-        return Math.round(score) + '%'
+        return hasScore(score) ? Math.round(score) + '%' : '-'
     })
 
     function gradeColor(score) {
+        if (!hasScore(score)) return 'inaccessible'
         if (score >= 90) return 'success'
         if (score >= 70) return 'warning'
         if (score >= 0) return 'danger'
-        // Gray for non-responding
-        return 'secondary'
+        return 'inaccessible'
     }
 
     async function getData(url, local = false) {

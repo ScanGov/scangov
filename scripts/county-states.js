@@ -8,12 +8,14 @@
 // so their rankingPosition depends on data-file load order and is not read).
 //
 // Populations, stated once here and repeated in every label:
-//   scanned     every county on the list (count)
-//   responding  status 200 and scored (respondingCount); every average,
-//               distribution and share uses this population
-//   partial     responding sites that did not return page content, so the
-//               content checks were not scored (partialCount, see isPartial);
-//               included in aggregates, marked in tables, disclosed in copy
+//   scanned        every county on the list (count)
+//   responding     status 200 and scored (respondingCount)
+//   partial        responding sites that did not return page content, so the
+//                  content checks were never scored (partialCount, see
+//                  isPartial); listed in tables without scores, excluded from
+//                  every average, distribution, share and rank
+//   fully scanned  responding and not partial (scoredCount); the population
+//                  behind every figure on the page
 
 import {
     TOPICS, isCounty, stateCodeOf, isResponding, scoreOf, isPartial,
@@ -27,6 +29,8 @@ import {
 const ALL_TOPICS = ['overall', ...TOPICS];
 const TOP_FAILURES = 5;
 const TOP_SITES = 3;
+
+const isScored = d => isResponding(d) && !isPartial(d);
 
 function emptyDistribution() {
     return { A: 0, B: 0, C: 0, D: 0, F: 0 };
@@ -113,54 +117,47 @@ function summarize(responding, attrIndex) {
     return { averages, gradeDistribution, histogram, topFailures };
 }
 
-// Copies of a state's records sorted for one topic, responding first by
-// score, then non-responding by name. rankingPosition is the in-state rank so
-// the shared ranking table include renders it unchanged.
+// Copies of a state's records sorted for one topic: fully scanned sites by
+// score, then partial scans, then non-responding sites, each group by name.
+// Partial and non-responding copies carry no score, grade or rank.
+// rankingPosition is the in-state rank so the shared ranking table include
+// renders it unchanged.
 function rankedCopies(records, topic, nationalRanks) {
-    const responding = records.filter(isResponding);
-    const stateRanks = rankDense(responding, d => scoreOf(d, topic));
+    const scored = records.filter(isScored);
+    const stateRanks = rankDense(scored, d => scoreOf(d, topic));
     const copies = records.map(d => {
         const key = domainKey(d);
-        const score = scoreOf(d, topic);
+        const full = isScored(d);
+        const score = full ? scoreOf(d, topic) : null;
         return {
             ...d,
             partial: isResponding(d) && isPartial(d),
             score,
             grade: Number.isFinite(score) ? gradeOf(score) : null,
-            rankingPosition: stateRanks.get(key) ?? null,
-            nationalRank: nationalRanks.get(key) ?? null,
+            rankingPosition: full ? stateRanks.get(key) ?? null : null,
+            nationalRank: full ? nationalRanks.get(key) ?? null : null,
         };
     });
-    copies.sort((a, b) => {
-        const as = Number.isFinite(a.score) ? a.score : -1;
-        const bs = Number.isFinite(b.score) ? b.score : -1;
-        return bs - as || (a.name || '').localeCompare(b.name || '');
-    });
+    const group = d => (Number.isFinite(d.score) ? 2 : d.partial ? 1 : 0);
+    copies.sort((a, b) => group(b) - group(a) || (b.score ?? 0) - (a.score ?? 0) || (a.name || '').localeCompare(b.name || ''));
     return copies;
 }
 
 function buildCharts(state, national, audits) {
     const idBase = `county-${state.slug}`;
-    const respondingText = `${state.respondingCount} responding ${state.name} county sites`;
+    const respondingText = `${state.scoredCount} fully scanned ${state.name} county sites`;
     const topicHref = topic => `/rankings/counties/${state.slug}/${topic}/`;
     const charts = { failures: {}, histogram: {}, area: {}, grades: {} };
-    // Partial scans affect botability and usability scores directly, so those
-    // charts carry the caveat next to the figure it qualifies.
-    const partialCaveat = topic => (
-        state.partialCount && (topic === 'botability' || topic === 'usability')
-            ? `${state.partialCount} of these sites did not return page content to the scanner and were scored on fewer ${topicLabel(audits, topic).toLowerCase()} checks.`
-            : undefined
-    );
 
     for (const topic of ALL_TOPICS) {
         const label = topic === 'overall' ? 'overall' : topicLabel(audits, topic).toLowerCase();
         charts.grades[topic] = gradeDistributionSpec({
             id: `${idBase}-grades-${topic}`,
             title: `${state.name} counties by ${label} grade, compared with all U.S. counties`,
-            subtitle: `Share of responding sites in each grade band. ${state.name}: ${state.respondingCount} sites. U.S.: ${national.respondingCount} sites.`,
+            subtitle: `Share of fully scanned sites in each grade band. ${state.name}: ${state.scoredCount} sites. U.S.: ${national.scoredCount} sites.`,
             groups: [
-                { key: state.code, label: state.name, distribution: state.gradeDistribution[topic], total: state.respondingCount },
-                { key: 'US', label: 'All U.S. counties', href: '/rankings/counties/', distribution: national.gradeDistribution[topic], total: national.respondingCount },
+                { key: state.code, label: state.name, distribution: state.gradeDistribution[topic], total: state.scoredCount },
+                { key: 'US', label: 'All U.S. counties', href: '/rankings/counties/', distribution: national.gradeDistribution[topic], total: national.scoredCount },
             ],
         });
         charts.histogram[topic] = histogramSpec({
@@ -168,7 +165,6 @@ function buildCharts(state, national, audits) {
             title: `${state.name} counties by ${label} score`,
             subtitle: `Number of the ${respondingText} in each 10-point score range`,
             bins: state.histogram[topic],
-            caveat: partialCaveat(topic),
         });
         const points = state.byTopic[topic].filter(d => Number.isFinite(d.score)).map(d => ({ label: d.name, value: d.score }));
         const markers = [
@@ -180,7 +176,6 @@ function buildCharts(state, national, audits) {
             title: `How ${state.name} county ${label} scores are distributed`,
             subtitle: `Smoothed distribution of the ${respondingText}, score 0 to 100. Height shows how many sites score near each value.`,
             points, bins: state.histogram[topic], markers,
-            caveat: partialCaveat(topic),
         });
     }
 
@@ -192,15 +187,14 @@ function buildCharts(state, national, audits) {
             subtitle: `Share of the ${respondingText} failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.`,
             headingLevel: 2,
             failures: state.topFailures[topic],
-            respondingCount: state.respondingCount,
-            caveat: partialCaveat(topic),
+            respondingCount: state.scoredCount,
         });
     }
 
     charts.topics = topicAveragesSpec({
         id: `${idBase}-topics`,
         title: `${state.name} county average score by indicator, compared with all U.S. counties`,
-        subtitle: `Average of the ${respondingText}, score 0 to 100. U.S. average covers ${national.respondingCount} responding county sites.`,
+        subtitle: `Average of the ${respondingText}, score 0 to 100. U.S. average covers ${national.scoredCount} fully scanned county sites.`,
         topics: TOPICS.map(t => ({ key: t, label: topicLabel(audits, t) })),
         averages: state.averages, benchmarks: national.averages,
         seriesLabel: state.name, benchmarkLabel: 'U.S. counties',
@@ -229,9 +223,10 @@ function buildMap(code, records, geo) {
         const d = byFips.get(fips);
         if (!d) return { fips, d: c.d, name: c.name || null };
         const responding = isResponding(d);
+        const partial = responding && isPartial(d);
         const scores = {};
-        for (const topic of ALL_TOPICS) scores[topic] = responding ? scoreOf(d, topic) : -1;
-        return { fips, d: c.d, name: d.name, urlkey: domainKey(d), status: d.status, responding, scores };
+        for (const topic of ALL_TOPICS) scores[topic] = responding && !partial ? scoreOf(d, topic) : -1;
+        return { fips, d: c.d, name: d.name, urlkey: domainKey(d), status: d.status, responding, partial, scores };
     });
     return {
         viewBox: stateGeo.viewBox,
@@ -241,6 +236,7 @@ function buildMap(code, records, geo) {
         unjoinedCount: records.length - joined,
         // Legend entries render only for categories present on this map.
         hasNoResponse: counties.some(c => c.urlkey && !c.responding),
+        hasPartial: counties.some(c => c.partial),
         hasUnscanned: counties.some(c => !c.urlkey),
     };
 }
@@ -256,16 +252,18 @@ export function buildCountyStates(domains, stateNames, audits = {}, geo = null) 
     const attrIndex = attributeIndex(audits);
     const counties = domains.filter(isCounty);
     const responding = counties.filter(isResponding);
+    const scored = counties.filter(isScored);
 
     const nationalRanks = {};
-    for (const topic of ALL_TOPICS) nationalRanks[topic] = rankDense(responding, d => scoreOf(d, topic));
+    for (const topic of ALL_TOPICS) nationalRanks[topic] = rankDense(scored, d => scoreOf(d, topic));
 
     const national = {
         count: counties.length,
         respondingCount: responding.length,
-        partialCount: responding.filter(isPartial).length,
+        partialCount: responding.length - scored.length,
+        scoredCount: scored.length,
         scanWindow: scanWindow(counties),
-        ...summarize(responding, attrIndex),
+        ...summarize(scored, attrIndex),
     };
 
     const byState = new Map();
@@ -285,6 +283,7 @@ export function buildCountyStates(domains, stateNames, audits = {}, geo = null) 
     for (const [code, records] of byState) {
         const info = stateNames[code];
         const stateResponding = records.filter(isResponding);
+        const stateScored = records.filter(isScored);
         const byTopic = {};
         for (const topic of ALL_TOPICS) byTopic[topic] = rankedCopies(records, topic, nationalRanks[topic]);
         const top3 = {};
@@ -295,14 +294,15 @@ export function buildCountyStates(domains, stateNames, audits = {}, geo = null) 
             name: info.name,
             count: records.length,
             respondingCount: stateResponding.length,
-            partialCount: stateResponding.filter(isPartial).length,
+            partialCount: stateResponding.length - stateScored.length,
+            scoredCount: stateScored.length,
             scanWindow: scanWindow(records),
             notResponding: records.filter(d => !isResponding(d)).map(d => ({ urlkey: domainKey(d), name: d.name, status: d.status })),
             counties: byTopic.overall,
             byTopic,
             top3,
             map: buildMap(code, records, geo),
-            ...summarize(stateResponding, attrIndex),
+            ...summarize(stateScored, attrIndex),
         });
     }
     const unjoined = states.reduce((n, s) => n + (s.map ? s.map.unjoinedCount : 0), 0);
@@ -311,7 +311,7 @@ export function buildCountyStates(domains, stateNames, audits = {}, geo = null) 
 
     // Rank states against each other on each average; states with no
     // responding sites are unranked.
-    const ranked = states.filter(s => s.respondingCount > 0);
+    const ranked = states.filter(s => s.scoredCount > 0);
     const stateRanks = {};
     for (const topic of ALL_TOPICS) {
         const sorted = [...ranked].sort((a, b) => b.averages[topic] - a.averages[topic]);
@@ -328,7 +328,7 @@ export function buildCountyStates(domains, stateNames, audits = {}, geo = null) 
         s.stateRank = {};
         for (const topic of ALL_TOPICS) s.stateRank[topic] = stateRanks[topic].get(s.code) ?? null;
         s.national = national;
-        s.charts = s.respondingCount ? buildCharts(s, national, audits) : null;
+        s.charts = s.scoredCount ? buildCharts(s, national, audits) : null;
         s.prev = i > 0 ? { name: states[i - 1].name, slug: states[i - 1].slug } : null;
         s.next = i < states.length - 1 ? { name: states[i + 1].name, slug: states[i + 1].slug } : null;
     });

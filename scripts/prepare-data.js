@@ -8,6 +8,7 @@
 import * as fs from 'fs';
 import { fetchAuditorData } from './fetch-auditor-data.js';
 import { appendChangelog } from './changelog.js';
+import { normalizeAuditData } from './normalize-audit-data.js';
 import { default as domainData } from '../_data/domains.js';
 
 export const DATA_FILE = './public/data/myscangov_homepage_audits.json';
@@ -43,7 +44,10 @@ export async function prepareData({ serve = false } = {}) {
         throw new Error('Audit data failed validation and no previous data file exists. Cannot build.');
       }
     } else {
-      fs.writeFileSync(DATA_FILE, JSON.stringify(auditData), 'utf8');
+      // Sites that returned no page content are not graded (see normalize-audit-data.js).
+      const { records, reclassified } = normalizeAuditData(auditData);
+      console.log(`prepare-data: ${reclassified} sites returned no page content and are recorded as status 995`);
+      fs.writeFileSync(DATA_FILE, JSON.stringify(records), 'utf8');
     }
   }
   writeUpdatedTime();
