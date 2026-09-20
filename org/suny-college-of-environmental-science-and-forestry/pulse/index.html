@@ -24,7 +24,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ScanGov logo">
-<meta property="article:modified_time" content="2026-08-18T20:17:51.151Z">
+<meta property="article:modified_time" content="2026-09-18T01:05:47.619Z">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"SUNY College of Environmental Science and Forestry","item":"https://scangov.org/org/suny-college-of-environmental-science-and-forestry/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/suny-college-of-environmental-science-and-forestry/pulse/"}]},{"@type":"EducationalOrganization","name":"SUNY College of Environmental Science and Forestry","url":"https://esf.edu/","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/suny-college-of-environmental-science-and-forestry/pulse/"}}]}</script>
 <link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
@@ -273,7 +273,7 @@ Link copied!
 <script>
     var _isDark;
     document.addEventListener('DOMContentLoaded', function () {
-      _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
+      _isDark = document.documentElement.getAttribute('data-bs-theme') !== 'light';
       Chart.defaults.color = _isDark ? '#fff' : '#000';
       Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
     });
@@ -338,8 +338,8 @@ Link copied!
           84,
           96,
           81,
-          77,
-          64
+          88,
+          58
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -462,8 +462,8 @@ Usability:
           {
             accessibility: {"aria-allowed-attr":true,"aria-command-name":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"frame-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-in-text-block":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"skip-link":true,"tabindex":true,"target-size":true,"landmark-one-main":true,"label-content-name-mismatch":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
             botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":true,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":true},
-            usability: {"title":true,"description":true,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false,"ogsitename":false,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":false,"ogimagealt":false,"readability":true,"www":true}
+            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":true},
+            usability: {"title":true,"description":true,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":false,"inp":false,"ogsitename":false,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":false,"ogimagealt":false,"readability":true,"www":true}
           }
           
         ];

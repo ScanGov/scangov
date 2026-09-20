@@ -145,7 +145,7 @@ Search
 <p>A <a href="https://scangov.com">ScanGov</a> project tracking web <a href="https://scangov.com/accessibility/">accessibility</a>, <a href="https://scangov.com/botability/">botability</a>, <a href="https://scangov.com/security/">security</a>, and <a href="https://scangov.com/usability/">usability</a>.</p>
 <ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
 <li>
-Sites: 4759
+Sites: 4751
 </li>
 <li>
 Last scan:
@@ -262,7 +262,7 @@ Usability
 <script>
         var _isDark;
         document.addEventListener('DOMContentLoaded', function () {
-          _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
+          _isDark = document.documentElement.getAttribute('data-bs-theme') !== 'light';
           Chart.defaults.color = _isDark ? '#fff' : '#000';
           Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
         });
@@ -284,8 +284,8 @@ Usability
           var donutChart = new Chart(donutEl, {
             type: 'doughnut',
             data: {
-              labels: ['Federal (849)', 'States (51)', 'Cities (265)', 'Counties (2793)', 'Education (809)'],
-              datasets: [{ data: [849, 51, 265, 2793, 809], backgroundColor: _isDark ? ['#96abee', '#70e17b', '#ffbc78', '#c5ee93', '#e6a8ff'] : ['#1d4e9a', '#1a7a27', '#a85000', '#4d7c00', '#7b3fa0'], hoverOffset: 4 }]
+              labels: ['Federal (850)', 'States (51)', 'Cities (265)', 'Counties (2786)', 'Education (807)'],
+              datasets: [{ data: [850, 51, 265, 2786, 807], backgroundColor: _isDark ? ['#96abee', '#70e17b', '#ffbc78', '#c5ee93', '#e6a8ff'] : ['#1d4e9a', '#1a7a27', '#a85000', '#4d7c00', '#7b3fa0'], hoverOffset: 4 }]
             },
             options: {
               plugins: {
@@ -300,7 +300,7 @@ Usability
             if (pts.length) window.location.href = donutUrls[pts[0].index];
           });
 
-          var gradeData = {"A":492,"B":1649,"C":1952,"D":409,"F":36};
+          var gradeData = {"A":487,"B":1619,"C":1892,"D":410,"F":36};
           var gradeEl = document.getElementById('grades-dist-chart');
           new Chart(gradeEl, {
             type: 'doughnut',
@@ -389,7 +389,7 @@ Usability:
 </div>
 <script>
         document.addEventListener('DOMContentLoaded', function () {
-        var chartData = {"accessibility":[{"attr":"link-name","label":"Links have a discernible name","failCount":1770},{"attr":"heading-order","label":"Heading elements appear in a sequentially-descending order","failCount":1540},{"attr":"color-contrast","label":"Background and foreground colors have a sufficient contrast ratio","failCount":1467},{"attr":"target-size","label":"Touch targets have sufficient size and spacing","failCount":1051},{"attr":"landmark-one-main","label":"Document has a main landmark","failCount":1027}],"botability":[{"attr":"schema-government-organization","label":"GovernmentOrganization Schema.org type","failCount":3408},{"attr":"link-text","label":"Link text","failCount":1364},{"attr":"sitemap-robots","label":"Sitemap in robots.txt","failCount":1291},{"attr":"xml","label":"Sitemap XML","failCount":1265},{"attr":"status","label":"Sitemap status","failCount":1265}],"security":[{"attr":"errors-in-console","label":"Errors in the console","failCount":1877},{"attr":"dotgov","label":"Sponsored top-level domain (sTLD)","failCount":1420},{"attr":"securitytxt","label":"security.txt","failCount":389},{"attr":"xcontenttypeoptions","label":"X-Content-Type-Options","failCount":35},{"attr":"https","label":"Hypertext Transfer Protocol Secure (HTTPS)","failCount":28}],"usability":[{"attr":"ogimagealt","label":"Open Graph image alt","failCount":3925},{"attr":"lcp","label":"Largest Contentful Paint (LCP)","failCount":3099},{"attr":"ogsitename","label":"Open Graph site name","failCount":3021},{"attr":"fcp","label":"First Contentful Paint (FCP)","failCount":2873},{"attr":"ogdescription","label":"Open Graph description","failCount":2861}]};
+        var chartData = {"accessibility":[{"attr":"link-name","label":"Links have a discernible name","failCount":1743},{"attr":"heading-order","label":"Heading elements appear in a sequentially-descending order","failCount":1519},{"attr":"color-contrast","label":"Background and foreground colors have a sufficient contrast ratio","failCount":1436},{"attr":"target-size","label":"Touch targets have sufficient size and spacing","failCount":1034},{"attr":"landmark-one-main","label":"Document has a main landmark","failCount":990}],"botability":[{"attr":"schema-government-organization","label":"GovernmentOrganization Schema.org type","failCount":3354},{"attr":"link-text","label":"Link text","failCount":1349},{"attr":"xml","label":"Sitemap XML","failCount":1250},{"attr":"status","label":"Sitemap status","failCount":1250},{"attr":"sitemap-robots","label":"Sitemap in robots.txt","failCount":1211}],"security":[{"attr":"errors-in-console","label":"Errors in the console","failCount":1843},{"attr":"dotgov","label":"Sponsored top-level domain (sTLD)","failCount":1381},{"attr":"securitytxt","label":"security.txt","failCount":318},{"attr":"xcontenttypeoptions","label":"X-Content-Type-Options","failCount":47},{"attr":"https","label":"Hypertext Transfer Protocol Secure (HTTPS)","failCount":28}],"usability":[{"attr":"ogimagealt","label":"Open Graph image alt","failCount":3857},{"attr":"lcp","label":"Largest Contentful Paint (LCP)","failCount":3044},{"attr":"ogsitename","label":"Open Graph site name","failCount":2962},{"attr":"fcp","label":"First Contentful Paint (FCP)","failCount":2838},{"attr":"ogdescription","label":"Open Graph description","failCount":2805}]};
         var indicatorColors = {"accessibility":"#a8f2ff","botability":"#e7f434","security":"#ff8d7b","usability":"#d5bfff"};
         var indicatorColorsLight = {"accessibility":"#1d4e9a","botability":"#4d7c00","security":"#a85000","usability":"#7b3fa0"};
         ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {

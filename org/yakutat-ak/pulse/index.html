@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
-<meta name="description" content="How the 1 government website managed by Yakutat, AK have changed over time on Project ScanGov, average grade B. Includes yakutatak.us.">
+<meta name="description" content="How the 1 government website managed by Yakutat, AK have changed over time on Project ScanGov. Includes yakutatak.us.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="google-site-verification" content="10895162be5e592f">
 <meta property="og:locale" content="en_US">
@@ -18,13 +18,13 @@
 <meta property="og:site_name" content="Project ScanGov">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Yakutat, AK pulse">
-<meta property="og:description" content="How the 1 government website managed by Yakutat, AK have changed over time on Project ScanGov, average grade B. Includes yakutatak.us.">
+<meta property="og:description" content="How the 1 government website managed by Yakutat, AK have changed over time on Project ScanGov. Includes yakutatak.us.">
 <meta property="og:url" content="https://scangov.org/org/yakutat-ak/pulse/">
 <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ScanGov logo">
-<meta property="article:modified_time" content="2026-08-18T01:36:29.717Z">
+<meta property="article:modified_time" content="2026-09-17T02:46:30.873Z">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"Yakutat, AK","item":"https://scangov.org/org/yakutat-ak/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/yakutat-ak/pulse/"}]},{"@type":"GovernmentOrganization","name":"Yakutat, AK","url":"https://yakutatak.us/","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/yakutat-ak/pulse/"}}]}</script>
 <link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
@@ -273,7 +273,7 @@ Link copied!
 <script>
     var _isDark;
     document.addEventListener('DOMContentLoaded', function () {
-      _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
+      _isDark = document.documentElement.getAttribute('data-bs-theme') !== 'light';
       Chart.defaults.color = _isDark ? '#fff' : '#000';
       Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
     });
@@ -286,7 +286,7 @@ Link copied!
 </div>
 <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [81];
+        var scores = [];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -335,11 +335,11 @@ Link copied!
           '/org/' + orgSlug + '/?attr=usability'
         ];
         var gradesScores = [
-          81,
-          95,
-          50,
-          75,
-          75
+          NaN,
+          NaN,
+          NaN,
+          NaN,
+          NaN
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -460,10 +460,10 @@ Usability:
         var orgDomains = [
           
           {
-            accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"color-contrast":true,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"link-name":true,"meta-refresh":false,"meta-viewport":true,"target-size":true,"landmark-one-main":true,"label-content-name-mismatch":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
-            botability: {"canonical":true,"link-text":true,"hreflang":true,"valid":true,"xml":false,"allowed":false,"status":false,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"xcontenttypeoptions":true},
-            usability: {"title":true,"description":false,"viewport":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":false}
+            accessibility: ,
+            botability: ,
+            security: ,
+            usability: 
           }
           
         ];

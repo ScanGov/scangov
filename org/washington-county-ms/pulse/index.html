@@ -24,7 +24,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ScanGov logo">
-<meta property="article:modified_time" content="2026-08-18T09:00:34.847Z">
+<meta property="article:modified_time" content="2026-09-17T10:06:40.966Z">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"Washington County, MS","item":"https://scangov.org/org/washington-county-ms/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/washington-county-ms/pulse/"}]},{"@type":"GovernmentOrganization","name":"Washington County, MS","url":"https://washingtoncounty.ms/","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/washington-county-ms/pulse/"}}]}</script>
 <link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
@@ -273,7 +273,7 @@ Link copied!
 <script>
     var _isDark;
     document.addEventListener('DOMContentLoaded', function () {
-      _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
+      _isDark = document.documentElement.getAttribute('data-bs-theme') !== 'light';
       Chart.defaults.color = _isDark ? '#fff' : '#000';
       Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
     });
@@ -286,7 +286,7 @@ Link copied!
 </div>
 <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [64];
+        var scores = [62];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -335,10 +335,10 @@ Link copied!
           '/org/' + orgSlug + '/?attr=usability'
         ];
         var gradesScores = [
-          64,
+          62,
           82,
           63,
-          87,
+          75,
           25
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
@@ -462,7 +462,7 @@ Usability:
           {
             accessibility: {"aria-deprecated-role":true,"aria-hidden-body":true,"aria-required-attr":true,"aria-roles":true,"color-contrast":false,"document-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":false,"input-button-name":true,"label":true,"link-in-text-block":true,"link-name":false,"list":true,"listitem":true,"meta-viewport":true,"tabindex":true,"target-size":true,"landmark-one-main":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
             botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"xcontenttypeoptions":true},
+            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false,"xcontenttypeoptions":true},
             usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":false}
           }
           

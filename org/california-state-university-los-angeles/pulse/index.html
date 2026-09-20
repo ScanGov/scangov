@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
-<meta name="description" content="How the 1 government website managed by California State University-Los Angeles have changed over time on Project ScanGov, average grade C. Includes calstatela.edu.">
+<meta name="description" content="How the 1 government website managed by California State University-Los Angeles have changed over time on Project ScanGov. Includes calstatela.edu.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="google-site-verification" content="10895162be5e592f">
 <meta property="og:locale" content="en_US">
@@ -18,13 +18,13 @@
 <meta property="og:site_name" content="Project ScanGov">
 <meta property="og:type" content="website">
 <meta property="og:title" content="California State University-Los Angeles pulse">
-<meta property="og:description" content="How the 1 government website managed by California State University-Los Angeles have changed over time on Project ScanGov, average grade C. Includes calstatela.edu.">
+<meta property="og:description" content="How the 1 government website managed by California State University-Los Angeles have changed over time on Project ScanGov. Includes calstatela.edu.">
 <meta property="og:url" content="https://scangov.org/org/california-state-university-los-angeles/pulse/">
 <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ScanGov logo">
-<meta property="article:modified_time" content="2026-08-18T18:16:26.817Z">
+<meta property="article:modified_time" content="2026-09-17T19:11:43.250Z">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"California State University-Los Angeles","item":"https://scangov.org/org/california-state-university-los-angeles/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/california-state-university-los-angeles/pulse/"}]},{"@type":"EducationalOrganization","name":"California State University-Los Angeles","url":"https://calstatela.edu/","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/california-state-university-los-angeles/pulse/"}}]}</script>
 <link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
@@ -273,7 +273,7 @@ Link copied!
 <script>
     var _isDark;
     document.addEventListener('DOMContentLoaded', function () {
-      _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
+      _isDark = document.documentElement.getAttribute('data-bs-theme') !== 'light';
       Chart.defaults.color = _isDark ? '#fff' : '#000';
       Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
     });
@@ -286,7 +286,7 @@ Link copied!
 </div>
 <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [77];
+        var scores = [];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -335,11 +335,11 @@ Link copied!
           '/org/' + orgSlug + '/?attr=usability'
         ];
         var gradesScores = [
-          77,
-          97,
-          72,
-          100,
-          25
+          NaN,
+          NaN,
+          NaN,
+          NaN,
+          NaN
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -460,10 +460,10 @@ Usability:
         var orgDomains = [
           
           {
-            accessibility: {"aria-allowed-attr":true,"aria-command-name":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-dialog-name":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"frame-title":false,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-in-text-block":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"skip-link":true,"tabindex":true,"target-size":true,"landmark-one-main":true,"presentation-role-conflict":true,"label-content-name-mismatch":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
-            botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":true,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"xcontenttypeoptions":true},
-            usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":false,"inp":false,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true}
+            accessibility: ,
+            botability: ,
+            security: ,
+            usability: 
           }
           
         ];

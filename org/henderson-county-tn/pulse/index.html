@@ -24,7 +24,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ScanGov logo">
-<meta property="article:modified_time" content="2026-08-18T08:43:19.528Z">
+<meta property="article:modified_time" content="2026-09-17T09:51:27.547Z">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"Henderson County, TN","item":"https://scangov.org/org/henderson-county-tn/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/henderson-county-tn/pulse/"}]},{"@type":"GovernmentOrganization","name":"Henderson County, TN","url":"https://hendersoncountytn.gov/en-US","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/henderson-county-tn/pulse/"}}]}</script>
 <link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
@@ -273,7 +273,7 @@ Link copied!
 <script>
     var _isDark;
     document.addEventListener('DOMContentLoaded', function () {
-      _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
+      _isDark = document.documentElement.getAttribute('data-bs-theme') !== 'light';
       Chart.defaults.color = _isDark ? '#fff' : '#000';
       Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
     });
@@ -286,7 +286,7 @@ Link copied!
 </div>
 <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [75];
+        var scores = [77];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -335,11 +335,11 @@ Link copied!
           '/org/' + orgSlug + '/?attr=usability'
         ];
         var gradesScores = [
-          75,
+          77,
           80,
-          72,
-          100,
-          58
+          81,
+          85,
+          64
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -461,9 +461,9 @@ Usability:
           
           {
             accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":false,"aria-prohibited-attr":true,"aria-required-attr":false,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"frame-title":false,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-in-text-block":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"tabindex":false,"target-size":false,"landmark-one-main":true,"label-content-name-mismatch":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
-            botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":false,"xml":true,"allowed":true,"status":true,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true},
-            usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":false,"ogurl":true,"ogimage":false,"ogimagealt":false,"readability":true,"www":true}
+            botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":false},
+            security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true},
+            usability: {"title":true,"description":false,"viewport":true,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":false,"ogurl":true,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":true,"www":true}
           }
           
         ];

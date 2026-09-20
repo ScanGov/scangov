@@ -24,7 +24,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ScanGov logo">
-<meta property="article:modified_time" content="2026-08-18T19:23:03.213Z">
+<meta property="article:modified_time" content="2026-09-17T20:27:35.114Z">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"Thomas County, NE","item":"https://scangov.org/org/thomas-county-ne/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/thomas-county-ne/pulse/"}]},{"@type":"GovernmentOrganization","name":"Thomas County, NE","url":"https://thomascountyne.gov/","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/thomas-county-ne/pulse/"}}]}</script>
 <link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
@@ -273,7 +273,7 @@ Link copied!
 <script>
     var _isDark;
     document.addEventListener('DOMContentLoaded', function () {
-      _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
+      _isDark = document.documentElement.getAttribute('data-bs-theme') !== 'light';
       Chart.defaults.color = _isDark ? '#fff' : '#000';
       Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
     });
@@ -286,7 +286,7 @@ Link copied!
 </div>
 <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [80];
+        var scores = [83];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -335,11 +335,11 @@ Link copied!
           '/org/' + orgSlug + '/?attr=usability'
         ];
         var gradesScores = [
-          80,
+          83,
           100,
           90,
-          88,
-          29
+          100,
+          35
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -462,8 +462,8 @@ Usability:
           {
             accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"label":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"skip-link":true,"tabindex":true,"target-size":true,"td-headers-attr":true,"landmark-one-main":true,"autocomplete-valid":true,"presentation-role-conflict":true,"label-content-name-mismatch":true,"table-fake-caption":true,"td-has-header":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
             botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true},
-            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"securitytxt":false,"xcontenttypeoptions":true},
-            usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":false,"cls":true,"inp":false,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"www":true}
+            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"xcontenttypeoptions":true},
+            usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":false,"cls":true,"inp":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"www":true}
           }
           
         ];

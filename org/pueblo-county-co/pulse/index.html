@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
-<meta name="description" content="How the 1 government website managed by Pueblo County, CO have changed over time on Project ScanGov, average grade C. Includes county.pueblo.org.">
+<meta name="description" content="How the 1 government website managed by Pueblo County, CO have changed over time on Project ScanGov, average grade D. Includes county.pueblo.org.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="google-site-verification" content="10895162be5e592f">
 <meta property="og:locale" content="en_US">
@@ -18,13 +18,13 @@
 <meta property="og:site_name" content="Project ScanGov">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pueblo County, CO pulse">
-<meta property="og:description" content="How the 1 government website managed by Pueblo County, CO have changed over time on Project ScanGov, average grade C. Includes county.pueblo.org.">
+<meta property="og:description" content="How the 1 government website managed by Pueblo County, CO have changed over time on Project ScanGov, average grade D. Includes county.pueblo.org.">
 <meta property="og:url" content="https://scangov.org/org/pueblo-county-co/pulse/">
 <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ScanGov logo">
-<meta property="article:modified_time" content="2026-08-18T02:15:51.973Z">
+<meta property="article:modified_time" content="2026-09-17T03:42:59.850Z">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"Pueblo County, CO","item":"https://scangov.org/org/pueblo-county-co/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/pueblo-county-co/pulse/"}]},{"@type":"GovernmentOrganization","name":"Pueblo County, CO","url":"https://county.pueblo.org/","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/pueblo-county-co/pulse/"}}]}</script>
 <link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
@@ -273,7 +273,7 @@ Link copied!
 <script>
     var _isDark;
     document.addEventListener('DOMContentLoaded', function () {
-      _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
+      _isDark = document.documentElement.getAttribute('data-bs-theme') !== 'light';
       Chart.defaults.color = _isDark ? '#fff' : '#000';
       Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
     });
@@ -286,7 +286,7 @@ Link copied!
 </div>
 <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [70];
+        var scores = [67];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -335,11 +335,11 @@ Link copied!
           '/org/' + orgSlug + '/?attr=usability'
         ];
         var gradesScores = [
-          70,
+          67,
           83,
           54,
           71,
-          52
+          41
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -463,7 +463,7 @@ Usability:
             accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":false,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"frame-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":false,"label":true,"link-in-text-block":true,"link-name":false,"list":false,"listitem":true,"meta-viewport":true,"target-size":true,"landmark-one-main":true,"presentation-role-conflict":true,"label-content-name-mismatch":true,"image-aspect-ratio":false,"doctype":true,"charset":true},
             botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
             security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":false},
-            usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"www":true}
+            usability: {"title":true,"description":false,"viewport":true,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":false,"fcp":true,"lcp":true,"ttfb":true,"cls":false,"inp":true,"www":true}
           }
           
         ];

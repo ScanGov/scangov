@@ -24,7 +24,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ScanGov logo">
-<meta property="article:modified_time" content="2026-08-18T03:09:01.704Z">
+<meta property="article:modified_time" content="2026-09-17T06:58:27.060Z">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"Florida Agricultural and Mechanical University","item":"https://scangov.org/org/florida-agricultural-and-mechanical-university/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/florida-agricultural-and-mechanical-university/pulse/"}]},{"@type":"EducationalOrganization","name":"Florida Agricultural and Mechanical University","url":"https://famu.edu/","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/florida-agricultural-and-mechanical-university/pulse/"}}]}</script>
 <link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
@@ -273,7 +273,7 @@ Link copied!
 <script>
     var _isDark;
     document.addEventListener('DOMContentLoaded', function () {
-      _isDark = document.body.getAttribute('data-bs-theme') !== 'light';
+      _isDark = document.documentElement.getAttribute('data-bs-theme') !== 'light';
       Chart.defaults.color = _isDark ? '#fff' : '#000';
       Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
     });
@@ -336,10 +336,10 @@ Link copied!
         ];
         var gradesScores = [
           73,
-          86,
-          63,
+          89,
+          72,
           100,
-          41
+          35
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -460,10 +460,10 @@ Usability:
         var orgDomains = [
           
           {
-            accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"frame-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-name":true,"list":false,"listitem":false,"meta-viewport":true,"tabindex":true,"target-size":false,"landmark-one-main":true,"presentation-role-conflict":true,"label-content-name-mismatch":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
-            botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":true,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
+            accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"frame-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-name":true,"list":false,"listitem":true,"meta-viewport":true,"target-size":false,"landmark-one-main":true,"label-content-name-mismatch":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
+            botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":true,"valid":true,"xml":false,"allowed":true,"status":false,"sitemap-robots":false},
             security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"xcontenttypeoptions":true},
-            usability: {"title":true,"description":true,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":true,"www":true}
+            usability: {"title":true,"description":true,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false,"ogsitename":false,"ogtype":false,"ogtitle":false,"ogdescription":false,"ogurl":false,"ogimage":false,"ogimagealt":false,"readability":false,"www":true}
           }
           
         ];
