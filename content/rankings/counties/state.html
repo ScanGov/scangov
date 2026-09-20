@@ -1,0 +1,21 @@
+---
+layout: layouts/default
+home: false
+showLastUpdated: true
+keywords: county government websites, rankings, accessibility, security, usability
+stateContext: true
+pagination:
+  data: countyStates
+  size: 1
+  alias: st
+  addAllPagesToCollections: true
+permalink: "rankings/counties/{{ st.slug }}/"
+---
+
+{% set specificAttribute = "" %}
+{% set currentsort = "counties" %}
+{% set showPagination = false %}
+{% set member = st.counties %}
+{% set siteCountOverride = st.count %}
+
+{% include "county-state.html" %}

@@ -38,7 +38,8 @@
 {% if showLastUpdated and not profile %}
 {% set urlParts = page.url.split('/') %}
 {% set filterCounts = { federal: federal, states: states, cities: cities, counties: counties, edu: edu } %}
-{% set siteCount = (filterCounts[urlParts[2]] | length) if filterCounts[urlParts[2]] else (domains | length) %}
+{# siteCountOverride: pages scoped below a group, such as /rankings/counties/tx/, pass their own count #}
+{% set siteCount = siteCountOverride if siteCountOverride else ((filterCounts[urlParts[2]] | length) if filterCounts[urlParts[2]] else (domains | length)) %}
 <ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
     <li>
         Sites: {{ siteCount }}

@@ -1,0 +1,138 @@
+{#
+  Body of /rankings/counties/{st}/ and /rankings/counties/{st}/{topic}/.
+
+  Expects: st (one countyStates entry), specificAttribute ("" or a topic key),
+  member (the ranked rows for this view), stateContext = true.
+
+  Every number on the page comes from `st`, so the intro, stat tiles, charts,
+  table, and footnote cannot disagree. Populations are named wherever a number
+  appears: scanned (st.count), responding (st.respondingCount), partial
+  (st.partialCount). See scripts/county-states.js.
+#}
+{% set topic = specificAttribute if specificAttribute else "overall" %}
+{% set catInfo = audits[specificAttribute] if specificAttribute else false %}
+{% set topicName = (catInfo.displayName | lower) if catInfo else "overall" %}
+{% set topicPath = (specificAttribute + "/") if specificAttribute else "" %}
+{% set avg = st.averages[topic] %}
+{% set natAvg = st.national.averages[topic] %}
+{% set rank = st.stateRank[topic] %}
+{% set indicatorKeys = ["accessibility", "botability", "security", "usability"] %}
+<div id="home" class="col-12">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        {% include "rankingtabs.html" %}
+      </div>
+    </div>
+
+    {% if st.respondingCount == 0 %}
+    <div class="alert alert-info mt-4" role="status">
+      None of the {{ st.count }} {{ st.name }} county sites on our list responded to the last scan, so there are no scores to show yet.
+    </div>
+    {% else %}
+
+    <div class="row g-3 mb-2 mt-3">
+      <div class="col-6 col-lg-3">
+        <div class="card h-100"><div class="card-body">
+          <p class="sg-stat-value"><span class="badge text-bg-{{ avg | colorify }}">{{ avg | gradify }}</span> {{ avg }}</p>
+          <p class="sg-stat-label">Average {{ topicName }} score of {{ st.respondingCount }} responding {{ st.name }} county sites</p>
+        </div></div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="card h-100"><div class="card-body">
+          <p class="sg-stat-value">{{ rank | ordinal }}</p>
+          <p class="sg-stat-label">of {{ st.stateCount }} states, ranked by average {{ topicName }} score</p>
+        </div></div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="card h-100"><div class="card-body">
+          <p class="sg-stat-value">{{ st.respondingCount }} <span class="fs-5 text-muted">of {{ st.count }}</span></p>
+          <p class="sg-stat-label">Sites responding to the last scan{% if st.partialCount %}. {{ st.partialCount }} did not return page content and were scored on fewer checks{% endif %}</p>
+        </div></div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="card h-100"><div class="card-body">
+          <p class="sg-stat-value"><span class="badge text-bg-{{ natAvg | colorify }}">{{ natAvg | gradify }}</span> {{ natAvg }}</p>
+          <p class="sg-stat-label">U.S. county average {{ topicName }} score, {{ st.national.respondingCount }} responding sites</p>
+        </div></div>
+      </div>
+    </div>
+
+    {# Distribution curve full width, then the map beside the comparison bars. #}
+    {% chart st.charts.area[topic] %}
+    <div class="row">
+      <div class="col-12 col-lg-6">{% include "county-map.html" %}</div>
+      <div class="col-12 col-lg-6">
+        {% chart st.charts.grades[topic] %}
+        {% if not specificAttribute %}
+          {% chart st.charts.topics %}
+        {% endif %}
+      </div>
+    </div>
+
+    <h2 class="h4 mt-4">Top 3 {{ st.name }} county sites by {{ topicName }} score</h2>
+    <div class="row g-3">
+      {% for d in st.top3[topic] %}
+      <div class="col-12 col-md-4">
+        <div class="card h-100">
+          <div class="sg-shot" aria-hidden="true" data-screenshot-for="{{ d.urlkey }}">
+            <span><strong class="d-block">{{ d.title if d.title else d.name }}</strong><span class="small">{{ d.urlkey }}</span></span>
+          </div>
+          <div class="card-body">
+            <p class="small text-muted mb-1">#{{ d.rankingPosition }} in {{ st.name }}{% if d.nationalRank %} &middot; U.S. rank {{ d.nationalRank }}{% endif %}</p>
+            <h3 class="h5 mb-1"><a href="/profile/{{ d.urlkey | slugify }}/overall/">{{ d.name }}</a></h3>
+            <p class="mb-2"><span class="badge text-bg-{{ d.score | colorify }}">{{ d.score | gradify }}</span> {{ d.score }} {{ topicName }}{% if d.partial %} <span class="sg-partial">(partial scan)</span>{% endif %}</p>
+            <ul class="list-inline small mb-0">
+              {% for t in indicatorKeys %}
+              <li class="list-inline-item">{{ audits[t].displayName }} <span class="badge text-bg-{{ d.scores[t].score | colorify }}">{{ d.scores[t].score | gradify }}</span></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if specificAttribute %}
+      {# The figure's own title is the section heading (headingLevel 2 in the spec); repeating it above would say the same thing twice. #}
+      <div class="mt-4">{% chart st.charts.failures[specificAttribute] %}</div>
+      <h3 class="h5 mt-4">What each check means</h3>
+      <ul class="sg-failures">
+        {% for f in st.topFailures[specificAttribute] %}
+        <li><a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} {{ f.risk }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <h2 class="h4 mt-5">Most common failures by indicator</h2>
+      <p>The check {{ st.name }} county sites fail most often in each indicator. Each indicator page lists the top five.</p>
+      <ul class="sg-failures">
+        {% for t in indicatorKeys %}
+        {% set f = st.topFailures[t][0] %}
+        {% if f %}
+        <li><strong>{{ (f.share * 100) | round }}% ({{ f.failCount }} of {{ st.respondingCount }} sites)</strong> fail this {{ audits[t].displayName | lower }} check: <a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} <a href="/rankings/counties/{{ st.slug }}/{{ t }}/">More {{ audits[t].displayName | lower }} failures in {{ st.name }}</a>.</li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <h2 class="h4 mt-5">All {{ st.name }} county sites by {{ topicName }} score</h2>
+    {% set tableCaption = st.name + " county sites ranked by " + topicName + " score" %}
+    {% set paginateRows = 50 %}
+    {% include "ranking-table-block.html" %}
+    <script src="/js/table-paginate.js" defer></script>
+
+    {% include "topic-about.html" %}
+
+    <nav class="d-flex justify-content-between mt-4 small" aria-label="Other states">
+      <span>{% if st.prev %}<a href="/rankings/counties/{{ st.prev.slug }}/{{ topicPath }}">Previous state: {{ st.prev.name }}</a>{% endif %}</span>
+      <span>{% if st.next %}<a href="/rankings/counties/{{ st.next.slug }}/{{ topicPath }}">Next state: {{ st.next.name }}</a>{% endif %}</span>
+    </nav>
+    {% endif %}
+
+    {% set footnoteScope = "in " + st.name %}
+    {% set footnoteRespondingCount = st.respondingCount %}
+    {% set footnotePartialCount = st.partialCount %}
+    {% set footnoteScanWindow = st.scanWindow %}
+    {% include "data-footnote.html" %}
+  </div>
+</div>

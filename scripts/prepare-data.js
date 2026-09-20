@@ -15,10 +15,22 @@ export const DATA_FILE = './public/data/myscangov_homepage_audits.json';
 // Files a build job needs from this step (paths relative to the repo root).
 export const PREPARED_FILES = [
   'public/data/myscangov_homepage_audits.json',
+  'public/data/updated_time',
   'public/data/search.csv',
   'scripts/data/lastscan.json',
   'scripts/data/myscangov_changes.json',
 ];
+
+// The homepages payload carries no timestamp of its own, so the last-scan
+// date shown on every page (via _data/updates.js and _data/updatedTime.js) is
+// the newest record time in the full data file. Reads the file directly
+// because domains.js truncates the list on the dev server.
+export function writeUpdatedTime() {
+  const records = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+  const latest = records.reduce((max, d) => (Number.isFinite(d.time) && d.time > max ? d.time : max), 0);
+  if (latest > 0) fs.writeFileSync('./public/data/updated_time', String(latest));
+  return latest;
+}
 
 export async function prepareData({ serve = false } = {}) {
   // In serve mode reuse the cached data file when there is one.
@@ -34,6 +46,7 @@ export async function prepareData({ serve = false } = {}) {
       fs.writeFileSync(DATA_FILE, JSON.stringify(auditData), 'utf8');
     }
   }
+  writeUpdatedTime();
 
   const domainDataFilled = domainData();
   const olddata = JSON.parse(fs.readFileSync('./scripts/data/lastscan.json'));
