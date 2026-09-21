@@ -11,11 +11,31 @@
 // planning regions that replaced its counties in 2022.
 export const COUNTY_NAME_RE = /\b(County|Parish|Borough|Planning Region)\b/;
 
-// Real counties whose record name carries no ", XX" state suffix, or no
-// county keyword at all (Yakutat is a consolidated city and borough).
+// County-list sites whose record name carries no county keyword: consolidated
+// city-counties, Alaska's unified municipalities, Virginia's independent
+// cities, and two real counties named without the word. Values are the state
+// code, used when the name has no ", XX" suffix. Source of truth for the list
+// is the county CSV behind county-viz (data/raw/county-bot-blocking-*.csv);
+// rerun the check there when the county list changes.
 export const COUNTY_EXCEPTIONS = {
     'hennepincounty.gov': 'MN',
     'jocogov.org': 'KS',
+    'tulsacounty.org': 'OK',
+    'sf.gov': 'CA',
+    'denvergov.org': 'CO',
+    'broomfield.org': 'CO',
+    'baltimorecity.gov': 'MD',
+    'stlouis-mo.gov': 'MO',
+    'carsoncity.gov': 'NV',
+    'nantucket-ma.gov': 'MA',
+    'fredericksburgva.gov': 'VA',
+    'ci.staunton.va.us': 'VA',
+    'nortonva.gov': 'VA',
+    'muni.org': 'AK',
+    'juneau.org': 'AK',
+    'cityofsitka.com': 'AK',
+    'skagway.org': 'AK',
+    'wrangell.com': 'AK',
     'yakutatak.us': 'AK',
 };
 
