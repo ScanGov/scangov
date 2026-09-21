@@ -866,6 +866,18 @@ button.btn-secondary-outline {
     box-shadow: var(--bs-box-shadow-md);
 }
 
+[data-bs-theme="light"] .feedback {
+    background-color: var(--bs-body-color) !important;
+    color: var(--bs-body-bg) !important;
+}
+
+[data-bs-theme="light"] .feedback:hover,
+[data-bs-theme="light"] .feedback:focus,
+[data-bs-theme="light"] .feedback:active {
+    background-color: var(--bs-body-bg) !important;
+    color: var(--bs-body-color) !important;
+}
+
 .btn.feedback:hover i, .btn.feedback:hover svg,
 .btn.feedback:focus i, .btn.feedback:focus svg,
 .btn.feedback:active i, .btn.feedback:active svg {
