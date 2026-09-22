@@ -17,104 +17,17 @@
 //   fully scanned  responding and not partial (scoredCount); the population
 //                  behind every figure on the page
 
-import {
-    TOPICS, isCounty, stateCodeOf, isResponding, scoreOf, isPartial,
-    rankDense, gradeOf, mean, domainKey,
-} from './counties.js';
+import { TOPICS, isCounty, stateCodeOf, isResponding, scoreOf, isPartial, rankDense, gradeOf, domainKey } from './counties.js';
 import { slugify } from './charts/format.js';
+import { gradeDistributionSpec, topicAveragesSpec, topFailuresSpec, histogramSpec, areaSpec } from './charts/specs.js';
 import {
-    gradeDistributionSpec, topicAveragesSpec, topFailuresSpec, histogramSpec, areaSpec,
-} from './charts/specs.js';
+    ALL_TOPICS, isScored, attributeIndex, topicLabel, summarize, scanWindow, buildGroupCharts,
+} from './group-summary.js';
 
-const ALL_TOPICS = ['overall', ...TOPICS];
-const TOP_FAILURES = 5;
 const TOP_SITES = 3;
-
-const isScored = d => isResponding(d) && !isPartial(d);
-
-function emptyDistribution() {
-    return { A: 0, B: 0, C: 0, D: 0, F: 0 };
-}
-
-function emptyBins() {
-    const bins = [];
-    for (let i = 0; i < 10; i++) bins.push({ from: i * 10, to: i === 9 ? 100 : i * 10 + 9, count: 0 });
-    return bins;
-}
-
-function binIndex(score) {
-    return Math.min(9, Math.max(0, Math.floor(score / 10)));
-}
 
 function profileHref(d) {
     return `/profile/${slugify(domainKey(d))}/overall/`;
-}
-
-// Lookup from an attribute key or scorekey to its audits.json entry.
-function attributeIndex(audits) {
-    const index = {};
-    for (const topic of TOPICS) {
-        index[topic] = new Map();
-        for (const attr of (audits[topic] && audits[topic].attributes) || []) {
-            if (attr.key) index[topic].set(attr.key, attr);
-            if (attr.scorekey) index[topic].set(attr.scorekey, attr);
-        }
-    }
-    return index;
-}
-
-function topicLabel(audits, topic) {
-    return (audits[topic] && audits[topic].displayName) || topic[0].toUpperCase() + topic.slice(1);
-}
-
-// Aggregates over one list of responding records.
-function summarize(responding, attrIndex) {
-    const averages = {};
-    const gradeDistribution = {};
-    const histogram = {};
-    for (const topic of ALL_TOPICS) {
-        const scores = responding.map(d => scoreOf(d, topic)).filter(Number.isFinite);
-        averages[topic] = mean(scores);
-        const dist = emptyDistribution();
-        const bins = emptyBins();
-        for (const s of scores) {
-            dist[gradeOf(s)]++;
-            bins[binIndex(s)].count++;
-        }
-        gradeDistribution[topic] = dist;
-        histogram[topic] = bins;
-    }
-
-    const topFailures = {};
-    for (const topic of TOPICS) {
-        const counts = new Map();
-        for (const d of responding) {
-            const results = d[topic];
-            if (!results) continue;
-            for (const [key, passed] of Object.entries(results)) {
-                if (passed === false) counts.set(key, (counts.get(key) || 0) + 1);
-            }
-        }
-        const list = [];
-        for (const [key, failCount] of counts) {
-            const attr = attrIndex[topic].get(key) || {};
-            list.push({
-                key,
-                label: attr.displayName || key.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' '),
-                standardsUrl: `https://standards.scangov.org/${attr.key || key}`,
-                description: attr.description || '',
-                why: attr.why || '',
-                risk: attr.risk || '',
-                impact: attr.impact || 0,
-                failCount,
-                share: responding.length ? failCount / responding.length : 0,
-            });
-        }
-        list.sort((a, b) => b.failCount - a.failCount || b.impact - a.impact || a.label.localeCompare(b.label));
-        topFailures[topic] = list.slice(0, TOP_FAILURES);
-    }
-
-    return { averages, gradeDistribution, histogram, topFailures };
 }
 
 // Copies of a state's records sorted for one topic: fully scanned sites by
@@ -252,49 +165,6 @@ function buildMap(code, records, geo) {
     };
 }
 
-// Earliest and latest scan time among a state's records, for the footnote.
-function scanWindow(records) {
-    const times = records.map(d => d.time).filter(Number.isFinite);
-    if (!times.length) return null;
-    return { from: Math.min(...times), to: Math.max(...times) };
-}
-
-// Charts for the county hub: the national distribution, grade split, and
-// most-failed checks per indicator over every fully scanned county.
-function buildNationalCharts(national, scored, audits) {
-    const respondingText = `${national.scoredCount} fully scanned U.S. county sites`;
-    const charts = { failures: {}, area: {}, grades: {} };
-    for (const topic of ALL_TOPICS) {
-        const label = topic === 'overall' ? 'overall' : topicLabel(audits, topic).toLowerCase();
-        const points = scored.map(d => ({ label: d.name, value: scoreOf(d, topic) })).filter(p => Number.isFinite(p.value));
-        charts.area[topic] = areaSpec({
-            id: `county-us-area-${topic}`,
-            title: `How U.S. county ${label} scores are distributed`,
-            subtitle: `Smoothed distribution of the ${respondingText}, score 0 to 100. Height shows how many sites score near each value.`,
-            points, bins: national.histogram[topic],
-            markers: [{ label: 'U.S. county average', value: national.averages[topic] }],
-        });
-        charts.grades[topic] = gradeDistributionSpec({
-            id: `county-us-grades-${topic}`,
-            title: `U.S. counties by ${label} grade`,
-            subtitle: `Share of the ${respondingText} in each grade band`,
-            groups: [{ key: 'US', label: 'All U.S. counties', distribution: national.gradeDistribution[topic], total: national.scoredCount }],
-        });
-    }
-    for (const topic of TOPICS) {
-        const label = topicLabel(audits, topic).toLowerCase();
-        charts.failures[topic] = topFailuresSpec({
-            id: `county-us-fails-${topic}`,
-            title: `Most common ${label} failures among U.S. county sites`,
-            subtitle: `Share of the ${respondingText} failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.`,
-            headingLevel: 2,
-            failures: national.topFailures[topic],
-            respondingCount: national.scoredCount,
-        });
-    }
-    return charts;
-}
-
 export function buildCountyStates(domains, stateNames, audits = {}, geo = null) {
     const attrIndex = attributeIndex(audits);
     const counties = domains.filter(isCounty);
@@ -312,7 +182,7 @@ export function buildCountyStates(domains, stateNames, audits = {}, geo = null) 
         scanWindow: scanWindow(counties),
         ...summarize(scored, attrIndex),
     };
-    national.charts = buildNationalCharts(national, scored, audits);
+    national.charts = buildGroupCharts(national, scored, audits, { idBase: 'county-us', groupTitle: 'U.S. county', groupText: 'fully scanned U.S. county sites' });
 
     const byState = new Map();
     const unplaced = [];

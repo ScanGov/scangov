@@ -1,0 +1,88 @@
+{#
+  Hub charts and narrative for a rankings group (states today; cities,
+  federal and education can reuse it). Included through the `chartsInclude`
+  slot in sortcontent.html; renders on the first page of the list only.
+
+  Expects:
+    groupSummary   a scripts/group-summary.js summary (counts, averages,
+                   charts, topFailures)
+    groupNoun      plural noun for copy, e.g. "state sites"
+    groupMap       true to show the state map (report-map.html with the
+                   `map` global, each state colored by its own site's grade)
+    specificAttribute, audits
+#}
+{% if pagination.pageNumber == 0 %}
+{% set topic = specificAttribute if specificAttribute else "overall" %}
+{% set catInfo = audits[specificAttribute] if specificAttribute else false %}
+{% set topicName = (catInfo.displayName | lower) if catInfo else "overall" %}
+{% set g = groupSummary %}
+{% set avg = g.averages[topic] %}
+{% set gradeA = g.gradeDistribution[topic].A %}
+
+<div class="row g-3 mb-2 mt-3">
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value"><span class="badge text-bg-{{ avg | colorify }}">{{ avg | gradify }}</span> {{ avg }}</p>
+      <p class="sg-stat-label">Average {{ topicName }} score of {{ g.scoredCount }} fully scanned {{ groupNoun }}</p>
+    </div></div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value">{{ g.scoredCount }} <span class="fs-5 text-muted">of {{ g.count }}</span></p>
+      <p class="sg-stat-label">{{ groupNoun | capitalize }} fully scanned{% if g.count - g.scoredCount %}. We couldn't fully scan {{ g.count - g.scoredCount }}, so they're listed without grades{% endif %}</p>
+    </div></div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value">{{ ((gradeA / g.scoredCount) * 100) | round if g.scoredCount else 0 }}%</p>
+      <p class="sg-stat-label">Fully scanned {{ groupNoun }} earning an A for {{ topicName }} ({{ gradeA }} sites)</p>
+    </div></div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      {% set df = g.gradeDistribution[topic].D + g.gradeDistribution[topic].F %}
+      <p class="sg-stat-value">{{ ((df / g.scoredCount) * 100) | round if g.scoredCount else 0 }}%</p>
+      <p class="sg-stat-label">Fully scanned {{ groupNoun }} earning a D or F for {{ topicName }} ({{ df }} sites)</p>
+    </div></div>
+  </div>
+</div>
+
+{% chart g.charts.area[topic] %}
+
+<div class="row">
+  {% if groupMap %}
+  <div class="col-12 col-lg-7">
+    <h2 class="h4 mt-4">{{ topicName | capitalize }} grade by state</h2>
+    <p>Each state is colored by its main site's {{ topicName }} grade. Select a state for its report.</p>
+    {% set mapTopic = topic %}
+    {% include "report-map.html" %}
+  </div>
+  {% endif %}
+  <div class="col-12 {% if groupMap %}col-lg-5{% endif %}">
+    {% chart g.charts.grades[topic] %}
+  </div>
+</div>
+
+{% if specificAttribute %}
+<div class="mt-4">{% chart g.charts.failures[specificAttribute] %}</div>
+<h3 class="h5 mt-4">What each check means</h3>
+<ul class="sg-failures">
+  {% for f in g.topFailures[specificAttribute] %}
+  <li><a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} {{ f.risk }}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<h2 class="h4 mt-5">Most common failures by indicator</h2>
+<p>The check {{ groupNoun }} fail most often in each indicator. Each indicator page lists the top five.</p>
+<ul class="sg-failures">
+  {% for t in ["accessibility", "botability", "security", "usability"] %}
+  {% set f = g.topFailures[t][0] %}
+  {% if f %}
+  <li><strong>{{ (f.share * 100) | round }}% ({{ f.failCount }} of {{ g.scoredCount }} sites)</strong> fail this {{ audits[t].displayName | lower }} check: <a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} <a href="/rankings/{{ currentsort }}/{{ t }}/">More {{ audits[t].displayName | lower }} failures</a>.</li>
+  {% endif %}
+  {% endfor %}
+</ul>
+{% endif %}
+
+<h2 class="h4 mt-5">All {{ groupNoun }} by {{ topicName }} score</h2>
+{% endif %}

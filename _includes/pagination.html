@@ -6,6 +6,7 @@
 {% set totalPages = pagination.pages.length %}
 {% set currentIndex = 0 %}
 {% for href in pagination.hrefs %}{% if page.url == href %}{% set currentIndex = loop.index0 %}{% endif %}{% endfor %}
+{% if totalPages > 1 %}
 <div class="row mt-3">
   <div class="col-12">
     <nav aria-label="Page navigation">
@@ -34,3 +35,4 @@
     <p class="small text-muted mb-0">Page {{ currentIndex + 1 }} of {{ totalPages }}</p>
   </div>
 </div>
+{% endif %}
