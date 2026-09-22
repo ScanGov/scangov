@@ -866,18 +866,6 @@ button.btn-secondary-outline {
     box-shadow: var(--bs-box-shadow-md);
 }
 
-[data-bs-theme="light"] .feedback {
-    background-color: var(--bs-body-color) !important;
-    color: var(--bs-body-bg) !important;
-}
-
-[data-bs-theme="light"] .feedback:hover,
-[data-bs-theme="light"] .feedback:focus,
-[data-bs-theme="light"] .feedback:active {
-    background-color: var(--bs-body-bg) !important;
-    color: var(--bs-body-color) !important;
-}
-
 .btn.feedback:hover i, .btn.feedback:hover svg,
 .btn.feedback:focus i, .btn.feedback:focus svg,
 .btn.feedback:active i, .btn.feedback:active svg {
@@ -3967,4 +3955,32 @@ blockquote .lead {
 }
 .sg-swatch--hatch {
   background: repeating-linear-gradient(45deg, var(--bs-inaccessible) 0 2px, transparent 2px 5px);
+}
+
+/* Dot map (.sg-map--dots, _includes/city-map.html): state outlines as a quiet
+   base layer with one colored dot per site. Dots carry a surface ring so
+   neighbors stay separable. */
+.sg-map-state {
+  fill: var(--sg-chart-track);
+  stroke: var(--bs-body-bg);
+  stroke-width: 1;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.sg-map-dot {
+  stroke: var(--bs-body-bg);
+  stroke-width: 1.5;
+  transition: r .15s;
+  forced-color-adjust: none;
+  print-color-adjust: exact;
+}
+.sg-map a:hover .sg-map-dot,
+.sg-map a:focus-visible .sg-map-dot {
+  r: 7;
+  stroke: var(--bs-body-color);
+}
+@media (forced-colors: active) {
+  .sg-map-dot {
+    stroke: CanvasText;
+  }
 }

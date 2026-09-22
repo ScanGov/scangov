@@ -1,9 +1,9 @@
 ---
-description: "Project ScanGov rankings of US city government websites by overall digital experience grade, with accessibility, botability, security, and usability scores."
+description: "Project ScanGov rankings of U.S. city government websites by overall digital experience grade, with accessibility, botability, security, and usability scores and the most common failures."
 home: false
 layout: layouts/default
-title: Rankings (cities)
-keywords: government domains, government websites
+title: City websites ranked by digital experience
+keywords: city government websites, rankings
 showLastUpdated: true
 permalink: "/rankings/cities/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber }}/{% endif %}"
 
@@ -13,12 +13,23 @@ pagination:
   alias: member
 ---
 
-{% set pageHeader = "Overall results" %}
-{% set dataset = cities %}
 {% set specificAttribute = "" %}
 {% set currentsort = "cities" %}
-{% set currentScore = member[0].overallScore %}
-{% set rankingScore = member.overallScore %}
 {% set showPagination = true %}
+{% set chartsInclude = "group-charts.html" %}
+{% set groupSummary = citySummary %}
+{% set groupNoun = "city sites" %}
+{% set groupMapInclude = "city-map.html" %}
+{% set compactTable = true %}
 
 {% include "sortcontent.html" %}
+{% if pagination.pageNumber == 0 %}
+{% set footnoteSubject = "the main website of each city on our city list" %}
+{% set footnoteScope = "" %}
+{% set footnoteRespondingCount = citySummary.respondingCount %}
+{% set footnoteScoredCount = citySummary.scoredCount %}
+{% set footnotePartialCount = citySummary.partialCount %}
+{% set footnoteNoResponseCount = citySummary.count - citySummary.respondingCount %}
+{% set footnoteScanWindow = citySummary.scanWindow %}
+<div class="container">{% include "data-footnote.html" %}</div>
+{% endif %}
