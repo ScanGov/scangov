@@ -3127,23 +3127,27 @@ th[aria-sort="descending"] .sort-desc {
 
 /* SVG maps */
 svg#report-map,
+svg.report-map,
 svg#map {
     width: 100%;
     max-width: 100%;
     height: auto;
 }
 
-svg#report-map {
+svg#report-map,
+svg.report-map {
     width: 85%;
     max-width: 85%;
 }
 
 svg#report-map a,
+svg.report-map a,
 svg#map a {
     transition: 0.5s filter;
 }
 
 svg#report-map a:hover,
+svg.report-map a:hover,
 svg#map a:hover {
     filter: brightness(1.3);
 }
@@ -3155,6 +3159,7 @@ svg#map a:hover {
 }
 
 #report-legend>span,
+.report-legend>span,
 #legend>span {
     margin-left: 1rem;
 }
@@ -3982,5 +3987,123 @@ blockquote .lead {
 @media (forced-colors: active) {
   .sg-map-dot {
     stroke: CanvasText;
+  }
+}
+
+/* Sequential map legend: the light-to-dark ramp used when a state map paints
+   an average rather than a grade (report-map.html with mapScale sequential). */
+.sg-ramp {
+  display: inline-block;
+  width: 7rem;
+  height: .8em;
+  margin: 0 .25rem;
+  vertical-align: middle;
+  border-radius: 2px;
+  background: linear-gradient(to right, color-mix(in oklab, var(--sg-chart-series-1) 25%, var(--bs-body-bg)), var(--sg-chart-series-1));
+  print-color-adjust: exact;
+}
+.sg-ramp-label {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Overview pages (Pulse): thicker bars and larger labels for scanning many
+   figures at once. Bars stay within the 24px cap. */
+.sg-charts-large .sg-fill,
+.sg-charts-large .sg-seg {
+  height: 24px;
+}
+.sg-charts-large .sg-seg {
+  font-size: .8125rem;
+}
+.sg-charts-large .sg-bars {
+  row-gap: .875rem;
+}
+.sg-charts-large .sg-label,
+.sg-charts-large .sg-value {
+  font-size: 1rem;
+}
+.sg-charts-large .sg-chart-title {
+  font-size: 1.25rem;
+}
+.sg-charts-large .report-map {
+  width: 100%;
+}
+
+/* Chart tips: each bar, stacked segment and histogram column carries its
+   details in data-tip and shows them on hover and on keyboard focus. No
+   script; the same text is already in the mark's visually hidden copy and in
+   the data table, so the tip enhances and never gates. */
+.sg-plot[data-tip],
+.sg-seg[data-tip],
+.sg-col[data-tip] {
+  position: relative;
+  cursor: default;
+}
+.sg-plot[data-tip]:focus-visible,
+.sg-seg[data-tip]:focus-visible,
+.sg-col[data-tip]:focus-visible {
+  outline: 2px solid var(--bs-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.sg-plot[data-tip]:hover .sg-fill,
+.sg-plot[data-tip]:focus-visible .sg-fill,
+.sg-col[data-tip]:hover .sg-col-fill,
+.sg-col[data-tip]:focus-visible .sg-col-fill {
+  filter: brightness(1.15);
+}
+.sg-plot[data-tip]::after,
+.sg-seg[data-tip]::after,
+.sg-col[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + .375rem);
+  z-index: 5;
+  padding: .3rem .55rem;
+  border-radius: .25rem;
+  background: var(--bs-body-color);
+  color: var(--bs-body-bg);
+  font-size: .8125rem;
+  font-weight: normal;
+  line-height: 1.3;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity .12s, transform .12s;
+}
+.sg-seg[data-tip]::after {
+  left: 50%;
+  transform: translate(-50%, 2px);
+}
+.sg-col[data-tip]::after {
+  left: 50%;
+  transform: translate(-50%, 2px);
+  bottom: auto;
+  top: -.25rem;
+}
+.sg-plot[data-tip]:hover::after,
+.sg-plot[data-tip]:focus-visible::after,
+.sg-seg[data-tip]:hover::after,
+.sg-seg[data-tip]:focus-visible::after,
+.sg-col[data-tip]:hover::after,
+.sg-col[data-tip]:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sg-seg[data-tip]:hover::after,
+.sg-seg[data-tip]:focus-visible::after {
+  transform: translate(-50%, 0);
+}
+.sg-col[data-tip]:hover::after,
+.sg-col[data-tip]:focus-visible::after {
+  transform: translate(-50%, -100%);
+}
+@media (hover: none) {
+  .sg-plot[data-tip]::after,
+  .sg-seg[data-tip]::after,
+  .sg-col[data-tip]::after {
+    display: none;
   }
 }
