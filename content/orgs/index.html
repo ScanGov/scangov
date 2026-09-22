@@ -59,6 +59,9 @@ eleventyComputed:
                 {% endfor %}
             {% endfor %}
     </div>
+    {% if org.rankingsLinks | length %}
+    <p class="small mt-4">Rankings: {% for l in org.rankingsLinks %}<a href="{{ l.url }}">{{ l.label }}</a>{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
+    {% endif %}
 </div>
 <script>
     var categories = ['accessibility', 'botability', 'security', 'usability'];

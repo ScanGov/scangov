@@ -9,5 +9,8 @@
   Top standards to fix:
   {%- for f in summary.failing %} <a href="{{ f.url }}">{{ f.name }}</a>{% if not loop.last %},{% endif %}{% endfor %}.
   {%- endif %}
+  {%- if siteContext %}
+  {% if siteContext.statePageUrl %}<a href="{{ siteContext.statePageUrl }}">See how it compares with the other {{ siteContext.stateSiteCount - 1 if siteContext.stateSiteCount else '' }} {{ siteContext.stateName }} county sites</a>.{% else %}<a href="{{ siteContext.hubUrl }}">See the {{ siteContext.categoryLabel }} rankings</a>.{% endif %}
+  {%- endif %}
 </p>
 {% endif %}
