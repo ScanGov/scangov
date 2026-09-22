@@ -37,13 +37,16 @@ export function renderBarList(spec) {
         const value = formatValue(row.value, spec.valueFormat);
         const sr = row.srText ? `<span class="visually-hidden"> ${esc(row.srText)}</span>` : '';
         let bench = '';
+        let benchLabel = '';
         if (spec.type === 'benchmarkBar' && Number.isFinite(row.benchmark)) {
-            const benchLabel = `${spec.benchmarkLabel || 'Comparison'}: ${formatValue(row.benchmark, spec.valueFormat)}`;
+            benchLabel = `${spec.benchmarkLabel || 'Comparison'}: ${formatValue(row.benchmark, spec.valueFormat)}`;
             bench = `<span class="sg-bench" style="--b:${ratio(row.benchmark, max)}"><span class="visually-hidden">${esc(benchLabel)}</span></span>`;
         }
+        // Hover and focus tip: label, value, the screen-reader detail, and the benchmark.
+        const tip = [`${row.label}: ${value}`, row.srText, benchLabel].filter(Boolean).join(' · ');
         return `<li class="sg-row" style="--i:${i};--r:${ratio(row.value, max)}">`
             + `<span class="sg-label">${labelHtml(row)}</span>`
-            + `<span class="sg-plot"><span class="sg-fill ${fillClass(rowColor(spec, row))}" aria-hidden="true"></span>`
+            + `<span class="sg-plot" data-tip="${esc(tip)}" tabindex="0"><span class="sg-fill ${fillClass(rowColor(spec, row))}" aria-hidden="true"></span>`
             + `<span class="sg-value">${value}</span>${sr}${bench}</span></li>`;
     }).join('');
     return `<ol class="sg-bars" style="--sg-value-room:${valueRoom(spec)}"${spec.subtitleId ? ` aria-describedby="${spec.subtitleId}"` : ''}>${items}</ol>`;
@@ -56,8 +59,9 @@ export function renderStackedBars(spec) {
             const series = byKey.get(seg.key) || { label: seg.key, color: 'series-1' };
             const pct = Math.round(seg.share * 100);
             const inline = seg.share >= 0.12 ? `<span class="sg-seg-label" aria-hidden="true">${esc(series.short || series.key)} ${pct}%</span>` : '';
-            const sr = `<span class="visually-hidden">${esc(series.label)}: ${pct}% (${formatValue(seg.value, 'count')}${spec.unit ? ' ' + esc(spec.unit) : ''})</span>`;
-            return `<span class="sg-seg text-bg-${esc(series.color)}" style="--r:${ratio(seg.share, 1)}">${inline}${sr}</span>`;
+            const detail = `${series.label}: ${pct}% (${formatValue(seg.value, 'count')}${spec.unit ? ' ' + spec.unit : ''})`;
+            const sr = `<span class="visually-hidden">${esc(detail)}</span>`;
+            return `<span class="sg-seg text-bg-${esc(series.color)}" style="--r:${ratio(seg.share, 1)}" data-tip="${esc(`${row.label} · ${detail}`)}" tabindex="0">${inline}${sr}</span>`;
         }).join('');
         return `<li class="sg-row" style="--i:${i}"><span class="sg-label">${labelHtml(row)}</span><span class="sg-plot sg-stack">${segments}</span></li>`;
     }).join('');

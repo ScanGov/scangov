@@ -11,13 +11,22 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
 #}
 {% set mapItems = mapData if mapData else map %}
 {% set mapKey = mapTopic if mapTopic else "overall" %}
-<svg id="report-map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 959 593">
+{#
+  mapScale = "sequential": paint magnitude (an average) as one hue from light
+  to dark across the data's own range instead of the grade bands, which are a
+  status scale for a single site. Needs mapItems[0].range = { min, max } for
+  the chosen key (countyStateMap.js provides it).
+#}
+{% set sequential = mapScale == "sequential" and mapItems[0] and mapItems[0].range %}
+{% if sequential %}{% set range = mapItems[0].range[mapKey] %}{% endif %}
+<svg id="{{ mapId if mapId else 'report-map' }}" class="report-map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 959 593">
     <g>
         {% for state in mapItems %}
             <a href="{{ state.href if state.href else '/profile/' + (state.url | slugify) + '/overall/' }}">
                 {% set score = state.scores[mapKey] %}
-                <path style="fill: var(--bs-{{ score | colorVar }})" d="{{ state.path }}" {% if state.url == "dc.gov" %}class="report-map-borders"{% endif %}>
-                <title>{{ state.label if state.label else state.url }} / {% if score >= 0 %}Grade: {{ score | gradify }} / Score: {{ score }}%{% else %}{% if state.status >= 300 %}Not fully scanned ({{ state.status }}){% else %}No data{% endif %}{% endif %}</title>
+                {% if sequential and score >= 0 %}{% set mix = 25 + (75 * (score - range.min) / (range.max - range.min)) if range.max > range.min else 100 %}{% endif %}
+                <path style="fill: {% if sequential %}{% if score >= 0 %}color-mix(in oklab, var(--sg-chart-series-1) {{ mix | round }}%, var(--bs-body-bg)){% else %}var(--bs-inaccessible){% endif %}{% else %}var(--bs-{{ score | colorVar }}){% endif %}" d="{{ state.path }}" {% if state.url == "dc.gov" %}class="report-map-borders"{% endif %}>
+                <title>{{ state.label if state.label else state.url }} / {% if score >= 0 %}{% if sequential %}Average score: {{ score }}{% else %}Grade: {{ score | gradify }} / Score: {{ score }}%{% endif %}{% else %}{% if state.status >= 300 %}Not fully scanned ({{ state.status }}){% else %}No data{% endif %}{% endif %}</title>
                 </path>
             </a>
         {% endfor %}
@@ -131,10 +140,15 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
     </g>
 </svg>
 
-<p id="report-legend">
+<p id="{{ mapId if mapId else 'report-map' }}-legend" class="report-legend">
     <strong>Legend:</strong>
+    {% if sequential %}
+    <span class="sg-ramp-label">{{ range.min }}</span><span class="sg-ramp" aria-hidden="true"></span><span class="sg-ramp-label">{{ range.max }}</span> Average score, lighter is lower
+    <span class="text-bg-inaccessible">　</span> No data
+    {% else %}
     <span class="text-bg-success">　</span> A
     <span class="text-bg-warning">　</span> B-C
     <span class="text-bg-danger">　</span> D-F
     <span class="text-bg-inaccessible">　</span> Not fully scanned / no data
+    {% endif %}
 </p>

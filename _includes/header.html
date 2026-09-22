@@ -15,7 +15,8 @@
     <meta name="author" content="{{ author }}">
     {% endif %}
     {% if isGuidance %}<meta name="keywords" content="{{ guide.topics | join(', ') }}">{% endif %}
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    {# noindex: true in front matter keeps a preview page out of search results #}
+    <meta name="robots" content="{% if noindex %}noindex, nofollow{% else %}index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1{% endif %}">
     {% for id in site.googleVerify %}
     <meta name="google-site-verification" content="{{ id }}">
     {% endfor %}
