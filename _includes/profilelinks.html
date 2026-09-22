@@ -33,6 +33,12 @@
             <i class="fa-solid fa-wave-square"></i>
             <small>Pulse</small>
         </a>
+        {% if siteContext and not orgPage %}
+            <a href="{{ siteContext.rankingsUrl }}" class="list-group-item list-group-item-action">
+                <i class="fa-solid fa-ranking-star"></i>
+                <small>{{ siteContext.rankingsLabel }}</small>
+            </a>
+        {% endif %}
         {% if not orgPage %}
             <a href="{{ base }}/changelog/" class="list-group-item list-group-item-action{% if page.url == base + '/changelog/' %} active{% endif %}"{% if page.url == base + '/changelog/' %} aria-current="page"{% endif %}>
                 <i class="fa-solid fa-timeline"></i>

@@ -141,10 +141,15 @@ function breadcrumb(siteUrl, crumbs) {
   };
 }
 
-export function profileSchema(domain, view, siteUrl, pageUrl) {
+// `context` (scripts/site-context.js) adds the group hub and, for counties,
+// the state page to the breadcrumb so it matches the visible links.
+export function profileSchema(domain, view, siteUrl, pageUrl, context) {
   const name = domain.urlkey || domain.url;
   const base = `/profile/${slugify(name)}/`;
-  const crumbs = [['Home', '/'], ['Rankings', '/rankings/'], [name, `${base}overall/`]];
+  const crumbs = [['Home', '/'], ['Rankings', '/rankings/']];
+  if (context?.hubUrl) crumbs.push([`${context.categoryLabel[0].toUpperCase()}${context.categoryLabel.slice(1)} rankings`, context.hubUrl]);
+  if (context?.statePageUrl) crumbs.push([context.stateName, context.statePageUrl]);
+  crumbs.push([name, `${base}overall/`]);
   if (view && view !== 'overview') crumbs.push([view.charAt(0).toUpperCase() + view.slice(1), pageUrl]);
   const graph = [breadcrumb(siteUrl, crumbs)];
   if (scanned(domain)) {

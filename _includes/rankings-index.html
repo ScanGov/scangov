@@ -1,0 +1,19 @@
+{#
+  Directory block for /rankings/: the five groups with counts and links, and
+  the by-state entry points. Included through the `chartsInclude` slot in
+  sortcontent.html on the first page only.
+#}
+{% if pagination.pageNumber == 0 %}
+<div class="row g-3 mt-2 mb-4">
+  {% for g in groupSummaries %}
+  <div class="col-6 col-lg">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value"><a href="{{ g.hub }}{% if specificAttribute %}{{ specificAttribute }}/{% endif %}" class="text-decoration-none">{{ g.label }}</a></p>
+      <p class="sg-stat-label">{{ g.scoredCount | numberFormat }} fully scanned of {{ g.count | numberFormat }} sites{% if g.scoredCount %}. Average {{ (specificAttribute or "overall") }} score {{ g.averages[specificAttribute or "overall"] }}{% endif %}</p>
+    </div></div>
+  </div>
+  {% endfor %}
+</div>
+<p>Counties also have a page for every state: see the <a href="/rankings/counties/#by-state">county rankings by state</a>. Every site below links to its own report.</p>
+<h2 class="h4 mt-4">All sites by {{ specificAttribute or "overall" }} score</h2>
+{% endif %}

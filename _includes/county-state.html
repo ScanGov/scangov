@@ -59,6 +59,11 @@
       </div>
     </div>
 
+    {# The state's own site, from the state rankings, so readers can move between the two. #}
+    {% for sd in states %}{% if sd.name == "State of " + st.name or (st.code == "DC" and sd.urlkey == "dc.gov") %}
+    <p class="small text-muted">{{ st.name }}'s state site, <a href="/profile/{{ sd.urlkey | slugify }}/overall/">{{ sd.urlkey }}</a>, {% if sd.rankingPosition %}{% set sg = sd.overallScore | gradify %}ranks {{ sd.rankingPosition | ordinal }} of {{ states | length }} state sites with {{ "an" if sg in ["A", "F"] else "a" }} {{ sg }}{% else %}could not be fully scanned{% endif %}. <a href="/rankings/states/">State rankings</a>.</p>
+    {% endif %}{% endfor %}
+
     {# Distribution curve full width, then the map beside the comparison bars. #}
     {% chart st.charts.area[topic] %}
     <div class="row">

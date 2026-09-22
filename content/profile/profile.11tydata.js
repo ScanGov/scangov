@@ -1,5 +1,6 @@
 import { describeProfile, profileSchema, summarizeProfile, toJsonLd } from '../../scripts/profile-summary.js';
 import { categoryOf } from '../../scripts/categories.js';
+import { siteContext } from '../../scripts/site-context.js';
 
 // Profile pages are one-per-domain. Each template sets `profileView` so the
 // description, breadcrumb, and sitemap lastmod fit that page: overview,
@@ -11,7 +12,18 @@ export default {
   eleventyComputed: {
     modified: (data) => (data.domain?.time ? new Date(data.domain.time).toISOString() : data.updatedTime?.iso || undefined),
     description: (data) => (data.domain ? describeProfile(data.domain, data.profileView) : undefined),
-    schema: (data) => (data.domain ? toJsonLd(profileSchema(data.domain, data.profileView, data.site.url, data.page.url)) : undefined),
+    // Where this site sits in the rankings (group hub, and the state page for
+    // counties), plus the size of that state's county list for the summary.
+    siteContext: (data) => {
+      if (!data.domain) return undefined;
+      const context = siteContext(data.domain, data.stateNames);
+      if (context.stateCode && Array.isArray(data.countyStates)) {
+        const st = data.countyStates.find((s) => s.code === context.stateCode);
+        if (st) context.stateSiteCount = st.count;
+      }
+      return context;
+    },
+    schema: (data) => (data.domain ? toJsonLd(profileSchema(data.domain, data.profileView, data.site.url, data.page.url, data.siteContext)) : undefined),
     summary: (data) => {
       if (!data.domain || data.profileView !== 'overview') return undefined;
       const category = categoryOf(data.domain.urlkey);
