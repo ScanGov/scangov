@@ -16,7 +16,7 @@
 {% set mapId = "county-map-" + st.slug %}
 <figure class="sg-chart sg-chart--map" id="{{ mapId }}" aria-labelledby="{{ mapId }}-title">
   <figcaption>
-    <h2 class="sg-chart-title" id="{{ mapId }}-title">{{ st.name }} counties by {{ topicName }} grade</h2>
+    {% set mh = mapHeadingLevel if mapHeadingLevel else 2 %}<h{{ mh }} class="sg-chart-title" id="{{ mapId }}-title">{{ st.name }} counties by {{ topicName }} grade</h{{ mh }}>
     <p class="sg-chart-sub" id="{{ mapId }}-sub">Each county with a site on our list is colored by that site's grade. Select a county to open its report. The table lists every site.</p>
   </figcaption>
   <svg class="sg-map" viewBox="{{ st.map.viewBox }}" role="img" aria-labelledby="{{ mapId }}-title {{ mapId }}-sub" focusable="false">

@@ -18,6 +18,13 @@ export default async function () {
     const audits = await loadAudits();
     const { states } = countyStatesFor(domainData(), stateNames, audits, countyGeo);
     const byName = new Map(states.map(s => [s.name, s]));
+    // Range of averages per topic across states with data, for the sequential
+    // scale in report-map.html (carried on every entry; the include reads [0]).
+    const range = {};
+    for (const t of TOPICS) {
+        const vals = states.filter(s => s.scoredCount).map(s => s.averages[t]).filter(Number.isFinite);
+        range[t] = vals.length ? { min: Math.min(...vals), max: Math.max(...vals) } : { min: 0, max: 100 };
+    }
     return statePaths.map(entry => {
         const stateName = entry.name.replace(/^State of /, '');
         const st = byName.get(stateName);
@@ -31,6 +38,7 @@ export default async function () {
             status: st && st.scoredCount ? 200 : 0,
             path: entry.path,
             scores,
+            range,
         };
     });
 }

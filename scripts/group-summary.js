@@ -107,8 +107,10 @@ export function summarize(scored, attrIndex) {
 // most-failed checks per indicator. `groupText` names the population in
 // subtitles, e.g. "fully scanned U.S. county sites"; `groupTitle` names it
 // in titles, e.g. "U.S. county".
-export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, groupText }) {
-    const respondingText = `${summary.scoredCount} ${groupText}`;
+const numberFormat = new Intl.NumberFormat('en-US');
+
+export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, groupText, failuresHeadingLevel = 2 }) {
+    const respondingText = `${numberFormat.format(summary.scoredCount)} ${groupText}`;
     const charts = { failures: {}, area: {}, grades: {} };
     for (const topic of ALL_TOPICS) {
         const label = topic === 'overall' ? 'overall' : topicLabel(audits, topic).toLowerCase();
@@ -133,7 +135,7 @@ export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, 
             id: `${idBase}-fails-${topic}`,
             title: `Most common ${label} failures among ${groupTitle} sites`,
             subtitle: `Share of the ${respondingText} failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.`,
-            headingLevel: 2,
+            headingLevel: failuresHeadingLevel,
             failures: summary.topFailures[topic],
             respondingCount: summary.scoredCount,
         });
@@ -142,7 +144,7 @@ export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, 
 }
 
 // Everything a group hub page needs, from the group's records.
-export function buildGroupSummary(records, audits, { idBase, groupTitle, groupText }) {
+export function buildGroupSummary(records, audits, { idBase, groupTitle, groupText, failuresHeadingLevel }) {
     const attrIndex = attributeIndex(audits);
     const responding = records.filter(isResponding);
     const scored = records.filter(isScored);
@@ -154,6 +156,6 @@ export function buildGroupSummary(records, audits, { idBase, groupTitle, groupTe
         scanWindow: scanWindow(records),
         ...summarize(scored, attrIndex),
     };
-    summary.charts = buildGroupCharts(summary, scored, audits, { idBase, groupTitle, groupText });
+    summary.charts = buildGroupCharts(summary, scored, audits, { idBase, groupTitle, groupText, failuresHeadingLevel });
     return summary;
 }

@@ -8,7 +8,7 @@ export function renderHistogram(spec) {
     const unit = spec.unit ? ` ${esc(spec.unit)}` : '';
     const cols = spec.bins.map((bin, i) => {
         const count = formatCount(bin.count);
-        return `<li class="sg-col" style="--i:${i};--r:${ratio(bin.count, max)}">`
+        return `<li class="sg-col" style="--i:${i};--r:${ratio(bin.count, max)}" data-tip="${esc(`${bin.from} to ${bin.to}: ${count}${unit ? ' ' + spec.unit : ''}`)}" tabindex="0">`
             + `<span class="sg-col-count" aria-hidden="true">${bin.count ? count : ''}</span>`
             + `<span class="sg-col-fill ${fillClass(spec.color || 'series-1')}" aria-hidden="true"></span>`
             + `<span class="sg-col-label" aria-hidden="true">${bin.from}–${bin.to}</span>`

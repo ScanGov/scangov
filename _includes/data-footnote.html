@@ -17,7 +17,7 @@
     {% if footnoteScanWindow %}Sites were scanned between {{ footnoteScanWindow.from | standardFormatDate }} and {{ footnoteScanWindow.to | standardFormatDate }}; each site's report shows its own scan date.{% else %}The last scan finished on {{ updates }}.{% endif %}
     A site counts as fully scanned when its homepage returned successfully and sent the scanner its page content.
     Averages, grade shares, failure rates, and ranks use fully scanned sites only.
-    {% if footnotePartialCount or footnoteNoResponseCount %}We weren't able to fully scan {{ footnotePartialCount + footnoteNoResponseCount }} sites because they did not respond, blocked the scanner, or returned no page content. They appear in the table without grades, each with its <a href="/status/">scan status</a>, and are left out of every figure.{% endif %}
+    {% if footnotePartialCount or footnoteNoResponseCount %}We weren't able to fully scan {{ (footnotePartialCount + footnoteNoResponseCount) | numberFormat }} sites because they did not respond, blocked the scanner, or returned no page content. They appear in the table without grades, each with its <a href="/status/">scan status</a>, and are left out of every figure.{% endif %}
     Grades follow the <a href="https://docs.scangov.org/grades/">ScanGov grade scale</a>, and rank follows the <a href="https://docs.scangov.org/rankings">ScanGov ranking method</a>.
     The full dataset, including every county's raw results, is published in the <a href="https://data.scangov.org/">ScanGov data repository</a>.
   </p>

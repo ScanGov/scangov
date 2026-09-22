@@ -20,13 +20,13 @@
   <div class="col-6 col-lg-3">
     <div class="card h-100"><div class="card-body">
       <p class="sg-stat-value"><span class="badge text-bg-{{ avg | colorify }}">{{ avg | gradify }}</span> {{ avg }}</p>
-      <p class="sg-stat-label">Average {{ topicName }} score of {{ nat.scoredCount }} fully scanned U.S. county sites</p>
+      <p class="sg-stat-label">Average {{ topicName }} score of {{ nat.scoredCount | numberFormat }} fully scanned U.S. county sites</p>
     </div></div>
   </div>
   <div class="col-6 col-lg-3">
     <div class="card h-100"><div class="card-body">
-      <p class="sg-stat-value">{{ nat.scoredCount }} <span class="fs-5 text-muted">of {{ nat.count }}</span></p>
-      <p class="sg-stat-label">County sites fully scanned. We couldn't fully scan {{ nat.count - nat.scoredCount }}, so they're listed without grades</p>
+      <p class="sg-stat-value">{{ nat.scoredCount | numberFormat }} <span class="fs-5 text-muted">of {{ nat.count | numberFormat }}</span></p>
+      <p class="sg-stat-label">County sites fully scanned. We couldn't fully scan {{ (nat.count - nat.scoredCount) | numberFormat }}, so they're listed without grades</p>
     </div></div>
   </div>
   <div class="col-6 col-lg-3">
@@ -46,12 +46,14 @@
 {% chart nat.charts.area[topic] %}
 
 <h2 class="h4 mt-4" id="by-state">County sites by state</h2>
-<p>Average {{ topicName }} score of the fully scanned county sites in each state. Select a state on the map or in the table for its county rankings.</p>
+<p>Average {{ topicName }} score of the fully scanned county sites in each state, darker for higher. Select a state on the map or in the table for its county rankings.</p>
 <div class="row">
   <div class="col-12 col-lg-7">
     {% set mapData = countyStateMap %}
     {% set mapTopic = topic %}
+    {% set mapScale = "sequential" %}
     {% include "report-map.html" %}
+    {% set mapScale = false %}
   </div>
   <div class="col-12 col-lg-5">
     {% chart nat.charts.grades[topic] %}

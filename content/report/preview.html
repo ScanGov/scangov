@@ -1,0 +1,161 @@
+---
+layout: layouts/page
+permalink: /pulse/preview/
+title: Pulse
+description: The state of digital experience across every government site ScanGov scans.
+showLastUpdated: true
+noBorder: true
+showActions: true
+noindex: true
+sitemap: false
+---
+{#
+  Preview of the rebuilt Pulse page (plan 16). Lives beside the current
+  /pulse/ until reviewed; every figure is static HTML from the chart renderer
+  and every sentence is generated from the same summaries the figures use.
+#}
+{% set all = siteSummary %}
+{% set indicatorKeys = ["accessibility", "botability", "security", "usability"] %}
+
+<div class="alert alert-info small" role="status">Preview of the next Pulse page. The current version is at <a href="/pulse/">/pulse/</a>.</div>
+
+<div class="sg-charts-large">
+<section aria-labelledby="what-we-scan">
+  <h2 id="what-we-scan">What we scan</h2>
+  <p>ScanGov scans the homepage of every government site on our list, {{ all.count | numberFormat }} sites across states, counties, cities, federal agencies, and public higher education. Each scan runs the checks on <a href="https://standards.scangov.org/">standards.scangov.org</a> for accessibility, botability, security, and usability. A site counts as fully scanned when its homepage responded and returned page content; sites that did not are listed with their <a href="/status/">scan status</a> and left out of every figure here.</p>
+  <div class="row g-3 mb-2">
+    <div class="col-6 col-lg-3">
+      <div class="card h-100"><div class="card-body">
+        <p class="sg-stat-value">{{ all.scoredCount | numberFormat }} <span class="fs-5 text-muted">of {{ all.count | numberFormat }}</span></p>
+        <p class="sg-stat-label">Sites fully scanned. We couldn't fully scan {{ (all.count - all.scoredCount) | numberFormat }}</p>
+      </div></div>
+    </div>
+    <div class="col-6 col-lg-3">
+      <div class="card h-100"><div class="card-body">
+        <p class="sg-stat-value"><span class="badge text-bg-{{ all.averages.overall | colorify }}">{{ all.averages.overall | gradify }}</span> {{ all.averages.overall }}</p>
+        <p class="sg-stat-label">Average overall score of the fully scanned sites</p>
+      </div></div>
+    </div>
+    <div class="col-6 col-lg-3">
+      <div class="card h-100"><div class="card-body">
+        <p class="sg-stat-value">{{ groupSummaries.length }}</p>
+        <p class="sg-stat-label">Groups ranked: {% for g in groupSummaries %}<a href="{{ g.hub }}">{{ g.label | lower }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
+      </div></div>
+    </div>
+    <div class="col-6 col-lg-3">
+      <div class="card h-100"><div class="card-body">
+        <p class="sg-stat-value">{{ all.scanWindow.to | standardFormatDate }}</p>
+        <p class="sg-stat-label">Newest scan. Sites were scanned between {{ all.scanWindow.from | standardFormatDate }} and this date</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="how-sites-are-doing" class="mt-5">
+  <h2 id="how-sites-are-doing">How sites are doing</h2>
+  <p>{{ all | gradeSentence("overall score", "overall") }} The curve shows where scores cluster; the bar shows the share in each grade band.</p>
+  {% chart all.charts.area.overall %}
+  {% chart all.charts.grades.overall %}
+</section>
+
+<section aria-labelledby="groups-compared" class="mt-5">
+  <h2 id="groups-compared">Groups compared</h2>
+  <p>{{ groupSummaries | groupsSentence("overall") }} Each group name links to its rankings.</p>
+  {% chart pulseCharts.groupsAverages.overall %}
+  {% chart pulseCharts.groupsGrades.overall %}
+  <p class="mt-4">{{ groupSummaries | indicatorPatternSentence(audits) }} The chart compares every site's average on each indicator with the state group, the group that scores highest overall.</p>
+  {% chart pulseCharts.indicatorAverages %}
+</section>
+
+<section aria-labelledby="by-place" class="mt-5">
+  <h2 id="by-place">By place</h2>
+  <h3 class="mt-3">State sites</h3>
+  <p>Each state is colored by the overall grade of its main site. Select a state for its report, or see the <a href="/rankings/states/">state rankings</a>.</p>
+  {% set mapId = "state-site-map" %}
+  {% set mapData = false %}
+  {% set mapTopic = "overall" %}
+  {% include "report-map.html" %}
+
+  <h3 class="mt-5">County sites, by state</h3>
+  <p>Each state is shaded by the average overall score of its fully scanned county sites, darker for higher. Select a state for its county rankings, or see the <a href="/rankings/counties/">county rankings</a> for every state.</p>
+  {% set mapId = "county-state-map" %}
+  {% set mapData = countyStateMap %}
+  {% set mapTopic = "overall" %}
+  {% set mapScale = "sequential" %}
+  {% include "report-map.html" %}
+  {% set mapScale = false %}
+  {% set rankedStates = countyStates | sort(true, false, "averages.overall") %}
+  <div class="row"><div class="col-12">
+      <p class="small mt-2 mb-0">Highest county averages: {% for s in rankedStates %}{% if loop.index0 < 3 %}<a href="/rankings/counties/{{ s.slug }}/">{{ s.name }}</a> ({{ s.averages.overall }}){% if loop.index0 < 2 %}, {% endif %}{% endif %}{% endfor %}. Lowest: {% for s in rankedStates | reverse %}{% if loop.index0 < 3 %}<a href="/rankings/counties/{{ s.slug }}/">{{ s.name }}</a> ({{ s.averages.overall }}){% if loop.index0 < 2 %}, {% endif %}{% endif %}{% endfor %}.</p>
+    </div>
+  </div>
+
+  <h3 class="mt-5">County sites in the three most populous states</h3>
+  <p>Every county in California, Texas, and Florida, colored by its site's overall grade. Each state has its own page with the full county ranking.</p>
+  <div class="row">
+    {# The three most populous states by the 2020 Census; population is not in the dataset, so the pick is fixed here. #}
+    {% for code in ["CA", "TX", "FL"] %}
+    {% for st in countyStates %}{% if st.code == code %}
+    <div class="col-12 col-md-4">
+      {% set topic = "overall" %}
+      {% set topicName = "overall" %}
+      {% set mapHeadingLevel = 4 %}
+      {% include "county-map.html" %}
+      <p class="small"><a href="/rankings/counties/{{ st.slug }}/">All {{ st.count }} {{ st.name }} county sites</a></p>
+    </div>
+    {% endif %}{% endfor %}
+    {% endfor %}
+  </div>
+</section>
+
+<section aria-labelledby="where-sites-fail" class="mt-5">
+  <h2 id="where-sites-fail">Where sites fail</h2>
+  <p>For each indicator, the five checks that fully scanned sites fail most often. A site can fail more than one check, and each check links to its standard and how to fix it.</p>
+  {% for t in indicatorKeys %}
+  {% set catInfo = audits[t] %}
+  {% set topicName = catInfo.displayName | lower %}
+  <h3 class="mt-5"><i class="fa-solid fa-{{ catInfo.icon }}" aria-hidden="true"></i> {{ catInfo.displayName }}</h3>
+  <p>{{ catInfo.description }} {{ all | topFailureSentence(t, topicName) }}</p>
+  {% chart all.charts.failures[t] %}
+  <details class="small mb-3">
+    <summary>What each {{ topicName }} check means</summary>
+    <ul class="sg-failures mt-2">
+      {% for f in all.topFailures[t] %}
+      <li><a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} {{ f.risk }}</li>
+      {% endfor %}
+    </ul>
+  </details>
+  <div class="alert alert-info small" role="note">
+    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+    {{ catInfo.displayName }}:
+    <a href="https://standards.scangov.org/{{ t }}/">Standards</a>
+    &middot;
+    <a href="https://standards.scangov.org{{ catInfo.url }}/">Guidance</a>
+    &middot;
+    <a href="{{ site.url }}{{ catInfo.rankingsUrl }}">Project ScanGov rankings</a>
+    &middot;
+    <a href="https://scangov.com{{ catInfo.scangovUrl }}">How ScanGov helps</a>
+  </div>
+  {% endfor %}
+</section>
+
+<section aria-labelledby="where-to-go-next" class="mt-5">
+  <h2 id="where-to-go-next">Where to go next</h2>
+  <ul>
+    {% for g in groupSummaries %}
+    <li><a href="{{ g.hub }}">{{ g.label }} rankings</a>: {{ g.scoredCount | numberFormat }} fully scanned of {{ g.count | numberFormat }} sites{% if g.key == "counties" %}, with a page for every state{% endif %}.</li>
+    {% endfor %}
+    <li><a href="/changelog/">Changelog</a>: what changed in the latest scans.</li>
+    <li><a href="/status/">Scan status</a>: why some sites could not be fully scanned.</li>
+  </ul>
+</section>
+</div>
+
+{% set footnoteSubject = "every government site on our list" %}
+{% set footnoteScope = "" %}
+{% set footnoteRespondingCount = all.respondingCount %}
+{% set footnoteScoredCount = all.scoredCount %}
+{% set footnotePartialCount = all.partialCount %}
+{% set footnoteNoResponseCount = all.count - all.respondingCount %}
+{% set footnoteScanWindow = all.scanWindow %}
+{% include "data-footnote.html" %}

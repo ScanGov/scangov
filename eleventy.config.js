@@ -20,6 +20,7 @@ import { purgeCss } from './scripts/purge-css.js';
 import { renderChart } from './scripts/charts/render.js';
 import { humanizeLabel } from './scripts/charts/format.js';
 import { ordinal } from './scripts/counties.js';
+import { gradeSentence, groupsSentence, indicatorPatternSentence, topFailureSentence } from './scripts/narrative.js';
 import { readdirSync, statSync } from 'fs';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
@@ -119,7 +120,14 @@ export default async function(eleventyConfig) {
     })
     // "8" -> "8th"; audits.json display names without their angle brackets.
     eleventyConfig.addFilter('ordinal', (n) => ordinal(n))
+    // 4105 -> "4,105"; leaves non-numbers untouched.
+    eleventyConfig.addFilter('numberFormat', (n) => (Number.isFinite(n) ? new Intl.NumberFormat('en-US').format(n) : n))
     eleventyConfig.addFilter('humanizeLabel', (label) => humanizeLabel(label))
+    // Data-driven prose for Pulse (scripts/narrative.js).
+    eleventyConfig.addFilter('gradeSentence', (summary, topicName, topic) => gradeSentence(summary, topicName, topic))
+    eleventyConfig.addFilter('groupsSentence', (groups, topic) => groupsSentence(groups, topic))
+    eleventyConfig.addFilter('indicatorPatternSentence', (groups, auditsData) => indicatorPatternSentence(groups, auditsData))
+    eleventyConfig.addFilter('topFailureSentence', (summary, topic, topicName) => topFailureSentence(summary, topic, topicName))
 
     eleventyConfig.addFilter('standardFormatDate', (time) => {
         return new Date(time).toLocaleDateString('en-US', {
