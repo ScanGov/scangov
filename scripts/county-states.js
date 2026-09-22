@@ -204,17 +204,28 @@ function buildCharts(state, national, audits) {
     return charts;
 }
 
+function normalizeCountyName(name) {
+    return String(name || '').toLowerCase().replace(/\bsaint\b/g, 'st').replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
 // Map data for one state: every county path in the state, joined to the
 // scanned site where one exists, with the score per topic so the include can
 // color by whichever topic the page shows. Counties with no site stay unjoined.
 function buildMap(code, records, geo) {
     const stateGeo = geo && geo.states && geo.states[code];
     if (!stateGeo) return null;
+    // Join by domain first (from the county list the geometry was built
+    // from), then by county name for sites whose domain changed since.
+    const byName = new Map();
+    for (const [fips, c] of Object.entries(stateGeo.counties)) {
+        if (c.name) byName.set(normalizeCountyName(c.name), fips);
+    }
     const byFips = new Map();
     let joined = 0;
     for (const d of records) {
-        const fips = geo.byDomain[domainKey(d).toLowerCase()];
-        if (fips && stateGeo.counties[fips]) {
+        let fips = geo.byDomain[domainKey(d).toLowerCase()];
+        if (!fips || !stateGeo.counties[fips]) fips = byName.get(normalizeCountyName((d.name || '').replace(/,\s*[A-Z]{2}$/, '')));
+        if (fips && stateGeo.counties[fips] && !byFips.has(fips)) {
             byFips.set(fips, d);
             joined++;
         }
@@ -248,6 +259,42 @@ function scanWindow(records) {
     return { from: Math.min(...times), to: Math.max(...times) };
 }
 
+// Charts for the county hub: the national distribution, grade split, and
+// most-failed checks per indicator over every fully scanned county.
+function buildNationalCharts(national, scored, audits) {
+    const respondingText = `${national.scoredCount} fully scanned U.S. county sites`;
+    const charts = { failures: {}, area: {}, grades: {} };
+    for (const topic of ALL_TOPICS) {
+        const label = topic === 'overall' ? 'overall' : topicLabel(audits, topic).toLowerCase();
+        const points = scored.map(d => ({ label: d.name, value: scoreOf(d, topic) })).filter(p => Number.isFinite(p.value));
+        charts.area[topic] = areaSpec({
+            id: `county-us-area-${topic}`,
+            title: `How U.S. county ${label} scores are distributed`,
+            subtitle: `Smoothed distribution of the ${respondingText}, score 0 to 100. Height shows how many sites score near each value.`,
+            points, bins: national.histogram[topic],
+            markers: [{ label: 'U.S. county average', value: national.averages[topic] }],
+        });
+        charts.grades[topic] = gradeDistributionSpec({
+            id: `county-us-grades-${topic}`,
+            title: `U.S. counties by ${label} grade`,
+            subtitle: `Share of the ${respondingText} in each grade band`,
+            groups: [{ key: 'US', label: 'All U.S. counties', distribution: national.gradeDistribution[topic], total: national.scoredCount }],
+        });
+    }
+    for (const topic of TOPICS) {
+        const label = topicLabel(audits, topic).toLowerCase();
+        charts.failures[topic] = topFailuresSpec({
+            id: `county-us-fails-${topic}`,
+            title: `Most common ${label} failures among U.S. county sites`,
+            subtitle: `Share of the ${respondingText} failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.`,
+            headingLevel: 2,
+            failures: national.topFailures[topic],
+            respondingCount: national.scoredCount,
+        });
+    }
+    return charts;
+}
+
 export function buildCountyStates(domains, stateNames, audits = {}, geo = null) {
     const attrIndex = attributeIndex(audits);
     const counties = domains.filter(isCounty);
@@ -265,6 +312,7 @@ export function buildCountyStates(domains, stateNames, audits = {}, geo = null) 
         scanWindow: scanWindow(counties),
         ...summarize(scored, attrIndex),
     };
+    national.charts = buildNationalCharts(national, scored, audits);
 
     const byState = new Map();
     const unplaced = [];
@@ -322,6 +370,7 @@ export function buildCountyStates(domains, stateNames, audits = {}, geo = null) 
             stateRanks[topic].set(s.code, rank);
         }
     }
+    national.stateCount = ranked.length;
     states.forEach((s, i) => {
         s.index = i;
         s.stateCount = ranked.length;

@@ -1,0 +1,106 @@
+{#
+  County hub charts and narrative, included by the five county group pages
+  (/rankings/counties/ and its topic pages) through the `chartsInclude` slot
+  in sortcontent.html. Renders on the first page of the paginated list only.
+
+  Reads: countyNational (scripts/county-states.js `national`), countyStates
+  (one entry per state), countyStateMap (state outlines colored by county
+  average), specificAttribute ("" or a topic key), audits.
+#}
+{% if pagination.pageNumber == 0 %}
+{% set topic = specificAttribute if specificAttribute else "overall" %}
+{% set catInfo = audits[specificAttribute] if specificAttribute else false %}
+{% set topicName = (catInfo.displayName | lower) if catInfo else "overall" %}
+{% set nat = countyNational %}
+{% set avg = nat.averages[topic] %}
+{% set gradeA = nat.gradeDistribution[topic].A %}
+{% set indicatorKeys = ["accessibility", "botability", "security", "usability"] %}
+
+<div class="row g-3 mb-2 mt-3">
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value"><span class="badge text-bg-{{ avg | colorify }}">{{ avg | gradify }}</span> {{ avg }}</p>
+      <p class="sg-stat-label">Average {{ topicName }} score of {{ nat.scoredCount }} fully scanned U.S. county sites</p>
+    </div></div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value">{{ nat.scoredCount }} <span class="fs-5 text-muted">of {{ nat.count }}</span></p>
+      <p class="sg-stat-label">County sites fully scanned. We couldn't fully scan {{ nat.count - nat.scoredCount }}, so they're listed without grades</p>
+    </div></div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value">{{ nat.stateCount }}</p>
+      <p class="sg-stat-label">States with county sites on our list, each with its own page</p>
+    </div></div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value">{{ ((gradeA / nat.scoredCount) * 100) | round if nat.scoredCount else 0 }}%</p>
+      <p class="sg-stat-label">Fully scanned county sites earning an A for {{ topicName }} ({{ gradeA }} sites)</p>
+    </div></div>
+  </div>
+</div>
+
+{% chart nat.charts.area[topic] %}
+
+<h2 class="h4 mt-4" id="by-state">County sites by state</h2>
+<p>Average {{ topicName }} score of the fully scanned county sites in each state. Select a state on the map or in the table for its county rankings.</p>
+<div class="row">
+  <div class="col-12 col-lg-7">
+    {% set mapData = countyStateMap %}
+    {% set mapTopic = topic %}
+    {% include "report-map.html" %}
+  </div>
+  <div class="col-12 col-lg-5">
+    {% chart nat.charts.grades[topic] %}
+  </div>
+</div>
+
+<div class="table-responsive mt-3">
+  <table class="table table-sm" data-sortable>
+    <caption class="visually-hidden">States by average county site grade in each indicator</caption>
+    <thead>
+      <tr>
+        <th scope="col">State</th>
+        <th scope="col" class="text-center">Sites</th>
+        <th scope="col" class="text-center">Overall</th>
+        {% for t in indicatorKeys %}<th scope="col" class="text-center">{{ audits[t].displayName }}</th>{% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in countyStates %}
+      <tr>
+        <th scope="row" data-sort="{{ s.name }}"><a href="/rankings/counties/{{ s.slug }}/{% if specificAttribute %}{{ specificAttribute }}/{% endif %}">{{ s.name }}</a></th>
+        <td class="text-center sg-num" data-sort="{{ s.scoredCount }}">{{ s.scoredCount }}<span class="text-muted"> of {{ s.count }}</span></td>
+        {% for t in ["overall"].concat(indicatorKeys) %}
+        {% set v = s.averages[t] %}
+        <td class="text-center" data-sort="{{ v if v !== null else -1 }}">
+          <span class="badge text-bg-{{ v | colorify }}" title="{% if v !== null %}Average {{ t }} score {{ v }}{% else %}No fully scanned sites{% endif %}">{{ v | gradify }}</span>
+          {% if v !== null %}<span class="visually-hidden">{{ v }}</span>{% endif %}
+        </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% set missingStates = [] %}
+{% for code, info in stateNames %}{% set found = false %}{% for s in countyStates %}{% if s.code == code %}{% set found = true %}{% endif %}{% endfor %}{% if not found and code != "DC" %}{% set missingStates = (missingStates.push(info.name), missingStates) %}{% endif %}{% endfor %}
+{% if missingStates.length %}
+<p class="small text-muted">No county sites on our list yet for {{ missingStates | join(", ") }}. Connecticut and Rhode Island have no county governments; Connecticut's planning regions stand in for its counties.</p>
+{% endif %}
+
+{% if specificAttribute %}
+<div class="mt-4">{% chart nat.charts.failures[specificAttribute] %}</div>
+<h3 class="h5 mt-4">What each check means</h3>
+<ul class="sg-failures">
+  {% for f in nat.topFailures[specificAttribute] %}
+  <li><a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} {{ f.risk }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<h2 class="h4 mt-5">All U.S. county sites by {{ topicName }} score</h2>
+{% endif %}

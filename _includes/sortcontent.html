@@ -11,12 +11,13 @@
       {% include chartsInclude %}
     {% endif %}
     {% include "ranking-table-block.html" %}
-    {% include "topic-about.html" %}
+    {# Pagination stays with the table it controls; the topic's About block follows. #}
     <div id="ranking-pagination">
       {% if showPagination %}
         {% include "pagination.html" %}
       {% endif %}
     </div>
+    {% include "topic-about.html" %}
   </div>
 </div>
 {% if not currentsort %}

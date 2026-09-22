@@ -1,22 +1,30 @@
 ---
 home: false
 layout: layouts/default
-title: Rankings (counties / security)
-descriptionHtml: 'Project ScanGov <a href="https://standards.scangov.org/security/">security</a> rankings for county government websites.'
+title: "County websites: security rankings"
+descriptionHtml: 'Project ScanGov <a href="https://standards.scangov.org/security/">security</a> rankings for U.S. county government websites, with the most common failures and a page for every state.'
 showLastUpdated: true
-keywords: government domains, government websites
+keywords: county government websites, rankings, security
 
 pagination:
-  data: security.counties
-  size: 100
-  alias: member
+    data: security.counties
+    size: 100
+    alias: member
 ---
 
-{% set pageHeader = "Security results" %}
-{% set dataset = security.counties %}
 {% set specificAttribute = "security" %}
 {% set currentsort = "counties" %}
-{% set currentScore = member[0].scores['security'].score %}
 {% set showPagination = true %}
+{% set chartsInclude = "county-charts.html" %}
+{% set compactTable = true %}
 
 {% include "sortcontent.html" %}
+{% if pagination.pageNumber == 0 %}
+{% set footnoteScope = "" %}
+{% set footnoteRespondingCount = countyNational.respondingCount %}
+{% set footnoteScoredCount = countyNational.scoredCount %}
+{% set footnotePartialCount = countyNational.partialCount %}
+{% set footnoteNoResponseCount = countyNational.count - countyNational.respondingCount %}
+{% set footnoteScanWindow = countyNational.scanWindow %}
+<div class="container">{% include "data-footnote.html" %}</div>
+{% endif %}

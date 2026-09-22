@@ -1,3 +1,17 @@
+{#
+  One row of a rankings table. Expects `d` (a domain record, or a state-page
+  copy carrying `score`, `partial`, `nationalRank`), `specificAttribute` ("" or
+  a topic key), and optionally:
+    stateContext  per-state county page (adds the U.S. rank line)
+    compactTable  replaces the per-check status icons (about 64 per row) with
+                  one grade badge per indicator, or one pass meter on topic
+                  pages; state pages are always compact
+  A site that was not fully scanned shows no grade and a plain statement of
+  why, the same state as its profile page.
+#}
+{% set compact = stateContext or compactTable %}
+{% if stateContext %}{% set rowScore = d.score %}{% elif specificAttribute %}{% set rowScore = d.scores[specificAttribute].score if d.scores else null %}{% else %}{% set rowScore = d.overallScore %}{% endif %}
+{% set graded = d.status == 200 and not d.partial and rowScore !== null and rowScore !== undefined %}
 <tr>
   <td data-sort="{{ d.rankingPosition }}">{{ d.rankingPosition }}</td>
   <td data-sort="{{ d.urlkey }}">
@@ -6,42 +20,33 @@
     <a class="small text-muted" href="/org/{{ d.name | slugify }}/">{{ d.name }}</a>
     {% if stateContext and d.nationalRank %}<span class="small text-muted d-block">U.S. rank {{ d.nationalRank }}</span>{% endif %}
   </td>
-  <td data-sort="{% if stateContext %}{{ d.score if d.score !== null else -1 }}{% elif specificAttribute %}{{ d.scores[specificAttribute].score }}{% else %}{{ d.overallScore }}{% endif %}">
-    {% if stateContext and (d.partial or d.status != 200) %}
-      {# Same state as an unscannable site on its profile page: no grade, and a plain statement of why. #}
+  <td data-sort="{{ rowScore if graded else -1 }}">
+    {% if compact and not graded %}
       <span class="small text-muted"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> Not fully scanned, so not graded.
         {% if d.partial %}The site responded without page content.{% elif d.status %}{% for s in statusGroups %}{% if s.code == d.status %}{{ s.statusDescription }}{% endif %}{% endfor %} <a href="/status/{{ d.status }}/">Status {{ d.status }}</a>{% endif %}</span>
-    {% elif stateContext and not specificAttribute %}
-      {# State pages list every county in the state, so per-check icons (about 64 per row) are replaced by one grade per indicator. #}
-      {% if d.status == 200 and d.scores %}
+    {% elif compact and not specificAttribute %}
       <ul class="list-inline small mb-0 text-nowrap">
         {% for t in ["accessibility", "botability", "security", "usability"] %}
         <li class="list-inline-item me-2"><i class="fa-solid fa-{{ audits[t].icon }} text-muted" aria-hidden="true"></i> <span class="badge text-bg-{{ d.scores[t].score | colorify }}" title="{{ audits[t].displayName }}: {{ d.scores[t].score }}"><span class="visually-hidden">{{ audits[t].displayName }} grade </span>{{ d.scores[t].score | gradify }}</span></li>
         {% endfor %}
       </ul>
-      {% endif %}
-    {% elif stateContext and specificAttribute %}
-      {# One pass count and meter per row instead of one icon per check; the profile link in the site column opens the per-check view. #}
-      {% if d.scores[specificAttribute] %}
+    {% elif compact %}
       {% set s = d.scores[specificAttribute] %}
       <span class="sg-checks small text-nowrap" title="{{ s.correct }} of {{ s.all }} {{ audits[specificAttribute].displayName | lower }} checks pass">
         <span class="sg-meter" aria-hidden="true"><span class="sg-meter-fill sg-fill-{{ s.score | colorVar }}" style="--r:{{ (s.correct / s.all) if s.all else 0 }}"></span></span>
         {{ s.correct }} of {{ s.all }} checks pass
       </span>
-      {% endif %}
     {% elif specificAttribute %}
       {{ d[specificAttribute] | auditStatusIcons(specificAttribute) | safe }}
     {% else %}
       {{ d | allAuditStatusIcons | safe }}
     {% endif %}
   </td>
-  <td class="text-center grade-display-column" data-sort="{% if stateContext %}{{ d.score if d.score !== null else -1 }}{% elif specificAttribute %}{{ d.scores[specificAttribute].score }}{% else %}{{ d.overallScore }}{% endif %}">
-    {% if stateContext %}
-      <span class="badge text-bg-{{ d.score | colorify }}" title="{% if d.score === null %}Not fully scanned, so not graded{% else %}{{ d.score }}%{% endif %}">{{ d.score | gradify }}</span>
-    {% elif specificAttribute %}
-      <span class="badge text-bg-{{ d.scores[specificAttribute].score | colorify }}" title="{{ d.scores[specificAttribute].score }}%">{{ d.scores[specificAttribute].score | gradify }}</span>
+  <td class="text-center grade-display-column" data-sort="{{ rowScore if graded else -1 }}">
+    {% if graded %}
+      <span class="badge text-bg-{{ rowScore | colorify }}" title="{{ rowScore }}%">{{ rowScore | gradify }}</span>
     {% else %}
-      <span class="badge text-bg-{{ d.overallScore | colorify }}" title="{{ d.overallScore }}%">{{ d.overallScore | gradify }}</span>
+      <span class="badge text-bg-inaccessible" title="Not fully scanned, so not graded">-</span>
     {% endif %}
   </td>
 </tr>

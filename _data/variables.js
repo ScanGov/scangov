@@ -1,4 +1,8 @@
-import { default as domainData } from './domain_changelog.js';
+// Group membership comes from the current scan data (domains.js), not the
+// changelog history, so a county added since the last changelog run still
+// lands on the county pages.
+import { default as domainData } from './domains.js';
+import { isCounty, domainKey } from '../scripts/counties.js';
 
 // Attribute lists per topic (matching standards/audits.json)
 export const botabilityDataVariables = [
@@ -425,9 +429,12 @@ export const cityDomainList = [
 
 const domains = domainData();
 
-export const countyDomainList = domains.filter(d => (d.name || '').includes('County') || (d.name || '').includes('Parish')).map(d => d.url);
+// Shared classifier (scripts/counties.js): counties, parishes, boroughs,
+// Connecticut planning regions, and the listed city-counties, minus the
+// community colleges whose names contain "County".
+export const countyDomainList = domains.filter(isCounty).map(domainKey);
 
-export const eduDomainList = domains.filter(d => (d.url || '').endsWith('edu')).map(d => d.url);
+export const eduDomainList = domains.filter(d => domainKey(d).endsWith('edu')).map(domainKey);
 
 export const addRankingPosition = function(data, attribute) {
     if (!data || data.length === 0) return data;
@@ -441,9 +448,14 @@ export const addRankingPosition = function(data, attribute) {
     data.forEach(o => {
         let rankingScore = null;
         if (attribute) {
-            rankingScore = o.scores[attribute].score;
+            rankingScore = o.scores && o.scores[attribute] ? o.scores[attribute].score : null;
         } else {
             rankingScore = o.overallScore;
+        }
+        // A site that was not fully scanned has no score and no rank.
+        if (!Number.isFinite(rankingScore)) {
+            o.rankingPosition = null;
+            return;
         }
         if (rankingScore != currentScore) {
             currentScore = rankingScore;

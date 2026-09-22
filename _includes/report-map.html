@@ -2,13 +2,22 @@
 Heitordp, CC0, via Wikimedia Commons
 https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
 -->
+{#
+  State map. By default it draws the `map` global (each state's own site,
+  linked to its profile). A caller can pass `mapData` (same shape: url, name,
+  status, path, scores, plus optional `href` and `label`) and `mapTopic` (a
+  scores key, default "overall") to reuse the outlines for another dataset,
+  e.g. the county hub's average county score by state.
+#}
+{% set mapItems = mapData if mapData else map %}
+{% set mapKey = mapTopic if mapTopic else "overall" %}
 <svg id="report-map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 959 593">
     <g>
-        {% for state in map %}
-            <a href="/profile/{{ state.url | slugify }}/overall/">
-                {% set score = state.scores.overall %}
+        {% for state in mapItems %}
+            <a href="{{ state.href if state.href else '/profile/' + (state.url | slugify) + '/overall/' }}">
+                {% set score = state.scores[mapKey] %}
                 <path style="fill: var(--bs-{{ score | colorVar }})" d="{{ state.path }}" {% if state.url == "dc.gov" %}class="report-map-borders"{% endif %}>
-                <title>{{ state.url }} / {% if score >= 0 %}Grade: {{ score | gradify }} / Score: {{ score }}%{% else %}{% if state.status >= 300 %}Inaccessible ({{ state.status }}){% else %}No data{% endif %}{% endif %}</title>
+                <title>{{ state.label if state.label else state.url }} / {% if score >= 0 %}Grade: {{ score | gradify }} / Score: {{ score }}%{% else %}{% if state.status >= 300 %}Not fully scanned ({{ state.status }}){% else %}No data{% endif %}{% endif %}</title>
                 </path>
             </a>
         {% endfor %}
@@ -127,5 +136,5 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
     <span class="text-bg-success">　</span> A
     <span class="text-bg-warning">　</span> B-C
     <span class="text-bg-danger">　</span> D-F
-    <span class="text-bg-inaccessible">　</span> Inaccessible / no data
+    <span class="text-bg-inaccessible">　</span> Not fully scanned / no data
 </p>
