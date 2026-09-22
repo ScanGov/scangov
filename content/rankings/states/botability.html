@@ -1,10 +1,10 @@
 ---
 home: false
 layout: layouts/default
-title: Ranking (states / botability)
-descriptionHtml: 'Project ScanGov <a href="https://standards.scangov.org/botability/">botability</a> rankings for state government websites.'
+title: "State websites: botability rankings"
+descriptionHtml: 'Project ScanGov <a href="https://standards.scangov.org/botability/">botability</a> rankings for U.S. state government websites, with the most common failures.'
 showLastUpdated: true
-keywords: government domains, government websites
+keywords: state government websites, rankings, botability
 
 pagination:
   data: botability.states
@@ -12,11 +12,21 @@ pagination:
   alias: member
 ---
 
-{% set pageHeader = "Botability Results" %}
-{% set dataset = botability.states %}
 {% set specificAttribute = "botability" %}
 {% set currentsort = "states" %}
-{% set currentScore = member[0].scores['botability'].score %}
 {% set showPagination = true %}
+{% set chartsInclude = "group-charts.html" %}
+{% set groupSummary = stateSummary %}
+{% set groupNoun = "state sites" %}
+{% set groupMap = true %}
+{% set compactTable = true %}
 
 {% include "sortcontent.html" %}
+{% set footnoteSubject = "the main website of each U.S. state government and the District of Columbia" %}
+{% set footnoteScope = "" %}
+{% set footnoteRespondingCount = stateSummary.respondingCount %}
+{% set footnoteScoredCount = stateSummary.scoredCount %}
+{% set footnotePartialCount = stateSummary.partialCount %}
+{% set footnoteNoResponseCount = stateSummary.count - stateSummary.respondingCount %}
+{% set footnoteScanWindow = stateSummary.scanWindow %}
+<div class="container">{% include "data-footnote.html" %}</div>

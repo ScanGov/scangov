@@ -12,7 +12,7 @@
 <section class="small text-muted border-top pt-3 mt-5" aria-labelledby="about-this-data">
   <h2 class="h6" id="about-this-data">About this data</h2>
   <p class="mb-0">
-    ScanGov scans the homepage of each county government site on our county list{% if footnoteScope %} {{ footnoteScope }}{% endif %}.
+    ScanGov scans the homepage of {{ footnoteSubject if footnoteSubject else "each county government site on our county list" }}{% if footnoteScope %} {{ footnoteScope }}{% endif %}.
     Scores come from the checks listed on <a href="https://standards.scangov.org/">standards.scangov.org</a>.
     {% if footnoteScanWindow %}Sites were scanned between {{ footnoteScanWindow.from | standardFormatDate }} and {{ footnoteScanWindow.to | standardFormatDate }}; each site's report shows its own scan date.{% else %}The last scan finished on {{ updates }}.{% endif %}
     A site counts as fully scanned when its homepage returned successfully and sent the scanner its page content.
