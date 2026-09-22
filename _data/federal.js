@@ -1,3 +1,4 @@
+import { scoreSortValue } from '../scripts/counties.js'
 import { default as domainData } from './domains.js';
 import { stateDomainList, cityDomainList, countyDomainList, eduDomainList, addRankingPosition } from './variables.js';
 import * as fs from 'fs'
@@ -20,7 +21,7 @@ export default function() {
     })
 
     let federal = federalDomainData.sort(function(a, b) {
-        return parseInt(b.overallScore) - parseInt(a.overallScore)
+        return scoreSortValue(b.overallScore) - scoreSortValue(a.overallScore)
     })
 
     return addRankingPosition(federal, null);

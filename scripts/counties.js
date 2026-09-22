@@ -135,6 +135,12 @@ export const GRADE_BUCKETS = [
     { key: 'DF', label: 'D to F (below 70)', grades: ['D', 'F'], color: 'danger' },
 ];
 
+// Sort key for score-ordered lists: a site with no score sorts after every
+// graded site instead of wherever NaN comparisons leave it.
+export function scoreSortValue(score) {
+    return Number.isFinite(score) ? score : -1;
+}
+
 export function mean(values) {
     const nums = values.filter(Number.isFinite);
     if (!nums.length) return null;

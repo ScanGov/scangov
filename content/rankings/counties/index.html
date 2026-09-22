@@ -1,9 +1,9 @@
 ---
-description: "Project ScanGov rankings of US county government websites by overall digital experience grade, with accessibility, botability, security, and usability scores."
+description: "Project ScanGov rankings of U.S. county government websites by overall digital experience grade, with accessibility, botability, security, and usability scores and a page for every state."
 home: false
 layout: layouts/default
-title: Rankings (counties)
-keywords: government domains, government websites
+title: County websites ranked by digital experience
+keywords: county government websites, rankings
 showLastUpdated: true
 
 pagination:
@@ -12,12 +12,19 @@ pagination:
     alias: member
 ---
 
-{% set pageHeader = "Overall results" %}
-{% set dataset = counties %}
 {% set specificAttribute = "" %}
 {% set currentsort = "counties" %}
-{% set currentScore = member[0].overallScore %}
-{% set rankingScore = member.overallScore %}
 {% set showPagination = true %}
+{% set chartsInclude = "county-charts.html" %}
+{% set compactTable = true %}
 
 {% include "sortcontent.html" %}
+{% if pagination.pageNumber == 0 %}
+{% set footnoteScope = "" %}
+{% set footnoteRespondingCount = countyNational.respondingCount %}
+{% set footnoteScoredCount = countyNational.scoredCount %}
+{% set footnotePartialCount = countyNational.partialCount %}
+{% set footnoteNoResponseCount = countyNational.count - countyNational.respondingCount %}
+{% set footnoteScanWindow = countyNational.scanWindow %}
+<div class="container">{% include "data-footnote.html" %}</div>
+{% endif %}

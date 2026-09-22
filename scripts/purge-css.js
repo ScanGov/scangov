@@ -16,6 +16,8 @@ const SAMPLE_PAGES = [
   'index.html',
   'changelog/index.html',
   'rankings/states/index.html',
+  'rankings/counties/index.html',
+  'rankings/counties/tx/index.html',
   'profile/ca-gov/report/index.html',
 ];
 
