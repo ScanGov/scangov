@@ -9,6 +9,8 @@
     groupNoun      plural noun for copy, e.g. "state sites"
     groupMap       true to show the state map (report-map.html with the
                    `map` global, each state colored by its own site's grade)
+    groupMapInclude  name of a map include to show instead, e.g.
+                   "city-map.html" (it renders its own figure and caption)
     specificAttribute, audits
 #}
 {% if pagination.pageNumber == 0 %}
@@ -50,7 +52,11 @@
 {% chart g.charts.area[topic] %}
 
 <div class="row">
-  {% if groupMap %}
+  {% if groupMapInclude %}
+  <div class="col-12 col-lg-7">
+    {% include groupMapInclude %}
+  </div>
+  {% elif groupMap %}
   <div class="col-12 col-lg-7">
     <h2 class="h4 mt-4">{{ topicName | capitalize }} grade by state</h2>
     <p>Each state is colored by its main site's {{ topicName }} grade. Select a state for its report.</p>
@@ -58,7 +64,7 @@
     {% include "report-map.html" %}
   </div>
   {% endif %}
-  <div class="col-12 {% if groupMap %}col-lg-5{% endif %}">
+  <div class="col-12 {% if groupMap or groupMapInclude %}col-lg-5{% endif %}">
     {% chart g.charts.grades[topic] %}
   </div>
 </div>
