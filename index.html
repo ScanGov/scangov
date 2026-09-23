@@ -174,17 +174,17 @@ Last scan:
 </div>
 <div class="container-fluid">
 <div class="row">
-<main id="home">
+<div id="home">
 <div class="container">
 <div class="row">
 <div class="col-12">
 <ul class="nav nav-pills filter small mb-3" id="homepage-summary-tabs">
-<li class="nav-item"><button type="button" class="nav-link mx-1 active" data-category="all" aria-current="page">All</button></li>
-<li class="nav-item"><button type="button" class="nav-link mx-1" data-category="cities">Cities</button></li>
-<li class="nav-item"><button type="button" class="nav-link mx-1" data-category="counties">Counties</button></li>
-<li class="nav-item"><button type="button" class="nav-link mx-1" data-category="states">States</button></li>
-<li class="nav-item"><button type="button" class="nav-link mx-1" data-category="federal">Federal</button></li>
-<li class="nav-item"><button type="button" class="nav-link mx-1" data-category="edu">Education</button></li>
+<li class="nav-item"><a href="/rankings/" class="nav-link mx-1 active" data-category="all" aria-current="page">All</a></li>
+<li class="nav-item"><a href="/rankings/cities/" class="nav-link mx-1" data-category="cities">Cities</a></li>
+<li class="nav-item"><a href="/rankings/counties/" class="nav-link mx-1" data-category="counties">Counties</a></li>
+<li class="nav-item"><a href="/rankings/states/" class="nav-link mx-1" data-category="states">States</a></li>
+<li class="nav-item"><a href="/rankings/federal/" class="nav-link mx-1" data-category="federal">Federal</a></li>
+<li class="nav-item"><a href="/rankings/edu/" class="nav-link mx-1" data-category="edu">Education</a></li>
 </ul>
 </div>
 </div>
@@ -255,200 +255,85 @@ Usability
 </div>
 </div>
 </div>
-<div class="border-top border-bottom pt-4 pb-4 mb-4 mt-4">
+<p class="small mt-3 mb-0">See the <a href="/rankings/" id="homepage-hub-link">rankings for all sites</a> or the <a href="/rankings/counties/#by-state">county rankings by state</a>.</p>
+<div class="border-top pt-4 mt-4">
 <h2 class="mb-3" id="domains">Domains</h2>
-<p>How scanned domains break down by type and overall grade.</p>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-<script>
-        var _isDark;
-        document.addEventListener('DOMContentLoaded', function () {
-          _isDark = document.documentElement.getAttribute('data-bs-theme') !== 'light';
-          Chart.defaults.color = _isDark ? '#fff' : '#000';
-          Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
-        });
-      </script>
-<div class="row">
-<div class="col-12 col-md-6 text-center p-4">
-<p class="text-center mb-1 small">By domain type</p>
-<canvas id="domains-chart"></canvas>
+<p>How scanned domains break down by type and overall grade. See <a href="/pulse/">Pulse</a> for more.</p>
+<figure class="sg-chart sg-chart--stackedBar" id="all-grades-overall" aria-labelledby="all-grades-overall-title"><figcaption><h3 class="sg-chart-title" id="all-grades-overall-title">U.S. government sites by overall grade</h3><p class="sg-chart-sub" id="all-grades-overall-sub">Share of the 4,105 fully scanned U.S. government sites in each grade band</p></figcaption><ol class="sg-bars sg-bars--stacked" aria-describedby="all-grades-overall-sub"><li class="sg-row" style="--i:0"><span class="sg-label">All U.S. government sites</span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:0.0965" data-tip="All U.S. government sites · A (90 to 100): 10% (396 sites)" tabindex="0"><span class="visually-hidden">A (90 to 100): 10% (396 sites)</span></span><span class="sg-seg text-bg-warning" style="--r:0.7951" data-tip="All U.S. government sites · B to C (70 to 89): 80% (3,264 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">B–C 80%</span><span class="visually-hidden">B to C (70 to 89): 80% (3,264 sites)</span></span><span class="sg-seg text-bg-danger" style="--r:0.1084" data-tip="All U.S. government sites · D to F (below 70): 11% (445 sites)" tabindex="0"><span class="visually-hidden">D to F (below 70): 11% (445 sites)</span></span></span></li></ol><ul class="sg-legend"><li><span class="sg-swatch text-bg-success " aria-hidden="true"></span>A (90 to 100)</li><li><span class="sg-swatch text-bg-warning " aria-hidden="true"></span>B to C (70 to 89)</li><li><span class="sg-swatch text-bg-danger " aria-hidden="true"></span>D to F (below 70)</li></ul><details class="sg-chart-data"><summary>View the data table</summary><div class="table-responsive"><table class="table table-sm"><caption class="visually-hidden">U.S. government sites by overall grade</caption><thead><tr><th scope="col">Group</th><th scope="col">A (90 to 100)</th><th scope="col">B to C (70 to 89)</th><th scope="col">D to F (below 70)</th></tr></thead><tbody><tr><th scope="row">All U.S. government sites</th><td class="sg-num">10% (396)</td><td class="sg-num">80% (3,264)</td><td class="sg-num">11% (445)</td></tr></tbody></table></div></details></figure>
+<figure class="sg-chart sg-chart--stackedBar" id="pulse-groups-grades-overall" aria-labelledby="pulse-groups-grades-overall-title"><figcaption><h3 class="sg-chart-title" id="pulse-groups-grades-overall-title">Sites by overall grade, by group</h3><p class="sg-chart-sub" id="pulse-groups-grades-overall-sub">Share of each group&#39;s fully scanned sites in each grade band. States: 45. Counties: 2,435. Cities: 220. Federal: 712. Education: 696.</p></figcaption><ol class="sg-bars sg-bars--stacked" aria-describedby="pulse-groups-grades-overall-sub"><li class="sg-row" style="--i:0"><span class="sg-label"><a href="/rankings/states/">States</a></span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:0.2667" data-tip="States · A (90 to 100): 27% (12 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">A 27%</span><span class="visually-hidden">A (90 to 100): 27% (12 sites)</span></span><span class="sg-seg text-bg-warning" style="--r:0.6667" data-tip="States · B to C (70 to 89): 67% (30 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">B–C 67%</span><span class="visually-hidden">B to C (70 to 89): 67% (30 sites)</span></span><span class="sg-seg text-bg-danger" style="--r:0.0667" data-tip="States · D to F (below 70): 7% (3 sites)" tabindex="0"><span class="visually-hidden">D to F (below 70): 7% (3 sites)</span></span></span></li><li class="sg-row" style="--i:1"><span class="sg-label"><a href="/rankings/counties/">Counties</a></span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:0.0402" data-tip="Counties · A (90 to 100): 4% (98 sites)" tabindex="0"><span class="visually-hidden">A (90 to 100): 4% (98 sites)</span></span><span class="sg-seg text-bg-warning" style="--r:0.8242" data-tip="Counties · B to C (70 to 89): 82% (2,007 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">B–C 82%</span><span class="visually-hidden">B to C (70 to 89): 82% (2,007 sites)</span></span><span class="sg-seg text-bg-danger" style="--r:0.1355" data-tip="Counties · D to F (below 70): 14% (330 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">D–F 14%</span><span class="visually-hidden">D to F (below 70): 14% (330 sites)</span></span></span></li><li class="sg-row" style="--i:2"><span class="sg-label"><a href="/rankings/cities/">Cities</a></span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:0.1591" data-tip="Cities · A (90 to 100): 16% (35 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">A 16%</span><span class="visually-hidden">A (90 to 100): 16% (35 sites)</span></span><span class="sg-seg text-bg-warning" style="--r:0.7818" data-tip="Cities · B to C (70 to 89): 78% (172 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">B–C 78%</span><span class="visually-hidden">B to C (70 to 89): 78% (172 sites)</span></span><span class="sg-seg text-bg-danger" style="--r:0.0591" data-tip="Cities · D to F (below 70): 6% (13 sites)" tabindex="0"><span class="visually-hidden">D to F (below 70): 6% (13 sites)</span></span></span></li><li class="sg-row" style="--i:3"><span class="sg-label"><a href="/rankings/federal/">Federal</a></span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:0.1404" data-tip="Federal · A (90 to 100): 14% (100 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">A 14%</span><span class="visually-hidden">A (90 to 100): 14% (100 sites)</span></span><span class="sg-seg text-bg-warning" style="--r:0.7317" data-tip="Federal · B to C (70 to 89): 73% (521 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">B–C 73%</span><span class="visually-hidden">B to C (70 to 89): 73% (521 sites)</span></span><span class="sg-seg text-bg-danger" style="--r:0.1278" data-tip="Federal · D to F (below 70): 13% (91 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">D–F 13%</span><span class="visually-hidden">D to F (below 70): 13% (91 sites)</span></span></span></li><li class="sg-row" style="--i:4"><span class="sg-label"><a href="/rankings/edu/">Education</a></span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:0.2184" data-tip="Education · A (90 to 100): 22% (152 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">A 22%</span><span class="visually-hidden">A (90 to 100): 22% (152 sites)</span></span><span class="sg-seg text-bg-warning" style="--r:0.7701" data-tip="Education · B to C (70 to 89): 77% (536 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">B–C 77%</span><span class="visually-hidden">B to C (70 to 89): 77% (536 sites)</span></span><span class="sg-seg text-bg-danger" style="--r:0.0115" data-tip="Education · D to F (below 70): 1% (8 sites)" tabindex="0"><span class="visually-hidden">D to F (below 70): 1% (8 sites)</span></span></span></li></ol><ul class="sg-legend"><li><span class="sg-swatch text-bg-success " aria-hidden="true"></span>A (90 to 100)</li><li><span class="sg-swatch text-bg-warning " aria-hidden="true"></span>B to C (70 to 89)</li><li><span class="sg-swatch text-bg-danger " aria-hidden="true"></span>D to F (below 70)</li></ul><details class="sg-chart-data"><summary>View the data table</summary><div class="table-responsive"><table class="table table-sm"><caption class="visually-hidden">Sites by overall grade, by group</caption><thead><tr><th scope="col">Group</th><th scope="col">A (90 to 100)</th><th scope="col">B to C (70 to 89)</th><th scope="col">D to F (below 70)</th></tr></thead><tbody><tr><th scope="row"><a href="/rankings/states/">States</a></th><td class="sg-num">27% (12)</td><td class="sg-num">67% (30)</td><td class="sg-num">7% (3)</td></tr><tr><th scope="row"><a href="/rankings/counties/">Counties</a></th><td class="sg-num">4% (98)</td><td class="sg-num">82% (2,007)</td><td class="sg-num">14% (330)</td></tr><tr><th scope="row"><a href="/rankings/cities/">Cities</a></th><td class="sg-num">16% (35)</td><td class="sg-num">78% (172)</td><td class="sg-num">6% (13)</td></tr><tr><th scope="row"><a href="/rankings/federal/">Federal</a></th><td class="sg-num">14% (100)</td><td class="sg-num">73% (521)</td><td class="sg-num">13% (91)</td></tr><tr><th scope="row"><a href="/rankings/edu/">Education</a></th><td class="sg-num">22% (152)</td><td class="sg-num">77% (536)</td><td class="sg-num">1% (8)</td></tr></tbody></table></div></details></figure>
 </div>
-<div class="col-12 col-md-6 text-center p-4">
-<p class="text-center mb-1 small">By overall grade</p>
-<canvas id="grades-dist-chart"></canvas>
-</div>
-</div>
-<script>
-        document.addEventListener('DOMContentLoaded', function () {
-          var donutUrls = ['/rankings/federal/', '/rankings/states/', '/rankings/cities/', '/rankings/counties/', '/rankings/edu/'];
-          var donutEl = document.getElementById('domains-chart');
-          var donutChart = new Chart(donutEl, {
-            type: 'doughnut',
-            data: {
-              labels: ['Federal (814)', 'States (51)', 'Cities (265)', 'Counties (2818)', 'Education (807)'],
-              datasets: [{ data: [814, 51, 265, 2818, 807], backgroundColor: _isDark ? ['#96abee', '#70e17b', '#ffbc78', '#c5ee93', '#e6a8ff'] : ['#1d4e9a', '#1a7a27', '#a85000', '#4d7c00', '#7b3fa0'], hoverOffset: 4 }]
-            },
-            options: {
-              plugins: {
-                legend: { position: 'top', labels: { padding: 20 } },
-                tooltip: { callbacks: { label: function (ctx) { var t = ctx.dataset.data.reduce(function (a, b) { return a + b; }, 0); var pct = t ? Math.round(ctx.parsed / t * 100) : 0; return ' ' + ctx.parsed + ' (' + pct + '%)'; } } }
-              },
-              onHover: function (e, els) { e.native.target.style.cursor = els.length ? 'pointer' : 'default'; }
-            }
-          });
-          donutEl.addEventListener('click', function (e) {
-            var pts = donutChart.getElementsAtEventForMode(e, 'nearest', { intersect: true }, true);
-            if (pts.length) window.location.href = donutUrls[pts[0].index];
-          });
-
-          var gradeData = {"A":396,"B":1419,"C":1845,"D":409,"F":36};
-          var gradeEl = document.getElementById('grades-dist-chart');
-          new Chart(gradeEl, {
-            type: 'doughnut',
-            data: {
-              labels: ['A (' + gradeData.A + ')', 'B (' + gradeData.B + ')', 'C (' + gradeData.C + ')', 'D (' + gradeData.D + ')', 'F (' + gradeData.F + ')'],
-              datasets: [{ data: [gradeData.A, gradeData.B, gradeData.C, gradeData.D, gradeData.F], backgroundColor: _isDark ? ['#70e17b', '#c5ee93', '#face00', '#ffbc78', '#e41d3d'] : ['#1a7a27', '#4d7c00', '#8a6600', '#a85000', '#b91c1c'], hoverOffset: 4 }]
-            },
-            options: {
-              plugins: {
-                legend: { position: 'top', labels: { padding: 20 } },
-                tooltip: { callbacks: { label: function (ctx) { var t = ctx.dataset.data.reduce(function (a, b) { return a + b; }, 0); var pct = t ? Math.round(ctx.parsed / t * 100) : 0; return ' ' + ctx.parsed + ' (' + pct + '%)'; } } }
-              }
-            }
-          });
-        });
-      </script>
-</div>
-<div class="pb-4 mb-4">
+<div class="border-top pt-4 mt-4 mb-4">
 <h2 class="mb-3" id="top-issues">Top issues</h2>
 <p>Top 5 failing checks per indicator.</p>
 <div class="row">
-<div class="col-12 col-md-6 mb-4">
+<div class="col-12 col-lg-6 mb-4">
 <h3 class="h5" id="accessibility">Accessibility</h3>
 <p>Meet WCAG standards so every type of user can use your website.</p>
-<canvas id="home-chart-accessibility"></canvas>
-<div class="alert alert-info small mt-2" role="alert">
+<figure class="sg-chart sg-chart--bar" id="all-fails-accessibility" aria-labelledby="all-fails-accessibility-title"><figcaption><h4 class="sg-chart-title" id="all-fails-accessibility-title">Most common accessibility failures among U.S. government sites</h4><p class="sg-chart-sub" id="all-fails-accessibility-sub">Share of the 4,105 fully scanned U.S. government sites failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.</p></figcaption><ol class="sg-bars" style="--sg-value-room:5ch" aria-describedby="all-fails-accessibility-sub"><li class="sg-row" style="--i:0;--r:0.409"><span class="sg-label"><a href="https://standards.scangov.org/link-name">Links have a discernible name</a></span><span class="sg-plot" data-tip="Links have a discernible name: 41% · (1,679 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">41%</span><span class="visually-hidden"> (1,679 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:1;--r:0.3549"><span class="sg-label"><a href="https://standards.scangov.org/heading-order">Heading elements appear in a sequentially-descending order</a></span><span class="sg-plot" data-tip="Heading elements appear in a sequentially-descending order: 35% · (1,457 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">35%</span><span class="visually-hidden"> (1,457 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:2;--r:0.332"><span class="sg-label"><a href="https://standards.scangov.org/color-contrast">Background and foreground colors have a sufficient contrast ratio</a></span><span class="sg-plot" data-tip="Background and foreground colors have a sufficient contrast ratio: 33% · (1,363 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">33%</span><span class="visually-hidden"> (1,363 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:3;--r:0.2283"><span class="sg-label"><a href="https://standards.scangov.org/target-size">Touch targets have sufficient size and spacing</a></span><span class="sg-plot" data-tip="Touch targets have sufficient size and spacing: 23% · (937 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">23%</span><span class="visually-hidden"> (937 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:4;--r:0.2173"><span class="sg-label"><a href="https://standards.scangov.org/landmark-one-main">Document has a main landmark</a></span><span class="sg-plot" data-tip="Document has a main landmark: 22% · (892 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">22%</span><span class="visually-hidden"> (892 of 4,105 sites)</span></span></li></ol><details class="sg-chart-data"><summary>View the data table</summary><div class="table-responsive"><table class="table table-sm"><caption class="visually-hidden">Most common accessibility failures among U.S. government sites</caption><thead><tr><th scope="col">Check</th><th scope="col">Share failing</th><th scope="col">Sites failing</th></tr></thead><tbody><tr><th scope="row"><a href="https://standards.scangov.org/link-name">Links have a discernible name</a></th><td class="sg-num">41%</td><td class="sg-num">1,679</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/heading-order">Heading elements appear in a sequentially-descending order</a></th><td class="sg-num">35%</td><td class="sg-num">1,457</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/color-contrast">Background and foreground colors have a sufficient contrast ratio</a></th><td class="sg-num">33%</td><td class="sg-num">1,363</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/target-size">Touch targets have sufficient size and spacing</a></th><td class="sg-num">23%</td><td class="sg-num">937</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/landmark-one-main">Document has a main landmark</a></th><td class="sg-num">22%</td><td class="sg-num">892</td></tr></tbody></table></div></details></figure>
+<div class="alert alert-info small mt-2" role="note">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
 Accessibility:
 <a href="https://standards.scangov.org/accessibility/">Standards</a>
 &middot;
 <a href="https://standards.scangov.org/guidance/accessibility/">Guidance</a>
 &middot;
-<a href="https://scangov.org/rankings/accessibility/">Project ScanGov</a>
+<a href="https://scangov.org/rankings/accessibility/">Project ScanGov rankings</a>
 &middot;
-<a href="https://scangov.com/accessibility/">ScanGov</a>
+<a href="https://scangov.com/accessibility/">How ScanGov helps</a>
 </div>
 </div>
-<div class="col-12 col-md-6 mb-4">
+<div class="col-12 col-lg-6 mb-4">
 <h3 class="h5" id="botability">Botability</h3>
 <p>Help AI and search engines discover, crawl, and index your website.</p>
-<canvas id="home-chart-botability"></canvas>
-<div class="alert alert-info small mt-2" role="alert">
+<figure class="sg-chart sg-chart--bar" id="all-fails-botability" aria-labelledby="all-fails-botability-title"><figcaption><h4 class="sg-chart-title" id="all-fails-botability-title">Most common botability failures among U.S. government sites</h4><p class="sg-chart-sub" id="all-fails-botability-sub">Share of the 4,105 fully scanned U.S. government sites failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.</p></figcaption><ol class="sg-bars" style="--sg-value-room:5ch" aria-describedby="all-fails-botability-sub"><li class="sg-row" style="--i:0;--r:0.8141"><span class="sg-label"><a href="https://standards.scangov.org/schema-government-organization">GovernmentOrganization Schema.org type</a></span><span class="sg-plot" data-tip="GovernmentOrganization Schema.org type: 81% · (3,342 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">81%</span><span class="visually-hidden"> (3,342 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:1;--r:0.2979"><span class="sg-label"><a href="https://standards.scangov.org/link-text">Link text</a></span><span class="sg-plot" data-tip="Link text: 30% · (1,223 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">30%</span><span class="visually-hidden"> (1,223 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:2;--r:0.2882"><span class="sg-label"><a href="https://standards.scangov.org/status">Sitemap status</a></span><span class="sg-plot" data-tip="Sitemap status: 29% · (1,183 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">29%</span><span class="visually-hidden"> (1,183 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:3;--r:0.2882"><span class="sg-label"><a href="https://standards.scangov.org/xml">Sitemap XML</a></span><span class="sg-plot" data-tip="Sitemap XML: 29% · (1,183 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">29%</span><span class="visually-hidden"> (1,183 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:4;--r:0.2792"><span class="sg-label"><a href="https://standards.scangov.org/sitemap-robots">Sitemap in robots.txt</a></span><span class="sg-plot" data-tip="Sitemap in robots.txt: 28% · (1,146 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">28%</span><span class="visually-hidden"> (1,146 of 4,105 sites)</span></span></li></ol><details class="sg-chart-data"><summary>View the data table</summary><div class="table-responsive"><table class="table table-sm"><caption class="visually-hidden">Most common botability failures among U.S. government sites</caption><thead><tr><th scope="col">Check</th><th scope="col">Share failing</th><th scope="col">Sites failing</th></tr></thead><tbody><tr><th scope="row"><a href="https://standards.scangov.org/schema-government-organization">GovernmentOrganization Schema.org type</a></th><td class="sg-num">81%</td><td class="sg-num">3,342</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/link-text">Link text</a></th><td class="sg-num">30%</td><td class="sg-num">1,223</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/status">Sitemap status</a></th><td class="sg-num">29%</td><td class="sg-num">1,183</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/xml">Sitemap XML</a></th><td class="sg-num">29%</td><td class="sg-num">1,183</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/sitemap-robots">Sitemap in robots.txt</a></th><td class="sg-num">28%</td><td class="sg-num">1,146</td></tr></tbody></table></div></details></figure>
+<div class="alert alert-info small mt-2" role="note">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
 Botability:
 <a href="https://standards.scangov.org/botability/">Standards</a>
 &middot;
 <a href="https://standards.scangov.org/guidance/botability/">Guidance</a>
 &middot;
-<a href="https://scangov.org/rankings/botability/">Project ScanGov</a>
+<a href="https://scangov.org/rankings/botability/">Project ScanGov rankings</a>
 &middot;
-<a href="https://scangov.com/botability/">ScanGov</a>
+<a href="https://scangov.com/botability/">How ScanGov helps</a>
 </div>
 </div>
-<div class="col-12 col-md-6 mb-4">
+<div class="col-12 col-lg-6 mb-4">
 <h3 class="h5" id="security">Security</h3>
 <p>Secure your site and protect users with proper security practices.</p>
-<canvas id="home-chart-security"></canvas>
-<div class="alert alert-info small mt-2" role="alert">
+<figure class="sg-chart sg-chart--bar" id="all-fails-security" aria-labelledby="all-fails-security-title"><figcaption><h4 class="sg-chart-title" id="all-fails-security-title">Most common security failures among U.S. government sites</h4><p class="sg-chart-sub" id="all-fails-security-sub">Share of the 4,105 fully scanned U.S. government sites failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.</p></figcaption><ol class="sg-bars" style="--sg-value-room:5ch" aria-describedby="all-fails-security-sub"><li class="sg-row" style="--i:0;--r:0.3978"><span class="sg-label"><a href="https://standards.scangov.org/errors-in-console">Errors in the console</a></span><span class="sg-plot" data-tip="Errors in the console: 40% · (1,633 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">40%</span><span class="visually-hidden"> (1,633 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:1;--r:0.3186"><span class="sg-label"><a href="https://standards.scangov.org/dotgov">Sponsored top-level domain (sTLD)</a></span><span class="sg-plot" data-tip="Sponsored top-level domain (sTLD): 32% · (1,308 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">32%</span><span class="visually-hidden"> (1,308 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:2;--r:0.076"><span class="sg-label"><a href="https://standards.scangov.org/securitytxt">Security.txt</a></span><span class="sg-plot" data-tip="Security.txt: 8% · (312 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">8%</span><span class="visually-hidden"> (312 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:3;--r:0.0112"><span class="sg-label"><a href="https://standards.scangov.org/xcontenttypeoptions">X-Content-Type-Options</a></span><span class="sg-plot" data-tip="X-Content-Type-Options: 1% · (46 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">1%</span><span class="visually-hidden"> (46 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:4;--r:0.0063"><span class="sg-label"><a href="https://standards.scangov.org/https">Hypertext Transfer Protocol Secure (HTTPS)</a></span><span class="sg-plot" data-tip="Hypertext Transfer Protocol Secure (HTTPS): 1% · (26 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">1%</span><span class="visually-hidden"> (26 of 4,105 sites)</span></span></li></ol><details class="sg-chart-data"><summary>View the data table</summary><div class="table-responsive"><table class="table table-sm"><caption class="visually-hidden">Most common security failures among U.S. government sites</caption><thead><tr><th scope="col">Check</th><th scope="col">Share failing</th><th scope="col">Sites failing</th></tr></thead><tbody><tr><th scope="row"><a href="https://standards.scangov.org/errors-in-console">Errors in the console</a></th><td class="sg-num">40%</td><td class="sg-num">1,633</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/dotgov">Sponsored top-level domain (sTLD)</a></th><td class="sg-num">32%</td><td class="sg-num">1,308</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/securitytxt">Security.txt</a></th><td class="sg-num">8%</td><td class="sg-num">312</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/xcontenttypeoptions">X-Content-Type-Options</a></th><td class="sg-num">1%</td><td class="sg-num">46</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/https">Hypertext Transfer Protocol Secure (HTTPS)</a></th><td class="sg-num">1%</td><td class="sg-num">26</td></tr></tbody></table></div></details></figure>
+<div class="alert alert-info small mt-2" role="note">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
 Security:
 <a href="https://standards.scangov.org/security/">Standards</a>
 &middot;
 <a href="https://standards.scangov.org/guidance/security/">Guidance</a>
 &middot;
-<a href="https://scangov.org/rankings/security/">Project ScanGov</a>
+<a href="https://scangov.org/rankings/security/">Project ScanGov rankings</a>
 &middot;
-<a href="https://scangov.com/security/">ScanGov</a>
+<a href="https://scangov.com/security/">How ScanGov helps</a>
 </div>
 </div>
-<div class="col-12 col-md-6 mb-4">
+<div class="col-12 col-lg-6 mb-4">
 <h3 class="h5" id="usability">Usability</h3>
 <p>Optimize content structure so users quickly find what they need.</p>
-<canvas id="home-chart-usability"></canvas>
-<div class="alert alert-info small mt-2" role="alert">
+<figure class="sg-chart sg-chart--bar" id="all-fails-usability" aria-labelledby="all-fails-usability-title"><figcaption><h4 class="sg-chart-title" id="all-fails-usability-title">Most common usability failures among U.S. government sites</h4><p class="sg-chart-sub" id="all-fails-usability-sub">Share of the 4,105 fully scanned U.S. government sites failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.</p></figcaption><ol class="sg-bars" style="--sg-value-room:5ch" aria-describedby="all-fails-usability-sub"><li class="sg-row" style="--i:0;--r:0.9396"><span class="sg-label"><a href="https://standards.scangov.org/ogimagealt">Open Graph image alt</a></span><span class="sg-plot" data-tip="Open Graph image alt: 94% · (3,857 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">94%</span><span class="visually-hidden"> (3,857 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:1;--r:0.7216"><span class="sg-label"><a href="https://standards.scangov.org/ogsitename">Open Graph site name</a></span><span class="sg-plot" data-tip="Open Graph site name: 72% · (2,962 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">72%</span><span class="visually-hidden"> (2,962 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:2;--r:0.6928"><span class="sg-label"><a href="https://standards.scangov.org/lcp">Largest Contentful Paint (LCP)</a></span><span class="sg-plot" data-tip="Largest Contentful Paint (LCP): 69% · (2,844 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">69%</span><span class="visually-hidden"> (2,844 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:3;--r:0.6833"><span class="sg-label"><a href="https://standards.scangov.org/ogdescription">Open Graph description</a></span><span class="sg-plot" data-tip="Open Graph description: 68% · (2,805 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">68%</span><span class="visually-hidden"> (2,805 of 4,105 sites)</span></span></li><li class="sg-row" style="--i:4;--r:0.6716"><span class="sg-label"><a href="https://standards.scangov.org/ogtype">Open Graph type</a></span><span class="sg-plot" data-tip="Open Graph type: 67% · (2,757 of 4,105 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">67%</span><span class="visually-hidden"> (2,757 of 4,105 sites)</span></span></li></ol><details class="sg-chart-data"><summary>View the data table</summary><div class="table-responsive"><table class="table table-sm"><caption class="visually-hidden">Most common usability failures among U.S. government sites</caption><thead><tr><th scope="col">Check</th><th scope="col">Share failing</th><th scope="col">Sites failing</th></tr></thead><tbody><tr><th scope="row"><a href="https://standards.scangov.org/ogimagealt">Open Graph image alt</a></th><td class="sg-num">94%</td><td class="sg-num">3,857</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/ogsitename">Open Graph site name</a></th><td class="sg-num">72%</td><td class="sg-num">2,962</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/lcp">Largest Contentful Paint (LCP)</a></th><td class="sg-num">69%</td><td class="sg-num">2,844</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/ogdescription">Open Graph description</a></th><td class="sg-num">68%</td><td class="sg-num">2,805</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/ogtype">Open Graph type</a></th><td class="sg-num">67%</td><td class="sg-num">2,757</td></tr></tbody></table></div></details></figure>
+<div class="alert alert-info small mt-2" role="note">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
 Usability:
 <a href="https://standards.scangov.org/usability/">Standards</a>
 &middot;
 <a href="https://standards.scangov.org/guidance/usability/">Guidance</a>
 &middot;
-<a href="https://scangov.org/rankings/usability/">Project ScanGov</a>
+<a href="https://scangov.org/rankings/usability/">Project ScanGov rankings</a>
 &middot;
-<a href="https://scangov.com/usability/">ScanGov</a>
+<a href="https://scangov.com/usability/">How ScanGov helps</a>
 </div>
 </div>
 </div>
-<script>
-        document.addEventListener('DOMContentLoaded', function () {
-        var chartData = {"accessibility":[{"attr":"link-name","label":"Links have a discernible name","failCount":1679},{"attr":"heading-order","label":"Heading elements appear in a sequentially-descending order","failCount":1457},{"attr":"color-contrast","label":"Background and foreground colors have a sufficient contrast ratio","failCount":1363},{"attr":"target-size","label":"Touch targets have sufficient size and spacing","failCount":937},{"attr":"landmark-one-main","label":"Document has a main landmark","failCount":892}],"botability":[{"attr":"schema-government-organization","label":"GovernmentOrganization Schema.org type","failCount":3342},{"attr":"link-text","label":"Link text","failCount":1223},{"attr":"xml","label":"Sitemap XML","failCount":1183},{"attr":"status","label":"Sitemap status","failCount":1183},{"attr":"sitemap-robots","label":"Sitemap in robots.txt","failCount":1146}],"security":[{"attr":"errors-in-console","label":"Errors in the console","failCount":1633},{"attr":"dotgov","label":"Sponsored top-level domain (sTLD)","failCount":1308},{"attr":"securitytxt","label":"security.txt","failCount":312},{"attr":"xcontenttypeoptions","label":"X-Content-Type-Options","failCount":46},{"attr":"https","label":"Hypertext Transfer Protocol Secure (HTTPS)","failCount":26}],"usability":[{"attr":"ogimagealt","label":"Open Graph image alt","failCount":3857},{"attr":"ogsitename","label":"Open Graph site name","failCount":2962},{"attr":"lcp","label":"Largest Contentful Paint (LCP)","failCount":2844},{"attr":"ogdescription","label":"Open Graph description","failCount":2805},{"attr":"ogtype","label":"Open Graph type","failCount":2757}]};
-        var indicatorColors = {"accessibility":"#a8f2ff","botability":"#e7f434","security":"#ff8d7b","usability":"#d5bfff"};
-        var indicatorColorsLight = {"accessibility":"#1d4e9a","botability":"#4d7c00","security":"#a85000","usability":"#7b3fa0"};
-        ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
-          var data = chartData[key] || [];
-          var urls = data.map(function (d) { return 'https://standards.scangov.org/' + d.attr; });
-          var el = document.getElementById('home-chart-' + key);
-          var barColor = _isDark ? (indicatorColors[key] || '#dee2e6') : (indicatorColorsLight[key] || '#212529');
-          var chart = new Chart(el, {
-            type: 'bar',
-            data: {
-              labels: data.map(function (d) { return d.label; }),
-              datasets: [{ data: data.map(function (d) { return d.failCount; }), backgroundColor: barColor }]
-            },
-            options: {
-              indexAxis: 'y',
-              plugins: { legend: { display: false } },
-              scales: {
-                x: { beginAtZero: true },
-                y: {
-                  afterFit: function (scale) { scale.width = 280; },
-                  ticks: {
-                    callback: function (value) {
-                      var label = this.getLabelForValue(value);
-                      if (!label || label.length <= 30) return label;
-                      var words = label.split(' ');
-                      var lines = [];
-                      var current = '';
-                      words.forEach(function (word) {
-                        var candidate = current ? current + ' ' + word : word;
-                        if (candidate.length > 30) {
-                          if (current) lines.push(current);
-                          current = word;
-                        } else {
-                          current = candidate;
-                        }
-                      });
-                      if (current) lines.push(current);
-                      return lines;
-                    }
-                  }
-                }
-              },
-              onHover: function (event, elements) {
-                event.native.target.style.cursor = elements.length ? 'pointer' : 'default';
-              }
-            }
-          });
-          el.addEventListener('click', function (event) {
-            var points = chart.getElementsAtEventForMode(event, 'nearest', { intersect: true }, true);
-            if (points.length > 0) {
-              window.open(urls[points[0].index], '_blank');
-            }
-          });
-        });
-        });
-      </script>
 </div>
 </div>
-</main>
+</div>
 <script>
   var homepageSummaryData = {"all":{"overall":79,"botability":79,"accessibility":89,"usability":53,"security":89},"cities":{"overall":80,"botability":73,"accessibility":90,"usability":55,"security":93},"states":{"overall":85,"botability":80,"accessibility":93,"usability":70,"security":94},"federal":{"overall":80,"botability":78,"accessibility":90,"usability":58,"security":89},"counties":{"overall":76,"botability":76,"accessibility":88,"usability":49,"security":88},"edu":{"overall":84,"botability":89,"accessibility":93,"usability":61,"security":91}};
 </script>
@@ -456,6 +341,7 @@ Usability:
   document.addEventListener('DOMContentLoaded', function() {
     var topics = ['overall', 'accessibility', 'botability', 'security', 'usability'];
     var categoryPaths = { all: '', cities: 'cities/', counties: 'counties/', states: 'states/', federal: 'federal/', edu: 'edu/' };
+    var hubLabels = { all: 'rankings for all sites', cities: 'city rankings', counties: 'county rankings', states: 'state rankings', federal: 'federal rankings', edu: 'education rankings' };
     var colorForScore = function(score) {
       if (score === null || score === undefined) return null;
       if (score >= 90) return 'success';
@@ -470,15 +356,16 @@ Usability:
       if (score >= 60) return 'D';
       return 'F';
     };
-    document.querySelectorAll('#homepage-summary-tabs .nav-link').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll('#homepage-summary-tabs .nav-link').forEach(function(b) {
-          b.classList.remove('active');
-          b.removeAttribute('aria-current');
+    document.querySelectorAll('#homepage-summary-tabs .nav-link').forEach(function(tab) {
+      tab.addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelectorAll('#homepage-summary-tabs .nav-link').forEach(function(t) {
+          t.classList.remove('active');
+          t.removeAttribute('aria-current');
         });
-        btn.classList.add('active');
-        btn.setAttribute('aria-current', 'page');
-        var category = btn.dataset.category;
+        tab.classList.add('active');
+        tab.setAttribute('aria-current', 'page');
+        var category = tab.dataset.category;
         var categoryPath = categoryPaths[category] || '';
         var summary = homepageSummaryData[category] || {};
         topics.forEach(function(topic) {
@@ -494,6 +381,11 @@ Usability:
             link.href = topic === 'overall' ? '/rankings/' + categoryPath : '/rankings/' + categoryPath + topic + '/';
           }
         });
+        var hubLink = document.getElementById('homepage-hub-link');
+        if (hubLink) {
+          hubLink.href = '/rankings/' + categoryPath;
+          hubLink.textContent = hubLabels[category] || hubLabels.all;
+        }
       });
     });
   });
