@@ -17,6 +17,7 @@ import slimHtmlPlugin from './_config/slim-html.js';
 import { isCore, isProfiles, isSingle, describeRole } from './_config/build-role.js';
 import { prepareData } from './scripts/prepare-data.js';
 import { purgeCss } from './scripts/purge-css.js';
+import { renderOgMap } from './scripts/og-map.js';
 import { renderChart } from './scripts/charts/render.js';
 import { humanizeLabel } from './scripts/charts/format.js';
 import { ordinal } from './scripts/counties.js';
@@ -408,7 +409,11 @@ export default async function(eleventyConfig) {
     // PurgeCSS samples pages from several sections, so in a sharded build it runs
     // after scripts/merge-shards.js instead (scripts/purge-css.js).
     eleventyConfig.on('eleventy.after', async ({ dir, directories }) => {
-        if (isSingle) await purgeCss(directories?.output || dir.output);
+        const output = directories?.output || dir.output;
+        // Social unfurl image for /pulse/ (scripts/og-map.js). Once per build:
+        // the core shard writes it and merge-shards carries it into the deploy.
+        if (isCore || isSingle) await renderOgMap(output);
+        if (isSingle) await purgeCss(output);
     });
 }
 

@@ -33,7 +33,7 @@
     {% if description %}<meta property="og:description" content="{{ description }}">{% endif %}
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     {% if ogImage %}
-    <meta property="og:image" content="{{ site.url }}/assets/img/{{ ogImage }}">
+    <meta property="og:image" content="{{ site.url }}/assets/img/{{ ogImage }}{% if ogImageCacheBust and updatedTime.ms %}?v={{ updatedTime.ms }}{% endif %}">
     {% else %}
     <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
     {% endif %}

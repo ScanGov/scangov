@@ -4056,6 +4056,9 @@ blockquote .lead {
 .sg-seg[data-tip]::after,
 .sg-col[data-tip]::after {
   content: attr(data-tip);
+  /* Hidden with display, not opacity: a transparent tip is still laid out,
+     and its nowrap text widened the page past the viewport on phones. */
+  display: none;
   position: absolute;
   left: 0;
   bottom: calc(100% + .375rem);
@@ -4069,17 +4072,14 @@ blockquote .lead {
   line-height: 1.3;
   white-space: nowrap;
   pointer-events: none;
-  opacity: 0;
-  transform: translateY(2px);
-  transition: opacity .12s, transform .12s;
 }
 .sg-seg[data-tip]::after {
   left: 50%;
-  transform: translate(-50%, 2px);
+  transform: translateX(-50%);
 }
 .sg-col[data-tip]::after {
   left: 50%;
-  transform: translate(-50%, 2px);
+  transform: translate(-50%, -100%);
   bottom: auto;
   top: -.25rem;
 }
@@ -4089,21 +4089,12 @@ blockquote .lead {
 .sg-seg[data-tip]:focus-visible::after,
 .sg-col[data-tip]:hover::after,
 .sg-col[data-tip]:focus-visible::after {
-  opacity: 1;
-  transform: translateY(0);
-}
-.sg-seg[data-tip]:hover::after,
-.sg-seg[data-tip]:focus-visible::after {
-  transform: translate(-50%, 0);
-}
-.sg-col[data-tip]:hover::after,
-.sg-col[data-tip]:focus-visible::after {
-  transform: translate(-50%, -100%);
+  display: block;
 }
 @media (hover: none) {
-  .sg-plot[data-tip]::after,
-  .sg-seg[data-tip]::after,
-  .sg-col[data-tip]::after {
+  .sg-plot[data-tip]:hover::after,
+  .sg-seg[data-tip]:hover::after,
+  .sg-col[data-tip]:hover::after {
     display: none;
   }
 }
