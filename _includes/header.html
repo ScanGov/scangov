@@ -21,7 +21,8 @@
     <meta name="google-site-verification" content="{{ id }}">
     {% endfor %}
     <meta property="og:locale" content="en_US">
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    {# Profile views other than /overall/ set `canonical` (profile.11tydata.js) so one URL per site is indexed #}
+    <link rel="canonical" href="{% if canonical %}{{ canonical }}{% else %}{{ site.url }}{{ page.url }}{% endif %}">
     <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url }}">
     <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url }}">
     <!-- Title -->
