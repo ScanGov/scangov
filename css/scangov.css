@@ -156,6 +156,15 @@
     --sg-chart-muted: #8a93a3;
     --sg-chart-grid: var(--bs-border-color);
     --sg-chart-track: rgba(255, 255, 255, 0.10);
+    /* One hue per indicator for single-series charts shown side by side
+       (.sg-series-*). Dataviz reference palette steps; validated 2026-09-22
+       on #1a1b2e: lightness band, chroma and contrast pass, adjacent pairs
+       pass CVD. Purple and blue are close for red-green CVD, so use these
+       only where each chart carries its indicator's name. */
+    --sg-indicator-accessibility: #3987e5;
+    --sg-indicator-botability: #199e70;
+    --sg-indicator-security: #d95926;
+    --sg-indicator-usability: #b565d1;
 }
 
 /* Light mode */
@@ -240,6 +249,11 @@
     --sg-chart-muted: #6b7280;
     --sg-chart-grid: var(--bs-border-color);
     --sg-chart-track: rgba(19, 23, 31, 0.08);
+    /* Indicator hues on #fff: every validator check passes, all pairs. */
+    --sg-indicator-accessibility: #2a78d6;
+    --sg-indicator-botability: #199e70;
+    --sg-indicator-security: #eb6834;
+    --sg-indicator-usability: #4a3aa7;
 }
 
 /* Status badge overrides */
@@ -4027,6 +4041,25 @@ blockquote .lead {
 }
 .sg-charts-large .report-map {
   width: 100%;
+}
+
+/* Indicator identity: wrap a single-series chart to paint its bars in that
+   indicator's hue (--sg-indicator-*), for charts shown side by side. */
+.sg-series-accessibility { --sg-chart-series-1: var(--sg-indicator-accessibility); }
+.sg-series-botability { --sg-chart-series-1: var(--sg-indicator-botability); }
+.sg-series-security { --sg-chart-series-1: var(--sg-indicator-security); }
+.sg-series-usability { --sg-chart-series-1: var(--sg-indicator-usability); }
+
+/* Even rows: every bar row is two label lines tall, whether its label wraps
+   or not, so charts with the same row count come out the same height when
+   they sit in a grid. Thicker bars to match. */
+.sg-charts-even .sg-fill {
+  height: 24px;
+}
+.sg-charts-even .sg-label {
+  display: flex;
+  align-items: center;
+  min-height: calc(2 * 1.3 * .9375rem);
 }
 
 /* Chart tips: each bar, stacked segment and histogram column carries its
