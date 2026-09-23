@@ -14,14 +14,14 @@ keywords: government domains, government websites
   <div class="container">
     <div class="row">
       <div class="col-12">
-        {# Each tab is a link to its group's rankings hub; with script, a click filters the cards in place instead. #}
+        {# The tabs filter the cards in place; the line under the cards links the chosen group's rankings. #}
         <ul class="nav nav-pills filter small mb-3" id="homepage-summary-tabs">
-          <li class="nav-item"><a href="/rankings/" class="nav-link mx-1 active" data-category="all" aria-current="page">All</a></li>
-          <li class="nav-item"><a href="/rankings/cities/" class="nav-link mx-1" data-category="cities">Cities</a></li>
-          <li class="nav-item"><a href="/rankings/counties/" class="nav-link mx-1" data-category="counties">Counties</a></li>
-          <li class="nav-item"><a href="/rankings/states/" class="nav-link mx-1" data-category="states">States</a></li>
-          <li class="nav-item"><a href="/rankings/federal/" class="nav-link mx-1" data-category="federal">Federal</a></li>
-          <li class="nav-item"><a href="/rankings/edu/" class="nav-link mx-1" data-category="edu">Education</a></li>
+          <li class="nav-item"><button type="button" class="nav-link mx-1 active" data-category="all" aria-current="page">All</button></li>
+          <li class="nav-item"><button type="button" class="nav-link mx-1" data-category="cities">Cities</button></li>
+          <li class="nav-item"><button type="button" class="nav-link mx-1" data-category="counties">Counties</button></li>
+          <li class="nav-item"><button type="button" class="nav-link mx-1" data-category="states">States</button></li>
+          <li class="nav-item"><button type="button" class="nav-link mx-1" data-category="federal">Federal</button></li>
+          <li class="nav-item"><button type="button" class="nav-link mx-1" data-category="edu">Education</button></li>
         </ul>
       </div>
     </div>
@@ -122,8 +122,7 @@ keywords: government domains, government websites
       return 'F';
     };
     document.querySelectorAll('#homepage-summary-tabs .nav-link').forEach(function(tab) {
-      tab.addEventListener('click', function(event) {
-        event.preventDefault();
+      tab.addEventListener('click', function() {
         document.querySelectorAll('#homepage-summary-tabs .nav-link').forEach(function(t) {
           t.classList.remove('active');
           t.removeAttribute('aria-current');
