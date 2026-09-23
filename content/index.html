@@ -71,16 +71,16 @@ keywords: government domains, government websites
     <div class="border-top pt-4 mt-4 mb-4">
       <h2 class="mb-3">Top issues</h2>
       <p>Top 5 failing checks per indicator.</p>
-      <div class="row">
+      <div class="row sg-charts-even">
         {% for indicator in site.data %}
           {% set lower = indicator.toLowerCase() %}
           {% set catInfo = audits[lower] %}
-          <div class="col-12 col-lg-6 mb-4">
+          <div class="col-12 col-lg-6 mb-4 d-flex flex-column">
             <h3 class="h5">{{ indicator }}</h3>
             {% if catInfo %}<p>{{ catInfo.description }}</p>{% endif %}
-            {% chart all.charts.failures[lower] %}
+            <div class="sg-series-{{ lower }}">{% chart all.charts.failures[lower] %}</div>
             {% if catInfo %}
-            <div class="alert alert-info small mt-2" role="note">
+            <div class="alert alert-info small mt-auto" role="note">
               <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
               {{ catInfo.displayName }}:
               <a href="https://standards.scangov.org/{{ lower }}/">Standards</a>
