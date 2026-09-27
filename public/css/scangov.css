@@ -67,10 +67,10 @@
     --bs-link-hover-color: var(--bs-link-color);
     --bs-link-hover-color-rgb: 79, 184, 240;
     --bs-link-hover-decoration: none;
-    --bs-highlight-bg: var(--bs-primary);
-    --bs-highlight-color: var(--bs-primary-text);
-    --bs-selection-bg: var(--bs-primary);
-    --bs-selection-color: var(--bs-primary-text);
+    --bs-highlight-bg: rgba(var(--bs-link-color-rgb), 0.25);
+    --bs-highlight-color: var(--bs-body-color);
+    --bs-selection-bg: rgba(var(--bs-link-color-rgb), 0.25);
+    --bs-selection-color: var(--bs-body-color);
     --bs-btn-primary: var(--bs-primary);
     --bs-btn-primary-color: var(--bs-primary-text);
     --bs-btn-primary-border-color: var(--bs-primary);
@@ -185,10 +185,10 @@
     --bs-link-hover-color: var(--bs-link-color);
     --bs-link-hover-color-rgb: 37, 99, 235;
     --bs-link-hover-decoration: none;
-    --bs-highlight-bg: var(--bs-primary);
-    --bs-highlight-color: var(--bs-primary-text);
-    --bs-selection-bg: var(--bs-primary);
-    --bs-selection-color: var(--bs-primary-text);
+    --bs-highlight-bg: rgba(var(--bs-link-color-rgb), 0.25);
+    --bs-highlight-color: var(--bs-body-color);
+    --bs-selection-bg: rgba(var(--bs-link-color-rgb), 0.25);
+    --bs-selection-color: var(--bs-body-color);
     --bs-btn-primary: var(--bs-primary);
     --bs-btn-primary-color: var(--bs-primary-text);
     --bs-btn-primary-border-color: var(--bs-primary);
@@ -445,6 +445,11 @@ body.default h6 {
 ::selection {
     background-color: var(--bs-selection-bg);
     color: var(--bs-selection-color);
+}
+
+.js-on-this-page a.active {
+    background-color: var(--bs-selection-bg);
+    border-radius: 0.25rem;
 }
 
 /* Accessibility */
@@ -778,10 +783,6 @@ button.btn-secondary-outline {
     padding: 0.3rem 0.6rem;
 }
 
-.btn.btn-outline-primary:not(.btn-lg) {
-    margin-top: 1rem;
-}
-
 .btn.btn-outline-primary i,
 .btn.btn-outline-primary svg {
     color: inherit !important;
@@ -820,6 +821,16 @@ button.btn-secondary-outline {
 
 .btn.btn-outline-primary:hover .fa-rocket,
 .btn.btn-outline-primary:focus .fa-rocket {
+    color: inherit !important;
+}
+
+/* fa-download shares a class name with the light-mode reset list further
+   down (for the <svg><use> sprite pattern), which has higher specificity
+   than the generic '.btn.btn-outline-primary i { color: inherit }' rule
+   above and so wins even inside a button, pinning the icon to
+   var(--bs-body-color) regardless of hover state. Scope this override to
+   light mode explicitly so it beats that rule's specificity. */
+[data-bs-theme=light] .btn.btn-outline-primary .fa-download {
     color: inherit !important;
 }
 
