@@ -205,6 +205,8 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
         group: { key: group.key, label: group.label, singular: group.singular, titleNoun: group.titleNoun, noun: group.noun, hub: group.hub },
         url: issueUrl(issue, group),
         title: `${group.titleNoun} ${issue.titleSuffix}`,
+        // Social unfurl image, rendered by scripts/og-issue-map.js when the page has a map.
+        ogImage: group.hasCountyMap ? `issue-${issue.slug}-${group.key}-og.png` : null,
         check: {
             key: attr.key || issue.check,
             label: attr.displayName || issue.check,

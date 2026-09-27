@@ -18,6 +18,7 @@ import { isCore, isProfiles, isSingle, describeRole } from './_config/build-role
 import { prepareData } from './scripts/prepare-data.js';
 import { purgeCss } from './scripts/purge-css.js';
 import { renderOgMap } from './scripts/og-map.js';
+import { renderIssueOgMaps } from './scripts/og-issue-map.js';
 import { renderChart } from './scripts/charts/render.js';
 import { humanizeLabel } from './scripts/charts/format.js';
 import { ordinal } from './scripts/counties.js';
@@ -410,9 +411,11 @@ export default async function(eleventyConfig) {
     // after scripts/merge-shards.js instead (scripts/purge-css.js).
     eleventyConfig.on('eleventy.after', async ({ dir, directories }) => {
         const output = directories?.output || dir.output;
-        // Social unfurl image for /pulse/ (scripts/og-map.js). Once per build:
+        // Social unfurl images. Pulse (scripts/og-map.js), once per build:
         // the core shard writes it and merge-shards carries it into the deploy.
         if (isCore || isSingle) await renderOgMap(output);
+        // Same for the issue pages (scripts/og-issue-map.js), one image per page with a map.
+        if (isCore || isSingle) await renderIssueOgMaps(output);
         if (isSingle) await purgeCss(output);
     });
 }
