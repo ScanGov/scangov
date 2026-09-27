@@ -2,18 +2,22 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://scangov.org/sitemap-profiles.xml</loc>
-    <lastmod>2026-09-20T00:00:46.801Z</lastmod>
+    <lastmod>2026-09-27T12:01:08.452Z</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://scangov.org/sitemap-orgs.xml</loc>
-    <lastmod>2026-09-20T00:00:46.801Z</lastmod>
+    <lastmod>2026-09-27T12:01:08.452Z</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://scangov.org/sitemap-rankings.xml</loc>
-    <lastmod>2026-09-20T00:00:46.801Z</lastmod>
+    <lastmod>2026-09-27T12:01:08.452Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://scangov.org/sitemap-issues.xml</loc>
+    <lastmod>2026-09-27T12:01:08.452Z</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://scangov.org/sitemap-pages.xml</loc>
-    <lastmod>2026-09-20T00:00:46.801Z</lastmod>
+    <lastmod>2026-09-27T12:01:08.452Z</lastmod>
   </sitemap>
 </sitemapindex>
