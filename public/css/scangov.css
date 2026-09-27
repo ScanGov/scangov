@@ -3976,6 +3976,46 @@ blockquote .lead {
   background: repeating-linear-gradient(45deg, var(--bs-inaccessible) 0 2px, transparent 2px 5px);
 }
 
+/* Issue map (.sg-map--national, _includes/issue-county-map.html in scangov):
+   one check across every county in one Albers USA plane. Failing counties
+   are individual linked paths in the chart accent; passing, not-scanned and
+   unlisted counties are one merged path each in quiet tones, so the
+   highlighted set is the only saturated thing on the map. The national
+   plane is about four times a state's, so it can use the full height. */
+.sg-map--national {
+  max-height: 40rem;
+}
+.sg-map-issue path {
+  fill: var(--sg-chart-series-1);
+  stroke: var(--bs-body-bg);
+  stroke-width: .5;
+  stroke-linejoin: round;
+  transition: filter .2s;
+  forced-color-adjust: none;
+  print-color-adjust: exact;
+}
+.sg-map a:hover .sg-map-issue path,
+.sg-map-issue a:hover path,
+.sg-map-issue a:focus-visible path {
+  filter: brightness(1.25);
+  stroke: var(--bs-body-color);
+}
+@media (forced-colors: active) {
+  .sg-map-issue path {
+    stroke: CanvasText;
+  }
+}
+.sg-map-county--pass {
+  fill: color-mix(in oklab, var(--sg-chart-muted) 30%, var(--bs-body-bg));
+}
+.sg-map-county--unscanned {
+  fill: var(--bs-inaccessible);
+}
+.sg-swatch--pass {
+  background: color-mix(in oklab, var(--sg-chart-muted) 30%, var(--bs-body-bg));
+  border: 1px solid var(--bs-border-color);
+}
+
 /* Dot map (.sg-map--dots, _includes/city-map.html): state outlines as a quiet
    base layer with one colored dot per site. Dots carry a surface ring so
    neighbors stay separable. */

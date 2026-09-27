@@ -145,6 +145,9 @@ ogImageAlt: Map of the United States with each state colored by the overall grad
     <li><a href="{{ g.hub }}">{{ g.label }} rankings</a>: {{ g.scoredCount | numberFormat }} fully scanned of {{ g.count | numberFormat }} sites{% if g.key == "counties" %}, with a page for every state{% endif %}.</li>
     {% endfor %}
     <li><a href="/rankings/counties/#by-state">County rankings by state</a>: a map and table of all 48 states with county sites.</li>
+    {% for ip in issuePages %}
+    <li><a href="{{ ip.url }}">{{ ip.title }}</a>: {{ ip.failCount | numberFormat }} of {{ ip.testedCount | numberFormat }} fully scanned {{ ip.group.noun }}, on a county map with every site listed.</li>
+    {% endfor %}
     <li><a href="/changelog/">Changelog</a>: what changed in the latest scans.</li>
     <li><a href="/status/">Scan status</a>: why some sites could not be fully scanned.</li>
   </ul>
