@@ -19,6 +19,7 @@
 
 import { TOPICS, isCounty, stateCodeOf, isResponding, scoreOf, isPartial, rankDense, gradeOf, domainKey } from './counties.js';
 import { slugify } from './charts/format.js';
+import { joinCounties } from './county-geo.js';
 import { gradeDistributionSpec, topicAveragesSpec, topFailuresSpec, histogramSpec, areaSpec } from './charts/specs.js';
 import {
     ALL_TOPICS, isScored, attributeIndex, topicLabel, summarize, scanWindow, buildGroupCharts,
@@ -117,32 +118,15 @@ function buildCharts(state, national, audits) {
     return charts;
 }
 
-function normalizeCountyName(name) {
-    return String(name || '').toLowerCase().replace(/\bsaint\b/g, 'st').replace(/[^a-z0-9]+/g, ' ').trim();
-}
-
 // Map data for one state: every county path in the state, joined to the
 // scanned site where one exists, with the score per topic so the include can
 // color by whichever topic the page shows. Counties with no site stay unjoined.
 function buildMap(code, records, geo) {
     const stateGeo = geo && geo.states && geo.states[code];
     if (!stateGeo) return null;
-    // Join by domain first (from the county list the geometry was built
-    // from), then by county name for sites whose domain changed since.
-    const byName = new Map();
-    for (const [fips, c] of Object.entries(stateGeo.counties)) {
-        if (c.name) byName.set(normalizeCountyName(c.name), fips);
-    }
+    const joined = joinCounties(records, geo);
     const byFips = new Map();
-    let joined = 0;
-    for (const d of records) {
-        let fips = geo.byDomain[domainKey(d).toLowerCase()];
-        if (!fips || !stateGeo.counties[fips]) fips = byName.get(normalizeCountyName((d.name || '').replace(/,\s*[A-Z]{2}$/, '')));
-        if (fips && stateGeo.counties[fips] && !byFips.has(fips)) {
-            byFips.set(fips, d);
-            joined++;
-        }
-    }
+    for (const [key, d] of joined.byFips) byFips.set(key.slice(code.length + 1), d);
     const counties = Object.entries(stateGeo.counties).map(([fips, c]) => {
         const d = byFips.get(fips);
         if (!d) return { fips, d: c.d, name: c.name || null };
@@ -156,8 +140,8 @@ function buildMap(code, records, geo) {
         viewBox: stateGeo.viewBox,
         outline: stateGeo.outline,
         counties,
-        joinedCount: joined,
-        unjoinedCount: records.length - joined,
+        joinedCount: byFips.size,
+        unjoinedCount: records.length - byFips.size,
         // Legend entries render only for categories present on this map.
         hasNoResponse: counties.some(c => c.urlkey && !c.responding),
         hasPartial: counties.some(c => c.partial),

@@ -102,6 +102,17 @@
   <li><a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} {{ f.risk }}</li>
   {% endfor %}
 </ul>
+{# Issue pages for this indicator (scripts/issues.js): every county site failing one check, on a map. #}
+{% set issueLinks = [] %}
+{% for ip in issuePages %}{% if ip.group.key == "counties" and ip.issue.topic == specificAttribute %}{% set issueLinks = (issueLinks.push(ip), issueLinks) %}{% endif %}{% endfor %}
+{% if issueLinks.length %}
+<h3 class="h5 mt-4">Every site with one problem</h3>
+<ul class="sg-failures">
+  {% for ip in issueLinks %}
+  <li><a href="{{ ip.url }}">{{ ip.title }}</a>: {{ ip.failCount | numberFormat }} of {{ ip.testedCount | numberFormat }} fully scanned sites ({{ (ip.share * 100) | round }}%), with a county map, the share in each state, and every site listed.</li>
+  {% endfor %}
+</ul>
+{% endif %}
 {% endif %}
 
 <h2 class="h4 mt-5">All U.S. county sites by {{ topicName }} score</h2>

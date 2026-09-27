@@ -1,0 +1,156 @@
+---
+layout: layouts/page
+showLastUpdated: true
+keywords: government websites, county government websites, .gov domain
+pagination:
+  data: issuePages
+  size: 1
+  alias: item
+  addAllPagesToCollections: true
+permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
+---
+{#
+  One issue page: every fully scanned site in a group that fails one check.
+  Data: one scripts/issues.js page object (see buildIssuePage). Every number
+  on the page comes from `item`, so the intro, tiles, map, tables and footnote
+  cannot disagree. Populations: scanned (item.count), fully scanned
+  (item.scoredCount), tested (item.testedCount: fully scanned minus the few
+  records that lack the check), failing (item.failCount).
+#}
+{% set issue = item.issue %}
+{% set group = item.group %}
+{% set check = item.check %}
+{% set sharePct = (item.share * 100) | round %}
+
+<div class="sg-charts-large">
+<p class="lead">Of the {{ item.testedCount | numberFormat }} fully scanned U.S. {{ group.noun }} we tested, {{ item.failCount | numberFormat }} ({{ sharePct }}%) {{ issue.failPhrase }}.
+{% if item.highestState and item.lowestState and item.highestState.code != item.lowestState.code %}Among states with at least {{ item.minStateSites }} tested sites, {{ item.highestState.name }} has the highest share at {{ (item.highestState.share * 100) | round }}% and {{ item.lowestState.name }} the lowest at {{ (item.lowestState.share * 100) | round }}%.{% endif %}
+The check behind this page, <a href="{{ check.standardsUrl }}">{{ check.label | humanizeLabel }}</a>, passes when {{ check.description[0] | lower }}{{ check.description.slice(1) }}</p>
+
+<div class="row g-3 mb-2">
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value">{{ item.failCount | numberFormat }} <span class="fs-5 text-muted">of {{ item.testedCount | numberFormat }}</span></p>
+      <p class="sg-stat-label">Fully scanned {{ group.noun }} that {{ issue.failPhrase }}</p>
+    </div></div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value">{{ sharePct }}%</p>
+      <p class="sg-stat-label">Share of tested {{ group.noun }} failing this check</p>
+    </div></div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value">{{ item.statesAffected }} <span class="fs-5 text-muted">of {{ item.states | length }}</span></p>
+      <p class="sg-stat-label">States with at least one failing {{ group.singular }} site, of the {{ item.states | length }} states with {{ group.noun }} on our list</p>
+    </div></div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      {% if item.highestState %}
+      <p class="sg-stat-value">{{ (item.highestState.share * 100) | round }}%</p>
+      <p class="sg-stat-label"><a href="{{ item.highestState.href }}">{{ item.highestState.name }}</a> has the highest share: {{ item.highestState.failing }} of {{ item.highestState.tested }} tested {{ group.noun }}</p>
+      {% else %}
+      <p class="sg-stat-value">{{ item.scoredCount | numberFormat }} <span class="fs-5 text-muted">of {{ item.count | numberFormat }}</span></p>
+      <p class="sg-stat-label">{{ group.noun | capitalize }} fully scanned</p>
+      {% endif %}
+    </div></div>
+  </div>
+</div>
+
+{% if item.map %}
+  {% include "issue-county-map.html" %}
+{% endif %}
+
+<div class="row">
+  <div class="col-12 {% if item.breakdown %}col-lg-7{% endif %}">
+    <h2 class="h4 mt-4" id="by-state">By state</h2>
+    <p>Share of each state's tested {{ group.noun }} that {{ issue.failPhrase }}. Select a state for its {{ check.topicLabel | lower }} rankings.</p>
+    <div class="table-responsive">
+      <table class="table table-sm" data-sortable>
+        <caption class="visually-hidden">States by share of {{ group.noun }} failing the {{ check.label | humanizeLabel }} check</caption>
+        <thead>
+          <tr>
+            <th scope="col">State</th>
+            <th scope="col" class="text-center">Tested</th>
+            <th scope="col" class="text-center">{{ issue.failLabel }}</th>
+            <th scope="col">Share</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for s in item.states %}
+          <tr>
+            <th scope="row" data-sort="{{ s.name }}"><a href="{{ s.href }}">{{ s.name }}</a></th>
+            <td class="text-center sg-num" data-sort="{{ s.tested }}">{{ s.tested }}</td>
+            <td class="text-center sg-num" data-sort="{{ s.failing }}">{{ s.failing }}</td>
+            <td data-sort="{{ s.share }}">
+              <span class="sg-checks small text-nowrap">
+                <span class="sg-meter" aria-hidden="true"><span class="sg-meter-fill sg-fill-series-1" style="--r:{{ s.share }}"></span></span>
+                {{ (s.share * 100) | round }}%
+              </span>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% if item.breakdown %}
+  <div class="col-12 col-lg-5">
+    {% chart item.breakdown %}
+  </div>
+  {% endif %}
+</div>
+
+<h2 class="h4 mt-5" id="sites">All {{ item.failCount | numberFormat }} {{ group.noun }} {{ issue.failPhrase }}</h2>
+<p>Listed by state, then name. Each site links to its {{ check.topicLabel | lower }} report. Grades are the site's {{ check.topicLabel | lower }} and overall grades from the same scan.</p>
+<div class="table-responsive">
+  <table class="table rankings-table" data-sortable data-paginate="50" data-paginate-unit="sites">
+    <caption class="visually-hidden">{{ group.noun | capitalize }} {{ issue.failPhrase }}</caption>
+    <thead>
+      <tr>
+        <th scope="col" class="text-nowrap">Site <i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc"></i><i class="fa-solid fa-sort-down sort-desc"></i></th>
+        <th scope="col" class="text-nowrap">State <i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc"></i><i class="fa-solid fa-sort-down sort-desc"></i></th>
+        <th scope="col" class="text-nowrap text-center">{{ check.topicLabel }} <i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc"></i><i class="fa-solid fa-sort-down sort-desc"></i></th>
+        <th scope="col" class="text-nowrap text-center">Overall <i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc"></i><i class="fa-solid fa-sort-down sort-desc"></i></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in item.failing %}
+      <tr>
+        <td><a href="{{ s.href }}">{{ s.urlkey }}</a><br><span class="small text-muted">{{ s.name }}</span></td>
+        <td>{% if s.stateSlug %}<a href="{{ group.hub }}{{ s.stateSlug }}/{{ issue.topic }}/">{{ s.stateName }}</a>{% else %}{{ s.stateName or "" }}{% endif %}</td>
+        <td class="text-center" data-sort="{{ s.score if s.score !== null else -1 }}"><span class="badge text-bg-{{ s.score | colorify }}" title="{{ check.topicLabel }} score {{ s.score }}">{{ s.score | gradify }}</span></td>
+        <td class="text-center" data-sort="{{ s.overall if s.overall !== null else -1 }}"><span class="badge text-bg-{{ s.overall | colorify }}" title="Overall score {{ s.overall }}">{{ s.overall | gradify }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<script src="/js/table-paginate.js" defer></script>
+
+<section class="mt-5" aria-labelledby="about-check">
+  <h2 class="h4" id="about-check">About this check</h2>
+  <p><a href="{{ check.standardsUrl }}"><i class="fa-solid fa-{{ check.topicIcon }}" aria-hidden="true"></i> {{ check.label | humanizeLabel }}</a> is one of the {{ check.topicLabel | lower }} checks. {{ check.description }}</p>
+  {% if check.why %}<h3 class="h5">Why it matters</h3><p>{{ check.why }}</p>{% endif %}
+  {% if check.risk %}<h3 class="h5">Risk</h3><p>{{ check.risk }}</p>{% endif %}
+  <h3 class="h5">Guidance</h3>
+  <ul>
+    <li><a href="{{ check.standardsUrl }}">{{ check.label | humanizeLabel }} standard</a>, with how to fix it</li>
+    {% for g in check.guidance %}<li><a href="https://standards.scangov.org{{ g.url }}">{{ g.displayName }}</a></li>{% endfor %}
+    <li><a href="{{ group.hub }}{{ issue.topic }}/">{{ group.label }} {{ check.topicLabel | lower }} rankings</a></li>
+  </ul>
+</section>
+</div>
+
+{% set footnoteScope = "" %}
+{% set footnoteRespondingCount = item.respondingCount %}
+{% set footnoteScoredCount = item.scoredCount %}
+{% set footnotePartialCount = item.partialCount %}
+{% set footnoteNoResponseCount = item.count - item.respondingCount %}
+{% set footnoteScanWindow = item.scanWindow %}
+{% include "data-footnote.html" %}
+{% if item.untestedCount %}
+<p class="small text-muted">{{ item.untestedCount }} fully scanned {{ group.noun if item.untestedCount != 1 else group.singular + " site" }} {{ "have" if item.untestedCount != 1 else "has" }} no result for this check and {{ "are" if item.untestedCount != 1 else "is" }} left out of the share.</p>
+{% endif %}

@@ -6,6 +6,7 @@ export const sitemapSections = [
   { name: 'profiles', prefixes: ['/profile/'] },
   { name: 'orgs', prefixes: ['/org/'] },
   { name: 'rankings', prefixes: ['/rankings/', '/map/'] },
+  { name: 'issues', prefixes: ['/issues/'] },
   { name: 'pages', prefixes: [] },
 ];
 
