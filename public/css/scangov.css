@@ -2288,6 +2288,10 @@ a[href$=".mp4"]::after {
     color: #e41d3d !important;
 }
 
+.fa-link-slash {
+    color: #e41d3d !important;
+}
+
 .fa-circle-nodes {
     color: #c3ebfa;
 }
