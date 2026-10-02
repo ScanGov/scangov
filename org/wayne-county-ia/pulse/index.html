@@ -24,7 +24,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ScanGov logo">
-<meta property="article:modified_time" content="2026-09-11T19:54:08.198Z">
+<meta property="article:modified_time" content="2026-09-28T00:01:26.663Z">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"Wayne County, IA","item":"https://scangov.org/org/wayne-county-ia/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/wayne-county-ia/pulse/"}]},{"@type":"GovernmentOrganization","name":"Wayne County, IA","url":"https://waynecounty.iowa.gov/","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/wayne-county-ia/pulse/"}}]}</script>
 <link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
@@ -286,7 +286,7 @@ Link copied!
 </div>
 <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [88];
+        var scores = [83];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -335,11 +335,11 @@ Link copied!
           '/org/' + orgSlug + '/?attr=usability'
         ];
         var gradesScores = [
-          88,
+          83,
           86,
           81,
           100,
-          88
+          70
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -463,7 +463,7 @@ Usability:
             accessibility: {"aria-allowed-attr":true,"aria-command-name":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":false,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":false,"link-in-text-block":true,"link-name":false,"list":true,"listitem":true,"meta-viewport":true,"tabindex":true,"target-size":false,"landmark-one-main":true,"presentation-role-conflict":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
             botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":true},
             security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"xcontenttypeoptions":true},
-            usability: {"title":true,"description":false,"viewport":true,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":true,"fcp":true,"lcp":true,"ttfb":true,"cls":true,"inp":true,"www":true}
+            usability: {"title":true,"description":false,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":true,"www":true}
           }
           
         ];

@@ -1438,6 +1438,15 @@ code.language-plaintext {
     margin-bottom: 0;
 }
 
+/* A card-group row (row.g-3, e.g. Features, Who we serve, News, What they
+   say) followed by a CTA button link needs space above the button -
+   row.g-3 only sets gutters between cards, nothing below the row itself.
+   General sibling (~), not adjacent (+): some sections (What they say) have
+   a <script> between the row and the button that + would fail to skip. */
+.row.g-3 ~ .btn {
+    margin-top: 1rem;
+}
+
 /* CTA */
 
 .cta {
@@ -2288,6 +2297,10 @@ a[href$=".mp4"]::after {
     color: #e41d3d !important;
 }
 
+.fa-link-slash {
+    color: #e41d3d !important;
+}
+
 .fa-circle-nodes {
     color: #c3ebfa;
 }
@@ -2757,6 +2770,7 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] .fa-circle-nodes:not([class*="text-"]),
 [data-bs-theme=light] .fa-scale-balanced:not([class*="text-"]),
 [data-bs-theme=light] .fa-link:not([class*="text-"]),
+[data-bs-theme=light] .fa-link-slash:not([class*="text-"]),
 [data-bs-theme=light] .fa-concierge-bell:not([class*="text-"]),
 [data-bs-theme=light] .fa-table:not([class*="text-"]),
 [data-bs-theme=light] .fa-circle-play:not([class*="text-"]),
