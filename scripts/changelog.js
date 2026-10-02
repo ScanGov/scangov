@@ -16,19 +16,23 @@ export async function appendChangelog(newdata, olddata) {
             let foundDiff = false;
 
             let allChangesThisScan = [];
+            // Either record may have no scores: sites the scanner could not read
+            // are stored at status 995 with their scores removed (see
+            // normalize-audit-data.js), and unreachable sites never had any.
+            const oldScores = o.scores || {};
             for (var topic in newItem.scores) {
-                if (newItem.scores[topic] && o.scores[topic]) {
-                    if (newItem.scores[topic].score !== o.scores[topic].score) {
+                if (newItem.scores[topic] && oldScores[topic]) {
+                    if (newItem.scores[topic].score !== oldScores[topic].score) {
                         foundDiff = true;
                         let changeObj = {};
                         changeObj.statusCode = 200;
                         changeObj.topic = topic;
                         changeObj.date = formatToYYYYMMDD(new Date(newItem.time));
-                        changeObj.oldScore = o.scores[topic].correct;
+                        changeObj.oldScore = oldScores[topic].correct;
                         changeObj.newScore = newItem.scores[topic].correct;
-                        changeObj.oldPercent = o.scores[topic].score;
+                        changeObj.oldPercent = oldScores[topic].score;
                         changeObj.newPercent = newItem.scores[topic].score;
-                        changeObj.oldTotal = o.scores[topic].all;
+                        changeObj.oldTotal = oldScores[topic].all;
                         changeObj.newTotal = newItem.scores[topic].all;
                         allChangesThisScan.push(changeObj);
                     }
