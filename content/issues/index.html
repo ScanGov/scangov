@@ -6,7 +6,7 @@ description: Every site in a group that fails one check, with a map, the share i
 showLastUpdated: true
 keywords: government websites, issues, failing checks
 ---
-<p>Each page below takes one check from <a href="https://standards.scangov.org/">standards.scangov.org</a> and one group of sites, and lists every fully scanned site in that group that fails it. The <a href="/rankings/">rankings</a> show how sites score overall; these pages show who has one specific problem.</p>
+<p>Each page takes one check, or one feature made of a few related checks, from <a href="https://standards.scangov.org/">standards.scangov.org</a> and one group of sites, and lists every fully scanned site in that group that fails it. The <a href="/rankings/">rankings</a> show how sites score overall; these pages show who has one specific problem.</p>
 <ul class="sg-failures">
   {% for ip in issuePages %}
   <li><a href="{{ ip.url }}">{{ ip.title }}</a>. {{ ip.failCount | numberFormat }} of {{ ip.testedCount | numberFormat }} fully scanned {{ ip.group.noun }} ({{ (ip.share * 100) | round }}%) {{ ip.issue.failPhrase }}. {{ ip.check.description }}</li>

@@ -1,8 +1,11 @@
 {#
   National county map for an issue page: every county boundary in one
   Albers USA plane (countyGeo.usStates), with the counties whose site fails
-  the check drawn as individual linked paths and every other category merged
-  into one path each, so a 3,000-county map stays a few hundred kilobytes.
+  the check drawn as individual linked paths (one group per stage when the
+  issue defines stages) and every other category merged into one path each,
+  so a 3,000-county map stays a few hundred kilobytes. Passing counties share
+  the quiet fill of counties with no site on our list; a page can mark some
+  passing counties in their own tint (item.mark).
 
   Expects: item (a scripts/issues.js page object with item.map).
 
@@ -18,24 +21,26 @@
 <figure class="sg-chart sg-chart--map" id="{{ mapId }}" aria-labelledby="{{ mapId }}-title">
   <figcaption>
     <h2 class="sg-chart-title" id="{{ mapId }}-title">{{ item.group.titleNoun }} {{ item.issue.titleSuffix }}, by county</h2>
-    <p class="sg-chart-sub" id="{{ mapId }}-sub">Each highlighted county has a site on our list that {{ item.issue.failPhrase | replace("are ", "is ") }}. Select a county to open that site's {{ item.check.topicLabel | lower }} report. The table below lists every site.</p>
+    <p class="sg-chart-sub" id="{{ mapId }}-sub">Each highlighted county has a site on our list that {{ item.issue.failPhraseSingular }}. Select a county to open that site's {{ item.check.topicLabel | lower }} report. The table below lists every site.</p>
   </figcaption>
   <svg class="sg-map sg-map--national" viewBox="{{ m.viewBox }}" role="img" aria-labelledby="{{ mapId }}-title {{ mapId }}-sub" focusable="false">
     {% if m.unlistedPath %}<path class="sg-map-county sg-map-county--none" d="{{ m.unlistedPath }}"><title>Counties with no site on our list</title></path>{% endif %}
-    {% if m.passPath %}<path class="sg-map-county sg-map-county--pass" d="{{ m.passPath }}"><title>Counties whose site passes: {{ item.issue.passLabel | lower }}</title></path>{% endif %}
+    {# Passing counties use the same quiet fill as counties with no site on our list, so the map shows problems, not coverage. #}
+    {% if m.passPath %}<path class="sg-map-county sg-map-county--none" d="{{ m.passPath }}"><title>Counties whose site passes: {{ item.issue.passLabel | lower }}</title></path>{% endif %}
+    {% if m.markedPath %}<path class="sg-map-county sg-map-county--marked" d="{{ m.markedPath }}"><title>Counties whose site passes but {{ item.mark.phrase }}</title></path>{% endif %}
     {% if m.unscannedPath %}<path class="sg-map-county sg-map-county--unscanned" d="{{ m.unscannedPath }}"><title>Counties whose site could not be fully scanned</title></path>{% endif %}
-    {% if m.untestedPath %}<path class="sg-map-county sg-map-county--unscanned" d="{{ m.untestedPath }}"><title>Counties whose site has no result for this check</title></path>{% endif %}
-    {# One anchor per failing county. The group carries the class so each of the ~1,000 paths stays short. #}
-    <g class="sg-map-issue">{% for c in m.failing %}<a href="{{ c.href }}" tabindex="-1"><path d="{{ c.d }}"><title>{{ c.name }}: {{ c.urlkey }}</title></path></a>{% endfor %}</g>
+    {% if m.untestedPath %}<path class="sg-map-county sg-map-county--unscanned" d="{{ m.untestedPath }}"><title>Counties whose site has no result for {{ "these checks" if item.issue.isFeature else "this check" }}</title></path>{% endif %}
+    {# One anchor per failing county, one group per stage. The group carries the class so each of the ~1,000 paths stays short. #}
+    {% for g in m.groups %}{% if g.counties.length %}<g class="sg-map-issue{% if g.tone == "severe" %} sg-map-issue--severe{% endif %}">{% for c in g.counties %}<a href="{{ c.href }}" tabindex="-1"><path d="{{ c.d }}"><title>{{ c.name }}: {{ c.urlkey }}{% if m.groups.length > 1 %} ({{ g.label | lower }}){% endif %}</title></path></a>{% endfor %}</g>{% endif %}{% endfor %}
     <path class="sg-map-outline" d="{{ m.outlines }}"/>
   </svg>
   <ul class="sg-legend">
-    <li><span class="sg-swatch sg-fill-series-1" aria-hidden="true"></span>{{ item.issue.failLabel }} ({{ m.counts.fail | numberFormat }})</li>
-    <li><span class="sg-swatch sg-swatch--pass" aria-hidden="true"></span>{{ item.issue.passLabel }} ({{ m.counts.pass | numberFormat }})</li>
-    {% if m.counts.unscanned or m.counts.untested %}<li><span class="sg-swatch sg-fill-inaccessible" aria-hidden="true"></span>Not fully scanned{% if m.counts.untested %} or no result for this check{% endif %} ({{ (m.counts.unscanned + m.counts.untested) | numberFormat }})</li>{% endif %}
-    {% if m.counts.unlisted %}<li><span class="sg-swatch sg-fill-track" aria-hidden="true"></span>No site on our list ({{ m.counts.unlisted | numberFormat }})</li>{% endif %}
+    {% for g in m.groups %}{% if g.counties.length %}<li><span class="sg-swatch {{ "sg-fill-danger" if g.tone == "severe" else "sg-fill-series-1" }}" aria-hidden="true"></span>{{ g.label }} ({{ g.counties.length | numberFormat }})</li>{% endif %}{% endfor %}
+    {% if m.counts.marked %}<li><span class="sg-swatch sg-swatch--marked" aria-hidden="true"></span>{{ item.mark.label }} ({{ m.counts.marked | numberFormat }}), not counted as a problem</li>{% endif %}
+    <li><span class="sg-swatch sg-fill-track" aria-hidden="true"></span>{{ item.issue.passLabel }} ({{ m.counts.pass | numberFormat }}){% if m.counts.unlisted %}, or no site on our list ({{ m.counts.unlisted | numberFormat }}){% endif %}</li>
+    {% if m.counts.unscanned or m.counts.untested %}<li><span class="sg-swatch sg-fill-inaccessible" aria-hidden="true"></span>Not fully scanned{% if m.counts.untested %} or no result for {{ "these checks" if item.issue.isFeature else "this check" }}{% endif %} ({{ (m.counts.unscanned + m.counts.untested) | numberFormat }})</li>{% endif %}
   </ul>
   {% if m.unjoinedCount %}
-  <p class="sg-chart-caveat">{{ m.unjoinedCount }} of the {{ item.count | numberFormat }} sites on our list could not be matched to a county boundary{% if m.unjoinedFailingCount %}, {{ m.unjoinedFailingCount }} of them failing this check{% endif %}. They appear only in the table.</p>
+  <p class="sg-chart-caveat">{{ m.unjoinedCount }} of the {{ item.count | numberFormat }} sites on our list could not be matched to a county boundary{% if m.unjoinedFailingCount %}, {{ m.unjoinedFailingCount }} of them {{ item.issue.failPhrase | replace("are ", "") if item.issue.isFeature else "failing this check" }}{% endif %}. They appear only in the table.</p>
   {% endif %}
 </figure>

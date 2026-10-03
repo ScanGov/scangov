@@ -3,7 +3,7 @@
 // one per page that has a map. Same approach as scripts/og-map.js for Pulse:
 // the page's SVG fills are CSS custom properties, which a rasterizer cannot
 // resolve, so this redraws the same paths with the light theme's literal
-// colors (public/css/scangov.css). Runs from the eleventy.after hook in the
+// colors (public/css/scangov.css), one path per stage group. Runs from the eleventy.after hook in the
 // core/single build role; profile shards skip it, and merge-shards carries
 // the core shard's output into the deploy.
 import { mkdirSync } from 'fs';
@@ -20,7 +20,12 @@ const HEIGHT = 630;
 const COLORS = {
     background: '#ffffff',
     issue: '#1c5cab',
-    pass: '#d3d6db',
+    // .sg-map-issue--severe: the page's most severe stage (--bs-danger).
+    severe: '#e41d3d',
+    // Passing counties share the unlisted fill (see _includes/issue-county-map.html).
+    pass: '#ececee',
+    // .sg-map-county--marked: a passing site the page flags anyway, series-1 at 40% on white.
+    marked: '#a4bedd',
     unscanned: '#6c757d',
     unlisted: '#ececee',
     stroke: '#ffffff',
@@ -37,16 +42,17 @@ export function buildIssueOgSvg(page) {
     const scale = Math.min((WIDTH * 0.94) / vw, (HEIGHT * 0.94) / vh);
     const x = (WIDTH - vw * scale) / 2 - vx * scale;
     const y = (HEIGHT - vh * scale) / 2 - vy * scale;
-    const failing = m.failing.map(c => c.d).join('');
+    const groups = m.groups.map(g => pathEl(g.counties.map(c => c.d).join(''), g.tone === 'severe' ? COLORS.severe : COLORS.issue)).join('\n');
 
     return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}">
 <rect width="${WIDTH}" height="${HEIGHT}" fill="${COLORS.background}"/>
 <g transform="translate(${x.toFixed(2)} ${y.toFixed(2)}) scale(${scale.toFixed(4)})">
 ${pathEl(m.unlistedPath, COLORS.unlisted)}
 ${pathEl(m.passPath, COLORS.pass)}
+${pathEl(m.markedPath, COLORS.marked)}
 ${pathEl(m.unscannedPath, COLORS.unscanned)}
 ${pathEl(m.untestedPath, COLORS.unscanned)}
-${pathEl(failing, COLORS.issue)}
+${groups}
 <path fill="none" stroke="${COLORS.outline}" stroke-opacity="0.4" stroke-width="0.7" stroke-linejoin="round" d="${m.outlines}"/>
 </g>
 </svg>`;

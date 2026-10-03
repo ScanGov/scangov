@@ -1,7 +1,6 @@
 ---
 layout: layouts/page
 showLastUpdated: true
-keywords: government websites, county government websites, .gov domain
 pagination:
   data: issuePages
   size: 1
@@ -10,7 +9,8 @@ pagination:
 permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 ---
 {#
-  One issue page: every fully scanned site in a group that fails one check.
+  One issue page: every fully scanned site in a group that fails one check,
+  or one feature made of several checks (item.issue.isFeature; item.checks).
   Data: one scripts/issues.js page object (see buildIssuePage). Every number
   on the page comes from `item`, so the intro, tiles, map, tables and footnote
   cannot disagree. Populations: scanned (item.count), fully scanned
@@ -24,8 +24,9 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 
 <div class="sg-charts-large">
 <p class="lead">Of the {{ item.testedCount | numberFormat }} fully scanned U.S. {{ group.noun }} we tested, {{ item.failCount | numberFormat }} ({{ sharePct }}%) {{ issue.failPhrase }}.
+{% if item.markCount %}Another {{ item.markCount | numberFormat }} ({{ (item.markCount / item.testedCount * 100) | round }}%) {{ item.mark.phrase }}. No check fails for that, so they count as passing here, and the map shows them in their own color.{% endif %}
 {% if item.highestState and item.lowestState and item.highestState.code != item.lowestState.code %}Among states with at least {{ item.minStateSites }} tested sites, {{ item.highestState.name }} has the highest share at {{ (item.highestState.share * 100) | round }}% and {{ item.lowestState.name }} the lowest at {{ (item.lowestState.share * 100) | round }}%.{% endif %}
-The check behind this page, <a href="{{ check.standardsUrl }}">{{ check.label | humanizeLabel }}</a>, passes when {{ check.description[0] | lower }}{{ check.description.slice(1) }}</p>
+{% if issue.isFeature %}{{ check.description }} A site counts as failing when it fails any of the checks behind this page: {% for c in item.checks %}<a href="{{ c.standardsUrl }}">{{ c.label | humanizeLabel }}</a>{% if loop.length > 2 and not loop.last %}, {% endif %}{% if loop.revindex == 2 %}and {% endif %}{% endfor %}.{% else %}The check behind this page, <a href="{{ check.standardsUrl }}">{{ check.label | humanizeLabel }}</a>, passes when {{ check.description[0] | lower }}{{ check.description.slice(1) }}{% endif %}</p>
 
 <div class="row g-3 mb-2">
   <div class="col-6 col-lg-3">
@@ -37,7 +38,7 @@ The check behind this page, <a href="{{ check.standardsUrl }}">{{ check.label | 
   <div class="col-6 col-lg-3">
     <div class="card h-100"><div class="card-body">
       <p class="sg-stat-value">{{ sharePct }}%</p>
-      <p class="sg-stat-label">Share of tested {{ group.noun }} failing this check</p>
+      <p class="sg-stat-label">Share of tested {{ group.noun }} failing {{ "these checks" if issue.isFeature else "this check" }}</p>
     </div></div>
   </div>
   <div class="col-6 col-lg-3">
@@ -69,7 +70,7 @@ The check behind this page, <a href="{{ check.standardsUrl }}">{{ check.label | 
     <p>Share of each state's tested {{ group.noun }} that {{ issue.failPhrase }}. Select a state for its {{ check.topicLabel | lower }} rankings.</p>
     <div class="table-responsive">
       <table class="table table-sm" data-sortable>
-        <caption class="visually-hidden">States by share of {{ group.noun }} failing the {{ check.label | humanizeLabel }} check</caption>
+        <caption class="visually-hidden">States by share of {{ group.noun }} failing the {{ check.label if issue.isFeature else (check.label | humanizeLabel) }} {{ "checks" if issue.isFeature else "check" }}</caption>
         <thead>
           <tr>
             <th scope="col">State</th>
@@ -131,6 +132,22 @@ The check behind this page, <a href="{{ check.standardsUrl }}">{{ check.label | 
 <script src="/js/table-paginate.js" defer></script>
 
 <section class="mt-5" aria-labelledby="about-check">
+  {% if issue.isFeature %}
+  <h2 class="h4" id="about-check">About these checks</h2>
+  <p><i class="fa-solid fa-{{ check.topicIcon }}" aria-hidden="true"></i> {{ check.description }} The <a href="{{ check.standardsUrl }}">{{ check.topicLabel | lower }} checks</a> behind this page test each part of that.{% if check.note %} {{ check.note }}{% endif %}</p>
+  <ul class="sg-failures">
+    {% for c in item.checks %}
+    <li><a href="{{ c.standardsUrl }}">{{ c.label | humanizeLabel }}</a>. {{ c.description }} {{ c.risk }}</li>
+    {% endfor %}
+  </ul>
+  <h3 class="h5">Guidance</h3>
+  <ul>
+    {% for c in item.checks %}<li><a href="{{ c.standardsUrl }}">{{ c.label | humanizeLabel }} standard</a>, with how to fix it</li>{% endfor %}
+    {% set seen = [] %}
+    {% for c in item.checks %}{% for g in c.guidance %}{% if g.url not in seen %}{% set seen = (seen.push(g.url), seen) %}<li><a href="https://standards.scangov.org{{ g.url }}">{{ g.displayName }}</a></li>{% endif %}{% endfor %}{% endfor %}
+    <li><a href="{{ group.hub }}{{ issue.topic }}/">{{ group.label }} {{ check.topicLabel | lower }} rankings</a></li>
+  </ul>
+  {% else %}
   <h2 class="h4" id="about-check">About this check</h2>
   <p><a href="{{ check.standardsUrl }}"><i class="fa-solid fa-{{ check.topicIcon }}" aria-hidden="true"></i> {{ check.label | humanizeLabel }}</a> is one of the {{ check.topicLabel | lower }} checks. {{ check.description }}</p>
   {% if check.why %}<h3 class="h5">Why it matters</h3><p>{{ check.why }}</p>{% endif %}
@@ -141,6 +158,7 @@ The check behind this page, <a href="{{ check.standardsUrl }}">{{ check.label | 
     {% for g in check.guidance %}<li><a href="https://standards.scangov.org{{ g.url }}">{{ g.displayName }}</a></li>{% endfor %}
     <li><a href="{{ group.hub }}{{ issue.topic }}/">{{ group.label }} {{ check.topicLabel | lower }} rankings</a></li>
   </ul>
+  {% endif %}
 </section>
 </div>
 
@@ -152,5 +170,5 @@ The check behind this page, <a href="{{ check.standardsUrl }}">{{ check.label | 
 {% set footnoteScanWindow = item.scanWindow %}
 {% include "data-footnote.html" %}
 {% if item.untestedCount %}
-<p class="small text-muted">{{ item.untestedCount }} fully scanned {{ group.noun if item.untestedCount != 1 else group.singular + " site" }} {{ "have" if item.untestedCount != 1 else "has" }} no result for this check and {{ "are" if item.untestedCount != 1 else "is" }} left out of the share.</p>
+<p class="small text-muted">{{ item.untestedCount }} fully scanned {{ group.noun if item.untestedCount != 1 else group.singular + " site" }} {{ "have" if item.untestedCount != 1 else "has" }} no result for {{ "these checks" if issue.isFeature else "this check" }} and {{ "are" if item.untestedCount != 1 else "is" }} left out of the share.</p>
 {% endif %}
