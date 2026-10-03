@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
-<meta name="description" content="How the 1 government website managed by City of Joliet, IL have changed over time on Project ScanGov. Includes joliet.gov.">
+<meta name="description" content="How the 1 government website managed by City of Joliet, IL have changed over time on Project ScanGov, average grade B. Includes joliet.gov.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="google-site-verification" content="10895162be5e592f">
 <meta property="og:locale" content="en_US">
@@ -18,14 +18,14 @@
 <meta property="og:site_name" content="Project ScanGov">
 <meta property="og:type" content="website">
 <meta property="og:title" content="City of Joliet, IL pulse">
-<meta property="og:description" content="How the 1 government website managed by City of Joliet, IL have changed over time on Project ScanGov. Includes joliet.gov.">
+<meta property="og:description" content="How the 1 government website managed by City of Joliet, IL have changed over time on Project ScanGov, average grade B. Includes joliet.gov.">
 <meta property="og:url" content="https://scangov.org/org/city-of-joliet-il/pulse/">
 <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ScanGov logo">
-<meta property="article:modified_time" content="2026-09-24T18:03:17.985Z">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"City of Joliet, IL","item":"https://scangov.org/org/city-of-joliet-il/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/city-of-joliet-il/pulse/"}]},{"@type":"GovernmentOrganization","name":"City of Joliet, IL","url":"https://www.joliet.gov/","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/city-of-joliet-il/pulse/"}}]}</script>
+<meta property="article:modified_time" content="2026-10-01T20:43:32.572Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"City of Joliet, IL","item":"https://scangov.org/org/city-of-joliet-il/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/city-of-joliet-il/pulse/"}]},{"@type":"GovernmentOrganization","name":"City of Joliet, IL","url":"https://www.joliet.gov/Home","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/city-of-joliet-il/pulse/"}}]}</script>
 <link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
@@ -286,7 +286,7 @@ Link copied!
 </div>
 <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [];
+        var scores = [89];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -335,11 +335,11 @@ Link copied!
           '/org/' + orgSlug + '/?attr=usability'
         ];
         var gradesScores = [
-          NaN,
-          NaN,
-          NaN,
-          NaN,
-          NaN
+          89,
+          97,
+          88,
+          100,
+          64
         ];
         var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
         var gradesEl = document.getElementById('grades-chart');
@@ -460,10 +460,10 @@ Usability:
         var orgDomains = [
           
           {
-            accessibility: ,
-            botability: ,
-            security: ,
-            usability: 
+            accessibility: {"aria-allowed-attr":true,"aria-command-name":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-dialog-name":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-required-children":true,"aria-required-parent":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"input-button-name":true,"label":true,"link-in-text-block":true,"link-name":true,"list":true,"listitem":true,"meta-viewport":true,"tabindex":true,"target-size":true,"valid-lang":true,"landmark-one-main":true,"presentation-role-conflict":true,"label-content-name-mismatch":true,"image-aspect-ratio":false,"doctype":true,"charset":true},
+            botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":false,"xml":true,"allowed":true,"status":true},
+            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"xcontenttypeoptions":true},
+            usability: {"title":true,"description":true,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false,"ogsitename":false,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"readability":false,"www":true}
           }
           
         ];
