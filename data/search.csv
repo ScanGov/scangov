@@ -409,7 +409,7 @@ midlandtexas.gov,"City of Midland, TX",76,200
 manufacturingusa.com,"National Institute of Standards and Technology",83,200
 newbraunfels.gov,"City of New Braunfels, TX",68,200
 dc.gov,"District of Columbia",75,200
-jacksonville.gov,"City of Jacksonville, FL",85,200
+jacksonville.gov,"City of Jacksonville, FL",84,200
 freddiemac.com,"Federal Home Loan Mortgage Corporation",88,200
 longbeach.gov,"City of Long Beach, CA",73,200
 huntingtonbeachca.gov,"City of Huntington Beach, CA",85,200
@@ -1954,7 +1954,6 @@ wnmu.edu,"Western New Mexico University",94,200
 highline.edu,"Highline College",86,200
 charlotte.edu,"University of North Carolina at Charlotte",88,200
 crawfordcountyil.org,"Crawford County, IL",84,200
-gqc-ga.org,"Quitman County, GA",68,200
 uafs.edu,"University of Arkansas-Fort Smith",90,200
 mcphersoncountyks.us,"McPherson County, KS",70,200
 santarosa.fl.gov,"Santa Rosa County, FL",75,200
@@ -3044,7 +3043,6 @@ umassd.edu,"University of Massachusetts-Dartmouth",92,200
 yellcountyar.gov,"Yell County, AR",72,200
 unioncountyar.com,"Union County, AR",84,200
 tccounty.com,"Towner County, ND",90,200
-bellcounty.ky.gov,"Bell County, KY",71,200
 esf.edu,"SUNY College of Environmental Science and Forestry",84,200
 greenecountymo.gov,"Greene County, MO",76,200
 rivercog.org,"Lower Connecticut River Valley Planning Region, CT",87,200
@@ -3653,7 +3651,7 @@ elmonteca.gov,"City of El Monte, CA",78,200
 ontarioca.gov,"City of Ontario, CA",88,200
 fhlbsea.com,"Interagency Collaboration",67,200
 fvap.gov,"Department of Defense",72,200
-ca.gov,"State of California",100,200
+ca.gov,"State of California",98,200
 anaheim.net,"City of Anaheim, CA",70,200
 integrity.gov,"Office of Government Ethics",63,200
 toledo.oh.gov,"City of Toledo, OH",98,200
@@ -4087,6 +4085,10 @@ pikecountyohcommissioners.gov,"Pike County, OH",95,200
 steubencountyny.gov,"Steuben County, NY",74,200
 wtamu.edu,"West Texas A & M University",88,200
 uvu.edu,"Utah Valley University",78,200
+gqc-ga.org,"Quitman County, GA",70,200
+co.ocean.nj.us,"Ocean County, NJ",61,200
+malheurco.org,"Malheur County, OR",68,200
+cravencountync.gov,"Craven County, NC",73,200
 stennis.gov,"Stennis Center for Public Service",,996
 bendoregon.gov,"City of Bend, OR",,996
 ellago-tx.gov,"City of El Lago, TX",,996
@@ -4114,6 +4116,8 @@ lacrossecounty.org,"La Crosse County, WI",,996
 brazoscountytx.gov,"Brazos County, TX",,996
 guthriecounty.gov,"Guthrie County, IA",,996
 vallejo.gov,"City of Vallejo, CA",,996
+sandiegocounty.gov,"County of San Diego, CA",,999
+countyofcolusaca.gov,"Colusa County, CA",,996
 starkcountyohio.gov,"Stark County, OH",,998
 ashlandcountywi.gov,"Ashland County, WI",,998
 co.jackson.wi.us,"Jackson County, WI",,998
@@ -4732,3 +4736,5 @@ detroitmi.gov,"City of Detroit, MI",,996
 congress.gov,"",,996
 semo.edu,"Southeast Missouri State University",,408
 russellcountyky.gov,"Russell County, KY",,500
+bellcounty.ky.gov,"Bell County, KY",,502
+webstercountyia.gov,"Webster County, IA",,403
