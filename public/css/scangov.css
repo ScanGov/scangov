@@ -2660,6 +2660,10 @@ a .fa-up-right-from-square {
     color: #f3bf90;
 }
 
+.fa-video {
+    color: #e8a0bf !important;
+}
+
 .fa-wand-magic-sparkles,
 .fa-wand-sparkles {
     color: #ffe396;
