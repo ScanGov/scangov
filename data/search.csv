@@ -1,8 +1,8 @@
 domain,agency,score,status
 maryland.gov,"State of Maryland",95,200
-ngmdb.usgs.gov,"United States Geological Survey",78,200
+ngmdb.usgs.gov,"United States Geological Survey",77,200
 ginniemae.gov,"Department of Housing and Urban Development",81,200
-euusosh.org,"Department of Labor",62,200
+euusosh.org,"Department of Labor",61,200
 ustraveldocs.com,"Department of State",78,200
 igs.org,"National Aeronautics and Space Administration",73,200
 friscotexas.gov,"City of Frisco, TX",75,200
@@ -20,11 +20,11 @@ abmc.gov,"American Battle Monuments Commission",,995
 grants.gov,"Department of Health and Human Services",78,200
 medicaid.gov,"Department of Health and Human Services",79,200
 missouricitytx.gov,"City of Missouri, TX",69,200
-cooperativepatentclassification.org,"U.S. Patent and Trademark Office",72,200
+cooperativepatentclassification.org,"U.S. Patent and Trademark Office",71,200
 cityofvancouver.us,"City of Vancouver, WA",86,200
 kentwa.gov,"City of Kent, WA",,995
 epolicyworks.org,"Department of Labor",80,200
-firstnet.gov,"Department of Commerce",87,200
+firstnet.gov,"Department of Commerce",86,200
 montgomeryal.gov,"City of Montgomery, AL",,995
 nmaahcstore.com,"Smithsonian Institution",,995
 lowellma.gov,"City of Lowell, MA",71,200
@@ -46,7 +46,7 @@ cityoflaredo.com,"City of Laredo, TX",,995
 peoriagov.org,"City of Peoria, IL",75,200
 cookcountyil.gov,"Cook County, IL",95,200
 hampton.gov,"City of Hampton, VA",68,200
-gwinnettcounty.com,"County of Gwinnett, GA",89,200
+gwinnettcounty.com,"County of Gwinnett, GA",88,200
 waterdata.usgs.gov,"United States Geological Survey",85,200
 g5.gov,"Department of Education",71,200
 reproductivehealthservices.gov,"Department of Health and Human Services",77,200
@@ -63,7 +63,7 @@ hillsboro-oregon.gov,"City of Hillsboro, OR",,995
 data.medicaid.gov,"Department of Health and Human Services",94,200
 bis.gov,"Department of Commerce",78,200
 apps.nationalmap.gov,"United States Geological Survey",83,200
-fultoncountyga.gov,"Fulton County, GA",78,200
+fultoncountyga.gov,"Fulton County, GA",80,200
 cityoflancasterca.org,"City of Lancaster, CA",,995
 neapmap.com,"Department of Labor",87,200
 morganspoint-tx.com,"City of Morgan’s Point, TX",81,200
@@ -87,7 +87,7 @@ cityofrc.us,"City of Rancho Cucamonga, CA",77,200
 nasa.gov,"National Aeronautics and Space Administration",92,200
 acl.gov,"Department of Health and Human Services",75,200
 leaguecitytx.gov,"City of League City, TX",75,200
-evus.gov,"Department of Homeland Security",76,200
+evus.gov,"Department of Homeland Security",75,200
 dallascityhall.com,"City of Dallas, TX",83,200
 antiochca.gov,"City of Antioch, CA",72,200
 flpd.gov,"City of Fort Lauderdale, FL",,995
@@ -96,7 +96,7 @@ georgia.gov,"State of Georgia",89,200
 dodea.edu,"Department of Defense",,995
 nifc.gov,"Department of the Interior",82,200
 challenge.gov,"General Services Administration",87,200
-ri.gov,"State of Rhode Island",74,200
+ri.gov,"State of Rhode Island",73,200
 mepsdocs.org,"Department of Health and Human Services",74,200
 cfcgive.org,"Combined Federal Campaign",72,200
 justice.gov,"Department of Justice",86,200
@@ -111,10 +111,10 @@ imls.gov,"Institute of Museum and Library Services",88,200
 fdlp.gov,"Government Publishing Office",67,200
 sanbernardino.gov,"City of San Bernardino, CA",73,200
 faasafety.gov,"Department of Transportation",75,200
-toaks.gov,"City of Thousand Oaks, CA",66,200
+toaks.gov,"City of Thousand Oaks, CA",65,200
 aviationweather.gov,"Department of Commerce",82,200
 irsauctions.gov,"Department of the Treasury",92,200
-firstrespondertraining.gov,"Department of Homeland Security",77,200
+firstrespondertraining.gov,"Department of Homeland Security",76,200
 cms.gov,"Department of Health and Human Services",85,200
 charleston-sc.gov,"City of Charleston, SC",86,200
 lanl.gov,"Department of Energy",97,200
@@ -129,11 +129,11 @@ thorntonco.gov,"City of Thornton, CO",93,200
 dol.gov,"Department of Labor",92,200
 annapolis.gov,"City of Annapolis, MD",73,200
 sc.gov,"State of South Carolina",75,200
-dataprivacyframework.gov,"Department of Commerce",70,200
+dataprivacyframework.gov,"Department of Commerce",69,200
 consumidor.gov,"Federal Trade Commission",87,200
 reno.gov,"City of Reno, NV",82,200
 marines.com,"U.S. Marine Corps",83,200
-realpropertyprofile.gov,"General Services Administration",71,200
+realpropertyprofile.gov,"General Services Administration",70,200
 access-board.gov,"United States Access Board",88,200
 usaspending.gov,"Department of the Treasury",81,200
 provo.gov,"City of Provo, UT",79,200
@@ -148,7 +148,7 @@ csb.gov,"Chemical Safety Board",74,200
 iowa.gov,"State of Iowa",97,200
 kentucky.gov,"State of Kentucky",79,200
 yorkcounty.gov,"York County, VA",76,200
-staffordcountyva.gov,"Stafford County, VA",81,200
+staffordcountyva.gov,"Stafford County, VA",77,200
 westminsterco.gov,"City of Westminster, CO",74,200
 oregon.gov,"State of Oregon",80,200
 chandleraz.gov,"City of Chandler, AZ",90,200
@@ -156,7 +156,7 @@ portal.arkansas.gov,"State of Arkansas",87,200
 lexingtonky.gov,"City of Lexington, KY",88,200
 orangecountyva.gov,"Orange County, VA",74,200
 phoenix.gov,"City of Phoenix, AZ",86,200
-sd.gov,"State of South Dakota",75,200
+sd.gov,"State of South Dakota",74,200
 pbc.gov,"Palm Beach County, FL",71,200
 chesterfield.gov,"Chesterfield County, VA",71,200
 harriscountytx.gov,"City of Harris County, TX",82,200
@@ -323,7 +323,7 @@ cityofpineypoint.com,"City of Piney Point Village, TX",80,200
 independencemo.gov,"City of Independence, MO",83,200
 nwcg.gov,"U.S. Department of Agriculture",90,200
 berkeleyca.gov,"City of Berkeley, CA",82,200
-scottsdaleaz.gov,"City of Scottsdale, AZ",88,200
+scottsdaleaz.gov,"City of Scottsdale, AZ",87,200
 bellevuewa.gov,"City of Bellevue, WA",75,200
 cityofhumbletx.gov,"City of Humble, TX",76,200
 moval.gov,"City of Moreno Valley, CA",94,200
@@ -350,7 +350,7 @@ springfield-ma.gov,"City of Springfield, MA",72,200
 northcharleston.org,"City of North Charleston, SC",79,200
 cincinnati-oh.gov,"City of Cincinnati, OH",77,200
 sandiego.gov,"City of San Diego, CA",82,200
-southbendin.gov,"City of South Bend, IN",91,200
+southbendin.gov,"City of South Bend, IN",90,200
 cityofconroe.org,"City of Conroe, TX",81,200
 killeentexas.gov,"City of Killeen, TX",75,200
 cambridgema.gov,"City of Cambridge, MA",80,200
@@ -381,7 +381,7 @@ waco-texas.com,"City of Waco, TX",89,200
 stocktonca.gov,"City of Stockton, CA",81,200
 bunkerhilltx.gov,"City of Houston, TX",77,200
 cityofsacramento.gov,"City of Sacramento, CA",92,200
-rva.gov,"City of Richmond, VA",75,200
+rva.gov,"City of Richmond, VA",74,200
 hawaii.gov,"State of Hawaii",98,200
 jcmo.gov,"City of Jefferson City, MO",79,200
 greshamoregon.gov,"City of Gresham, OR",83,200
@@ -446,7 +446,7 @@ rrb.gov,"Railroad Retirement Board",71,200
 wildfire.gov,"U.S. Department of Agriculture",88,200
 fueleconomy.gov,"Department of Energy",84,200
 namrs.net,"Department of Health and Human Services",71,200
-ntia.gov,"Department of Commerce",77,200
+ntia.gov,"Department of Commerce",76,200
 uscis.gov,"Department of Homeland Security",88,200
 read.gov,"Library of Congress",70,200
 everykidoutdoors.gov,"Department of the Interior",74,200
@@ -454,7 +454,7 @@ dfc.gov,"United States International Development Finance Corporation",78,200
 iawg.gov,"Department of State",70,200
 usgeo.gov,"National Aeronautics and Space Administration",76,200
 msha.gov,"Department of Labor",89,200
-newhire-reporting.com,"Administration for Children and Families",60,200
+newhire-reporting.com,"Administration for Children and Families",59,200
 jewishheritagemonth.gov,"Library of Congress",76,200
 ed.gov,"Department of Education",89,200
 jamesmadison.gov,"James Madison Memorial Fellowship Foundation",83,200
@@ -491,7 +491,7 @@ visitthecapitol.gov,"Architect of the Capitol",77,200
 deadiversion.usdoj.gov,"U.S. Department of Justice - Drug Enforcement Administration",75,200
 consumersentinel.gov,"Federal Trade Commission",63,200
 esc.gov,"Department of Transportation",76,200
-csscoperations.com,"Department of Health and Human Services",75,200
+csscoperations.com,"Department of Health and Human Services",74,200
 itdashboard.gov,"General Services Administration",74,200
 fjc.gov,"U.S. Courts",81,200
 stopfakes.gov,"Department of Commerce",83,200
@@ -501,7 +501,7 @@ ntsb.gov,"National Transportation Safety Board",74,200
 childstats.gov,"Department of Education",74,200
 ice.gov,"Department of Homeland Security",83,200
 fhfa.gov,"Federal Housing Finance Agency",94,200
-nj.gov,"State of New Jersey",83,200
+nj.gov,"State of New Jersey",81,200
 insurekidsnow.gov,"Department of Health and Human Services",83,200
 pclob.gov,"Privacy and Civil Liberties Oversight Board",71,200
 ems.gov,"Department of Transportation",90,200
@@ -523,7 +523,7 @@ pandemicoversight.gov,"Council of Inspectors General on Integrity and Efficiency
 healthit.gov,"Department of Health and Human Services",85,200
 chemcatbio.org,"Department of Energy",72,200
 navy.com,"Department of the Navy",80,200
-fedroom.com,"General Services Administration",71,200
+fedroom.com,"General Services Administration",70,200
 usmc-mccs.org,"U.S. Marine Corps",65,200
 spokanevalleywa.gov,"City of Spokane Valley, WA",69,200
 cityofpalmdaleca.gov,"City of Palmdale, CA",73,200
@@ -534,17 +534,17 @@ deerparktx.gov,"City of Deer Park, TX",73,200
 amtrak.com,"National Railroad Passenger Corporation",79,200
 identitytheft.gov,"Federal Trade Commission",88,200
 parks.marincounty.gov,"Marin County Parks, CA",,995
-lcrmscp.gov,"Department of the Interior",72,200
+lcrmscp.gov,"Department of the Interior",71,200
 tsunami.gov,"Department of Commerce",66,200
 tacoma.gov,"City of Tacoma, WA",89,200
 santaclarita.gov,"City of Santa Clarita, CA",87,200
 ornl.gov,"Department of Energy",80,200
 econsumer.gov,"Federal Trade Commission",74,200
 uscgnews.com,"U.S. Coast Guard",83,200
-bakersfieldcity.us,"City of Bakersfield, CA",77,200
+bakersfieldcity.us,"City of Bakersfield, CA",76,200
 ready.lacounty.gov,"",84,200
 gsfahome.org,"",64,200
-idco.dmdc.osd.mil,"",80,200
+idco.dmdc.osd.mil,"",79,200
 larises.org,"",83,200
 nhslacounty.org,"",84,200
 listoscalifornia.org,"",91,200
@@ -607,7 +607,7 @@ hennepincounty.gov,"Hennepin County",81,200
 brookhavenny.gov,"Town of Brookhaven",78,200
 mableton.gov,"City Of Mableton",77,200
 cityofracinewi.gov,"City of Racine, WI",87,200
-carsonca.gov,"City of Carson, CA",78,200
+carsonca.gov,"City of Carson, CA",77,200
 elpasotexas.gov,"The City of El Paso",79,200
 cityofsanrafael.org,"",86,200
 main.sbcounty.gov,"San Bernardino County, CA",81,200
@@ -640,7 +640,7 @@ deschutescounty.gov,"Deschutes County, OR",78,200
 schuylercountyny.gov,"Schuyler County, NY",79,200
 citruscounty.gov,"Citrus County, FL",74,200
 menomineecountymi.gov,"Menominee County, MI",84,200
-co.coos.or.us,"Coos County, OR",86,200
+co.coos.or.us,"Coos County, OR",85,200
 hardycounty.com,"Hardy County, WV",77,200
 co.ward.nd.us,"Ward County, ND",77,200
 florencecountysc.gov,"Florence County, SC",73,200
@@ -661,7 +661,7 @@ buttesd.gov,"Butte County, SD",84,200
 franklincountyga.gov,"Franklin County, GA",82,200
 madisoncounty.ny.gov,"Madison County, NY",75,200
 llanocounty.gov,"Llano County, TX",79,200
-henrycountyohio.gov,"Henry County, OH",75,200
+henrycountyohio.gov,"Henry County, OH",74,200
 pascocountyfl.gov,"Pasco County, FL",86,200
 tyrrellcounty.org,"Tyrrell County, NC",54,200
 jacksoncountytn.gov,"Jackson County, TN",80,200
@@ -688,7 +688,7 @@ kentoncountyky.gov,"Kenton County, KY",75,200
 echolscountyga.com,"Echols County, GA",67,200
 lymancounty.org,"Lyman County, SD",78,200
 douglascountymn.gov,"Douglas County, MN",71,200
-worcestermd.gov,"Worcester County, MD",71,200
+worcestermd.gov,"Worcester County, MD",70,200
 douglascountywa.gov,"Douglas County, WA",76,200
 wrightcountymn.gov,"Wright County, MN",76,200
 ectorcountytx.gov,"Ector County, TX",80,200
@@ -742,10 +742,10 @@ cottonwoodcountymn.gov,"Cottonwood County, MN",78,200
 newtoncountyms.net,"Newton County, MS",85,200
 beecounty.gov,"Bee County, TX",78,200
 marshallcountymn.gov,"Marshall County, MN",80,200
-co.shawano.wi.us,"Shawano County, WI",69,200
+co.shawano.wi.us,"Shawano County, WI",68,200
 parkcountymt.gov,"Park County, MT",69,200
 lincolnparish.gov,"Lincoln Parish, LA",85,200
-albanycountyny.gov,"Albany County, NY",75,200
+albanycountyny.gov,"Albany County, NY",74,200
 medinatx.gov,"Medina County, TX",83,200
 gregory.sdcounty.gov,"Gregory County, SD",82,200
 oktibbeha.ms.gov,"Oktibbeha County, MS",74,200
@@ -777,7 +777,7 @@ orangeburgcounty.org,"Orangeburg County, SC",71,200
 whitmancounty.gov,"Whitman County, WA",78,200
 lotwcounty.gov,"Lake of the Woods County, MN",76,200
 marquettecountywi.gov,"Marquette County, WI",89,200
-co.logan.oh.us,"Logan County, OH",63,200
+co.logan.oh.us,"Logan County, OH",62,200
 winnebagocountywi.gov,"Winnebago County, WI",72,200
 boonemo.gov,"Boone County, MO",93,200
 lunacounty.gov,"Luna County, NM",67,200
@@ -804,7 +804,7 @@ kcmn.us,"Kandiyohi County, MN",75,200
 matsu.gov,"Matanuska-Susitna Borough, AK",86,200
 ashtabulacounty.gov,"Ashtabula County, OH",79,200
 flemingcountyky.us,"Fleming County, KY",61,200
-mercercountypa.gov,"Mercer County, PA",80,200
+mercercountypa.gov,"Mercer County, PA",79,200
 ramseycountymn.gov,"Ramsey County, MN",88,200
 fremontcountyid.gov,"Fremont County, ID",79,200
 livingstoncountyky.org,"Livingston County, KY",73,200
@@ -853,7 +853,7 @@ bourbonky.com,"Bourbon County, KY",84,200
 dukescounty.gov,"Dukes County, MA",73,200
 piute.gov,"Piute County, UT",78,200
 gillespiecounty.gov,"Gillespie County, TX",79,200
-gov.orangecounty59.us,"Orange County, IN",66,200
+gov.orangecounty59.us,"Orange County, IN",65,200
 ks482.cichosting.com,"Woodson County, KS",61,200
 yorkcountysc.gov,"York County, SC",76,200
 isanticountymn.gov,"Isanti County, MN",75,200
@@ -1016,7 +1016,7 @@ franklincountyia.gov,"Franklin County, IA",74,200
 mdc.edu,"Miami Dade College",90,200
 tippecanoe.in.gov,"Tippecanoe County, IN",76,200
 newtoncountymo.com,"Newton County, MO",82,200
-laniercountyboc.com,"",63,200
+laniercountyboc.com,"",62,200
 washingtoncountytn.org,"Washington County, TN",75,200
 co.martin.mn.us,"Martin County, MN",71,200
 carboncountywy.gov,"Carbon County, WY",76,200
@@ -1116,7 +1116,7 @@ edisonohio.edu,"Edison State Community College",81,200
 ghc.edu,"Grays Harbor College",78,200
 hancockcountytn.com,"Hancock County, TN",75,200
 stclaircounty.org,"Saint Clair County, MI",70,200
-holtcounty.nebraska.gov,"Holt County, NE",78,200
+holtcounty.nebraska.gov,"Holt County, NE",77,200
 sjcfl.us,"Saint Johns County, FL",82,200
 scranton.psu.edu,"Pennsylvania State University-Penn State Scranton",88,200
 mcohio.org,"Montgomery County, OH",71,200
@@ -1162,7 +1162,7 @@ statefundca.com,"State of California",88,200
 dbw.parks.ca.gov,"State of California",86,200
 cartercountyky.com,"Carter County, KY",65,200
 co.forest.pa.us,"Forest County, PA",65,200
-jeffersoncounty.nebraska.gov,"Jefferson County, NE",74,200
+jeffersoncounty.nebraska.gov,"Jefferson County, NE",73,200
 asurams.edu,"Albany State University",80,200
 jcgov.us,"Jefferson County, ID",72,200
 crawfordco.org,"Crawford County, MI",77,200
@@ -1178,7 +1178,7 @@ co.maverick.tx.us,"Maverick County, TX",92,200
 bristolbayboroughak.us,"Bristol Bay Borough, AK",71,200
 manisteecountymi.gov,"Manistee County, MI",76,200
 osceola-county.org,"Osceola County, MI",66,200
-harlanonline.net,"Harlan County, KY",48,200
+harlanonline.net,"Harlan County, KY",47,200
 washconc.org,"Washington County, NC",81,200
 isleofwight.gov,"Isle of Wight County, VA",70,200
 charlesmixcounty.gov,"Charles Mix County, SD",90,200
@@ -1217,7 +1217,7 @@ westcog.org,"Western Connecticut Planning Region, CT",69,200
 fortlewis.edu,"Fort Lewis College",75,200
 daltonstate.edu,"Dalton State College",83,200
 dekalbtennessee.com,"DeKalb County, TN",77,200
-tazewellcountyva.org,"Tazewell County, VA",89,200
+tazewellcountyva.org,"Tazewell County, VA",88,200
 hardingcounty.org,"Harding County, NM",72,200
 iroquoiscountyil.gov,"Iroquois County, IL",79,200
 cypresscollege.edu,"Cypress College",74,200
@@ -1255,7 +1255,7 @@ princegeorgecountyva.gov,"Prince George County, VA",72,200
 earlycountyga.org,"Early County, GA",88,200
 utpb.edu,"The University of Texas Permian Basin",79,200
 woodburycountyiowa.gov,"Woodbury County, IA",74,200
-dougherty.ga.us,"Dougherty County, GA",84,200
+dougherty.ga.us,"Dougherty County, GA",83,200
 brunswickco.com,"Brunswick County, VA",70,200
 leecova.com,"Lee County, VA",90,200
 co.irion.tx.us,"Irion County, TX",76,200
@@ -1268,12 +1268,12 @@ gbcnv.edu,"Great Basin College",83,200
 grundycountytn.net,"Grundy County, TN",53,200
 wilkinson.co.ms.gov,"Wilkinson County, MS",68,200
 manoa.hawaii.edu,"University of Hawaii at Manoa",82,200
-co.champaign.oh.us,"Champaign County, OH",58,200
+co.champaign.oh.us,"Champaign County, OH",57,200
 ancollege.edu,"Aaniiih Nakoda College",87,200
 trippcounty.us,"Tripp County, SD",77,200
 taylorcountygov.com,"Taylor County, FL",76,200
 hodgemancountyks.com,"Hodgeman County, KS",82,200
-aransascountytx.gov,"Aransas County, TX",63,200
+aransascountytx.gov,"Aransas County, TX",62,200
 ship.edu,"Shippensburg University of Pennsylvania",89,200
 rrcc.edu,"Red Rocks Community College",79,200
 tamusa.edu,"Texas A&M University-San Antonio",81,200
@@ -1286,7 +1286,7 @@ miamioh.edu,"Miami University-Oxford",90,200
 beadlesd.org,"Beadle County, SD",73,200
 charlescityva.us,"Charles City County, VA",72,200
 whitecountytn.gov,"White County, TN",76,200
-collincountytx.gov,"Collin County, TX",78,200
+collincountytx.gov,"Collin County, TX",77,200
 ricecountymn.gov,"Rice County, MN",76,200
 carrollcountygov.us,"Carroll County, KY",85,200
 jeffersoncountywi.gov,"Jefferson County, WI",77,200
@@ -1307,7 +1307,7 @@ carrollcountyga.gov,"Carroll County, GA",74,200
 mckenziecountynd.gov,"McKenzie County, ND",89,200
 cleburnecountyar.com,"Cleburne County, AR",87,200
 miamidade.gov,"Miami-Dade County, FL",82,200
-southflorida.edu,"South Florida State College",74,200
+southflorida.edu,"South Florida State College",73,200
 brcoks.org,"Brown County, KS",76,200
 benhillcounty-ga.gov,"Ben Hill County, GA",73,200
 wm.edu,"William & Mary",87,200
@@ -1363,7 +1363,7 @@ caddo.gov,"Caddo Parish, LA",81,200
 grahamcounty.org,"Graham County, NC",67,200
 cooscountynh.gov,"Coös County, NH",71,200
 co.adams.id.us,"Adams County, ID",83,200
-utsa.edu,"The University of Texas at San Antonio",81,200
+utsa.edu,"The University of Texas at San Antonio",80,200
 shepherd.edu,"Shepherd University",71,200
 cayey.upr.edu,"University of Puerto Rico at Cayey",78,200
 comanchecountyok.gov,"Comanche County, OK",72,200
@@ -1527,7 +1527,7 @@ benewahcountyid.gov,"Benewah County, ID",75,200
 sangamonil.gov,"Sangamon County, IL",74,200
 allencountykentucky.com,"Allen County, KY",80,200
 bakercountyga.com,"Baker County, GA",84,200
-randolphctywv.gov,"Randolph County, WV",91,200
+randolphctywv.gov,"Randolph County, WV",90,200
 bmcc.edu,"Bay Mills Community College",89,200
 nmc.edu,"Northwestern Michigan College",76,200
 pawneecountyne.gov,"Pawnee County, NE",81,200
@@ -1679,7 +1679,7 @@ tarleton.edu,"Tarleton State University",87,200
 caswellcountync.gov,"Caswell County, NC",88,200
 jacksoncounty.in.gov,"Jackson County, IN",68,200
 mcintosh.okcounties.org,"McIntosh County, OK",72,200
-sciotocountyoh.com,"Scioto County, OH",73,200
+sciotocountyoh.com,"Scioto County, OH",72,200
 lawrencecountytn.gov,"Lawrence County, TN",79,200
 aacounty.org,"Anne Arundel County, MD",79,200
 kent.edu,"Kent State University at Kent",,995
@@ -1701,7 +1701,7 @@ randallcounty.gov,"Randall County, TX",77,200
 mnsu.edu,"Minnesota State University-Mankato",88,200
 polkcounty.nebraska.gov,"Polk County, NE",73,200
 hopkinscounty.ky.gov,"Hopkins County, KY",68,200
-msubillings.edu,"Montana State University Billings",76,200
+msubillings.edu,"Montana State University Billings",75,200
 pennco.org,"Pennington County, SD",72,200
 wvsom.edu,"West Virginia School of Osteopathic Medicine",83,200
 garfieldcountymt.gov,"Garfield County, MT",81,200
@@ -1720,7 +1720,7 @@ smcm.edu,"St. Mary's College of Maryland",89,200
 uis.edu,"University of Illinois Springfield",81,200
 montcalm.us,"Montcalm County, MI",75,200
 warrickcounty.gov,"Warrick County, IN",84,200
-csustan.edu,"California State University-Stanislaus",77,200
+csustan.edu,"California State University-Stanislaus",76,200
 mtsu.edu,"Middle Tennessee State University",88,200
 elkcountyks.org,"Elk County, KS",70,200
 meigscounty.org,"Meigs County, TN",78,200
@@ -1730,7 +1730,7 @@ allamakeecounty.iowa.gov,"Allamakee County, IA",83,200
 ritchiecounty.wv.gov,"Ritchie County, WV",64,200
 newberrycounty.gov,"Newberry County, SC",79,200
 co.nolan.tx.us,"Nolan County, TX",71,200
-harrisburg.psu.edu,"Pennsylvania State University-Penn State Harrisburg",87,200
+harrisburg.psu.edu,"Pennsylvania State University-Penn State Harrisburg",86,200
 montcounty.org,"Montmorency County, MI",80,200
 franklincountymaine.gov,"Franklin County, ME",85,200
 collin.edu,"Collin County Community College District",85,200
@@ -1768,7 +1768,7 @@ brookecountywv.gov,"Brooke County, WV",72,200
 webstercounty.wv.gov,"Webster County, WV",64,200
 pitt.edu,"University of Pittsburgh-Pittsburgh Campus",85,200
 famu.edu,"Florida Agricultural and Mechanical University",73,200
-uga.edu,"University of Georgia",80,200
+uga.edu,"University of Georgia",79,200
 arthurcounty.nebraska.gov,"Arthur County, NE",80,200
 co.mcculloch.tx.us,"McCulloch County, TX",68,200
 allencountyohio.com,"Allen County, OH",79,200
@@ -1878,9 +1878,9 @@ uma.edu,"University of Maine at Augusta",78,200
 mcnairycountytn.org,"McNairy County, TN",83,200
 fostercounty.com,"Foster County, ND",77,200
 jeffersoncountytn.gov,"Jefferson County, TN",70,200
-comfsm.fm,"College of Micronesia-FSM",72,200
+comfsm.fm,"College of Micronesia-FSM",71,200
 howardcounty.iowa.gov,"Howard County, IA",74,200
-muskingumcountyoh.gov,"Muskingum County, OH",86,200
+muskingumcountyoh.gov,"Muskingum County, OH",85,200
 shastacollege.edu,"Shasta College",87,200
 shackelfordcounty.org,"Shackelford County, TX",76,200
 pitkincounty.com,"Pitkin County, CO",73,200
@@ -1888,7 +1888,7 @@ perrycountymo.us,"Perry County, MO",73,200
 frostburg.edu,"Frostburg State University",79,200
 co.palo-pinto.tx.us,"Palo Pinto County, TX",71,200
 monroecountywv.gov,"Monroe County, WV",81,200
-monroecounty.iowa.gov,"Monroe County, IA",74,200
+monroecounty.iowa.gov,"Monroe County, IA",73,200
 johnsoncountytn.gov,"Johnson County, TN",87,200
 allenparishpolicejury.com,"Allen Parish, LA",64,200
 stmaryparishla.gov,"St. Mary Parish, LA",81,200
@@ -1912,12 +1912,12 @@ co.red-river.tx.us,"Red River County, TX",75,200
 lenawee.mi.us,"Lenawee County, MI",70,200
 franklincountyva.gov,"Franklin County, VA",75,200
 henrycounty.in.gov,"Henry County, IN",71,200
-lamourecountynd.com,"LaMoure County, ND",77,200
+lamourecountynd.com,"LaMoure County, ND",76,200
 bearlakecounty.info,"Bear Lake County, ID",86,200
 blainecounty-mt.gov,"Blaine County, MT",81,200
 guadalupecountynm.org,"Guadalupe County, NM",87,200
 hamiltoncountyil.gov,"Hamilton County, IL",92,200
-popecountyar.gov,"Pope County, AR",84,200
+popecountyar.gov,"Pope County, AR",83,200
 co.montague.tx.us,"Montague County, TX",74,200
 greencountywi.org,"Green County, WI",72,200
 madisoncountync.gov,"Madison County, NC",77,200
@@ -1963,7 +1963,7 @@ bradfordcountyfl.gov,"Bradford County, FL",79,200
 jacksoncounty.ky.gov,"Jackson County, KY",74,200
 independencecounty.com,"Independence County, AR",72,200
 utk.edu,"The University of Tennessee-Knoxville",94,200
-dubois.psu.edu,"Pennsylvania State University-Penn State DuBois",87,200
+dubois.psu.edu,"Pennsylvania State University-Penn State DuBois",86,200
 cochise.az.gov,"Cochise County, AZ",73,200
 ung.edu,"University of North Georgia",87,200
 co.kittson.mn.us,"Kittson County, MN",67,200
@@ -2062,7 +2062,7 @@ marioncoks.net,"Marion County, KS",72,200
 washco-md.net,"Washington County, MD",69,200
 umgc.edu,"University of Maryland Global Campus",91,200
 douglascountynv.gov,"Douglas County, NV",75,200
-stlouiscountymn.gov,"Saint Louis County, MN",79,200
+stlouiscountymn.gov,"Saint Louis County, MN",78,200
 thayercountyne.gov,"Thayer County, NE",89,200
 stcloudstate.edu,"Saint Cloud State University",66,200
 miracosta.edu,"MiraCosta College",78,200
@@ -2090,7 +2090,7 @@ countyofmerced.com,"Merced County, CA",73,200
 hayescounty.ne.gov,"Hayes County, NE",72,200
 marlborocounty.sc.gov,"Marlboro County, SC",78,200
 poseycountyin.gov,"Posey County, IN",85,200
-shenango.psu.edu,"Pennsylvania State University-Penn State Shenango",90,200
+shenango.psu.edu,"Pennsylvania State University-Penn State Shenango",89,200
 centrecountypa.gov,"Centre County, PA",76,200
 co.routt.co.us,"Routt County, CO",72,200
 newark.osu.edu,"Ohio State University-Newark Campus",87,200
@@ -2206,7 +2206,7 @@ lakecountytn.gov,"Lake County, TN",70,200
 carrollcountytn.gov,"Carroll County, TN",68,200
 aims.edu,"Aims Community College",83,200
 walworthco.org,"Walworth County, SD",80,200
-twiggscounty.us,"Twiggs County, GA",74,200
+twiggscounty.us,"Twiggs County, GA",73,200
 co.duval.tx.us,"Duval County, TX",71,200
 maconcountyga.gov,"Macon County, GA",63,200
 wisecounty.org,"Wise County, VA",73,200
@@ -2233,7 +2233,7 @@ shelbycounty-il.gov,"Shelby County, IL",85,200
 schoolcraft.edu,"Schoolcraft Community College District",77,200
 ontonagoncounty.org,"Ontonagon County, MI",69,200
 berriencounty.org,"Berrien County, MI",74,200
-acgov.org,"Alameda County, CA",77,200
+acgov.org,"Alameda County, CA",76,200
 breckinridgeky.com,"Breckinridge County, KY",87,200
 co.st-clair.il.us,"Saint Clair County, IL",72,200
 stevenscoks.org,"Stevens County, KS",72,200
@@ -2281,7 +2281,7 @@ clayton.edu,"Clayton  State University",87,200
 prairiecounty.org,"Prairie County, MT",75,200
 rppj.com,"Rapides Parish, LA",87,200
 southtexascollege.edu,"South Texas College",89,200
-clintoncountyny.gov,"Clinton County, NY",72,200
+clintoncountyny.gov,"Clinton County, NY",71,200
 bosquecounty.gov,"Bosque County, TX",72,200
 sheridancountymt.gov,"Sheridan County, MT",85,200
 bexar.org,"Bexar County, TX",75,200
@@ -2310,7 +2310,7 @@ washingtongov.org,"Washington County, OH",74,200
 mayvillestate.edu,"Mayville State University",75,200
 co.castro.tx.us,"Castro County, TX",72,200
 whitesidecountyil.gov,"Whiteside County, IL",74,200
-washtenaw.org,"Washtenaw County, MI",70,200
+washtenaw.org,"Washtenaw County, MI",69,200
 polktx.gov,"Polk County, TX",77,200
 putnamil.gov,"Putnam County, IL",73,200
 esu.edu,"East Stroudsburg University of Pennsylvania",79,200
@@ -2368,7 +2368,7 @@ rockinghamcountyva.gov,"Rockingham County, VA",76,200
 midland.edu,"Midland College",81,200
 fayettetn.us,"Fayette County, TN",85,200
 shelbycountymo.com,"Shelby County, MO",81,200
-henrycountyga.gov,"Henry County, GA",77,200
+henrycountyga.gov,"Henry County, GA",76,200
 niagaracounty.gov,"Niagara County, NY",70,200
 hardincountyky.gov,"Hardin County, KY",79,200
 lincoln.edu,"Lincoln University",85,200
@@ -2393,7 +2393,7 @@ clareco.net,"Clare County, MI",74,200
 ellsworthcounty.org,"Ellsworth County, KS",71,200
 nmhu.edu,"New Mexico Highlands University",74,200
 cameron.edu,"Cameron University",78,200
-pima.gov,"Pima County, AZ",88,200
+pima.gov,"Pima County, AZ",87,200
 uvm.edu,"University of Vermont",83,200
 menardcountyil.gov,"Menard County, IL",64,200
 andrewcounty.org,"Andrew County, MO",73,200
@@ -2641,7 +2641,7 @@ co.sumner.ks.us,"Sumner County, KS",76,200
 caldwellcounty.ky.gov,"Caldwell County, KY",65,200
 franklincounty.ky.gov,"Franklin County, KY",65,200
 mclennan.gov,"McLennan County, TX",73,200
-broomecountyny.gov,"Broome County, NY",70,200
+broomecountyny.gov,"Broome County, NY",69,200
 morgancountyga.gov,"Morgan County, GA",75,200
 flatheadcounty.gov,"Flathead County, MT",89,200
 waldocountyme.gov,"Waldo County, ME",75,200
@@ -2678,7 +2678,7 @@ claycountymn.gov,"Clay County, MN",76,200
 stonewallcounty.org,"Stonewall County, TX",74,200
 danecounty.gov,"Dane County, WI",83,200
 co.frio.tx.us,"Frio County, TX",72,200
-henrycounty.iowa.gov,"Henry County, IA",75,200
+henrycounty.iowa.gov,"Henry County, IA",74,200
 moreheadstate.edu,"Morehead State University",84,200
 lunenburgva.gov,"Lunenburg County, VA",71,200
 piercecountyne.gov,"Pierce County, NE",83,200
@@ -2785,7 +2785,7 @@ crockettcountytn.com,"Crockett County, TN",83,200
 brantleycounty-ga.gov,"Brantley County, GA",75,200
 hfcc.edu,"Henry Ford College",76,200
 ripleycountymissouri.org,"Ripley County, MO",67,200
-mvsu.edu,"Mississippi Valley State University",71,200
+mvsu.edu,"Mississippi Valley State University",70,200
 bluefieldstate.edu,"Bluefield State University",91,200
 lakeandpen.com,"Lake and Peninsula Borough, AK",65,200
 laramiecountywy.gov,"Laramie County, WY",86,200
@@ -2864,7 +2864,7 @@ emmetcounty.org,"Emmet County, MI",78,200
 navajocountyaz.gov,"Navajo County, AZ",76,200
 wilkinsoncounty.net,"Wilkinson County, GA",70,200
 haywoodtn.gov,"Haywood County, TN",80,200
-umassglobal.edu,"University of Massachusetts Global",78,200
+umassglobal.edu,"University of Massachusetts Global",77,200
 co.freestone.tx.us,"Freestone County, TX",74,200
 dilloncountysc.org,"Dillon County, SC",75,200
 utrgv.edu,"The University of Texas Rio Grande Valley",86,200
@@ -2979,7 +2979,7 @@ northern.edu,"Northern State University",87,200
 hookercountyne.gov,"Hooker County, NE",78,200
 flaglercounty.gov,"Flagler County, FL",91,200
 pcparish.org,"Pointe Coupee Parish, LA",87,200
-henrycounty.ky.gov,"Henry County, KY",73,200
+henrycounty.ky.gov,"Henry County, KY",72,200
 dallascollege.edu,"",91,200
 magoffincounty.ky.gov,"Magoffin County, KY",71,200
 letchercounty.ky.gov,"Letcher County, KY",71,200
@@ -3016,7 +3016,7 @@ kerrcountytx.gov,"Kerr County, TX",88,200
 rolettecountynd.gov,"Rolette County, ND",84,200
 ouhsc.edu,"University of Oklahoma-Health Sciences Center",89,200
 dickinsonstate.edu,"Dickinson State University",91,200
-clark.wa.gov,"Clark County, WA",83,200
+clark.wa.gov,"Clark County, WA",82,200
 grundycountyil.gov,"Grundy County, IL",80,200
 stutsmancounty.gov,"Stutsman County, ND",91,200
 gmu.edu,"George Mason University",,995
@@ -3111,7 +3111,7 @@ buffalocountywi.gov,"Buffalo County, WI",86,200
 marshall.sdcounties.org,"Marshall County, SD",87,200
 nwabor.org,"Northwest Arctic Borough, AK",83,200
 thenicc.edu,"Nebraska Indian Community College",88,200
-kewauneeco.org,"Kewaunee County, WI",81,200
+kewauneeco.org,"Kewaunee County, WI",80,200
 warrencounty.in.gov,"Warren County, IN",71,200
 iredellcountync.gov,"Iredell County, NC",75,200
 neshobacounty.net,"Neshoba County, MS",66,200
@@ -3140,7 +3140,7 @@ kiowacountyok.us,"Kiowa County, OK",64,200
 co.door.wi.gov,"Door County, WI",77,200
 clarkecounty.iowa.gov,"Clarke County, IA",78,200
 claycountytngov.com,"Clay County, TN",82,200
-beaver.psu.edu,"Pennsylvania State University-Penn State Beaver",87,200
+beaver.psu.edu,"Pennsylvania State University-Penn State Beaver",86,200
 coal.okcounties.org,"Coal County, OK",70,200
 wpunj.edu,"William Paterson University of New Jersey",85,200
 uah.edu,"University of Alabama in Huntsville",76,200
@@ -3198,10 +3198,10 @@ coahomacounty.net,"Coahoma County, MS",80,200
 hamiltoncountyne.gov,"Hamilton County, NE",90,200
 co.otero.nm.us,"Otero County, NM",75,200
 co.san-augustine.tx.us,"San Augustine County, TX",71,200
-venturacounty.gov,"Ventura County, CA",59,200
+venturacounty.gov,"Ventura County, CA",58,200
 newcastlede.gov,"New Castle County, DE",76,200
 knoxcountymo.org,"Knox County, MO",74,200
-graysharbor.us,"Grays Harbor County, WA",67,200
+graysharbor.us,"Grays Harbor County, WA",66,200
 una.edu,"University of North Alabama",81,200
 jfcountyks.com,"Jefferson County, KS",75,200
 ufonline.ufl.edu,"University of Florida-Online",90,200
@@ -3212,7 +3212,7 @@ uog.edu,"University of Guam",76,200
 ascensionparish.net,"Ascension Parish, LA",88,200
 greenriver.edu,"Green River College",81,200
 sanjuancountywa.gov,"San Juan County, WA",73,200
-wilkesbarre.psu.edu,"Pennsylvania State University-Penn State Wilkes-Barre",87,200
+wilkesbarre.psu.edu,"Pennsylvania State University-Penn State Wilkes-Barre",86,200
 cscc.edu,"Columbus State Community College",88,200
 schenectadycountyny.gov,"Schenectady County, NY",70,200
 oldhamcountyky.gov,"Oldham County, KY",84,200
@@ -3323,7 +3323,7 @@ chisagocountymn.gov,"Chisago County, MN",79,200
 sanilaccounty.gov,"Sanilac County, MI",70,200
 tomgreencountytx.gov,"Tom Green County, TX",73,200
 hamiltontn.gov,"Hamilton County, TN",79,200
-transylvaniacounty.org,"Transylvania County, NC",74,200
+transylvaniacounty.org,"Transylvania County, NC",73,200
 co.howard.tx.us,"Howard County, TX",76,200
 greenecountypa.gov,"Greene County, PA",81,200
 southamptoncounty.org,"Southampton County, VA",71,200
@@ -3356,13 +3356,13 @@ knoxcounty.org,"Knox County, TN",76,200
 colfaxcountyne.gov,"Colfax County, NE",83,200
 warrencountyva.gov,"Warren County, VA",73,200
 lafayettecountymo.gov,"Lafayette County, MO",65,200
-decaturcountytn.gov,"Decatur County, TN",85,200
+decaturcountytn.gov,"Decatur County, TN",84,200
 eiu.edu,"Eastern Illinois University",79,200
-mcleancountynd.gov,"McLean County, ND",85,200
+mcleancountynd.gov,"McLean County, ND",84,200
 delhi.edu,"SUNY College of Technology at Delhi",76,200
 deltacountyco.gov,"Delta County, CO",76,200
 wellscounty.org,"Wells County, IN",85,200
-claycounty.iowa.gov,"Clay County, IA",73,200
+claycounty.iowa.gov,"Clay County, IA",72,200
 carrollcountynh.gov,"Carroll County, NH",78,200
 henrico.gov,"Henrico County, VA",91,200
 desotocountyms.gov,"DeSoto County, MS",76,200
@@ -3388,7 +3388,7 @@ somervell.co,"Somervell County, TX",73,200
 pasquotankcountync.org,"Pasquotank County, NC",76,200
 aamu.edu,"Alabama A & M University",,995
 hancockcountyga.gov,"Hancock County, GA",80,200
-nmu.edu,"Northern Michigan University",96,200
+nmu.edu,"Northern Michigan University",95,200
 osumarion.osu.edu,"Ohio State University-Marion Campus",88,200
 mywakulla.com,"Wakulla County, FL",71,200
 uakron.edu,"University of Akron Main Campus",83,200
@@ -3450,7 +3450,7 @@ berkeleywv.org,"Berkeley County, WV",74,200
 assumptionla.com,"Assumption Parish, LA",72,200
 haskellcountytx.gov,"Haskell County, TX",73,200
 uams.edu,"University of Arkansas for Medical Sciences",83,200
-vppjla.com,"Vernon Parish, LA",71,200
+vppjla.com,"Vernon Parish, LA",70,200
 tpcg.org,"Terrebonne Parish, LA",80,200
 montgomerycountymd.gov,"Montgomery County, MD",83,200
 co.zapata.tx.us,"Zapata County, TX",72,200
@@ -3460,7 +3460,7 @@ maricopa.gov,"Maricopa County, AZ",72,200
 co.muskegon.mi.us,"Muskegon County, MI",78,200
 faulknercountyar.gov,"Faulkner County, AR",82,200
 co.upton.tx.us,"Upton County, TX",72,200
-ccsu.edu,"Central Connecticut State University",78,200
+ccsu.edu,"Central Connecticut State University",77,200
 parkcounty-wy.gov,"Park County, WY",92,200
 co.lancaster.pa.us,"Lancaster County, PA",75,200
 co.coke.tx.us,"Coke County, TX",71,200
@@ -3500,7 +3500,7 @@ moultriecountyil.gov,"Moultrie County, IL",80,200
 greenvillecounty.org,"Greenville County, SC",53,200
 crittendencountyar.org,"Crittenden County, AR",82,200
 co.tuscarawas.oh.us,"Tuscarawas County, OH",77,200
-tulsacounty.org,"Tulsa, OK",71,200
+tulsacounty.org,"Tulsa, OK",70,200
 pocahontascountywv.com,"Pocahontas County, WV",85,200
 loudoun.gov,"Loudoun County, VA",73,200
 bentoncounty.in.gov,"Benton County, IN",87,200
@@ -3556,7 +3556,7 @@ madisonco.virginia.gov,"Madison County, VA",77,200
 murraycountyga.org,"Murray County, GA",72,200
 brookingscountysd.gov,"Brookings County, SD",72,200
 rtc.edu,"Renton Technical College",83,200
-greaterallegheny.psu.edu,"Pennsylvania State University-Penn State Greater Allegheny",90,200
+greaterallegheny.psu.edu,"Pennsylvania State University-Penn State Greater Allegheny",89,200
 jacksoncounty-il.gov,"Jackson County, IL",76,200
 keithcountyne.gov,"Keith County, NE",58,200
 ucr.edu,"University of California-Riverside",79,200
@@ -3616,9 +3616,8 @@ nwfsc.edu,"Northwest Florida State College",83,200
 lssu.edu,"Lake Superior State University",86,200
 uspis.gov,"United States Postal Service",69,200
 msutexas.edu,"Midwestern State University",93,200
-godirect.gov,"Department of the Treasury",69,200
+godirect.gov,"Department of the Treasury",68,200
 wcut.maine.gov,"Washington County Unorganized Territories, ME",77,200
-proudlyservingbook.com,"",97,200
 countyofcolumbia.org,"Columbia County, AR",58,200
 bowmannd.com,"Bowman County, ND",78,200
 usca.edu,"University of South Carolina Aiken",81,200
@@ -3656,13 +3655,13 @@ anaheim.net,"City of Anaheim, CA",70,200
 integrity.gov,"Office of Government Ethics",63,200
 toledo.oh.gov,"City of Toledo, OH",98,200
 facadatabase.gov,"General Services Administration",72,200
-healthdata.gov,"Department of Health and Human Services",87,200
+healthdata.gov,"Department of Health and Human Services",86,200
 gmta.gov,"Department of Health and Human Services",76,200
 memphistn.gov,"City of Memphis, TN",87,200
 sji.gov,"State Justice Institute",63,200
 rrnm.gov,"City of Rio Rancho, NM",75,200
 fleta.gov,"Department of Homeland Security",81,200
-fmshrc.gov,"Federal Mine Safety and Health Review Commission",71,200
+fmshrc.gov,"Federal Mine Safety and Health Review Commission",70,200
 frtr.gov,"Environmental Protection Agency",70,200
 enviroflash.info,"Environmental Protection Agency",77,200
 doioig.gov,"Department of the Interior",84,200
@@ -3671,7 +3670,7 @@ marshallcenter.org,"George C. Marshall European Center for Security Studies",76,
 usgovernmentmanual.gov,"Government Publishing Office",68,200
 miamigardens-fl.gov,"City of Miami Gardens, FL",74,200
 garlandtx.gov,"City of Garland, TX",75,200
-fdms.gov,"General Services Administration",69,200
+fdms.gov,"General Services Administration",68,200
 nemi.gov,"Department of the Interior",78,200
 vaccines.gov,"Department of Health and Human Services",84,200
 georgewbushlibrary.gov,"National Archives and Records Administration",77,200
@@ -3679,7 +3678,7 @@ lynnma.gov,"City of Lynn, MA",71,200
 albanyny.gov,"City of Albany, NY",80,200
 springvalleytx.com,"City of Spring Valley Village, TX",72,200
 murfreesborotn.gov,"City of Murfreesboro, TN",78,200
-secretservice.gov,"Department of Homeland Security",83,200
+secretservice.gov,"Department of Homeland Security",82,200
 eac.gov,"Election Assistance Commission",78,200
 donotcall.gov,"Federal Trade Commission",75,200
 rochestermn.gov,"City of Rochester, MN",94,200
@@ -3695,7 +3694,7 @@ airnow.gov,"Environmental Protection Agency",77,200
 columbiasc.gov,"City of Columbia, SC",76,200
 smithsonianstore.com,"Smithsonian Institution",84,200
 fan.gov,"Department of State",73,200
-spaceweather.gov,"Department of Commerce",75,200
+spaceweather.gov,"Department of Commerce",74,200
 abilenetx.gov,"City of Abilene, TX",76,200
 clu-in.org,"Environmental Protection Agency",75,200
 crb.gov,"Library of Congress",63,200
@@ -3726,12 +3725,12 @@ nersc.gov,"Department of Energy",92,200
 norfolk.gov,"City of Norfolk, VA",75,200
 escondido.gov,"City of Escondido, CA",74,200
 mspb.gov,"Merit Systems Protection Board",88,200
-usaid.gov,"U.S. Agency for International Development",67,200
+usaid.gov,"U.S. Agency for International Development",66,200
 fda.gov,"Department of Health and Human Services",92,200
 lbjlibrary.org,"National Archives and Records Administration",79,200
 quantum.gov,"Executive Office of the President",84,200
 oshrc.gov,"Occupational Safety and Health Review Commission",94,200
-vaoig.gov,"Department of Veterans Affairs",78,200
+vaoig.gov,"Department of Veterans Affairs",77,200
 ct.gov,"State of Connecticut",91,200
 plano.gov,"City of Plano, TX",79,200
 yonkersny.gov,"City of Yonkers, NY",75,200
@@ -3747,19 +3746,19 @@ noradsanta.org,"North American Aerospace Defense Command",71,200
 jlab.org,"Department of Energy",81,200
 newyorkfed.org,"Federal Reserve Board",62,200
 cbp.gov,"Department of Homeland Security",94,200
-airknowledge.gov,"Environmental Protection Agency",68,200
+airknowledge.gov,"Environmental Protection Agency",67,200
 fayettevillenc.gov,"City of Fayetteville, NC",84,200
 snohomishcountywa.gov,"Snohomish County, WA",77,200
 concordnc.gov,"City of Concord, NC",78,200
 wilmingtonnc.gov,"City of Wilmington, NC",90,200
 citap.gov,"Department of Energy",78,200
 federalreserveeducation.org,"Federal Reserve Board",73,200
-fargond.gov,"City of Fargo, ND",74,200
+fargond.gov,"City of Fargo, ND",73,200
 jerseycitynj.gov,"City of Jersey City, NJ",71,200
 iprcenter.gov,"Department of Justice",75,200
 charlestonwv.gov,"City of Charleston, WV",67,200
 asianpacificheritage.gov,"Library of Congress",78,200
-uspreventiveservicestaskforce.org,"Department of Health and Human Services",73,200
+uspreventiveservicestaskforce.org,"Department of Health and Human Services",72,200
 nmb.gov,"National Mediation Board",75,200
 temeculaca.gov,"City of Temecula, CA",81,200
 si.edu,"Smithsonian Institution",,995
@@ -3768,7 +3767,7 @@ iwtsd.gov,"Department of Defense",72,200
 alabama.gov,"State of Alabama",79,200
 vermont.gov,"State of Vermont",83,200
 louisiana.gov,"State of Louisiana",78,200
-tn.gov,"State of Tennessee",82,200
+tn.gov,"State of Tennessee",87,200
 smithsoniancraftshow.org,"Smithsonian Institution",74,200
 pmf.gov,"Office of Personnel Management",72,200
 manufacturing.gov,"Department of Commerce",75,200
@@ -3841,7 +3840,7 @@ reaganlibrary.gov,"National Archives and Records Administration",76,200
 eftps.gov,"Department of the Treasury",72,200
 usbr.gov,"Department of the Interior",64,200
 mississippi.gov,"State of Mississippi",75,200
-maine.gov,"State of Maine",77,200
+maine.gov,"State of Maine",76,200
 cecc.gov,"The Legislative Branch",80,200
 coldcaserecords.gov,"Civil Rights Cold Case Records Review Board",87,200
 sns.gov,"Department of Energy",66,200
@@ -3942,15 +3941,15 @@ fdicconnect.gov,"Federal Deposit Insurance Corporation",68,200
 fai.gov,"General Services Administration",78,200
 solanocounty.gov,"County of Solano, CA",81,200
 myskillsmyfuture.org,"Employment and Training Administration",77,200
-consumer.gov,"Federal Trade Commission",88,200
-gsaauctions.gov,"General Services Administration",77,200
+consumer.gov,"Federal Trade Commission",87,200
+gsaauctions.gov,"General Services Administration",76,200
 southhoustontx.gov,"City of South Houston, TX",77,200
 burbankca.gov,"City of Burbank, CA",90,200
 epa.maps.arcgis.com,"Environmental Protection Agency",75,200
 usna.edu,"United States Naval Academy",75,200
 wisconsin.gov,"State of Wisconsin",95,200
 pasadenatx.gov,"City of Pasadena, TX",72,200
-nih.gov,"Department of Health and Human Services",86,200
+nih.gov,"Department of Health and Human Services",85,200
 walkermi.gov,"City of Grand Rapids, MI",74,200
 westutx.gov,"City of West University Place, TX",78,200
 murrietaca.gov,"City of Murrieta, CA",77,200
@@ -3965,7 +3964,7 @@ daytonohio.gov,"City of Dayton, OH",75,200
 aoc.gov,"Architect of the Capitol",84,200
 whitehouse.gov,"Executive Office of the President",96,200
 durhamnc.gov,"City of Durham, NC",75,200
-lansingmi.gov,"City of Lansing, MI",84,200
+lansingmi.gov,"City of Lansing, MI",83,200
 scuspd.gov,"The Supreme Court",70,200
 nrd.gov,"Department of Defense",79,200
 srcity.org,"City of Santa Rosa, CA",73,200
@@ -3973,7 +3972,7 @@ ci.friendswood.tx.us,"City of Friendswood, TX",77,200
 govinfo.gov,"Government Publishing Office",84,200
 nicic.gov,"Department of Justice",86,200
 cooperhewitt.org,"Smithsonian Institution",90,200
-trumanlibrary.gov,"National Archives and Records Administration",79,200
+trumanlibrary.gov,"National Archives and Records Administration",78,200
 geoplatform.gov,"Department of the Interior",73,200
 rockfordil.gov,"City of Rockford, IL",73,200
 openworld.gov,"Open World Leadership Center",74,200
@@ -3995,7 +3994,7 @@ usccr.gov,"U.S. Commission on Civil Rights",96,200
 weather.gov,"Department of Commerce",60,200
 mymoney.gov,"Department of the Treasury",79,200
 syr.gov,"City of Syracuse, NY",90,200
-dsac.gov,"Department of Justice",82,200
+dsac.gov,"Department of Justice",81,200
 cfcmaine.org,"Combined Federal Campaign",89,200
 sec.gov,"Securities and Exchange Commission",82,200
 fbi.gov,"Department of Justice",69,200
@@ -4048,7 +4047,7 @@ lanecountyor.gov,"Lane County, OR",77,200
 vercounty.org,"Vermilion County, IL",73,200
 bakercountyor.gov,"Baker County, OR",66,200
 cpars.gov,"General Services Administration",75,200
-acf.gov,"Department of Health and Human Services",81,200
+acf.gov,"Department of Health and Human Services",80,200
 gallatinco.illinois.gov,"Gallatin County, IL",82,200
 cambriacountypa.gov,"Cambria County, PA",84,200
 neiu.edu,"Northeastern Illinois University",74,200
@@ -4089,6 +4088,9 @@ gqc-ga.org,"Quitman County, GA",70,200
 co.ocean.nj.us,"Ocean County, NJ",61,200
 malheurco.org,"Malheur County, OR",68,200
 cravencountync.gov,"Craven County, NC",73,200
+proudlyservingbook.com,"",98,200
+data.ca.gov,"",92,200
+handbook.data.ca.gov,"",81,200
 stennis.gov,"Stennis Center for Public Service",,996
 bendoregon.gov,"City of Bend, OR",,996
 ellago-tx.gov,"City of El Lago, TX",,996
@@ -4279,6 +4281,28 @@ co.marshall.in.us,"Marshall County, IN",,997
 mitigationcommission.gov,"Department of the Interior",,997
 co.walker.tx.us,"Walker County, TX",,997
 co.hendricks.in.us,"Hendricks County, IN",,997
+nci-fyi.org,"Department of Health and Human Services",,994
+neabigread.org,"National Endowment for the Arts",,994
+pmi.gov,"U.S. Agency for International Development",,994
+workwithusaid.gov,"U.S. Agency for International Development",,994
+internetforall.gov,"Department of Commerce",,994
+tswg.gov,"Department of Defense",,994
+neglecteddiseases.gov,"U.S. Agency for International Development",,994
+heartlandcfc.org,"Combined Federal Campaign",,994
+childreninadversity.gov,"U.S. Agency for International Development",,994
+prosperafrica.gov,"U.S. Agency for International Development",,994
+itap.gov,"U.S. Department of Agriculture",,994
+coralreef.gov,"Department of the Interior",,994
+pr100.gov,"Department of Energy",,994
+nrel.gov,"Department of Energy",,994
+niem.gov,"Department of Homeland Security",,994
+bosque.gov,"U.S. Department of Agriculture",,994
+vavmc.com,"Department of Veterans Affairs",,994
+usalearning.gov,"Office of Personnel Management",,994
+ars-grin.gov,"U.S. Department of Agriculture",,994
+usip.gov,"United States Institute of Peace",,994
+lukefretwell.com,"",,994
+genai.ca.gov,"",,994
 hydecountync.gov,"Hyde County, NC",,403
 lorainccc.edu,"Lorain County Community College",,408
 jmu.edu,"",,404
@@ -4290,30 +4314,73 @@ cartercountymontana.squarespace.com,"Carter County, MT",,404
 ualr.edu,"",,404
 uprp.edu,"University of Puerto Rico at Ponce",,408
 energycodes.gov,"Department of Energy",,404
+allentownpa.gov,"City of Allentown, PA",,994
+adlnet.gov,"Department of Defense",,994
 mcleancounty.ky.gov,"McLean County, KY",,403
 decaturcountyiowa.gov,"Decatur County, IA",,403
+bentoncountyar.gov,"Benton County, AR",,994
+tuolumnecounty.ca.gov,"Tuolumne County, CA",,994
+pencol.edu,"Peninsula College",,994
+amadorgov.org,"Amador County, CA",,994
+claycountygov.com,"Clay County, FL",,994
+berkeleycountysc.gov,"Berkeley County, SC",,994
 bellairetx.gov,"City of Bellaire, TX",,408
+file.lacounty.gov,"",,994
+buttevotes.net,"",,994
+arts.ca.gov,"State of California",,994
 lhc.ca.gov,"State of California",,403
+ccfc.ca.gov,"State of California",,994
 chicoer.com,"",,403
 palegis.us,"",,408
+ace.cbp.gov,"",,994
+umflint.edu,"University of Michigan-Flint",,994
 tcnj.edu,"The College of New Jersey",,403
 gc.cuny.edu,"CUNY Graduate School and University Center",,403
 co.montgomery.ny.us,"Montgomery County, NY",,503
 northamptoncounty.org,"Northampton County, PA",,408
+trimblecounty.ky.gov,"Trimble County, KY",,994
+umfk.maine.edu,"University of Maine at Fort Kent",,993
 gov.perrycountytn.com,"Perry County, TN",,403
 mst.edu,"Missouri University of Science and Technology",,408
+carolinascollege.edu,"Carolinas College of Health Sciences",,994
 personcountync.gov,"Person County, NC",,403
+waynecountyutah.org,"Wayne County, UT",,993
 apachecountyaz.gov,"Apache County, AZ",,403
+carlislecounty.ky.gov,"Carlisle County, KY",,994
 musselshellcounty.org,"Musselshell County, MT",,403
+jackcounty.org,"Jack County, TX",,994
+countycourthouse.org,"Washington County, OK",,994
 franklincoms.weebly.com,"Franklin County, MS",,404
+carson.org,"Carson City, NV",,994
 co.greene.ia.us,"Greene County, IA",,403
 wilsoncountync.gov,"Wilson County, NC",,403
+uncg.edu,"University of North Carolina at Greensboro",,994
 mccookcountysd.com,"McCook County, SD",,408
+new.uno.edu,"University of New Orleans",,993
+co.bee.tx.us,"Bee County, TX",,993
+auglaizecounty.org,"Auglaize County, OH",,994
 worcester.edu,"Worcester State University",,408
+prowerscounty.net,"Prowers County, CO",,994
 laredo.edu,"",,404
 adacounty.id.gov,"Ada County, ID",,403
+cfo.gov,"General Services Administration",,994
+cdo.gov,"General Services Administration",,994
+cttso.gov,"Department of Defense",,994
+onhir.gov,"Department of the Interior",,994
 chattanooga.gov,"City of Chattanooga, TN",,403
+fpc.gov,"General Services Administration",,994
+girlshealth.gov,"Department of Health and Human Services",,993
+evaluation.gov,"General Services Administration",,993
+psa.gov,"Court Services and Offender Supervision",,994
+scijinks.gov,"National Aeronautics and Space Administration",,993
+brownsvilletx.gov,"City of Brownsville, TX",,994
+cio.gov,"General Services Administration",,993
+myfuture.com,"Department of Defense",,994
+todaysmilitary.com,"Department of Defense",,994
 ohio.gov,"State of Ohio",,404
+askjan.org,"Department of Labor",,994
+firelands.bgsu.edu,"Bowling Green State University-Firelands",,994
+switzerland-county.com,"Switzerland County, IN",,994
 morriscountyks.org,"Morris County, KS",,996
 portagecounty-oh.gov,"Portage County, OH",,996
 highlandcova.org,"Highland County, VA",,996
@@ -4324,12 +4391,14 @@ usmma.edu,"United States Merchant Marine Academy",,403
 claycountyillinois.org,"Clay County, IL",,403
 grahamcountyks.com,"Graham County, KS",,996
 yolocounty.gov,"Yolo County, CA",,403
+ucsd.edu,"University of California-San Diego",,994
 suno.edu,"Southern University at New Orleans",,403
 wichitacountytx.com,"Wichita County, TX",,996
 wilkescountyga.org,"Wilkes County, GA",,996
 mercercounty.ky.gov,"Mercer County, KY",,404
 ucmerced.edu,"University of California-Merced",,403
 sulc.edu,"Southern University Law Center",,403
+fitnyc.edu,"Fashion Institute of Technology",,994
 glenville.edu,"Glenville State University",,996
 co.waushara.wi.us,"Waushara County, WI",,996
 haskellcounty.org,"Haskell County, KS",,996
@@ -4480,19 +4549,23 @@ nuecesco.com,"Nueces County, TX",,403
 perquimanscountync.gov,"Perquimans County, NC",,403
 cor.net,"City of Richardson, TX",,403
 dietaryguidelines.gov,"U.S. Department of Agriculture",,403
+studentaid.gov,"Department of Education",,994
 santaclaraca.gov,"City of Santa Clara, CA",,403
 newarkca.gov,"City of Newark, CA",,403
 michigan.gov,"State of Michigan",,403
 unioncountync.gov,"Union County, NC",,403
 stopbullying.gov,"Department of Health and Human Services",,403
 usmarshals.gov,"Department of Justice",,403
+nwbc.gov,"Small Business Administration",,994
 organdonor.gov,"Department of Health and Human Services",,403
 foodsafety.gov,"Department of Health and Human Services",,403
 hrsa.gov,"Department of Health and Human Services",,403
 salmonrecovery.gov,"Department of the Interior",,408
 uscourts.gov,"U.S. Courts",,403
+waste.gov,"Executive Office of the President",,994
 lacity.gov,"City of Los Angeles, CA",,403
 chicago.gov,"City of Chicago, IL",,403
+notify.gov,"General Services Administration",,994
 cbo.gov,"Congressional Budget Office",,403
 oup.org,"Department of Housing and Urban Development",,403
 airdefenseartillery.com,"Department of Defense",,403
@@ -4501,6 +4574,8 @@ cityofkaty.com,"City of Katy, TX",,403
 osac.gov,"Department of State",,403
 justthinktwice.gov,"Department of Justice",,403
 buckeyeaz.gov,"City of Buckeye, AZ",,403
+cgaux.org,"U.S. Coast Guard Auxiliary",,994
+info.benefitscal.com,"",,994
 fns.usda.gov,"",,403
 rd.usda.gov,"",,403
 joincalfire.com,"",,403
@@ -4575,6 +4650,7 @@ plymouthcountyiowa.gov,"Plymouth County, IA",,996
 wcsu.edu,"Western Connecticut State University",,403
 sjcindiana.gov,"Saint Joseph County, IN",,996
 evangelineparishpolicejury.com,"Evangeline Parish, LA",,996
+discover.pbc.gov,"Palm Beach County, FL",,994
 tmcc.edu,"Truckee Meadows Community College",,996
 evergreen.edu,"The Evergreen State College",,996
 atkinsoncounty.org,"Atkinson County, GA",,996
@@ -4635,13 +4711,16 @@ gasconadecounty.org,"Gasconade County, MO",,996
 co.nobles.mn.us,"Nobles County, MN",,996
 itis.gov,"Smithsonian Institution",,408
 ftb.ca.gov,"",,403
+opa.ca.gov,"State of California",,993
 rookscountyks.gov,"Rooks County, KS",,996
 gladwincounty-mi.gov,"Gladwin County, MI",,996
 upstate.edu,"Upstate Medical University",,996
+lewiscountymo.org,"Lewis County, MO",,994
 sonoma.edu,"Sonoma State University",,996
 fire.ca.gov,"State of California",,403
 osfm.fire.ca.gov,"State of California",,403
 bof.fire.ca.gov,"State of California",,403
+otda.ny.gov,"",,994
 pinellastaxcollector.gov,"",,403
 douglascountyor.gov,"Douglas County, OR",,996
 gatewaycc.edu,"GateWay Community College",,996
@@ -4671,6 +4750,8 @@ leecounty.org,"Lee County, IA",,996
 osuokc.edu,"Oklahoma State University-Oklahoma City",,996
 uco.edu,"University of Central Oklahoma",,403
 co.rock.wi.us,"Rock County, WI",,403
+sdparks.org,"County of San Diego, CA",,994
+sddac.com,"County of San Diego, CA",,994
 carlsbadca.gov,"City of Carlsbad, CA",,403
 regulations.gov,"General Services Administration",,403
 campusdrugprevention.gov,"Department of Justice",,403
@@ -4686,9 +4767,11 @@ cityoforange.org,"City of Orange, CA",,403
 jacksonms.gov,"City of Jackson, MS",,996
 usda.gov,"U.S. Department of Agriculture",,403
 eda.gov,"Department of Commerce",,996
+medicalbillrights.net,"Department of Health and Human Services",,994
 investor.gov,"Securities and Exchange Commission",,403
 lascruces.gov,"City of Las Cruces, NM",,996
 nhtsa.gov,"Department of Transportation",,403
+medicalbillrights.org,"Department of Health and Human Services",,994
 fremontpolice.gov,"City of Fremont, CA",,403
 trafficsafetymarketing.gov,"Department of Transportation",,403
 cityoffullerton.com,"City of Fullerton, CA",,403
@@ -4700,6 +4783,7 @@ osha.gov,"Department of Labor",,403
 dea.gov,"Department of Justice",,403
 goodyearaz.gov,"City of Goodyear, AZ",,403
 commerce.gov,"Department of Commerce",,996
+fatherhoodgov.info,"Department of Health and Human Services",,994
 fishersin.gov,"City of Fishers, IN",,996
 rural.gov,"U.S. Department of Agriculture",,403
 useuosh.org,"Department of Labor",,996
@@ -4726,15 +4810,23 @@ albemarle.org,"Albemarle County, VA",,403
 tempe.gov,"City of Tempe, AZ",,403
 getinternet.gov,"Federal Communications Commission",,403
 pomonaca.gov,"City of Pomona, CA",,403
+treatmentworksforvets.org,"Department of Veterans Affairs",,994
 fremont.gov,"City of Fremont, CA",,403
 yumaaz.gov,"City of Yuma, AZ",,403
 dvbic.org,"Department of Defense",,403
 cityofcarrollton.com,"City of Carrollton, TX",,403
+hcgov.us,"Department of Health and Human Services",,994
 nsa.gov,"Department of Defense",,403
 hhs.gov,"Department of Health and Human Services",,403
 detroitmi.gov,"City of Detroit, MI",,996
 congress.gov,"",,996
 semo.edu,"Southeast Missouri State University",,408
+wsco.edu,"Washington State College of Ohio",,994
+co.becker.mn.us,"Becker County, MN",,993
+odu.edu,"Old Dominion University",,994
 russellcountyky.gov,"Russell County, KY",,500
+salemstate.edu,"Salem State University",,994
 bellcounty.ky.gov,"Bell County, KY",,502
 webstercountyia.gov,"Webster County, IA",,403
+caldwellco.missouri.org,"Caldwell County, MO",,994
+maconnc.org,"Macon County, NC",,994
