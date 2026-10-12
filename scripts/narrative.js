@@ -4,6 +4,7 @@
 // Registered as Nunjucks filters in eleventy.config.js.
 
 import { humanizeLabel } from './charts/format.js';
+import { topicKeysFrom } from './topics.js';
 
 const fmt = new Intl.NumberFormat('en-US');
 const n = v => fmt.format(v);
@@ -38,15 +39,19 @@ export function groupsSentence(groups, topic = 'overall') {
 
 // "Every group scores lowest on usability, and every group scores highest on security."
 export function indicatorPatternSentence(groups, audits) {
-    const topics = ['accessibility', 'botability', 'security', 'usability'];
     const label = t => ((audits[t] && audits[t].displayName) || t).toLowerCase();
     const scored = groups.filter(g => g.scoredCount > 0);
     if (!scored.length) return '';
+    // Only indicators every group has an average for: a topic the auditor
+    // has not emitted yet (no sites carry it) has no average to compare.
+    const topics = topicKeysFrom(audits).filter(t => scored.every(g => Number.isFinite(g.averages[t])));
+    if (topics.length < 2) return '';
     const lows = new Map(), highs = new Map();
     for (const g of scored) {
         const sorted = [...topics].sort((a, b) => g.averages[a] - g.averages[b]);
         lows.set(sorted[0], (lows.get(sorted[0]) || 0) + 1);
-        highs.set(sorted[3], (highs.get(sorted[3]) || 0) + 1);
+        const highest = sorted[sorted.length - 1];
+        highs.set(highest, (highs.get(highest) || 0) + 1);
     }
     const [lowTopic, lowCount] = [...lows.entries()].sort((a, b) => b[1] - a[1])[0];
     const [highTopic, highCount] = [...highs.entries()].sort((a, b) => b[1] - a[1])[0];

@@ -1,0 +1,22 @@
+---
+home: false
+layout: layouts/default
+showLastUpdated: true
+
+# One page per entry of topicRankings.federal (see _data/topicRankings.js and
+# ../topic.html). Page data comes from the chunk via ../rankings.11tydata.js.
+pagination:
+  data: topicRankings.federal
+  size: 1
+  alias: chunk
+  addAllPagesToCollections: true
+permalink: "/rankings/federal/{{ chunk.topic }}/{% if chunk.pageNumber > 0 %}{{ chunk.pageNumber }}/{% endif %}"
+---
+
+{% set pagination = chunk.pagination %}
+{% set member = chunk.member %}
+{% set specificAttribute = chunk.topic %}
+{% set currentsort = "federal" %}
+{% set showPagination = true %}
+
+{% include "sortcontent.html" %}

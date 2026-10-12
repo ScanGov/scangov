@@ -11,11 +11,11 @@ import stateNames from './stateNames.json' with { type: 'json' };
 import countyGeo from './countyGeo.json' with { type: 'json' };
 import { countyStatesFor } from '../scripts/county-states.js';
 import { loadAudits } from '../scripts/load-audits.js';
-
-const TOPICS = ['overall', 'accessibility', 'botability', 'security', 'usability'];
+import { allTopicKeysFrom } from '../scripts/topics.js';
 
 export default async function () {
     const audits = await loadAudits();
+    const TOPICS = allTopicKeysFrom(audits);
     const { states } = countyStatesFor(domainData(), stateNames, audits, countyGeo);
     const byName = new Map(states.map(s => [s.name, s]));
     // Range of averages per topic across states with data, for the sequential

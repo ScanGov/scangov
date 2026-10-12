@@ -17,12 +17,13 @@
 //   fully scanned  responding and not partial (scoredCount); the population
 //                  behind every figure on the page
 
-import { TOPICS, isCounty, stateCodeOf, isResponding, scoreOf, isPartial, rankDense, gradeOf, domainKey } from './counties.js';
+import { isCounty, stateCodeOf, isResponding, scoreOf, isPartial, rankDense, gradeOf, domainKey } from './counties.js';
+import { topicKeysFrom, allTopicKeysFrom } from './topics.js';
 import { slugify } from './charts/format.js';
 import { joinCounties } from './county-geo.js';
 import { gradeDistributionSpec, topicAveragesSpec, topFailuresSpec, histogramSpec, areaSpec } from './charts/specs.js';
 import {
-    ALL_TOPICS, isScored, attributeIndex, topicLabel, summarize, scanWindow, buildGroupCharts,
+    isScored, attributeIndex, topicLabel, summarize, scanWindow, buildGroupCharts,
 } from './group-summary.js';
 
 const TOP_SITES = 3;
@@ -58,6 +59,8 @@ function rankedCopies(records, topic, nationalRanks) {
 }
 
 function buildCharts(state, national, audits) {
+    const TOPICS = topicKeysFrom(audits);
+    const ALL_TOPICS = allTopicKeysFrom(audits);
     const idBase = `county-${state.slug}`;
     const respondingText = `${state.scoredCount} fully scanned ${state.name} county sites`;
     const topicHref = topic => `/rankings/counties/${state.slug}/${topic}/`;
@@ -121,7 +124,7 @@ function buildCharts(state, national, audits) {
 // Map data for one state: every county path in the state, joined to the
 // scanned site where one exists, with the score per topic so the include can
 // color by whichever topic the page shows. Counties with no site stay unjoined.
-function buildMap(code, records, geo) {
+function buildMap(code, records, geo, ALL_TOPICS) {
     const stateGeo = geo && geo.states && geo.states[code];
     if (!stateGeo) return null;
     const joined = joinCounties(records, geo);
@@ -150,6 +153,7 @@ function buildMap(code, records, geo) {
 }
 
 export function buildCountyStates(domains, stateNames, audits = {}, geo = null) {
+    const ALL_TOPICS = allTopicKeysFrom(audits);
     const attrIndex = attributeIndex(audits);
     const counties = domains.filter(isCounty);
     const responding = counties.filter(isResponding);
@@ -203,7 +207,7 @@ export function buildCountyStates(domains, stateNames, audits = {}, geo = null) 
             counties: byTopic.overall,
             byTopic,
             top3,
-            map: buildMap(code, records, geo),
+            map: buildMap(code, records, geo, ALL_TOPICS),
             ...summarize(stateScored, attrIndex),
         });
     }
@@ -216,7 +220,9 @@ export function buildCountyStates(domains, stateNames, audits = {}, geo = null) 
     const ranked = states.filter(s => s.scoredCount > 0);
     const stateRanks = {};
     for (const topic of ALL_TOPICS) {
-        const sorted = [...ranked].sort((a, b) => b.averages[topic] - a.averages[topic]);
+        // A state has no rank on a topic none of its sites carry yet.
+        const withAverage = ranked.filter(s => Number.isFinite(s.averages[topic]));
+        const sorted = [...withAverage].sort((a, b) => b.averages[topic] - a.averages[topic]);
         let rank = 0, prev = null;
         stateRanks[topic] = new Map();
         for (const s of sorted) {

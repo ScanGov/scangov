@@ -1,18 +1,21 @@
 ---
 home: false
 layout: layouts/default
-title: "City websites: usability rankings"
-descriptionHtml: 'Project ScanGov <a href="https://standards.scangov.org/usability/">usability</a> rankings for U.S. city government websites, with the most common failures.'
 showLastUpdated: true
-keywords: city government websites, rankings, usability
 
+# One page per entry of topicRankings.cities (see _data/topicRankings.js and
+# ../topic.html). Page data comes from the chunk via ../rankings.11tydata.js.
 pagination:
-  data: usabilitytags.cities
-  size: 100
-  alias: member
+  data: topicRankings.cities
+  size: 1
+  alias: chunk
+  addAllPagesToCollections: true
+permalink: "/rankings/cities/{{ chunk.topic }}/{% if chunk.pageNumber > 0 %}{{ chunk.pageNumber }}/{% endif %}"
 ---
 
-{% set specificAttribute = "usability" %}
+{% set pagination = chunk.pagination %}
+{% set member = chunk.member %}
+{% set specificAttribute = chunk.topic %}
 {% set currentsort = "cities" %}
 {% set showPagination = true %}
 {% set chartsInclude = "group-charts.html" %}

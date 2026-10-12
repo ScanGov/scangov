@@ -21,7 +21,7 @@ export default {
       return `${data.site.url}/profile/${slugify(String(key), { decamelize: false })}/overall/`;
     },
     modified: (data) => (data.domain?.time ? new Date(data.domain.time).toISOString() : data.updatedTime?.iso || undefined),
-    description: (data) => (data.domain ? describeProfile(data.domain, data.profileView) : undefined),
+    description: (data) => (data.domain ? describeProfile(data.domain, data.profileView, data.audits) : undefined),
     // Where this site sits in the rankings (group hub, and the state page for
     // counties), plus the size of that state's county list for the summary.
     siteContext: (data) => {
@@ -33,7 +33,7 @@ export default {
       }
       return context;
     },
-    schema: (data) => (data.domain ? toJsonLd(profileSchema(data.domain, data.profileView, data.site.url, data.page.url, data.siteContext)) : undefined),
+    schema: (data) => (data.domain ? toJsonLd(profileSchema(data.domain, data.profileView, data.site.url, data.page.url, data.siteContext, data.audits)) : undefined),
     summary: (data) => {
       if (!data.domain || data.profileView !== 'overview') return undefined;
       const category = categoryOf(data.domain.urlkey);

@@ -42,7 +42,7 @@ eleventyComputed:
           </a>
         </div>
       </div>
-      {% set cards = site.data %}
+      {% set cards = topics.names %}
       {% for card in cards %}
         {% set lower = card.toLowerCase() %}
         {% if domain.scores[lower] %}

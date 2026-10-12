@@ -14,7 +14,7 @@
 {% set nat = countyNational %}
 {% set avg = nat.averages[topic] %}
 {% set gradeA = nat.gradeDistribution[topic].A %}
-{% set indicatorKeys = ["accessibility", "botability", "security", "usability"] %}
+{% set indicatorKeys = topics.keys %}
 
 <div class="row g-3 mb-2 mt-3">
   <div class="col-6 col-lg-3">

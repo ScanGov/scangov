@@ -25,14 +25,17 @@ If `SCANGOV_HASH_SECRET` is not set, the build skips the fetch and uses the comm
 
 ### Data structure
 
-Each domain record includes pre-computed scores across 4 audit topics:
+Each domain record includes pre-computed scores per audit topic. The topic list comes from the data repo's `standards/audits.json` at build time (`scripts/topics.js`, `_data/topics.js`), alphabetical with readability last:
 
 - **Accessibility** - Individual Lighthouse accessibility audits
 - **Botability** - Crawlability, sitemaps, robots.txt, schema markup
 - **Security** - HTTPS, CSP, HSTS, security.txt, .gov domain
-- **Usability** - Performance metrics, meta tags, readability, viewport
+- **Usability** - Performance metrics, meta tags, viewport
+- **Readability** - Reading level (once the auditor emits it; pages render without it until then)
 
-The auditor API returns only domains audited within the last 30 days that have complete data across all 4 topics.
+The auditor API returns only domains audited within the last 30 days that have complete data across the topics listed in `REQUIRED_TOPICS` in `scripts/fetch-auditor-data.js`.
+
+Set `SCANGOV_AUDITS_PATH` to build against a local copy of `audits.json` (the dev server reads `../data/standards/audits.json` on its own).
 
 ## Maintainer
 

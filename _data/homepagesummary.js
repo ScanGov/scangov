@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import { cityDomainList, stateDomainList, countyDomainList, eduDomainList } from './variables.js';
-
-const topics = ['botability', 'accessibility', 'usability', 'security'];
+import { loadAudits } from '../scripts/load-audits.js';
+import { topicKeysFrom } from '../scripts/topics.js';
 
 // domains.js truncates to ~54 domains in dev/serve mode to keep local builds fast (most of that
 // cost is rendering one page per domain, which doesn't apply here - this only computes averages).
@@ -18,7 +18,9 @@ function average(domains, getValue) {
     return Math.round(values.reduce((sum, v) => sum + v, 0) / values.length);
 }
 
-function summarize(domains) {
+// A topic no record carries yet averages to null, which the homepage cards
+// render as a dash.
+function summarize(domains, topics) {
     let usable = domains.filter(d => d.status === 200);
     let summary = { overall: average(usable, d => d.overallScore) };
     topics.forEach(topic => {
@@ -27,7 +29,8 @@ function summarize(domains) {
     return summary;
 }
 
-export default function () {
+export default async function () {
+    const topics = topicKeysFrom(await loadAudits());
     let allDomains = domainData();
 
     let cityMap = new Map(cityDomainList.map(l => [l, l]));
@@ -42,11 +45,11 @@ export default function () {
     let federal = allDomains.filter(d => !cityMap.get(d.urlkey) && !stateMap.get(d.urlkey) && !countyMap.get(d.urlkey) && !eduMap.get(d.urlkey));
 
     return {
-        all: summarize(allDomains),
-        cities: summarize(cities),
-        states: summarize(states),
-        federal: summarize(federal),
-        counties: summarize(counties),
-        edu: summarize(edu),
+        all: summarize(allDomains, topics),
+        cities: summarize(cities, topics),
+        states: summarize(states, topics),
+        federal: summarize(federal, topics),
+        counties: summarize(counties, topics),
+        edu: summarize(edu, topics),
     };
 }

@@ -1,18 +1,9 @@
 import { default as domainData } from './domains.js';
-import * as fs from 'fs';
+import { loadAudits } from '../scripts/load-audits.js';
+import { topicKeysFrom } from '../scripts/topics.js';
 
 export default async function () {
-  let audits = {};
-  try {
-    if (process.env.ELEVENTY_RUN_MODE === 'serve') {
-      audits = JSON.parse(fs.readFileSync('../data/standards/audits.json', 'utf8'));
-    } else {
-      const resp = await fetch('https://github.com/ScanGov/data/raw/refs/heads/main/standards/audits.json');
-      if (resp.ok) audits = await resp.json();
-    }
-  } catch (e) {
-    // fallback to formatted key names
-  }
+  const audits = await loadAudits();
 
   const lookup = {};
   for (const [key, val] of Object.entries(audits)) {
@@ -24,7 +15,7 @@ export default async function () {
   }
 
   const domains = domainData().filter(d => d.status === 200);
-  const indicators = ['accessibility', 'botability', 'security', 'usability'];
+  const indicators = topicKeysFrom(audits);
   const charts = {};
 
   for (const key of indicators) {
@@ -72,11 +63,15 @@ export default async function () {
     indicatorColors[key] = (audits[key] && audits[key].color) || '#dee2e6';
   }
 
+  // Light-mode bar colors for the Chart.js charts on the pulse pages (the
+  // dark ones are the audits.json icon pastels). Readability matches
+  // --sg-indicator-readability in scangov.css.
   const indicatorColorsLight = {
     accessibility: '#1d4e9a',
     botability: '#4d7c00',
     security: '#a85000',
     usability: '#7b3fa0',
+    readability: '#c2185b',
   };
 
   return { charts, totalDomains: domains.length, gradeDistribution, passRates, indicatorColors, indicatorColorsLight, indicatorLabels: lookup };

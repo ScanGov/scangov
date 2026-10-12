@@ -6,14 +6,14 @@ import stateNames from './stateNames.json' with { type: 'json' };
 import countyGeo from './countyGeo.json' with { type: 'json' };
 import { countyStatesFor } from '../scripts/county-states.js';
 import { loadAudits } from '../scripts/load-audits.js';
-import { TOPICS } from '../scripts/counties.js';
+import { topicKeysFrom } from '../scripts/topics.js';
 
 export default async function () {
     const audits = await loadAudits();
     const { states } = countyStatesFor(domainData(), stateNames, audits, countyGeo);
     const items = [];
     for (const state of states) {
-        for (const topic of TOPICS) {
+        for (const topic of topicKeysFrom(audits)) {
             items.push({ state, topic, topicInfo: audits[topic] || { displayName: topic[0].toUpperCase() + topic.slice(1) } });
         }
     }

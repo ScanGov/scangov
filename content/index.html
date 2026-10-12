@@ -40,7 +40,7 @@ keywords: government domains, government websites
           </a>
         </div>
       </div>
-      {% for card in site.data %}
+      {% for card in topics.names %}
         {% set lower = card.toLowerCase() %}
         <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
           <div class="card card-grade {% if homepagesummary.all[lower] !== null %}text-bg-{{ homepagesummary.all[lower] | colorify }}{% endif %}" id="summary-{{ lower }}-card">
@@ -72,7 +72,7 @@ keywords: government domains, government websites
       <h2 class="mb-3">Top issues</h2>
       <p>Top 5 failing checks per indicator.</p>
       <div class="row sg-charts-even">
-        {% for indicator in site.data %}
+        {% for indicator in topics.names %}
           {% set lower = indicator.toLowerCase() %}
           {% set catInfo = audits[lower] %}
           <div class="col-12 col-lg-6 mb-4 d-flex flex-column">
@@ -104,7 +104,7 @@ keywords: government domains, government websites
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var topics = ['overall', 'accessibility', 'botability', 'security', 'usability'];
+    var topics = {{ topics.all | dump | safe }};
     var categoryPaths = { all: '', cities: 'cities/', counties: 'counties/', states: 'states/', federal: 'federal/', edu: 'edu/' };
     var hubLabels = { all: 'rankings for all sites', cities: 'city rankings', counties: 'county rankings', states: 'state rankings', federal: 'federal rankings', edu: 'education rankings' };
     var colorForScore = function(score) {

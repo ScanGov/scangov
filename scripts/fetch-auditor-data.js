@@ -13,6 +13,12 @@ const AUDITOR_URL = 'https://audits.my.scangov.com/all';
 const HASH_SECRET = process.env.SCANGOV_HASH_SECRET;
 const REBUILD_WAIT_MS = 10 * 60 * 1000;
 const REBUILD_POLL_MS = 15 * 1000;
+// Topics every graded record must carry. Deliberately not derived from
+// audits.json: a topic that exists in the standards before the auditor has
+// rebuilt the homepages payload with it would drop every record from the
+// build. Add 'readability' here only after the auditor emits
+// scores.readability in homepages/latest.json (readability-topic-plan.md,
+// rollout step 5).
 const REQUIRED_TOPICS = ['botability', 'accessibility', 'security', 'usability'];
 const OUTPUT_FILE = './public/data/myscangov_homepage_audits.json';
 const MIN_RECORD_COUNT = 900;

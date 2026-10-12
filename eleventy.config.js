@@ -11,7 +11,7 @@ import { EleventyRenderPlugin } from '@11ty/eleventy'
 import * as fs from 'fs'
 import pluginFilters from './_config/filters.js'
 import fontAwesomePlugin from '@11ty/font-awesome'
-import { getData } from './scripts/getdata.js'
+import { loadAudits } from './scripts/load-audits.js'
 import { sitemapSectionFor } from './scripts/sitemap-sections.js';
 import slimHtmlPlugin from './_config/slim-html.js';
 import { isCore, isProfiles, isSingle, describeRole } from './_config/build-role.js';
@@ -28,12 +28,10 @@ import { readdirSync, statSync } from 'fs';
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
     eleventyConfig.addFilter('sitemapSection', (url) => sitemapSectionFor(url));
-    let auditsFile = 'https://github.com/ScanGov/data/raw/refs/heads/main/standards/audits.json';
-    let getDataLocally = false;
-    if (process.env.ELEVENTY_RUN_MODE === 'serve') {
-        getDataLocally = true;
-    }
-    const audits = await getData(auditsFile, getDataLocally);
+    // Same cached audits.json as the `audits` global and the data files
+    // (scripts/load-audits.js): local file on the dev server or with
+    // SCANGOV_AUDITS_PATH, GitHub main otherwise.
+    const audits = await loadAudits();
 
     eleventyConfig.addPlugin(fontAwesomePlugin)
 
@@ -272,6 +270,8 @@ export default async function(eleventyConfig) {
         return output
     })
 
+    // Average of one topic's score over the responding sites that carry it;
+    // null when none does (a topic the auditor has not emitted yet).
     eleventyConfig.addFilter('specificAverageScore', (data, attribute = null) => {
         if (!attribute || attribute === 'overall') {
             return scoreCalc(data)
@@ -279,12 +279,13 @@ export default async function(eleventyConfig) {
             let totalScores = 0
             let totalItems = 0
             data.forEach((d) => {
-                if (d.status === 200) {
-                    totalScores += d.scores[attribute].score
+                const s = d.status === 200 && d.scores && d.scores[attribute] ? d.scores[attribute].score : null
+                if (hasScore(s)) {
+                    totalScores += s
                     totalItems++
                 }
             })
-            return Math.round(totalScores / totalItems)
+            return totalItems ? Math.round(totalScores / totalItems) : null
         }
     })
 
@@ -352,28 +353,6 @@ export default async function(eleventyConfig) {
         if (score >= 70) return 'warning'
         if (score >= 0) return 'danger'
         return 'inaccessible'
-    }
-
-    async function getData(url, local = false) {
-        return new Promise(async (resolve) => {
-            if (local) {
-                let fileLoc = url.replace('https://github.com/ScanGov/data/raw/refs/heads/main/', '');
-                resolve(JSON.parse(fs.readFileSync('../data/' + fileLoc, 'utf8')));
-            } else {
-                try {
-                    const response = await fetch(url);
-                    if (!response.ok) {
-                        throw new Error(`Response status: ${response.status}`);
-                    }
-
-                    const json = await response.json();
-                    console.log('got ' + url);
-                    resolve(json);
-                } catch (error) {
-                    throw new Error(`Fetch error: ${error.message}`);
-                }
-            }
-        });
     }
 
     eleventyConfig.addFilter('colorify', (score) => {

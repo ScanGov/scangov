@@ -1,18 +1,21 @@
 ---
 home: false
 layout: layouts/default
-title: "State websites: botability rankings"
-descriptionHtml: 'Project ScanGov <a href="https://standards.scangov.org/botability/">botability</a> rankings for U.S. state government websites, with the most common failures.'
 showLastUpdated: true
-keywords: state government websites, rankings, botability
 
+# One page per entry of topicRankings.states (see _data/topicRankings.js and
+# ../topic.html). Page data comes from the chunk via ../rankings.11tydata.js.
 pagination:
-  data: botability.states
-  size: 100
-  alias: member
+  data: topicRankings.states
+  size: 1
+  alias: chunk
+  addAllPagesToCollections: true
+permalink: "/rankings/states/{{ chunk.topic }}/{% if chunk.pageNumber > 0 %}{{ chunk.pageNumber }}/{% endif %}"
 ---
 
-{% set specificAttribute = "botability" %}
+{% set pagination = chunk.pagination %}
+{% set member = chunk.member %}
+{% set specificAttribute = chunk.topic %}
 {% set currentsort = "states" %}
 {% set showPagination = true %}
 {% set chartsInclude = "group-charts.html" %}

@@ -165,7 +165,7 @@
                         {% include "filter-pill.html" %}
                     </ul>
                     <ul class="nav nav-pills filter small">
-                        {% for field in site.mapFields %}
+                        {% for field in topics.mapFields %}
                         {% if field == "Overall" %}
                         {% set pillTitle = "All" %}
                         {% set pillIcon = "fa-solid fa-circle-notch" %}

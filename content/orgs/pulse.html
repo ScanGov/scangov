@@ -84,22 +84,17 @@ eleventyComputed:
           if (s >= 60) return 'D';
           return 'F';
         }
+        {# Overall plus one bar per topic (topics.keys, from audits.json). #}
         var orgSlug = '{{ org.name | slugify }}';
         var gradesUrls = [
-          '/org/' + orgSlug + '/',
-          '/org/' + orgSlug + '/?attr=accessibility',
-          '/org/' + orgSlug + '/?attr=botability',
-          '/org/' + orgSlug + '/?attr=security',
-          '/org/' + orgSlug + '/?attr=usability'
+          '/org/' + orgSlug + '/'{% for t in topics.keys %},
+          '/org/' + orgSlug + '/?attr={{ t }}'{% endfor %}
         ];
         var gradesScores = [
-          {{ org.domains | averageScore }},
-          {{ org.domains | specificAverageScore('accessibility') }},
-          {{ org.domains | specificAverageScore('botability') }},
-          {{ org.domains | specificAverageScore('security') }},
-          {{ org.domains | specificAverageScore('usability') }}
+          {{ org.domains | averageScore }}{% for t in topics.keys %},
+          {{ (org.domains | specificAverageScore(t)) or 0 }}{% endfor %}
         ];
-        var baseLabels = ['Overall', 'Accessibility', 'Botability', 'Security', 'Usability'];
+        var baseLabels = {{ topics.mapFields | dump | safe }};
         var gradesEl = document.getElementById('grades-chart');
         var gradesChart = new Chart(gradesEl, {
           type: 'bar',
@@ -152,7 +147,7 @@ eleventyComputed:
     <span class="d-none" id="sg-clapping-ref"><i class="fa-solid fa-hands-clapping"></i></span>
     <p>Top 10 failing checks across all domains in this organization per indicator.</p>
     <div class="row">
-      {% for indicator in site.data %}
+      {% for indicator in topics.names %}
         {% set lower = indicator.toLowerCase() %}
         {% set catInfo = audits[lower] %}
         <div class="col-12 col-lg-10 mb-4">
@@ -179,18 +174,17 @@ eleventyComputed:
         var indicatorLabels = {{ dashboard.indicatorLabels | dump | safe }};
         var indicatorColors = {{ dashboard.indicatorColors | dump | safe }};
         var indicatorColorsLight = {{ dashboard.indicatorColorsLight | dump | safe }};
+        {# One key per topic; a topic missing from a record is an empty object. #}
         var orgDomains = [
           {% for domain in org.domains %}
           {
-            accessibility: {{ domain.accessibility | dump | safe }},
-            botability: {{ domain.botability | dump | safe }},
-            security: {{ domain.security | dump | safe }},
-            usability: {{ domain.usability | dump | safe }}
+            {% for t in topics.keys %}{{ t }}: {{ (domain[t] or {}) | dump | safe }}{% if not loop.last %},{% endif %}
+            {% endfor %}
           }{% if not loop.last %},{% endif %}
           {% endfor %}
         ];
 
-        ['accessibility', 'botability', 'security', 'usability'].forEach(function (key) {
+        {{ topics.keys | dump | safe }}.forEach(function (key) {
           var counts = {};
           orgDomains.forEach(function (domain) {
             var attrs = domain[key] || {};

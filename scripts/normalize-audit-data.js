@@ -17,8 +17,10 @@ import { isPartial } from './counties.js';
 
 export const NO_CONTENT_STATUS = 995;
 
+// Per-topic flat result objects are listed by name; a topic absent from a
+// record is simply not there to delete.
 const SCORE_FIELDS = [
-  'scores', 'botability', 'accessibility', 'usability', 'security',
+  'scores', 'botability', 'accessibility', 'usability', 'security', 'readability',
   'overallPossibleScore', 'overallScoreCount', 'overallScore', 'ari', 'fk',
 ];
 

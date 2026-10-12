@@ -1,18 +1,21 @@
 ---
 home: false
 layout: layouts/default
-title: "County websites: usability rankings"
-descriptionHtml: 'Project ScanGov <a href="https://standards.scangov.org/usability/">usability</a> rankings for U.S. county government websites, with the most common failures and a page for every state.'
 showLastUpdated: true
-keywords: county government websites, rankings, usability
 
+# One page per entry of topicRankings.counties (see _data/topicRankings.js
+# and ../topic.html). Page data comes from the chunk via counties.11tydata.js.
 pagination:
-    data: usabilitytags.counties
-    size: 100
-    alias: member
+  data: topicRankings.counties
+  size: 1
+  alias: chunk
+  addAllPagesToCollections: true
+permalink: "/rankings/counties/{{ chunk.topic }}/{% if chunk.pageNumber > 0 %}{{ chunk.pageNumber }}/{% endif %}"
 ---
 
-{% set specificAttribute = "usability" %}
+{% set pagination = chunk.pagination %}
+{% set member = chunk.member %}
+{% set specificAttribute = chunk.topic %}
 {% set currentsort = "counties" %}
 {% set showPagination = true %}
 {% set chartsInclude = "county-charts.html" %}

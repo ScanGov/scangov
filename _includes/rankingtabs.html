@@ -48,7 +48,7 @@ and page.url.indexOf("/counties/") == -1 and page.url.indexOf("/edu/") == -1
     {% set pillActive = not specificAttribute %}
     {% include "filter-pill.html" %}
 
-    {% for topic in site.data %}
+    {% for topic in topics.names %}
     {% set topicKey = topic.toLowerCase() %}
     {% set pillTitle = topic %}
     {% set pillUrl = "/rankings/" + directory + topicKey + "/" %}

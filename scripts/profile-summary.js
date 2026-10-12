@@ -1,22 +1,35 @@
 // Text and JSON-LD for profile, org, and rankings pages. Pure functions so
 // the directory data files (content/*/*.11tydata.js) stay small and testable.
 // scangov.org scans homepages only; wording here must not claim a site scan.
+//
+// The topic list comes from audits.json (scripts/topics.js): every function
+// that names topics takes the `audits` object, and falls back to the four
+// long-standing topics when it is not given.
 
-const TOPICS = ['accessibility', 'botability', 'security', 'usability'];
+import { topicKeysFrom, topicSentence } from './topics.js';
+
 const DATASET_URL = 'https://data.scangov.org/datasets/homepage-audits/';
 const CATALOG = { '@type': 'DataCatalog', name: 'ScanGov Data', url: 'https://data.scangov.org/' };
 const LICENSE = 'https://creativecommons.org/licenses/by/4.0/';
+// "Accessibility, botability, security, and usability"
+function topicsCapitalized(audits) {
+  const s = topicSentence(audits);
+  return s[0].toUpperCase() + s.slice(1);
+}
+
 // isPartOf points at the parent dataset, which is fully described at DATASET_URL.
 // It carries @id so Google treats it as that same entity rather than a new one on
 // every profile page, and a description because Dataset requires one - without it
 // Search Console flags one invalid Dataset per page.
-const PARENT_DATASET = {
-  '@type': 'Dataset',
-  '@id': DATASET_URL,
-  name: 'ScanGov homepage audits',
-  description: 'Accessibility, botability, security, and usability scan results for United States government website homepages, published as open data by ScanGov.',
-  url: DATASET_URL,
-};
+function parentDataset(audits) {
+  return {
+    '@type': 'Dataset',
+    '@id': DATASET_URL,
+    name: 'ScanGov homepage audits',
+    description: `${topicsCapitalized(audits)} scan results for United States government website homepages, published as open data by ScanGov.`,
+    url: DATASET_URL,
+  };
+}
 
 export function gradeThis(score) {
   if (score >= 90) return 'A';
@@ -46,7 +59,7 @@ function topicGrade(domain, topic) {
 
 // One sentence per profile view so the three indexable subpages are not
 // near-duplicates of each other.
-export function describeProfile(domain, view) {
+export function describeProfile(domain, view, audits) {
   const name = domain.urlkey || domain.url;
   const date = formatDate(domain.time);
   const when = date ? ` Homepage scanned ${date}.` : '';
@@ -55,14 +68,19 @@ export function describeProfile(domain, view) {
     return `${name} could not be scanned by Project ScanGov${status}.${when} Grades return when the homepage responds.`;
   }
   const overall = gradeThis(domain.overallScore);
-  const grades = `${topicGrade(domain, 'accessibility')} accessibility, ${topicGrade(domain, 'botability')} botability, ${topicGrade(domain, 'security')} security, ${topicGrade(domain, 'usability')} usability`;
+  const topics = topicSentence(audits);
+  // Only the topics this record was graded on, in topic order.
+  const grades = topicKeysFrom(audits)
+    .filter((t) => typeof domain.scores?.[t]?.score === 'number')
+    .map((t) => `${topicGrade(domain, t)} ${((audits?.[t] && audits[t].displayName) || t).toLowerCase()}`)
+    .join(', ');
   switch (view) {
     case 'pulse':
-      return `How ${name} accessibility, botability, security, and usability grades have changed over time on Project ScanGov. Currently ${overall} overall.${when}`;
+      return `How ${name} ${topics} grades have changed over time on Project ScanGov. Currently ${overall} overall.${when}`;
     case 'changelog':
       return `Standards ${name} started passing or failing between Project ScanGov scans, newest first. Currently ${overall} overall.${when}`;
     case 'details':
-      return `Every accessibility, botability, security, and usability standard ${name} passes or fails on Project ScanGov, with how to fix each one. ${overall} overall.${when}`;
+      return `Every ${topics} standard ${name} passes or fails on Project ScanGov, with how to fix each one. ${overall} overall.${when}`;
     case 'report':
       return `Printable Project ScanGov report card for ${name}: ${overall} overall, ${grades}.${when}`;
     default:
@@ -70,7 +88,7 @@ export function describeProfile(domain, view) {
   }
 }
 
-export function describeOrg(org, view) {
+export function describeOrg(org, view, audits) {
   const domains = org.domains || [];
   const scoredDomains = domains.filter(scanned);
   const avg = scoredDomains.length ? Math.round(scoredDomains.reduce((sum, d) => sum + d.overallScore, 0) / scoredDomains.length) : null;
@@ -80,7 +98,7 @@ export function describeOrg(org, view) {
   if (view === 'pulse') {
     return `How the ${count} managed by ${org.name} have changed over time on Project ScanGov${grade}. Includes ${examples}.`;
   }
-  return `${count} managed by ${org.name} on Project ScanGov${grade}: ${examples}. Accessibility, botability, security, and usability grades for each.`;
+  return `${count} managed by ${org.name} on Project ScanGov${grade}: ${examples}. ${topicsCapitalized(audits)} grades for each.`;
 }
 
 // Median overallScore across a list of domains, ignoring unscanned ones.
@@ -95,7 +113,7 @@ export function medianScore(domains) {
 // audits.json and a link to the standard's page.
 export function failingStandards(domain, audits, limit = 3) {
   const out = [];
-  for (const topic of TOPICS) {
+  for (const topic of topicKeysFrom(audits)) {
     const attrs = domain.scores?.[topic]?.attributes || {};
     for (const [key, passed] of Object.entries(attrs)) {
       if (passed) continue;
@@ -117,8 +135,9 @@ export function compareWord(score, median) {
 // Data for the summary paragraph on the profile overview page.
 export function summarizeProfile(domain, audits, medians, category) {
   if (!scanned(domain)) return null;
-  const passed = TOPICS.reduce((n, t) => n + (domain.scores?.[t]?.correct || 0), 0);
-  const total = TOPICS.reduce((n, t) => n + (domain.scores?.[t]?.all || 0), 0);
+  const topics = topicKeysFrom(audits);
+  const passed = topics.reduce((n, t) => n + (domain.scores?.[t]?.correct || 0), 0);
+  const total = topics.reduce((n, t) => n + (domain.scores?.[t]?.all || 0), 0);
   return {
     grade: gradeThis(domain.overallScore),
     score: domain.overallScore,
@@ -143,7 +162,7 @@ function breadcrumb(siteUrl, crumbs) {
 
 // `context` (scripts/site-context.js) adds the group hub and, for counties,
 // the state page to the breadcrumb so it matches the visible links.
-export function profileSchema(domain, view, siteUrl, pageUrl, context) {
+export function profileSchema(domain, view, siteUrl, pageUrl, context, audits) {
   const name = domain.urlkey || domain.url;
   const base = `/profile/${slugify(name)}/`;
   const crumbs = [['Home', '/'], ['Rankings', '/rankings/']];
@@ -156,14 +175,17 @@ export function profileSchema(domain, view, siteUrl, pageUrl, context) {
     graph.push({
       '@type': 'Dataset',
       name: `Project ScanGov scan results for ${name}`,
-      description: describeProfile(domain, 'overview'),
+      description: describeProfile(domain, 'overview', audits),
       url: siteUrl + pageUrl,
       ...(domain.time ? { dateModified: new Date(domain.time).toISOString() } : {}),
       license: LICENSE,
       creator: { '@type': 'Organization', name: 'ScanGov', url: 'https://scangov.com' },
       includedInDataCatalog: CATALOG,
-      isPartOf: PARENT_DATASET,
-      variableMeasured: TOPICS.map((t) => ({ '@type': 'PropertyValue', name: `${t} score`, value: domain.scores?.[t]?.score })),
+      isPartOf: parentDataset(audits),
+      // Only the topics this record was graded on.
+      variableMeasured: topicKeysFrom(audits)
+        .filter((t) => typeof domain.scores?.[t]?.score === 'number')
+        .map((t) => ({ '@type': 'PropertyValue', name: `${t} score`, value: domain.scores[t].score })),
     });
   }
   return { '@context': 'https://schema.org', '@graph': graph };
@@ -190,7 +212,7 @@ export function orgSchema(org, view, siteUrl, pageUrl) {
   };
 }
 
-export function rankingsSchema(members, title, description, siteUrl, pageUrl, updatedIso) {
+export function rankingsSchema(members, title, description, siteUrl, pageUrl, updatedIso, audits) {
   const list = (members || []).slice(0, 100);
   return {
     '@context': 'https://schema.org',
@@ -205,7 +227,7 @@ export function rankingsSchema(members, title, description, siteUrl, pageUrl, up
         license: LICENSE,
         creator: { '@type': 'Organization', name: 'ScanGov', url: 'https://scangov.com' },
         includedInDataCatalog: CATALOG,
-        isPartOf: PARENT_DATASET,
+        isPartOf: parentDataset(audits),
       },
       {
         '@type': 'ItemList',

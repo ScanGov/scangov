@@ -50,7 +50,7 @@ eleventyComputed:
                 <h2>Contents</h2>
                 <ul>
                     <li><a href="#overall">Overall</a></li>
-                    {% for topic in site.data %}
+                    {% for topic in topics.names %}
                         {% set scorekey = topic.toLowerCase() %}
                         {% if domain.scores[scorekey] %}
                             <li><a href="#{{ scorekey }}">{{ topic }}</a></li>
@@ -65,7 +65,7 @@ eleventyComputed:
     <div class="container-fluid">
         <h2 class="page-break" id="overall">Overall</h2>
         <div class="row g-3">
-            {% for topic in site.data %}
+            {% for topic in topics.names %}
                 {% set scorekey = topic.toLowerCase() %}
                 {% if domain.scores[scorekey] %}
                     {% set score = domain.scores[scorekey].score %}
@@ -84,7 +84,7 @@ eleventyComputed:
                 {% endif %}
             {% endfor %}
         </div>
-        {% for topic in site.data %}
+        {% for topic in topics.names %}
             {% set scorekey = topic.toLowerCase() %}
             {% if domain.scores[scorekey] %}
                 {% set score = domain.scores[scorekey].score %}
