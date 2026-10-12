@@ -16,10 +16,10 @@ const REBUILD_POLL_MS = 15 * 1000;
 // Topics every graded record must carry. Deliberately not derived from
 // audits.json: a topic that exists in the standards before the auditor has
 // rebuilt the homepages payload with it would drop every record from the
-// build. Add 'readability' here only after the auditor emits
-// scores.readability in homepages/latest.json (readability-topic-plan.md,
-// rollout step 5).
-const REQUIRED_TOPICS = ['botability', 'accessibility', 'security', 'usability'];
+// build. Add a new topic here only after the auditor emits it in
+// homepages/latest.json (readability added 2026-10-12, after the first
+// five-topic payload; see the auditor's docs/readability-topic-plan.md).
+const REQUIRED_TOPICS = ['botability', 'accessibility', 'security', 'usability', 'readability'];
 const OUTPUT_FILE = './public/data/myscangov_homepage_audits.json';
 const MIN_RECORD_COUNT = 900;
 const MAX_DROP_PERCENT = 10;
