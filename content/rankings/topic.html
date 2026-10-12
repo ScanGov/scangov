@@ -1,0 +1,25 @@
+---
+home: false
+layout: layouts/default
+showLastUpdated: true
+
+# One page per entry of topicRankings.overall: every topic in audits.json,
+# 100 sites per page (see _data/topicRankings.js). Title, description,
+# keywords, member and sitemap come from the chunk via rankings.11tydata.js.
+pagination:
+  data: topicRankings.overall
+  size: 1
+  alias: chunk
+  addAllPagesToCollections: true
+permalink: "/rankings/{{ chunk.topic }}/{% if chunk.pageNumber > 0 %}{{ chunk.pageNumber }}/{% endif %}"
+---
+
+{% set pagination = chunk.pagination %}
+{% set member = chunk.member %}
+{% set specificAttribute = chunk.topic %}
+{% set currentsort = "" %}
+{% set showPagination = true %}
+
+{% set chartsInclude = "rankings-index.html" %}
+
+{% include "sortcontent.html" %}

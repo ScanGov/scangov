@@ -41,9 +41,9 @@ eleventyComputed:
                         </a>
                     </div>
                 </div>
-                {% for card in site.data %}
+                {% for card in topics.names %}
                     {% set scorekey = card.toLowerCase() %}
-                    {% set score = domain.scores[scorekey].score %}
+                    {% set score = domain.scores[scorekey].score if domain.scores and domain.scores[scorekey] else null %}
                     <div class="col-12 col-sm-6 col-md-3 d-none align-items-stretch {{ scorekey }}-card">
                         <div class="card card-grade-sm text-bg-{{ score | colorify }}">
                             <div class="card-header">
@@ -64,7 +64,7 @@ eleventyComputed:
     {% endif %}
 </div>
 <script>
-    var categories = ['accessibility', 'botability', 'security', 'usability'];
+    var categories = {{ topics.keys | dump | safe }};
 
     function showCards(attr) {
         var overallCards = document.getElementsByClassName('overall-card');

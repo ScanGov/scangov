@@ -9,7 +9,9 @@
   <div class="col-6 col-lg">
     <div class="card h-100"><div class="card-body">
       <p class="sg-stat-value"><a href="{{ g.hub }}{% if specificAttribute %}{{ specificAttribute }}/{% endif %}" class="text-decoration-none">{{ g.label }}</a></p>
-      <p class="sg-stat-label">{{ g.scoredCount | numberFormat }} fully scanned of {{ g.count | numberFormat }} sites{% if g.scoredCount %}. Average {{ (specificAttribute or "overall") }} score {{ g.averages[specificAttribute or "overall"] }}{% endif %}</p>
+      {# No average when no site in the group carries this topic yet. #}
+      {% set groupAvg = g.averages[specificAttribute or "overall"] %}
+      <p class="sg-stat-label">{{ g.scoredCount | numberFormat }} fully scanned of {{ g.count | numberFormat }} sites{% if g.scoredCount and groupAvg !== null and groupAvg !== undefined %}. Average {{ (specificAttribute or "overall") }} score {{ groupAvg }}{% endif %}</p>
     </div></div>
   </div>
   {% endfor %}

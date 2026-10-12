@@ -11,6 +11,8 @@ import { PurgeCSS } from 'purgecss';
 
 // Representative pages. (The old list also named sorts/accessibility, filter,
 // map and report index pages that the site no longer generates.)
+// A per-topic rankings page keeps the indicator classes (.sg-series-*, the
+// topic icon colors such as .fa-book-open) that only topic pages use.
 const SAMPLE_PAGES = [
   'assets/purge/states.html',
   'index.html',
@@ -18,13 +20,19 @@ const SAMPLE_PAGES = [
   'rankings/states/index.html',
   'rankings/counties/index.html',
   'rankings/counties/tx/index.html',
+  'rankings/usability/index.html',
   'profile/ca-gov/report/index.html',
+];
+// Built only once the data carries the topic; no warning when absent.
+const OPTIONAL_PAGES = [
+  'rankings/readability/index.html',
 ];
 
 export async function purgeCss(siteDir = '_site') {
   const content = SAMPLE_PAGES.map((p) => join(siteDir, p)).filter((p) => fs.existsSync(p));
   const missing = SAMPLE_PAGES.length - content.length;
   if (missing) console.warn(`purge-css: ${missing} sample page(s) not built; purging from ${content.length}`);
+  content.push(...OPTIONAL_PAGES.map((p) => join(siteDir, p)).filter((p) => fs.existsSync(p)));
   const results = await new PurgeCSS().purge({
     content,
     css: ['public/assets/bootstrap/css/bootstrap.min.css'],

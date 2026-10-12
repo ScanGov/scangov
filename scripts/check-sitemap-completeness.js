@@ -59,18 +59,26 @@ function isIntentionallyExcluded(frontmatter) {
 
 // A directory data file (content/orgs/orgs.11tydata.js) can decide `sitemap`
 // per page with an eleventyComputed function, e.g. to drop single-domain org
-// pages that duplicate a profile. The decision is not visible in the page's
-// own frontmatter, so treat any page under such a directory as conditionally
-// excluded rather than reporting every excluded page as a bug.
+// pages that duplicate a profile, or to keep the numbered pages of the
+// per-topic rankings (content/rankings/rankings.11tydata.js) out. The
+// decision is not visible in the page's own frontmatter, so treat any page
+// under such a directory as conditionally excluded rather than reporting
+// every excluded page as a bug. Eleventy applies a directory data file to
+// every subdirectory as well, so parents up to content/ are checked too.
 function hasComputedSitemapFlag(inputPath) {
   if (!inputPath) return false;
-  const dir = path.dirname(inputPath);
-  const base = path.basename(dir);
-  for (const ext of ['.11tydata.js', '.11tydata.mjs', '.11tydata.cjs']) {
-    const dataFile = path.join(dir, base + ext);
-    if (!existsSync(dataFile)) continue;
-    const src = readFileSync(dataFile, 'utf8');
-    if (/eleventyComputed[\s\S]*?\bsitemap\s*:/.test(src)) return true;
+  let dir = path.dirname(path.resolve(inputPath));
+  const stop = path.resolve('content');
+  while (dir.startsWith(stop)) {
+    const base = path.basename(dir);
+    for (const ext of ['.11tydata.js', '.11tydata.mjs', '.11tydata.cjs']) {
+      const dataFile = path.join(dir, base + ext);
+      if (!existsSync(dataFile)) continue;
+      const src = readFileSync(dataFile, 'utf8');
+      if (/eleventyComputed[\s\S]*?\bsitemap\s*:/.test(src)) return true;
+    }
+    if (dir === stop) break;
+    dir = path.dirname(dir);
   }
   return false;
 }

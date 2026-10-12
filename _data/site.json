@@ -17,18 +17,5 @@
   "linkedin": "https://linkedin.com/company/scangov",
   "youtube": "https://youtube.com/@scangov",
   "discord": "https://discord.gg/EPCXEMAX5y",
-  "github": "https://github.com/scangov",
-  "data": [
-    "Accessibility",
-    "Botability",
-    "Security",
-    "Usability"
-  ],
-  "mapFields": [
-    "Overall",
-    "Accessibility",
-    "Botability",
-    "Security",
-    "Usability"
-  ]
+  "github": "https://github.com/scangov"
 }

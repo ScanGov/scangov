@@ -5,12 +5,12 @@ import { default as siteSummary } from './siteSummary.js';
 import { default as groupSummaries } from './groupSummaries.js';
 import { loadAudits } from '../scripts/load-audits.js';
 import { gradeDistributionSpec, topicAveragesSpec, rankedGroupsSpec } from '../scripts/charts/specs.js';
-import { TOPICS } from '../scripts/counties.js';
-
-const ALL_TOPICS = ['overall', ...TOPICS];
+import { topicKeysFrom, allTopicKeysFrom } from '../scripts/topics.js';
 
 export default async function () {
     const audits = await loadAudits();
+    const TOPICS = topicKeysFrom(audits);
+    const ALL_TOPICS = allTopicKeysFrom(audits);
     const all = await siteSummary();
     const groups = await groupSummaries();
     const label = t => (audits[t] && audits[t].displayName) || t;

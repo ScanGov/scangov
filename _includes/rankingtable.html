@@ -26,8 +26,10 @@
         {% if d.partial %}The site responded without page content.{% elif d.status %}{% for s in statusGroups %}{% if s.code == d.status %}{{ s.statusDescription }}{% endif %}{% endfor %} <a href="/status/{{ d.status }}/">Status {{ d.status }}</a>{% endif %}</span>
     {% elif compact and not specificAttribute %}
       <ul class="list-inline small mb-0 text-nowrap">
-        {% for t in ["accessibility", "botability", "security", "usability"] %}
-        <li class="list-inline-item me-2"><i class="fa-solid fa-{{ audits[t].icon }} text-muted" aria-hidden="true"></i> <span class="badge text-bg-{{ d.scores[t].score | colorify }}" title="{{ audits[t].displayName }}: {{ d.scores[t].score }}"><span class="visually-hidden">{{ audits[t].displayName }} grade </span>{{ d.scores[t].score | gradify }}</span></li>
+        {# One badge per topic (topics.keys, from audits.json); a topic this record was not graded on shows a dash. #}
+        {% for t in topics.keys %}
+        {% set ts = d.scores[t].score if d.scores and d.scores[t] else null %}
+        <li class="list-inline-item me-2"><i class="fa-solid fa-{{ audits[t].icon }} text-muted" aria-hidden="true"></i> <span class="badge text-bg-{{ ts | colorify }}" title="{{ audits[t].displayName }}: {{ ts if ts !== null else 'not graded' }}"><span class="visually-hidden">{{ audits[t].displayName }} grade </span>{{ ts | gradify }}</span></li>
         {% endfor %}
       </ul>
     {% elif compact %}

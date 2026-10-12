@@ -81,8 +81,8 @@
 <h2 class="h4 mt-5">Most common failures by indicator</h2>
 <p>The check {{ groupNoun }} fail most often in each indicator. Each indicator page lists the top five.</p>
 <ul class="sg-failures">
-  {% for t in ["accessibility", "botability", "security", "usability"] %}
-  {% set f = g.topFailures[t][0] %}
+  {% for t in topics.keys %}
+  {% set f = g.topFailures[t][0] if g.topFailures[t] else null %}
   {% if f %}
   <li><strong>{{ (f.share * 100) | round }}% ({{ f.failCount }} of {{ g.scoredCount }} sites)</strong> fail this {{ audits[t].displayName | lower }} check: <a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} <a href="/rankings/{{ currentsort }}/{{ t }}/">More {{ audits[t].displayName | lower }} failures</a>.</li>
   {% endif %}

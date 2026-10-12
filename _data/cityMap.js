@@ -8,10 +8,11 @@ import cityLocs from './city_locs.json' with { type: 'json' };
 import countyGeo from './countyGeo.json' with { type: 'json' };
 import { albersUsa } from '../scripts/albers-usa.js';
 import { isResponding, isPartial, scoreOf } from '../scripts/counties.js';
+import { loadAudits } from '../scripts/load-audits.js';
+import { allTopicKeysFrom } from '../scripts/topics.js';
 
-const TOPICS = ['overall', 'accessibility', 'botability', 'security', 'usability'];
-
-export default function () {
+export default async function () {
+    const TOPICS = allTopicKeysFrom(await loadAudits());
     const project = albersUsa();
     const byUrl = new Map(cityLocs.map(l => [l.url, l]));
     const points = [];

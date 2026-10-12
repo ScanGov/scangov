@@ -6,10 +6,13 @@
 // (scored) when it responded and returned page content (see isScored). Every
 // average, distribution, share and rank uses fully scanned sites only.
 
-import { TOPICS, isResponding, isPartial, scoreOf, gradeOf, mean } from './counties.js';
+import { isResponding, isPartial, scoreOf, gradeOf, mean } from './counties.js';
+import { topicKeysFrom, allTopicKeysFrom } from './topics.js';
 import { gradeDistributionSpec, topFailuresSpec, areaSpec } from './charts/specs.js';
 
-export const ALL_TOPICS = ['overall', ...TOPICS];
+// Topics come from audits.json (scripts/topics.js); "overall" leads the
+// all-topics list. Every function here takes the audits object or an
+// attribute index built from it, so no topic list is hardcoded.
 export const TOP_FAILURES = 5;
 
 export const isScored = d => isResponding(d) && !isPartial(d);
@@ -31,7 +34,7 @@ export function binIndex(score) {
 // Lookup from an attribute key or scorekey to its audits.json entry.
 export function attributeIndex(audits) {
     const index = {};
-    for (const topic of TOPICS) {
+    for (const topic of topicKeysFrom(audits)) {
         index[topic] = new Map();
         for (const attr of (audits[topic] && audits[topic].attributes) || []) {
             if (attr.key) index[topic].set(attr.key, attr);
@@ -55,10 +58,11 @@ export function scanWindow(records) {
 // Averages, grade distribution, histogram and most-failed checks over one
 // list of fully scanned records.
 export function summarize(scored, attrIndex) {
+    const topics = Object.keys(attrIndex);
     const averages = {};
     const gradeDistribution = {};
     const histogram = {};
-    for (const topic of ALL_TOPICS) {
+    for (const topic of ['overall', ...topics]) {
         const scores = scored.map(d => scoreOf(d, topic)).filter(Number.isFinite);
         averages[topic] = mean(scores);
         const dist = emptyDistribution();
@@ -72,7 +76,7 @@ export function summarize(scored, attrIndex) {
     }
 
     const topFailures = {};
-    for (const topic of TOPICS) {
+    for (const topic of topics) {
         const counts = new Map();
         for (const d of scored) {
             const results = d[topic];
@@ -112,7 +116,7 @@ const numberFormat = new Intl.NumberFormat('en-US');
 export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, groupText, failuresHeadingLevel = 2 }) {
     const respondingText = `${numberFormat.format(summary.scoredCount)} ${groupText}`;
     const charts = { failures: {}, area: {}, grades: {} };
-    for (const topic of ALL_TOPICS) {
+    for (const topic of allTopicKeysFrom(audits)) {
         const label = topic === 'overall' ? 'overall' : topicLabel(audits, topic).toLowerCase();
         const points = scored.map(d => ({ label: d.name, value: scoreOf(d, topic) })).filter(p => Number.isFinite(p.value));
         charts.area[topic] = areaSpec({
@@ -129,7 +133,7 @@ export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, 
             groups: [{ key: idBase, label: `All ${groupText.replace(/^fully scanned /, '')}`, distribution: summary.gradeDistribution[topic], total: summary.scoredCount }],
         });
     }
-    for (const topic of TOPICS) {
+    for (const topic of topicKeysFrom(audits)) {
         const label = topicLabel(audits, topic).toLowerCase();
         charts.failures[topic] = topFailuresSpec({
             id: `${idBase}-fails-${topic}`,

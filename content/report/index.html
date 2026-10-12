@@ -16,12 +16,12 @@ ogImageAlt: Map of the United States with each state colored by the overall grad
   generated from the same summaries the figures use.
 #}
 {% set all = siteSummary %}
-{% set indicatorKeys = ["accessibility", "botability", "security", "usability"] %}
+{% set indicatorKeys = topics.keys %}
 
 <div class="sg-charts-large">
 <section aria-labelledby="what-we-scan">
   <h2 id="what-we-scan">What we scan</h2>
-  <p>ScanGov scans the homepage of every government site on our list, {{ all.count | numberFormat }} sites across states, counties, cities, federal agencies, and public higher education. Each scan runs the checks on <a href="https://standards.scangov.org/">standards.scangov.org</a> for accessibility, botability, security, and usability. A site counts as fully scanned when its homepage responded and returned page content; sites that did not are listed with their <a href="/status/">scan status</a> and left out of every figure here.</p>
+  <p>ScanGov scans the homepage of every government site on our list, {{ all.count | numberFormat }} sites across states, counties, cities, federal agencies, and public higher education. Each scan runs the checks on <a href="https://standards.scangov.org/">standards.scangov.org</a> for {{ topics.sentence }}. A site counts as fully scanned when its homepage responded and returned page content; sites that did not are listed with their <a href="/status/">scan status</a> and left out of every figure here.</p>
   <div class="row g-3 mb-2">
     <div class="col-6 col-lg-3">
       <div class="card h-100"><div class="card-body">

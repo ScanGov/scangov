@@ -1,11 +1,15 @@
 // Computed metadata for the per-state county pages (state.html and
-// state-topic.html). Every branch falls back to the page's own value so the
-// five group templates in this directory are unaffected.
+// state-topic.html). Every branch falls back to the page's own value, or to
+// the topicRankings chunk on topic.html (see ../rankings.11tydata.js, whose
+// computed values these override), so the other templates in this directory
+// are unaffected.
 //
 // Titles follow the query-bearing pattern from ../notes/plans/06: under 60
 // characters before header.html appends the site name.
 
 import { rankingsSchema, toJsonLd } from '../../../scripts/profile-summary.js';
+import { pageMember, pageTitle, pageDescriptionHtml } from '../../../scripts/topic-rankings.js';
+import { topicSentence } from '../../../scripts/topics.js';
 
 const crumbs = [
   { title: 'Rankings', url: '/rankings/' },
@@ -24,7 +28,7 @@ export default {
   eleventyComputed: {
     title: (data) => {
       const st = stateOf(data);
-      if (!st) return data.title;
+      if (!st) return pageTitle(data);
       const topic = topicName(data);
       return topic
         ? `${st.name} county websites: ${topic} rankings`
@@ -36,7 +40,7 @@ export default {
       const topic = topicName(data);
       return topic
         ? `${topic[0].toUpperCase()}${topic.slice(1)} scores, grades, and the most common failures for ${st.count} ${st.name} county government websites, from ScanGov homepage scans.`
-        : `Rankings, grades, and the most common failures for ${st.count} ${st.name} county government websites across accessibility, botability, security, and usability.`;
+        : `Rankings, grades, and the most common failures for ${st.count} ${st.name} county government websites across ${topicSentence(data.audits)}.`;
     },
     breadcrumbParent: (data) => {
       const st = stateOf(data);
@@ -61,16 +65,16 @@ export default {
     member: (data) => {
       if (data.item) return data.item.state.byTopic[data.item.topic];
       if (data.st) return data.st.counties;
-      return data.member;
+      return pageMember(data);
     },
     // Same Dataset + ItemList JSON-LD as ../rankings.11tydata.js. Declared
     // here too because the state pages' `member` and `title` are themselves
     // computed above, and the parent's computed runs before they exist.
     schema: (data) => {
       const st = stateOf(data);
-      let member = data.member;
-      let title = data.title;
-      let description = data.description || String(data.descriptionHtml || '').replace(/<[^>]+>/g, '');
+      let member = pageMember(data);
+      let title = pageTitle(data);
+      let description = data.description || String(pageDescriptionHtml(data) || '').replace(/<[^>]+>/g, '');
       if (st) {
         member = data.item ? st.byTopic[data.item.topic] : st.counties;
         const topic = topicName(data);
@@ -79,7 +83,7 @@ export default {
           : `${st.name} county websites ranked by digital experience`;
       }
       if (!Array.isArray(member) || !title) return undefined;
-      return toJsonLd(rankingsSchema(member, title, description, data.site.url, data.page.url, data.updatedTime?.iso));
+      return toJsonLd(rankingsSchema(member, title, description, data.site.url, data.page.url, data.updatedTime?.iso, data.audits));
     },
   },
 };

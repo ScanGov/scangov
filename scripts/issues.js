@@ -9,7 +9,8 @@
 // record lacks the check is "not tested" and is named as such, never counted
 // as passing.
 
-import { TOPICS, isCounty, stateCodeOf, isResponding, scoreOf, domainKey } from './counties.js';
+import { isCounty, stateCodeOf, isResponding, scoreOf, domainKey } from './counties.js';
+import { topicKeysFrom } from './topics.js';
 import { isScored, attributeIndex, scanWindow } from './group-summary.js';
 import { joinCounties } from './county-geo.js';
 import { slugify, formatCount } from './charts/format.js';
@@ -232,10 +233,10 @@ function checkCopy(key, attrIndex, topicInfo) {
 }
 
 // A list copy of a site record for the page's table and map tooltips.
-function siteRow(d, issue, stateNames) {
+function siteRow(d, issue, stateNames, topics) {
     const code = stateCodeOf(d);
     const scores = {};
-    for (const topic of TOPICS) scores[topic] = scoreOf(d, topic);
+    for (const topic of topics) scores[topic] = scoreOf(d, topic);
     return {
         urlkey: domainKey(d),
         name: d.name || domainKey(d),
@@ -330,7 +331,8 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
     const testedCount = scored.length - untestedCount;
 
     // Sites failing, by state then name, for the table.
-    const failing = failingRecords.map(d => siteRow(d, issue, stateNames));
+    const topics = topicKeysFrom(audits);
+    const failing = failingRecords.map(d => siteRow(d, issue, stateNames, topics));
     failing.sort((a, b) => (a.stateName || '').localeCompare(b.stateName || '') || a.name.localeCompare(b.name));
 
     // Per-state shares. Share is failing / tested in that state.

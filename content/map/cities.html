@@ -8,7 +8,7 @@ mapPage: cities
 
 <script>
     window.cities = {{ city_map | dump | safe }};
-    window.mapFields = {{ site.mapFields | dump | safe }}
+    window.mapFields = {{ topics.mapFields | dump | safe }}
 </script>
 
 <div id="map" style="height: 800px"></div>

@@ -41,7 +41,8 @@ export const COUNTY_EXCEPTIONS = {
 
 const STATE_SUFFIX_RE = /,\s*([A-Z]{2})$/;
 
-export const TOPICS = ['accessibility', 'botability', 'security', 'usability'];
+// The topic list is derived from audits.json: see scripts/topics.js
+// (topicKeysFrom). Nothing here hardcodes it.
 
 export function domainKey(d) {
     return d.urlkey || d.url || '';

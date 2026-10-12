@@ -34,10 +34,16 @@ export const accessibilityDataVariables = [
 ]
 
 export const usabilityDataVariables = [
-    'title', 'description', 'readability', 'viewport', 'www',
+    'title', 'description', 'viewport', 'www',
     'cls', 'fcp', 'inp', 'lcp', 'ttfb',
     'ogsitename', 'ogtype', 'ogtitle', 'ogdescription',
     'ogurl', 'ogimage', 'ogimagealt'
+]
+
+// Reading level was the usability attribute `readability` until the
+// readability topic split out (auditor docs/readability-topic-plan.md).
+export const readabilityDataVariables = [
+    'reading-level'
 ]
 
 export const securityDataVariables = [
@@ -52,6 +58,7 @@ export const variablesMap = new Map([
     ...accessibilityDataVariables.map(v => [v, 'accessibility']),
     ...usabilityDataVariables.map(v => [v, 'usability']),
     ...securityDataVariables.map(v => [v, 'security']),
+    ...readabilityDataVariables.map(v => [v, 'readability']),
 ]);
 
 // Map topics to their attribute lists
@@ -60,6 +67,7 @@ export const variableTopics = new Map([
     ['accessibility', accessibilityDataVariables],
     ['usability', usabilityDataVariables],
     ['security', securityDataVariables],
+    ['readability', readabilityDataVariables],
 ]);
 
 export const stateDomainList = [

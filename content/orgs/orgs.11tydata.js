@@ -11,7 +11,7 @@ export default {
       const times = (data.org?.domains || []).map((d) => d.time).filter(Boolean);
       return times.length ? new Date(Math.max(...times)).toISOString() : data.updatedTime?.iso || undefined;
     },
-    description: (data) => (data.org ? describeOrg(data.org, data.orgView) : undefined),
+    description: (data) => (data.org ? describeOrg(data.org, data.orgView, data.audits) : undefined),
     schema: (data) => (data.org ? toJsonLd(orgSchema(data.org, data.orgView, data.site.url, data.page.url)) : undefined),
   },
 };

@@ -16,7 +16,7 @@
 {% set avg = st.averages[topic] %}
 {% set natAvg = st.national.averages[topic] %}
 {% set rank = st.stateRank[topic] %}
-{% set indicatorKeys = ["accessibility", "botability", "security", "usability"] %}
+{% set indicatorKeys = topics.keys %}
 <div id="home" class="col-12">
   <div class="container">
     <div class="row">
@@ -40,8 +40,8 @@
       </div>
       <div class="col-6 col-lg-3">
         <div class="card h-100"><div class="card-body">
-          <p class="sg-stat-value">{{ rank | ordinal }}</p>
-          <p class="sg-stat-label">of {{ st.stateCount }} states, ranked by average {{ topicName }} score</p>
+          <p class="sg-stat-value">{% if rank %}{{ rank | ordinal }}{% else %}&ndash;{% endif %}</p>
+          <p class="sg-stat-label">{% if rank %}of {{ st.stateCount }} states, ranked by average {{ topicName }} score{% else %}Not ranked: no {{ st.name }} county site has a {{ topicName }} score yet{% endif %}</p>
         </div></div>
       </div>
       <div class="col-6 col-lg-3">
@@ -90,7 +90,8 @@
             <p class="mb-2"><span class="badge text-bg-{{ d.score | colorify }}">{{ d.score | gradify }}</span> {{ d.score }} {{ topicName }}</p>
             <ul class="list-inline small mb-0">
               {% for t in indicatorKeys %}
-              <li class="list-inline-item">{{ audits[t].displayName }} <span class="badge text-bg-{{ d.scores[t].score | colorify }}">{{ d.scores[t].score | gradify }}</span></li>
+              {% set ts = d.scores[t].score if d.scores and d.scores[t] else null %}
+              <li class="list-inline-item">{{ audits[t].displayName }} <span class="badge text-bg-{{ ts | colorify }}">{{ ts | gradify }}</span></li>
               {% endfor %}
             </ul>
           </div>
@@ -113,7 +114,7 @@
       <p>The check {{ st.name }} county sites fail most often in each indicator. Each indicator page lists the top five.</p>
       <ul class="sg-failures">
         {% for t in indicatorKeys %}
-        {% set f = st.topFailures[t][0] %}
+        {% set f = st.topFailures[t][0] if st.topFailures[t] else null %}
         {% if f %}
         <li><strong>{{ (f.share * 100) | round }}% ({{ f.failCount }} of {{ st.scoredCount }} sites)</strong> fail this {{ audits[t].displayName | lower }} check: <a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} <a href="/rankings/counties/{{ st.slug }}/{{ t }}/">More {{ audits[t].displayName | lower }} failures in {{ st.name }}</a>.</li>
         {% endif %}

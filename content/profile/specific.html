@@ -22,7 +22,7 @@ eleventyComputed:
 {% include "profilelinks.html" %}
 
 <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
-  {% set cards = site.data %}
+  {% set cards = topics.names %}
   {% for card in cards %}
     {% set scorekey = card.toLowerCase() %}
     <div class="d-none" id="heading-{{ scorekey }}">
@@ -128,7 +128,7 @@ eleventyComputed:
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {% for card in site.data %}
+    {% for card in topics.names %}
     {% set sk = card | lower %}
     {% set ci = audits[sk] %}
     {
