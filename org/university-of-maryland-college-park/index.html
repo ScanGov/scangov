@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
-<meta name="description" content="1 government website managed by University of Maryland-College Park on Project ScanGov, average grade A: umd.edu. Accessibility, botability, security, and usability grades for each.">
+<meta name="description" content="1 government website managed by University of Maryland-College Park on Project ScanGov, average grade A: umd.edu. Accessibility, botability, security, usability, and readability grades for each.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="google-site-verification" content="10895162be5e592f">
 <meta property="og:locale" content="en_US">
@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Project ScanGov">
 <meta property="og:type" content="website">
 <meta property="og:title" content="University of Maryland-College Park digital experience monitor">
-<meta property="og:description" content="1 government website managed by University of Maryland-College Park on Project ScanGov, average grade A: umd.edu. Accessibility, botability, security, and usability grades for each.">
+<meta property="og:description" content="1 government website managed by University of Maryland-College Park on Project ScanGov, average grade A: umd.edu. Accessibility, botability, security, usability, and readability grades for each.">
 <meta property="og:url" content="https://scangov.org/org/university-of-maryland-college-park/">
 <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
 <meta property="og:image:width" content="1200">
@@ -171,6 +171,9 @@ Search
 </a>
 <a href="/org/university-of-maryland-college-park/?attr=usability" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
 <span><svg class="fa-solid fa-hand-pointer" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-hand-pointer" xlink:href="/assets/fa-sprite.svg#fas-fa-hand-pointer"></use></svg> <small>Usability</small></span>
+</a>
+<a href="/org/university-of-maryland-college-park/?attr=readability" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+<span><svg class="fa-solid fa-book-open" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-book-open" xlink:href="/assets/fa-sprite.svg#fas-fa-book-open"></use></svg> <small>Readability</small></span>
 </a>
 <a href="/org/university-of-maryland-college-park/pulse/" class="list-group-item list-group-item-action">
 <svg class="fa-solid fa-wave-square" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-wave-square" xlink:href="/assets/fa-sprite.svg#fas-fa-wave-square"></use></svg>
@@ -330,11 +333,23 @@ B
 </a>
 </div>
 </div>
+<div class="col-12 col-sm-6 col-md-3 d-none align-items-stretch readability-card">
+<div class="card card-grade-sm text-bg-danger">
+<div class="card-header">
+<a href="/profile/umd-edu/details/?attr=readability" class="text-decoration-none">umd.edu</a>
+</div>
+<a href="/profile/umd-edu/details/?attr=readability" class="card-body text-decoration-none">
+<div class="display-2">
+F
+</div>
+</a>
+</div>
+</div>
 </div>
 <p class="small mt-4">Rankings: <a href="/rankings/edu/">Higher education rankings</a></p>
 </div>
 <script>
-    var categories = ["accessibility","botability","security","usability"];
+    var categories = ["accessibility","botability","security","usability","readability"];
 
     function showCards(attr) {
         var overallCards = document.getElementsByClassName('overall-card');

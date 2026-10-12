@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
-<meta name="description" content="A ScanGov project tracking web accessibility, botability, security, and usability.">
+<meta name="description" content="A ScanGov project tracking web accessibility, botability, security, usability, and readability.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="google-site-verification" content="10895162be5e592f">
 <meta property="og:locale" content="en_US">
@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Project ScanGov">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Digital experience monitor">
-<meta property="og:description" content="A ScanGov project tracking web accessibility, botability, security, and usability.">
+<meta property="og:description" content="A ScanGov project tracking web accessibility, botability, security, usability, and readability.">
 <meta property="og:url" content="https://scangov.org/">
 <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
 <meta property="og:image:width" content="1200">
@@ -254,6 +254,19 @@ Usability
 </a>
 </div>
 </div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
+<div class="card card-grade text-bg-danger" id="summary-readability-card">
+<div class="card-header">
+Readability
+<a href="https://docs.scangov.org/indicators/" class="icon-link" style="position: relative; z-index: 2;" aria-label="More about Readability" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="Write content at a reading level most users can understand. <a href=&quot;https://docs.scangov.org/indicators/&quot;>Learn more</a>">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+</a>
+</div>
+<a href="/rankings/readability/" id="summary-readability-link" class="card-body text-decoration-none stretched-link" style="position: relative;">
+<p class="display-1" id="summary-readability-grade">D</p>
+</a>
+</div>
+</div>
 </div>
 <p class="small mt-3 mb-0">See the <a href="/rankings/" id="homepage-hub-link">rankings for all sites</a> or the <a href="/rankings/counties/#by-state">county rankings by state</a>.</p>
 <div class="border-top pt-4 mt-4">
@@ -330,16 +343,32 @@ Usability:
 <a href="https://scangov.com/usability/">How ScanGov helps</a>
 </div>
 </div>
+<div class="col-12 col-lg-6 mb-4 d-flex flex-column">
+<h3 class="h5" id="readability">Readability</h3>
+<p>Write content at a reading level most users can understand.</p>
+<div class="sg-series-readability"><figure class="sg-chart sg-chart--bar" id="all-fails-readability" aria-labelledby="all-fails-readability-title"><figcaption><h4 class="sg-chart-title" id="all-fails-readability-title">Most common readability failures among U.S. government sites</h4><p class="sg-chart-sub" id="all-fails-readability-sub">Share of the 4,046 fully scanned U.S. government sites failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.</p></figcaption><ol class="sg-bars" style="--sg-value-room:5ch" aria-describedby="all-fails-readability-sub"><li class="sg-row" style="--i:0;--r:0.3658"><span class="sg-label"><a href="https://standards.scangov.org/reading-level">Reading level</a></span><span class="sg-plot" data-tip="Reading level: 37% · (1,480 of 4,046 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">37%</span><span class="visually-hidden"> (1,480 of 4,046 sites)</span></span></li></ol><details class="sg-chart-data"><summary>View the data table</summary><div class="table-responsive"><table class="table table-sm"><caption class="visually-hidden">Most common readability failures among U.S. government sites</caption><thead><tr><th scope="col">Check</th><th scope="col">Share failing</th><th scope="col">Sites failing</th></tr></thead><tbody><tr><th scope="row"><a href="https://standards.scangov.org/reading-level">Reading level</a></th><td class="sg-num">37%</td><td class="sg-num">1,480</td></tr></tbody></table></div></details></figure></div>
+<div class="alert alert-info small mt-auto" role="note">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+Readability:
+<a href="https://standards.scangov.org/readability/">Standards</a>
+&middot;
+<a href="https://standards.scangov.org/guidance/readability/">Guidance</a>
+&middot;
+<a href="https://scangov.org/rankings/readability/">Project ScanGov rankings</a>
+&middot;
+<a href="https://scangov.com/readability/">How ScanGov helps</a>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <script>
-  var homepageSummaryData = {"all":{"overall":78,"accessibility":89,"botability":78,"security":89,"usability":51},"cities":{"overall":80,"accessibility":90,"botability":76,"security":93,"usability":51},"states":{"overall":85,"accessibility":94,"botability":77,"security":94,"usability":68},"federal":{"overall":80,"accessibility":90,"botability":77,"security":90,"usability":59},"counties":{"overall":76,"accessibility":88,"botability":76,"security":88,"usability":46},"edu":{"overall":84,"accessibility":93,"botability":88,"security":91,"usability":60}};
+  var homepageSummaryData = {"all":{"overall":78,"accessibility":89,"botability":78,"security":89,"usability":51,"readability":60},"cities":{"overall":80,"accessibility":90,"botability":76,"security":93,"usability":51,"readability":71},"states":{"overall":85,"accessibility":94,"botability":77,"security":94,"usability":68,"readability":74},"federal":{"overall":80,"accessibility":90,"botability":77,"security":90,"usability":59,"readability":46},"counties":{"overall":76,"accessibility":88,"botability":76,"security":88,"usability":46,"readability":61},"edu":{"overall":84,"accessibility":93,"botability":88,"security":91,"usability":60,"readability":67}};
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var topics = ["overall","accessibility","botability","security","usability"];
+    var topics = ["overall","accessibility","botability","security","usability","readability"];
     var categoryPaths = { all: '', cities: 'cities/', counties: 'counties/', states: 'states/', federal: 'federal/', edu: 'edu/' };
     var hubLabels = { all: 'rankings for all sites', cities: 'city rankings', counties: 'county rankings', states: 'state rankings', federal: 'federal rankings', edu: 'education rankings' };
     var colorForScore = function(score) {
