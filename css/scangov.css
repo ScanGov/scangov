@@ -2245,6 +2245,10 @@ a[href$=".mp4"]::after {
     color: #ffbc78;
 }
 
+.fa-star-half-stroke {
+    color: #ffbc78;
+}
+
 .fa-bell {
     color: #29e1cb !important;
 }
@@ -2800,6 +2804,7 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] .fa-book-open:not([class*="text-"]),
 [data-bs-theme=light] .fa-file-lines:not([class*="text-"]),
 [data-bs-theme=light] .fa-bars-progress:not([class*="text-"]),
+[data-bs-theme=light] .fa-star-half-stroke:not([class*="text-"]),
 [data-bs-theme=light] .fa-star:not([class*="text-"]),
 [data-bs-theme=light] .fa-arrow-right-to-bracket:not([class*="text-"]),
 [data-bs-theme=light] .fa-check-circle:not([class*="text-"]),
