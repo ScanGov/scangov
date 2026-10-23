@@ -67,8 +67,10 @@
       <ul class="navbar-nav mb-2 mb-lg-0">
         {% for item in nav %}
           {% if item.url %}
+            {# Current page, or anything under the item's URL; "/" matches only the home page #}
+            {% set isActive = page.url == item.url or (item.url != '/' and page.url.indexOf(item.url) == 0 and (item.url.slice(-1) == '/' or page.url.charAt(item.url.length) == '/')) %}
             <li class="nav-item me-3 me-lg-0 small">
-              <a class="nav-link mx-1{% if item.url in page.url %} active{% endif %}" {% if item.url in page.url %}aria-current="page"{% endif %} href="{{ item.url }}">
+              <a class="nav-link mx-1{% if isActive %} active{% endif %}" {% if isActive %}aria-current="page"{% endif %} href="{{ item.url }}">
                 <i class="{{ item.icon }} me-2"></i>
                 {{ item.title }}
               </a>
