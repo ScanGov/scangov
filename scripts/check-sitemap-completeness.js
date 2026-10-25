@@ -287,6 +287,23 @@ const sitemapPaths = new Set(
     .filter((p) => !/^\/sitemap-[a-z]+\.xml$/.test(p))
 );
 
+// The readability pages must stay in the sitemap. The checks below only catch a
+// built page that is missing, so a removed or renamed page would go unnoticed.
+const REQUIRED_READABILITY_PATHS = [
+  '/rankings/readability/',
+  '/rankings/states/readability/',
+  '/rankings/counties/readability/',
+  '/rankings/cities/readability/',
+  '/rankings/federal/readability/',
+  '/rankings/edu/readability/',
+];
+const requiredMissing = REQUIRED_READABILITY_PATHS.filter((p) => !sitemapPaths.has(p));
+if (requiredMissing.length > 0) {
+  console.error(`check-sitemap-completeness: ${requiredMissing.length} readability page(s) missing from sitemap.xml:\n`);
+  for (const p of requiredMissing) console.error(`  ${p}`);
+  process.exit(1);
+}
+
 // Every <lastmod> must be a real W3C datetime (YYYY-MM-DD or full ISO 8601).
 // Empty or Date.toString()-style values are ignored by search engines, which
 // is exactly what the shared sitemap.njk used to emit before it was fixed.

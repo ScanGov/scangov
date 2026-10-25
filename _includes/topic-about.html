@@ -37,6 +37,14 @@
       <ul>
         <li><a href="https://scangov.com{{ catInfo.scangovUrl }}">How ScanGov supports {{ catInfo.displayName | lower }}</a></li>
       </ul>
+      <h3>About this ranking</h3>
+      {% set related = topicLinks[specificAttribute] %}
+      <ul>
+        <li><a href="https://standards.scangov.org/{{ specificAttribute }}/">Read the {{ catInfo.displayName | lower }} standard</a></li>
+        {% if related.docs %}<li><a href="{{ related.docs }}">Read the {{ catInfo.displayName | lower }} docs</a></li>{% endif %}
+        {% if related.scan %}<li><a href="{{ related.scan.url }}">Try the {{ related.scan.name }}</a></li>{% endif %}
+        {% if related.feature %}<li><a href="{{ related.feature }}">See the {{ catInfo.displayName | lower }} feature</a></li>{% endif %}
+      </ul>
     </div>
   </div>
 </div>
