@@ -77,7 +77,7 @@ eleventyComputed:
                 </span>
               </p>
             </div>
-            <div class="card-footer text-center" id="amount-{{ scorekey }}">
+            <div class="card-footer" id="amount-{{ scorekey }}">
               {% if (domain.status != 200) or (domain.scores[scorekey] | length === 0) %}-
               {% else %}
                 {{ domain.scores[scorekey].correct }} of {{ domain.scores[scorekey].all }} elements{% endif %}

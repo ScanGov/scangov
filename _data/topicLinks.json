@@ -1,0 +1,10 @@
+{
+  "readability": {
+    "docs": "https://docs.scangov.org/readability/",
+    "feature": "https://scangov.com/features/readability/",
+    "scan": { "name": "reading level checker", "url": "https://scangov.com/tools/readability/" }
+  },
+  "botability": {
+    "scan": { "name": "good bot scan", "url": "https://scangov.com/tools/good-bot-scan/" }
+  }
+}

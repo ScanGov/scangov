@@ -6,13 +6,19 @@
 {% if pagination.pageNumber == 0 %}
 <div class="row g-3 mt-2 mb-4">
   {% for g in groupSummaries %}
-  <div class="col-6 col-lg">
-    <div class="card h-100"><div class="card-body">
-      <p class="sg-stat-value"><a href="{{ g.hub }}{% if specificAttribute %}{{ specificAttribute }}/{% endif %}" class="text-decoration-none">{{ g.label }}</a></p>
-      {# No average when no site in the group carries this topic yet. #}
-      {% set groupAvg = g.averages[specificAttribute or "overall"] %}
-      <p class="sg-stat-label">{{ g.scoredCount | numberFormat }} fully scanned of {{ g.count | numberFormat }} sites{% if g.scoredCount and groupAvg !== null and groupAvg !== undefined %}. Average {{ (specificAttribute or "overall") }} score {{ groupAvg }}{% endif %}</p>
-    </div></div>
+  <div class="col-6 col-lg d-flex align-items-stretch">
+    {% set groupAvg = g.averages[specificAttribute or "overall"] %}
+    {# No average when no site in the group carries this topic yet. #}
+    {% set hasAvg = g.scoredCount and groupAvg !== null and groupAvg !== undefined %}
+    <div class="card card-grade-sm w-100{% if hasAvg %} text-bg-{{ groupAvg | colorify }}{% endif %}">
+      <div class="card-header">
+        <a href="{{ g.hub }}{% if specificAttribute %}{{ specificAttribute }}/{% endif %}" class="cardlink">{{ g.cardTitle }}</a>
+      </div>
+      <a href="{{ g.hub }}{% if specificAttribute %}{{ specificAttribute }}/{% endif %}" class="card-body text-decoration-none" aria-label="{{ g.cardTitle }} sites">
+        <div class="display-2">{% if hasAvg %}{{ groupAvg }}{% else %}&ndash;{% endif %}</div>
+      </a>
+      <div class="card-footer text-start"><small>{{ g.scoredCount | numberFormat }} of {{ g.count | numberFormat }} sites scanned</small></div>
+    </div>
   </div>
   {% endfor %}
 </div>
