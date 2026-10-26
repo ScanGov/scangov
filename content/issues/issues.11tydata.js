@@ -15,6 +15,13 @@ export default {
       return `${fmt.format(it.failCount)} of ${fmt.format(it.testedCount)} fully scanned U.S. ${it.group.singular} government websites ${it.issue.failPhrase}. A map, the share in each state, and every site listed, from ScanGov homepage scans.`;
     },
     breadcrumbParent: (data) => (data.item ? [{ title: 'Issues', url: '/issues/' }] : data.breadcrumbParent),
+    // An unlisted issue page (scripts/issues.js `unlisted`) builds at its URL
+    // but stays out of search results and the sitemap; the index, hubs and
+    // Pulse skip it too.
+    // Derived from the item only: a computed key that reads its own name
+    // is circular to Eleventy and emptied the whole issues sitemap.
+    noindex: (data) => !!(data.item && data.item.unlisted),
+    sitemap: (data) => !(data.item && data.item.unlisted),
     breadcrumbCurrent: (data) => (data.item ? data.item.title : data.breadcrumbCurrent),
     // The "Sites: N" line in the jumbotron is rendered by the layout; show the
     // group's list size, not the whole dataset.

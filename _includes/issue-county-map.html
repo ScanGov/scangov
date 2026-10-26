@@ -21,7 +21,7 @@
 <figure class="sg-chart sg-chart--map" id="{{ mapId }}" aria-labelledby="{{ mapId }}-title">
   <figcaption>
     <h2 class="sg-chart-title" id="{{ mapId }}-title">{{ item.group.titleNoun }} {{ item.issue.titleSuffix }}, by county</h2>
-    <p class="sg-chart-sub" id="{{ mapId }}-sub">Each highlighted county has a site on our list that {{ item.issue.failPhraseSingular }}. Select a county to open that site's {{ item.check.topicLabel | lower }} report. The table below lists every site.</p>
+    <p class="sg-chart-sub" id="{{ mapId }}-sub">Each highlighted county has a site that {{ item.issue.failPhraseSingular }}. Select one to open its {{ item.check.topicLabel | lower }} report.</p>
   </figcaption>
   <svg class="sg-map sg-map--national" viewBox="{{ m.viewBox }}" role="img" aria-labelledby="{{ mapId }}-title {{ mapId }}-sub" focusable="false">
     {% if m.unlistedPath %}<path class="sg-map-county sg-map-county--none" d="{{ m.unlistedPath }}"><title>Counties with no site on our list</title></path>{% endif %}
@@ -41,6 +41,6 @@
     {% if m.counts.unscanned or m.counts.untested %}<li><span class="sg-swatch sg-fill-inaccessible" aria-hidden="true"></span>Not fully scanned{% if m.counts.untested %} or no result for {{ "these checks" if item.issue.isFeature else "this check" }}{% endif %} ({{ (m.counts.unscanned + m.counts.untested) | numberFormat }})</li>{% endif %}
   </ul>
   {% if m.unjoinedCount %}
-  <p class="sg-chart-caveat">{{ m.unjoinedCount }} of the {{ item.count | numberFormat }} sites on our list could not be matched to a county boundary{% if m.unjoinedFailingCount %}, {{ m.unjoinedFailingCount }} of them {{ item.issue.failPhrase | replace("are ", "") if item.issue.isFeature else "failing this check" }}{% endif %}. They appear only in the table.</p>
+  <p class="sg-chart-caveat">We could not place {{ m.unjoinedCount }} of the {{ item.count | numberFormat }} sites on the map{% if m.unjoinedFailingCount %}, {{ m.unjoinedFailingCount }} of them {{ item.issue.failPhrase | replace("are ", "") if item.issue.isFeature else "failing this check" }}{% endif %}. They are in the table.</p>
   {% endif %}
 </figure>

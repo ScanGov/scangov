@@ -24,15 +24,16 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 
 <div class="sg-charts-large">
 <p class="lead">Of the {{ item.testedCount | numberFormat }} fully scanned U.S. {{ group.noun }} we tested, {{ item.failCount | numberFormat }} ({{ sharePct }}%) {{ issue.failPhrase }}.
+{% if check.lead %}{{ check.lead }}{% endif %}
 {% if item.markCount %}Another {{ item.markCount | numberFormat }} ({{ (item.markCount / item.testedCount * 100) | round }}%) {{ item.mark.phrase }}. No check fails for that, so they count as passing here, and the map shows them in their own color.{% endif %}
-{% if item.highestState and item.lowestState and item.highestState.code != item.lowestState.code %}Among states with at least {{ item.minStateSites }} tested sites, {{ item.highestState.name }} has the highest share at {{ (item.highestState.share * 100) | round }}% and {{ item.lowestState.name }} the lowest at {{ (item.lowestState.share * 100) | round }}%.{% endif %}
-{% if issue.isFeature %}{{ check.description }} A site counts as failing when it fails any of the checks behind this page: {% for c in item.checks %}<a href="{{ c.standardsUrl }}">{{ c.label | humanizeLabel }}</a>{% if loop.length > 2 and not loop.last %}, {% endif %}{% if loop.revindex == 2 %}and {% endif %}{% endfor %}.{% else %}The check behind this page, <a href="{{ check.standardsUrl }}">{{ check.label | humanizeLabel }}</a>, passes when {{ check.description[0] | lower }}{{ check.description.slice(1) }}{% endif %}</p>
+{% if item.highestState and item.lowestState and item.highestState.code != item.lowestState.code %}Among states with at least {{ item.minStateSites }} tested sites, {{ item.highestState.name }} has the highest share ({{ (item.highestState.share * 100) | round }}%). {{ item.lowestState.name }} has the lowest ({{ (item.lowestState.share * 100) | round }}%).{% endif %}
+{% if issue.isFeature %}{{ check.description }} A site fails if it fails any of these checks: {% for c in item.checks %}<a href="{{ c.standardsUrl }}">{{ c.label | humanizeLabel }}</a>{% if loop.length > 2 and not loop.last %}, {% endif %}{% if loop.revindex == 2 %}and {% endif %}{% endfor %}.{% else %}This page uses the <a href="{{ check.standardsUrl }}">{{ check.label | humanizeLabel }}</a> check. It passes when {{ check.description[0] | lower }}{{ check.description.slice(1) }}{% if check.note %} {{ check.note }}{% endif %}{% endif %}</p>
 
 <div class="row g-3 mb-2">
   <div class="col-6 col-lg-3">
     <div class="card h-100"><div class="card-body">
       <p class="sg-stat-value">{{ item.failCount | numberFormat }} <span class="fs-5 text-muted">of {{ item.testedCount | numberFormat }}</span></p>
-      <p class="sg-stat-label">Fully scanned {{ group.noun }} that {{ issue.failPhrase }}</p>
+      <p class="sg-stat-label">{{ group.noun | capitalize }} that {{ issue.failPhrase }}</p>
     </div></div>
   </div>
   <div class="col-6 col-lg-3">
@@ -44,7 +45,7 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
   <div class="col-6 col-lg-3">
     <div class="card h-100"><div class="card-body">
       <p class="sg-stat-value">{{ item.statesAffected }} <span class="fs-5 text-muted">of {{ item.states | length }}</span></p>
-      <p class="sg-stat-label">States with at least one failing {{ group.singular }} site, of the {{ item.states | length }} states with {{ group.noun }} on our list</p>
+      <p class="sg-stat-label">States with at least one failing {{ group.singular }} site</p>
     </div></div>
   </div>
   <div class="col-6 col-lg-3">
@@ -105,7 +106,7 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 </div>
 
 <h2 class="h4 mt-5" id="sites">All {{ item.failCount | numberFormat }} {{ group.noun }} {{ issue.failPhrase }}</h2>
-<p>Listed by state, then name. Each site links to its {{ check.topicLabel | lower }} report. Grades are the site's {{ check.topicLabel | lower }} and overall grades from the same scan.</p>
+<p>Sorted by state, then name. Each site links to its {{ check.topicLabel | lower }} report and shows its {{ check.topicLabel | lower }} and overall grades from the same scan.</p>
 <div class="table-responsive">
   <table class="table rankings-table" data-sortable data-paginate="50" data-paginate-unit="sites">
     <caption class="visually-hidden">{{ group.noun | capitalize }} {{ issue.failPhrase }}</caption>
@@ -134,7 +135,7 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 <section class="mt-5" aria-labelledby="about-check">
   {% if issue.isFeature %}
   <h2 class="h4" id="about-check">About these checks</h2>
-  <p><i class="fa-solid fa-{{ check.topicIcon }}" aria-hidden="true"></i> {{ check.description }} The <a href="{{ check.standardsUrl }}">{{ check.topicLabel | lower }} checks</a> behind this page test each part of that.{% if check.note %} {{ check.note }}{% endif %}</p>
+  <p><i class="fa-solid fa-{{ check.topicIcon }}" aria-hidden="true"></i> {{ check.description }} These <a href="{{ check.standardsUrl }}">{{ check.topicLabel | lower }} checks</a> test each part of that.{% if check.note %} {{ check.note }}{% endif %}</p>
   <ul class="sg-failures">
     {% for c in item.checks %}
     <li><a href="{{ c.standardsUrl }}">{{ c.label | humanizeLabel }}</a>. {{ c.description }} {{ c.risk }}</li>
@@ -170,5 +171,5 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 {% set footnoteScanWindow = item.scanWindow %}
 {% include "data-footnote.html" %}
 {% if item.untestedCount %}
-<p class="small text-muted">{{ item.untestedCount }} fully scanned {{ group.noun if item.untestedCount != 1 else group.singular + " site" }} {{ "have" if item.untestedCount != 1 else "has" }} no result for {{ "these checks" if issue.isFeature else "this check" }} and {{ "are" if item.untestedCount != 1 else "is" }} left out of the share.</p>
+<p class="small text-muted">{{ item.untestedCount | numberFormat }} fully scanned {{ group.noun if item.untestedCount != 1 else group.singular + " site" }} {{ "have" if item.untestedCount != 1 else "has" }} no result for {{ "these checks" if issue.isFeature else "this check" }} and {{ "are" if item.untestedCount != 1 else "is" }} left out of the share.</p>
 {% endif %}

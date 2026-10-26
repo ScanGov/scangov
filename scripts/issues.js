@@ -15,6 +15,21 @@ import { isScored, attributeIndex, scanWindow } from './group-summary.js';
 import { joinCounties } from './county-geo.js';
 import { slugify, formatCount } from './charts/format.js';
 
+// ARI scores map to U.S. school grades (9.2 reads as 9th grade). Failing
+// sites start at 8.5, which rounds to 9th; 13 and up is college, 17 and up
+// is graduate school.
+export function gradeLevelOf(ari) {
+    if (!Number.isFinite(ari)) return 'No score';
+    const grade = Math.round(ari);
+    if (grade >= 17) return 'Graduate school';
+    if (grade >= 13) return 'College';
+    if (grade >= 12) return '12th grade';
+    if (grade >= 11) return '11th grade';
+    if (grade >= 10) return '10th grade';
+    if (grade >= 9) return '9th grade';
+    return '8th grade or below';
+}
+
 // One entry per page. `slug` is the URL segment and `topic` names the
 // indicator. A page is either one check (`check`: the key on the record) or
 // one feature made of several checks (`checks`: the keys, plus `verdict(d)`,
@@ -25,8 +40,16 @@ import { slugify, formatCount } from './charts/format.js';
 // when given, colors the map's failing counties by stage, 'severe' tone or
 // the default issue tone). The
 // labels feed titles, legends and table headers (`failPhraseSingular` is the
-// one-site form of `failPhrase`). `breakdown` (optional)
-// buckets the failing sites for a bar chart: label(d, stage) names a bucket.
+// one-site form of `failPhrase`). A single-check page may also give a
+// `verdict` function and a `note` (shown with the check's description) when
+// a missing result means something other than "not tested", plus `lead`
+// (sentences for the intro) and `why` (replaces the standard's "why" copy).
+// `breakdown` (optional)
+// buckets the failing sites for a bar chart: label(d, stage) names a bucket,
+// and `order` (optional) lists the buckets in display order for an ordinal
+// scale; without it the largest bucket comes first. `unlisted: true` builds
+// the page but keeps it off the issues index, the hubs, Pulse, the sitemap,
+// and search engines, for a page whose data is still being checked.
 export const ISSUES = [
     {
         slug: 'not-dotgov',
@@ -140,6 +163,66 @@ export const ISSUES = [
             subtitle: 'by problem',
             labelHeader: 'Problem',
             label: (d, stage) => stage,
+        },
+    },
+    {
+        slug: 'needs-javascript',
+        topic: 'botability',
+        // Single-check page for client-side rendering. Since 2026-10-24 the
+        // auditor's lightrunner measures whether the main content is in the
+        // initial HTML and records the verdict as botability.text-content;
+        // before that the key only marked that the fetch succeeded (see
+        // isPartial in counties.js). The check was run on purpose against
+        // the sites that looked like they render with JavaScript, so a
+        // fully scanned site with no result is one that did not look that
+        // way and counts as passing here (user decision 2026-10-25), not as
+        // untested. The per-site measurement (contentInfo) is not in the
+        // homepages payload, so there is no breakdown chart yet.
+        check: 'text-content',
+        verdict: d => ({ verdict: (d.botability || {})['text-content'] === false ? 'fail' : 'pass' }),
+        note: 'We ran it only on sites that looked like they use JavaScript to show content. A site with no result counts as passing.',
+        // The two points this page exists to make, in the lead and in "Why it matters".
+        lead: 'Pages built this way load slowly. The browser has to run the script before it can show anything. The companies behind the biggest AI agents also say they do not index content rendered this way. So these pages stay out of the AI knowledge base.',
+        why: 'Client-side rendering is a slow way to deliver a page. The browser has to download and run the script before it can show any content, so the page loads poorly. It also keeps you out of AI answers. The companies behind the biggest AI agents say they do not index content rendered on the client. A page built this way is not part of their knowledge base.',
+        // "County websites that need JavaScript to show their content"
+        titleSuffix: 'that need JavaScript to show their content',
+        failLabel: 'Needs JavaScript',
+        passLabel: 'Content in the HTML',
+        // "38 of 41 fully scanned county sites need JavaScript to show their main content."
+        failPhrase: 'need JavaScript to show their main content',
+        failPhraseSingular: 'needs JavaScript to show its main content',
+    },
+    {
+        slug: 'reading-level',
+        topic: 'readability',
+        // Single-check page on the homepage's reading level. The auditor
+        // scores the page text with the Automated Readability Index (top-level
+        // `ari`, with `fk` alongside) and records the verdict as
+        // readability['reading-level']: pass at 8.5 or below (data on
+        // 2026-10-25: highest passing 8.499, lowest failing 8.503). The
+        // breakdown reads `ari` directly to show real grade levels. Unlisted
+        // until the user is happy with the data: 68 county sites score below
+        // ARI 1 and 11 above 20, which look like pages with very little text
+        // or with long tokens, and the standard's copy says 7th grade where
+        // the threshold sits at 8th.
+        check: 'reading-level',
+        unlisted: true,
+        // "County websites that are hard to read"
+        titleSuffix: 'that are hard to read',
+        failLabel: 'Above 8th grade',
+        passLabel: 'At or below 8th grade',
+        // "899 of 2,320 fully scanned county sites read above an 8th grade level."
+        failPhrase: 'read above an 8th grade level',
+        failPhraseSingular: 'reads above an 8th grade level',
+        lead: 'Hard text slows people down. Some give up before they find what they need. We score the text on each homepage with the Automated Readability Index (ARI). It estimates the U.S. school grade a reader needs.',
+        note: 'A site passes when its ARI score is 8.5 or lower.',
+        why: 'Plain text helps people get what they need the first time. Hard text leads to more calls, more errors, and more visits.',
+        breakdown: {
+            title: 'How hard the failing sites are to read',
+            subtitle: 'by grade level',
+            labelHeader: 'Grade level',
+            order: ['9th grade', '10th grade', '11th grade', '12th grade', 'College', 'Graduate school'],
+            label: d => gradeLevelOf(d.ari),
         },
     },
     {
@@ -311,7 +394,7 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
     // The page's headline check: the feature's own copy, or the one check.
     const check = issue.feature
         ? { ...checks[0], key: issue.slug, label: issue.feature.label, description: issue.feature.description, note: issue.feature.note || '', why: '', risk: '', error: '', standardsUrl: `https://standards.scangov.org${topicInfo.url || ''}`, guidance: [] }
-        : checks[0];
+        : { ...checks[0], note: issue.note || '', lead: issue.lead || '', why: issue.why || checks[0].why };
     const members = records.filter(group.filter);
     const responding = members.filter(isResponding);
     const scored = members.filter(isScored);
@@ -368,7 +451,10 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
             const label = issue.breakdown.label(d, stages.get(domainKey(d)));
             counts.set(label, (counts.get(label) || 0) + 1);
         }
-        const rows = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+        const order = issue.breakdown.order;
+        const rows = [...counts.entries()].sort(order
+            ? (a, b) => (order.indexOf(a[0]) + 1 || Infinity) - (order.indexOf(b[0]) + 1 || Infinity) || b[1] - a[1]
+            : (a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
         const TOP = 8;
         const top = rows.slice(0, TOP);
         const rest = rows.slice(TOP).reduce((n, [, c]) => n + c, 0);
@@ -377,7 +463,7 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
             id: `issue-${issue.slug}-${group.key}-breakdown`,
             type: 'bar',
             title: issue.breakdown.title,
-            subtitle: `Number of the ${formatCount(failing.length)} fully scanned ${group.noun} that ${issue.failPhrase}, ${issue.breakdown.subtitle || 'by group'}.`,
+            subtitle: `The ${formatCount(failing.length)} ${group.noun} that ${issue.failPhrase}, grouped ${issue.breakdown.subtitle || 'by type'}.`,
             headingLevel: 2,
             valueFormat: 'count',
             labelHeader: issue.breakdown.labelHeader || 'Group',
@@ -389,6 +475,7 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
     const map = group.hasCountyMap ? buildNationalMap(members, verdicts, stages, marks, geo, issue) : null;
 
     return {
+        unlisted: !!issue.unlisted,
         issue: { slug: issue.slug, topic: issue.topic, check: issue.check || null, isFeature: !!issue.feature, titleSuffix: issue.titleSuffix, failLabel: issue.failLabel, passLabel: issue.passLabel, failPhrase: issue.failPhrase, failPhraseSingular: issue.failPhraseSingular || issue.failPhrase },
         group: { key: group.key, label: group.label, singular: group.singular, titleNoun: group.titleNoun, noun: group.noun, hub: group.hub },
         url: issueUrl(issue, group),
