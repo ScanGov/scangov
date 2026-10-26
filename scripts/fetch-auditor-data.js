@@ -20,6 +20,13 @@ const REBUILD_POLL_MS = 15 * 1000;
 // homepages/latest.json (readability added 2026-10-12, after the first
 // five-topic payload; see the auditor's docs/readability-topic-plan.md).
 const REQUIRED_TOPICS = ['botability', 'accessibility', 'security', 'usability', 'readability'];
+// Topics that may legitimately carry no scored attribute. Readability is derived
+// from the text a page serves without JavaScript: a client-side rendered homepage
+// (alabama.gov, sd.gov), a non-English page or a skipped extraction has nothing to
+// grade, and the auditor leaves the topic at 0 attributes with a null score. The
+// site renders those without a readability grade. Requiring attributes here
+// dropped 352 of 4,841 scored records, six states among them (2026-10-25).
+const UNSCORED_OK_TOPICS = new Set(['readability']);
 const OUTPUT_FILE = './public/data/myscangov_homepage_audits.json';
 const MIN_RECORD_COUNT = 900;
 const MAX_DROP_PERCENT = 10;
@@ -30,7 +37,7 @@ function generateAuthParams() {
     return { time, hash };
 }
 
-function isCompleteRecord(record) {
+export function isCompleteRecord(record) {
     // Blocked or unreachable homepages arrive with the HTTP status the site gave
     // the auditor and no scores; the site renders them as "unknown grade" and lists
     // them on /status/<code>/, so they are complete as long as they carry a status.
@@ -44,11 +51,12 @@ function isCompleteRecord(record) {
         if (!record.scores[topic]) {
             return { complete: false, reason: `missing topic: ${topic}` };
         }
+        if (record.scores[topic].all === 0) {
+            if (UNSCORED_OK_TOPICS.has(topic)) continue;
+            return { complete: false, reason: `${topic} has 0 attributes` };
+        }
         if (isNaN(record.scores[topic].score)) {
             return { complete: false, reason: `${topic} score is NaN` };
-        }
-        if (record.scores[topic].all === 0) {
-            return { complete: false, reason: `${topic} has 0 attributes` };
         }
     }
 
