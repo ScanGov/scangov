@@ -2791,6 +2791,7 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] .fa-circle-nodes:not([class*="text-"]),
 [data-bs-theme=light] .fa-scale-balanced:not([class*="text-"]),
 [data-bs-theme=light] .fa-link:not([class*="text-"]),
+[data-bs-theme=light] .fa-window-maximize:not([class*="text-"]),
 [data-bs-theme=light] .fa-copy:not([class*="text-"]),
 [data-bs-theme=light] .fa-rotate-left:not([class*="text-"]),
 [data-bs-theme=light] .fa-link-slash:not([class*="text-"]),
@@ -2858,6 +2859,23 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] .btn:active .fa-solid:not([class*="text-"]) {
     color: var(--bs-btn-hover-color) !important;
     fill: var(--bs-btn-hover-color) !important;
+}
+
+/* Status cards keep their own text color for icons in light mode too: the blanket
+   light-mode icon rule above would otherwise turn an info icon black on a red card.
+   The anchor selectors out-rank the "a:not(.btn):not(.active) .fa-solid" light-mode rule. */
+[data-bs-theme=light] .card.text-bg-success .fa-solid:not([class*="text-"]),
+[data-bs-theme=light] .card.text-bg-success a:not(.btn):not(.active) .fa-solid:not([class*="text-"]),
+[data-bs-theme=light] .card.text-bg-warning .fa-solid:not([class*="text-"]),
+[data-bs-theme=light] .card.text-bg-warning a:not(.btn):not(.active) .fa-solid:not([class*="text-"]) {
+    color: #13171f !important;
+    fill: #13171f !important;
+}
+
+[data-bs-theme=light] .card.text-bg-danger .fa-solid:not([class*="text-"]),
+[data-bs-theme=light] .card.text-bg-danger a:not(.btn):not(.active) .fa-solid:not([class*="text-"]) {
+    color: #ffffff !important;
+    fill: #ffffff !important;
 }
 
 [data-bs-theme=light] .bg-secondary-subtle {
