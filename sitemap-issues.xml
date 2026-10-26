@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://scangov.org/issues/</loc>
-    <lastmod>2026-10-09T12:46:08.191Z</lastmod>
+    <lastmod>2026-10-26T01:32:25.571Z</lastmod>
   </url>
   <url>
     <loc>https://scangov.org/issues/not-dotgov/counties/</loc>
-    <lastmod>2026-10-09T12:46:08.191Z</lastmod>
+    <lastmod>2026-10-26T01:32:25.571Z</lastmod>
   </url>
   <url>
     <loc>https://scangov.org/issues/sitemap/counties/</loc>
-    <lastmod>2026-10-09T12:46:08.191Z</lastmod>
+    <lastmod>2026-10-26T01:32:25.571Z</lastmod>
   </url>
   <url>
     <loc>https://scangov.org/issues/robots/counties/</loc>
-    <lastmod>2026-10-09T12:46:08.191Z</lastmod>
+    <lastmod>2026-10-26T01:32:25.571Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/issues/needs-javascript/counties/</loc>
+    <lastmod>2026-10-26T01:32:25.571Z</lastmod>
   </url>
   <url>
     <loc>https://scangov.org/issues/open-graph/counties/</loc>
-    <lastmod>2026-10-09T12:46:08.191Z</lastmod>
+    <lastmod>2026-10-26T01:32:25.571Z</lastmod>
   </url>
 </urlset>
