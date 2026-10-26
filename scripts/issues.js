@@ -25,7 +25,11 @@ import { slugify, formatCount } from './charts/format.js';
 // when given, colors the map's failing counties by stage, 'severe' tone or
 // the default issue tone). The
 // labels feed titles, legends and table headers (`failPhraseSingular` is the
-// one-site form of `failPhrase`). `breakdown` (optional)
+// one-site form of `failPhrase`). A single-check page may also give a
+// `verdict` function and a `note` (shown with the check's description) when
+// a missing result means something other than "not tested", plus `lead`
+// (sentences for the intro) and `why` (replaces the standard's "why" copy).
+// `breakdown` (optional)
 // buckets the failing sites for a bar chart: label(d, stage) names a bucket.
 export const ISSUES = [
     {
@@ -141,6 +145,33 @@ export const ISSUES = [
             labelHeader: 'Problem',
             label: (d, stage) => stage,
         },
+    },
+    {
+        slug: 'needs-javascript',
+        topic: 'botability',
+        // Single-check page for client-side rendering. Since 2026-10-24 the
+        // auditor's lightrunner measures whether the main content is in the
+        // initial HTML and records the verdict as botability.text-content;
+        // before that the key only marked that the fetch succeeded (see
+        // isPartial in counties.js). The check was run on purpose against
+        // the sites that looked like they render with JavaScript, so a
+        // fully scanned site with no result is one that did not look that
+        // way and counts as passing here (user decision 2026-10-25), not as
+        // untested. The per-site measurement (contentInfo) is not in the
+        // homepages payload, so there is no breakdown chart yet.
+        check: 'text-content',
+        verdict: d => ({ verdict: (d.botability || {})['text-content'] === false ? 'fail' : 'pass' }),
+        note: 'We ran it only on sites that looked like they use JavaScript to show content. A site with no result counts as passing.',
+        // The two points this page exists to make, in the lead and in "Why it matters".
+        lead: 'Pages built this way load slowly. The browser has to run the script before it can show anything. The companies behind the biggest AI agents also say they do not index content rendered this way. So these pages stay out of the AI knowledge base.',
+        why: 'Client-side rendering is a slow way to deliver a page. The browser has to download and run the script before it can show any content, so the page loads poorly. It also keeps you out of AI answers. The companies behind the biggest AI agents say they do not index content rendered on the client. A page built this way is not part of their knowledge base.',
+        // "County websites that need JavaScript to show their content"
+        titleSuffix: 'that need JavaScript to show their content',
+        failLabel: 'Needs JavaScript',
+        passLabel: 'Content in the HTML',
+        // "38 of 41 fully scanned county sites need JavaScript to show their main content."
+        failPhrase: 'need JavaScript to show their main content',
+        failPhraseSingular: 'needs JavaScript to show its main content',
     },
     {
         slug: 'open-graph',
@@ -311,7 +342,7 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
     // The page's headline check: the feature's own copy, or the one check.
     const check = issue.feature
         ? { ...checks[0], key: issue.slug, label: issue.feature.label, description: issue.feature.description, note: issue.feature.note || '', why: '', risk: '', error: '', standardsUrl: `https://standards.scangov.org${topicInfo.url || ''}`, guidance: [] }
-        : checks[0];
+        : { ...checks[0], note: issue.note || '', lead: issue.lead || '', why: issue.why || checks[0].why };
     const members = records.filter(group.filter);
     const responding = members.filter(isResponding);
     const scored = members.filter(isScored);

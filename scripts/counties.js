@@ -87,7 +87,13 @@ export function scoreOf(d, topic) {
 export function isPartial(d) {
     const bot = d.botability || {};
     const use = d.usability || {};
-    const hasContentCheck = 'text-content' in bot;
+    // The fetch-derived marker. Until 2026-10-24 this was `text-content`, which the
+    // lightrunner set alongside `crawlable` whenever its page fetch succeeded. Since
+    // then `text-content` is a measurement (auditor contentInfo) that only pages
+    // re-audited on the new lightrunner carry, so keying on it marked every other
+    // homepage partial (4,050 of 4,101 on 2026-10-25). `crawlable` has had the
+    // fetch-succeeded meaning for every record since July 2025 and still does.
+    const hasContentCheck = 'crawlable' in bot;
     const hasOpenGraph = 'ogtitle' in use || 'ogdescription' in use;
     return !hasContentCheck || !hasOpenGraph;
 }
