@@ -15,6 +15,21 @@ import { isScored, attributeIndex, scanWindow } from './group-summary.js';
 import { joinCounties } from './county-geo.js';
 import { slugify, formatCount } from './charts/format.js';
 
+// ARI scores map to U.S. school grades (9.2 reads as 9th grade). Failing
+// sites start at 8.5, which rounds to 9th; 13 and up is college, 17 and up
+// is graduate school.
+export function gradeLevelOf(ari) {
+    if (!Number.isFinite(ari)) return 'No score';
+    const grade = Math.round(ari);
+    if (grade >= 17) return 'Graduate school';
+    if (grade >= 13) return 'College';
+    if (grade >= 12) return '12th grade';
+    if (grade >= 11) return '11th grade';
+    if (grade >= 10) return '10th grade';
+    if (grade >= 9) return '9th grade';
+    return '8th grade or below';
+}
+
 // One entry per page. `slug` is the URL segment and `topic` names the
 // indicator. A page is either one check (`check`: the key on the record) or
 // one feature made of several checks (`checks`: the keys, plus `verdict(d)`,
@@ -30,7 +45,11 @@ import { slugify, formatCount } from './charts/format.js';
 // a missing result means something other than "not tested", plus `lead`
 // (sentences for the intro) and `why` (replaces the standard's "why" copy).
 // `breakdown` (optional)
-// buckets the failing sites for a bar chart: label(d, stage) names a bucket.
+// buckets the failing sites for a bar chart: label(d, stage) names a bucket,
+// and `order` (optional) lists the buckets in display order for an ordinal
+// scale; without it the largest bucket comes first. `unlisted: true` builds
+// the page but keeps it off the issues index, the hubs, Pulse, the sitemap,
+// and search engines, for a page whose data is still being checked.
 export const ISSUES = [
     {
         slug: 'not-dotgov',
@@ -172,6 +191,39 @@ export const ISSUES = [
         // "38 of 41 fully scanned county sites need JavaScript to show their main content."
         failPhrase: 'need JavaScript to show their main content',
         failPhraseSingular: 'needs JavaScript to show its main content',
+    },
+    {
+        slug: 'reading-level',
+        topic: 'readability',
+        // Single-check page on the homepage's reading level. The auditor
+        // scores the page text with the Automated Readability Index (top-level
+        // `ari`, with `fk` alongside) and records the verdict as
+        // readability['reading-level']: pass at 8.5 or below (data on
+        // 2026-10-25: highest passing 8.499, lowest failing 8.503). The
+        // breakdown reads `ari` directly to show real grade levels. Unlisted
+        // until the user is happy with the data: 68 county sites score below
+        // ARI 1 and 11 above 20, which look like pages with very little text
+        // or with long tokens, and the standard's copy says 7th grade where
+        // the threshold sits at 8th.
+        check: 'reading-level',
+        unlisted: true,
+        // "County websites that are hard to read"
+        titleSuffix: 'that are hard to read',
+        failLabel: 'Above 8th grade',
+        passLabel: 'At or below 8th grade',
+        // "899 of 2,320 fully scanned county sites read above an 8th grade level."
+        failPhrase: 'read above an 8th grade level',
+        failPhraseSingular: 'reads above an 8th grade level',
+        lead: 'Hard text slows people down. Some give up before they find what they need. We score the text on each homepage with the Automated Readability Index (ARI). It estimates the U.S. school grade a reader needs.',
+        note: 'A site passes when its ARI score is 8.5 or lower.',
+        why: 'Plain text helps people get what they need the first time. Hard text leads to more calls, more errors, and more visits.',
+        breakdown: {
+            title: 'How hard the failing sites are to read',
+            subtitle: 'by grade level',
+            labelHeader: 'Grade level',
+            order: ['9th grade', '10th grade', '11th grade', '12th grade', 'College', 'Graduate school'],
+            label: d => gradeLevelOf(d.ari),
+        },
     },
     {
         slug: 'open-graph',
@@ -399,7 +451,10 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
             const label = issue.breakdown.label(d, stages.get(domainKey(d)));
             counts.set(label, (counts.get(label) || 0) + 1);
         }
-        const rows = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+        const order = issue.breakdown.order;
+        const rows = [...counts.entries()].sort(order
+            ? (a, b) => (order.indexOf(a[0]) + 1 || Infinity) - (order.indexOf(b[0]) + 1 || Infinity) || b[1] - a[1]
+            : (a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
         const TOP = 8;
         const top = rows.slice(0, TOP);
         const rest = rows.slice(TOP).reduce((n, [, c]) => n + c, 0);
@@ -408,7 +463,7 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
             id: `issue-${issue.slug}-${group.key}-breakdown`,
             type: 'bar',
             title: issue.breakdown.title,
-            subtitle: `Number of the ${formatCount(failing.length)} fully scanned ${group.noun} that ${issue.failPhrase}, ${issue.breakdown.subtitle || 'by group'}.`,
+            subtitle: `The ${formatCount(failing.length)} ${group.noun} that ${issue.failPhrase}, grouped ${issue.breakdown.subtitle || 'by type'}.`,
             headingLevel: 2,
             valueFormat: 'count',
             labelHeader: issue.breakdown.labelHeader || 'Group',
@@ -420,6 +475,7 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
     const map = group.hasCountyMap ? buildNationalMap(members, verdicts, stages, marks, geo, issue) : null;
 
     return {
+        unlisted: !!issue.unlisted,
         issue: { slug: issue.slug, topic: issue.topic, check: issue.check || null, isFeature: !!issue.feature, titleSuffix: issue.titleSuffix, failLabel: issue.failLabel, passLabel: issue.passLabel, failPhrase: issue.failPhrase, failPhraseSingular: issue.failPhraseSingular || issue.failPhrase },
         group: { key: group.key, label: group.label, singular: group.singular, titleNoun: group.titleNoun, noun: group.noun, hub: group.hub },
         url: issueUrl(issue, group),

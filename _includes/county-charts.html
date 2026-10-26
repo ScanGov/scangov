@@ -104,7 +104,7 @@
 </ul>
 {# Issue pages for this indicator (scripts/issues.js): every county site failing one check, on a map. #}
 {% set issueLinks = [] %}
-{% for ip in issuePages %}{% if ip.group.key == "counties" and ip.issue.topic == specificAttribute %}{% set issueLinks = (issueLinks.push(ip), issueLinks) %}{% endif %}{% endfor %}
+{% for ip in issuePages %}{% if ip.group.key == "counties" and ip.issue.topic == specificAttribute and not ip.unlisted %}{% set issueLinks = (issueLinks.push(ip), issueLinks) %}{% endif %}{% endfor %}
 {% if issueLinks.length %}
 <h3 class="h5 mt-4">Every site with one problem</h3>
 <ul class="sg-failures">
