@@ -12,6 +12,9 @@
   Reset it (`{% set infoMatchTextColor = false %}`) before the next include if a later one on the
   same page shouldn't inherit it, since Nunjucks {% set %} persists for the rest of the template.
 
+  Inside a status card (text-bg-success, text-bg-warning, text-bg-danger) the icon takes the card's
+  text color automatically (scangov.css), in light and dark mode. Do not set a color on it.
+
   Mirrors my.scangov.com's src/shared/infoicon.mjs: click-to-open tooltip (not hover), dismissed
   by clicking outside, with a "Learn more" link to infoHref inside the tooltip body. Requires the
   tooltip init script in js.html and bootstrap-tooltip.min.js to be loaded - inert (a plain,
