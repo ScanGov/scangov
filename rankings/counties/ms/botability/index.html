@@ -56,7 +56,7 @@
 <a class="visually-hidden visually-hidden-focusable skip-link" href="#main-content">
 Skip to main content
 </a>
-<div class="d-none d-md-block">
+<nav class="d-none d-md-block" aria-label="ScanGov sites">
 <div class="d-flex justify-content-end border-bottom pt-1 pb-0">
 <ul class="nav nav-tabs topnav small mb-0">
 <li class="nav-item">
@@ -81,8 +81,8 @@ Skip to main content
 </li>
 </ul>
 </div>
-</div>
-<nav class="navbar navbar-expand-md border-bottom">
+</nav>
+<nav class="navbar navbar-expand-md border-bottom" aria-label="Main">
 <div class="container-fluid">
 <a class="navbar-brand" href="/">
 <svg id="logo" viewBox="0 0 1500 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1850,6 +1850,133 @@ The full dataset, with every county's raw results, is in the <a href="https://da
 </div>
 </div>
 </main>
+<style>
+.cta-band {
+position: fixed;
+right: 0;
+bottom: 0;
+left: 0;
+z-index: 1030;
+padding: 0.75rem 0;
+background-color: var(--bs-body-bg);
+color: var(--bs-body-color);
+transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+/* Hidden while the hero or the footer is on screen */
+.cta-band.is-hidden {
+opacity: 0;
+visibility: hidden;
+transform: translateY(100%);
+pointer-events: none;
+}
+.cta-band .btn {
+margin-top: 0;
+margin-bottom: 0;
+}
+/* The crown has its own icon color rules (gold in dark mode, body color in
+light mode); inside the primary button it should match the button text,
+like the rocket in the hero */
+.cta-band .btn.btn-primary svg.fa-crown,
+.cta-band .btn.btn-primary i.fa-crown {
+color: inherit !important;
+fill: currentColor !important;
+}
+/* Some icons (the link icon, for one) keep a fixed color on hover in light
+mode; inside the outline buttons they should follow the button text */
+.cta-band .btn.btn-outline-primary:hover svg,
+.cta-band .btn.btn-outline-primary:focus svg,
+.cta-band .btn.btn-outline-primary:hover i,
+.cta-band .btn.btn-outline-primary:focus i {
+color: inherit !important;
+fill: currentColor !important;
+}
+</style>
+<div id="cta-band" class="cta-band border-top" role="region" aria-label="Get ScanGov, see the demo, and share this page">
+<div class="container d-flex align-items-center justify-content-center gap-2">
+<a href="https://scangov.com/plans/" class="btn btn-primary" aria-label="Plans">
+<svg class="fa-solid fa-crown" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-crown" xlink:href="/assets/fa-sprite.svg#fas-fa-crown"></use></svg><span class="d-none d-md-inline ms-2">Plans</span></a>
+<a href="https://scangov.com/demo/" class="btn btn-outline-primary" aria-label="Demo">
+<svg class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-wand-magic-sparkles" xlink:href="/assets/fa-sprite.svg#fas-fa-wand-magic-sparkles"></use></svg><span class="d-none d-md-inline ms-2">Demo</span></a>
+<button type="button" class="btn btn-outline-primary" id="cta-copy-link" aria-label="Copy link">
+<svg class="fa-solid fa-link" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg><span class="d-none d-md-inline ms-2">Link</span></button>
+<button type="button" class="btn btn-outline-primary" id="cta-copy-text" aria-label="Copy text">
+<svg class="fa-solid fa-copy" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-copy" xlink:href="/assets/fa-sprite.svg#fas-fa-copy"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg><span class="d-none d-md-inline ms-2">Text</span></button>
+<span class="visually-hidden" role="status" aria-live="polite" id="cta-copy-status"></span>
+</div>
+</div>
+<script>
+  (function() {
+    var status = document.getElementById('cta-copy-status');
+
+    // The page link: the canonical link if there is one, else this URL without
+    // the query string or hash
+    function pageLink() {
+      var canonical = document.querySelector('link[rel="canonical"]');
+      return canonical && canonical.href ? canonical.href : location.origin + location.pathname;
+    }
+
+    // Title, description, and link, ready to paste into email, Teams, Slack, or a post
+    function pageText() {
+      var h1 = document.querySelector('h1');
+      var description = document.querySelector('meta[name="description"]');
+      return [
+        h1 ? h1.textContent.trim().replace(/\s+/g, ' ') : document.title,
+        description ? description.content.trim() : '',
+        pageLink()
+      ].filter(Boolean).join('\n');
+    }
+
+    function wire(buttonId, getText, doneMessage) {
+      var button = document.getElementById(buttonId);
+      if (!button) return;
+      button.addEventListener('click', async function() {
+        // Icons are swapped for inline SVGs at build time, so show the hidden
+        // check mark instead of changing the icon's class
+        var icons = button.querySelectorAll('svg, i');
+        var label = button.querySelector('span');
+        var labelText = label.textContent;
+        try {
+          await navigator.clipboard.writeText(getText());
+          icons[0].classList.add('d-none');
+          icons[1].classList.remove('d-none');
+          label.textContent = 'Copied';
+          status.textContent = doneMessage;
+          setTimeout(function() {
+            icons[0].classList.remove('d-none');
+            icons[1].classList.add('d-none');
+            label.textContent = labelText;
+            status.textContent = '';
+          }, 2000);
+        } catch (err) {
+          // Clipboard unavailable: leave the button as it is
+        }
+      });
+    }
+
+    // Show the band only between the hero and the footer. This script sits above
+    // the footer in the page, so wait until the whole page is parsed.
+    function watchHeroAndFooter() {
+      var band = document.getElementById('cta-band');
+      var h1 = document.querySelector('h1');
+      var targets = [h1 ? (h1.closest('.pt-5') || h1) : null, document.querySelector('footer')].filter(Boolean);
+      if (!band || !targets.length || !('IntersectionObserver' in window)) return;
+      var inView = new Map();
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) { inView.set(entry.target, entry.isIntersecting); });
+        band.classList.toggle('is-hidden', Array.from(inView.values()).some(Boolean));
+      });
+      targets.forEach(function(target) { observer.observe(target); });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', watchHeroAndFooter);
+    } else {
+      watchHeroAndFooter();
+    }
+
+    wire('cta-copy-link', pageLink, 'Link copied');
+    wire('cta-copy-text', pageText, 'Text copied');
+  })();
+</script>
 <footer role="contentinfo">
 <div class="container mt-5 pt-5 border-top">
 <div class="row">
@@ -1941,17 +2068,28 @@ The full dataset, with every county's raw results, is in the <a href="https://da
   const feedbackButton = document.getElementById("feedback-button");
   const footer = document.querySelector("footer");
 
+  // The fixed CTA band already carries the Get started button
+  const ctaBand = document.getElementById('cta-band');
   function updateButton() {
     const scrolled = document.documentElement.scrollTop > window.innerHeight * 0.3;
     const footerVisible = footer && footer.getBoundingClientRect().top < window.innerHeight;
-    const visible = scrolled && !footerVisible;
+    const visible = scrolled && !footerVisible && !ctaBand;
     feedbackButton.classList.toggle('is-visible', visible);
     feedbackButton.setAttribute('aria-hidden', visible ? 'false' : 'true');
     feedbackButton.setAttribute('tabindex', visible ? '0' : '-1');
   }
 
-  if (window.location.hostname !== 'my.scangov.com') {
-    window.addEventListener('scroll', updateButton);
+  const hiddenPaths = ['/plans/', '/demo/', '/demo-confirm/', '/contact/'];
+  if (window.location.hostname !== 'my.scangov.com' && !hiddenPaths.includes(window.location.pathname)) {
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function() {
+        updateButton();
+        ticking = false;
+      });
+    }, { passive: true });
     updateButton();
   }
 </script>
@@ -1959,7 +2097,7 @@ The full dataset, with every county's raw results, is in the <a href="https://da
 <script>
 (function() {
     document.querySelectorAll('#post h2[id], #post h3[id]').forEach(function(h) {
-        if (h.closest('.card')) return;
+        if (h.closest('.card') || h.classList.contains('accordion-header')) return;
         var wrap = document.createElement('a');
         wrap.className = 'heading-anchor-text';
         wrap.href = '#' + h.id;
