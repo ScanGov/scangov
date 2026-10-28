@@ -11,17 +11,28 @@
   const feedbackButton = document.getElementById("feedback-button");
   const footer = document.querySelector("footer");
 
+  // The fixed CTA band already carries the Get started button
+  const ctaBand = document.getElementById('cta-band');
   function updateButton() {
     const scrolled = document.documentElement.scrollTop > window.innerHeight * 0.3;
     const footerVisible = footer && footer.getBoundingClientRect().top < window.innerHeight;
-    const visible = scrolled && !footerVisible;
+    const visible = scrolled && !footerVisible && !ctaBand;
     feedbackButton.classList.toggle('is-visible', visible);
     feedbackButton.setAttribute('aria-hidden', visible ? 'false' : 'true');
     feedbackButton.setAttribute('tabindex', visible ? '0' : '-1');
   }
 
-  if (window.location.hostname !== 'my.scangov.com') {
-    window.addEventListener('scroll', updateButton);
+  const hiddenPaths = ['/plans/', '/demo/', '/demo-confirm/', '/contact/'];
+  if (window.location.hostname !== 'my.scangov.com' && !hiddenPaths.includes(window.location.pathname)) {
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function() {
+        updateButton();
+        ticking = false;
+      });
+    }, { passive: true });
     updateButton();
   }
 </script>

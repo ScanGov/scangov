@@ -1,3 +1,4 @@
+{% if page.url != "/plans/" and page.url != "/demo/" and page.url != "/demo-confirm/" and page.url != "/contact/" %}{% include "cta.html" %}{% endif %}
 <footer role="contentinfo">
   {% if footer %}
   <div class="container mt-5 pt-5 border-top">
@@ -32,7 +33,7 @@
 <script>
 (function() {
     document.querySelectorAll('#post h2[id], #post h3[id]').forEach(function(h) {
-        if (h.closest('.card')) return;
+        if (h.closest('.card') || h.classList.contains('accordion-header')) return;
         var wrap = document.createElement('a');
         wrap.className = 'heading-anchor-text';
         wrap.href = '#' + h.id;

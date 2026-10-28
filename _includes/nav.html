@@ -7,7 +7,7 @@
 ] %}
 {% set topnavUrls = ["https://scangov.com", "https://standards.scangov.org", "https://scangov.org", "https://docs.scangov.org", "https://data.scangov.org"] %}
 {% if site.url in topnavUrls %}
-<div class="d-none d-md-block">
+<nav class="d-none d-md-block" aria-label="ScanGov sites">
   <div class="d-flex justify-content-end border-bottom pt-1 pb-0">
     <ul class="nav nav-tabs topnav small mb-0">
       {% for item in topnav %}
@@ -20,9 +20,9 @@
       {% endfor %}
     </ul>
   </div>
-</div>
+</nav>
 {% endif %}
-<nav class="navbar navbar-expand-md border-bottom">
+<nav class="navbar navbar-expand-md border-bottom" aria-label="Main">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
       <svg

@@ -160,10 +160,12 @@
        (.sg-series-*). Dataviz reference palette steps; validated 2026-09-22
        on #1a1b2e: lightness band, chroma and contrast pass, adjacent pairs
        pass CVD. Purple and blue are close for red-green CVD, so use these
-       only where each chart carries its indicator's name. Readability
-       (#e63b7a, 4.3:1) added 2026-10-11 and validated as the LAST hue in
-       the sequence, next to usability's purple; between green and orange
-       no hue passes, so topic lists keep readability last. */
+       only where each chart carries its indicator's name.
+       Readability (rose) added 2026-10-11, validated in the same way with
+       readability rendered LAST, after usability: rose vs purple is the
+       tightest adjacent pair (normal-vision dE 15.7, floor 15). Between
+       botability green and security orange no hue passes, so keep
+       readability at the end of every side-by-side topic sequence. */
     --sg-indicator-accessibility: #3987e5;
     --sg-indicator-botability: #199e70;
     --sg-indicator-security: #d95926;
@@ -253,8 +255,8 @@
     --sg-chart-muted: #6b7280;
     --sg-chart-grid: var(--bs-border-color);
     --sg-chart-track: rgba(19, 23, 31, 0.08);
-    /* Indicator hues on #fff: every validator check passes, all pairs.
-       Readability #c2185b = 5.9:1, validated last in the sequence. */
+    /* Indicator hues on #fff: every validator check passes, all pairs
+       (readability: adjacent pairs, rendered last; 5.9:1 on #fff). */
     --sg-indicator-accessibility: #2a78d6;
     --sg-indicator-botability: #199e70;
     --sg-indicator-security: #eb6834;
@@ -496,15 +498,19 @@ button:not(.card *) {
     }
 }
 
-/* Skip link — visible on focus for keyboard users (WCAG 2.4.1) */
+/* Skip link — visible on focus for keyboard users (WCAG 2.4.1). Hidden by
+   Bootstrap's .visually-hidden-focusable until it takes focus; never pair it
+   with .visually-hidden, which stays clipped on focus. */
 .skip-link {
     position: absolute;
-    top: -100%;
-    left: 0;
-}
-
-.skip-link:focus {
     top: 0;
+    left: 0;
+    z-index: 1100;
+    padding: 0.5rem 1rem;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-link-color);
+    border: 1px solid var(--bs-border-color);
+    border-top: 0;
 }
 
 /* Navbar */
@@ -895,6 +901,18 @@ button.btn-secondary-outline {
 .feedback:hover, .feedback:focus, .feedback:active {
     background-color: var(--bs-body-color) !important;
     box-shadow: var(--bs-box-shadow-md);
+}
+
+[data-bs-theme="light"] .feedback {
+    background-color: var(--bs-body-color) !important;
+    color: var(--bs-body-bg) !important;
+}
+
+[data-bs-theme="light"] .feedback:hover,
+[data-bs-theme="light"] .feedback:focus,
+[data-bs-theme="light"] .feedback:active {
+    background-color: var(--bs-body-bg) !important;
+    color: var(--bs-body-color) !important;
 }
 
 .btn.feedback:hover i, .btn.feedback:hover svg,
@@ -1919,6 +1937,19 @@ iframe {
     border: 1px solid var(--bs-border-color) !important;
 }
 
+/* Video embeds (lite-youtube-embed, see the youtube shortcode). The
+   component caps itself at 720px; fill the column like the old iframe did. */
+lite-youtube {
+    max-width: 100%;
+}
+
+/* The play button covers the whole poster and the component clips paint at
+   its edge, so the site's offset focus ring would be cut off. Draw it inset. */
+lite-youtube > .lyt-playbtn:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: -5px;
+}
+
 /* News posts */
 
 .post-content h2 {
@@ -1928,9 +1959,13 @@ iframe {
 /* Bootstrap's accordion markup requires an <h2 class="accordion-header">
    wrapper around the toggle button - not a real section heading, so it
    shouldn't get the post's h2 spacing (e.g. .report-chart's data-table
-   accordion in _includes/report-chart.html). */
-.post-content .accordion-header {
+   accordion in _includes/report-chart.html, or the video transcript accordion
+   in _includes/transcript.html). #post is the docs equivalent of .post-content,
+   and its own h2 rules are more specific, so it needs its own selector. */
+.post-content .accordion-header,
+#post .accordion-header {
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .post-content ul, .post-content p {
@@ -2086,15 +2121,13 @@ a[href$=".mp4"]::after {
     color: #d5bfff !important;
 }
 
-/* Readability topic icon (audits.json color #ffb3d1, 10.2:1 on #1a1b2e);
-   the light-mode override list below resets it to body color like the
-   other topic icons. */
+/* Readability indicator icon (rose). Also the readability docs page and tool. */
 .fa-book-open {
     color: #ffb3d1 !important;
 }
 
 .fa-book-open-reader {
-    color: #c3ebfa !important;
+    color: #ffb3d1 !important;
 }
 
 .fa-truck-ramp-box {
@@ -2791,6 +2824,7 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] .fa-circle-nodes:not([class*="text-"]),
 [data-bs-theme=light] .fa-scale-balanced:not([class*="text-"]),
 [data-bs-theme=light] .fa-link:not([class*="text-"]),
+[data-bs-theme=light] .fa-wand-magic-sparkles:not([class*="text-"]),
 [data-bs-theme=light] .fa-window-maximize:not([class*="text-"]),
 [data-bs-theme=light] .fa-copy:not([class*="text-"]),
 [data-bs-theme=light] .fa-rotate-left:not([class*="text-"]),
