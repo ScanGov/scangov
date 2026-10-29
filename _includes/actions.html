@@ -30,24 +30,22 @@
 #}
 {% set actionsSocialSites = ["https://scangov.com", "https://scangov.org", "https://docs.scangov.org", "https://standards.scangov.org", "https://data.scangov.org"] %}
 {% set actionsEmailSites = ["https://scangov.com", "https://scangov.org", "https://standards.scangov.org", "https://docs.scangov.org", "https://data.scangov.org"] %}
-<ul class="actions list-group list-group-horizontal-sm gap-2 mt-3 mb-3 pb-3 border-bottom">
-    <li id="rescan-action" class="list-group-item d-none">
-        <a href="https://scangov.com" aria-label="Rescan" title="Rescan">
-            <i class="fa-solid fa-arrows-rotate"></i>
-        </a>
-    </li>
+<div class="actions d-flex flex-wrap gap-2 mt-3 mb-3 pb-3 border-bottom">
+    <a href="https://scangov.com" id="rescan-action" class="btn btn-outline-primary btn-sm d-none" aria-label="Rescan" title="Rescan">
+        <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
+    </a>
     {% if profile and not mapPage and not orgPage %}
-    <li class="list-group-item dropdown">
-        <a
-            href="#"
+    <div class="dropdown">
+        <button
+            type="button"
             id="download-menu"
-            role="button"
+            class="btn btn-outline-primary btn-sm"
             data-bs-toggle="dropdown"
             aria-expanded="false"
             aria-label="Download"
             title="Download">
-            <i class="fa-solid fa-download"></i>
-        </a>
+            <i class="fa-solid fa-download" aria-hidden="true"></i>
+        </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="download-menu">
             <li class="small">
                 <a href="/profile/{{ domain.urlkey | slugify }}/report/" class="dropdown-item">
@@ -56,19 +54,19 @@
                 </a>
             </li>
         </ul>
-    </li>
+    </div>
     {% endif %}
-    <li class="list-group-item dropdown">
-        <a
-            href="#"
+    <div class="dropdown">
+        <button
+            type="button"
             id="share-menu"
-            role="button"
+            class="btn btn-outline-primary btn-sm"
             data-bs-toggle="dropdown"
             aria-expanded="false"
             aria-label="Share"
             title="Share">
-            <i class="fa-solid fa-share-from-square"></i>
-        </a>
+            <i class="fa-solid fa-share-from-square" aria-hidden="true"></i>
+        </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="share-menu">
             {% if profile and not mapPage and not orgPage %}
             <li class="small">
@@ -143,8 +141,8 @@
             </li>
             {% endif %}
         </ul>
-    </li>
-</ul>
+    </div>
+</div>
 <div class="alert alert-success d-none mt-2" role="alert" id="copy-alert">
     Link copied!
 </div>
