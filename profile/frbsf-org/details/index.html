@@ -260,16 +260,14 @@ Last scan:
 </a>
 </li>
 </ul>
-<ul class="actions list-group list-group-horizontal-sm gap-2 mt-3 mb-3 pb-3 border-bottom">
-<li id="rescan-action" class="list-group-item d-none">
-<a href="https://scangov.com" aria-label="Rescan" title="Rescan">
+<div class="actions d-flex flex-wrap gap-2 mt-3 mb-3 pb-3 border-bottom">
+<a href="https://scangov.com" id="rescan-action" class="btn btn-outline-primary btn-sm d-none" aria-label="Rescan" title="Rescan">
 <svg class="fa-solid fa-arrows-rotate" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrows-rotate" xlink:href="/assets/fa-sprite.svg#fas-fa-arrows-rotate"></use></svg>
 </a>
-</li>
-<li class="list-group-item dropdown">
-<a href="#" id="download-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download" title="Download">
+<div class="dropdown">
+<button type="button" id="download-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download" title="Download">
 <svg class="fa-solid fa-download" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-download" xlink:href="/assets/fa-sprite.svg#fas-fa-download"></use></svg>
-</a>
+</button>
 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="download-menu">
 <li class="small">
 <a href="/profile/frbsf-org/report/" class="dropdown-item">
@@ -278,11 +276,11 @@ Last scan:
 </a>
 </li>
 </ul>
-</li>
-<li class="list-group-item dropdown">
-<a href="#" id="share-menu" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share" title="Share">
+</div>
+<div class="dropdown">
+<button type="button" id="share-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share" title="Share">
 <svg class="fa-solid fa-share-from-square" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-share-from-square" xlink:href="/assets/fa-sprite.svg#fas-fa-share-from-square"></use></svg>
-</a>
+</button>
 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="share-menu">
 <li class="small">
 <a href="javascript:void(0);" onclick="navigator.clipboard.writeText(location.origin + '/profile/frbsf-org/overall/');" class="dropdown-item copy-link">
@@ -327,8 +325,8 @@ Email
 </a>
 </li>
 </ul>
-</li>
-</ul>
+</div>
+</div>
 <div class="alert alert-success d-none mt-2" role="alert" id="copy-alert">
 Link copied!
 </div>
@@ -1992,34 +1990,17 @@ pointer-events: none;
 margin-top: 0;
 margin-bottom: 0;
 }
-/* The crown has its own icon color rules (gold in dark mode, body color in
-light mode); inside the primary button it should match the button text,
-like the rocket in the hero */
-.cta-band .btn.btn-primary svg.fa-crown,
-.cta-band .btn.btn-primary i.fa-crown {
-color: inherit !important;
-fill: currentColor !important;
-}
-/* Some icons (the link icon, for one) keep a fixed color on hover in light
-mode; inside the outline buttons they should follow the button text */
-.cta-band .btn.btn-outline-primary:hover svg,
-.cta-band .btn.btn-outline-primary:focus svg,
-.cta-band .btn.btn-outline-primary:hover i,
-.cta-band .btn.btn-outline-primary:focus i {
-color: inherit !important;
-fill: currentColor !important;
-}
 </style>
 <div id="cta-band" class="cta-band border-top" role="region" aria-label="Get ScanGov, see the demo, and share this page">
 <div class="container d-flex align-items-center justify-content-center gap-2">
 <a href="https://scangov.com/plans/" class="btn btn-primary" aria-label="Plans">
-<svg class="fa-solid fa-crown" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-crown" xlink:href="/assets/fa-sprite.svg#fas-fa-crown"></use></svg><span class="d-none d-md-inline ms-2">Plans</span></a>
+<svg class="fa-solid fa-crown" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-crown" xlink:href="/assets/fa-sprite.svg#fas-fa-crown"></use></svg><span class="d-none d-md-inline">Plans</span></a>
 <a href="https://scangov.com/demo/" class="btn btn-outline-primary" aria-label="Demo">
-<svg class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-wand-magic-sparkles" xlink:href="/assets/fa-sprite.svg#fas-fa-wand-magic-sparkles"></use></svg><span class="d-none d-md-inline ms-2">Demo</span></a>
+<svg class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-wand-magic-sparkles" xlink:href="/assets/fa-sprite.svg#fas-fa-wand-magic-sparkles"></use></svg><span class="d-none d-md-inline">Demo</span></a>
 <button type="button" class="btn btn-outline-primary" id="cta-copy-link" aria-label="Copy link">
-<svg class="fa-solid fa-link" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg><span class="d-none d-md-inline ms-2">Link</span></button>
+<svg class="fa-solid fa-link" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg><span class="d-none d-md-inline">Link</span></button>
 <button type="button" class="btn btn-outline-primary" id="cta-copy-text" aria-label="Copy text">
-<svg class="fa-solid fa-copy" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-copy" xlink:href="/assets/fa-sprite.svg#fas-fa-copy"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg><span class="d-none d-md-inline ms-2">Text</span></button>
+<svg class="fa-solid fa-copy" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-copy" xlink:href="/assets/fa-sprite.svg#fas-fa-copy"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg><span class="d-none d-md-inline">Text</span></button>
 <span class="visually-hidden" role="status" aria-live="polite" id="cta-copy-status"></span>
 </div>
 </div>
@@ -2180,7 +2161,7 @@ fill: currentColor !important;
     });
   });
 </script>
-<a href="https://scangov.com/plans" id="feedback-button" class="feedback btn btn-sm" aria-hidden="true" tabindex="-1">
+<a href="https://scangov.com/plans" id="feedback-button" class="feedback btn btn-outline-primary btn-sm" aria-hidden="true" tabindex="-1">
 <svg class="fa-solid fa-rocket" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-rocket" xlink:href="/assets/fa-sprite.svg#fas-fa-rocket"></use></svg> Get ScanGov
 </a>
 <script>
