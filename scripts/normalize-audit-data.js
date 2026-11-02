@@ -22,6 +22,9 @@ export const NO_CONTENT_STATUS = 995;
 const SCORE_FIELDS = [
   'scores', 'botability', 'accessibility', 'usability', 'security', 'readability',
   'overallPossibleScore', 'overallScoreCount', 'overallScore', 'ari', 'fk',
+  // Counts behind the reading-level verdict (words, sentences, source, skipped),
+  // added to the payload in Oct 2026 alongside ari and fk.
+  'readabilityInfo',
 ];
 
 export function normalizeAuditData(records) {

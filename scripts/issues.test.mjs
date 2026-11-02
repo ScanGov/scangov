@@ -3,7 +3,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { ISSUES, buildIssuePage, GROUPS, gradeLevelOf } from './issues.js';
+import { ISSUES, buildIssuePage, GROUPS, gradeLevelOf, formatGrade } from './issues.js';
 
 const audits = {
   botability: { displayName: 'Botability', attributes: [{ key: 'text-content', displayName: 'Content available in document', description: 'The page\'s main content loads without requiring JavaScript.' }] },
@@ -38,24 +38,37 @@ test('needs-javascript: a site fails only when text-content is false; a record w
   assert.equal(page.breakdown, null);
 });
 
-test('reading-level: fails on the verdict, buckets failing sites by ARI grade in grade order, and stays unlisted', () => {
+test('reading-level: fails on the verdict, buckets failing sites by ARI grade in grade order, sets too-little-text sites apart, and is listed', () => {
   const issue = ISSUES.find(i => i.slug === 'reading-level');
-  const site = (urlkey, verdict, ari) => ({ ...county(urlkey, `${urlkey} County, OH`, {}), readability: verdict === undefined ? {} : { 'reading-level': verdict }, ari, scores: { readability: { score: 50 } } });
+  const site = (urlkey, verdict, ari, info) => ({ ...county(urlkey, `${urlkey} County, OH`, {}), readability: verdict === undefined ? {} : { 'reading-level': verdict }, ari, fk: ari, readabilityInfo: info, scores: { readability: { score: 50 } } });
   const page = buildIssuePage(issue, GROUPS[0], [
-    site('a.gov', false, 12.2),
+    site('a.gov', false, 12.2, { words: 300, sentences: 20, source: 'main' }),
     site('b.gov', false, 9.1),
     site('c.gov', false, 9.4),
     site('d.gov', false, 21),
     site('e.gov', true, 6.0),
     site('f.gov', undefined, undefined),
+    site('g.gov', undefined, 7.1, { words: 40, sentences: 5, source: 'body', skipped: 'not-enough-text' }),
   ], audits, stateNames, null);
-  assert.equal(page.unlisted, true);
+  assert.equal(page.unlisted, false);
+  assert.equal(page.scoredCount, 7);
   assert.equal(page.testedCount, 5);
-  assert.equal(page.untestedCount, 1);
+  assert.equal(page.untestedCount, 2);
+  assert.equal(page.skippedCount, 1);
+  assert.equal(page.skipped.label, 'Too little text to score');
   assert.equal(page.failCount, 4);
   assert.equal(page.check.why, issue.why);
+  assert.equal(page.check.description, 'The homepage text reads at or below an 8th grade level.');
+  assert.deepEqual(page.columns.map(c => c.header), ['ARI', 'FK']);
+  assert.deepEqual(page.failing[0].cells.map(c => c.text), ['12.2', '12.2']);
   assert.deepEqual(page.breakdown.rows.map(r => [r.label, r.value]), [['9th grade', 2], ['12th grade', 1], ['Graduate school', 1]]);
-  assert.equal(page.breakdown.subtitle, 'The 4 county sites that read above an 8th grade level, grouped by grade level.');
+  assert.equal(page.breakdown.subtitle, 'The 4 county sites that read above an 8th grade level, grouped by grade.');
+});
+
+test('formatGrade shows one decimal and never a negative grade', () => {
+  assert.equal(formatGrade(9.14), '9.1');
+  assert.equal(formatGrade(-2.8), '0.0');
+  assert.equal(formatGrade(undefined), '');
 });
 
 test('gradeLevelOf maps ARI scores to school grades', () => {
