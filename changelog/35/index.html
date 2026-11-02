@@ -1,0 +1,4959 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Latest digital experience updates.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="google-site-verification" content="10895162be5e592f">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://scangov.org/changelog/35/">
+<link rel="alternate" hreflang="en" href="https://scangov.org/changelog/35/">
+<link rel="alternate" hreflang="x-default" href="https://scangov.org/changelog/35/">
+<!-- Title -->
+<title>Changelog - Project ScanGov</title>
+<!-- Open Graph -->
+<meta property="og:site_name" content="Project ScanGov">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Changelog">
+<meta property="og:description" content="Latest digital experience updates.">
+<meta property="og:url" content="https://scangov.org/changelog/35/">
+<meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ScanGov logo">
+<meta property="article:modified_time" content="2026-11-01T22:40:41.257Z">
+<link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1a1b2e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<link rel="preload" href="/assets/bootstrap/css/bootstrap.min.css" as="style">
+<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+<link href="/css/scangov.css" rel="stylesheet">
+<script>
+        (function () {
+            var syncTheme = function () {
+                var desired = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                if (document.documentElement.getAttribute('data-bs-theme') !== desired) {
+                    document.documentElement.setAttribute('data-bs-theme', desired);
+                }
+            };
+            syncTheme();
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncTheme);
+            new MutationObserver(syncTheme).observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-bs-theme']
+            });
+        })();
+    </script>
+</head>
+<body class="layouts/page">
+<a class="visually-hidden visually-hidden-focusable skip-link" href="#main-content">
+Skip to main content
+</a>
+<nav class="d-none d-md-block" aria-label="ScanGov sites">
+<div class="d-flex justify-content-end border-bottom pt-1 pb-0">
+<ul class="nav nav-tabs topnav small mb-0">
+<li class="nav-item">
+<a class="nav-link mx-1" href="https://scangov.com">
+<svg class="fa-solid fa-bars-progress me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-bars-progress" xlink:href="/assets/fa-sprite.svg#fas-fa-bars-progress"></use></svg>ScanGov</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1" href="https://standards.scangov.org">
+<svg class="fa-solid fa-certificate me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-certificate" xlink:href="/assets/fa-sprite.svg#fas-fa-certificate"></use></svg>Standards</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1 active" aria-current="page" href="https://scangov.org">
+<svg class="fa-solid fa-diagram-project me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-diagram-project" xlink:href="/assets/fa-sprite.svg#fas-fa-diagram-project"></use></svg>Project</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1" href="https://docs.scangov.org">
+<svg class="fa-solid fa-file-lines me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-lines" xlink:href="/assets/fa-sprite.svg#fas-fa-file-lines"></use></svg>Docs</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1" href="https://data.scangov.org">
+<svg class="fa-solid fa-database me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-database" xlink:href="/assets/fa-sprite.svg#fas-fa-database"></use></svg>Data</a>
+</li>
+</ul>
+</div>
+</nav>
+<nav class="navbar navbar-expand-md border-bottom" aria-label="Main">
+<div class="container-fluid">
+<a class="navbar-brand" href="/">
+<svg id="logo" viewBox="0 0 1500 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M474.266 408.965H1023.61C1054.76 408.965 1080.01 434.207 1080.01 465.345V1040.42C1080.01 1071.56 1054.76 1096.8 1023.61 1096.8H474.266C443.117 1096.8 417.865 1071.56 417.865 1040.42V465.345C417.865 434.207 443.117 408.965 474.266 408.965ZM474.266 442.793C461.806 442.793 451.706 452.89 451.706 465.345V1040.42C451.706 1052.88 461.806 1062.97 474.266 1062.97H1023.61C1036.07 1062.97 1046.17 1052.88 1046.17 1040.42V465.345C1046.17 452.89 1036.07 442.793 1023.61 442.793H474.266Z" fill=""></path>
+<path d="M636.699 440.538H1061.96V1075.38H636.699V440.538Z" fill=""></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M290.4 153H1208.6C1239.75 153 1265 178.242 1265 209.38V337.926C1265 369.064 1239.75 394.306 1208.6 394.306H290.4C259.251 394.306 234 369.064 234 337.926V209.38C234 178.242 259.251 153 290.4 153ZM290.4 186.828C277.941 186.828 267.84 196.925 267.84 209.38V337.926C267.84 350.381 277.941 360.478 290.4 360.478H1208.6C1221.06 360.478 1231.16 350.381 1231.16 337.926V209.38C1231.16 196.925 1221.06 186.828 1208.6 186.828H290.4Z" fill=""></path>
+<path d="M636.699 187.956C636.699 184.842 639.224 182.318 642.339 182.318H1225.52C1228.63 182.318 1231.16 184.842 1231.16 187.956V361.606C1231.16 364.72 1228.63 367.244 1225.52 367.244H642.339C639.224 367.244 636.699 364.72 636.699 361.606V187.956Z" fill=""></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M290.4 1104.69H1208.6C1239.75 1104.69 1265 1129.94 1265 1161.07V1289.62C1265 1320.76 1239.75 1346 1208.6 1346H290.4C259.251 1346 234 1320.76 234 1289.62V1161.07C234 1129.94 259.251 1104.69 290.4 1104.69ZM290.4 1138.52C277.941 1138.52 267.84 1148.62 267.84 1161.07V1289.62C267.84 1302.08 277.941 1312.17 290.4 1312.17H1208.6C1221.06 1312.17 1231.16 1302.08 1231.16 1289.62V1161.07C1231.16 1148.62 1221.06 1138.52 1208.6 1138.52H290.4Z" fill=""></path>
+<path d="M636.699 1139.65C636.699 1136.54 639.224 1134.01 642.339 1134.01H1225.52C1228.63 1134.01 1231.16 1136.54 1231.16 1139.65V1313.3C1231.16 1316.41 1228.63 1318.94 1225.52 1318.94H642.339C639.224 1318.94 636.699 1316.41 636.699 1313.3V1139.65Z" fill=""></path>
+</svg>
+<span class="d-none d-md-inline">Project ScanGov</span>
+<span class="d-inline d-md-none">Project</span>
+</a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler ml-auto collapsed" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<!-- Collapsible wrapper -->
+<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+<ul class="navbar-nav mb-2 mb-lg-0">
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1" href="/rankings/">
+<svg class="fa-solid fa-ranking-star me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-ranking-star" xlink:href="/assets/fa-sprite.svg#fas-fa-ranking-star"></use></svg>
+Rankings
+</a>
+</li>
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1" href="/pulse/">
+<svg class="fa-solid fa-wave-square me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-wave-square" xlink:href="/assets/fa-sprite.svg#fas-fa-wave-square"></use></svg>
+Pulse
+</a>
+</li>
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1 active" aria-current="page" href="/changelog/">
+<svg class="fa-solid fa-timeline me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-timeline" xlink:href="/assets/fa-sprite.svg#fas-fa-timeline"></use></svg>
+Changelog
+</a>
+</li>
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1" href="/status/">
+<svg class="fa-solid fa-server me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-server" xlink:href="/assets/fa-sprite.svg#fas-fa-server"></use></svg>
+Status
+</a>
+</li>
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1" href="/search/">
+<svg class="fa-solid fa-magnifying-glass me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-magnifying-glass" xlink:href="/assets/fa-sprite.svg#fas-fa-magnifying-glass"></use></svg>
+Search
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<div>
+<div class="pt-5 pb-4 mb-4 border-bottom">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<h1 class="display-5" id="changelog">Changelog</h1>
+<p class="lead fs-5">Latest digital experience updates.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="col-12">
+<section class="py-4">
+<ul class="timeline" id="timeline"> 
+<li class="timeline-item">
+<p class="timeline-date">9/27/2026</p>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fayettecountypa-org/overall/">fayettecountypa.org</a>:
+</p><ul>
+<li>
+<a href="/profile/fayettecountypa-org/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/fayettecountypa-org/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → B /
+Score: 85% → 87%
+(29 of 33 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/fayettecountypa-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/crawfordcountywi-gov/overall/">crawfordcountywi.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/crawfordcountywi-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/wfparish-org/overall/">wfparish.org</a>:
+</p><ul>
+<li>
+<a href="/profile/wfparish-org/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/morrisoncountymn-gov/overall/">morrisoncountymn.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/morrisoncountymn-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/morrisoncountymn-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/austincounty-com/overall/">austincounty.com</a>:
+</p><ul>
+<li>
+<a href="/profile/austincounty-com/details/?attr=botability">
+botability
+</a>: 
+Grade: C → F /
+Score: 75% → 55%
+(5 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/austincounty-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 31% → 33%
+(5 of 15 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/daviess-org/overall/">daviess.org</a>:
+</p><ul>
+<li>
+<a href="/profile/daviess-org/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/daviess-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/co-roberts-tx-us/overall/">co.roberts.tx.us</a>:
+</p><ul>
+<li>
+<a href="/profile/co-roberts-tx-us/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/co-roberts-tx-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/attalacounty-net/overall/">attalacounty.net</a>:
+</p><ul>
+<li>
+<a href="/profile/attalacounty-net/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/attalacounty-net/details/?attr=security">
+security
+</a>: 
+Grade: B → B /
+Score: 85% → 87%
+(7 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/norfolkcounty-org/overall/">norfolkcounty.org</a>:
+</p><ul>
+<li>
+<a href="/profile/norfolkcounty-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/norfolkcounty-org/details/?attr=security">
+security
+</a>: 
+Grade: C → C /
+Score: 71% → 75%
+(6 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ferris-edu/overall/">ferris.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/ferris-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/uamont-edu/overall/">uamont.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/uamont-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 56%
+(9 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/warrencountync-com/overall/">warrencountync.com</a>:
+</p><ul>
+<li>
+<a href="/profile/warrencountync-com/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/warrencountync-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/goodingcounty-org/overall/">goodingcounty.org</a>:
+</p><ul>
+<li>
+<a href="/profile/goodingcounty-org/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/goodingcounty-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/johnstonnc-gov/overall/">johnstonnc.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/johnstonnc-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 81% → 63%
+(7 of 11 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/johnstonnc-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → A /
+Score: 88% → 93%
+(15 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/russellcountykansas-com/overall/">russellcountykansas.com</a>:
+</p><ul>
+<li>
+<a href="/profile/russellcountykansas-com/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/russellcountykansas-com/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → B /
+Score: 86% → 85%
+(30 of 35 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/russellcountykansas-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/chautauquacountyny-gov/overall/">chautauquacountyny.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/chautauquacountyny-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/gearupunionsc-com/overall/">gearupunionsc.com</a>:
+</p><ul>
+<li>
+<a href="/profile/gearupunionsc-com/details/?attr=botability">
+botability
+</a>: 
+Grade: C → B /
+Score: 70% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/gearupunionsc-com/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 62% → 68%
+(11 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/clevelandcountyok-com/overall/">clevelandcountyok.com</a>:
+</p><ul>
+<li>
+<a href="/profile/clevelandcountyok-com/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/clevelandcountyok-com/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → A /
+Score: 88% → 91%
+(33 of 36 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/clevelandcountyok-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/uoregon-edu/overall/">uoregon.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/uoregon-edu/details/?attr=botability">
+botability
+</a>: 
+Grade: A → A /
+Score: 100% → 90%
+(10 of 11 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/uoregon-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/taneycounty-org/overall/">taneycounty.org</a>:
+</p><ul>
+<li>
+<a href="/profile/taneycounty-org/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/taneycounty-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/charleston-edu/overall/">charleston.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/charleston-edu/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → A /
+Score: 100% → 96%
+(29 of 30 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/charleston-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/richlandcountyoh-gov/overall/">richlandcountyoh.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/richlandcountyoh-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/indianacountypa-gov/overall/">indianacountypa.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/indianacountypa-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → B /
+Score: 87% → 84%
+(27 of 32 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/indianacountypa-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → D /
+Score: 82% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/co-lavaca-tx-us/overall/">co.lavaca.tx.us</a>:
+</p><ul>
+<li>
+<a href="/profile/co-lavaca-tx-us/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 81% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/co-lavaca-tx-us/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → A /
+Score: 93% → 96%
+(31 of 32 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/co-lavaca-tx-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/goodhuecountymn-gov/overall/">goodhuecountymn.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/goodhuecountymn-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: A → D /
+Score: 90% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/goodhuecountymn-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/frontrange-edu/overall/">frontrange.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/frontrange-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/clarkstate-edu/overall/">clarkstate.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/clarkstate-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/pensacolastate-edu/overall/">pensacolastate.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/pensacolastate-edu/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: C → B /
+Score: 78% → 84%
+(28 of 33 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/pensacolastate-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: B → A /
+Score: 82% → 93%
+(15 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/oakland-edu/overall/">oakland.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/oakland-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/burnetcountytexas-org/overall/">burnetcountytexas.org</a>:
+</p><ul>
+<li>
+<a href="/profile/burnetcountytexas-org/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/burnetcountytexas-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/greenecounty-arkansas-gov/overall/">greenecounty.arkansas.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/greenecounty-arkansas-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → A /
+Score: 89% → 92%
+(23 of 25 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/greenecounty-arkansas-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → A /
+Score: 88% → 93%
+(15 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cabarruscounty-us/overall/">cabarruscounty.us</a>:
+</p><ul>
+<li>
+<a href="/profile/cabarruscounty-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → D /
+Score: 58% → 62%
+(10 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/cabarruscounty-us/details/?attr=security">
+security
+</a>: 
+Grade: B → C /
+Score: 87% → 75%
+(6 of 8 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ocmi-us/overall/">ocmi.us</a>:
+</p><ul>
+<li>
+<a href="/profile/ocmi-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 17% → 25%
+(4 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/marinettecountywi-gov/overall/">marinettecountywi.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/marinettecountywi-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → B /
+Score: 86% → 85%
+(24 of 28 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/marinettecountywi-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: D → F /
+Score: 64% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/johnston-okcounties-org/overall/">johnston.okcounties.org</a>:
+</p><ul>
+<li>
+<a href="/profile/johnston-okcounties-org/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → A /
+Score: 93% → 90%
+(27 of 30 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/johnston-okcounties-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/co-camp-tx-us/overall/">co.camp.tx.us</a>:
+</p><ul>
+<li>
+<a href="/profile/co-camp-tx-us/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/co-camp-tx-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/uvawise-edu/overall/">uvawise.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/uvawise-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/uscb-edu/overall/">uscb.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/uscb-edu/details/?attr=botability">
+botability
+</a>: 
+Grade: A → B /
+Score: 90% → 88%
+(8 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/uscb-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → D /
+Score: 58% → 62%
+(10 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/co-trempealeau-wi-us/overall/">co.trempealeau.wi.us</a>:
+</p><ul>
+<li>
+<a href="/profile/co-trempealeau-wi-us/details/?attr=botability">
+botability
+</a>: 
+Grade: A → B /
+Score: 90% → 88%
+(8 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/co-trempealeau-wi-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 56%
+(9 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/co-trempealeau-wi-us/details/?attr=security">
+security
+</a>: 
+Grade: C → C /
+Score: 71% → 75%
+(6 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/flex-wisconsin-edu/overall/">flex.wisconsin.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/flex-wisconsin-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 88% → 87%
+(14 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/uky-edu/overall/">uky.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/uky-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fultoncountyny-gov/overall/">fultoncountyny.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/fultoncountyny-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cassia-gov/overall/">cassia.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/cassia-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → B /
+Score: 85% → 88%
+(30 of 34 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/cassia-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/golincolnms-com/overall/">golincolnms.com</a>:
+</p><ul>
+<li>
+<a href="/profile/golincolnms-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/lowercolumbia-edu/overall/">lowercolumbia.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/lowercolumbia-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → D /
+Score: 58% → 62%
+(10 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/houstoncountyga-gov/overall/">houstoncountyga.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/houstoncountyga-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/co-jones-tx-us/overall/">co.jones.tx.us</a>:
+</p><ul>
+<li>
+<a href="/profile/co-jones-tx-us/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/co-jones-tx-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cumberlandcountync-gov/overall/">cumberlandcountync.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/cumberlandcountync-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: A → B /
+Score: 90% → 88%
+(8 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/cumberlandcountync-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → B /
+Score: 92% → 88%
+(23 of 26 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/cumberlandcountync-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/nccu-edu/overall/">nccu.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/nccu-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/tarleton-edu/overall/">tarleton.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/tarleton-edu/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → A /
+Score: 93% → 97%
+(33 of 34 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/tarleton-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → D /
+Score: 58% → 62%
+(10 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/caswellcountync-gov/overall/">caswellcountync.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/caswellcountync-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 70% → 75%
+(12 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/jacksoncounty-in-gov/overall/">jacksoncounty.in.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/jacksoncounty-in-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/jacksoncounty-in-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/jacksoncounty-in-gov/details/?attr=security">
+security
+</a>: 
+Grade: B → B /
+Score: 85% → 87%
+(7 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/mcintosh-okcounties-org/overall/">mcintosh.okcounties.org</a>:
+</p><ul>
+<li>
+<a href="/profile/mcintosh-okcounties-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/sciotocountyoh-com/overall/">sciotocountyoh.com</a>:
+</p><ul>
+<li>
+<a href="/profile/sciotocountyoh-com/details/?attr=botability">
+botability
+</a>: 
+Grade: B → F /
+Score: 81% → 55%
+(5 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/sciotocountyoh-com/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → A /
+Score: 93% → 100%
+(25 of 25 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/sciotocountyoh-com/details/?attr=usability">
+usability
+</a>: 
+Grade: C → F /
+Score: 70% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/sciotocountyoh-com/details/?attr=security">
+security
+</a>: 
+Grade: B → C /
+Score: 87% → 75%
+(6 of 8 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/lawrencecountytn-gov/overall/">lawrencecountytn.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/lawrencecountytn-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/aacounty-org/overall/">aacounty.org</a>:
+</p><ul>
+<li>
+<a href="/profile/aacounty-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/aacounty-org/details/?attr=security">
+security
+</a>: 
+Grade: B → B /
+Score: 85% → 87%
+(7 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/jacksonparishpolicejury-org/overall/">jacksonparishpolicejury.org</a>:
+</p><ul>
+<li>
+<a href="/profile/jacksonparishpolicejury-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/jacksonparishpolicejury-org/details/?attr=security">
+security
+</a>: 
+Grade: B → B /
+Score: 85% → 87%
+(7 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/smc-edu/overall/">smc.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/smc-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/columbusstate-edu/overall/">columbusstate.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/columbusstate-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/uppj-org/overall/">uppj.org</a>:
+</p><ul>
+<li>
+<a href="/profile/uppj-org/details/?attr=usability">
+usability
+</a>: 
+Grade: D → F /
+Score: 64% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/phelpscounty-ne-gov/overall/">phelpscounty.ne.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/phelpscounty-ne-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/phelpscounty-ne-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/bedfordcountypa-org/overall/">bedfordcountypa.org</a>:
+</p><ul>
+<li>
+<a href="/profile/bedfordcountypa-org/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/bedfordcountypa-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/bedfordcountypa-org/details/?attr=security">
+security
+</a>: 
+Grade: C → C /
+Score: 71% → 75%
+(6 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/qc-cuny-edu/overall/">qc.cuny.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/qc-cuny-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/qc-cuny-edu/details/?attr=security">
+security
+</a>: 
+Grade: B → A /
+Score: 85% → 100%
+(7 of 7 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/shelbycounty-ky-gov/overall/">shelbycounty.ky.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/shelbycounty-ky-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: C → D /
+Score: 72% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/shelbycounty-ky-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 31% → 26%
+(4 of 15 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/williamsnd-com/overall/">williamsnd.com</a>:
+</p><ul>
+<li>
+<a href="/profile/williamsnd-com/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 76% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/pikepa-org/overall/">pikepa.org</a>:
+</p><ul>
+<li>
+<a href="/profile/pikepa-org/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/pikepa-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/harveycounty-gov/overall/">harveycounty.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/harveycounty-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → D /
+Score: 58% → 62%
+(10 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/madison-co-com/overall/">madison-co.com</a>:
+</p><ul>
+<li>
+<a href="/profile/madison-co-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/scf-edu/overall/">scf.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/scf-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/randallcounty-gov/overall/">randallcounty.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/randallcounty-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/randallcounty-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/mnsu-edu/overall/">mnsu.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/mnsu-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/polkcounty-nebraska-gov/overall/">polkcounty.nebraska.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/polkcounty-nebraska-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/hopkinscounty-ky-gov/overall/">hopkinscounty.ky.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/hopkinscounty-ky-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/hopkinscounty-ky-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/msubillings-edu/overall/">msubillings.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/msubillings-edu/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: C → C /
+Score: 77% → 79%
+(23 of 29 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/msubillings-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/pennco-org/overall/">pennco.org</a>:
+</p><ul>
+<li>
+<a href="/profile/pennco-org/details/?attr=botability">
+botability
+</a>: 
+Grade: C → F /
+Score: 75% → 55%
+(5 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/pennco-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/wvsom-edu/overall/">wvsom.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/wvsom-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/garfieldcountymt-gov/overall/">garfieldcountymt.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/garfieldcountymt-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/perrycountyms-gov/overall/">perrycountyms.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/perrycountyms-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 70% → 75%
+(12 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/perrycoarkansas-org/overall/">perrycoarkansas.org</a>:
+</p><ul>
+<li>
+<a href="/profile/perrycoarkansas-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 31%
+(5 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/simpsoncountyky-gov/overall/">simpsoncountyky.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/simpsoncountyky-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/shoshonecounty-id-gov/overall/">shoshonecounty.id.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/shoshonecounty-id-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: C → A /
+Score: 72% → 90%
+(10 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/shoshonecounty-id-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 43% → 40%
+(6 of 15 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/wnc-edu/overall/">wnc.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/wnc-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/kitsap-gov/overall/">kitsap.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/kitsap-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 56%
+(9 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/custercountyne-gov/overall/">custercountyne.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/custercountyne-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: A → B /
+Score: 90% → 88%
+(8 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/custercountyne-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ysu-edu/overall/">ysu.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/ysu-edu/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 81% → 63%
+(7 of 11 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/ysu-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/ysu-edu/details/?attr=security">
+security
+</a>: 
+Grade: B → B /
+Score: 85% → 87%
+(7 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/kodiakak-us/overall/">kodiakak.us</a>:
+</p><ul>
+<li>
+<a href="/profile/kodiakak-us/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/kodiakak-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 31%
+(5 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/mjc-edu/overall/">mjc.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/mjc-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/catawbacountync-gov/overall/">catawbacountync.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/catawbacountync-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → C /
+Score: 80% → 77%
+(7 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/catawbacountync-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/smcm-edu/overall/">smcm.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/smcm-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/uis-edu/overall/">uis.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/uis-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/montcalm-us/overall/">montcalm.us</a>:
+</p><ul>
+<li>
+<a href="/profile/montcalm-us/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/montcalm-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/warrickcounty-gov/overall/">warrickcounty.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/warrickcounty-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 70% → 75%
+(12 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/csustan-edu/overall/">csustan.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/csustan-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 37% → 26%
+(4 of 15 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/mtsu-edu/overall/">mtsu.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/mtsu-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/elkcountyks-org/overall/">elkcountyks.org</a>:
+</p><ul>
+<li>
+<a href="/profile/elkcountyks-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/meigscounty-org/overall/">meigscounty.org</a>:
+</p><ul>
+<li>
+<a href="/profile/meigscounty-org/details/?attr=botability">
+botability
+</a>: 
+Grade: C → D /
+Score: 75% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/meigscounty-org/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/redwillowcountyne-gov/overall/">redwillowcountyne.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/redwillowcountyne-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: A → B /
+Score: 90% → 88%
+(8 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/redwillowcountyne-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cartercountyok-us/overall/">cartercountyok.us</a>:
+</p><ul>
+<li>
+<a href="/profile/cartercountyok-us/details/?attr=botability">
+botability
+</a>: 
+Grade: C → F /
+Score: 75% → 55%
+(5 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/cartercountyok-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/cartercountyok-us/details/?attr=security">
+security
+</a>: 
+Grade: C → C /
+Score: 71% → 75%
+(6 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/allamakeecounty-iowa-gov/overall/">allamakeecounty.iowa.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/allamakeecounty-iowa-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ritchiecounty-wv-gov/overall/">ritchiecounty.wv.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/ritchiecounty-wv-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/ritchiecounty-wv-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 37% → 40%
+(6 of 15 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/newberrycounty-gov/overall/">newberrycounty.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/newberrycounty-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: D → F /
+Score: 64% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/newberrycounty-gov/details/?attr=security">
+security
+</a>: 
+Grade: B → B /
+Score: 85% → 87%
+(7 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/co-nolan-tx-us/overall/">co.nolan.tx.us</a>:
+</p><ul>
+<li>
+<a href="/profile/co-nolan-tx-us/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/co-nolan-tx-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 31%
+(5 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/harrisburg-psu-edu/overall/">harrisburg.psu.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/harrisburg-psu-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 76% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/montcounty-org/overall/">montcounty.org</a>:
+</p><ul>
+<li>
+<a href="/profile/montcounty-org/details/?attr=botability">
+botability
+</a>: 
+Grade: A → B /
+Score: 90% → 88%
+(8 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/montcounty-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → D /
+Score: 58% → 62%
+(10 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/montcounty-org/details/?attr=security">
+security
+</a>: 
+Grade: B → B /
+Score: 85% → 87%
+(7 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/franklincountymaine-gov/overall/">franklincountymaine.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/franklincountymaine-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → B /
+Score: 76% → 81%
+(13 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/collin-edu/overall/">collin.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/collin-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/co-lampasas-tx-us/overall/">co.lampasas.tx.us</a>:
+</p><ul>
+<li>
+<a href="/profile/co-lampasas-tx-us/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/co-lampasas-tx-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/hscounty-com/overall/">hscounty.com</a>:
+</p><ul>
+<li>
+<a href="/profile/hscounty-com/details/?attr=botability">
+botability
+</a>: 
+Grade: F → D /
+Score: 54% → 60%
+(6 of 10 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/hscounty-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/plumascounty-us/overall/">plumascounty.us</a>:
+</p><ul>
+<li>
+<a href="/profile/plumascounty-us/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/plumascounty-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/clarkcountynv-gov/overall/">clarkcountynv.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/clarkcountynv-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 76% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/hickmancountytn-gov/overall/">hickmancountytn.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/hickmancountytn-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → C /
+Score: 80% → 77%
+(7 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/hickmancountytn-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → B /
+Score: 76% → 81%
+(13 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/carrollcountyms-org/overall/">carrollcountyms.org</a>:
+</p><ul>
+<li>
+<a href="/profile/carrollcountyms-org/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 81% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/carrollcountyms-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ku-edu/overall/">ku.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/ku-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: A → A /
+Score: 94% → 93%
+(15 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/montevallo-edu/overall/">montevallo.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/montevallo-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 68%
+(11 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/missouri-edu/overall/">missouri.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/missouri-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/franklincountync-gov/overall/">franklincountync.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/franklincountync-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/franklincountync-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → B /
+Score: 83% → 86%
+(32 of 37 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/franklincountync-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/metrostate-edu/overall/">metrostate.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/metrostate-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ucsb-edu/overall/">ucsb.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/ucsb-edu/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → A /
+Score: 96% → 93%
+(27 of 29 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/ucsb-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/hardeecountyfl-gov/overall/">hardeecountyfl.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/hardeecountyfl-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/berkspa-gov/overall/">berkspa.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/berkspa-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/dccoks-org/overall/">dccoks.org</a>:
+</p><ul>
+<li>
+<a href="/profile/dccoks-org/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/dccoks-org/details/?attr=security">
+security
+</a>: 
+Grade: C → C /
+Score: 71% → 75%
+(6 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/bigbend-edu/overall/">bigbend.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/bigbend-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/woodcountywv-com/overall/">woodcountywv.com</a>:
+</p><ul>
+<li>
+<a href="/profile/woodcountywv-com/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 88% → 87%
+(14 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/gov-allconet-org/overall/">gov.allconet.org</a>:
+</p><ul>
+<li>
+<a href="/profile/gov-allconet-org/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/gov-allconet-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/inyocounty-us/overall/">inyocounty.us</a>:
+</p><ul>
+<li>
+<a href="/profile/inyocounty-us/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 81% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/inyocounty-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/casscountyne-gov/overall/">casscountyne.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/casscountyne-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/craigheadcountyar-gov/overall/">craigheadcountyar.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/craigheadcountyar-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: A → B /
+Score: 90% → 88%
+(8 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/craigheadcountyar-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/lsus-edu/overall/">lsus.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/lsus-edu/details/?attr=botability">
+botability
+</a>: 
+Grade: A → C /
+Score: 100% → 77%
+(7 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/lsus-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/baconcounty-org/overall/">baconcounty.org</a>:
+</p><ul>
+<li>
+<a href="/profile/baconcounty-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/camdencountymo-gov/overall/">camdencountymo.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/camdencountymo-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/camdencountymo-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/hawkinsville-pulaski-org/overall/">hawkinsville-pulaski.org</a>:
+</p><ul>
+<li>
+<a href="/profile/hawkinsville-pulaski-org/details/?attr=botability">
+botability
+</a>: 
+Grade: C → C /
+Score: 72% → 70%
+(7 of 10 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/hawkinsville-pulaski-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/kalcounty-gov/overall/">kalcounty.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/kalcounty-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: A → B /
+Score: 90% → 81%
+(9 of 11 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/kalcounty-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 23% → 31%
+(5 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/chathamcountyga-gov/overall/">chathamcountyga.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/chathamcountyga-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: D → C /
+Score: 63% → 77%
+(7 of 9 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/chathamcountyga-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/leegov-com/overall/">leegov.com</a>:
+</p><ul>
+<li>
+<a href="/profile/leegov-com/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/leegov-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/lakecountymi-gov/overall/">lakecountymi.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/lakecountymi-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/brookecountywv-gov/overall/">brookecountywv.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/brookecountywv-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: C → F /
+Score: 75% → 55%
+(5 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/brookecountywv-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/brookecountywv-gov/details/?attr=security">
+security
+</a>: 
+Grade: B → B /
+Score: 85% → 87%
+(7 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/webstercounty-wv-gov/overall/">webstercounty.wv.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/webstercounty-wv-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: C → F /
+Score: 75% → 55%
+(5 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/webstercounty-wv-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 37% → 40%
+(6 of 15 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/pitt-edu/overall/">pitt.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/pitt-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/famu-edu/overall/">famu.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/famu-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/uga-edu/overall/">uga.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/uga-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/arthurcounty-nebraska-gov/overall/">arthurcounty.nebraska.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/arthurcounty-nebraska-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/co-mcculloch-tx-us/overall/">co.mcculloch.tx.us</a>:
+</p><ul>
+<li>
+<a href="/profile/co-mcculloch-tx-us/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/co-mcculloch-tx-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 31%
+(5 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/allencountyohio-com/overall/">allencountyohio.com</a>:
+</p><ul>
+<li>
+<a href="/profile/allencountyohio-com/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 50%
+(8 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/dinecollege-edu/overall/">dinecollege.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/dinecollege-edu/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → B /
+Score: 84% → 86%
+(26 of 30 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/dinecollege-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 76% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/goshencountywy-gov/overall/">goshencountywy.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/goshencountywy-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/goshencountywy-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/angelo-edu/overall/">angelo.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/angelo-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 68%
+(11 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/sfasu-edu/overall/">sfasu.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/sfasu-edu/details/?attr=botability">
+botability
+</a>: 
+Grade: B → A /
+Score: 81% → 90%
+(10 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/sfasu-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 31%
+(5 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/gilescountytn-gov/overall/">gilescountytn.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/gilescountytn-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 88% → 87%
+(14 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/uwm-edu/overall/">uwm.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/uwm-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: B → C /
+Score: 81% → 73%
+(11 of 15 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/nemahacountyne-gov/overall/">nemahacountyne.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/nemahacountyne-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: A → B /
+Score: 90% → 88%
+(8 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/nemahacountyne-gov/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: A → A /
+Score: 97% → 100%
+(35 of 35 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/nemahacountyne-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/chemungcountyny-gov/overall/">chemungcountyny.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/chemungcountyny-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/chemungcountyny-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/lakecountyca-gov/overall/">lakecountyca.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/lakecountyca-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: C → B /
+Score: 72% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/lakecountyca-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/lakecountyca-gov/details/?attr=security">
+security
+</a>: 
+Grade: B → A /
+Score: 87% → 100%
+(8 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/dawsoncountyne-gov/overall/">dawsoncountyne.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/dawsoncountyne-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/dawsoncountyne-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/dawsoncountyne-gov/details/?attr=security">
+security
+</a>: 
+Grade: B → B /
+Score: 85% → 87%
+(7 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/clintoncomo-org/overall/">clintoncomo.org</a>:
+</p><ul>
+<li>
+<a href="/profile/clintoncomo-org/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 82% → 87%
+(14 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/stlandrypg-org/overall/">stlandrypg.org</a>:
+</p><ul>
+<li>
+<a href="/profile/stlandrypg-org/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 88% → 81%
+(13 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/osbornecounty-org/overall/">osbornecounty.org</a>:
+</p><ul>
+<li>
+<a href="/profile/osbornecounty-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fairfaxcounty-gov/overall/">fairfaxcounty.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/fairfaxcounty-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ucmo-edu/overall/">ucmo.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/ucmo-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/buckinghamcountyva-org/overall/">buckinghamcountyva.org</a>:
+</p><ul>
+<li>
+<a href="/profile/buckinghamcountyva-org/details/?attr=botability">
+botability
+</a>: 
+Grade: C → F /
+Score: 75% → 55%
+(5 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/buckinghamcountyva-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/buckinghamcountyva-org/details/?attr=security">
+security
+</a>: 
+Grade: C → C /
+Score: 71% → 75%
+(6 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/harlancounty-ne-gov/overall/">harlancounty.ne.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/harlancounty-ne-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: A → B /
+Score: 90% → 88%
+(8 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/harlancounty-ne-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ewu-edu/overall/">ewu.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/ewu-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/averycountync-gov/overall/">averycountync.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/averycountync-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: C → F /
+Score: 75% → 55%
+(5 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/averycountync-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/averycountync-gov/details/?attr=security">
+security
+</a>: 
+Grade: B → B /
+Score: 85% → 87%
+(7 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cerrogordo-gov/overall/">cerrogordo.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/cerrogordo-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/cerrogordo-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/marshall-okcounties-org/overall/">marshall.okcounties.org</a>:
+</p><ul>
+<li>
+<a href="/profile/marshall-okcounties-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cherokeecountyga-gov/overall/">cherokeecountyga.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/cherokeecountyga-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 81% → 63%
+(7 of 11 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/cherokeecountyga-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/co-shelby-oh-us/overall/">co.shelby.oh.us</a>:
+</p><ul>
+<li>
+<a href="/profile/co-shelby-oh-us/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 87%
+(7 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/co-shelby-oh-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/pfw-edu/overall/">pfw.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/pfw-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → D /
+Score: 58% → 62%
+(10 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/co-umatilla-or-us/overall/">co.umatilla.or.us</a>:
+</p><ul>
+<li>
+<a href="/profile/co-umatilla-or-us/details/?attr=botability">
+botability
+</a>: 
+Grade: C → C /
+Score: 70% → 77%
+(7 of 9 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/co-umatilla-or-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 43%
+(7 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/vintoncounty-com/overall/">vintoncounty.com</a>:
+</p><ul>
+<li>
+<a href="/profile/vintoncounty-com/details/?attr=usability">
+usability
+</a>: 
+Grade: B → C /
+Score: 82% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/csun-edu/overall/">csun.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/csun-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/sagadahoccountyme-gov/overall/">sagadahoccountyme.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/sagadahoccountyme-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/sagadahoccountyme-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/sagadahoccountyme-gov/details/?attr=security">
+security
+</a>: 
+Grade: B → B /
+Score: 85% → 87%
+(7 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/greencounty-ky-gov/overall/">greencounty.ky.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/greencounty-ky-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/greencounty-ky-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 25% → 26%
+(4 of 15 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/neccog-org/overall/">neccog.org</a>:
+</p><ul>
+<li>
+<a href="/profile/neccog-org/details/?attr=botability">
+botability
+</a>: 
+Grade: C → F /
+Score: 75% → 55%
+(5 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/neccog-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → D /
+Score: 58% → 62%
+(10 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/neccog-org/details/?attr=security">
+security
+</a>: 
+Grade: C → C /
+Score: 71% → 75%
+(6 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/clark-edu/overall/">clark.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/clark-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 35% → 31%
+(5 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/wsc-edu/overall/">wsc.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/wsc-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/wirtcounty-wv-gov/overall/">wirtcounty.wv.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/wirtcounty-wv-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/wirtcounty-wv-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 31% → 40%
+(6 of 15 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ccd-edu/overall/">ccd.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/ccd-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/ccd-edu/details/?attr=security">
+security
+</a>: 
+Grade: B → B /
+Score: 85% → 87%
+(7 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/masoncountyil-gov/overall/">masoncountyil.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/masoncountyil-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 82% → 81%
+(13 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/co-mitchell-tx-us/overall/">co.mitchell.tx.us</a>:
+</p><ul>
+<li>
+<a href="/profile/co-mitchell-tx-us/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/co-mitchell-tx-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/berks-psu-edu/overall/">berks.psu.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/berks-psu-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → C /
+Score: 76% → 75%
+(12 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/jewellcountykansas-net/overall/">jewellcountykansas.net</a>:
+</p><ul>
+<li>
+<a href="/profile/jewellcountykansas-net/details/?attr=usability">
+usability
+</a>: 
+Grade: C → B /
+Score: 76% → 81%
+(13 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/nhsc-edu/overall/">nhsc.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/nhsc-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 52% → 50%
+(8 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/bureaucounty-il-gov/overall/">bureaucounty-il.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/bureaucounty-il-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 50%
+(8 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/sharkeycounty-net/overall/">sharkeycounty.net</a>:
+</p><ul>
+<li>
+<a href="/profile/sharkeycounty-net/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 68%
+(11 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/co-winkler-tx-us/overall/">co.winkler.tx.us</a>:
+</p><ul>
+<li>
+<a href="/profile/co-winkler-tx-us/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/co-winkler-tx-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 25%
+(4 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/pershingcountynv-gov/overall/">pershingcountynv.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/pershingcountynv-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/pershingcountynv-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 47% → 43%
+(7 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/pershingcountynv-gov/details/?attr=security">
+security
+</a>: 
+Grade: B → B /
+Score: 85% → 87%
+(7 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/r-umn-edu/overall/">r.umn.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/r-umn-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: D → D /
+Score: 64% → 68%
+(11 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/cheyney-edu/overall/">cheyney.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/cheyney-edu/details/?attr=accessibility">
+accessibility
+</a>: 
+Grade: B → B /
+Score: 81% → 80%
+(25 of 31 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/cheyney-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/illinoisstate-edu/overall/">illinoisstate.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/illinoisstate-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 76% → 62%
+(10 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/ontariocountyny-gov/overall/">ontariocountyny.gov</a>:
+</p><ul>
+<li>
+<a href="/profile/ontariocountyny-gov/details/?attr=botability">
+botability
+</a>: 
+Grade: D → B /
+Score: 63% → 81%
+(9 of 11 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/ontariocountyny-gov/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/govst-edu/overall/">govst.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/govst-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/crittendencountyky-org/overall/">crittendencountyky.org</a>:
+</p><ul>
+<li>
+<a href="/profile/crittendencountyky-org/details/?attr=botability">
+botability
+</a>: 
+Grade: C → F /
+Score: 75% → 55%
+(5 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/crittendencountyky-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 37%
+(6 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+<li>
+<a href="/profile/crittendencountyky-org/details/?attr=security">
+security
+</a>: 
+Grade: C → C /
+Score: 71% → 75%
+(6 of 8 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/fdltcc-edu/overall/">fdltcc.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/fdltcc-edu/details/?attr=botability">
+botability
+</a>: 
+Grade: A → C /
+Score: 90% → 72%
+(8 of 11 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/fdltcc-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → B /
+Score: 76% → 81%
+(13 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/nevadastate-edu/overall/">nevadastate.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/nevadastate-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: B → B /
+Score: 82% → 81%
+(13 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/co-crockett-tx-us/overall/">co.crockett.tx.us</a>:
+</p><ul>
+<li>
+<a href="/profile/co-crockett-tx-us/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/co-crockett-tx-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 29% → 31%
+(5 of 16 elements)
+<svg class="text-success fa-solid fa-circle-up" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-up" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-up"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/missouriwestern-edu/overall/">missouriwestern.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/missouriwestern-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 76% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/nau-edu/overall/">nau.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/nau-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 58% → 56%
+(9 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/greatvalley-psu-edu/overall/">greatvalley.psu.edu</a>:
+</p><ul>
+<li>
+<a href="/profile/greatvalley-psu-edu/details/?attr=usability">
+usability
+</a>: 
+Grade: C → D /
+Score: 70% → 68%
+(11 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/coryellcounty-org/overall/">coryellcounty.org</a>:
+</p><ul>
+<li>
+<a href="/profile/coryellcounty-org/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/coryellcounty-org/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+<div class="text-muted">
+<p class="timeline-domain">
+<a href="/profile/co-falls-tx-us/overall/">co.falls.tx.us</a>:
+</p><ul>
+<li>
+<a href="/profile/co-falls-tx-us/details/?attr=botability">
+botability
+</a>: 
+Grade: B → D /
+Score: 87% → 66%
+(6 of 9 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+<li>
+<a href="/profile/co-falls-tx-us/details/?attr=usability">
+usability
+</a>: 
+Grade: F → F /
+Score: 41% → 37%
+(6 of 16 elements)
+<svg class="text-danger fa-solid fa-circle-down" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-down" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-down"></use></svg>
+</li>
+</ul>
+<p></p>
+</div>
+</li>
+</ul>
+</section>
+</div>
+<div class="row">
+<div class="col-12">
+<nav>
+<ul class="pagination flex-wrap" id="pagination">
+<li class="page-item" id="previous">
+<a class="page-link " href="/changelog/34/" id="previous-link">Previous</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/">1</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/1/">2</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/2/">3</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/3/">4</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/4/">5</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/5/">6</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/6/">7</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/7/">8</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/8/">9</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/9/">10</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/10/">11</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/11/">12</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/12/">13</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/13/">14</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/14/">15</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/15/">16</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/16/">17</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/17/">18</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/18/">19</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/19/">20</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/20/">21</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/21/">22</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/22/">23</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/23/">24</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/24/">25</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/25/">26</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/26/">27</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/27/">28</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/28/">29</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/29/">30</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/30/">31</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/31/">32</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/32/">33</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/33/">34</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/34/">35</a>
+</li>
+<li class="page-item active">
+<a class="page-link" href="/changelog/35/">36</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/36/">37</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/37/">38</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/38/">39</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/39/">40</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/40/">41</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/41/">42</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/42/">43</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/43/">44</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/44/">45</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/45/">46</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/46/">47</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/47/">48</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/48/">49</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/49/">50</a>
+</li>
+<li class="page-item ">
+<a class="page-link" href="/changelog/50/">51</a>
+</li>
+<li class="page-item" id="next">
+<a class="page-link " href="/changelog/36/" id="next-link">Next</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<style>
+.cta-band {
+position: fixed;
+right: 0;
+bottom: 0;
+left: 0;
+z-index: 1030;
+padding: 0.75rem 0;
+background-color: var(--bs-body-bg);
+color: var(--bs-body-color);
+transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+/* Hidden while the hero or the footer is on screen */
+.cta-band.is-hidden {
+opacity: 0;
+visibility: hidden;
+transform: translateY(100%);
+pointer-events: none;
+}
+.cta-band .btn {
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+<div id="cta-band" class="cta-band border-top" role="region" aria-label="Get ScanGov, see the demo, and share this page">
+<div class="container d-flex align-items-center justify-content-center gap-2">
+<a href="https://scangov.com/plans/" class="btn btn-primary" aria-label="Plans">
+<svg class="fa-solid fa-crown" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-crown" xlink:href="/assets/fa-sprite.svg#fas-fa-crown"></use></svg><span class="d-none d-md-inline">Plans</span></a>
+<a href="https://scangov.com/demo/" class="btn btn-outline-primary" aria-label="Demo">
+<svg class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-wand-magic-sparkles" xlink:href="/assets/fa-sprite.svg#fas-fa-wand-magic-sparkles"></use></svg><span class="d-none d-md-inline">Demo</span></a>
+<button type="button" class="btn btn-outline-primary" id="cta-copy-link" aria-label="Copy link">
+<svg class="fa-solid fa-link" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg><span class="d-none d-md-inline">Link</span></button>
+<button type="button" class="btn btn-outline-primary" id="cta-copy-text" aria-label="Copy text">
+<svg class="fa-solid fa-copy" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-copy" xlink:href="/assets/fa-sprite.svg#fas-fa-copy"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg><span class="d-none d-md-inline">Text</span></button>
+<span class="visually-hidden" role="status" aria-live="polite" id="cta-copy-status"></span>
+</div>
+</div>
+<script>
+  (function() {
+    var status = document.getElementById('cta-copy-status');
+
+    // The page link: the canonical link if there is one, else this URL without
+    // the query string or hash
+    function pageLink() {
+      var canonical = document.querySelector('link[rel="canonical"]');
+      return canonical && canonical.href ? canonical.href : location.origin + location.pathname;
+    }
+
+    // Title, description, and link, ready to paste into email, Teams, Slack, or a post
+    function pageText() {
+      var h1 = document.querySelector('h1');
+      var description = document.querySelector('meta[name="description"]');
+      return [
+        h1 ? h1.textContent.trim().replace(/\s+/g, ' ') : document.title,
+        description ? description.content.trim() : '',
+        pageLink()
+      ].filter(Boolean).join('\n');
+    }
+
+    function wire(buttonId, getText, doneMessage) {
+      var button = document.getElementById(buttonId);
+      if (!button) return;
+      button.addEventListener('click', async function() {
+        // Icons are swapped for inline SVGs at build time, so show the hidden
+        // check mark instead of changing the icon's class
+        var icons = button.querySelectorAll('svg, i');
+        var label = button.querySelector('span');
+        var labelText = label.textContent;
+        try {
+          await navigator.clipboard.writeText(getText());
+          icons[0].classList.add('d-none');
+          icons[1].classList.remove('d-none');
+          label.textContent = 'Copied';
+          status.textContent = doneMessage;
+          setTimeout(function() {
+            icons[0].classList.remove('d-none');
+            icons[1].classList.add('d-none');
+            label.textContent = labelText;
+            status.textContent = '';
+          }, 2000);
+        } catch (err) {
+          // Clipboard unavailable: leave the button as it is
+        }
+      });
+    }
+
+    // Show the band only between the hero and the footer. This script sits above
+    // the footer in the page, so wait until the whole page is parsed.
+    function watchHeroAndFooter() {
+      var band = document.getElementById('cta-band');
+      var h1 = document.querySelector('h1');
+      var targets = [h1 ? (h1.closest('.pt-5') || h1) : null, document.querySelector('footer')].filter(Boolean);
+      if (!band || !targets.length || !('IntersectionObserver' in window)) return;
+      var inView = new Map();
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) { inView.set(entry.target, entry.isIntersecting); });
+        band.classList.toggle('is-hidden', Array.from(inView.values()).some(Boolean));
+      });
+      targets.forEach(function(target) { observer.observe(target); });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', watchHeroAndFooter);
+    } else {
+      watchHeroAndFooter();
+    }
+
+    wire('cta-copy-link', pageLink, 'Link copied');
+    wire('cta-copy-text', pageText, 'Text copied');
+  })();
+</script>
+<footer role="contentinfo">
+<div class="container mt-5 pt-5 border-top">
+<div class="row">
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://docs.scangov.org/community" class="nav-link p-0 text-body-secondary">Community</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.substack.com" class="nav-link p-0 text-body-secondary">Newsletter</a>
+</li>
+<li class="small mb-1">
+<a href="https://github.com/ScanGov" class="nav-link p-0 text-body-secondary">GitHub</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/contact" class="nav-link p-0 text-body-secondary">Contact</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">ScanGov scorecard</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="/site-index/" class="nav-link p-0 text-body-secondary">Site index</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="container-fluid py-4 mt-4 border-top">
+<div class="row">
+<div class="col-12 text-center">
+<p class="small">Built with <svg class="fa-solid fa-heart" aria-label="Heart" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-heart" xlink:href="/assets/fa-sprite.svg#fas-fa-heart"></use></svg> by
+<a href="https://scangov.com" rel="noopener noreferrer">ScanGov</a></p>
+</div>
+</div>
+</div>
+</footer>
+<script async="" defer="" src="https://www.googletagmanager.com/gtag/js?id=G-MM5GF482X0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MM5GF482X0');
+</script>
+<script>
+  /* mobile menu */
+  const toggler = document.querySelector('button.navbar-toggler');
+  if (toggler) {
+    toggler.addEventListener('click', function(e) {
+      document.querySelector(this.dataset.target).classList.toggle('show');
+    });
+  }
+</script>
+<script src="/assets/bootstrap/js/bootstrap-trimmed.min.js" defer=""></script>
+<script src="/assets/bootstrap/js/bootstrap-tooltip.min.js" defer=""></script>
+<script src="/js/tablesort-vendor.js"></script>
+<script src="/js/tablesort-init.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
+      new bootstrap.Tooltip(el, { trigger: 'click' });
+      el.addEventListener('click', function(e) { e.preventDefault(); });
+    });
+    document.addEventListener('click', function(e) {
+      document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
+        var tipId = el.getAttribute('aria-describedby');
+        var tipEl = tipId ? document.getElementById(tipId) : null;
+        var isTrigger = el.contains(e.target);
+        var isInsideTooltip = tipEl && tipEl.contains(e.target);
+        if (!isTrigger && !isInsideTooltip) {
+          var instance = bootstrap.Tooltip.getInstance(el);
+          if (instance) instance.hide();
+        }
+      });
+    });
+  });
+</script>
+<a href="https://scangov.com/plans" id="feedback-button" class="feedback btn btn-outline-primary btn-sm" aria-hidden="true" tabindex="-1">
+<svg class="fa-solid fa-rocket" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-rocket" xlink:href="/assets/fa-sprite.svg#fas-fa-rocket"></use></svg> Get ScanGov
+</a>
+<script>
+  const feedbackButton = document.getElementById("feedback-button");
+  const footer = document.querySelector("footer");
+
+  // The fixed CTA band already carries the Get started button
+  const ctaBand = document.getElementById('cta-band');
+  function updateButton() {
+    const scrolled = document.documentElement.scrollTop > window.innerHeight * 0.3;
+    const footerVisible = footer && footer.getBoundingClientRect().top < window.innerHeight;
+    const visible = scrolled && !footerVisible && !ctaBand;
+    feedbackButton.classList.toggle('is-visible', visible);
+    feedbackButton.setAttribute('aria-hidden', visible ? 'false' : 'true');
+    feedbackButton.setAttribute('tabindex', visible ? '0' : '-1');
+  }
+
+  const hiddenPaths = ['/plans/', '/demo/', '/demo-confirm/', '/contact/'];
+  if (window.location.hostname !== 'my.scangov.com' && !hiddenPaths.includes(window.location.pathname)) {
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function() {
+        updateButton();
+        ticking = false;
+      });
+    }, { passive: true });
+    updateButton();
+  }
+</script>
+<svg class="fa-solid fa-link" style="display:none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>
+<script>
+(function() {
+    document.querySelectorAll('#post h2[id], #post h3[id]').forEach(function(h) {
+        if (h.closest('.card') || h.classList.contains('accordion-header')) return;
+        var wrap = document.createElement('a');
+        wrap.className = 'heading-anchor-text';
+        wrap.href = '#' + h.id;
+        while (h.firstChild) { wrap.appendChild(h.firstChild); }
+        h.appendChild(wrap);
+        var icon = document.createElement('a');
+        icon.id = 'heading-hashtag';
+        icon.href = '#' + h.id;
+        icon.setAttribute('aria-hidden', 'true');
+        icon.innerHTML = '<svg aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>';
+        h.appendChild(icon);
+    });
+})();
+</script>
+</body>
+</html>

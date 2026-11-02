@@ -24,7 +24,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ScanGov logo">
-<meta property="article:modified_time" content="2026-09-28T03:42:34.578Z">
+<meta property="article:modified_time" content="2026-10-28T08:32:36.902Z">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Rankings","item":"https://scangov.org/rankings/"},{"@type":"ListItem","position":3,"name":"University of California-Santa Barbara","item":"https://scangov.org/org/university-of-california-santa-barbara/"},{"@type":"ListItem","position":4,"name":"Pulse","item":"https://scangov.org/org/university-of-california-santa-barbara/pulse/"}]},{"@type":"EducationalOrganization","name":"University of California-Santa Barbara","url":"https://ucsb.edu/","subjectOf":{"@type":"WebPage","url":"https://scangov.org/org/university-of-california-santa-barbara/pulse/"}}]}</script>
 <link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
@@ -287,7 +287,7 @@ Link copied!
 </div>
 <script>
       document.addEventListener('DOMContentLoaded', function () {
-        var scores = [83];
+        var scores = [84];
         var gradeData = { A: 0, B: 0, C: 0, D: 0, F: 0 };
         scores.forEach(function (s) {
           if (s >= 90) gradeData.A++;
@@ -338,12 +338,12 @@ Link copied!
           '/org/' + orgSlug + '/?attr=readability'
         ];
         var gradesScores = [
-          83,
+          84,
           93,
           90,
-          100,
-          56,
-          0
+          87,
+          60,
+          100
         ];
         var baseLabels = ["Overall","Accessibility","Botability","Security","Usability","Readability"];
         var gradesEl = document.getElementById('grades-chart');
@@ -481,10 +481,10 @@ Readability:
           
           {
             accessibility: {"aria-allowed-attr":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"frame-title":true,"heading-order":false,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"link-in-text-block":true,"link-name":false,"list":true,"listitem":true,"meta-viewport":true,"target-size":true,"landmark-one-main":true,"svg-img-alt":true,"image-aspect-ratio":true,"doctype":true,"charset":true},
-            botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"schema-government-organization":true,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":false},
-            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"xcontenttypeoptions":true},
-            usability: {"title":true,"description":true,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"inp":false,"ogsitename":true,"ogtype":false,"ogtitle":true,"ogdescription":false,"ogurl":true,"ogimage":false,"ogimagealt":false,"www":true},
-            readability: {"reading-level":false}
+            botability: {"canonical":true,"link-text":true,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":true,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":false},
+            security: {"csp":true,"hsts":true,"errors-in-console":true,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"xcontenttypeoptions":false},
+            usability: {"title":true,"description":true,"viewport":true,"fcp":false,"lcp":false,"ttfb":true,"cls":true,"ogsitename":true,"ogtype":false,"ogtitle":true,"ogdescription":false,"ogurl":true,"ogimage":false,"ogimagealt":false,"www":true},
+            readability: {"reading-level":true}
             
           }
           
