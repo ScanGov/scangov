@@ -3931,6 +3931,15 @@ blockquote .lead {
 .sg-map-county--unscanned {
   fill: var(--bs-inaccessible);
 }
+/* A county whose site the auditor looked at but did not score (item.skipped,
+   e.g. too little text): the warning tone at a tint, so it reads as a
+   caution rather than a failure or a gap in the scan. */
+.sg-map-county--skipped {
+  fill: color-mix(in oklab, var(--bs-warning) 45%, var(--bs-body-bg));
+}
+.sg-swatch--skipped {
+  background: color-mix(in oklab, var(--bs-warning) 45%, var(--bs-body-bg));
+}
 .sg-swatch--pass {
   background: color-mix(in oklab, var(--sg-chart-muted) 30%, var(--bs-body-bg));
   border: 1px solid var(--bs-border-color);

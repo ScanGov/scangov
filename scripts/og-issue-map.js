@@ -26,6 +26,8 @@ const COLORS = {
     pass: '#ececee',
     // .sg-map-county--marked: a passing site the page flags anyway, series-1 at 40% on white.
     marked: '#a4bedd',
+    // .sg-map-county--skipped: looked at but not scored, --bs-warning at 45% on white.
+    skipped: '#fdeaae',
     unscanned: '#6c757d',
     unlisted: '#ececee',
     stroke: '#ffffff',
@@ -50,6 +52,7 @@ export function buildIssueOgSvg(page) {
 ${pathEl(m.unlistedPath, COLORS.unlisted)}
 ${pathEl(m.passPath, COLORS.pass)}
 ${pathEl(m.markedPath, COLORS.marked)}
+${pathEl(m.skippedPath, COLORS.skipped)}
 ${pathEl(m.unscannedPath, COLORS.unscanned)}
 ${pathEl(m.untestedPath, COLORS.unscanned)}
 ${groups}

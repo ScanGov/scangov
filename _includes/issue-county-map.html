@@ -10,7 +10,8 @@
   Expects: item (a scripts/issues.js page object with item.map).
 
   Accessibility: the map is a supplementary view of the site table on the
-  same page. County links are out of the tab order (tabindex="-1") so
+  same page. A page can also show the counties whose site the auditor looked
+  at but did not score (item.skipped) in a third quiet tint. County links are out of the tab order (tabindex="-1") so
   keyboard users are not walked through a thousand stops; the table is the
   keyboard path. Pointer users get a tooltip per highlighted county and
   click-through to the site's report. The legend spells out each category
@@ -28,6 +29,7 @@
     {# Passing counties use the same quiet fill as counties with no site on our list, so the map shows problems, not coverage. #}
     {% if m.passPath %}<path class="sg-map-county sg-map-county--none" d="{{ m.passPath }}"><title>Counties whose site passes: {{ item.issue.passLabel | lower }}</title></path>{% endif %}
     {% if m.markedPath %}<path class="sg-map-county sg-map-county--marked" d="{{ m.markedPath }}"><title>Counties whose site passes but {{ item.mark.phrase }}</title></path>{% endif %}
+    {% if m.skippedPath %}<path class="sg-map-county sg-map-county--skipped" d="{{ m.skippedPath }}"><title>Counties whose site {{ item.skipped.phrase }}</title></path>{% endif %}
     {% if m.unscannedPath %}<path class="sg-map-county sg-map-county--unscanned" d="{{ m.unscannedPath }}"><title>Counties whose site could not be fully scanned</title></path>{% endif %}
     {% if m.untestedPath %}<path class="sg-map-county sg-map-county--unscanned" d="{{ m.untestedPath }}"><title>Counties whose site has no result for {{ "these checks" if item.issue.isFeature else "this check" }}</title></path>{% endif %}
     {# One anchor per failing county, one group per stage. The group carries the class so each of the ~1,000 paths stays short. #}
@@ -37,6 +39,7 @@
   <ul class="sg-legend">
     {% for g in m.groups %}{% if g.counties.length %}<li><span class="sg-swatch {{ "sg-fill-danger" if g.tone == "severe" else "sg-fill-series-1" }}" aria-hidden="true"></span>{{ g.label }} ({{ g.counties.length | numberFormat }})</li>{% endif %}{% endfor %}
     {% if m.counts.marked %}<li><span class="sg-swatch sg-swatch--marked" aria-hidden="true"></span>{{ item.mark.label }} ({{ m.counts.marked | numberFormat }}), not counted as a problem</li>{% endif %}
+    {% if m.counts.skipped %}<li><span class="sg-swatch sg-swatch--skipped" aria-hidden="true"></span>{{ item.skipped.label }} ({{ m.counts.skipped | numberFormat }}), no pass or fail</li>{% endif %}
     <li><span class="sg-swatch sg-fill-track" aria-hidden="true"></span>{{ item.issue.passLabel }} ({{ m.counts.pass | numberFormat }}){% if m.counts.unlisted %}, or no site on our list ({{ m.counts.unlisted | numberFormat }}){% endif %}</li>
     {% if m.counts.unscanned or m.counts.untested %}<li><span class="sg-swatch sg-fill-inaccessible" aria-hidden="true"></span>Not fully scanned{% if m.counts.untested %} or no result for {{ "these checks" if item.issue.isFeature else "this check" }}{% endif %} ({{ (m.counts.unscanned + m.counts.untested) | numberFormat }})</li>{% endif %}
   </ul>

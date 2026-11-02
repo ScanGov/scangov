@@ -30,6 +30,14 @@ export function gradeLevelOf(ari) {
     return '8th grade or below';
 }
 
+// A readability grade (ARI or Flesch-Kincaid) for display: one decimal, never
+// below zero. Both formulas can go negative on very short words and
+// sentences, and a negative school grade means nothing to a reader.
+export function formatGrade(score) {
+    if (!Number.isFinite(score)) return '';
+    return Math.max(0, score).toFixed(1);
+}
+
 // One entry per page. `slug` is the URL segment and `topic` names the
 // indicator. A page is either one check (`check`: the key on the record) or
 // one feature made of several checks (`checks`: the keys, plus `verdict(d)`,
@@ -43,7 +51,13 @@ export function gradeLevelOf(ari) {
 // one-site form of `failPhrase`). A single-check page may also give a
 // `verdict` function and a `note` (shown with the check's description) when
 // a missing result means something other than "not tested", plus `lead`
-// (sentences for the intro) and `why` (replaces the standard's "why" copy).
+// (sentences for the intro), `why` (replaces the standard's "why" copy) and
+// `description` (replaces the standard's description when the two disagree).
+// A verdict of 'untested' may carry `skipped: true` for a site the auditor
+// looked at and chose not to score; `skipped: { label, phrase }` names that
+// group in the intro, the map legend and the footnote, so it is told apart
+// from a site with no result at all. `columns` (optional) adds per-site
+// columns to the table: { header, value(d), sort(d) }.
 // `breakdown` (optional)
 // buckets the failing sites for a bar chart: label(d, stage) names a bucket,
 // and `order` (optional) lists the buckets in display order for an ordinal
@@ -198,28 +212,47 @@ export const ISSUES = [
         // Single-check page on the homepage's reading level. The auditor
         // scores the page text with the Automated Readability Index (top-level
         // `ari`, with `fk` alongside) and records the verdict as
-        // readability['reading-level']: pass at 8.5 or below (data on
-        // 2026-10-25: highest passing 8.499, lowest failing 8.503). The
-        // breakdown reads `ari` directly to show real grade levels. Unlisted
-        // until the user is happy with the data: 68 county sites score below
-        // ARI 1 and 11 above 20, which look like pages with very little text
-        // or with long tokens, and the standard's copy says 7th grade where
-        // the threshold sits at 8th.
+        // readability['reading-level']: pass at 8.5 or below (highest passing
+        // 8.499, lowest failing 8.503). Since 2026-10-29 the lightrunner
+        // extracts main content, needs 100 words to score, and reports what it
+        // did in `readabilityInfo` ({ words, sentences, source, skipped }):
+        // `skipped: 'not-enough-text'` means it looked and found too little
+        // text, so the site has no verdict and is shown as its own group here.
+        // Records scored before that date carry no `source`; they count as-is
+        // (user decision 2026-11-01: the suspect homepages were re-audited, the
+        // rest re-audit on the normal cycle). The breakdown reads `ari`
+        // directly to show real grade levels.
         check: 'reading-level',
-        unlisted: true,
+        verdict: d => {
+            if ((d.readabilityInfo || {}).skipped) return { verdict: 'untested', skipped: true };
+            const results = d.readability;
+            if (!results || !('reading-level' in results)) return { verdict: 'untested' };
+            return { verdict: results['reading-level'] === false ? 'fail' : 'pass' };
+        },
+        skipped: {
+            label: 'Too little text to score',
+            phrase: 'had too little text on the homepage to score',
+        },
         // "County websites that are hard to read"
         titleSuffix: 'that are hard to read',
         failLabel: 'Above 8th grade',
         passLabel: 'At or below 8th grade',
-        // "899 of 2,320 fully scanned county sites read above an 8th grade level."
+        // "886 of 2,317 fully scanned county sites read above an 8th grade level."
         failPhrase: 'read above an 8th grade level',
         failPhraseSingular: 'reads above an 8th grade level',
         lead: 'Hard text slows people down. Some give up before they find what they need. We score the text on each homepage with the Automated Readability Index (ARI). It estimates the U.S. school grade a reader needs.',
-        note: 'A site passes when its ARI score is 8.5 or lower.',
+        // The standard's copy says 7th grade and "above 8" where the auditor
+        // passes at 8.5; this page states the rule the data follows.
+        description: 'The homepage text reads at or below an 8th grade level.',
+        note: 'That means an ARI score of 8.5 or lower. We need at least 100 words to score a page.',
         why: 'Plain text helps people get what they need the first time. Hard text leads to more calls, more errors, and more visits.',
+        columns: [
+            { header: 'ARI', title: 'Automated Readability Index grade', value: d => formatGrade(d.ari), sort: d => Math.max(0, d.ari) },
+            { header: 'FK', title: 'Flesch-Kincaid grade', value: d => formatGrade(d.fk), sort: d => Math.max(0, d.fk) },
+        ],
         breakdown: {
             title: 'How hard the failing sites are to read',
-            subtitle: 'by grade level',
+            subtitle: 'by grade',
             labelHeader: 'Grade level',
             order: ['9th grade', '10th grade', '11th grade', '12th grade', 'College', 'Graduate school'],
             label: d => gradeLevelOf(d.ari),
@@ -331,13 +364,15 @@ function siteRow(d, issue, stateNames, topics) {
         overall: scoreOf(d, 'overall'),
         score: scoreOf(d, issue.topic),
         scores,
+        // Extra per-site columns (issue.columns), in order.
+        cells: (issue.columns || []).map(c => ({ text: c.value(d), sort: c.sort ? c.sort(d) : c.value(d) })),
     };
 }
 
 // National county map: failing counties as individual paths (linked, with
 // tooltips); every other category as one merged path so the page stays
 // light. Boundaries are in one shared plane (countyGeo.usStates.viewBox).
-function buildNationalMap(members, verdicts, stages, marks, geo, issue) {
+function buildNationalMap(members, verdicts, stages, marks, skipped, geo, issue) {
     if (!geo || !geo.usStates || !geo.states) return null;
     const { byFips, unjoined } = joinCounties(members, geo);
     const failing = [];
@@ -346,7 +381,7 @@ function buildNationalMap(members, verdicts, stages, marks, geo, issue) {
     const groupDefs = issue.stages || [{ label: issue.failLabel, tone: 'issue', all: true }];
     const groups = groupDefs.map((g, i) => ({ key: `${i}`, label: g.label, tone: g.tone || 'issue', counties: [] }));
     const groupFor = d => groupDefs[0].all ? groups[0] : groups[groupDefs.findIndex(g => g.label === stages.get(domainKey(d)))] || groups[groups.length - 1];
-    const merged = { pass: [], marked: [], untested: [], unscanned: [], unlisted: [] };
+    const merged = { pass: [], marked: [], skipped: [], untested: [], unscanned: [], unlisted: [] };
     let joinedFailing = 0;
     for (const [code, stateGeo] of Object.entries(geo.states)) {
         for (const [fips, c] of Object.entries(stateGeo.counties)) {
@@ -364,7 +399,7 @@ function buildNationalMap(members, verdicts, stages, marks, geo, issue) {
             } else if (v === 'pass') {
                 (marks.has(domainKey(d)) ? merged.marked : merged.pass).push(c.d);
             } else if (v === 'untested') {
-                merged.untested.push(c.d);
+                (skipped.has(domainKey(d)) ? merged.skipped : merged.untested).push(c.d);
             } else {
                 merged.unscanned.push(c.d);
             }
@@ -378,10 +413,11 @@ function buildNationalMap(members, verdicts, stages, marks, geo, issue) {
         groups,
         passPath: merged.pass.join(''),
         markedPath: merged.marked.join(''),
+        skippedPath: merged.skipped.join(''),
         untestedPath: merged.untested.join(''),
         unscannedPath: merged.unscanned.join(''),
         unlistedPath: merged.unlisted.join(''),
-        counts: { fail: failing.length, pass: merged.pass.length, marked: merged.marked.length, untested: merged.untested.length, unscanned: merged.unscanned.length, unlisted: merged.unlisted.length },
+        counts: { fail: failing.length, pass: merged.pass.length, marked: merged.marked.length, skipped: merged.skipped.length, untested: merged.untested.length, unscanned: merged.unscanned.length, unlisted: merged.unlisted.length },
         unjoinedCount: unjoined.length,
         unjoinedFailingCount: [...verdicts.entries()].filter(([, v]) => v === 'fail').length - joinedFailing,
     };
@@ -394,7 +430,7 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
     // The page's headline check: the feature's own copy, or the one check.
     const check = issue.feature
         ? { ...checks[0], key: issue.slug, label: issue.feature.label, description: issue.feature.description, note: issue.feature.note || '', why: '', risk: '', error: '', standardsUrl: `https://standards.scangov.org${topicInfo.url || ''}`, guidance: [] }
-        : { ...checks[0], note: issue.note || '', lead: issue.lead || '', why: issue.why || checks[0].why };
+        : { ...checks[0], note: issue.note || '', lead: issue.lead || '', why: issue.why || checks[0].why, description: issue.description || checks[0].description };
     const members = records.filter(group.filter);
     const responding = members.filter(isResponding);
     const scored = members.filter(isScored);
@@ -402,11 +438,13 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
     const verdicts = new Map();
     const stages = new Map();
     const marks = new Map();
+    const skipped = new Set();
     for (const d of scored) {
-        const { verdict, stage, mark } = verdictOf(d, issue);
+        const { verdict, stage, mark, skipped: wasSkipped } = verdictOf(d, issue);
         verdicts.set(domainKey(d), verdict);
         if (stage) stages.set(domainKey(d), stage);
         if (mark && verdict === 'pass') marks.set(domainKey(d), mark);
+        if (wasSkipped && verdict === 'untested') skipped.add(domainKey(d));
     }
     const failingRecords = scored.filter(d => verdicts.get(domainKey(d)) === 'fail');
     const passCount = scored.filter(d => verdicts.get(domainKey(d)) === 'pass').length;
@@ -472,7 +510,7 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
         };
     }
 
-    const map = group.hasCountyMap ? buildNationalMap(members, verdicts, stages, marks, geo, issue) : null;
+    const map = group.hasCountyMap ? buildNationalMap(members, verdicts, stages, marks, skipped, geo, issue) : null;
 
     return {
         unlisted: !!issue.unlisted,
@@ -496,6 +534,10 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
         // Passing sites the map marks anyway (issue.mark), e.g. no robots.txt file.
         mark: issue.mark ? { label: issue.mark.label, phrase: issue.mark.phrase } : null,
         markCount: marks.size,
+        // Sites the auditor looked at and chose not to score (issue.skipped), e.g. too little text.
+        skipped: issue.skipped ? { label: issue.skipped.label, phrase: issue.skipped.phrase } : null,
+        skippedCount: skipped.size,
+        columns: (issue.columns || []).map(c => ({ header: c.header, title: c.title || c.header })),
         share: testedCount ? failing.length / testedCount : 0,
         scanWindow: scanWindow(members),
         failing,
