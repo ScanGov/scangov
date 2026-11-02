@@ -30,10 +30,12 @@
       <i class="fa-solid fa-crown" aria-hidden="true"></i><span class="d-none d-md-inline">Plans</span></a>
     <a href="https://scangov.com/demo/" class="btn btn-outline-primary" aria-label="Demo">
       <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span class="d-none d-md-inline">Demo</span></a>
+    {% if not isTool and not hideCtaCopy %}
     <button type="button" class="btn btn-outline-primary" id="cta-copy-link" aria-label="Copy link">
       <i class="fa-solid fa-link" aria-hidden="true"></i><i class="fa-solid fa-check d-none" aria-hidden="true"></i><span class="d-none d-md-inline">Link</span></button>
     <button type="button" class="btn btn-outline-primary" id="cta-copy-text" aria-label="Copy text">
       <i class="fa-solid fa-copy" aria-hidden="true"></i><i class="fa-solid fa-check d-none" aria-hidden="true"></i><span class="d-none d-md-inline">Text</span></button>
+    {% endif %}
     <span class="visually-hidden" role="status" aria-live="polite" id="cta-copy-status"></span>
   </div>
 </div>
