@@ -2326,6 +2326,10 @@ td a:hover .fa-circle-info {
     color: #ffbc78;
 }
 
+.fa-sliders {
+    color: #a1d3ff;
+}
+
 .fa-gear,
 .fa-gears {
     color: #a1d3ff;
@@ -2658,6 +2662,7 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] .fa-circle-info:not([class*="text-"]),
 [data-bs-theme=light] .fa-user-group:not([class*="text-"]),
 [data-bs-theme=light] .fa-spray-can-sparkles:not([class*="text-"]),
+[data-bs-theme=light] .fa-sliders:not([class*="text-"]),
 [data-bs-theme=light] .fa-timeline:not([class*="text-"]),
 [data-bs-theme=light] .fa-circle-nodes:not([class*="text-"]),
 [data-bs-theme=light] .fa-scale-balanced:not([class*="text-"]),
