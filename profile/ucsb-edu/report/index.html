@@ -67,9 +67,9 @@ Skip to main content
 </a>
 </li>
 <li class="nav-item">
-<a class="nav-link" title="Print" href="#" onclick="window.print()">
+<button type="button" class="nav-link" title="Print" aria-label="Print" data-action="print">
 <svg class="fa-solid fa-print" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-print" xlink:href="/assets/fa-sprite.svg#fas-fa-print"></use></svg>
-</a>
+</button>
 </li>
 </ul>
 </div>
@@ -1503,8 +1503,9 @@ Score: 58% → 56%
 </div>
 </div>
 </main>
+<script src="/js/action-buttons.js" defer=""></script>
 <script>
-    document.getElementById('date').innerText = new Date().toLocaleString('en-US', { month: 'numeric', day: 'numeric', year: 'numeric' });
+    document.getElementById('date').innerText = new Date().toLocaleString('en', { month: 'numeric', day: 'numeric', year: 'numeric' });
 
     window.print();
 </script>

@@ -89,9 +89,11 @@
     --bs-nav-link-hover-color: var(--bs-link-color);
     --bs-border-color: rgba(255, 255, 255, 0.07);
     --bs-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    --bs-shadow-sm: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.06);
     --bs-card-shadow: var(--bs-shadow);
     --bs-box-shadow: var(--bs-shadow);
     --bs-box-shadow-md: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+    --bs-box-shadow-md-sm: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.3);
     --bs-box-shadow-hover: 0 0.25rem 0.5rem rgba(0, 0, 0, 1);
     --bs-secondary: var(--bs-body-color);
     --bs-text-secondary: var(--bs-secondary);
@@ -213,9 +215,11 @@
     --bs-nav-link-hover-color: var(--bs-link-color);
     --bs-border-color: #d5dce8;
     --bs-shadow: .25rem 0.25rem 0 0 rgba(0, 0, 0, 0.20);
+    --bs-shadow-sm: .0625rem 0.0625rem 0 0 rgba(0, 0, 0, 0.12);
     --bs-card-shadow: var(--bs-shadow);
     --bs-box-shadow: var(--bs-shadow);
     --bs-box-shadow-md: .25rem 0.25rem 0 0 rgba(0, 0, 0, 0.15);
+    --bs-box-shadow-md-sm: .125rem 0.125rem 0 0 rgba(0, 0, 0, 0.09);
     --bs-box-shadow-hover: .25rem 0.25rem 0 0 rgba(0, 0, 0, 1);
     --bs-secondary: var(--bs-body-color);
     --bs-text-secondary: var(--bs-secondary);
@@ -744,12 +748,27 @@ a:hover {
 .btn-sm {
     --bs-btn-padding-x: 0.6rem;
     --bs-btn-padding-y: 0.3rem;
+    box-shadow: var(--bs-shadow-sm);
 }
 
 .btn:hover,
 .btn:focus-visible,
 .btn:active {
     box-shadow: var(--bs-box-shadow-md);
+}
+
+.btn-sm:hover,
+.btn-sm:focus-visible,
+.btn-sm:active {
+    box-shadow: var(--bs-box-shadow-md-sm);
+}
+
+/* Buttons side by side outside a flex or grid container still get a gap. Put a
+   group in `d-flex gap-2`; this only covers a missed case. */
+.btn + .btn:not(.d-flex > *):not(.d-grid > *),
+.btn + .dropdown:not(.d-flex > *):not(.d-grid > *),
+.dropdown + .btn:not(.d-flex > *):not(.d-grid > *) {
+    margin-left: 0.5rem;
 }
 
 .btn:focus-visible {
@@ -3137,6 +3156,14 @@ svg#map a:hover {
         font-family: "Public Sans Regular", sans-serif;
     }
 
+    /* Action buttons, the call-to-action band, and messages are for the screen */
+    [data-actions],
+    .actions,
+    .cta-band,
+    .toast-container {
+        display: none !important;
+    }
+
     svg {
         fill: black !important;
     }
@@ -3930,15 +3957,6 @@ blockquote .lead {
 }
 .sg-map-county--unscanned {
   fill: var(--bs-inaccessible);
-}
-/* A county whose site the auditor looked at but did not score (item.skipped,
-   e.g. too little text): the warning tone at a tint, so it reads as a
-   caution rather than a failure or a gap in the scan. */
-.sg-map-county--skipped {
-  fill: color-mix(in oklab, var(--bs-warning) 45%, var(--bs-body-bg));
-}
-.sg-swatch--skipped {
-  background: color-mix(in oklab, var(--bs-warning) 45%, var(--bs-body-bg));
 }
 .sg-swatch--pass {
   background: color-mix(in oklab, var(--sg-chart-muted) 30%, var(--bs-body-bg));
