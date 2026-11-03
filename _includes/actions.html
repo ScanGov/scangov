@@ -65,28 +65,22 @@
             aria-expanded="false"
             aria-label="Share"
             title="Share">
-            <i class="fa-solid fa-share-from-square" aria-hidden="true"></i>
+            <i class="fa-solid fa-share-from-square" aria-hidden="true"></i><i class="fa-solid fa-check d-none" aria-hidden="true"></i>
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="share-menu">
             {% if profile and not mapPage and not orgPage %}
             <li class="small">
-                <a
-                    href="javascript:void(0);"
-                    onclick="navigator.clipboard.writeText(location.origin + '/profile/{{ domain.urlkey | slugify }}/overall/');"
-                    class="dropdown-item copy-link">
-                    <i class="fa-solid fa-gauge"></i>
-                    Dashboard
-                </a>
+                <button type="button" class="dropdown-item" data-action="copy-link" data-copy-value="/profile/{{ domain.urlkey | slugify }}/overall/">
+                    <i class="fa-solid fa-gauge" aria-hidden="true"></i>
+                    Copy dashboard link
+                </button>
             </li>
             {% endif %}
             <li class="small">
-                <a
-                    href="javascript:void(0);"
-                    onclick="navigator.clipboard.writeText(location.href);"
-                    class="dropdown-item copy-link">
-                    <i class="fa-solid fa-link"></i>
-                    This page
-                </a>
+                <button type="button" class="dropdown-item" data-action="copy-link">
+                    <i class="fa-solid fa-link" aria-hidden="true"></i>
+                    Copy link
+                </button>
             </li>
             {% if site.url in actionsSocialSites %}
             <li class="small">
@@ -143,23 +137,10 @@
         </ul>
     </div>
 </div>
-<div class="alert alert-success d-none mt-2" role="alert" id="copy-alert">
-    Link copied!
-</div>
+<span class="visually-hidden" id="action-status" role="status" aria-live="polite"></span>
+<script src="/js/action-buttons.js" defer></script>
 <script>
     if (window.location.hostname === 'my.scangov.com') {
         document.getElementById('rescan-action').classList.remove('d-none');
     }
-
-    const copyAlert = document.getElementById('copy-alert');
-    let copyAlertTimeout;
-    document.querySelectorAll('.copy-link').forEach(function (link) {
-        link.addEventListener('click', function () {
-            copyAlert.classList.remove('d-none');
-            clearTimeout(copyAlertTimeout);
-            copyAlertTimeout = setTimeout(function () {
-                copyAlert.classList.add('d-none');
-            }, 2000);
-        });
-    });
 </script>
