@@ -77,7 +77,7 @@ export const stateDomainList = [
     'arkansas.gov',
     'ca.gov',
     'colorado.gov',
-    'ct.gov',
+    'portal.ct.gov', // ct.gov redirects here; the auditor parks ct.gov as redirected (Nov 2026)
     'de.gov',
     'myflorida.gov',
     'georgia.gov',
