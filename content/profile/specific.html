@@ -133,7 +133,7 @@ eleventyComputed:
     {% set ci = audits[sk] %}
     {
       "@type": "Question",
-      "name": "Why is {{ sk }} important for government websites?",
+      "name": "Why is {{ sk }} important for your website?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": {{ ci.why | dump | safe }}
@@ -141,7 +141,7 @@ eleventyComputed:
     },
     {
       "@type": "Question",
-      "name": "What are the risks of poor {{ sk }} on government websites?",
+      "name": "What are the risks of poor {{ sk }} on your website?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": {{ ("If not implemented correctly: " + ci.risk) | dump | safe }}

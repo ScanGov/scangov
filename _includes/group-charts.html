@@ -77,6 +77,17 @@
   <li><a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} {{ f.risk }}</li>
   {% endfor %}
 </ul>
+{# Issue pages for this group and indicator (scripts/issues.js): every site failing one check. #}
+{% set issueLinks = [] %}
+{% for ip in issuePages %}{% if ip.group.key == currentsort and ip.issue.topic == specificAttribute and not ip.unlisted %}{% set issueLinks = (issueLinks.push(ip), issueLinks) %}{% endif %}{% endfor %}
+{% if issueLinks.length %}
+<h3 class="h5 mt-4">Every site with one problem</h3>
+<ul class="sg-failures">
+  {% for ip in issueLinks %}
+  <li><a href="{{ ip.url }}">{{ ip.title }}</a>: {{ ip.failCount | numberFormat }} of {{ ip.testedCount | numberFormat }} fully scanned sites ({{ (ip.share * 100) | round }}%), with every site listed{% if ip.byState %} and the share in each state{% endif %}.</li>
+  {% endfor %}
+</ul>
+{% endif %}
 {% else %}
 <h2 class="h4 mt-5">Most common failures by indicator</h2>
 <p>The check {{ groupNoun }} fail most often in each indicator. Each indicator page lists the top five.</p>

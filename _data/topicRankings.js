@@ -36,37 +36,37 @@ const COHORTS = {
         path: '',
         title: (t) => `Website ${t} rankings`,
         description: (link) => `Project ScanGov ${link} rankings for every website we scan`,
-        keywords: () => 'government domains, government websites',
+        keywords: () => 'domains, websites',
     },
     cities: {
         path: 'cities/',
         title: (t) => `City website ${t} rankings`,
         description: (link) => `Project ScanGov ${link} rankings for U.S. city websites, with the most common failures.`,
-        keywords: (k) => `city government websites, rankings, ${k}`,
+        keywords: (k) => `city websites, rankings, ${k}`,
     },
     counties: {
         path: 'counties/',
         title: (t) => `County website ${t} rankings`,
         description: (link) => `Project ScanGov ${link} rankings for U.S. county websites, with the most common failures and a page for every state.`,
-        keywords: (k) => `county government websites, rankings, ${k}`,
+        keywords: (k) => `county websites, rankings, ${k}`,
     },
     states: {
         path: 'states/',
         title: (t) => `State website ${t} rankings`,
         description: (link) => `Project ScanGov ${link} rankings for U.S. state websites, with the most common failures.`,
-        keywords: (k) => `state government websites, rankings, ${k}`,
+        keywords: (k) => `state websites, rankings, ${k}`,
     },
     edu: {
         path: 'edu/',
         title: (t) => `Higher education website ${t} rankings`,
         description: (link) => `Project ScanGov ${link} rankings for U.S. public college and university websites.`,
-        keywords: () => 'government domains, government websites',
+        keywords: () => 'domains, websites',
     },
     federal: {
         path: 'federal/',
         title: (t) => `Federal website ${t} rankings`,
         description: (link) => `Project ScanGov ${link} rankings for U.S. federal websites.`,
-        keywords: () => 'government domains, government websites',
+        keywords: () => 'domains, websites',
     },
 };
 

@@ -16,18 +16,29 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
   cannot disagree. Populations: scanned (item.count), fully scanned
   (item.scoredCount), tested (item.testedCount: fully scanned minus the few
   records that lack the check), failing (item.failCount).
+  Group features: item.map (counties, the national county map), item.byState
+  (counties and cities, whose record names carry a state code),
+  group.hasStatePages (counties, so state names link to a state page).
 #}
 {% set issue = item.issue %}
 {% set group = item.group %}
 {% set check = item.check %}
 {% set sharePct = (item.share * 100) | round %}
+{% set rankingsLabel = (group.hubLabel + " " + (check.topicLabel | lower) + " rankings") | trim | capitalize %}
+
+{% set pillsBase = "/issues/" + issue.slug + "/" %}
+{% set pillsActive = group.key %}
+{% set pillsAllSegment = "all/" %}
+{% set pillsSuffix = "" %}
+{% set pillsAvailable = item.availableGroups %}
+<div class="mb-4">{% include "group-pills.html" %}</div>
 
 <div class="sg-charts-large">
 <p class="lead">Of the {{ item.testedCount | numberFormat }} fully scanned U.S. {{ group.noun }} we tested, {{ item.failCount | numberFormat }} ({{ sharePct }}%) {{ issue.failPhrase }}.
 {% if check.lead %}{{ check.lead }}{% endif %}
-{% if item.markCount %}Another {{ item.markCount | numberFormat }} ({{ (item.markCount / item.testedCount * 100) | round }}%) {{ item.mark.phrase }}. No check fails for that, so they count as passing here, and the map shows them in their own color.{% endif %}
-{% if item.skippedCount %}Another {{ item.skippedCount | numberFormat }} {{ item.skipped.phrase }}. They get no pass or fail, and the map shows them in their own color.{% endif %}
-{% if item.highestState and item.lowestState and item.highestState.code != item.lowestState.code %}Among states with at least {{ item.minStateSites }} tested sites, {{ item.highestState.name }} has the highest share ({{ (item.highestState.share * 100) | round }}%). {{ item.lowestState.name }} has the lowest ({{ (item.lowestState.share * 100) | round }}%).{% endif %}
+{% if item.markCount %}Another {{ item.markCount | numberFormat }} ({{ (item.markCount / item.testedCount * 100) | round }}%) {{ item.mark.phrase }}. No check fails for that, so they count as passing here{% if item.map %}, and the map shows them in their own color{% endif %}.{% endif %}
+{% if item.skippedCount %}Another {{ item.skippedCount | numberFormat }} {{ item.skipped.phrase }}. They get no pass or fail{% if item.map %}, and the map shows them in their own color{% endif %}.{% endif %}
+{% if item.byState and item.highestState and item.lowestState and item.highestState.code != item.lowestState.code %}Among states with at least {{ item.minStateSites }} tested sites, {{ item.highestState.name }} has the highest share ({{ (item.highestState.share * 100) | round }}%). {{ item.lowestState.name }} has the lowest ({{ (item.lowestState.share * 100) | round }}%).{% endif %}
 {% if issue.isFeature %}{{ check.description }} A site fails if it fails any of these checks: {% for c in item.checks %}<a href="{{ c.standardsUrl }}">{{ c.label | humanizeLabel }}</a>{% if loop.length > 2 and not loop.last %}, {% endif %}{% if loop.revindex == 2 %}and {% endif %}{% endfor %}.{% else %}This page uses the <a href="{{ check.standardsUrl }}">{{ check.label | humanizeLabel }}</a> check. It passes when {{ check.description[0] | lower }}{{ check.description.slice(1) }}{% if check.note %} {{ check.note }}{% endif %}{% endif %}</p>
 
 <div class="row g-3 mb-2">
@@ -45,15 +56,20 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
   </div>
   <div class="col-6 col-lg-3">
     <div class="card h-100"><div class="card-body">
+      {% if item.byState %}
       <p class="sg-stat-value">{{ item.statesAffected }} <span class="fs-5 text-muted">of {{ item.states | length }}</span></p>
-      <p class="sg-stat-label">States with at least one failing {{ group.singular }} site</p>
+      <p class="sg-stat-label">States with at least one failing {{ group.oneSite }}</p>
+      {% else %}
+      <p class="sg-stat-value">{{ item.passCount | numberFormat }}</p>
+      <p class="sg-stat-label">Tested {{ group.noun }} that pass {{ "these checks" if issue.isFeature else "this check" }}</p>
+      {% endif %}
     </div></div>
   </div>
   <div class="col-6 col-lg-3">
     <div class="card h-100"><div class="card-body">
-      {% if item.highestState %}
+      {% if item.byState and item.highestState %}
       <p class="sg-stat-value">{{ (item.highestState.share * 100) | round }}%</p>
-      <p class="sg-stat-label"><a href="{{ item.highestState.href }}">{{ item.highestState.name }}</a> has the highest share: {{ item.highestState.failing }} of {{ item.highestState.tested }} tested {{ group.noun }}</p>
+      <p class="sg-stat-label">{% if item.highestState.href %}<a href="{{ item.highestState.href }}">{{ item.highestState.name }}</a>{% else %}{{ item.highestState.name }}{% endif %} has the highest share: {{ item.highestState.failing }} of {{ item.highestState.tested }} tested {{ group.noun }}</p>
       {% else %}
       <p class="sg-stat-value">{{ item.scoredCount | numberFormat }} <span class="fs-5 text-muted">of {{ item.count | numberFormat }}</span></p>
       <p class="sg-stat-label">{{ group.noun | capitalize }} fully scanned</p>
@@ -66,10 +82,12 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
   {% include "issue-county-map.html" %}
 {% endif %}
 
+{% if item.byState or item.breakdown %}
 <div class="row">
+  {% if item.byState %}
   <div class="col-12 {% if item.breakdown %}col-lg-7{% endif %}">
     <h2 class="h4 mt-4" id="by-state">By state</h2>
-    <p>The share of tested {{ group.noun }} in each state that {{ issue.failPhrase }}. Select a state to see its {{ check.topicLabel | lower }} rankings.</p>
+    <p>The share of tested {{ group.noun }} in each state that {{ issue.failPhrase }}.{% if group.hasStatePages %} Select a state to see its {{ check.topicLabel | lower }} rankings.{% endif %}</p>
     <div class="table-responsive">
       <table class="table table-sm" data-sortable>
         <caption class="visually-hidden">States by share of {{ group.noun }} failing the {{ check.label if issue.isFeature else (check.label | humanizeLabel) }} {{ "checks" if issue.isFeature else "check" }}</caption>
@@ -84,7 +102,7 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
         <tbody>
           {% for s in item.states %}
           <tr>
-            <th scope="row" data-sort="{{ s.name }}"><a href="{{ s.href }}">{{ s.name }}</a></th>
+            <th scope="row" data-sort="{{ s.name }}">{% if s.href %}<a href="{{ s.href }}">{{ s.name }}</a>{% else %}{{ s.name }}{% endif %}</th>
             <td class="text-center sg-num" data-sort="{{ s.tested }}">{{ s.tested }}</td>
             <td class="text-center sg-num" data-sort="{{ s.failing }}">{{ s.failing }}</td>
             <td data-sort="{{ s.share }}">
@@ -99,22 +117,24 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
       </table>
     </div>
   </div>
+  {% endif %}
   {% if item.breakdown %}
-  <div class="col-12 col-lg-5">
+  <div class="col-12 {% if item.byState %}col-lg-5{% else %}col-lg-7{% endif %}">
     {% chart item.breakdown %}
   </div>
   {% endif %}
 </div>
+{% endif %}
 
 <h2 class="h4 mt-5" id="sites">The {{ item.failCount | numberFormat }} {{ group.noun }} that {{ issue.failPhrase }}</h2>
-<p>Sorted by state, then name. Each site links to its {{ check.topicLabel | lower }} report and shows its {{ check.topicLabel | lower }} and overall grades from the same scan.{% if item.columns.length %} {{ "ARI and Flesch-Kincaid (FK) are the two reading grades from that scan. Both show a U.S. school grade." if item.columns.length == 2 }}{% endif %}</p>
+<p>Sorted by {% if item.byState %}state, then {% endif %}name. Each site links to its {{ check.topicLabel | lower }} report and shows its {{ check.topicLabel | lower }} and overall grades from the same scan.{% if item.columns.length %} {{ "ARI and Flesch-Kincaid (FK) are the two reading grades from that scan. Both show a U.S. school grade." if item.columns.length == 2 }}{% endif %}</p>
 <div class="table-responsive">
   <table class="table rankings-table" data-sortable data-paginate="50" data-paginate-unit="sites">
     <caption class="visually-hidden">{{ group.noun | capitalize }} {{ issue.failPhrase }}</caption>
     <thead>
       <tr>
         <th scope="col" class="text-nowrap">Site <i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc"></i><i class="fa-solid fa-sort-down sort-desc"></i></th>
-        <th scope="col" class="text-nowrap">State <i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc"></i><i class="fa-solid fa-sort-down sort-desc"></i></th>
+        {% if item.byState %}<th scope="col" class="text-nowrap">State <i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc"></i><i class="fa-solid fa-sort-down sort-desc"></i></th>{% endif %}
         {% for c in item.columns %}<th scope="col" class="text-nowrap text-center"><abbr title="{{ c.title }}">{{ c.header }}</abbr> <i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc"></i><i class="fa-solid fa-sort-down sort-desc"></i></th>
         {% endfor %}<th scope="col" class="text-nowrap text-center">{{ check.topicLabel }} <i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc"></i><i class="fa-solid fa-sort-down sort-desc"></i></th>
         <th scope="col" class="text-nowrap text-center">Overall <i class="fa-solid fa-sort sort-neutral"></i><i class="fa-solid fa-sort-up sort-asc"></i><i class="fa-solid fa-sort-down sort-desc"></i></th>
@@ -124,7 +144,7 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
       {% for s in item.failing %}
       <tr>
         <td><a href="{{ s.href }}">{{ s.urlkey }}</a><br><span class="small text-muted">{{ s.name }}</span></td>
-        <td>{% if s.stateSlug %}<a href="{{ group.hub }}{{ s.stateSlug }}/{{ issue.topic }}/">{{ s.stateName }}</a>{% else %}{{ s.stateName or "" }}{% endif %}</td>
+        {% if item.byState %}<td>{% if s.stateSlug and group.hasStatePages %}<a href="{{ group.hub }}{{ s.stateSlug }}/{{ issue.topic }}/">{{ s.stateName }}</a>{% else %}{{ s.stateName or "" }}{% endif %}</td>{% endif %}
         {% for c in s.cells %}<td class="text-center sg-num" data-sort="{{ c.sort }}">{{ c.text }}</td>
         {% endfor %}<td class="text-center" data-sort="{{ s.score if s.score !== null else -1 }}"><span class="badge text-bg-{{ s.score | colorify }}" title="{{ check.topicLabel }} score {{ s.score }}">{{ s.score | gradify }}</span></td>
         <td class="text-center" data-sort="{{ s.overall if s.overall !== null else -1 }}"><span class="badge text-bg-{{ s.overall | colorify }}" title="Overall score {{ s.overall }}">{{ s.overall | gradify }}</span></td>
@@ -149,7 +169,7 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
     {% for c in item.checks %}<li><a href="{{ c.standardsUrl }}">{{ c.label | humanizeLabel }} standard</a>, with how to fix it</li>{% endfor %}
     {% set seen = [] %}
     {% for c in item.checks %}{% for g in c.guidance %}{% if g.url not in seen %}{% set seen = (seen.push(g.url), seen) %}<li><a href="https://standards.scangov.org{{ g.url }}">{{ g.displayName }}</a></li>{% endif %}{% endfor %}{% endfor %}
-    <li><a href="{{ group.hub }}{{ issue.topic }}/">{{ group.singular | capitalize }} {{ check.topicLabel | lower }} rankings</a></li>
+    <li><a href="{{ group.hub }}{{ issue.topic }}/">{{ rankingsLabel }}</a></li>
   </ul>
   {% else %}
   <h2 class="h4" id="about-check">About this check</h2>
@@ -160,12 +180,13 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
   <ul>
     <li><a href="{{ check.standardsUrl }}">{{ check.label | humanizeLabel }} standard</a>, with how to fix it</li>
     {% for g in check.guidance %}<li><a href="https://standards.scangov.org{{ g.url }}">{{ g.displayName }}</a></li>{% endfor %}
-    <li><a href="{{ group.hub }}{{ issue.topic }}/">{{ group.singular | capitalize }} {{ check.topicLabel | lower }} rankings</a></li>
+    <li><a href="{{ group.hub }}{{ issue.topic }}/">{{ rankingsLabel }}</a></li>
   </ul>
   {% endif %}
 </section>
 </div>
 
+{% set footnoteSubject = "" %}
 {% set footnoteScope = "" %}
 {% set footnoteRespondingCount = item.respondingCount %}
 {% set footnoteScoredCount = item.scoredCount %}
@@ -175,8 +196,8 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 {% include "data-footnote.html" %}
 {% set noResultCount = item.untestedCount - item.skippedCount %}
 {% if item.skippedCount %}
-<p class="small text-muted">{{ item.skippedCount | numberFormat }} fully scanned {{ group.noun if item.skippedCount != 1 else group.singular + " site" }} {{ item.skipped.phrase }}. {{ "They are" if item.skippedCount != 1 else "It is" }} left out of the share.</p>
+<p class="small text-muted">{{ item.skippedCount | numberFormat }} fully scanned {{ group.noun if item.skippedCount != 1 else group.oneSite }} {{ item.skipped.phrase }}. {{ "They are" if item.skippedCount != 1 else "It is" }} left out of the share.</p>
 {% endif %}
 {% if noResultCount %}
-<p class="small text-muted">{{ noResultCount | numberFormat }} fully scanned {{ group.noun if noResultCount != 1 else group.singular + " site" }} {{ "have" if noResultCount != 1 else "has" }} no result for {{ "these checks" if issue.isFeature else "this check" }} and {{ "are" if noResultCount != 1 else "is" }} left out of the share.</p>
+<p class="small text-muted">{{ noResultCount | numberFormat }} fully scanned {{ group.noun if noResultCount != 1 else group.oneSite }} {{ "have" if noResultCount != 1 else "has" }} no result for {{ "these checks" if issue.isFeature else "this check" }} and {{ "are" if noResultCount != 1 else "is" }} left out of the share.</p>
 {% endif %}

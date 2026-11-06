@@ -1,8 +1,9 @@
 // Issue pages: every site in one group that fails one check, with a map, a
 // state breakdown and the full list. /issues/{issue}/{group}/.
 //
-// ISSUES and GROUPS are the configuration; buildIssuePage() turns one pair
-// into everything its template needs. Populations follow group-summary.js:
+// ISSUES and the groups from buildGroups() are the configuration;
+// buildIssuePage() turns one pair into everything its template needs.
+// Populations follow group-summary.js:
 // a site counts as fully scanned when it responded with page content
 // (isScored); only fully scanned sites can pass or fail a check, so every
 // share on the page is failing / fully scanned. A fully scanned site whose
@@ -57,7 +58,9 @@ export function formatGrade(score) {
 // looked at and chose not to score; `skipped: { label, phrase }` names that
 // group in the intro, the map legend and the footnote, so it is told apart
 // from a site with no result at all. `columns` (optional) adds per-site
-// columns to the table: { header, value(d), sort(d) }.
+// columns to the table: { header, value(d), sort(d) }. `label` is the short
+// row label on /issues/. `groups` (optional) lists the group keys that get a
+// page; left out, every group does.
 // `breakdown` (optional)
 // buckets the failing sites for a bar chart: label(d, stage) names a bucket,
 // and `order` (optional) lists the buckets in display order for an ordinal
@@ -67,6 +70,10 @@ export function formatGrade(score) {
 export const ISSUES = [
     {
         slug: 'not-dotgov',
+        label: 'Not on a .gov domain',
+        // The dotgov check accepts .edu, so an education page would be near
+        // empty and its title wrong; every other group gets a page.
+        groups: ['all', 'cities', 'counties', 'states', 'federal'],
         topic: 'security',
         check: 'dotgov',
         // "County websites not on a .gov domain"
@@ -91,6 +98,7 @@ export const ISSUES = [
     },
     {
         slug: 'sitemap',
+        label: 'Sitemap problems',
         topic: 'botability',
         // Feature page: three checks, one verdict. A site fails when its
         // sitemap does not load, is not XML, or is not listed in robots.txt.
@@ -128,6 +136,7 @@ export const ISSUES = [
     },
     {
         slug: 'robots',
+        label: 'robots.txt problems',
         topic: 'botability',
         // Feature page for the robots.txt file. The auditor records the fetch
         // in `robotsFile` (present, fetchStatus, statusCode, valid, errors) and
@@ -181,6 +190,7 @@ export const ISSUES = [
     },
     {
         slug: 'needs-javascript',
+        label: 'Needs JavaScript to show content',
         topic: 'botability',
         // Single-check page for client-side rendering. Since 2026-10-24 the
         // auditor's lightrunner measures whether the main content is in the
@@ -208,6 +218,7 @@ export const ISSUES = [
     },
     {
         slug: 'reading-level',
+        label: 'Hard to read',
         topic: 'readability',
         // Single-check page on the homepage's reading level. The auditor
         // scores the page text with the Automated Readability Index (top-level
@@ -260,6 +271,7 @@ export const ISSUES = [
     },
     {
         slug: 'open-graph',
+        label: 'Missing Open Graph tags',
         topic: 'usability',
         // Feature page for the six Open Graph tags a shared link needs. A site
         // fails when any of them is missing; the breakdown buckets by how many.
@@ -299,19 +311,38 @@ export const ISSUES = [
     },
 ];
 
-export const GROUPS = [
-    {
-        key: 'counties',
-        label: 'Counties',
-        singular: 'county',
-        // "County websites", "county sites"
-        titleNoun: 'County websites',
-        noun: 'county sites',
-        hub: '/rankings/counties/',
-        filter: isCounty,
-        hasCountyMap: true,
-    },
-];
+// The rankings groups, in the homepage tab order. `lists` carries the
+// explicit domain lists from _data/variables.js as Sets (cities, states,
+// edu); counties use the shared classifier and federal is everything else,
+// matching _data/federal.js. Copy slots per group:
+//   titleNoun   "County websites", for page titles
+//   noun        "county sites", for counts
+//   oneSite     "county site", the singular
+//   descNoun    "U.S. county websites", for meta descriptions
+//   hubLabel    "County", the prefix of the rankings link ("" for all sites)
+// Features: hasCountyMap (the national county map), hasStatePages (the hub
+// has a page per state, so state names link), byState (record names carry a
+// state code, so the by-state table and tiles apply).
+export function buildGroups({ cities, states, edu }) {
+    const inSet = set => d => set.has(domainKey(d));
+    const isCity = inSet(cities);
+    const isState = inSet(states);
+    const isEdu = inSet(edu);
+    const isFederal = d => !isCounty(d) && !isCity(d) && !isState(d) && !isEdu(d);
+    return [
+        { key: 'all', label: 'All', titleNoun: 'Websites', noun: 'sites', oneSite: 'site', descNoun: 'U.S. websites', hubLabel: '', hub: '/rankings/', filter: () => true },
+        { key: 'cities', label: 'Cities', titleNoun: 'City websites', noun: 'city sites', oneSite: 'city site', descNoun: 'U.S. city websites', hubLabel: 'City', hub: '/rankings/cities/', filter: isCity, byState: true },
+        { key: 'counties', label: 'Counties', titleNoun: 'County websites', noun: 'county sites', oneSite: 'county site', descNoun: 'U.S. county websites', hubLabel: 'County', hub: '/rankings/counties/', filter: isCounty, hasCountyMap: true, hasStatePages: true, byState: true },
+        { key: 'states', label: 'States', titleNoun: 'State websites', noun: 'state sites', oneSite: 'state site', descNoun: 'U.S. state websites', hubLabel: 'State', hub: '/rankings/states/', filter: isState },
+        { key: 'federal', label: 'Federal', titleNoun: 'Federal websites', noun: 'federal sites', oneSite: 'federal site', descNoun: 'U.S. federal websites', hubLabel: 'Federal', hub: '/rankings/federal/', filter: isFederal },
+        { key: 'edu', label: 'Education', titleNoun: 'Education websites', noun: 'education sites', oneSite: 'education site', descNoun: 'U.S. public college and university websites', hubLabel: 'Education', hub: '/rankings/edu/', filter: isEdu },
+    ];
+}
+
+// The groups an issue gets a page for (issue.groups allowlist, else all).
+export function groupsForIssue(issue, groups) {
+    return issue.groups ? groups.filter(g => issue.groups.includes(g.key)) : groups;
+}
 
 export function issueUrl(issue, group) {
     return `/issues/${issue.slug}/${group.key}/`;
@@ -456,9 +487,10 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
     const failing = failingRecords.map(d => siteRow(d, issue, stateNames, topics));
     failing.sort((a, b) => (a.stateName || '').localeCompare(b.stateName || '') || a.name.localeCompare(b.name));
 
-    // Per-state shares. Share is failing / tested in that state.
+    // Per-state shares, for groups whose record names carry a state code
+    // (group.byState). Share is failing / tested in that state.
     const stateMap = new Map();
-    for (const d of scored) {
+    for (const d of (group.byState ? scored : [])) {
         const code = stateCodeOf(d);
         if (!code || !stateNames[code]) continue;
         if (!stateMap.has(code)) stateMap.set(code, { code, name: stateNames[code].name, slug: stateNames[code].slug, scored: 0, tested: 0, failing: 0 });
@@ -471,7 +503,8 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
     const states = [...stateMap.values()].map(s => ({
         ...s,
         share: s.tested ? s.failing / s.tested : 0,
-        href: `${group.hub}${s.slug}/${issue.topic}/`,
+        // Only the county hub has a page per state.
+        href: group.hasStatePages ? `${group.hub}${s.slug}/${issue.topic}/` : null,
     }));
     states.sort((a, b) => b.share - a.share || b.failing - a.failing || a.name.localeCompare(b.name));
     const statesAffected = states.filter(s => s.failing > 0).length;
@@ -514,8 +547,9 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
 
     return {
         unlisted: !!issue.unlisted,
-        issue: { slug: issue.slug, topic: issue.topic, check: issue.check || null, isFeature: !!issue.feature, titleSuffix: issue.titleSuffix, failLabel: issue.failLabel, passLabel: issue.passLabel, failPhrase: issue.failPhrase, failPhraseSingular: issue.failPhraseSingular || issue.failPhrase },
-        group: { key: group.key, label: group.label, singular: group.singular, titleNoun: group.titleNoun, noun: group.noun, hub: group.hub },
+        issue: { slug: issue.slug, label: issue.label, topic: issue.topic, check: issue.check || null, isFeature: !!issue.feature, titleSuffix: issue.titleSuffix, failLabel: issue.failLabel, passLabel: issue.passLabel, failPhrase: issue.failPhrase, failPhraseSingular: issue.failPhraseSingular || issue.failPhrase },
+        group: { key: group.key, label: group.label, titleNoun: group.titleNoun, noun: group.noun, oneSite: group.oneSite, descNoun: group.descNoun, hubLabel: group.hubLabel, hub: group.hub, hasStatePages: !!group.hasStatePages },
+        byState: !!group.byState,
         url: issueUrl(issue, group),
         title: `${group.titleNoun} ${issue.titleSuffix}`,
         // Social unfurl image, rendered by scripts/og-issue-map.js when the page has a map.
@@ -551,11 +585,17 @@ export function buildIssuePage(issue, group, records, audits, stateNames, geo) {
     };
 }
 
-export function buildIssuePages(records, audits, stateNames, geo) {
+// Every page: each issue for each of its groups (groupsForIssue). Each page
+// carries `availableGroups`, the keys of the groups that issue has a page
+// for, so the group pills skip the rest.
+export function buildIssuePages(records, audits, stateNames, geo, groups) {
+    if (!Array.isArray(groups)) throw new Error('buildIssuePages: groups required (scripts/issues.js buildGroups)');
     const pages = [];
     for (const issue of ISSUES) {
-        for (const group of GROUPS) {
-            pages.push(buildIssuePage(issue, group, records, audits, stateNames, geo));
+        const issueGroups = groupsForIssue(issue, groups);
+        const availableGroups = issueGroups.map(g => g.key);
+        for (const group of issueGroups) {
+            pages.push({ ...buildIssuePage(issue, group, records, audits, stateNames, geo), availableGroups });
         }
     }
     return pages;

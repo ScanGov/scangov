@@ -1,0 +1,51 @@
+name: Content lint
+
+# Checks PR content against the content-style rules (see ScanGov/skills,
+# content-style plugin) using the shared checker in ScanGov/components.
+# Sentence-case headings, acronym-first-use, and gov-only terminology fail
+# the check; Oxford comma, broad "website" usage, "government website(s)" and
+# "government site(s)", reading level, and passive voice only warn.
+# Scoped to content/ and _includes/ (notes/plans/22, Track 1).
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  content-lint:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout site
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Checkout shared content-lint tooling
+        uses: actions/checkout@v5
+        with:
+          repository: ScanGov/components
+          path: .content-lint
+          sparse-checkout: |
+            content-lint
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+
+      - name: Find changed content files
+        id: changed
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          git fetch origin "$BASE_REF" --depth=1
+          FILES=$(git diff --name-only "origin/$BASE_REF...HEAD" -- \
+            'content/**/*.html' 'content/**/*.md' 'content/**/*.njk' \
+            '_includes/**/*.html' | tr '\n' ' ')
+          echo "files=$FILES" >> "$GITHUB_OUTPUT"
+
+      - name: Run content lint
+        if: steps.changed.outputs.files != ''
+        run: node .content-lint/content-lint/check-content.js ${{ steps.changed.outputs.files }}

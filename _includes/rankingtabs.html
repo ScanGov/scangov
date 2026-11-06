@@ -6,40 +6,18 @@
 {% else %}
 {% set directory = "" %}
 {% endif %}
-{% set currentHighlight = " active\" aria-current=\"page" %}
-{% set topLevel = false %}
-{% if page.url.indexOf("/cities/") == -1 and page.url.indexOf("/states/") == -1 and page.url.indexOf("/federal/") == -1
-and page.url.indexOf("/counties/") == -1 and page.url.indexOf("/edu/") == -1
-%}
-{% set topLevel = true %}
-{% endif %}
-
-<ul class="nav nav-pills filter small mb-0">
-    <li class="nav-item">
-        <a class="nav-link mx-1{% if topLevel %}{{ currentHighlight | safe }}{% endif %}"
-            href="/rankings/{{ specificAttribute }}">All</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link mx-1{% if page.url.indexOf("/cities/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
-            href="/rankings/cities/{{ specificAttribute }}">Cities</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link mx-1{% if page.url.indexOf("/counties/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
-            href="/rankings/counties/{{ specificAttribute }}">Counties</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link mx-1{% if page.url.indexOf("/states/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
-            href="/rankings/states/{{ specificAttribute }}">States</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link mx-1{% if page.url.indexOf("/federal/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
-            href="/rankings/federal/{{ specificAttribute }}">Federal</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link mx-1{% if page.url.indexOf("/edu/") != -1 %}{{ currentHighlight | safe }}{% endif %}"
-            href="/rankings/edu/{{ specificAttribute }}">Education</a>
-    </li>
-</ul>
+{# Group pills shared with the homepage, Pulse, and the issue pages. #}
+{% set pillsBase = "/rankings/" %}
+{% set pillsAllSegment = "" %}
+{% set pillsSuffix = (specificAttribute + "/") if specificAttribute else "" %}
+{% set pillsAvailable = false %}
+{% if page.url.indexOf("/cities/") != -1 %}{% set pillsActive = "cities" %}
+{% elif page.url.indexOf("/counties/") != -1 %}{% set pillsActive = "counties" %}
+{% elif page.url.indexOf("/states/") != -1 %}{% set pillsActive = "states" %}
+{% elif page.url.indexOf("/federal/") != -1 %}{% set pillsActive = "federal" %}
+{% elif page.url.indexOf("/edu/") != -1 %}{% set pillsActive = "edu" %}
+{% else %}{% set pillsActive = "all" %}{% endif %}
+{% include "group-pills.html" %}
 
 <ul class="nav nav-tabs filter small mb-0">
     {% set pillTitle = "All" %}

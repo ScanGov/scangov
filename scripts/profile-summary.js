@@ -26,7 +26,7 @@ function parentDataset(audits) {
     '@type': 'Dataset',
     '@id': DATASET_URL,
     name: 'ScanGov homepage audits',
-    description: `${topicsCapitalized(audits)} scan results for United States government website homepages, published as open data by ScanGov.`,
+    description: `${topicsCapitalized(audits)} scan results for the homepage of every site on the ScanGov list, published as open data by ScanGov.`,
     url: DATASET_URL,
   };
 }
@@ -92,7 +92,7 @@ export function describeOrg(org, view, audits) {
   const domains = org.domains || [];
   const scoredDomains = domains.filter(scanned);
   const avg = scoredDomains.length ? Math.round(scoredDomains.reduce((sum, d) => sum + d.overallScore, 0) / scoredDomains.length) : null;
-  const count = `${domains.length} government website${domains.length === 1 ? '' : 's'}`;
+  const count = `${domains.length} website${domains.length === 1 ? '' : 's'}`;
   const grade = avg === null ? '' : `, average grade ${gradeThis(avg)}`;
   const examples = domains.slice(0, 3).map((d) => d.urlkey).join(', ');
   if (view === 'pulse') {
