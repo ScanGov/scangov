@@ -12,7 +12,7 @@ export default {
     description: (data) => {
       const it = data.item;
       if (!it) return data.description;
-      return `${fmt.format(it.failCount)} of ${fmt.format(it.testedCount)} fully scanned U.S. ${it.group.singular} government websites ${it.issue.failPhrase}. A map, the share in each state, and every site listed, from ScanGov homepage scans.`;
+      return `${fmt.format(it.failCount)} of ${fmt.format(it.testedCount)} fully scanned U.S. ${it.group.singular} websites ${it.issue.failPhrase}. A map, the share in each state, and every site listed, from ScanGov homepage scans.`;
     },
     breadcrumbParent: (data) => (data.item ? [{ title: 'Issues', url: '/issues/' }] : data.breadcrumbParent),
     // An unlisted issue page (scripts/issues.js `unlisted`) builds at its URL

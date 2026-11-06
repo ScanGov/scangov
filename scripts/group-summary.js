@@ -110,7 +110,9 @@ export function summarize(scored, attrIndex) {
 // Chart specs for a group hub: distribution curve, grade split, and the
 // most-failed checks per indicator. `groupText` names the population in
 // subtitles, e.g. "fully scanned U.S. county sites"; `groupTitle` names it
-// in titles, e.g. "U.S. county".
+// in titles, e.g. "U.S. county". An empty `groupTitle` (the whole list, which
+// is not a group) drops that slot: "How overall scores are distributed",
+// "All sites by overall grade", "Most common usability failures".
 const numberFormat = new Intl.NumberFormat('en-US');
 
 export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, groupText, failuresHeadingLevel = 2 }) {
@@ -121,14 +123,14 @@ export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, 
         const points = scored.map(d => ({ label: d.name, value: scoreOf(d, topic) })).filter(p => Number.isFinite(p.value));
         charts.area[topic] = areaSpec({
             id: `${idBase}-area-${topic}`,
-            title: `How ${groupTitle} ${label} scores are distributed`,
+            title: groupTitle ? `How ${groupTitle} ${label} scores are distributed` : `How ${label} scores are distributed`,
             subtitle: `Smoothed distribution of the ${respondingText}, score 0 to 100. Height shows how many sites score near each value.`,
             points, bins: summary.histogram[topic],
             markers: [{ label: 'Average', value: summary.averages[topic] }],
         });
         charts.grades[topic] = gradeDistributionSpec({
             id: `${idBase}-grades-${topic}`,
-            title: `${groupTitle} sites by ${label} grade`,
+            title: groupTitle ? `${groupTitle} sites by ${label} grade` : `All sites by ${label} grade`,
             subtitle: `Share of the ${respondingText} in each grade band`,
             groups: [{ key: idBase, label: `All ${groupText.replace(/^fully scanned /, '')}`, distribution: summary.gradeDistribution[topic], total: summary.scoredCount }],
         });
@@ -137,7 +139,7 @@ export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, 
         const label = topicLabel(audits, topic).toLowerCase();
         charts.failures[topic] = topFailuresSpec({
             id: `${idBase}-fails-${topic}`,
-            title: `Most common ${label} failures among ${groupTitle} sites`,
+            title: groupTitle ? `Most common ${label} failures among ${groupTitle} sites` : `Most common ${label} failures`,
             subtitle: `Share of the ${respondingText} failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.`,
             headingLevel: failuresHeadingLevel,
             failures: summary.topFailures[topic],

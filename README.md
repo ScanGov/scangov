@@ -2,7 +2,7 @@
 
 ## About
 
-[Project ScanGov](https://standards.scangov.org) is a government digital experience monitor.
+[Project ScanGov](https://standards.scangov.org) is a digital experience monitor.
 
 ## Data
 

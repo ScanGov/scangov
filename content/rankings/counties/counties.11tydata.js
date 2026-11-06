@@ -39,8 +39,8 @@ export default {
       if (!st) return data.description;
       const topic = topicName(data);
       return topic
-        ? `${topic[0].toUpperCase()}${topic.slice(1)} scores, grades, and the most common failures for ${st.count} ${st.name} county government websites, from ScanGov homepage scans.`
-        : `Rankings, grades, and the most common failures for ${st.count} ${st.name} county government websites across ${topicSentence(data.audits)}.`;
+        ? `${topic[0].toUpperCase()}${topic.slice(1)} scores, grades, and the most common failures for ${st.count} ${st.name} county websites, from ScanGov homepage scans.`
+        : `Rankings, grades, and the most common failures for ${st.count} ${st.name} county websites across ${topicSentence(data.audits)}.`;
     },
     breadcrumbParent: (data) => {
       const st = stateOf(data);
