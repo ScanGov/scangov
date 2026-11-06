@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="The state of digital experience across the U.S. federal websites ScanGov scans: grades, how scores are distributed, and the checks these sites fail most.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="google-site-verification" content="10895162be5e592f">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://scangov.org/pulse/federal/">
+<link rel="alternate" hreflang="en" href="https://scangov.org/pulse/federal/">
+<link rel="alternate" hreflang="x-default" href="https://scangov.org/pulse/federal/">
+<!-- Title -->
+<title>Pulse: federal - Project ScanGov</title>
+<!-- Open Graph -->
+<meta property="og:site_name" content="Project ScanGov">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pulse: federal">
+<meta property="og:description" content="The state of digital experience across the U.S. federal websites ScanGov scans: grades, how scores are distributed, and the checks these sites fail most.">
+<meta property="og:url" content="https://scangov.org/pulse/federal/">
+<meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ScanGov logo">
+<meta property="article:modified_time" content="2026-11-01T22:40:41.257Z">
+<link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1a1b2e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<link rel="preload" href="/assets/bootstrap/css/bootstrap.min.css" as="style">
+<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+<link href="/css/scangov.css" rel="stylesheet">
+<script>
+        (function () {
+            var syncTheme = function () {
+                var desired = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                if (document.documentElement.getAttribute('data-bs-theme') !== desired) {
+                    document.documentElement.setAttribute('data-bs-theme', desired);
+                }
+            };
+            syncTheme();
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncTheme);
+            new MutationObserver(syncTheme).observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-bs-theme']
+            });
+        })();
+    </script>
+</head>
+<body class="layouts/page">
+<a class="visually-hidden visually-hidden-focusable skip-link" href="#main-content">
+Skip to main content
+</a>
+<nav class="d-none d-md-block" aria-label="ScanGov sites">
+<div class="d-flex justify-content-end border-bottom pt-1 pb-0">
+<ul class="nav nav-tabs topnav small mb-0">
+<li class="nav-item">
+<a class="nav-link mx-1" href="https://scangov.com">
+<svg class="fa-solid fa-bars-progress me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-bars-progress" xlink:href="/assets/fa-sprite.svg#fas-fa-bars-progress"></use></svg>ScanGov</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1" href="https://standards.scangov.org">
+<svg class="fa-solid fa-certificate me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-certificate" xlink:href="/assets/fa-sprite.svg#fas-fa-certificate"></use></svg>Standards</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1 active" aria-current="page" href="https://scangov.org">
+<svg class="fa-solid fa-diagram-project me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-diagram-project" xlink:href="/assets/fa-sprite.svg#fas-fa-diagram-project"></use></svg>Project</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1" href="https://docs.scangov.org">
+<svg class="fa-solid fa-file-lines me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-lines" xlink:href="/assets/fa-sprite.svg#fas-fa-file-lines"></use></svg>Docs</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1" href="https://data.scangov.org">
+<svg class="fa-solid fa-database me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-database" xlink:href="/assets/fa-sprite.svg#fas-fa-database"></use></svg>Data</a>
+</li>
+</ul>
+</div>
+</nav>
+<nav class="navbar navbar-expand-md border-bottom" aria-label="Main">
+<div class="container-fluid">
+<a class="navbar-brand" href="/">
+<svg id="logo" viewBox="0 0 1500 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M474.266 408.965H1023.61C1054.76 408.965 1080.01 434.207 1080.01 465.345V1040.42C1080.01 1071.56 1054.76 1096.8 1023.61 1096.8H474.266C443.117 1096.8 417.865 1071.56 417.865 1040.42V465.345C417.865 434.207 443.117 408.965 474.266 408.965ZM474.266 442.793C461.806 442.793 451.706 452.89 451.706 465.345V1040.42C451.706 1052.88 461.806 1062.97 474.266 1062.97H1023.61C1036.07 1062.97 1046.17 1052.88 1046.17 1040.42V465.345C1046.17 452.89 1036.07 442.793 1023.61 442.793H474.266Z" fill=""></path>
+<path d="M636.699 440.538H1061.96V1075.38H636.699V440.538Z" fill=""></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M290.4 153H1208.6C1239.75 153 1265 178.242 1265 209.38V337.926C1265 369.064 1239.75 394.306 1208.6 394.306H290.4C259.251 394.306 234 369.064 234 337.926V209.38C234 178.242 259.251 153 290.4 153ZM290.4 186.828C277.941 186.828 267.84 196.925 267.84 209.38V337.926C267.84 350.381 277.941 360.478 290.4 360.478H1208.6C1221.06 360.478 1231.16 350.381 1231.16 337.926V209.38C1231.16 196.925 1221.06 186.828 1208.6 186.828H290.4Z" fill=""></path>
+<path d="M636.699 187.956C636.699 184.842 639.224 182.318 642.339 182.318H1225.52C1228.63 182.318 1231.16 184.842 1231.16 187.956V361.606C1231.16 364.72 1228.63 367.244 1225.52 367.244H642.339C639.224 367.244 636.699 364.72 636.699 361.606V187.956Z" fill=""></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M290.4 1104.69H1208.6C1239.75 1104.69 1265 1129.94 1265 1161.07V1289.62C1265 1320.76 1239.75 1346 1208.6 1346H290.4C259.251 1346 234 1320.76 234 1289.62V1161.07C234 1129.94 259.251 1104.69 290.4 1104.69ZM290.4 1138.52C277.941 1138.52 267.84 1148.62 267.84 1161.07V1289.62C267.84 1302.08 277.941 1312.17 290.4 1312.17H1208.6C1221.06 1312.17 1231.16 1302.08 1231.16 1289.62V1161.07C1231.16 1148.62 1221.06 1138.52 1208.6 1138.52H290.4Z" fill=""></path>
+<path d="M636.699 1139.65C636.699 1136.54 639.224 1134.01 642.339 1134.01H1225.52C1228.63 1134.01 1231.16 1136.54 1231.16 1139.65V1313.3C1231.16 1316.41 1228.63 1318.94 1225.52 1318.94H642.339C639.224 1318.94 636.699 1316.41 636.699 1313.3V1139.65Z" fill=""></path>
+</svg>
+<span class="d-none d-md-inline">Project ScanGov</span>
+<span class="d-inline d-md-none">Project</span>
+</a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler ml-auto collapsed" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<!-- Collapsible wrapper -->
+<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+<ul class="navbar-nav mb-2 mb-lg-0">
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1" href="/rankings/">
+<svg class="fa-solid fa-ranking-star me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-ranking-star" xlink:href="/assets/fa-sprite.svg#fas-fa-ranking-star"></use></svg>
+Rankings
+</a>
+</li>
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1 active" aria-current="page" href="/pulse/">
+<svg class="fa-solid fa-wave-square me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-wave-square" xlink:href="/assets/fa-sprite.svg#fas-fa-wave-square"></use></svg>
+Pulse
+</a>
+</li>
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1" href="/changelog/">
+<svg class="fa-solid fa-timeline me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-timeline" xlink:href="/assets/fa-sprite.svg#fas-fa-timeline"></use></svg>
+Changelog
+</a>
+</li>
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1" href="/status/">
+<svg class="fa-solid fa-server me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-server" xlink:href="/assets/fa-sprite.svg#fas-fa-server"></use></svg>
+Status
+</a>
+</li>
+<li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1" href="/search/">
+<svg class="fa-solid fa-magnifying-glass me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-magnifying-glass" xlink:href="/assets/fa-sprite.svg#fas-fa-magnifying-glass"></use></svg>
+Search
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<main id="main-content">
+<div>
+<div class="pt-5 pb-4">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<h1 class="display-5" id="pulse-federal">Pulse: federal</h1>
+<p class="lead fs-5">The state of digital experience across the U.S. federal websites ScanGov scans: grades, how scores are distributed, and the checks these sites fail most.</p>
+<ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
+<li>
+Sites: 868
+</li>
+<li>
+Last scan:
+<span id="updated">11/1/2026</span>
+<a href="https://docs.scangov.org/scans/" class="icon-link" style="color: inherit; position: relative; z-index: 2;" aria-label="More about Last scan" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="How often ScanGov scans this site. <a href=&quot;https://docs.scangov.org/scans/&quot;>Learn more</a>">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+</a>
+</li>
+</ul>
+<div class="actions d-flex flex-wrap gap-2 mt-3 mb-3 pb-3 border-bottom">
+<a href="https://scangov.com" id="rescan-action" class="btn btn-outline-primary btn-sm d-none" aria-label="Rescan" title="Rescan">
+<svg class="fa-solid fa-arrows-rotate" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrows-rotate" xlink:href="/assets/fa-sprite.svg#fas-fa-arrows-rotate"></use></svg>
+</a>
+<div class="dropdown">
+<button type="button" id="share-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share" title="Share">
+<svg class="fa-solid fa-share-from-square" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-share-from-square" xlink:href="/assets/fa-sprite.svg#fas-fa-share-from-square"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg>
+</button>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="share-menu">
+<li class="small">
+<button type="button" class="dropdown-item" data-action="copy-link">
+<svg class="fa-solid fa-link" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>
+Copy link
+</button>
+</li>
+<li class="small">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fscangov.org%2Fpulse%2Ffederal%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-linkedin-in" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-linkedin-in" xlink:href="/assets/fa-sprite.svg#fab-fa-linkedin-in"></use></svg>
+LinkedIn
+</a>
+</li>
+<li class="small">
+<a href="https://bsky.app/intent/compose?text=Pulse%3A%20federal%20https%3A%2F%2Fscangov.org%2Fpulse%2Ffederal%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-bluesky" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-bluesky" xlink:href="/assets/fa-sprite.svg#fab-fa-bluesky"></use></svg>
+Bluesky
+</a>
+</li>
+<li class="small">
+<a href="https://mastodon.social/share?text=Pulse%3A%20federal%20https%3A%2F%2Fscangov.org%2Fpulse%2Ffederal%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-mastodon" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-mastodon" xlink:href="/assets/fa-sprite.svg#fab-fa-mastodon"></use></svg>
+Mastodon
+</a>
+</li>
+<li class="small">
+<a href="https://x.com/intent/tweet?text=Pulse%3A%20federal&url=https%3A%2F%2Fscangov.org%2Fpulse%2Ffederal%2F&via=ScanGov" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-x-twitter" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-x-twitter" xlink:href="/assets/fa-sprite.svg#fab-fa-x-twitter"></use></svg>
+X
+</a>
+</li>
+<li class="small">
+<a href="mailto:?subject=Pulse%3A%20federal&body=https%3A%2F%2Fscangov.org%2Fpulse%2Ffederal%2F" class="dropdown-item">
+<svg class="fa-solid fa-envelope" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-envelope" xlink:href="/assets/fa-sprite.svg#fas-fa-envelope"></use></svg>
+Email
+</a>
+</li>
+</ul>
+</div>
+</div>
+<span class="visually-hidden" id="action-status" role="status" aria-live="polite"></span>
+<script src="/js/action-buttons.js" defer=""></script>
+<script>
+    if (window.location.hostname === 'my.scangov.com') {
+        document.getElementById('rescan-action').classList.remove('d-none');
+    }
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="mb-4">
+<ul class="nav nav-pills filter small mb-0" aria-label="Group">
+<li class="nav-item">
+<a class="nav-link mx-1" href="/pulse/">
+All</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1" href="/pulse/cities/">
+Cities</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1" href="/pulse/counties/">
+Counties</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1" href="/pulse/states/">
+States</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1 active" aria-current="page" href="/pulse/federal/">
+Federal</a>
+</li>
+<li class="nav-item">
+<a class="nav-link mx-1" href="/pulse/edu/">
+Education</a>
+</li>
+</ul>
+</div>
+<div class="sg-charts-large">
+<section aria-labelledby="what-we-scan">
+<h2 id="what-we-scan">What we scan</h2>
+<p>ScanGov scans the homepage of every federal site on our list, 868 sites. Each scan runs the checks on <a href="https://standards.scangov.org/">standards.scangov.org</a> for accessibility, botability, security, usability, and readability. A site counts as fully scanned when its homepage responded and returned page content; sites that did not are listed with their <a href="/status/">scan status</a> and left out of every figure here. The <a href="/rankings/federal/">federal rankings</a> list every site; <a href="/pulse/">Pulse for all sites</a> compares the groups.</p>
+<div class="row g-3 mb-2">
+<div class="col-6 col-lg-3">
+<div class="card h-100"><div class="card-body">
+<p class="sg-stat-value">687 <span class="fs-5 text-muted">of 868</span></p>
+<p class="sg-stat-label">Federal sites fully scanned. We couldn't fully scan 181</p>
+</div></div>
+</div>
+<div class="col-6 col-lg-3">
+<div class="card h-100"><div class="card-body">
+<p class="sg-stat-value"><span class="badge text-bg-warning">C</span> 79</p>
+<p class="sg-stat-label">Average overall score of the fully scanned federal sites</p>
+</div></div>
+</div>
+<div class="col-6 col-lg-3">
+<div class="card h-100"><div class="card-body">
+<p class="sg-stat-value">15%</p>
+<p class="sg-stat-label">Fully scanned federal sites earning an A overall (105 sites)</p>
+</div></div>
+</div>
+<div class="col-6 col-lg-3">
+<div class="card h-100"><div class="card-body">
+<p class="sg-stat-value">11/1/2026</p>
+<p class="sg-stat-label">Newest scan. Sites were scanned between 9/24/2026 and this date</p>
+</div></div>
+</div>
+</div>
+</section>
+<section aria-labelledby="how-sites-are-doing" class="mt-5">
+<h2 id="how-sites-are-doing">How sites are doing</h2>
+<p>Of 687 fully scanned sites, 15% (105) earn an A for overall score, 71% (487) a B or C, and 14% (95) a D or F. The average score is 79. The curve shows where scores cluster; the bar shows the share in each grade band.</p>
+<figure class="sg-chart sg-chart--area" id="group-federal-area-overall" aria-labelledby="group-federal-area-overall-title"><figcaption><h3 class="sg-chart-title" id="group-federal-area-overall-title">How federal overall scores are distributed</h3><p class="sg-chart-sub" id="group-federal-area-overall-sub">Smoothed distribution of the 687 fully scanned federal sites, score 0 to 100. Height shows how many sites score near each value.</p></figcaption><div class="sg-area" aria-hidden="true"><svg class="sg-area-svg" viewBox="0 0 1000 300" preserveAspectRatio="none" focusable="false"><path class="sg-area-fill" d="M8.0 292.0L17.8 292.0L27.7 292.0L37.5 292.0L47.4 292.0L57.2 292.0L67.0 292.0L76.9 292.0L86.7 292.0L96.6 292.0L106.4 292.0L116.2 292.0L126.1 292.0L135.9 292.0L145.8 292.0L155.6 292.0L165.4 292.0L175.3 292.0L185.1 292.0L195.0 292.0L204.8 292.0L214.6 292.0L224.5 292.0L234.3 292.0L244.2 292.0L254.0 292.0L263.8 292.0L273.7 292.0L283.5 292.0L293.4 292.0L303.2 292.0L313.0 292.0L322.9 292.0L332.7 292.0L342.6 292.0L352.4 292.0L362.2 292.0L372.1 292.0L381.9 292.0L391.8 292.0L401.6 292.0L411.4 291.9L421.3 291.8L431.1 291.7L441.0 291.3L450.8 290.8L460.6 290.0L470.5 288.9L480.3 287.6L490.2 286.0L500.0 284.3L509.8 282.4L519.7 280.3L529.5 278.1L539.4 275.6L549.2 272.9L559.0 269.8L568.9 266.3L578.7 262.2L588.6 257.4L598.4 251.6L608.2 244.3L618.1 235.1L627.9 223.3L637.8 208.8L647.6 191.7L657.4 172.1L667.3 150.5L677.1 127.8L687.0 104.6L696.8 82.1L706.6 61.3L716.5 43.5L726.3 29.5L736.2 19.9L746.0 14.5L755.8 12.5L765.7 12.5L775.5 13.0L785.4 12.9L795.2 11.6L805.0 9.6L814.9 8.0L824.7 8.1L834.6 10.8L844.4 16.2L854.2 23.8L864.1 33.0L873.9 43.4L883.8 55.4L893.6 69.9L903.4 87.5L913.3 108.5L923.1 132.5L933.0 158.4L942.8 184.5L952.6 209.1L962.5 231.0L972.3 249.1L982.2 263.4L992.0 273.9L992.0 292L8 292Z"></path><path class="sg-area-line" d="M8.0 292.0L17.8 292.0L27.7 292.0L37.5 292.0L47.4 292.0L57.2 292.0L67.0 292.0L76.9 292.0L86.7 292.0L96.6 292.0L106.4 292.0L116.2 292.0L126.1 292.0L135.9 292.0L145.8 292.0L155.6 292.0L165.4 292.0L175.3 292.0L185.1 292.0L195.0 292.0L204.8 292.0L214.6 292.0L224.5 292.0L234.3 292.0L244.2 292.0L254.0 292.0L263.8 292.0L273.7 292.0L283.5 292.0L293.4 292.0L303.2 292.0L313.0 292.0L322.9 292.0L332.7 292.0L342.6 292.0L352.4 292.0L362.2 292.0L372.1 292.0L381.9 292.0L391.8 292.0L401.6 292.0L411.4 291.9L421.3 291.8L431.1 291.7L441.0 291.3L450.8 290.8L460.6 290.0L470.5 288.9L480.3 287.6L490.2 286.0L500.0 284.3L509.8 282.4L519.7 280.3L529.5 278.1L539.4 275.6L549.2 272.9L559.0 269.8L568.9 266.3L578.7 262.2L588.6 257.4L598.4 251.6L608.2 244.3L618.1 235.1L627.9 223.3L637.8 208.8L647.6 191.7L657.4 172.1L667.3 150.5L677.1 127.8L687.0 104.6L696.8 82.1L706.6 61.3L716.5 43.5L726.3 29.5L736.2 19.9L746.0 14.5L755.8 12.5L765.7 12.5L775.5 13.0L785.4 12.9L795.2 11.6L805.0 9.6L814.9 8.0L824.7 8.1L834.6 10.8L844.4 16.2L854.2 23.8L864.1 33.0L873.9 43.4L883.8 55.4L893.6 69.9L903.4 87.5L913.3 108.5L923.1 132.5L933.0 158.4L942.8 184.5L952.6 209.1L962.5 231.0L972.3 249.1L982.2 263.4L992.0 273.9" vector-effect="non-scaling-stroke"></path><line class="sg-area-marker sg-area-marker--0" x1="785.4" y1="8" x2="785.4" y2="292" vector-effect="non-scaling-stroke"></line></svg><div class="sg-area-labels"><span class="sg-marker-label sg-marker-label--0 sg-marker-label--flip" style="--x:0.79">Average 79</span></div><div class="sg-axis-row"><span class="sg-tick" style="--x:0">0</span><span class="sg-tick" style="--x:0.25">25</span><span class="sg-tick" style="--x:0.5">50</span><span class="sg-tick" style="--x:0.75">75</span><span class="sg-tick" style="--x:1">100</span></div><p class="sg-axis-title">Score, 0 to 100</p></div><p class="visually-hidden">Distribution of 687 scores. The data table lists counts by score range.</p><ul class="sg-legend"><li><span class="sg-swatch sg-fill-series-1 sg-swatch--line" aria-hidden="true"></span>Average</li></ul><details class="sg-chart-data"><summary>View the data table</summary><div class="table-responsive"><table class="table table-sm"><caption class="visually-hidden">How federal overall scores are distributed</caption><thead><tr><th scope="col">Score range</th><th scope="col">Sites</th></tr></thead><tbody><tr><th scope="row">0 to 9</th><td class="sg-num">0</td></tr><tr><th scope="row">10 to 19</th><td class="sg-num">0</td></tr><tr><th scope="row">20 to 29</th><td class="sg-num">0</td></tr><tr><th scope="row">30 to 39</th><td class="sg-num">0</td></tr><tr><th scope="row">40 to 49</th><td class="sg-num">1</td></tr><tr><th scope="row">50 to 59</th><td class="sg-num">15</td></tr><tr><th scope="row">60 to 69</th><td class="sg-num">79</td></tr><tr><th scope="row">70 to 79</th><td class="sg-num">240</td></tr><tr><th scope="row">80 to 89</th><td class="sg-num">247</td></tr><tr><th scope="row">90 to 100</th><td class="sg-num">105</td></tr></tbody></table></div></details></figure>
+<figure class="sg-chart sg-chart--stackedBar" id="group-federal-grades-overall" aria-labelledby="group-federal-grades-overall-title"><figcaption><h3 class="sg-chart-title" id="group-federal-grades-overall-title">Federal sites by overall grade</h3><p class="sg-chart-sub" id="group-federal-grades-overall-sub">Share of the 687 fully scanned federal sites in each grade band</p></figcaption><ol class="sg-bars sg-bars--stacked" aria-describedby="group-federal-grades-overall-sub"><li class="sg-row" style="--i:0"><span class="sg-label">All federal sites</span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:0.1528" data-tip="All federal sites · A (90 to 100): 15% (105 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">A 15%</span><span class="visually-hidden">A (90 to 100): 15% (105 sites)</span></span><span class="sg-seg text-bg-warning" style="--r:0.7089" data-tip="All federal sites · B to C (70 to 89): 71% (487 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">B–C 71%</span><span class="visually-hidden">B to C (70 to 89): 71% (487 sites)</span></span><span class="sg-seg text-bg-danger" style="--r:0.1383" data-tip="All federal sites · D to F (below 70): 14% (95 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">D–F 14%</span><span class="visually-hidden">D to F (below 70): 14% (95 sites)</span></span></span></li></ol><ul class="sg-legend"><li><span class="sg-swatch text-bg-success " aria-hidden="true"></span>A (90 to 100)</li><li><span class="sg-swatch text-bg-warning " aria-hidden="true"></span>B to C (70 to 89)</li><li><span class="sg-swatch text-bg-danger " aria-hidden="true"></span>D to F (below 70)</li></ul><details class="sg-chart-data"><summary>View the data table</summary><div class="table-responsive"><table class="table table-sm"><caption class="visually-hidden">Federal sites by overall grade</caption><thead><tr><th scope="col">Group</th><th scope="col">A (90 to 100)</th><th scope="col">B to C (70 to 89)</th><th scope="col">D to F (below 70)</th></tr></thead><tbody><tr><th scope="row">All federal sites</th><td class="sg-num">15% (105)</td><td class="sg-num">71% (487)</td><td class="sg-num">14% (95)</td></tr></tbody></table></div></details></figure>
+</section>
+<section aria-labelledby="where-sites-fail" class="mt-5">
+<h2 id="where-sites-fail">Where sites fail</h2>
+<p>For each indicator, the five checks that fully scanned federal sites fail most often. A site can fail more than one check, and each check links to its standard and how to fix it.</p>
+<h3 class="mt-5" id="accessibility"><svg class="fa-solid fa-universal-access" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-universal-access" xlink:href="/assets/fa-sprite.svg#fas-fa-universal-access"></use></svg> Accessibility</h3>
+<p>Meet WCAG standards so every type of user can use your website. The most common accessibility failure is Background and foreground colors have a sufficient contrast ratio: 29% (196 of 687 sites) fail it.</p>
+<figure class="sg-chart sg-chart--bar" id="group-federal-fails-accessibility" aria-labelledby="group-federal-fails-accessibility-title"><figcaption><h4 class="sg-chart-title" id="group-federal-fails-accessibility-title">Most common accessibility failures among federal sites</h4><p class="sg-chart-sub" id="group-federal-fails-accessibility-sub">Share of the 687 fully scanned federal sites failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.</p></figcaption><ol class="sg-bars" style="--sg-value-room:5ch" aria-describedby="group-federal-fails-accessibility-sub"><li class="sg-row" style="--i:0;--r:0.2853"><span class="sg-label"><a href="https://standards.scangov.org/color-contrast">Background and foreground colors have a sufficient contrast ratio</a></span><span class="sg-plot" data-tip="Background and foreground colors have a sufficient contrast ratio: 29% · (196 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">29%</span><span class="visually-hidden"> (196 of 687 sites)</span></span></li><li class="sg-row" style="--i:1;--r:0.2838"><span class="sg-label"><a href="https://standards.scangov.org/heading-order">Heading elements appear in a sequentially-descending order</a></span><span class="sg-plot" data-tip="Heading elements appear in a sequentially-descending order: 28% · (195 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">28%</span><span class="visually-hidden"> (195 of 687 sites)</span></span></li><li class="sg-row" style="--i:2;--r:0.2722"><span class="sg-label"><a href="https://standards.scangov.org/landmark-one-main">Document has a main landmark</a></span><span class="sg-plot" data-tip="Document has a main landmark: 27% · (187 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">27%</span><span class="visually-hidden"> (187 of 687 sites)</span></span></li><li class="sg-row" style="--i:3;--r:0.2518"><span class="sg-label"><a href="https://standards.scangov.org/target-size">Touch targets have sufficient size and spacing</a></span><span class="sg-plot" data-tip="Touch targets have sufficient size and spacing: 25% · (173 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">25%</span><span class="visually-hidden"> (173 of 687 sites)</span></span></li><li class="sg-row" style="--i:4;--r:0.2169"><span class="sg-label"><a href="https://standards.scangov.org/link-name">Links have a discernible name</a></span><span class="sg-plot" data-tip="Links have a discernible name: 22% · (149 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">22%</span><span class="visually-hidden"> (149 of 687 sites)</span></span></li></ol><details class="sg-chart-data"><summary>View the data table</summary><div class="table-responsive"><table class="table table-sm"><caption class="visually-hidden">Most common accessibility failures among federal sites</caption><thead><tr><th scope="col">Check</th><th scope="col">Share failing</th><th scope="col">Sites failing</th></tr></thead><tbody><tr><th scope="row"><a href="https://standards.scangov.org/color-contrast">Background and foreground colors have a sufficient contrast ratio</a></th><td class="sg-num">29%</td><td class="sg-num">196</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/heading-order">Heading elements appear in a sequentially-descending order</a></th><td class="sg-num">28%</td><td class="sg-num">195</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/landmark-one-main">Document has a main landmark</a></th><td class="sg-num">27%</td><td class="sg-num">187</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/target-size">Touch targets have sufficient size and spacing</a></th><td class="sg-num">25%</td><td class="sg-num">173</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/link-name">Links have a discernible name</a></th><td class="sg-num">22%</td><td class="sg-num">149</td></tr></tbody></table></div></details></figure>
+<details class="small mb-3">
+<summary>What each accessibility check means</summary>
+<ul class="sg-failures mt-2">
+<li><a href="https://standards.scangov.org/color-contrast">Background and foreground colors have a sufficient contrast ratio</a>. Text and background colors meet minimum contrast ratios. Users with low vision cannot read your text.</li>
+<li><a href="https://standards.scangov.org/heading-order">Heading elements appear in a sequentially-descending order</a>. Page headings follow a logical order without skipping levels. Keyboard users cannot efficiently navigate your site.</li>
+<li><a href="https://standards.scangov.org/landmark-one-main">Document has a main landmark</a>. The page has exactly one main content area so screen readers can navigate to it. Screen reader users cannot skip directly to main content.</li>
+<li><a href="https://standards.scangov.org/target-size">Touch targets have sufficient size and spacing</a>. Buttons and interactive elements are large enough to tap easily on touch screens. Users with motor disabilities struggle to tap small buttons.</li>
+<li><a href="https://standards.scangov.org/link-name">Links have a discernible name</a>. Links have unique, descriptive text so users know where they go. Screen reader users cannot identify or interact with elements.</li>
+</ul>
+</details>
+<div class="alert alert-info small" role="note">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+Accessibility:
+<a href="https://standards.scangov.org/accessibility/">Standards</a>
+&middot;
+<a href="https://standards.scangov.org/guidance/accessibility/">Guidance</a>
+&middot;
+<a href="https://scangov.org/rankings/accessibility/">Project ScanGov rankings</a>
+&middot;
+<a href="https://scangov.com/accessibility/">How ScanGov helps</a>
+</div>
+<h3 class="mt-5" id="botability"><svg class="fa-solid fa-robot" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-robot" xlink:href="/assets/fa-sprite.svg#fas-fa-robot"></use></svg> Botability</h3>
+<p>Help AI and search engines discover, crawl, and index your website. The most common botability failure is GovernmentOrganization Schema.org type: 93% (639 of 687 sites) fail it.</p>
+<figure class="sg-chart sg-chart--bar" id="group-federal-fails-botability" aria-labelledby="group-federal-fails-botability-title"><figcaption><h4 class="sg-chart-title" id="group-federal-fails-botability-title">Most common botability failures among federal sites</h4><p class="sg-chart-sub" id="group-federal-fails-botability-sub">Share of the 687 fully scanned federal sites failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.</p></figcaption><ol class="sg-bars" style="--sg-value-room:5ch" aria-describedby="group-federal-fails-botability-sub"><li class="sg-row" style="--i:0;--r:0.9301"><span class="sg-label"><a href="https://standards.scangov.org/schema-government-organization">GovernmentOrganization Schema.org type</a></span><span class="sg-plot" data-tip="GovernmentOrganization Schema.org type: 93% · (639 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">93%</span><span class="visually-hidden"> (639 of 687 sites)</span></span></li><li class="sg-row" style="--i:1;--r:0.3843"><span class="sg-label"><a href="https://standards.scangov.org/link-text">Link text</a></span><span class="sg-plot" data-tip="Link text: 38% · (264 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">38%</span><span class="visually-hidden"> (264 of 687 sites)</span></span></li><li class="sg-row" style="--i:2;--r:0.3333"><span class="sg-label"><a href="https://standards.scangov.org/status">Sitemap status</a></span><span class="sg-plot" data-tip="Sitemap status: 33% · (229 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">33%</span><span class="visually-hidden"> (229 of 687 sites)</span></span></li><li class="sg-row" style="--i:3;--r:0.3333"><span class="sg-label"><a href="https://standards.scangov.org/xml">Sitemap XML</a></span><span class="sg-plot" data-tip="Sitemap XML: 33% · (229 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">33%</span><span class="visually-hidden"> (229 of 687 sites)</span></span></li><li class="sg-row" style="--i:4;--r:0.3231"><span class="sg-label"><a href="https://standards.scangov.org/sitemap-robots">Sitemap in robots.txt</a></span><span class="sg-plot" data-tip="Sitemap in robots.txt: 32% · (222 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">32%</span><span class="visually-hidden"> (222 of 687 sites)</span></span></li></ol><details class="sg-chart-data"><summary>View the data table</summary><div class="table-responsive"><table class="table table-sm"><caption class="visually-hidden">Most common botability failures among federal sites</caption><thead><tr><th scope="col">Check</th><th scope="col">Share failing</th><th scope="col">Sites failing</th></tr></thead><tbody><tr><th scope="row"><a href="https://standards.scangov.org/schema-government-organization">GovernmentOrganization Schema.org type</a></th><td class="sg-num">93%</td><td class="sg-num">639</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/link-text">Link text</a></th><td class="sg-num">38%</td><td class="sg-num">264</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/status">Sitemap status</a></th><td class="sg-num">33%</td><td class="sg-num">229</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/xml">Sitemap XML</a></th><td class="sg-num">33%</td><td class="sg-num">229</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/sitemap-robots">Sitemap in robots.txt</a></th><td class="sg-num">32%</td><td class="sg-num">222</td></tr></tbody></table></div></details></figure>
+<details class="small mb-3">
+<summary>What each botability check means</summary>
+<ul class="sg-failures mt-2">
+<li><a href="https://standards.scangov.org/schema-government-organization">GovernmentOrganization Schema.org type</a>. Homepage is marked up as an official government organization. Systems cannot verify you are an official government site.</li>
+<li><a href="https://standards.scangov.org/link-text">Link text</a>. Links use descriptive text that tells users and search engines where they go. Users cannot tell where links go.</li>
+<li><a href="https://standards.scangov.org/status">Sitemap status</a>. The sitemap file loads and returns a successful response. Search engines cannot find all your pages.</li>
+<li><a href="https://standards.scangov.org/xml">Sitemap XML</a>. The sitemap file uses the required XML format. Search engines cannot read your sitemap.</li>
+<li><a href="https://standards.scangov.org/sitemap-robots">Sitemap in robots.txt</a>. The robots.txt file links to the sitemap. Search engines take longer to find your pages.</li>
+</ul>
+</details>
+<div class="alert alert-info small" role="note">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+Botability:
+<a href="https://standards.scangov.org/botability/">Standards</a>
+&middot;
+<a href="https://standards.scangov.org/guidance/botability/">Guidance</a>
+&middot;
+<a href="https://scangov.org/rankings/botability/">Project ScanGov rankings</a>
+&middot;
+<a href="https://scangov.com/botability/">How ScanGov helps</a>
+</div>
+<h3 class="mt-5" id="security"><svg class="fa-solid fa-shield-halved" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-shield-halved" xlink:href="/assets/fa-sprite.svg#fas-fa-shield-halved"></use></svg> Security</h3>
+<p>Secure your site and protect users with proper security practices. The most common security failure is Errors in the console: 40% (275 of 687 sites) fail it.</p>
+<figure class="sg-chart sg-chart--bar" id="group-federal-fails-security" aria-labelledby="group-federal-fails-security-title"><figcaption><h4 class="sg-chart-title" id="group-federal-fails-security-title">Most common security failures among federal sites</h4><p class="sg-chart-sub" id="group-federal-fails-security-sub">Share of the 687 fully scanned federal sites failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.</p></figcaption><ol class="sg-bars" style="--sg-value-room:5ch" aria-describedby="group-federal-fails-security-sub"><li class="sg-row" style="--i:0;--r:0.4003"><span class="sg-label"><a href="https://standards.scangov.org/errors-in-console">Errors in the console</a></span><span class="sg-plot" data-tip="Errors in the console: 40% · (275 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">40%</span><span class="visually-hidden"> (275 of 687 sites)</span></span></li><li class="sg-row" style="--i:1;--r:0.3785"><span class="sg-label"><a href="https://standards.scangov.org/xcontenttypeoptions">X-Content-Type-Options</a></span><span class="sg-plot" data-tip="X-Content-Type-Options: 38% · (260 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">38%</span><span class="visually-hidden"> (260 of 687 sites)</span></span></li><li class="sg-row" style="--i:2;--r:0.214"><span class="sg-label"><a href="https://standards.scangov.org/dotgov">Sponsored top-level domain (sTLD)</a></span><span class="sg-plot" data-tip="Sponsored top-level domain (sTLD): 21% · (147 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">21%</span><span class="visually-hidden"> (147 of 687 sites)</span></span></li><li class="sg-row" style="--i:3;--r:0.131"><span class="sg-label"><a href="https://standards.scangov.org/securitytxt">Security.txt</a></span><span class="sg-plot" data-tip="Security.txt: 13% · (90 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">13%</span><span class="visually-hidden"> (90 of 687 sites)</span></span></li><li class="sg-row" style="--i:4;--r:0.0015"><span class="sg-label"><a href="https://standards.scangov.org/paste-preventing-inputs">Paste preventing inputs</a></span><span class="sg-plot" data-tip="Paste preventing inputs: 0% · (1 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">0%</span><span class="visually-hidden"> (1 of 687 sites)</span></span></li></ol><details class="sg-chart-data"><summary>View the data table</summary><div class="table-responsive"><table class="table table-sm"><caption class="visually-hidden">Most common security failures among federal sites</caption><thead><tr><th scope="col">Check</th><th scope="col">Share failing</th><th scope="col">Sites failing</th></tr></thead><tbody><tr><th scope="row"><a href="https://standards.scangov.org/errors-in-console">Errors in the console</a></th><td class="sg-num">40%</td><td class="sg-num">275</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/xcontenttypeoptions">X-Content-Type-Options</a></th><td class="sg-num">38%</td><td class="sg-num">260</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/dotgov">Sponsored top-level domain (sTLD)</a></th><td class="sg-num">21%</td><td class="sg-num">147</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/securitytxt">Security.txt</a></th><td class="sg-num">13%</td><td class="sg-num">90</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/paste-preventing-inputs">Paste preventing inputs</a></th><td class="sg-num">0%</td><td class="sg-num">1</td></tr></tbody></table></div></details></figure>
+<details class="small mb-3">
+<summary>What each security check means</summary>
+<ul class="sg-failures mt-2">
+<li><a href="https://standards.scangov.org/errors-in-console">Errors in the console</a>. The page loads without JavaScript or network errors. Site may have hidden bugs that break features.</li>
+<li><a href="https://standards.scangov.org/xcontenttypeoptions">X-Content-Type-Options</a>. The site tells browsers not to guess the type of files it serves. Browsers might run dangerous files by mistake.</li>
+<li><a href="https://standards.scangov.org/dotgov">Sponsored top-level domain (sTLD)</a>. The site uses a government-issued domain (.gov, .edu, or .mil). People cannot tell if your site is real government.</li>
+<li><a href="https://standards.scangov.org/securitytxt">Security.txt</a>. The site has a security.txt file so researchers know how to report issues. Security researchers cannot report problems to you.</li>
+<li><a href="https://standards.scangov.org/paste-preventing-inputs">Paste preventing inputs</a>. The page lets users paste content into form fields. Users cannot use password managers safely.</li>
+</ul>
+</details>
+<div class="alert alert-info small" role="note">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+Security:
+<a href="https://standards.scangov.org/security/">Standards</a>
+&middot;
+<a href="https://standards.scangov.org/guidance/security/">Guidance</a>
+&middot;
+<a href="https://scangov.org/rankings/security/">Project ScanGov rankings</a>
+&middot;
+<a href="https://scangov.com/security/">How ScanGov helps</a>
+</div>
+<h3 class="mt-5" id="usability"><svg class="fa-solid fa-hand-pointer" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-hand-pointer" xlink:href="/assets/fa-sprite.svg#fas-fa-hand-pointer"></use></svg> Usability</h3>
+<p>Optimize content structure so users quickly find what they need. The most common usability failure is Open Graph image alt: 89% (611 of 687 sites) fail it.</p>
+<figure class="sg-chart sg-chart--bar" id="group-federal-fails-usability" aria-labelledby="group-federal-fails-usability-title"><figcaption><h4 class="sg-chart-title" id="group-federal-fails-usability-title">Most common usability failures among federal sites</h4><p class="sg-chart-sub" id="group-federal-fails-usability-sub">Share of the 687 fully scanned federal sites failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.</p></figcaption><ol class="sg-bars" style="--sg-value-room:5ch" aria-describedby="group-federal-fails-usability-sub"><li class="sg-row" style="--i:0;--r:0.8894"><span class="sg-label"><a href="https://standards.scangov.org/ogimagealt">Open Graph image alt</a></span><span class="sg-plot" data-tip="Open Graph image alt: 89% · (611 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">89%</span><span class="visually-hidden"> (611 of 687 sites)</span></span></li><li class="sg-row" style="--i:1;--r:0.6536"><span class="sg-label"><a href="https://standards.scangov.org/ogsitename">Open Graph site name</a></span><span class="sg-plot" data-tip="Open Graph site name: 65% · (449 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">65%</span><span class="visually-hidden"> (449 of 687 sites)</span></span></li><li class="sg-row" style="--i:2;--r:0.6099"><span class="sg-label"><a href="https://standards.scangov.org/ogimage">Open Graph image</a></span><span class="sg-plot" data-tip="Open Graph image: 61% · (419 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">61%</span><span class="visually-hidden"> (419 of 687 sites)</span></span></li><li class="sg-row" style="--i:3;--r:0.6055"><span class="sg-label"><a href="https://standards.scangov.org/ogdescription">Open Graph description</a></span><span class="sg-plot" data-tip="Open Graph description: 61% · (416 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">61%</span><span class="visually-hidden"> (416 of 687 sites)</span></span></li><li class="sg-row" style="--i:4;--r:0.5997"><span class="sg-label"><a href="https://standards.scangov.org/ogtype">Open Graph type</a></span><span class="sg-plot" data-tip="Open Graph type: 60% · (412 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">60%</span><span class="visually-hidden"> (412 of 687 sites)</span></span></li></ol><details class="sg-chart-data"><summary>View the data table</summary><div class="table-responsive"><table class="table table-sm"><caption class="visually-hidden">Most common usability failures among federal sites</caption><thead><tr><th scope="col">Check</th><th scope="col">Share failing</th><th scope="col">Sites failing</th></tr></thead><tbody><tr><th scope="row"><a href="https://standards.scangov.org/ogimagealt">Open Graph image alt</a></th><td class="sg-num">89%</td><td class="sg-num">611</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/ogsitename">Open Graph site name</a></th><td class="sg-num">65%</td><td class="sg-num">449</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/ogimage">Open Graph image</a></th><td class="sg-num">61%</td><td class="sg-num">419</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/ogdescription">Open Graph description</a></th><td class="sg-num">61%</td><td class="sg-num">416</td></tr><tr><th scope="row"><a href="https://standards.scangov.org/ogtype">Open Graph type</a></th><td class="sg-num">60%</td><td class="sg-num">412</td></tr></tbody></table></div></details></figure>
+<details class="small mb-3">
+<summary>What each usability check means</summary>
+<ul class="sg-failures mt-2">
+<li><a href="https://standards.scangov.org/ogimagealt">Open Graph image alt</a>. The social media preview image has alt text for screen readers. Screen readers cannot describe shared images.</li>
+<li><a href="https://standards.scangov.org/ogsitename">Open Graph site name</a>. The site has a name for social media and browser display. Site name missing in social media shares.</li>
+<li><a href="https://standards.scangov.org/ogimage">Open Graph image</a>. The page has a preview image for social media cards. Shared links have no image on social media.</li>
+<li><a href="https://standards.scangov.org/ogdescription">Open Graph description</a>. The page has a description for social media previews. Shared links have no description on social media.</li>
+<li><a href="https://standards.scangov.org/ogtype">Open Graph type</a>. The page declares its content type for social media cards. Social media shows wrong content type.</li>
+</ul>
+</details>
+<div class="alert alert-info small" role="note">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+Usability:
+<a href="https://standards.scangov.org/usability/">Standards</a>
+&middot;
+<a href="https://standards.scangov.org/guidance/usability/">Guidance</a>
+&middot;
+<a href="https://scangov.org/rankings/usability/">Project ScanGov rankings</a>
+&middot;
+<a href="https://scangov.com/usability/">How ScanGov helps</a>
+</div>
+<h3 class="mt-5" id="readability"><svg class="fa-solid fa-book-open" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-book-open" xlink:href="/assets/fa-sprite.svg#fas-fa-book-open"></use></svg> Readability</h3>
+<p>Write content at a reading level most users can understand. The most common readability failure is Reading level: 49% (339 of 687 sites) fail it.</p>
+<figure class="sg-chart sg-chart--bar" id="group-federal-fails-readability" aria-labelledby="group-federal-fails-readability-title"><figcaption><h4 class="sg-chart-title" id="group-federal-fails-readability-title">Most common readability failures among federal sites</h4><p class="sg-chart-sub" id="group-federal-fails-readability-sub">Share of the 687 fully scanned federal sites failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.</p></figcaption><ol class="sg-bars" style="--sg-value-room:5ch" aria-describedby="group-federal-fails-readability-sub"><li class="sg-row" style="--i:0;--r:0.4934"><span class="sg-label"><a href="https://standards.scangov.org/reading-level">Reading level</a></span><span class="sg-plot" data-tip="Reading level: 49% · (339 of 687 sites)" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">49%</span><span class="visually-hidden"> (339 of 687 sites)</span></span></li></ol><details class="sg-chart-data"><summary>View the data table</summary><div class="table-responsive"><table class="table table-sm"><caption class="visually-hidden">Most common readability failures among federal sites</caption><thead><tr><th scope="col">Check</th><th scope="col">Share failing</th><th scope="col">Sites failing</th></tr></thead><tbody><tr><th scope="row"><a href="https://standards.scangov.org/reading-level">Reading level</a></th><td class="sg-num">49%</td><td class="sg-num">339</td></tr></tbody></table></div></details></figure>
+<details class="small mb-3">
+<summary>What each readability check means</summary>
+<ul class="sg-failures mt-2">
+<li><a href="https://standards.scangov.org/reading-level">Reading level</a>. Page text reads at or below a 7th grade level so most users can understand it. Users struggle to understand your content.</li>
+</ul>
+</details>
+<div class="alert alert-info small" role="note">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+Readability:
+<a href="https://standards.scangov.org/readability/">Standards</a>
+&middot;
+<a href="https://standards.scangov.org/guidance/readability/">Guidance</a>
+&middot;
+<a href="https://scangov.org/rankings/readability/">Project ScanGov rankings</a>
+&middot;
+<a href="https://scangov.com/readability/">How ScanGov helps</a>
+</div>
+</section>
+<section aria-labelledby="where-to-go-next" class="mt-5">
+<h2 id="where-to-go-next">Where to go next</h2>
+<ul>
+<li><a href="/rankings/federal/">Federal rankings</a>: 687 fully scanned of 868 sites.</li>
+<li><a href="/pulse/">Pulse for all sites</a>: every group compared.</li>
+<li><a href="/issues/not-dotgov/federal/">Federal websites not on a .gov domain</a>: 147 of 687 fully scanned federal sites, with every site listed.</li>
+<li><a href="/issues/sitemap/federal/">Federal websites with sitemap problems</a>: 351 of 669 fully scanned federal sites, with every site listed.</li>
+<li><a href="/issues/robots/federal/">Federal websites with robots.txt problems</a>: 32 of 662 fully scanned federal sites, with every site listed.</li>
+<li><a href="/issues/needs-javascript/federal/">Federal websites that need JavaScript to show their content</a>: 60 of 687 fully scanned federal sites, with every site listed.</li>
+<li><a href="/issues/reading-level/federal/">Federal websites that are hard to read</a>: 339 of 590 fully scanned federal sites, with every site listed.</li>
+<li><a href="/issues/open-graph/federal/">Federal websites missing Open Graph tags</a>: 551 of 687 fully scanned federal sites, with every site listed.</li>
+<li><a href="/issues/">Websites by issue</a>: every check and every group in one table.</li>
+<li><a href="/changelog/">Changelog</a>: what changed in the latest scans.</li>
+<li><a href="/status/">Scan status</a>: why some sites could not be fully scanned.</li>
+</ul>
+</section>
+</div>
+<section class="small text-muted border-top pt-3 mt-5" aria-labelledby="about-this-data">
+<h2 class="h6" id="about-this-data">About this data</h2>
+<p class="mb-0">
+ScanGov scans the homepage of every federal site on our list.
+Scores come from the checks in the <a href="https://standards.scangov.org/">ScanGov standards</a>.
+Sites were scanned between 9/24/2026 and 11/1/2026. Each site's report shows its own scan date.
+A site counts as fully scanned when its homepage loaded and sent us its page content.
+Averages, grade shares, failure rates, and ranks use fully scanned sites only.
+We could not fully scan 181 sites. They did not respond, blocked the scanner, or sent no page content. They appear in the table without grades, with their <a href="/status/">scan status</a>, and are left out of every figure.
+Grades follow the <a href="https://docs.scangov.org/grades/">ScanGov grade scale</a>. Rank follows the <a href="https://docs.scangov.org/rankings">ScanGov ranking method</a>.
+The full dataset, with every county's raw results, is in the <a href="https://data.scangov.org/">ScanGov data repository</a>.
+</p>
+</section>
+</div>
+</div>
+</div>
+</main>
+<style>
+.cta-band {
+position: fixed;
+right: 0;
+bottom: 0;
+left: 0;
+z-index: 1030;
+padding: 0.75rem 0;
+background-color: var(--bs-body-bg);
+color: var(--bs-body-color);
+transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+/* Hidden while the hero or the footer is on screen */
+.cta-band.is-hidden {
+opacity: 0;
+visibility: hidden;
+transform: translateY(100%);
+pointer-events: none;
+}
+.cta-band .btn {
+margin-top: 0;
+margin-bottom: 0;
+}
+</style>
+<div id="cta-band" class="cta-band border-top" role="region" aria-label="Get ScanGov, see the demo, and share this page">
+<div class="container d-flex align-items-center justify-content-center gap-2">
+<a href="https://scangov.com/plans/" class="btn btn-primary" aria-label="Plans">
+<svg class="fa-solid fa-crown" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-crown" xlink:href="/assets/fa-sprite.svg#fas-fa-crown"></use></svg><span class="d-none d-md-inline">Plans</span></a>
+<a href="https://scangov.com/demo/" class="btn btn-outline-primary" aria-label="Demo">
+<svg class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-wand-magic-sparkles" xlink:href="/assets/fa-sprite.svg#fas-fa-wand-magic-sparkles"></use></svg><span class="d-none d-md-inline">Demo</span></a>
+<button type="button" class="btn btn-outline-primary" data-action="copy-page-link" aria-label="Copy link">
+<svg class="fa-solid fa-link" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg><span class="d-none d-md-inline">Copy link</span></button>
+<button type="button" class="btn btn-outline-primary" data-action="copy-page" aria-label="Copy">
+<svg class="fa-solid fa-copy" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-copy" xlink:href="/assets/fa-sprite.svg#fas-fa-copy"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg><span class="d-none d-md-inline">Copy</span></button>
+</div>
+</div>
+<script src="/js/action-buttons.js" defer=""></script>
+<script>
+  (function() {
+    // Show the band only between the hero and the footer. This script sits above
+    // the footer in the page, so wait until the whole page is parsed.
+    function watchHeroAndFooter() {
+      var band = document.getElementById('cta-band');
+      var h1 = document.querySelector('h1');
+      var targets = [h1 ? (h1.closest('.pt-5') || h1) : null, document.querySelector('footer')].filter(Boolean);
+      if (!band || !targets.length || !('IntersectionObserver' in window)) return;
+      var inView = new Map();
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) { inView.set(entry.target, entry.isIntersecting); });
+        band.classList.toggle('is-hidden', Array.from(inView.values()).some(Boolean));
+      });
+      targets.forEach(function(target) { observer.observe(target); });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', watchHeroAndFooter);
+    } else {
+      watchHeroAndFooter();
+    }
+
+  })();
+</script>
+<footer role="contentinfo">
+<div class="container mt-5 pt-5 border-top">
+<div class="row">
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://docs.scangov.org/community" class="nav-link p-0 text-body-secondary">Community</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.substack.com" class="nav-link p-0 text-body-secondary">Newsletter</a>
+</li>
+<li class="small mb-1">
+<a href="https://github.com/ScanGov" class="nav-link p-0 text-body-secondary">GitHub</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/contact" class="nav-link p-0 text-body-secondary">Contact</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">ScanGov scorecard</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="/site-index/" class="nav-link p-0 text-body-secondary">Site index</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="container-fluid py-4 mt-4 border-top">
+<div class="row">
+<div class="col-12 text-center">
+<p class="small">Built with <svg class="fa-solid fa-heart" aria-label="Heart" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-heart" xlink:href="/assets/fa-sprite.svg#fas-fa-heart"></use></svg> by
+<a href="https://scangov.com" rel="noopener noreferrer">ScanGov</a></p>
+</div>
+</div>
+</div>
+</footer>
+<script async="" defer="" src="https://www.googletagmanager.com/gtag/js?id=G-MM5GF482X0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MM5GF482X0');
+</script>
+<script>
+  /* mobile menu */
+  const toggler = document.querySelector('button.navbar-toggler');
+  if (toggler) {
+    toggler.addEventListener('click', function(e) {
+      document.querySelector(this.dataset.target).classList.toggle('show');
+    });
+  }
+</script>
+<script src="/assets/bootstrap/js/bootstrap-trimmed.min.js" defer=""></script>
+<script src="/assets/bootstrap/js/bootstrap-tooltip.min.js" defer=""></script>
+<script src="/js/tablesort-vendor.js"></script>
+<script src="/js/tablesort-init.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
+      new bootstrap.Tooltip(el, { trigger: 'click' });
+      el.addEventListener('click', function(e) { e.preventDefault(); });
+    });
+    document.addEventListener('click', function(e) {
+      document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
+        var tipId = el.getAttribute('aria-describedby');
+        var tipEl = tipId ? document.getElementById(tipId) : null;
+        var isTrigger = el.contains(e.target);
+        var isInsideTooltip = tipEl && tipEl.contains(e.target);
+        if (!isTrigger && !isInsideTooltip) {
+          var instance = bootstrap.Tooltip.getInstance(el);
+          if (instance) instance.hide();
+        }
+      });
+    });
+  });
+</script>
+<a href="https://scangov.com/plans" id="feedback-button" class="feedback btn btn-outline-primary btn-sm" aria-hidden="true" tabindex="-1">
+<svg class="fa-solid fa-rocket" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-rocket" xlink:href="/assets/fa-sprite.svg#fas-fa-rocket"></use></svg> Get ScanGov
+</a>
+<script>
+  const feedbackButton = document.getElementById("feedback-button");
+  const footer = document.querySelector("footer");
+
+  // The fixed CTA band already carries the Get started button
+  const ctaBand = document.getElementById('cta-band');
+  function updateButton() {
+    const scrolled = document.documentElement.scrollTop > window.innerHeight * 0.3;
+    const footerVisible = footer && footer.getBoundingClientRect().top < window.innerHeight;
+    const visible = scrolled && !footerVisible && !ctaBand;
+    feedbackButton.classList.toggle('is-visible', visible);
+    feedbackButton.setAttribute('aria-hidden', visible ? 'false' : 'true');
+    feedbackButton.setAttribute('tabindex', visible ? '0' : '-1');
+  }
+
+  const hiddenPaths = ['/plans/', '/demo/', '/demo-confirm/', '/contact/'];
+  if (window.location.hostname !== 'my.scangov.com' && !hiddenPaths.includes(window.location.pathname)) {
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function() {
+        updateButton();
+        ticking = false;
+      });
+    }, { passive: true });
+    updateButton();
+  }
+</script>
+<svg class="fa-solid fa-link" style="display:none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>
+<script>
+(function() {
+    document.querySelectorAll('#post h2[id], #post h3[id]').forEach(function(h) {
+        if (h.closest('.card') || h.classList.contains('accordion-header')) return;
+        var wrap = document.createElement('a');
+        wrap.className = 'heading-anchor-text';
+        wrap.href = '#' + h.id;
+        while (h.firstChild) { wrap.appendChild(h.firstChild); }
+        h.appendChild(wrap);
+        var icon = document.createElement('a');
+        icon.id = 'heading-hashtag';
+        icon.href = '#' + h.id;
+        icon.setAttribute('aria-hidden', 'true');
+        icon.innerHTML = '<svg aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>';
+        h.appendChild(icon);
+    });
+})();
+</script>
+</body>
+</html>

@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
-<meta name="description" content="Every site in a group that fails one check, with a map, the share in each state, and the full list.">
+<meta name="description" content="The share of sites in each group that fail one check, with a page for every check and group listing every failing site.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="google-site-verification" content="10895162be5e592f">
 <meta property="og:locale" content="en_US">
@@ -13,12 +13,12 @@
 <link rel="alternate" hreflang="en" href="https://scangov.org/issues/">
 <link rel="alternate" hreflang="x-default" href="https://scangov.org/issues/">
 <!-- Title -->
-<title>Government websites by issue - Project ScanGov</title>
+<title>Websites by issue - Project ScanGov</title>
 <!-- Open Graph -->
 <meta property="og:site_name" content="Project ScanGov">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Government websites by issue">
-<meta property="og:description" content="Every site in a group that fails one check, with a map, the share in each state, and the full list.">
+<meta property="og:title" content="Websites by issue">
+<meta property="og:description" content="The share of sites in each group that fail one check, with a page for every check and group listing every failing site.">
 <meta property="og:url" content="https://scangov.org/issues/">
 <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
 <meta property="og:image:width" content="1200">
@@ -141,8 +141,8 @@ Search
 <div class="container">
 <div class="row">
 <div class="col-12">
-<h1 class="display-5" id="government-websites-by-issue">Government websites by issue</h1>
-<p class="lead fs-5">Every site in a group that fails one check, with a map, the share in each state, and the full list.</p>
+<h1 class="display-5" id="websites-by-issue">Websites by issue</h1>
+<p class="lead fs-5">The share of sites in each group that fail one check, with a page for every check and group listing every failing site.</p>
 <ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
 <li>
 Sites: 4873
@@ -163,16 +163,75 @@ Last scan:
 <div class="container">
 <div class="row">
 <div class="col-12">
-<p>Each page takes one check, or one feature made of a few related checks, from <a href="https://standards.scangov.org/">standards.scangov.org</a> and one group of sites, and lists every fully scanned site in that group that fails it. The <a href="/rankings/">rankings</a> show how sites score overall; these pages show who has one specific problem.</p>
-<ul class="sg-failures">
-<li><a href="/issues/not-dotgov/counties/">County websites not on a .gov domain</a>. 1,112 of 2,463 fully scanned county sites (45%) are not on a .gov domain. The site uses a government-issued domain (.gov, .edu, or .mil).</li>
-<li><a href="/issues/sitemap/counties/">County websites with sitemap problems</a>. 1,085 of 2,433 fully scanned county sites (45%) have a sitemap problem. A sitemap is an XML file that lists the pages on a site. Search engines and AI agents read it to find pages they would otherwise miss, and robots.txt is where they look for its address.</li>
-<li><a href="/issues/robots/counties/">County websites with robots.txt problems</a>. 560 of 2,395 fully scanned county sites (23%) have a robots.txt problem. A robots.txt file tells search engines and AI agents which parts of a site they may crawl and where to find the sitemap. When a site has one, it has to follow the format and not block the whole site.</li>
-<li><a href="/issues/needs-javascript/counties/">County websites that need JavaScript to show their content</a>. 70 of 2,463 fully scanned county sites (3%) need JavaScript to show their main content. The page&#39;s main content loads without requiring JavaScript.</li>
-<li><a href="/issues/reading-level/counties/">County websites that are hard to read</a>. 886 of 2,317 fully scanned county sites (38%) read above an 8th grade level. The homepage text reads at or below an 8th grade level.</li>
-<li><a href="/issues/open-graph/counties/">County websites missing Open Graph tags</a>. 2,203 of 2,463 fully scanned county sites (89%) are missing Open Graph tags. Open Graph tags tell social networks, chat apps, and search engines which title, description, and image to show when someone shares a link to the page. Without them a shared link shows whatever the platform can guess, often nothing.</li>
-</ul>
-<p class="small text-muted">More checks and groups will be added over time.</p>
+<p>Each page takes one check, or one feature made of a few related checks, from <a href="https://standards.scangov.org/">standards.scangov.org</a> and one group of sites, and lists every fully scanned site in that group that fails it. The <a href="/rankings/">rankings</a> show how sites score overall; these pages show who has one specific problem. Pick a cell for the list.</p>
+<div class="table-responsive">
+<table class="table table-sm align-top">
+<caption class="visually-hidden">Share of fully scanned sites failing each check, by group</caption>
+<thead>
+<tr>
+<th scope="col">Issue</th>
+<th scope="col" class="text-center">All</th><th scope="col" class="text-center">Cities</th><th scope="col" class="text-center">Counties</th><th scope="col" class="text-center">States</th><th scope="col" class="text-center">Federal</th><th scope="col" class="text-center">Education</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" class="fw-semibold">Not on a .gov domain<br><span class="small text-muted fw-normal">The site uses a government-issued domain (.gov, .edu, or .mil).</span></th>
+<td class="text-center text-nowrap"><a href="/issues/not-dotgov/all/" title="Websites not on a .gov domain">32%</a><br><span class="small text-muted">1,305 of 4,106</span></td>
+<td class="text-center text-nowrap"><a href="/issues/not-dotgov/cities/" title="City websites not on a .gov domain">13%</a><br><span class="small text-muted">27 of 212</span></td>
+<td class="text-center text-nowrap"><a href="/issues/not-dotgov/counties/" title="County websites not on a .gov domain">45%</a><br><span class="small text-muted">1,112 of 2,463</span></td>
+<td class="text-center text-nowrap"><a href="/issues/not-dotgov/states/" title="State websites not on a .gov domain">0%</a><br><span class="small text-muted">0 of 42</span></td>
+<td class="text-center text-nowrap"><a href="/issues/not-dotgov/federal/" title="Federal websites not on a .gov domain">21%</a><br><span class="small text-muted">147 of 687</span></td>
+<td class="text-center text-muted" aria-label="No page for this group">&ndash;</td>
+</tr>
+<tr>
+<th scope="row" class="fw-semibold">Sitemap problems<br><span class="small text-muted fw-normal">A sitemap is an XML file that lists the pages on a site. Search engines and AI agents read it to find pages they would otherwise miss, and robots.txt is where they look for its address.</span></th>
+<td class="text-center text-nowrap"><a href="/issues/sitemap/all/" title="Websites with sitemap problems">45%</a><br><span class="small text-muted">1,821 of 4,044</span></td>
+<td class="text-center text-nowrap"><a href="/issues/sitemap/cities/" title="City websites with sitemap problems">32%</a><br><span class="small text-muted">67 of 208</span></td>
+<td class="text-center text-nowrap"><a href="/issues/sitemap/counties/" title="County websites with sitemap problems">45%</a><br><span class="small text-muted">1,085 of 2,433</span></td>
+<td class="text-center text-nowrap"><a href="/issues/sitemap/states/" title="State websites with sitemap problems">60%</a><br><span class="small text-muted">24 of 40</span></td>
+<td class="text-center text-nowrap"><a href="/issues/sitemap/federal/" title="Federal websites with sitemap problems">52%</a><br><span class="small text-muted">351 of 669</span></td>
+<td class="text-center text-nowrap"><a href="/issues/sitemap/edu/" title="Education websites with sitemap problems">43%</a><br><span class="small text-muted">297 of 697</span></td>
+</tr>
+<tr>
+<th scope="row" class="fw-semibold">robots.txt problems<br><span class="small text-muted fw-normal">A robots.txt file tells search engines and AI agents which parts of a site they may crawl and where to find the sitemap. When a site has one, it has to follow the format and not block the whole site.</span></th>
+<td class="text-center text-nowrap"><a href="/issues/robots/all/" title="Websites with robots.txt problems">17%</a><br><span class="small text-muted">690 of 3,987</span></td>
+<td class="text-center text-nowrap"><a href="/issues/robots/cities/" title="City websites with robots.txt problems">36%</a><br><span class="small text-muted">71 of 200</span></td>
+<td class="text-center text-nowrap"><a href="/issues/robots/counties/" title="County websites with robots.txt problems">23%</a><br><span class="small text-muted">560 of 2,395</span></td>
+<td class="text-center text-nowrap"><a href="/issues/robots/states/" title="State websites with robots.txt problems">0%</a><br><span class="small text-muted">0 of 41</span></td>
+<td class="text-center text-nowrap"><a href="/issues/robots/federal/" title="Federal websites with robots.txt problems">5%</a><br><span class="small text-muted">32 of 662</span></td>
+<td class="text-center text-nowrap"><a href="/issues/robots/edu/" title="Education websites with robots.txt problems">4%</a><br><span class="small text-muted">28 of 692</span></td>
+</tr>
+<tr>
+<th scope="row" class="fw-semibold">Needs JavaScript to show content<br><span class="small text-muted fw-normal">The page&#39;s main content loads without requiring JavaScript.</span></th>
+<td class="text-center text-nowrap"><a href="/issues/needs-javascript/all/" title="Websites that need JavaScript to show their content">4%</a><br><span class="small text-muted">167 of 4,106</span></td>
+<td class="text-center text-nowrap"><a href="/issues/needs-javascript/cities/" title="City websites that need JavaScript to show their content">5%</a><br><span class="small text-muted">10 of 212</span></td>
+<td class="text-center text-nowrap"><a href="/issues/needs-javascript/counties/" title="County websites that need JavaScript to show their content">3%</a><br><span class="small text-muted">70 of 2,463</span></td>
+<td class="text-center text-nowrap"><a href="/issues/needs-javascript/states/" title="State websites that need JavaScript to show their content">10%</a><br><span class="small text-muted">4 of 42</span></td>
+<td class="text-center text-nowrap"><a href="/issues/needs-javascript/federal/" title="Federal websites that need JavaScript to show their content">9%</a><br><span class="small text-muted">60 of 687</span></td>
+<td class="text-center text-nowrap"><a href="/issues/needs-javascript/edu/" title="Education websites that need JavaScript to show their content">3%</a><br><span class="small text-muted">23 of 705</span></td>
+</tr>
+<tr>
+<th scope="row" class="fw-semibold">Hard to read<br><span class="small text-muted fw-normal">The homepage text reads at or below an 8th grade level.</span></th>
+<td class="text-center text-nowrap"><a href="/issues/reading-level/all/" title="Websites that are hard to read">40%</a><br><span class="small text-muted">1,539 of 3,815</span></td>
+<td class="text-center text-nowrap"><a href="/issues/reading-level/cities/" title="City websites that are hard to read">25%</a><br><span class="small text-muted">50 of 199</span></td>
+<td class="text-center text-nowrap"><a href="/issues/reading-level/counties/" title="County websites that are hard to read">38%</a><br><span class="small text-muted">886 of 2,317</span></td>
+<td class="text-center text-nowrap"><a href="/issues/reading-level/states/" title="State websites that are hard to read">33%</a><br><span class="small text-muted">13 of 39</span></td>
+<td class="text-center text-nowrap"><a href="/issues/reading-level/federal/" title="Federal websites that are hard to read">57%</a><br><span class="small text-muted">339 of 590</span></td>
+<td class="text-center text-nowrap"><a href="/issues/reading-level/edu/" title="Education websites that are hard to read">37%</a><br><span class="small text-muted">252 of 673</span></td>
+</tr>
+<tr>
+<th scope="row" class="fw-semibold">Missing Open Graph tags<br><span class="small text-muted fw-normal">Open Graph tags tell social networks, chat apps, and search engines which title, description, and image to show when someone shares a link to the page. Without them a shared link shows whatever the platform can guess, often nothing.</span></th>
+<td class="text-center text-nowrap"><a href="/issues/open-graph/all/" title="Websites missing Open Graph tags">86%</a><br><span class="small text-muted">3,515 of 4,106</span></td>
+<td class="text-center text-nowrap"><a href="/issues/open-graph/cities/" title="City websites missing Open Graph tags">88%</a><br><span class="small text-muted">186 of 212</span></td>
+<td class="text-center text-nowrap"><a href="/issues/open-graph/counties/" title="County websites missing Open Graph tags">89%</a><br><span class="small text-muted">2,203 of 2,463</span></td>
+<td class="text-center text-nowrap"><a href="/issues/open-graph/states/" title="State websites missing Open Graph tags">62%</a><br><span class="small text-muted">26 of 42</span></td>
+<td class="text-center text-nowrap"><a href="/issues/open-graph/federal/" title="Federal websites missing Open Graph tags">80%</a><br><span class="small text-muted">551 of 687</span></td>
+<td class="text-center text-nowrap"><a href="/issues/open-graph/edu/" title="Education websites missing Open Graph tags">78%</a><br><span class="small text-muted">551 of 705</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="small text-muted">Shares are failing sites divided by fully scanned sites that were tested for the check. More checks will be added over time.</p>
 </div>
 </div>
 </div>
