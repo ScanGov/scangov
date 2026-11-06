@@ -1,0 +1,33 @@
+{#
+  The six group pills every dashboard shares with the homepage tabs: All,
+  Cities, Counties, States, Federal, Education. Set before including:
+    pillsBase        path the pills live under, e.g. "/pulse/" or "/rankings/"
+    pillsActive      key of the current group: "all", "cities", "counties",
+                     "states", "federal" or "edu"
+    pillsSuffix      optional path appended after the group, e.g. "usability/"
+    pillsAllSegment  optional segment for the All pill when it is not the base
+                     itself, e.g. "all/" on the issue pages
+    pillsAvailable   optional list of keys to show; the others are left out
+#}
+{% set pillGroups = [
+  { key: "all", label: "All" },
+  { key: "cities", label: "Cities" },
+  { key: "counties", label: "Counties" },
+  { key: "states", label: "States" },
+  { key: "federal", label: "Federal" },
+  { key: "edu", label: "Education" }
+] %}
+<ul class="nav nav-pills filter small mb-0" aria-label="Group">
+  {% for g in pillGroups %}
+  {% if not pillsAvailable or g.key in pillsAvailable %}
+  {% set pillTitle = g.label %}
+  {% set pillUrl = pillsBase + ((pillsAllSegment or "") if g.key == "all" else g.key + "/") + (pillsSuffix or "") %}
+  {% set pillActive = pillsActive == g.key %}
+  {% set pillIcon = false %}
+  {% set pillIconTitle = false %}
+  {% set pillId = false %}
+  {% set pillExtraClass = false %}
+  {% include "filter-pill.html" %}
+  {% endif %}
+  {% endfor %}
+</ul>

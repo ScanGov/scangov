@@ -1,7 +1,8 @@
 {#
   Dot map of city sites over the state outlines, each dot colored by the
   site's grade for the page's topic. Expects `cityMap` (from
-  _data/cityMap.js), `topic` and `topicName`.
+  _data/cityMap.js), `topic` and `topicName`; `mapHeadingLevel` (default 2)
+  sets the title's heading level, as on county-map.html.
 
   Same accessibility contract as county-map.html: the map is a supplementary
   view of the table on the page, dots are links out of the tab order with a
@@ -10,7 +11,7 @@
 {% set mapId = "city-map" %}
 <figure class="sg-chart sg-chart--map" id="{{ mapId }}" aria-labelledby="{{ mapId }}-title">
   <figcaption>
-    <h2 class="sg-chart-title" id="{{ mapId }}-title">City sites by {{ topicName }} grade</h2>
+    {% set mh = mapHeadingLevel if mapHeadingLevel else 2 %}<h{{ mh }} class="sg-chart-title" id="{{ mapId }}-title">City sites by {{ topicName }} grade</h{{ mh }}>
     <p class="sg-chart-sub" id="{{ mapId }}-sub">One dot per city site, colored by its {{ topicName }} grade. Select a dot to open that site's report. The table lists every site.</p>
   </figcaption>
   <svg class="sg-map sg-map--dots" viewBox="{{ cityMap.viewBox }}" role="img" aria-labelledby="{{ mapId }}-title {{ mapId }}-sub" focusable="false">

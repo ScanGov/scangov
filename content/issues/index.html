@@ -2,14 +2,48 @@
 layout: layouts/page
 permalink: /issues/
 title: Websites by issue
-description: Every site in a group that fails one check, with a map, the share in each state, and the full list.
+description: The share of sites in each group that fail one check, with a page for every check and group listing every failing site.
 showLastUpdated: true
 keywords: websites, issues, failing checks
 ---
-<p>Each page takes one check, or one feature made of a few related checks, from <a href="https://standards.scangov.org/">standards.scangov.org</a> and one group of sites, and lists every fully scanned site in that group that fails it. The <a href="/rankings/">rankings</a> show how sites score overall; these pages show who has one specific problem.</p>
-<ul class="sg-failures">
-  {% for ip in issuePages %}{% if not ip.unlisted %}
-  <li><a href="{{ ip.url }}">{{ ip.title }}</a>. {{ ip.failCount | numberFormat }} of {{ ip.testedCount | numberFormat }} fully scanned {{ ip.group.noun }} ({{ (ip.share * 100) | round }}%) {{ ip.issue.failPhrase }}. {{ ip.check.description }}</li>
-  {% endif %}{% endfor %}
-</ul>
-<p class="small text-muted">More checks and groups will be added over time.</p>
+{#
+  One row per issue, one column per group (the homepage groups), each cell the
+  share of fully scanned sites in that group failing the check, linking to the
+  page that lists them. Rows and cells both come from issuePages, so the table
+  cannot disagree with the pages. A group an issue has no page for shows a dash.
+#}
+<p>Each page takes one check, or one feature made of a few related checks, from <a href="https://standards.scangov.org/">standards.scangov.org</a> and one group of sites, and lists every fully scanned site in that group that fails it. The <a href="/rankings/">rankings</a> show how sites score overall; these pages show who has one specific problem. Pick a cell for the list.</p>
+{% set groupOrder = ["all", "cities", "counties", "states", "federal", "edu"] %}
+{% set groupLabels = { all: "All", cities: "Cities", counties: "Counties", states: "States", federal: "Federal", edu: "Education" } %}
+{% set rows = [] %}
+{% set seen = [] %}
+{% for ip in issuePages %}{% if not ip.unlisted and ip.issue.slug not in seen %}{% set seen = (seen.push(ip.issue.slug), seen) %}{% set rows = (rows.push(ip), rows) %}{% endif %}{% endfor %}
+<div class="table-responsive">
+  <table class="table table-sm align-top">
+    <caption class="visually-hidden">Share of fully scanned sites failing each check, by group</caption>
+    <thead>
+      <tr>
+        <th scope="col">Issue</th>
+        {% for gk in groupOrder %}<th scope="col" class="text-center">{{ groupLabels[gk] }}</th>{% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        <th scope="row" class="fw-semibold">{{ row.issue.label }}<br><span class="small text-muted fw-normal">{{ row.check.description }}</span></th>
+        {% for gk in groupOrder %}
+        {% set found = [] %}
+        {% for ip in issuePages %}{% if ip.issue.slug == row.issue.slug and ip.group.key == gk %}{% set found = (found.push(ip), found) %}{% endif %}{% endfor %}
+        {% set cell = found[0] %}
+        {% if cell %}
+        <td class="text-center text-nowrap"><a href="{{ cell.url }}" title="{{ cell.title }}">{{ (cell.share * 100) | round }}%</a><br><span class="small text-muted">{{ cell.failCount | numberFormat }} of {{ cell.testedCount | numberFormat }}</span></td>
+        {% else %}
+        <td class="text-center text-muted" aria-label="No page for this group">&ndash;</td>
+        {% endif %}
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<p class="small text-muted">Shares are failing sites divided by fully scanned sites that were tested for the check. More checks will be added over time.</p>

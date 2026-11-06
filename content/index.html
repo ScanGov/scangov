@@ -63,7 +63,7 @@ keywords: domains, websites
     {% set all = siteSummary %}
     <div class="border-top pt-4 mt-4">
       <h2 class="mb-3">Domains</h2>
-      <p>How scanned domains break down by type and overall grade. See <a href="/pulse/">Pulse</a> for more.</p>
+      <p>How scanned domains break down by type and overall grade. See <a href="/pulse/" id="homepage-pulse-link">Pulse</a> for more.</p>
       {% chart all.charts.grades.overall %}
       {% chart pulseCharts.groupsGrades.overall %}
     </div>
@@ -150,6 +150,8 @@ keywords: domains, websites
           hubLink.href = '/rankings/' + categoryPath;
           hubLink.textContent = hubLabels[category] || hubLabels.all;
         }
+        var pulseLink = document.getElementById('homepage-pulse-link');
+        if (pulseLink) pulseLink.href = '/pulse/' + categoryPath;
       });
     });
   });

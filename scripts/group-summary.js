@@ -114,6 +114,7 @@ export function summarize(scored, attrIndex) {
 // is not a group) drops that slot: "How overall scores are distributed",
 // "All sites by overall grade", "Most common usability failures".
 const numberFormat = new Intl.NumberFormat('en-US');
+const capitalize = s => s.charAt(0).toUpperCase() + s.slice(1);
 
 export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, groupText, failuresHeadingLevel = 2 }) {
     const respondingText = `${numberFormat.format(summary.scoredCount)} ${groupText}`;
@@ -130,7 +131,7 @@ export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, 
         });
         charts.grades[topic] = gradeDistributionSpec({
             id: `${idBase}-grades-${topic}`,
-            title: groupTitle ? `${groupTitle} sites by ${label} grade` : `All sites by ${label} grade`,
+            title: groupTitle ? capitalize(`${groupTitle} sites by ${label} grade`) : `All sites by ${label} grade`,
             subtitle: `Share of the ${respondingText} in each grade band`,
             groups: [{ key: idBase, label: `All ${groupText.replace(/^fully scanned /, '')}`, distribution: summary.gradeDistribution[topic], total: summary.scoredCount }],
         });
