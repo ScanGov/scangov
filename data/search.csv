@@ -1,82 +1,7 @@
 domain,agency,score,status
-ziebachcounty.org,"Ziebach County, SD",80,200
-hardincountyohio.gov,"Hardin County, OH",77,200
-mitchellcounty.iowa.gov,"Mitchell County, IA",81,200
-archuletacounty.gov,"Archuleta County, CO",89,200
-mercercountyoh.gov,"Mercer County, OH",82,200
-cartercountymt.gov,"Carter County, MT",79,200
-logancountynd.com,"Logan County, ND",78,200
-volusia.org,"Volusia County, FL",76,200
-millardcounty.gov,"Millard County, UT",79,200
-knoxcountyil.gov,"Knox County, IL",72,200
-county.pueblo.org,"Pueblo County, CO",67,200
-custercountyidaho.org,"Custer County, ID",83,200
-cumberlandcounty.virginia.gov,"Cumberland County, VA",77,200
-alcorncounty.org,"Alcorn County, MS",84,200
-eatoncounty.org,"Eaton County, MI",74,200
-upsoncountyga.org,"Upson County, GA",75,200
-co.jefferson.wa.us,"Jefferson County, WA",73,200
-gloucestercountynj.gov,"Gloucester County, NJ",77,200
-washingtoncountyky.com,"Washington County, KY",56,200
-madisonparish.org,"Madison Parish, LA",,995
-morgancountytn.gov,"Morgan County, TN",87,200
-waynecounty.ms,"Wayne County, MS",83,200
-lehighcounty.org,"Lehigh County, PA",75,200
-pottcounty-ia.gov,"Pottawattamie County, IA",81,200
-bonnevillecountyidaho.gov,"Bonneville County, ID",72,200
-crawfordcountyar.gov,"Crawford County, AR",69,200
-columbiacountyor.gov,"Columbia County, OR",68,200
-hocomn.gov,"Houston County, MN",79,200
-taylorcounty.iowa.gov,"Taylor County, IA",85,200
-leflorecounty.ms,"Leflore County, MS",77,200
-uww.edu,"University of Wisconsin-Whitewater",75,200
-smithsonianmag.com,"Smithsonian Institution",79,200
-martin.fl.us,"Martin County, FL",77,200
-unioncountytn.gov,"Union County, TN",86,200
-eddycountynm.gov,"Eddy County, NM",71,200
-lanecountyor.gov,"Lane County, OR",77,200
-vercounty.org,"Vermilion County, IL",74,200
-bakercountyor.gov,"Baker County, OR",66,200
-gallatinco.illinois.gov,"Gallatin County, IL",82,200
-cambriacountypa.gov,"Cambria County, PA",85,200
-neiu.edu,"Northeastern Illinois University",75,200
-purdueglobal.edu,"Purdue University Global",86,200
-rowancountync.gov,"Rowan County, NC",74,200
-audraincounty.org,"Audrain County, MO",85,200
-yamhillcounty.gov,"Yamhill County, OR",76,200
-fhsu.edu,"Fort Hays State University",83,200
-brooklyn.edu,"CUNY Brooklyn College",90,200
-stlcc.edu,"Saint Louis Community College",86,200
-utah.edu,"University of Utah",80,200
-fsu.edu,"Florida State University",88,200
-gunnisoncounty.org,"Gunnison County, CO",75,200
-memphis.edu,"University of Memphis",80,200
-uwstout.edu,"University of Wisconsin-Stout",81,200
-utsouthwestern.edu,"University of Texas Southwestern Medical Center",91,200
-perrycountyohio.gov,"Perry County, OH",87,200
-pikecountyil.org,"Pike County, IL",69,200
-cavaliercounty.us,"Cavalier County, ND",76,200
-itawamba.gov,"Itawamba County, MS",83,200
-ottertailcounty.gov,"Otter Tail County, MN",90,200
-callawaycounty.org,"Callaway County, MO",75,200
-warrencountymo.org,"Warren County, MO",87,200
-webstercountymo.gov,"Webster County, MO",81,200
-aroostook.me.us,"Aroostook County, ME",66,200
-perrycounty.in.gov,"Perry County, IN",74,200
-linncomo.com,"Linn County, MO",88,200
-browncoil.org,"Brown County, IL",87,200
-pendoreille.gov,"Pend Oreille County, WA",83,200
-wtamu.edu,"West Texas A & M University",89,200
-uvu.edu,"Utah Valley University",79,200
-gqc-ga.org,"Quitman County, GA",69,200
-co.ocean.nj.us,"Ocean County, NJ",60,200
-malheurco.org,"Malheur County, OR",67,200
-cravencountync.gov,"Craven County, NC",74,200
-proudlyservingbook.com,"",98,200
 handbook.data.ca.gov,"",82,200
 celebrate.ca.gov,"",89,200
 stopfraud.ca.gov,"",92,200
-broadbandforall.cdt.ca.gov,"",86,200
 webstandards.ca.gov,"",87,200
 waterchallenge.data.ca.gov,"",82,200
 saferatwork.labor.ca.gov,"",82,200
@@ -206,7 +131,6 @@ leaguecitytx.gov,"City of League City, TX",76,200
 dallascityhall.com,"City of Dallas, TX",81,200
 antiochca.gov,"City of Antioch, CA",75,200
 greenbaywi.gov,"City of Green Bay, WI",78,200
-georgia.gov,"State of Georgia",88,200
 nifc.gov,"Department of the Interior",84,200
 challenge.gov,"General Services Administration",84,200
 mepsdocs.org,"Department of Health and Human Services",71,200
@@ -3349,7 +3273,6 @@ marengocountyal.com,"Marengo County, AL",74,200
 walkercountyal.us,"Walker County, AL",80,200
 clarkecountyal.com,"Clarke County, AL",71,200
 limestonecounty-al.gov,"Limestone County, AL",87,200
-ca.gov,"State of California",98,200
 rutherfordcountytn.gov,"Rutherford County, TN",88,200
 dunncountynd.gov,"Dunn County, ND",80,200
 chowancounty-nc.gov,"Chowan County, NC",88,200
@@ -3472,7 +3395,6 @@ lbjlibrary.org,"National Archives and Records Administration",78,200
 oshrc.gov,"Occupational Safety and Health Review Commission",93,200
 quantum.gov,"Executive Office of the President",84,200
 vaoig.gov,"Department of Veterans Affairs",74,200
-ct.gov,"State of Connecticut",91,200
 plano.gov,"City of Plano, TX",77,200
 yonkersny.gov,"City of Yonkers, NY",75,200
 uscgaux.info,"U.S. Coast Guard Auxiliary",60,200
@@ -3526,7 +3448,6 @@ lander.edu,"Lander University",97,200
 findtreatment.gov,"Department of Health and Human Services",79,200
 harlanonline.net,"Harlan County, KY",47,200
 lincolncountyok.org,"Lincoln County, OK",77,200
-portal.ct.gov,"State of Connecticut",91,200
 knoxcountyne.gov,"Knox County, NE",84,200
 sou.edu,"Southern Oregon University",93,200
 stearnscountymn.gov,"Stearns County, MN",76,200
@@ -4149,8 +4070,97 @@ cfcmaine.org,"Combined Federal Campaign",89,200
 dashboard.waterdata.usgs.gov,"United States Geological Survey",67,200
 cityofwarren.org,"City of Warren, MI",84,200
 assessor.lacounty.gov,"",,995
-sandiegocounty.gov,"County of San Diego, CA",,999
-countyofcolusaca.gov,"Colusa County, CA",,996
+hardincountyohio.gov,"Hardin County, OH",77,200
+ziebachcounty.org,"Ziebach County, SD",80,200
+mitchellcounty.iowa.gov,"Mitchell County, IA",82,200
+archuletacounty.gov,"Archuleta County, CO",87,200
+mercercountyoh.gov,"Mercer County, OH",82,200
+cartercountymt.gov,"Carter County, MT",80,200
+logancountynd.com,"Logan County, ND",78,200
+volusia.org,"Volusia County, FL",79,200
+millardcounty.gov,"Millard County, UT",75,200
+knoxcountyil.gov,"Knox County, IL",75,200
+alcorncounty.org,"Alcorn County, MS",84,200
+custercountyidaho.org,"Custer County, ID",83,200
+county.pueblo.org,"Pueblo County, CO",69,200
+cumberlandcounty.virginia.gov,"Cumberland County, VA",77,200
+eatoncounty.org,"Eaton County, MI",74,200
+co.jefferson.wa.us,"Jefferson County, WA",72,200
+upsoncountyga.org,"Upson County, GA",76,200
+gloucestercountynj.gov,"Gloucester County, NJ",77,200
+washingtoncountyky.com,"Washington County, KY",55,200
+madisonparish.org,"Madison Parish, LA",60,200
+morgancountytn.gov,"Morgan County, TN",87,200
+waynecounty.ms,"Wayne County, MS",62,200
+lehighcounty.org,"Lehigh County, PA",78,200
+pottcounty-ia.gov,"Pottawattamie County, IA",83,200
+bonnevillecountyidaho.gov,"Bonneville County, ID",75,200
+crawfordcountyar.gov,"Crawford County, AR",69,200
+columbiacountyor.gov,"Columbia County, OR",68,200
+hocomn.gov,"Houston County, MN",81,200
+taylorcounty.iowa.gov,"Taylor County, IA",88,200
+leflorecounty.ms,"Leflore County, MS",82,200
+smithsonianmag.com,"Smithsonian Institution",79,200
+uww.edu,"University of Wisconsin-Whitewater",75,200
+martin.fl.us,"Martin County, FL",80,200
+unioncountytn.gov,"Union County, TN",86,200
+eddycountynm.gov,"Eddy County, NM",72,200
+lanecountyor.gov,"Lane County, OR",79,200
+vercounty.org,"Vermilion County, IL",80,200
+bakercountyor.gov,"Baker County, OR",67,200
+gallatinco.illinois.gov,"Gallatin County, IL",89,200
+cambriacountypa.gov,"Cambria County, PA",87,200
+neiu.edu,"Northeastern Illinois University",78,200
+purdueglobal.edu,"Purdue University Global",85,200
+rowancountync.gov,"Rowan County, NC",75,200
+audraincounty.org,"Audrain County, MO",89,200
+yamhillcounty.gov,"Yamhill County, OR",74,200
+fhsu.edu,"Fort Hays State University",87,200
+brooklyn.edu,"CUNY Brooklyn College",90,200
+stlcc.edu,"Saint Louis Community College",86,200
+utah.edu,"University of Utah",79,200
+fsu.edu,"Florida State University",85,200
+memphis.edu,"University of Memphis",84,200
+gunnisoncounty.org,"Gunnison County, CO",,995
+uwstout.edu,"University of Wisconsin-Stout",86,200
+utsouthwestern.edu,"University of Texas Southwestern Medical Center",87,200
+perrycountyohio.gov,"Perry County, OH",90,200
+pikecountyil.org,"Pike County, IL",74,200
+cavaliercounty.us,"Cavalier County, ND",79,200
+itawamba.gov,"Itawamba County, MS",78,200
+ottertailcounty.gov,"Otter Tail County, MN",90,200
+callawaycounty.org,"Callaway County, MO",75,200
+warrencountymo.org,"Warren County, MO",89,200
+webstercountymo.gov,"Webster County, MO",80,200
+aroostook.me.us,"Aroostook County, ME",66,200
+perrycounty.in.gov,"Perry County, IN",80,200
+linncomo.com,"Linn County, MO",87,200
+browncoil.org,"Brown County, IL",90,200
+pendoreille.gov,"Pend Oreille County, WA",85,200
+wtamu.edu,"West Texas A & M University",92,200
+uvu.edu,"Utah Valley University",86,200
+gqc-ga.org,"Quitman County, GA",75,200
+co.ocean.nj.us,"Ocean County, NJ",57,200
+cravencountync.gov,"Craven County, NC",75,200
+co.ross.oh.us,"Ross County, OH",66,200
+countyofcolusaca.gov,"Colusa County, CA",72,200
+envision2026.cdt.ca.gov,"",88,200
+portal.ct.gov,"State of Connecticut",91,200
+georgia.gov,"State of Georgia",88,200
+medicine.okstate.edu,"Oklahoma State University Center for Health Sciences",88,200
+cmi.edu,"College of the Marshall Islands",79,200
+gallatinky.org,"Gallatin County, KY",,995
+countyofmora.com,"Mora County, NM",81,200
+ca.gov,"State of California",98,200
+uth.edu,"The University of Texas Health Science Center at Houston",84,200
+okstate.edu,"Oklahoma State University-Main Campus",91,200
+broadbandforall.cdt.ca.gov,"",88,200
+waterqualitydata.us,"Department of Interior",68,200
+proudlyservingbook.com,"",98,200
+sjcindiana.gov,"Saint Joseph County, IN",74,200
+morrisville.edu,"SUNY Morrisville",95,200
+shermancountyks.gov,"Sherman County, KS",86,200
+calstatela.edu,"California State University-Los Angeles",81,200
 salinecountyks.gov,"Saline County, KS",,996
 dvbic.org,"Department of Defense",,999
 quitmancountyms.org,"Quitman County, MS",,996
@@ -4188,8 +4198,6 @@ lima.osu.edu,"Ohio State University-Lima Campus",,996
 lamarcountyal.gov,"Lamar County, AL",,996
 mn.gov,"State of Minnesota",,996
 myskillsmyfuture.org,"Employment and Training Administration",,996
-vote.gov,"General Services Administration",,998
-waterqualitydata.us,"Department of Interior",,998
 neabigread.org,"National Endowment for the Arts",,998
 ashlandcountywi.gov,"Ashland County, WI",,998
 co.jackson.wi.us,"Jackson County, WI",,998
@@ -4230,7 +4238,6 @@ sthelenaparish.la.gov,"Saint Helena Parish, LA",,998
 accessesmeralda.com,"Esmeralda County, NV",,998
 bentcounty.net,"Bent County, CO",,998
 claycountytngov.com,"Clay County, TN",,998
-envision2026.cdt.ca.gov,"",,998
 co.marquette.mi.us,"Marquette County, MI",,998
 treasuryauctions.gov,"Department of the Treasury",,998
 taaps.gov,"Department of the Treasury",,998
@@ -4316,244 +4323,6 @@ co.marshall.in.us,"Marshall County, IN",,997
 co.walker.tx.us,"Walker County, TX",,997
 co.hendricks.in.us,"Hendricks County, IN",,997
 mitigationcommission.gov,"Department of the Interior",,997
-marionfl.org,"Marion County, FL",,403
-johnsonco.org,"Johnson County, GA",,996
-suttercounty.org,"Sutter County, CA",,403
-middlesexcountynj.gov,"Middlesex County, NJ",,403
-powellcountymt.gov,"Powell County, MT",,996
-countyofglenn.net,"Glenn County, CA",,996
-ioniacounty.org,"Ionia County, MI",,403
-bellevuecollege.edu,"Bellevue College",,996
-washingtoncountyks.gov,"Washington County, KS",,403
-co.lincoln.wi.us,"Lincoln County, WI",,996
-costillacounty.gov,"Costilla County, CO",,996
-okeechobeecountyfl.gov,"Okeechobee County, FL",,403
-stantoncountyks.com,"Stanton County, KS",,996
-sedgwickcounty.colorado.gov,"Sedgwick County, CO",,403
-bedfordcountyva.gov,"Bedford County, VA",,403
-saguachecounty.colorado.gov,"Saguache County, CO",,403
-hartcountyga.gov,"Hart County, GA",,403
-mercercounty.org,"Mercer County, NJ",,403
-montcoga.gov,"Montgomery County, GA",,996
-talbotcountyga.org,"Talbot County, GA",,996
-stcharlesparish.gov,"St. Charles Parish, LA",,403
-opsu.edu,"Oklahoma Panhandle State University",,403
-calcasieu.gov,"Calcasieu Parish, LA",,403
-skagway.org,"Skagway, AK",,996
-marathoncounty.gov,"Marathon County, WI",,403
-gadsdencountyfl.gov,"Gadsden County, FL",,403
-currycountynm.gov,"Curry County, NM",,403
-lincolncountyid.gov,"Lincoln County, ID",,996
-southmountaincc.edu,"South Mountain Community College",,996
-washingtoncountyar.gov,"Washington County, AR",,403
-laruecountyky.gov,"Larue County, KY",,996
-lasanimascounty.colorado.gov,"Las Animas County, CO",,403
-stlucieco.gov,"Saint Lucie County, FL",,403
-reevescounty.org,"Reeves County, TX",,403
-dolocnty.colorado.gov,"Dolores County, CO",,403
-maderacounty.com,"Madera County, CA",,403
-appj.org,"Acadia Parish, LA",,403
-elkhartcounty.com,"Elkhart County, IN",,996
-co.monroe.wi.us,"Monroe County, WI",,403
-clarkecounty.gov,"Clarke County, VA",,996
-forsythco.com,"Forsyth County, GA",,403
-logancounty.colorado.gov,"Logan County, CO",,403
-unioncountyky.org,"Union County, KY",,403
-medicine.okstate.edu,"Oklahoma State University Center for Health Sciences",,996
-darenc.gov,"Dare County, NC",,403
-gfcounty.nd.gov,"Grand Forks County, ND",,403
-pocahontascounty.iowa.gov,"Pocahontas County, IA",,403
-bryancountyga.gov,"Bryan County, GA",,403
-carrollcountyiowa.gov,"Carroll County, IA",,996
-chathamcountync.gov,"Chatham County, NC",,403
-boisecounty.us,"Boise County, ID",,996
-sheboygancounty.com,"Sheboygan County, WI",,403
-lavc.edu,"Los Angeles Valley College",,403
-mchenrycountyil.gov,"McHenry County, IL",,403
-graham.az.gov,"Graham County, AZ",,996
-gilpincounty.colorado.gov,"Gilpin County, CO",,403
-lincolncounty.colorado.gov,"Lincoln County, CO",,403
-sjcounty.net,"San Juan County, NM",,403
-catoosa.com,"Catoosa County, GA",,403
-cmi.edu,"College of the Marshall Islands",,996
-kendallcountyil.gov,"Kendall County, IL",,403
-brazoriacountytx.gov,"Brazoria County, TX",,403
-pinal.gov,"Pinal County, AZ",,996
-countyofmonterey.gov,"Monterey County, CA",,403
-casscountynd.gov,"Cass County, ND",,403
-web.culpepercounty.gov,"Culpeper County, VA",,996
-ncstatecollege.edu,"North Central State College",,403
-gallatinky.org,"Gallatin County, KY",,403
-jeffersoncountyar.gov,"Jefferson County, AR",,403
-countyofmora.com,"Mora County, NM",,996
-kiowacounty.colorado.gov,"Kiowa County, CO",,403
-fcva.us,"Frederick County, VA",,403
-hcnj.us,"Hudson County, NJ",,403
-lamission.edu,"Los Angeles Mission College",,403
-sanjuancounty.colorado.gov,"San Juan County, CO",,403
-carvercountymn.gov,"Carver County, MN",,403
-hinsdalecounty.colorado.gov,"Hinsdale County, CO",,403
-shastacounty.gov,"Shasta County, CA",,996
-crowleycounty.colorado.gov,"Crowley County, CO",,403
-mineralcountycolorado.com,"Mineral County, CO",,996
-allegancounty.org,"Allegan County, MI",,403
-emich.edu,"Eastern Michigan University",,996
-eurekacountynv.gov,"Eureka County, NV",,996
-conejoscounty.colorado.gov,"Conejos County, CO",,403
-oterocounty.colorado.gov,"Otero County, CO",,403
-morgancounty.colorado.gov,"Morgan County, CO",,403
-hardincountyia.gov,"Hardin County, IA",,996
-lafayettecountywi.org,"Lafayette County, WI",,996
-polkcountyiowa.gov,"Polk County, IA",,403
-atlantic-county.org,"Atlantic County, NJ",,403
-gccaz.edu,"Glendale Community College",,996
-uth.edu,"The University of Texas Health Science Center at Houston",,996
-countyofkingsca.gov,"Kings County, CA",,403
-whatcom.edu,"Whatcom Community College",,403
-passaiccountynj.org,"Passaic County, NJ",,403
-clintoncountypa.gov,"Clinton County, PA",,403
-co.augusta.va.us,"Augusta County, VA",,403
-sequatchiecountytn.gov,"Sequatchie County, TN",,403
-lincolnarkansas.com,"Lincoln County, AR",,996
-tjc.edu,"Tyler Junior College",,403
-fresnocitycollege.edu,"Fresno City College",,403
-grayco.org,"Gray County, KS",,996
-stevenscountywa.gov,"Stevens County, WA",,996
-douglascounty-ne.gov,"Douglas County, NE",,403
-washco.utah.gov,"Washington County, UT",,403
-moffatcounty.colorado.gov,"Moffat County, CO",,403
-charlescountymd.gov,"Charles County, MD",,403
-hancockcounty-il.gov,"Hancock County, IL",,403
-rsu.edu,"Rogers State University",,403
-hawaiicounty.gov,"Hawaiʻi County, HI",,403
-somersetcountynj.gov,"Somerset County, NJ",,403
-okstate.edu,"Oklahoma State University-Main Campus",,996
-kitcarsoncounty.colorado.gov,"Kit Carson County, CO",,403
-adamscountyil.gov,"Adams County, IL",,403
-bernco.gov,"Bernalillo County, NM",,403
-umdearborn.edu,"University of Michigan-Dearborn",,996
-mesacc.edu,"Mesa Community College",,996
-phillipscounty.colorado.gov,"Phillips County, CO",,403
-scottsdalecc.edu,"Scottsdale Community College",,996
-stewartcountyga.gov,"Stewart County, GA",,403
-nuecesco.com,"Nueces County, TX",,403
-perquimanscountync.gov,"Perquimans County, NC",,403
-cor.net,"City of Richardson, TX",,403
-studentaid.gov,"Department of Education",,994
-santaclaraca.gov,"City of Santa Clara, CA",,403
-newarkca.gov,"City of Newark, CA",,403
-michigan.gov,"State of Michigan",,403
-unioncountync.gov,"Union County, NC",,403
-stopbullying.gov,"Department of Health and Human Services",,403
-usmarshals.gov,"Department of Justice",,403
-nwbc.gov,"Small Business Administration",,994
-organdonor.gov,"Department of Health and Human Services",,403
-foodsafety.gov,"Department of Health and Human Services",,403
-hrsa.gov,"Department of Health and Human Services",,403
-salmonrecovery.gov,"Department of the Interior",,408
-waste.gov,"Executive Office of the President",,994
-lacity.gov,"City of Los Angeles, CA",,403
-chicago.gov,"City of Chicago, IL",,403
-notify.gov,"General Services Administration",,994
-cbo.gov,"Congressional Budget Office",,403
-oup.org,"Department of Housing and Urban Development",,403
-airdefenseartillery.com,"Department of Defense",,403
-kcmo.gov,"City of Kansas City, MO",,403
-cityofkaty.com,"City of Katy, TX",,403
-osac.gov,"Department of State",,403
-justthinktwice.gov,"Department of Justice",,403
-buckeyeaz.gov,"City of Buckeye, AZ",,403
-cgaux.org,"U.S. Coast Guard Auxiliary",,994
-info.benefitscal.com,"",,994
-fns.usda.gov,"",,403
-rd.usda.gov,"",,403
-joincalfire.com,"",,403
-travel.state.gov,"",,403
-makeitparadise.org,"",,996
-sdsheriff.gov,"",,403
-puc.colorado.gov,"Colorado Governor's Office of Information Technology",,403
-lovelafayette.org,"",,403
-cityofranchocordova.org,"City of Rancho Cordova",,403
-kerncounty.com,"Kern County, CA",,403
-mass.gov,"State of Massachusetts",,403
-ci.staunton.va.us,"Staunton, VA",,403
-lyoncountymn.gov,"Lyon County, MN",,403
-scgov.net,"Sarasota County, FL",,403
-fdlco.wi.gov,"Fond du Lac County, WI",,403
-fauquiercounty.gov,"Fauquier County, VA",,403
-tregocountyks.gov,"Trego County, KS",,996
-carsoncity.gov,"Carson City, NV",,403
-crispcounty.com,"Crisp County, GA",,408
-mcmo.us,"Montgomery County, MO",,408
-potomacstatecollege.edu,"Potomac State College of West Virginia University",,403
-glaciercountymt.gov,"Glacier County, MT",,996
-buttecountyid.us,"Butte County, ID",,996
-dickinsoncountyiowa.gov,"Dickinson County, IA",,996
-jacksoncounty.colorado.gov,"Jackson County, CO",,403
-govecountyks.gov,"Gove County, KS",,996
-paloaltocounty.iowa.gov,"Palo Alto County, IA",,996
-jeffersoncounty.iowa.gov,"Jefferson County, IA",,996
-alleganyco.gov,"Allegany County, NY",,996
-hancockcountymaine.gov,"Hancock County, ME",,996
-pikecountyar.org,"Pike County, AR",,996
-montgomerycounty.ky.gov,"Montgomery County, KY",,996
-hotspringcounty.org,"Hot Spring County, AR",,996
-winnparishpolicejury.com,"Winn Parish, LA",,996
-searcyco.org,"Searcy County, AR",,996
-grantcountyar.com,"Grant County, AR",,996
-edgefieldcounty.sc.gov,"Edgefield County, SC",,996
-madisoncountyky.gov,"Madison County, KY",,996
-somersetcounty-me.org,"Somerset County, ME",,996
-mcdowellcountycommission.com,"McDowell County, WV",,996
-williamsoncountyil.gov,"Williamson County, IL",,996
-unioncountyil.gov,"Union County, IL",,996
-jacksoncountyar.com,"Jackson County, AR",,996
-perrycountyil.gov,"Perry County, IL",,996
-raleighcounty.gov,"Raleigh County, WV",,996
-knottcountyky.gov,"Knott County, KY",,996
-piscataquis.us,"Piscataquis County, ME",,996
-miottawa.org,"Ottawa County, MI",,996
-cometocrawford.com,"Crawford County, IN",,996
-frcog.org,"Franklin County, MA",,996
-bradleycountytn.gov,"Bradley County, TN",,996
-mcclain-co-ok.us,"McClain County, OK",,996
-branchcounty.gov,"Branch County, MI",,996
-millercountyar.gov,"Miller County, AR",,996
-perrycountyky.gov,"Perry County, KY",,996
-majorcountyok.org,"Major County, OK",,996
-sumnercountytn.gov,"Sumner County, TN",,996
-scottcounty.com,"Scott County, TN",,996
-hempsteadcountyar.com,"Hempstead County, AR",,996
-mitchellcountync.gov,"Mitchell County, NC",,996
-virginiasmtnplayground.com,"Giles County, VA",,996
-plymouthcountyiowa.gov,"Plymouth County, IA",,996
-wcsu.edu,"Western Connecticut State University",,403
-sjcindiana.gov,"Saint Joseph County, IN",,996
-tmcc.edu,"Truckee Meadows Community College",,996
-atkinsoncounty.org,"Atkinson County, GA",,996
-ucsc.edu,"University of California-Santa Cruz",,996
-obriencounty.iowa.gov,"O'Brien County, IA",,996
-newbrunswick.rutgers.edu,"Rutgers University-New Brunswick",,996
-dekalbcounty.org,"DeKalb County, IL",,996
-csusm.edu,"California State University-San Marcos",,408
-nwosu.edu,"Northwestern Oklahoma State University",,403
-renocountyks.gov,"Reno County, KS",,996
-siouxcountyia.gov,"Sioux County, IA",,996
-cmpr.edu,"Puerto Rico Conservatory of Music",,996
-wvu.edu,"West Virginia University",,403
-capecounty.us,"Cape Girardeau County, MO",,996
-stephenscountyga.gov,"Stephens County, GA",,996
-morrisville.edu,"SUNY Morrisville",,996
-co.buchanan.mo.us,"Buchanan County, MO",,996
-shermancountyks.gov,"Sherman County, KS",,996
-garfieldcountywa.gov,"Garfield County, WA",,996
-wvutech.edu,"West Virginia University Institute of Technology",,403
-guernseycounty.org,"Guernsey County, OH",,996
-co.knox.oh.us,"Knox County, OH",,996
-chaffeecounty.org,"Chaffee County, CO",,996
-milivcounty.gov,"Livingston County, MI",,996
-calstatela.edu,"California State University-Los Angeles",,996
-bsu.edu,"Ball State University",,403
 clinchcountyga.gov,"Clinch County, GA",,996
 emmetcountyia.gov,"Emmet County, IA",,996
 cncc.edu,"Colorado Northwestern Community College",,996
@@ -4800,7 +4569,6 @@ uncg.edu,"University of North Carolina at Greensboro",,994
 treasurer.ca.gov,"State of California",,996
 dtsc.ca.gov,"State of California",,996
 sco.ca.gov,"State of California",,996
-publicworks.marincounty.gov,"",,996
 switzerland-county.com,"Switzerland County, IN",,403
 cfo.gov,"General Services Administration",,994
 cdo.gov,"General Services Administration",,994
@@ -4872,3 +4640,233 @@ gov.orangecounty59.us,"Orange County, IN",,994
 lanecountyks.org,"Lane County, KS",,994
 mcneese.edu,"McNeese State University",,996
 senate.gov,"United States Senate",,403
+marionfl.org,"Marion County, FL",,403
+johnsonco.org,"Johnson County, GA",,996
+suttercounty.org,"Sutter County, CA",,403
+middlesexcountynj.gov,"Middlesex County, NJ",,403
+powellcountymt.gov,"Powell County, MT",,996
+countyofglenn.net,"Glenn County, CA",,996
+ioniacounty.org,"Ionia County, MI",,999
+bellevuecollege.edu,"Bellevue College",,996
+washingtoncountyks.gov,"Washington County, KS",,403
+co.lincoln.wi.us,"Lincoln County, WI",,996
+costillacounty.gov,"Costilla County, CO",,996
+okeechobeecountyfl.gov,"Okeechobee County, FL",,403
+stantoncountyks.com,"Stanton County, KS",,996
+sedgwickcounty.colorado.gov,"Sedgwick County, CO",,403
+bedfordcountyva.gov,"Bedford County, VA",,403
+saguachecounty.colorado.gov,"Saguache County, CO",,403
+hartcountyga.gov,"Hart County, GA",,403
+mercercounty.org,"Mercer County, NJ",,403
+montcoga.gov,"Montgomery County, GA",,996
+talbotcountyga.org,"Talbot County, GA",,996
+stcharlesparish.gov,"St. Charles Parish, LA",,403
+opsu.edu,"Oklahoma Panhandle State University",,403
+calcasieu.gov,"Calcasieu Parish, LA",,403
+skagway.org,"Skagway, AK",,996
+marathoncounty.gov,"Marathon County, WI",,403
+gadsdencountyfl.gov,"Gadsden County, FL",,403
+currycountynm.gov,"Curry County, NM",,403
+lincolncountyid.gov,"Lincoln County, ID",,996
+southmountaincc.edu,"South Mountain Community College",,996
+laruecountyky.gov,"Larue County, KY",,996
+washingtoncountyar.gov,"Washington County, AR",,403
+lasanimascounty.colorado.gov,"Las Animas County, CO",,403
+stlucieco.gov,"Saint Lucie County, FL",,403
+reevescounty.org,"Reeves County, TX",,403
+dolocnty.colorado.gov,"Dolores County, CO",,403
+maderacounty.com,"Madera County, CA",,403
+elkhartcounty.com,"Elkhart County, IN",,996
+appj.org,"Acadia Parish, LA",,403
+co.monroe.wi.us,"Monroe County, WI",,403
+clarkecounty.gov,"Clarke County, VA",,996
+malheurco.org,"Malheur County, OR",,403
+sandiegocounty.gov,"County of San Diego, CA",,999
+citizentools.ai,"",,996
+forsythco.com,"Forsyth County, GA",,403
+logancounty.colorado.gov,"Logan County, CO",,403
+unioncountyky.org,"Union County, KY",,403
+darenc.gov,"Dare County, NC",,403
+gfcounty.nd.gov,"Grand Forks County, ND",,403
+pocahontascounty.iowa.gov,"Pocahontas County, IA",,403
+carrollcountyiowa.gov,"Carroll County, IA",,996
+bryancountyga.gov,"Bryan County, GA",,403
+boisecounty.us,"Boise County, ID",,996
+chathamcountync.gov,"Chatham County, NC",,403
+lavc.edu,"Los Angeles Valley College",,403
+sheboygancounty.com,"Sheboygan County, WI",,403
+mchenrycountyil.gov,"McHenry County, IL",,403
+graham.az.gov,"Graham County, AZ",,996
+gilpincounty.colorado.gov,"Gilpin County, CO",,403
+lincolncounty.colorado.gov,"Lincoln County, CO",,403
+sjcounty.net,"San Juan County, NM",,403
+catoosa.com,"Catoosa County, GA",,403
+brazoriacountytx.gov,"Brazoria County, TX",,403
+kendallcountyil.gov,"Kendall County, IL",,403
+countyofmonterey.gov,"Monterey County, CA",,403
+pinal.gov,"Pinal County, AZ",,996
+casscountynd.gov,"Cass County, ND",,403
+web.culpepercounty.gov,"Culpeper County, VA",,996
+ncstatecollege.edu,"North Central State College",,403
+jeffersoncountyar.gov,"Jefferson County, AR",,403
+kiowacounty.colorado.gov,"Kiowa County, CO",,403
+fcva.us,"Frederick County, VA",,403
+hcnj.us,"Hudson County, NJ",,403
+lamission.edu,"Los Angeles Mission College",,403
+carvercountymn.gov,"Carver County, MN",,403
+sanjuancounty.colorado.gov,"San Juan County, CO",,403
+hinsdalecounty.colorado.gov,"Hinsdale County, CO",,403
+shastacounty.gov,"Shasta County, CA",,996
+crowleycounty.colorado.gov,"Crowley County, CO",,403
+mineralcountycolorado.com,"Mineral County, CO",,996
+allegancounty.org,"Allegan County, MI",,403
+eurekacountynv.gov,"Eureka County, NV",,996
+emich.edu,"Eastern Michigan University",,996
+conejoscounty.colorado.gov,"Conejos County, CO",,403
+oterocounty.colorado.gov,"Otero County, CO",,403
+morgancounty.colorado.gov,"Morgan County, CO",,403
+hardincountyia.gov,"Hardin County, IA",,996
+lafayettecountywi.org,"Lafayette County, WI",,996
+polkcountyiowa.gov,"Polk County, IA",,403
+atlantic-county.org,"Atlantic County, NJ",,403
+gccaz.edu,"Glendale Community College",,996
+countyofkingsca.gov,"Kings County, CA",,403
+whatcom.edu,"Whatcom Community College",,403
+passaiccountynj.org,"Passaic County, NJ",,403
+clintoncountypa.gov,"Clinton County, PA",,403
+co.augusta.va.us,"Augusta County, VA",,403
+sequatchiecountytn.gov,"Sequatchie County, TN",,403
+tjc.edu,"Tyler Junior College",,403
+fresnocitycollege.edu,"Fresno City College",,403
+stevenscountywa.gov,"Stevens County, WA",,996
+grayco.org,"Gray County, KS",,996
+douglascounty-ne.gov,"Douglas County, NE",,403
+washco.utah.gov,"Washington County, UT",,403
+moffatcounty.colorado.gov,"Moffat County, CO",,403
+charlescountymd.gov,"Charles County, MD",,403
+hancockcounty-il.gov,"Hancock County, IL",,403
+rsu.edu,"Rogers State University",,403
+hawaiicounty.gov,"Hawaiʻi County, HI",,403
+somersetcountynj.gov,"Somerset County, NJ",,403
+kitcarsoncounty.colorado.gov,"Kit Carson County, CO",,403
+bernco.gov,"Bernalillo County, NM",,403
+adamscountyil.gov,"Adams County, IL",,403
+mesacc.edu,"Mesa Community College",,996
+umdearborn.edu,"University of Michigan-Dearborn",,996
+phillipscounty.colorado.gov,"Phillips County, CO",,403
+scottsdalecc.edu,"Scottsdale Community College",,996
+stewartcountyga.gov,"Stewart County, GA",,403
+cbo.gov,"Congressional Budget Office",,403
+oup.org,"Department of Housing and Urban Development",,999
+info.benefitscal.com,"",,994
+notify.gov,"General Services Administration",,994
+airdefenseartillery.com,"Department of Defense",,999
+fns.usda.gov,"",,403
+rd.usda.gov,"",,403
+kcmo.gov,"City of Kansas City, MO",,403
+cityofkaty.com,"City of Katy, TX",,403
+osac.gov,"Department of State",,403
+justthinktwice.gov,"Department of Justice",,403
+cgaux.org,"U.S. Coast Guard Auxiliary",,994
+organdonor.gov,"Department of Health and Human Services",,403
+buckeyeaz.gov,"City of Buckeye, AZ",,403
+hrsa.gov,"Department of Health and Human Services",,403
+lovelafayette.org,"",,403
+puc.colorado.gov,"Colorado Governor's Office of Information Technology",,403
+lacity.gov,"City of Los Angeles, CA",,999
+salmonrecovery.gov,"Department of the Interior",,408
+newarkca.gov,"City of Newark, CA",,403
+usmarshals.gov,"Department of Justice",,403
+joincalfire.com,"",,403
+chicago.gov,"City of Chicago, IL",,999
+travel.state.gov,"",,996
+waste.gov,"Executive Office of the President",,994
+vote.gov,"General Services Administration",,996
+stopbullying.gov,"Department of Health and Human Services",,403
+unioncountync.gov,"Union County, NC",,403
+foodsafety.gov,"Department of Health and Human Services",,403
+cityofranchocordova.org,"City of Rancho Cordova",,403
+sdsheriff.gov,"",,403
+cor.net,"City of Richardson, TX",,403
+studentaid.gov,"Department of Education",,999
+santaclaraca.gov,"City of Santa Clara, CA",,403
+makeitparadise.org,"",,999
+nuecesco.com,"Nueces County, TX",,403
+michigan.gov,"State of Michigan",,999
+perquimanscountync.gov,"Perquimans County, NC",,403
+alleganyco.gov,"Allegany County, NY",,999
+potomacstatecollege.edu,"Potomac State College of West Virginia University",,403
+glaciercountymt.gov,"Glacier County, MT",,999
+buttecountyid.us,"Butte County, ID",,999
+hancockcountymaine.gov,"Hancock County, ME",,999
+dickinsoncountyiowa.gov,"Dickinson County, IA",,994
+jacksoncounty.colorado.gov,"Jackson County, CO",,403
+pikecountyar.org,"Pike County, AR",,999
+montgomerycounty.ky.gov,"Montgomery County, KY",,999
+govecountyks.gov,"Gove County, KS",,994
+hotspringcounty.org,"Hot Spring County, AR",,999
+paloaltocounty.iowa.gov,"Palo Alto County, IA",,999
+jeffersoncounty.iowa.gov,"Jefferson County, IA",,999
+winnparishpolicejury.com,"Winn Parish, LA",,503
+ci.staunton.va.us,"Staunton, VA",,403
+searcyco.org,"Searcy County, AR",,994
+crispcounty.com,"Crisp County, GA",,408
+grantcountyar.com,"Grant County, AR",,994
+edgefieldcounty.sc.gov,"Edgefield County, SC",,999
+kerncounty.com,"Kern County, CA",,403
+madisoncountyky.gov,"Madison County, KY",,999
+mcmo.us,"Montgomery County, MO",,994
+somersetcounty-me.org,"Somerset County, ME",,999
+raleighcounty.gov,"Raleigh County, WV",,999
+mcdowellcountycommission.com,"McDowell County, WV",,999
+lyoncountymn.gov,"Lyon County, MN",,403
+scgov.net,"Sarasota County, FL",,403
+fdlco.wi.gov,"Fond du Lac County, WI",,403
+williamsoncountyil.gov,"Williamson County, IL",,999
+unioncountyil.gov,"Union County, IL",,996
+jacksoncountyar.com,"Jackson County, AR",,999
+perrycountyil.gov,"Perry County, IL",,999
+knottcountyky.gov,"Knott County, KY",,994
+piscataquis.us,"Piscataquis County, ME",,999
+cometocrawford.com,"Crawford County, IN",,999
+fauquiercounty.gov,"Fauquier County, VA",,403
+miottawa.org,"Ottawa County, MI",,999
+mass.gov,"State of Massachusetts",,999
+tregocountyks.gov,"Trego County, KS",,994
+carsoncity.gov,"Carson City, NV",,403
+virginiasmtnplayground.com,"Giles County, VA",,999
+plymouthcountyiowa.gov,"Plymouth County, IA",,999
+wcsu.edu,"Western Connecticut State University",,403
+tmcc.edu,"Truckee Meadows Community College",,996
+atkinsoncounty.org,"Atkinson County, GA",,999
+ucsc.edu,"University of California-Santa Cruz",,996
+obriencounty.iowa.gov,"O'Brien County, IA",,999
+newbrunswick.rutgers.edu,"Rutgers University-New Brunswick",,996
+dekalbcounty.org,"DeKalb County, IL",,999
+csusm.edu,"California State University-San Marcos",,408
+nwosu.edu,"Northwestern Oklahoma State University",,403
+renocountyks.gov,"Reno County, KS",,996
+siouxcountyia.gov,"Sioux County, IA",,994
+cmpr.edu,"Puerto Rico Conservatory of Music",,999
+wvu.edu,"West Virginia University",,403
+capecounty.us,"Cape Girardeau County, MO",,999
+stephenscountyga.gov,"Stephens County, GA",,999
+co.buchanan.mo.us,"Buchanan County, MO",,996
+garfieldcountywa.gov,"Garfield County, WA",,996
+wvutech.edu,"West Virginia University Institute of Technology",,403
+guernseycounty.org,"Guernsey County, OH",,999
+co.knox.oh.us,"Knox County, OH",,994
+chaffeecounty.org,"Chaffee County, CO",,996
+milivcounty.gov,"Livingston County, MI",,999
+bsu.edu,"Ball State University",,999
+frcog.org,"Franklin County, MA",,999
+bradleycountytn.gov,"Bradley County, TN",,999
+mitchellcountync.gov,"Mitchell County, NC",,996
+branchcounty.gov,"Branch County, MI",,999
+mcclain-co-ok.us,"McClain County, OK",,999
+millercountyar.gov,"Miller County, AR",,994
+perrycountyky.gov,"Perry County, KY",,999
+sumnercountytn.gov,"Sumner County, TN",,999
+majorcountyok.org,"Major County, OK",,994
+hempsteadcountyar.com,"Hempstead County, AR",,999
+scottcounty.com,"Scott County, TN",,999
