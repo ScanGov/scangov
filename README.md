@@ -18,6 +18,8 @@ The fetch script pulls from the auditor API, filters incomplete records, validat
 
 If `SCANGOV_HASH_SECRET` is not set, the build skips the fetch and uses the committed data file.
 
+The higher education cohort is defined by `_data/edu_institutions.csv` (plus any `.edu` urlkey), a copy of the auditor repo's `scripts/data/edu_institutions.csv`. That file also carries each institution's IPEDS metadata (state, control, type, system, metro, lists, NCAA conference), which drives the education hub and the per-state, system, metro, list and conference pages under `/rankings/edu/`. Rebuild it in the auditor repo (`node scripts/build-edu-institutions.mjs`) and copy it here after the list changes. The dev server and sample builds truncate the domain list; set `SERVE_EDU_STATES=TX,CA` (like `SERVE_STATES` for counties) to keep every education site in those states so the education pages render with real data.
+
 ### Build triggers
 
 - **Push to main:** The `deploy-to-ghpages` workflow builds and deploys on every push to main.

@@ -21,7 +21,7 @@ import { isCounty, stateCodeOf, isResponding, scoreOf, isPartial, rankDense, gra
 import { topicKeysFrom, allTopicKeysFrom } from './topics.js';
 import { slugify } from './charts/format.js';
 import { issueHrefFor } from './issues.js';
-import { joinCounties } from './county-geo.js';
+import { joinCounties, boundaryName } from './county-geo.js';
 import { gradeDistributionSpec, topicAveragesSpec, topFailuresSpec, histogramSpec, areaSpec } from './charts/specs.js';
 import {
     isScored, attributeIndex, topicLabel, summarize, scanWindow, buildGroupCharts, failuresSubtitle, linkFailuresToIssues,
@@ -135,7 +135,7 @@ function buildMap(code, records, geo, ALL_TOPICS) {
     for (const [key, d] of joined.byFips) byFips.set(key.slice(code.length + 1), d);
     const counties = Object.entries(stateGeo.counties).map(([fips, c]) => {
         const d = byFips.get(fips);
-        if (!d) return { fips, d: c.d, name: c.name || null };
+        if (!d) return { fips, d: c.d, name: boundaryName(fips, c) };
         const responding = isResponding(d);
         const partial = responding && isPartial(d);
         const scores = {};
@@ -215,7 +215,7 @@ export function buildCountyStates(domains, stateNames, audits = {}, geo = null) 
         });
     }
     const unjoined = states.reduce((n, s) => n + (s.map ? s.map.unjoinedCount : 0), 0);
-    if (geo && unjoined) console.warn(`county-states: ${unjoined} scanned counties have no map geometry (rerun county-viz/build/export_county_geo.py if the county list changed)`);
+    if (geo && unjoined) console.warn(`county-states: ${unjoined} scanned counties have no map geometry (no boundary matched by domain or name; see scripts/county-geo.js)`);
     states.sort((a, b) => a.name.localeCompare(b.name));
 
     // Rank states against each other on each average; states with no

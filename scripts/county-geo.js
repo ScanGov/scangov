@@ -7,9 +7,20 @@
 // whose domain changed since. A boundary takes the first site that matches
 // it; later matches count as unjoined.
 //
+// Boundary names: countyGeo.json carries a name only for counties that were
+// on the list when county-viz exported it (Sept 2026), so a county added
+// since would never join by name. _data/countyNames.json (Census 2020
+// national county codes, FIPS to name, every county and equivalent) fills
+// the gap, so the list can grow without re-exporting the geometry.
+//
 // Pure functions: nothing here reads files or mutates its input.
 
 import { domainKey, stateCodeOf } from './counties.js';
+import countyNames from '../_data/countyNames.json' with { type: 'json' };
+
+export function boundaryName(fips, boundary) {
+    return (boundary && boundary.name) || countyNames[fips] || null;
+}
 
 export function normalizeCountyName(name) {
     return String(name || '').toLowerCase().replace(/\bsaint\b/g, 'st').replace(/[^a-z0-9]+/g, ' ').trim();
@@ -19,7 +30,8 @@ export function normalizeCountyName(name) {
 export function nameIndexFor(stateGeo) {
     const byName = new Map();
     for (const [fips, c] of Object.entries(stateGeo.counties)) {
-        if (c.name) byName.set(normalizeCountyName(c.name), fips);
+        const name = boundaryName(fips, c);
+        if (name) byName.set(normalizeCountyName(name), fips);
     }
     return byName;
 }

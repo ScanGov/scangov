@@ -17,6 +17,7 @@
 // exports, which breaks pagination over that data.
 
 import * as fs from 'fs';
+import { getData } from './getdata.js';
 
 export const AUDITS_URL = 'https://github.com/ScanGov/data/raw/refs/heads/main/standards/audits.json';
 const AUDITS_LOCAL = '../data/standards/audits.json';
@@ -38,13 +39,11 @@ export async function loadAudits() {
             console.log(`load-audits: read ${local}`);
             return cached;
         }
-        const resp = await fetch(AUDITS_URL);
-        if (resp.ok) {
-            cached = await resp.json();
-            console.log(`load-audits: got ${AUDITS_URL}`);
-            return cached;
-        }
-        console.warn(`load-audits: audits.json fetch returned ${resp.status}`);
+        // getData retries a dropped connection; one failed fetch on a runner
+        // should not build a site with no topics.
+        cached = await getData(AUDITS_URL);
+        console.log(`load-audits: got ${AUDITS_URL}`);
+        return cached;
     } catch (e) {
         console.warn(`load-audits: audits.json unavailable (${e.message})`);
     }
