@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://scangov.org/org/</loc>
-    <lastmod>2026-11-05T18:34:26.954Z</lastmod>
-  </url>
-  <url>
     <loc>https://scangov.org/org/smithsonian-institution/</loc>
     <lastmod>2026-11-02T07:39:38.599Z</lastmod>
   </url>
@@ -250,7 +246,7 @@
   </url>
   <url>
     <loc>https://scangov.org/org/state-of-california/</loc>
-    <lastmod>2026-11-03T16:41:37.458Z</lastmod>
+    <lastmod>2026-11-08T10:36:40.634Z</lastmod>
   </url>
   <url>
     <loc>https://scangov.org/org/state-of-delaware/</loc>
@@ -286,7 +282,7 @@
   </url>
   <url>
     <loc>https://scangov.org/org/lincoln-university/</loc>
-    <lastmod>2026-10-28T18:16:52.154Z</lastmod>
+    <lastmod>2026-11-08T05:55:09.944Z</lastmod>
   </url>
   <url>
     <loc>https://scangov.org/org/united-states-postal-service/</loc>
@@ -353,6 +349,62 @@
     <lastmod>2026-11-02T07:38:29.763Z</lastmod>
   </url>
   <url>
+    <loc>https://scangov.org/org/highland-community-college/</loc>
+    <lastmod>2026-11-08T00:19:44.658Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/westminster-college/</loc>
+    <lastmod>2026-11-08T00:10:44.701Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/bethel-university/</loc>
+    <lastmod>2026-11-08T12:28:01.461Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/bethany-college/</loc>
+    <lastmod>2026-11-08T09:23:20.118Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/southwestern-community-college/</loc>
+    <lastmod>2026-11-08T11:24:21.497Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/sterling-college/</loc>
+    <lastmod>2026-11-08T03:57:40.336Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/university-of-st-thomas/</loc>
+    <lastmod>2026-11-08T02:51:48.269Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/columbia-college/</loc>
+    <lastmod>2026-11-08T07:45:39.900Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/southeastern-community-college/</loc>
+    <lastmod>2026-11-08T07:09:49.264Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/glendale-community-college/</loc>
+    <lastmod>2026-11-08T01:55:54.050Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/marian-university/</loc>
+    <lastmod>2026-11-08T06:14:23.609Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/southwestern-college/</loc>
+    <lastmod>2026-11-08T09:27:24.235Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/anderson-university/</loc>
+    <lastmod>2026-11-08T06:25:40.347Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/blue-ridge-community-college/</loc>
+    <lastmod>2026-11-08T12:20:33.928Z</lastmod>
+  </url>
+  <url>
     <loc>https://scangov.org/org/national-endowment-for-the-arts/</loc>
     <lastmod>2026-10-29T12:12:24.253Z</lastmod>
   </url>
@@ -383,10 +435,6 @@
   <url>
     <loc>https://scangov.org/org/united-states-senate/</loc>
     <lastmod>2026-11-01T18:18:58.342Z</lastmod>
-  </url>
-  <url>
-    <loc>https://scangov.org/org/pulse/</loc>
-    <lastmod>2026-11-05T18:34:26.954Z</lastmod>
   </url>
   <url>
     <loc>https://scangov.org/org/smithsonian-institution/pulse/</loc>
@@ -634,7 +682,7 @@
   </url>
   <url>
     <loc>https://scangov.org/org/state-of-california/pulse/</loc>
-    <lastmod>2026-11-03T16:41:37.458Z</lastmod>
+    <lastmod>2026-11-08T10:36:40.634Z</lastmod>
   </url>
   <url>
     <loc>https://scangov.org/org/state-of-delaware/pulse/</loc>
@@ -670,7 +718,7 @@
   </url>
   <url>
     <loc>https://scangov.org/org/lincoln-university/pulse/</loc>
-    <lastmod>2026-10-28T18:16:52.154Z</lastmod>
+    <lastmod>2026-11-08T05:55:09.944Z</lastmod>
   </url>
   <url>
     <loc>https://scangov.org/org/united-states-postal-service/pulse/</loc>
@@ -735,6 +783,62 @@
   <url>
     <loc>https://scangov.org/org/houston-county-mn/pulse/</loc>
     <lastmod>2026-11-02T07:38:29.763Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/highland-community-college/pulse/</loc>
+    <lastmod>2026-11-08T00:19:44.658Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/westminster-college/pulse/</loc>
+    <lastmod>2026-11-08T00:10:44.701Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/bethel-university/pulse/</loc>
+    <lastmod>2026-11-08T12:28:01.461Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/bethany-college/pulse/</loc>
+    <lastmod>2026-11-08T09:23:20.118Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/southwestern-community-college/pulse/</loc>
+    <lastmod>2026-11-08T11:24:21.497Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/sterling-college/pulse/</loc>
+    <lastmod>2026-11-08T03:57:40.336Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/university-of-st-thomas/pulse/</loc>
+    <lastmod>2026-11-08T02:51:48.269Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/columbia-college/pulse/</loc>
+    <lastmod>2026-11-08T07:45:39.900Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/southeastern-community-college/pulse/</loc>
+    <lastmod>2026-11-08T07:09:49.264Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/glendale-community-college/pulse/</loc>
+    <lastmod>2026-11-08T01:55:54.050Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/marian-university/pulse/</loc>
+    <lastmod>2026-11-08T06:14:23.609Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/southwestern-college/pulse/</loc>
+    <lastmod>2026-11-08T09:27:24.235Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/anderson-university/pulse/</loc>
+    <lastmod>2026-11-08T06:25:40.347Z</lastmod>
+  </url>
+  <url>
+    <loc>https://scangov.org/org/blue-ridge-community-college/pulse/</loc>
+    <lastmod>2026-11-08T12:20:33.928Z</lastmod>
   </url>
   <url>
     <loc>https://scangov.org/org/national-endowment-for-the-arts/pulse/</loc>
