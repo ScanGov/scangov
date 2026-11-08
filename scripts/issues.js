@@ -361,6 +361,36 @@ export function issueCheckKeys(issue) {
     return issue.checks || [issue.check];
 }
 
+// Link from a failing check to the issue page that lists the sites failing
+// it, for the "most common failures" charts and lists on the homepage, Pulse,
+// the hubs and the county state pages. issueHrefFor(groupKey, stateSlug)
+// returns (topic, checkKey) => url or null: null when no listed issue covers
+// that check, or the issue has no page for that group (ISSUES[].groups), so
+// the caller falls back to the standard. A state slug adds the anchor of
+// that state's row in the issue page's by-state table (issue.html).
+let linkIndex = null;
+function issueLinkIndex() {
+    if (linkIndex) return linkIndex;
+    const allGroups = buildGroups({ cities: new Set(), states: new Set(), edu: new Set() }).map(g => g.key);
+    linkIndex = new Map();
+    for (const issue of ISSUES) {
+        if (issue.unlisted) continue;
+        const groupKeys = new Set(issue.groups || allGroups);
+        for (const key of issueCheckKeys(issue)) {
+            linkIndex.set(`${issue.topic}:${key}`, { slug: issue.slug, groupKeys });
+        }
+    }
+    return linkIndex;
+}
+
+export function issueHrefFor(groupKey, stateSlug = null) {
+    return (topic, checkKey) => {
+        const hit = issueLinkIndex().get(`${topic}:${checkKey}`);
+        if (!hit || !hit.groupKeys.has(groupKey)) return null;
+        return `/issues/${hit.slug}/${groupKey}/${stateSlug ? `#state-${stateSlug}` : ''}`;
+    };
+}
+
 // Copy for one check from audits.json, with formatted-key fallbacks.
 function checkCopy(key, attrIndex, topicInfo) {
     const attr = attrIndex.get(key) || {};

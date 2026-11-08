@@ -31,6 +31,10 @@ export default () => {
         }
         return {
             name: org.name,
+            slug: slugify(org.name || ''),
+            // Only orgs with several sites get a page (_data/orgPages.js); a
+            // single-site org page would duplicate that site's profile.
+            multi: org.domains.length > 1,
             domains: org.domains.sort((a, b) => b.overallScore - a.overallScore),
             rankingsLinks: [...links.entries()].map(([url, label]) => ({ url, label })),
         };

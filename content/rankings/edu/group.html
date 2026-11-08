@@ -1,0 +1,22 @@
+---
+layout: layouts/default
+home: false
+showLastUpdated: true
+keywords: college websites, university websites, rankings
+groupContext: true
+pagination:
+  data: eduGroupPages
+  size: 1
+  alias: gp
+  addAllPagesToCollections: true
+permalink: "rankings/edu/{{ gp.group.path }}{% if gp.topic %}{{ gp.topic }}/{% endif %}"
+---
+
+{% set grp = gp.group %}
+{% set specificAttribute = gp.topic %}
+{% set currentsort = "edu" %}
+{% set showPagination = false %}
+{% set compactTable = true %}
+{% set siteCountOverride = grp.count %}
+
+{% include "edu-group.html" %}

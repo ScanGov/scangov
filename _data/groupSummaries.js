@@ -9,6 +9,7 @@ import { default as federalData } from './federal.js';
 import { default as eduData } from './edu.js';
 import { loadAudits } from '../scripts/load-audits.js';
 import { buildGroupSummary } from '../scripts/group-summary.js';
+import { issueHrefFor } from '../scripts/issues.js';
 
 const GROUPS = [
     { key: 'states', cardTitle: 'State', label: 'States', singular: 'state', hub: '/rankings/states/', data: stateData, groupTitle: 'U.S. state', groupText: 'fully scanned U.S. state sites' },
@@ -26,6 +27,6 @@ export default async function () {
         cardTitle: g.cardTitle,
         singular: g.singular,
         hub: g.hub,
-        ...buildGroupSummary(g.data(), audits, { idBase: `group-${g.key}`, groupTitle: g.groupTitle, groupText: g.groupText }),
+        ...buildGroupSummary(g.data(), audits, { idBase: `group-${g.key}`, groupTitle: g.groupTitle, groupText: g.groupText, issueHref: issueHrefFor(g.key) }),
     }));
 }

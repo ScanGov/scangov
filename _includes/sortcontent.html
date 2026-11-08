@@ -29,6 +29,11 @@
     {% endif %}{% endfor %}
   };
 
+  // Orgs with a page (more than one site, see _data/orgPages.js); other org
+  // names render as plain text, matching the server-rendered rows.
+  var ORG_PAGES = {};
+  {{ orgPageSlugs | dump | safe }}.forEach(function (s) { ORG_PAGES[s] = true; });
+
   var tbody = document.getElementById('table');
   var headers = document.querySelectorAll('.rankings-table th');
   var sortState = { col: -1, dir: 'ascending' };
@@ -99,7 +104,9 @@
     return '<tr>' +
       '<td data-sort="' + d.rankingPosition + '">' + d.rankingPosition + '</td>' +
       '<td><a href="' + profilePath + '">' + d.urlkey + '</a><br>' +
-      '<a class="small text-muted" href="/org/' + slugify(d.name) + '/">' + d.name + '</a></td>' +
+      (d.name && ORG_PAGES[slugify(d.name)]
+        ? '<a class="small text-muted" href="/org/' + slugify(d.name) + '/">' + d.name + '</a>'
+        : '<span class="small text-muted">' + d.name + '</span>') + '</td>' +
       '<td data-sort="' + score + '">' + statusIcons(d) + '</td>' +
       '<td class="text-center grade-display-column" data-sort="' + score + '">' +
       '<span class="badge text-bg-' + colorFor(score) + '" title="' + score + '%">' + gradeFor(score) + '</span>' +

@@ -3,7 +3,8 @@
   `currentsort` (truthy enables client-side sorting via tablesort-init.js) and
   `specificAttribute` (topic key or "") through rankingtable.html.
   Set `paginateRows` (a page size) to page a long table client-side with
-  /js/table-paginate.js, which the calling template must load.
+  /js/table-paginate.js, which the calling template must load. Set `tableId`
+  when a page renders more than one table (edu-group.html sections).
   Used by sortcontent.html and county-state.html.
 #}
 <div class="row">
@@ -14,7 +15,7 @@
         <thead>
           {% include "rankingheaders.html" %}
         </thead>
-        <tbody id="table">
+        <tbody id="{{ tableId if tableId else 'table' }}">
           {% for d in member %}
             {% include "rankingtable.html" %}
           {% endfor %}

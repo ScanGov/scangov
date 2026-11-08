@@ -4,6 +4,7 @@
 import { default as domainData } from './domains.js';
 import { loadAudits } from '../scripts/load-audits.js';
 import { buildGroupSummary } from '../scripts/group-summary.js';
+import { issueHrefFor } from '../scripts/issues.js';
 
 export default async function () {
     const audits = await loadAudits();
@@ -16,5 +17,6 @@ export default async function () {
         // Pulse nests each failures chart under an h2 section and an h3
         // indicator heading, so the chart title takes h4.
         failuresHeadingLevel: 4,
+        issueHref: issueHrefFor('all'),
     });
 }

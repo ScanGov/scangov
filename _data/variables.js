@@ -3,6 +3,23 @@
 // lands on the county pages.
 import { default as domainData } from './domains.js';
 import { isCounty, domainKey } from '../scripts/counties.js';
+import { readFileSync } from 'fs';
+import { parse } from 'csv-parse/sync';
+
+// Higher education is defined by the institution list, not the TLD: about 100
+// IPEDS institutions are on .com, .org, .us or .edu.pr domains. The list is a
+// copy of the auditor's scripts/data/edu_institutions.csv (every institution
+// we track, built there from the load list minus its exclusions plus the
+// original .edu set; see scripts/edu-meta.js). Any .edu urlkey counts too, so
+// a site audited before the list existed stays in.
+const eduListed = new Set(
+    parse(readFileSync(new URL('./edu_institutions.csv', import.meta.url), 'utf-8'), { columns: true, skip_empty_lines: true, trim: true })
+        .map((r) => r.domain.toLowerCase().replace(/^www\./, ''))
+);
+export const isEdu = (d) => {
+    const key = domainKey(d).toLowerCase();
+    return eduListed.has(key) || key.endsWith('.edu');
+};
 
 // Attribute lists per topic (matching standards/audits.json)
 export const botabilityDataVariables = [
@@ -440,9 +457,11 @@ const domains = domainData();
 // Shared classifier (scripts/counties.js): counties, parishes, boroughs,
 // Connecticut planning regions, and the listed city-counties, minus the
 // community colleges whose names contain "County".
-export const countyDomainList = domains.filter(isCounty).map(domainKey);
+// Listed colleges come out of the county cohort even when the name carries a
+// county keyword (isCounty only knows the .edu rule).
+export const countyDomainList = domains.filter((d) => isCounty(d) && !isEdu(d)).map(domainKey);
 
-export const eduDomainList = domains.filter(d => domainKey(d).endsWith('edu')).map(domainKey);
+export const eduDomainList = domains.filter(isEdu).map(domainKey);
 
 export const addRankingPosition = function(data, attribute) {
     if (!data || data.length === 0) return data;

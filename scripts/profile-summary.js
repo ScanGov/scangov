@@ -160,6 +160,22 @@ function breadcrumb(siteUrl, crumbs) {
   };
 }
 
+// Home, then the page's visible breadcrumb (breadcrumbParent entries and
+// breadcrumbCurrent, as _includes/breadcrumb-default.html renders them), as
+// [name, url] pairs for breadcrumb(). The current page has no visible link,
+// so it takes pageUrl.
+export function visibleCrumbs(parents, current, pageUrl) {
+  const crumbs = [['Home', '/']];
+  for (const p of parents || []) crumbs.push([p.title, p.url]);
+  if (current) crumbs.push([current, pageUrl]);
+  return crumbs;
+}
+
+// A page whose only structured data is its breadcrumb (issue pages).
+export function breadcrumbSchema(siteUrl, crumbs) {
+  return { '@context': 'https://schema.org', '@graph': [breadcrumb(siteUrl, crumbs)] };
+}
+
 // `context` (scripts/site-context.js) adds the group hub and, for counties,
 // the state page to the breadcrumb so it matches the visible links.
 export function profileSchema(domain, view, siteUrl, pageUrl, context, audits) {
@@ -212,12 +228,15 @@ export function orgSchema(org, view, siteUrl, pageUrl) {
   };
 }
 
-export function rankingsSchema(members, title, description, siteUrl, pageUrl, updatedIso, audits) {
+// `crumbs` (optional, [name, url] pairs) replaces the default Home > Rankings >
+// title trail, so a nested page (a state's county rankings) can match the
+// breadcrumb it shows.
+export function rankingsSchema(members, title, description, siteUrl, pageUrl, updatedIso, audits, crumbs = null) {
   const list = (members || []).slice(0, 100);
   return {
     '@context': 'https://schema.org',
     '@graph': [
-      breadcrumb(siteUrl, [['Home', '/'], ['Rankings', '/rankings/'], [title, pageUrl]]),
+      breadcrumb(siteUrl, crumbs || [['Home', '/'], ['Rankings', '/rankings/'], [title, pageUrl]]),
       {
         '@type': 'Dataset',
         name: `Project ScanGov ${title}`,

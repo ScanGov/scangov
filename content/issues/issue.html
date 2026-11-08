@@ -101,7 +101,8 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
         </thead>
         <tbody>
           {% for s in item.states %}
-          <tr>
+          {# The id is the target of the state page's links (county-state.html, failure bars). #}
+          <tr id="state-{{ s.slug }}">
             <th scope="row" data-sort="{{ s.name }}">{% if s.href %}<a href="{{ s.href }}">{{ s.name }}</a>{% else %}{{ s.name }}{% endif %}</th>
             <td class="text-center sg-num" data-sort="{{ s.tested }}">{{ s.tested }}</td>
             <td class="text-center sg-num" data-sort="{{ s.failing }}">{{ s.failing }}</td>

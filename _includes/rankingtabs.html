@@ -1,6 +1,8 @@
 {# stateContext + st: a per-state county page, so the topic pills stay within that state #}
 {% if stateContext and st %}
 {% set directory = "counties/" + st.slug + "/" %}
+{% elif groupContext and grp %}
+{% set directory = "edu/" + grp.path %}
 {% elif currentsort %}
 {% set directory = currentsort + "/" %}
 {% else %}
@@ -37,4 +39,6 @@
 </ul>
 {% if stateContext and st %}
 <p class="small text-muted mt-2 mb-0">Showing {{ st.name }} county sites. <a href="/rankings/counties/{{ specificAttribute }}{% if specificAttribute %}/{% endif %}">All U.S. county sites</a></p>
+{% elif groupContext and grp %}
+<p class="small text-muted mt-2 mb-0">Showing {{ grp.scopeNoun }}. <a href="/rankings/edu/{{ specificAttribute }}{% if specificAttribute %}/{% endif %}">All education sites</a></p>
 {% endif %}

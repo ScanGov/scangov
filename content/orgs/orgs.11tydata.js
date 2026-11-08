@@ -1,9 +1,9 @@
 import { describeOrg, orgSchema, toJsonLd } from '../../scripts/profile-summary.js';
 
 // Org pages roll up several domains; lastmod is the newest scan among them.
-// Single-domain orgs duplicate that domain's profile, so they stay out of
-// the sitemap (this replaces a string-valued front matter flag that was
-// never falsy and listed every org page). `orgView` is set per template.
+// Single-domain orgs no longer get a page at all (_data/orgPages.js); the
+// sitemap rule below is kept as a guard in case the pagination source ever
+// widens again. `orgView` is set per template.
 export default {
   eleventyComputed: {
     sitemap: (data) => (data.org?.domains?.length || 0) > 1,

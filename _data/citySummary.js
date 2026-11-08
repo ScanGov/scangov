@@ -4,6 +4,7 @@
 import { default as cityData } from './cities.js';
 import { loadAudits } from '../scripts/load-audits.js';
 import { buildGroupSummary } from '../scripts/group-summary.js';
+import { issueHrefFor } from '../scripts/issues.js';
 
 export default async function () {
     const audits = await loadAudits();
@@ -11,5 +12,6 @@ export default async function () {
         idBase: 'cities',
         groupTitle: 'U.S. city',
         groupText: 'fully scanned U.S. city sites',
+        issueHref: issueHrefFor('cities'),
     });
 }

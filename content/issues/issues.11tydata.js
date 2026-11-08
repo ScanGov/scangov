@@ -4,6 +4,8 @@
 // Titles follow the query-bearing pattern from ../notes/plans/06: under 60
 // characters before header.html appends the site name.
 
+import { breadcrumbSchema, visibleCrumbs, toJsonLd } from '../../scripts/profile-summary.js';
+
 const fmt = new Intl.NumberFormat('en-US');
 
 export default {
@@ -26,6 +28,13 @@ export default {
     noindex: (data) => !!(data.item && data.item.unlisted),
     sitemap: (data) => !(data.item && data.item.unlisted),
     breadcrumbCurrent: (data) => (data.item ? data.item.title : data.breadcrumbCurrent),
+    // BreadcrumbList JSON-LD matching the visible breadcrumb (Issues > title);
+    // the index page keeps whatever schema it declares itself.
+    schema: (data) => {
+      if (!data.item) return data.schema;
+      const crumbs = visibleCrumbs([{ title: 'Issues', url: '/issues/' }], data.item.title, data.page.url);
+      return toJsonLd(breadcrumbSchema(data.site.url, crumbs));
+    },
     // The "Sites: N" line in the jumbotron is rendered by the layout; show the
     // group's list size, not the whole dataset.
     siteCountOverride: (data) => (data.item ? data.item.count : data.siteCountOverride),

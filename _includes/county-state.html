@@ -122,6 +122,24 @@
       </ul>
     {% endif %}
 
+    {#
+      Reverse of the links the issue pages make to this page: for each listed
+      county issue page (this indicator's on a topic page), the state's own
+      row from that page's by-state table, linking to it. Same numbers as the
+      issue page, so the two cannot disagree.
+    #}
+    {% set stateIssues = [] %}
+    {% for ip in issuePages %}{% if ip.group.key == "counties" and not ip.unlisted and (not specificAttribute or ip.issue.topic == specificAttribute) %}{% for s in ip.states %}{% if s.code == st.code %}{% set stateIssues = (stateIssues.push({ page: ip, state: s }), stateIssues) %}{% endif %}{% endfor %}{% endif %}{% endfor %}
+    {% if stateIssues.length %}
+    <h2 class="h4 mt-5">{{ st.name }} county sites by {% if specificAttribute %}{{ topicName }} {% endif %}issue</h2>
+    <p>How many fully scanned {{ st.name }} county sites have each problem, next to the U.S. county share. Each issue links to the list of {{ st.name }} sites that have it.</p>
+    <ul class="sg-failures">
+      {% for si in stateIssues %}
+      <li><strong>{{ (si.state.share * 100) | round }}% ({{ si.state.failing }} of {{ si.state.tested }} sites)</strong> <a href="{{ si.page.url }}#state-{{ si.state.slug }}">{{ si.page.issue.failPhrase }}</a>. U.S. counties: {{ (si.page.share * 100) | round }}%.</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
     <h2 class="h4 mt-5">All {{ st.name }} county sites by {{ topicName }} score</h2>
     {% set tableCaption = st.name + " county sites ranked by " + topicName + " score" %}
     {% set paginateRows = 50 %}

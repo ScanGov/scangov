@@ -2,6 +2,10 @@
 home: false
 layout: layouts/default
 showLastUpdated: true
+# Social image: the by-state map, rasterized by scripts/og-map.js each build.
+ogImage: edu-map-og.png
+ogImageCacheBust: true
+ogImageAlt: Map of U.S. states shaded by the average digital experience score of their college and university websites
 
 # One page per entry of topicRankings.edu (see _data/topicRankings.js and
 # ../topic.html). Page data comes from the chunk via ../rankings.11tydata.js.
@@ -18,5 +22,17 @@ permalink: "/rankings/edu/{{ chunk.topic }}/{% if chunk.pageNumber > 0 %}{{ chun
 {% set specificAttribute = chunk.topic %}
 {% set currentsort = "edu" %}
 {% set showPagination = true %}
+{% set chartsInclude = "edu-charts.html" %}
+{% set compactTable = true %}
 
 {% include "sortcontent.html" %}
+{% if pagination.pageNumber == 0 %}
+{% set footnoteSubject = "each college and university site on our higher education list" %}
+{% set footnoteScope = "" %}
+{% set footnoteRespondingCount = eduSummary.respondingCount %}
+{% set footnoteScoredCount = eduSummary.scoredCount %}
+{% set footnotePartialCount = eduSummary.partialCount %}
+{% set footnoteNoResponseCount = eduSummary.count - eduSummary.respondingCount %}
+{% set footnoteScanWindow = eduSummary.scanWindow %}
+<div class="container">{% include "data-footnote.html" %}</div>
+{% endif %}
