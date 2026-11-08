@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs';
 import { isCounty, stateCodeOf } from '../scripts/counties.js';
+import { eduStateOf } from '../scripts/edu-meta.js';
 
 export default function() {
 
@@ -34,6 +35,17 @@ export default function() {
         if (serveStates.length) {
             for (const d of scanData) {
                 if (isCounty(d) && serveStates.includes(stateCodeOf(d)) && !cutScanData.includes(d))
+                    cutScanData.push(d);
+            }
+        }
+        // SERVE_EDU_STATES=TX,CA keeps every education site in those states,
+        // so the education group pages (state, system, metro, conference)
+        // render with real data on the dev server and in sample builds.
+        const serveEduStates = (process.env.SERVE_EDU_STATES || '')
+            .split(',').map(s => s.trim().toUpperCase()).filter(Boolean);
+        if (serveEduStates.length) {
+            for (const d of scanData) {
+                if (serveEduStates.includes(eduStateOf(d)) && !cutScanData.includes(d))
                     cutScanData.push(d);
             }
         }

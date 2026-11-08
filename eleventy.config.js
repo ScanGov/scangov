@@ -24,6 +24,7 @@ import { humanizeLabel } from './scripts/charts/format.js';
 import { ordinal } from './scripts/counties.js';
 import { gradeSentence, groupsSentence, indicatorPatternSentence, topFailureSentence } from './scripts/narrative.js';
 import { readdirSync, statSync } from 'fs';
+import orgsData from './_data/orgs.js';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
@@ -366,6 +367,17 @@ export default async function(eleventyConfig) {
     eleventyConfig.addFilter('colorVar', (score) => {
         const color = gradeColor(score)
         return color === 'secondary' ? 'inaccessible' : color
+    })
+
+    // "/org/{slug}/" when the named org has a page (more than one site, see
+    // _data/orgPages.js), else "" so the template renders plain text. Computed
+    // on first use, after eleventy.before has refreshed the data file.
+    let orgPageSlugs = null;
+    eleventyConfig.addFilter('orgUrl', (name) => {
+        if (!name) return '';
+        if (!orgPageSlugs) orgPageSlugs = new Set(orgsData().filter((o) => o.multi).map((o) => o.slug));
+        const slug = eleventyConfig.getFilter('slugify')(name);
+        return orgPageSlugs.has(slug) ? `/org/${slug}/` : '';
     })
 
     eleventyConfig.addFilter('encodeParameter', (param) => {

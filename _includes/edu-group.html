@@ -1,0 +1,165 @@
+{#
+  Body of every education group page (/rankings/edu/{state}/, /system/{slug}/,
+  /metro/{slug}/, /research/{state}/, /{list}/, /conference/{slug}/) and their
+  topic views. Expects: grp (one scripts/edu-groups.js group), specificAttribute
+  ("" or a topic key), groupContext = true, currentsort = "edu".
+
+  Every number comes from `grp`, so the intro, tiles, charts, tables and
+  footnote cannot disagree. Headline figures use the group's headline sections
+  (public institutions on a state page, campuses on a system page); other
+  sections carry their own average.
+#}
+{% set topic = specificAttribute if specificAttribute else "overall" %}
+{% set catInfo = audits[specificAttribute] if specificAttribute else false %}
+{% set topicName = (catInfo.displayName | lower) if catInfo else "overall" %}
+{% set topicPath = (specificAttribute + "/") if specificAttribute else "" %}
+{% set avg = grp.averages[topic] %}
+{% set natAvg = eduGroups.national.averages[topic] %}
+{% set rank = grp.rank[topic] %}
+{% set indicatorKeys = topics.keys %}
+<div id="home" class="col-12">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        {% include "rankingtabs.html" %}
+      </div>
+    </div>
+
+    <p class="mt-3">{{ grp.intro }}</p>
+
+    {% if grp.scoredCount == 0 %}
+    <div class="alert alert-info mt-4" role="status">
+      We weren't able to fully scan any of the {{ grp.headlineCount }} {{ grp.headlineNoun }} on our list, so there are no scores to show yet.
+    </div>
+    {% else %}
+
+    <div class="row g-3 mb-2 mt-3">
+      <div class="col-6 col-lg-3">
+        <div class="card h-100"><div class="card-body">
+          {% if grp.hasAverage %}
+          <p class="sg-stat-value"><span class="badge text-bg-{{ avg | colorify }}">{{ avg | gradify }}</span> {{ avg }}</p>
+          <p class="sg-stat-label">Average {{ topicName }} score of {{ grp.scoredCount }} fully scanned {{ grp.headlineNoun }}</p>
+          {% else %}
+          <p class="sg-stat-value">&ndash;</p>
+          <p class="sg-stat-label">No average: fewer than {{ grp.minAverage }} {{ grp.headlineNoun }} were fully scanned ({{ grp.scoredCount }})</p>
+          {% endif %}
+        </div></div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="card h-100"><div class="card-body">
+          <p class="sg-stat-value">{% if rank %}{{ rank | ordinal }}{% else %}&ndash;{% endif %}</p>
+          <p class="sg-stat-label">{% if rank %}of {{ grp.kindCount }} {{ eduGroups.kinds[grp.kind].plural }}, ranked by average {{ topicName }} score{% else %}Not ranked among {{ eduGroups.kinds[grp.kind].plural }}{% endif %}</p>
+        </div></div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="card h-100"><div class="card-body">
+          {% set noResponseCount = grp.headlineCount - grp.respondingCount %}
+          <p class="sg-stat-value">{{ grp.scoredCount }} <span class="fs-5 text-muted">of {{ grp.headlineCount }}</span></p>
+          <p class="sg-stat-label">{{ grp.headlineNoun | capitalize }} fully scanned{% if grp.partialCount or noResponseCount %}. We couldn't fully scan {{ grp.partialCount + noResponseCount }}, so they're listed without grades{% endif %}</p>
+        </div></div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="card h-100"><div class="card-body">
+          <p class="sg-stat-value"><span class="badge text-bg-{{ natAvg | colorify }}">{{ natAvg | gradify }}</span> {{ natAvg }}</p>
+          <p class="sg-stat-label">Average {{ topicName }} score of all {{ eduGroups.national.scoredCount | numberFormat }} fully scanned education sites</p>
+        </div></div>
+      </div>
+    </div>
+
+    {% chart grp.charts.area[topic] %}
+    <div class="row">
+      <div class="col-12 col-lg-6">{% chart grp.charts.grades[topic] %}</div>
+      {% if not specificAttribute %}<div class="col-12 col-lg-6">{% chart grp.charts.topics %}</div>{% endif %}
+    </div>
+
+    {% if grp.top3[topic].length %}
+    <h2 class="h4 mt-4">Top {{ grp.top3[topic].length }} {{ grp.headlineNoun }} by {{ topicName }} score</h2>
+    <div class="row g-3">
+      {% for d in grp.top3[topic] %}
+      <div class="col-12 col-md-4">
+        <div class="card h-100">
+          <div class="sg-shot" aria-hidden="true" data-screenshot-for="{{ d.urlkey }}">
+            <span><strong class="d-block">{{ d.title if d.title else d.name }}</strong><span class="small">{{ d.urlkey }}</span></span>
+          </div>
+          <div class="card-body">
+            <p class="small text-muted mb-1">#{{ d.rankingPosition }} in {{ grp.shortName }}{% if d.nationalRank %} &middot; U.S. education rank {{ d.nationalRank }}{% endif %}</p>
+            <h3 class="h5 mb-1"><a href="/profile/{{ d.urlkey | slugify }}/overall/">{{ d.name }}</a></h3>
+            <p class="mb-2"><span class="badge text-bg-{{ d.score | colorify }}">{{ d.score | gradify }}</span> {{ d.score }} {{ topicName }}</p>
+            <ul class="list-inline small mb-0">
+              {% for t in indicatorKeys %}
+              {% set ts = d.scores[t].score if d.scores and d.scores[t] else null %}
+              <li class="list-inline-item">{{ audits[t].displayName }} <span class="badge text-bg-{{ ts | colorify }}">{{ ts | gradify }}</span></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if specificAttribute %}
+      <div class="mt-4">{% chart grp.charts.failures[specificAttribute] %}</div>
+      <h3 class="h5 mt-4">What each check means</h3>
+      <ul class="sg-failures">
+        {% for f in grp.topFailures[specificAttribute] %}
+        <li><a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} {{ f.risk }}</li>
+        {% endfor %}
+      </ul>
+      {% set issueLinks = [] %}
+      {% for ip in issuePages %}{% if ip.group.key == "edu" and ip.issue.topic == specificAttribute and not ip.unlisted %}{% set issueLinks = (issueLinks.push(ip), issueLinks) %}{% endif %}{% endfor %}
+      {% if issueLinks.length %}
+      <h3 class="h5 mt-4">Every education site with one problem</h3>
+      <ul class="sg-failures">
+        {% for ip in issueLinks %}
+        <li><a href="{{ ip.url }}">{{ ip.title }}</a>: {{ ip.failCount | numberFormat }} of {{ ip.testedCount | numberFormat }} fully scanned education sites ({{ (ip.share * 100) | round }}%), with every site listed.</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    {% else %}
+      <h2 class="h4 mt-5">Most common failures by indicator</h2>
+      <p>The check {{ grp.headlineNoun }} fail most often in each indicator. Each indicator page lists the top five.</p>
+      <ul class="sg-failures">
+        {% for t in indicatorKeys %}
+        {% set f = grp.topFailures[t][0] if grp.topFailures[t] else null %}
+        {% if f %}
+        <li><strong>{{ (f.share * 100) | round }}% ({{ f.failCount }} of {{ grp.scoredCount }} sites)</strong> fail this {{ audits[t].displayName | lower }} check: <a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} <a href="/rankings/edu/{{ grp.path }}{{ t }}/">More {{ audits[t].displayName | lower }} failures</a>.</li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% for section in grp.sections %}
+    <h2 class="h4 mt-5" id="section-{{ section.key }}">{{ section.label }} by {{ topicName }} score</h2>
+    {% if not section.inHeadline %}
+    <p class="small text-muted">{{ section.count }} sites, {{ section.scoredCount }} fully scanned{% if section.hasAverage %}, average {{ topicName }} score {{ section.averages[topic] }} ({{ section.averages[topic] | gradify }}){% endif %}. {{ section.note }}</p>
+    {% elif grp.sections.length > 1 %}
+    <p class="small text-muted">{{ section.count }} sites, {{ section.scoredCount }} fully scanned{% if section.hasAverage %}, average {{ topicName }} score {{ section.averages[topic] }} ({{ section.averages[topic] | gradify }}){% endif %}. Part of the headline average.</p>
+    {% endif %}
+    {% set member = section.byTopic[topic] %}
+    {% set tableCaption = section.label + " ranked by " + topicName + " score" %}
+    {% set tableId = "table-" + section.key %}
+    {% set paginateRows = 50 %}
+    {% include "ranking-table-block.html" %}
+    {% endfor %}
+    <script src="/js/table-paginate.js" defer></script>
+
+    {% include "topic-about.html" %}
+
+    <nav class="d-flex justify-content-between mt-4 small" aria-label="Other {{ eduGroups.kinds[grp.kind].plural }}">
+      <span>{% if grp.prev %}<a href="/rankings/edu/{{ grp.prev.path }}{{ topicPath }}">Previous: {{ grp.prev.name }}</a>{% endif %}</span>
+      <span><a href="/rankings/edu/{{ topicPath }}#more-comparisons">All {{ eduGroups.kinds[grp.kind].plural }}</a></span>
+      <span>{% if grp.next %}<a href="/rankings/edu/{{ grp.next.path }}{{ topicPath }}">Next: {{ grp.next.name }}</a>{% endif %}</span>
+    </nav>
+    {% endif %}
+
+    {% set footnoteSubject = "each college and university site on our higher education list" %}
+    {% set footnoteScope = "" %}
+    {% set footnoteRespondingCount = grp.respondingCount %}
+    {% set footnoteScoredCount = grp.scoredCount %}
+    {% set footnotePartialCount = grp.partialCount %}
+    {% set footnoteNoResponseCount = grp.headlineCount - grp.respondingCount %}
+    {% set footnoteScanWindow = grp.scanWindow %}
+    {% include "data-footnote.html" %}
+  </div>
+</div>

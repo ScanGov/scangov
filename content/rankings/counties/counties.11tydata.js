@@ -7,7 +7,7 @@
 // Titles follow the query-bearing pattern from ../notes/plans/06: under 60
 // characters before header.html appends the site name.
 
-import { rankingsSchema, toJsonLd } from '../../../scripts/profile-summary.js';
+import { rankingsSchema, visibleCrumbs, toJsonLd } from '../../../scripts/profile-summary.js';
 import { pageMember, pageTitle, pageDescriptionHtml } from '../../../scripts/topic-rankings.js';
 import { topicSentence } from '../../../scripts/topics.js';
 
@@ -69,13 +69,19 @@ export default {
     },
     // Same Dataset + ItemList JSON-LD as ../rankings.11tydata.js. Declared
     // here too because the state pages' `member` and `title` are themselves
-    // computed above, and the parent's computed runs before they exist.
+    // computed above, and the parent's computed runs before they exist. State
+    // pages also get the nested breadcrumb they show (Rankings > Counties >
+    // state > topic) in place of the default Home > Rankings > title.
     schema: (data) => {
       const st = stateOf(data);
       let member = pageMember(data);
       let title = pageTitle(data);
       let description = data.description || String(pageDescriptionHtml(data) || '').replace(/<[^>]+>/g, '');
+      let breadcrumbs = null;
       if (st) {
+        const parents = data.item ? [...crumbs, { title: st.name, url: `/rankings/counties/${st.slug}/` }] : crumbs;
+        const current = data.item ? data.item.topicInfo.displayName : st.name;
+        breadcrumbs = visibleCrumbs(parents, current, data.page.url);
         member = data.item ? st.byTopic[data.item.topic] : st.counties;
         const topic = topicName(data);
         title = topic
@@ -83,7 +89,7 @@ export default {
           : `${st.name} county websites ranked by digital experience`;
       }
       if (!Array.isArray(member) || !title) return undefined;
-      return toJsonLd(rankingsSchema(member, title, description, data.site.url, data.page.url, data.updatedTime?.iso, data.audits));
+      return toJsonLd(rankingsSchema(member, title, description, data.site.url, data.page.url, data.updatedTime?.iso, data.audits, breadcrumbs));
     },
   },
 };

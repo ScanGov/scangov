@@ -3,6 +3,7 @@
   copy carrying `score`, `partial`, `nationalRank`), `specificAttribute` ("" or
   a topic key), and optionally:
     stateContext  per-state county page (adds the U.S. rank line)
+    groupContext  education group page (same U.S. rank line, among education sites)
     compactTable  replaces the per-check status icons (about 64 per row) with
                   one grade badge per indicator, or one pass meter on topic
                   pages; state pages are always compact
@@ -17,8 +18,8 @@
   <td data-sort="{{ d.urlkey }}">
         <a href="/profile/{{d.urlkey | slugify }}/{% if specificAttribute %}details/?attr={{ specificAttribute }}{% else %}overall/{% endif %}">{{ d.urlkey }}</a>
     <br>
-    <a class="small text-muted" href="/org/{{ d.name | slugify }}/">{{ d.name }}</a>
-    {% if stateContext and d.nationalRank %}<span class="small text-muted d-block">U.S. rank {{ d.nationalRank }}</span>{% endif %}
+    {% set orgHref = d.name | orgUrl %}{% if orgHref %}<a class="small text-muted" href="{{ orgHref }}">{{ d.name }}</a>{% else %}<span class="small text-muted">{{ d.name }}</span>{% endif %}
+    {% if (stateContext or groupContext) and d.nationalRank %}<span class="small text-muted d-block">U.S. rank {{ d.nationalRank }}</span>{% endif %}
   </td>
   <td data-sort="{{ rowScore if graded else -1 }}">
     {% if compact and not graded %}

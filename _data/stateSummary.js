@@ -4,6 +4,7 @@
 import { default as stateData } from './states.js';
 import { loadAudits } from '../scripts/load-audits.js';
 import { buildGroupSummary } from '../scripts/group-summary.js';
+import { issueHrefFor } from '../scripts/issues.js';
 
 export default async function () {
     const audits = await loadAudits();
@@ -11,5 +12,6 @@ export default async function () {
         idBase: 'states',
         groupTitle: 'U.S. state',
         groupText: 'fully scanned U.S. state sites',
+        issueHref: issueHrefFor('states'),
     });
 }

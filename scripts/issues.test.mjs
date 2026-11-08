@@ -3,7 +3,10 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { ISSUES, buildIssuePage, GROUPS, gradeLevelOf, formatGrade } from './issues.js';
+import { ISSUES, buildIssuePage, buildGroups, gradeLevelOf, formatGrade, issueHrefFor } from './issues.js';
+
+// The county group, as the pages get it (GROUPS became buildGroups when the other groups were added).
+const GROUPS = [buildGroups({ cities: new Set(), states: new Set(), edu: new Set() }).find(g => g.key === 'counties')];
 
 const audits = {
   botability: { displayName: 'Botability', attributes: [{ key: 'text-content', displayName: 'Content available in document', description: 'The page\'s main content loads without requiring JavaScript.' }] },
@@ -78,4 +81,16 @@ test('gradeLevelOf maps ARI scores to school grades', () => {
   assert.equal(gradeLevelOf(16.4), 'College');
   assert.equal(gradeLevelOf(16.5), 'Graduate school');
   assert.equal(gradeLevelOf(undefined), 'No score');
+});
+
+test('issueHrefFor: a check links its issue page for groups that have one, with a state anchor when asked; unlisted and uncovered checks return null', () => {
+  const counties = issueHrefFor('counties');
+  assert.equal(counties('security', 'dotgov'), '/issues/not-dotgov/counties/');
+  assert.equal(counties('botability', 'xml'), '/issues/sitemap/counties/', 'a feature issue covers each of its checks');
+  assert.equal(counties('usability', 'nonexistent-check'), null);
+  assert.equal(issueHrefFor('counties', 'tx')('botability', 'text-content'), '/issues/needs-javascript/counties/#state-tx');
+  const notDotgov = ISSUES.find(i => i.slug === 'not-dotgov');
+  if (notDotgov.groups && !notDotgov.groups.includes('edu')) assert.equal(issueHrefFor('edu')('security', 'dotgov'), null, 'no page for that group');
+  const unlisted = ISSUES.find(i => i.unlisted);
+  if (unlisted) assert.equal(counties(unlisted.topic, unlisted.check || unlisted.checks[0]), null, 'unlisted issues are not linked');
 });

@@ -116,7 +116,28 @@ export function summarize(scored, attrIndex) {
 const numberFormat = new Intl.NumberFormat('en-US');
 const capitalize = s => s.charAt(0).toUpperCase() + s.slice(1);
 
-export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, groupText, failuresHeadingLevel = 2 }) {
+// Subtitle for a failures chart. Bars link the issue page listing the sites
+// failing that check (scripts/issues.js issueHrefFor) when one exists, else
+// the standard, and the subtitle says which.
+export function failuresSubtitle(respondingText, failures) {
+    const anyIssue = (failures || []).some(f => f.issueUrl);
+    const links = anyIssue
+        ? 'Each check links to the sites failing it, or to its standard when we have no list yet.'
+        : 'Each check links to its standard and how to fix it.';
+    return `Share of the ${respondingText} failing each check. A site can fail more than one check. ${links}`;
+}
+
+// Adds `issueUrl` (or null) to every entry in summary.topFailures, from an
+// issueHrefFor() function for the group the summary describes.
+export function linkFailuresToIssues(topFailures, issueHref) {
+    for (const [topic, list] of Object.entries(topFailures || {})) {
+        for (const f of list) f.issueUrl = issueHref ? issueHref(topic, f.key) : null;
+    }
+    return topFailures;
+}
+
+export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, groupText, failuresHeadingLevel = 2, issueHref = null }) {
+    linkFailuresToIssues(summary.topFailures, issueHref);
     const respondingText = `${numberFormat.format(summary.scoredCount)} ${groupText}`;
     const charts = { failures: {}, area: {}, grades: {} };
     for (const topic of allTopicKeysFrom(audits)) {
@@ -141,7 +162,7 @@ export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, 
         charts.failures[topic] = topFailuresSpec({
             id: `${idBase}-fails-${topic}`,
             title: groupTitle ? `Most common ${label} failures among ${groupTitle} sites` : `Most common ${label} failures`,
-            subtitle: `Share of the ${respondingText} failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.`,
+            subtitle: failuresSubtitle(respondingText, summary.topFailures[topic]),
             headingLevel: failuresHeadingLevel,
             failures: summary.topFailures[topic],
             respondingCount: summary.scoredCount,
@@ -151,7 +172,7 @@ export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, 
 }
 
 // Everything a group hub page needs, from the group's records.
-export function buildGroupSummary(records, audits, { idBase, groupTitle, groupText, failuresHeadingLevel }) {
+export function buildGroupSummary(records, audits, { idBase, groupTitle, groupText, failuresHeadingLevel, issueHref }) {
     const attrIndex = attributeIndex(audits);
     const responding = records.filter(isResponding);
     const scored = records.filter(isScored);
@@ -163,6 +184,6 @@ export function buildGroupSummary(records, audits, { idBase, groupTitle, groupTe
         scanWindow: scanWindow(records),
         ...summarize(scored, attrIndex),
     };
-    summary.charts = buildGroupCharts(summary, scored, audits, { idBase, groupTitle, groupText, failuresHeadingLevel });
+    summary.charts = buildGroupCharts(summary, scored, audits, { idBase, groupTitle, groupText, failuresHeadingLevel, issueHref });
     return summary;
 }

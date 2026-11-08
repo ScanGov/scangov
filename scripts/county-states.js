@@ -20,10 +20,11 @@
 import { isCounty, stateCodeOf, isResponding, scoreOf, isPartial, rankDense, gradeOf, domainKey } from './counties.js';
 import { topicKeysFrom, allTopicKeysFrom } from './topics.js';
 import { slugify } from './charts/format.js';
+import { issueHrefFor } from './issues.js';
 import { joinCounties } from './county-geo.js';
 import { gradeDistributionSpec, topicAveragesSpec, topFailuresSpec, histogramSpec, areaSpec } from './charts/specs.js';
 import {
-    isScored, attributeIndex, topicLabel, summarize, scanWindow, buildGroupCharts,
+    isScored, attributeIndex, topicLabel, summarize, scanWindow, buildGroupCharts, failuresSubtitle, linkFailuresToIssues,
 } from './group-summary.js';
 
 const TOP_SITES = 3;
@@ -37,7 +38,7 @@ function profileHref(d) {
 // Partial and non-responding copies carry no score, grade or rank.
 // rankingPosition is the in-state rank so the shared ranking table include
 // renders it unchanged.
-function rankedCopies(records, topic, nationalRanks) {
+export function rankedCopies(records, topic, nationalRanks) {
     const scored = records.filter(isScored);
     const stateRanks = rankDense(scored, d => scoreOf(d, topic));
     const copies = records.map(d => {
@@ -96,12 +97,14 @@ function buildCharts(state, national, audits) {
         });
     }
 
+    // Failure bars link the county issue page, at this state's row of its by-state table.
+    linkFailuresToIssues(state.topFailures, issueHrefFor('counties', state.slug));
     for (const topic of TOPICS) {
         const label = topicLabel(audits, topic).toLowerCase();
         charts.failures[topic] = topFailuresSpec({
             id: `${idBase}-fails-${topic}`,
             title: `Most common ${label} failures among ${state.name} county sites`,
-            subtitle: `Share of the ${respondingText} failing each check. A site can fail more than one check. Each check links to its standard and how to fix it.`,
+            subtitle: failuresSubtitle(respondingText, state.topFailures[topic]),
             headingLevel: 2,
             failures: state.topFailures[topic],
             respondingCount: state.scoredCount,
@@ -170,7 +173,7 @@ export function buildCountyStates(domains, stateNames, audits = {}, geo = null) 
         scanWindow: scanWindow(counties),
         ...summarize(scored, attrIndex),
     };
-    national.charts = buildGroupCharts(national, scored, audits, { idBase: 'county-us', groupTitle: 'U.S. county', groupText: 'fully scanned U.S. county sites' });
+    national.charts = buildGroupCharts(national, scored, audits, { idBase: 'county-us', groupTitle: 'U.S. county', groupText: 'fully scanned U.S. county sites', issueHref: issueHrefFor('counties') });
 
     const byState = new Map();
     const unplaced = [];

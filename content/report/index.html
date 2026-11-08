@@ -150,7 +150,7 @@ showActions: true
 
 <section aria-labelledby="where-sites-fail" class="mt-5">
   <h2 id="where-sites-fail">Where sites fail</h2>
-  <p>For each indicator, the five checks that fully scanned {{ pp.noun }} fail most often. A site can fail more than one check, and each check links to its standard and how to fix it.</p>
+  <p>For each indicator, the five checks that fully scanned {{ pp.noun }} fail most often. A site can fail more than one check. In each chart, a check links to the list of {{ pp.noun }} failing it where we have one, or to its standard; the notes under the chart link every standard.</p>
   {% for t in indicatorKeys %}
   {% set catInfo = audits[t] %}
   {% set topicName = catInfo.displayName | lower %}

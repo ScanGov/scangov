@@ -40,6 +40,8 @@ export function topicAveragesSpec({ id, title, subtitle, headingLevel, topics, a
 }
 
 // Bars: the checks a group fails most often, as a share of responding sites.
+// A row links the issue page listing the failing sites (f.issueUrl, from
+// scripts/issues.js) when there is one, else the check's standard.
 export function topFailuresSpec({ id, title, subtitle, headingLevel, failures, respondingCount, unit = 'sites', caveat }) {
     return {
         id, type: 'bar', title, subtitle, headingLevel, caveat,
@@ -47,7 +49,7 @@ export function topFailuresSpec({ id, title, subtitle, headingLevel, failures, r
         labelHeader: 'Check', valueHeader: 'Share failing',
         tableColumns: ['Check', 'Share failing', 'Sites failing'],
         rows: failures.map(f => ({
-            key: f.key, label: humanizeLabel(f.label), href: f.standardsUrl,
+            key: f.key, label: humanizeLabel(f.label), href: f.issueUrl || f.standardsUrl,
             value: f.share * 100,
             srText: `(${formatCount(f.failCount)} of ${formatCount(respondingCount)} ${unit})`,
             detail: formatCount(f.failCount),

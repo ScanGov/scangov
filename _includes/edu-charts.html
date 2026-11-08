@@ -1,0 +1,163 @@
+{#
+  Education hub charts and narrative, included by /rankings/edu/ and its topic
+  pages through the `chartsInclude` slot in sortcontent.html. Renders on the
+  first page of the paginated list only. Same shape as county-charts.html.
+
+  Reads: eduSummary (scripts/group-summary.js), eduGroups (every peer group,
+  scripts/edu-groups.js; the state groups feed the by-state table),
+  eduStateMap (state outlines colored by the public average),
+  specificAttribute ("" or a topic key), audits.
+#}
+{% if pagination.pageNumber == 0 %}
+{% set topic = specificAttribute if specificAttribute else "overall" %}
+{% set catInfo = audits[specificAttribute] if specificAttribute else false %}
+{% set topicName = (catInfo.displayName | lower) if catInfo else "overall" %}
+{% set g = eduSummary %}
+{% set avg = g.averages[topic] %}
+{% set gradeA = g.gradeDistribution[topic].A %}
+{% set indicatorKeys = topics.keys %}
+{% set eduStates = eduGroups.byKind.state %}
+{% set statesWithSites = [] %}
+{% for s in eduStates %}{% if s.scoredCount %}{% set statesWithSites = (statesWithSites.push(s.code), statesWithSites) %}{% endif %}{% endfor %}
+
+<div class="row g-3 mb-2 mt-3">
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value"><span class="badge text-bg-{{ avg | colorify }}">{{ avg | gradify }}</span> {{ avg }}</p>
+      <p class="sg-stat-label">Average {{ topicName }} score of {{ g.scoredCount | numberFormat }} fully scanned education sites</p>
+    </div></div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value">{{ g.scoredCount | numberFormat }} <span class="fs-5 text-muted">of {{ g.count | numberFormat }}</span></p>
+      <p class="sg-stat-label">Education sites fully scanned{% if g.count - g.scoredCount %}. We couldn't fully scan {{ (g.count - g.scoredCount) | numberFormat }}, so they're listed without grades{% endif %}</p>
+    </div></div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value">{{ statesWithSites.length }}</p>
+      <p class="sg-stat-label">States and territories with fully scanned public college sites, each with its own page</p>
+    </div></div>
+  </div>
+  <div class="col-6 col-lg-3">
+    <div class="card h-100"><div class="card-body">
+      <p class="sg-stat-value">{{ ((gradeA / g.scoredCount) * 100) | round if g.scoredCount else 0 }}%</p>
+      <p class="sg-stat-label">Fully scanned education sites earning an A for {{ topicName }} ({{ gradeA | numberFormat }} sites)</p>
+    </div></div>
+  </div>
+</div>
+
+{% chart g.charts.area[topic] %}
+
+<h2 class="h4 mt-4" id="by-state">Public college sites by state</h2>
+<p>Average {{ topicName }} score of the fully scanned public college and university sites in each state, darker for higher. Select a state on the map or in the table for its page, which also lists the state's private institutions.</p>
+<div class="row">
+  <div class="col-12 col-lg-7">
+    {% set mapData = eduStateMap %}
+    {% set mapTopic = topic %}
+    {% set mapScale = "sequential" %}
+    {% set mapId = "edu-state-map" %}
+    {% include "report-map.html" %}
+    {% set mapScale = false %}
+    {% set mapId = false %}
+  </div>
+  <div class="col-12 col-lg-5">
+    {% chart g.charts.grades[topic] %}
+  </div>
+</div>
+
+<div class="table-responsive mt-3">
+  <table class="table table-sm" data-sortable>
+    <caption class="visually-hidden">States by average public college site grade in each indicator</caption>
+    <thead>
+      <tr>
+        <th scope="col">State</th>
+        <th scope="col" class="text-center">Sites</th>
+        <th scope="col" class="text-center">Overall</th>
+        {% for t in indicatorKeys %}<th scope="col" class="text-center">{{ audits[t].displayName }}</th>{% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in eduStates %}
+      <tr id="edu-state-{{ s.slug }}">
+        <th scope="row" data-sort="{{ s.name }}"><a href="{{ s.url }}{% if specificAttribute %}{{ specificAttribute }}/{% endif %}">{{ s.name }}</a></th>
+        <td class="text-center sg-num" data-sort="{{ s.scoredCount }}">{{ s.scoredCount }}<span class="text-muted"> of {{ s.headlineCount }}</span></td>
+        {% for t in ["overall"].concat(indicatorKeys) %}
+        {% set v = s.averages[t] if s.hasAverage else null %}
+        <td class="text-center" data-sort="{{ v if v !== null else -1 }}">
+          <span class="badge text-bg-{{ v | colorify }}" title="{% if v !== null %}Average {{ t }} score {{ v }}{% else %}Fewer than {{ s.minAverage }} fully scanned public sites, so no average{% endif %}">{{ v | gradify }}</span>
+          {% if v !== null %}<span class="visually-hidden">{{ v }}</span>{% endif %}
+        </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<p class="small text-muted">Sites counts the public institutions in each state; the state page lists private nonprofit institutions too.{% if eduGroups.unknownCount %} {{ eduGroups.unknownCount }} education sites on our list are not matched to an institution record yet, so they have no state here. They count in every other figure on this page.{% endif %}</p>
+
+<h2 class="h4 mt-5" id="more-comparisons">More comparisons</h2>
+<p>The same rankings for other peer sets. Each page ranks its members, shows the most common failures, and compares the group with all education sites.</p>
+<ul class="list-inline">
+  {% for g in eduGroups.byKind.list %}<li class="list-inline-item mb-2"><a class="btn btn-outline-secondary btn-sm" href="{{ g.url }}{% if specificAttribute %}{{ specificAttribute }}/{% endif %}">{{ g.name }} <span class="text-muted">({{ g.count }})</span></a></li>{% endfor %}
+</ul>
+{% for kindKey in ["system", "conference", "metro", "research"] %}
+{% set kindGroups = eduGroups.byKind[kindKey] %}
+{% if kindGroups.length %}
+<details class="mb-3">
+  <summary class="h6 d-inline">{{ eduGroups.kinds[kindKey].label }} <span class="text-muted fw-normal">({{ kindGroups.length }} {{ eduGroups.kinds[kindKey].plural }})</span></summary>
+  <p class="small text-muted mt-2 mb-2">{{ eduGroups.kinds[kindKey].intro }}</p>
+  <div class="table-responsive">
+    <table class="table table-sm" data-sortable>
+      <caption class="visually-hidden">{{ eduGroups.kinds[kindKey].label }}: sites and average {{ topicName }} score</caption>
+      <thead><tr><th scope="col">{{ eduGroups.kinds[kindKey].label | replace("By ", "") | replace("Research universities by ", "") | capitalize }}</th><th scope="col" class="text-center">Sites</th><th scope="col" class="text-center">Average {{ topicName }}</th></tr></thead>
+      <tbody>
+        {% for g in kindGroups %}
+        <tr>
+          <th scope="row" data-sort="{{ g.name }}"><a href="{{ g.url }}{% if specificAttribute %}{{ specificAttribute }}/{% endif %}">{{ g.name }}</a></th>
+          <td class="text-center sg-num" data-sort="{{ g.scoredCount }}">{{ g.scoredCount }}<span class="text-muted"> of {{ g.headlineCount }}</span></td>
+          {% set v = g.averages[topic] if g.hasAverage else null %}
+          <td class="text-center" data-sort="{{ v if v !== null else -1 }}"><span class="badge text-bg-{{ v | colorify }}">{{ v | gradify }}</span>{% if v !== null %} <span class="small">{{ v }}</span>{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</details>
+{% endif %}
+{% endfor %}
+
+{% if specificAttribute %}
+<div class="mt-4">{% chart g.charts.failures[specificAttribute] %}</div>
+<h3 class="h5 mt-4">What each check means</h3>
+<ul class="sg-failures">
+  {% for f in g.topFailures[specificAttribute] %}
+  <li><a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} {{ f.risk }}</li>
+  {% endfor %}
+</ul>
+{# Issue pages for this indicator (scripts/issues.js): every education site failing one check. #}
+{% set issueLinks = [] %}
+{% for ip in issuePages %}{% if ip.group.key == "edu" and ip.issue.topic == specificAttribute and not ip.unlisted %}{% set issueLinks = (issueLinks.push(ip), issueLinks) %}{% endif %}{% endfor %}
+{% if issueLinks.length %}
+<h3 class="h5 mt-4">Every site with one problem</h3>
+<ul class="sg-failures">
+  {% for ip in issueLinks %}
+  <li><a href="{{ ip.url }}">{{ ip.title }}</a>: {{ ip.failCount | numberFormat }} of {{ ip.testedCount | numberFormat }} fully scanned sites ({{ (ip.share * 100) | round }}%), with every site listed.</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% else %}
+<h2 class="h4 mt-5">Most common failures by indicator</h2>
+<p>The check education sites fail most often in each indicator. Each indicator page lists the top five.</p>
+<ul class="sg-failures">
+  {% for t in indicatorKeys %}
+  {% set f = g.topFailures[t][0] if g.topFailures[t] else null %}
+  {% if f %}
+  <li><strong>{{ (f.share * 100) | round }}% ({{ f.failCount | numberFormat }} of {{ g.scoredCount | numberFormat }} sites)</strong> fail this {{ audits[t].displayName | lower }} check: <a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} <a href="/rankings/edu/{{ t }}/">More {{ audits[t].displayName | lower }} failures</a>.</li>
+  {% endif %}
+  {% endfor %}
+</ul>
+{% endif %}
+
+<h2 class="h4 mt-5">All education sites by {{ topicName }} score</h2>
+{% endif %}
