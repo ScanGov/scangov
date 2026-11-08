@@ -32,7 +32,10 @@ export default function () {
                 continue;
         }
 
-        const obj = { url: domain.url };
+        // Every profile include (actions.html's Download and Copy-link items,
+        // for one) addresses a site by domain.urlkey; without it the changelog
+        // pages linked to /profile/undefined/. Found by check-build-output.js.
+        const obj = { url: domain.url, urlkey: domain.url };
 
         // Get domain data
         const info = domainInfo.get(domain.url);

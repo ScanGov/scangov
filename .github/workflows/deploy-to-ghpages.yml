@@ -5,7 +5,10 @@ name: Deploy to GitHub Pages
 #   prepare  refresh the audit data once (scripts/prepare-data.js)
 #   build    matrix: one "core" job (every page except profiles) plus N
 #            "profiles" shards, each rendering every N-th domain's profile pages
-#   deploy   merge the shard outputs, purge CSS, check the sitemap, publish
+#   deploy   merge the shard outputs, purge CSS, check the sitemap and the
+#            page counts against the data (scripts/check-build-output.js), publish
+# Data checks: prepare validates the auditor payload (scripts/fetch-auditor-data.js)
+# and falls back to the committed file with a run annotation when it fails.
 # To add capacity, add shards to the matrix and bump every BUILD_SHARD denominator.
 
 on:
@@ -32,6 +35,9 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
 
       - run: npm install
+
+      # Unit tests for the data scripts, under a second.
+      - run: npm test
 
       - name: Refresh audit data and changelog
         run: node scripts/prepare-data.js
@@ -177,7 +183,7 @@ jobs:
           done
           ls -l shards/*/
 
-      - name: Merge shards, purge CSS, check sitemap
+      - name: Merge shards, purge CSS, check sitemap and page counts
         run: |
           set -e
           mkdir -p _site
@@ -191,6 +197,7 @@ jobs:
           node scripts/merge-shards.js _site $inputs
           node scripts/purge-css.js _site
           SITEMAP_CHECK_MODE=walk node scripts/check-sitemap-completeness.js
+          node scripts/check-build-output.js _site
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4

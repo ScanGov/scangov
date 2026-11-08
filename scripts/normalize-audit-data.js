@@ -12,6 +12,7 @@
 //
 // Runs inside prepare-data.js on every fetch. To apply it to the committed
 // data file by hand: node scripts/normalize-audit-data.js
+import { pathToFileURL } from 'node:url';
 import * as fs from 'fs';
 import { isPartial } from './counties.js';
 
@@ -39,7 +40,7 @@ export function normalizeAuditData(records) {
   return { records: out, reclassified };
 }
 
-const isMainModule = process.argv[1] && process.argv[1].includes('normalize-audit-data');
+const isMainModule = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
 if (isMainModule) {
   const file = './public/data/myscangov_homepage_audits.json';
   const { records, reclassified } = normalizeAuditData(JSON.parse(fs.readFileSync(file, 'utf8')));

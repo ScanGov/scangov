@@ -10,6 +10,11 @@
     "icon": "fa-solid fa-wave-square"
   },
   {
+    "title": "Dashboards",
+    "url": "/dashboards/",
+    "icon": "fa-solid fa-table-cells-large"
+  },
+  {
     "title": "Changelog",
     "url": "/changelog/",
     "icon": "fa-solid fa-timeline"

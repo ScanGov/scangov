@@ -1,0 +1,70 @@
+---
+layout: layouts/page
+permalink: /dashboards/
+title: Dashboards
+description: Every dashboard on Project ScanGov in one list, from the all-sites Pulse to each state, system, metro and conference ranking page.
+showLastUpdated: true
+keywords: dashboards, rankings, pulse, issues
+---
+{#
+  Directory of every page that aggregates scan data: Pulse, Issues, the
+  rankings hubs, the county state pages, the maps, and the education peer
+  groups. Every entry comes from the data the pages themselves render from
+  (pulsePages, issuePages, groupSummaries, countyStates, eduGroups), so the
+  list cannot drift from what is built. Counts are fully scanned sites.
+#}
+{% set indicatorKeys = topics.keys %}
+<p>Every page that sums up scan results for a set of sites. Each one shows averages, grade shares, and the checks that set fails most, and links the sites behind the numbers. Indicator views of each page sit at the same address with <code>/{indicator}/</code> added.</p>
+
+<h2 class="h4 mt-4" id="pulse">Pulse</h2>
+<p>How scores are distributed and where sites fail, for every site on the list and for each group.</p>
+<ul class="list-inline">
+  {% for pp in pulsePages %}<li class="list-inline-item mb-2"><a class="btn btn-outline-secondary btn-sm" href="{{ pp.permalink }}">{{ pp.label }} <span class="text-muted">({{ pp.summary.scoredCount | numberFormat }})</span></a></li>{% endfor %}
+</ul>
+
+<h2 class="h4 mt-4" id="issues">Issues</h2>
+<p>One check or feature, one group, every site failing it. <a href="/issues/">The issues index</a> has every combination in one table.</p>
+{% set issueSlugs = [] %}
+{% for ip in issuePages %}{% if not ip.unlisted and ip.issue.slug not in issueSlugs %}{% set issueSlugs = (issueSlugs.push(ip.issue.slug), issueSlugs) %}{% endif %}{% endfor %}
+<ul>
+  {% for slug in issueSlugs %}
+  {% set first = false %}{% for ip in issuePages %}{% if ip.issue.slug == slug and not first %}{% set first = ip %}{% endif %}{% endfor %}
+  <li>{{ first.issue.label }}:
+    {% for ip in issuePages %}{% if ip.issue.slug == slug and not ip.unlisted %}<a href="{{ ip.url }}">{{ ip.group.label | lower }}</a> <span class="text-muted small">({{ (ip.share * 100) | round }}%)</span>{% if not loop.last %} &middot; {% endif %}{% endif %}{% endfor %}
+  </li>
+  {% endfor %}
+</ul>
+
+<h2 class="h4 mt-4" id="rankings">Rankings hubs</h2>
+<p><a href="/rankings/">All sites</a>, then one hub per group. The states, cities, counties and education hubs carry charts and a map; federal is a ranked table.</p>
+<ul class="list-inline">
+  {% for g in groupSummaries %}<li class="list-inline-item mb-2"><a class="btn btn-outline-secondary btn-sm" href="{{ g.hub }}">{{ g.label }} <span class="text-muted">({{ g.scoredCount | numberFormat }})</span></a></li>{% endfor %}
+</ul>
+
+<h2 class="h4 mt-4" id="maps">Maps</h2>
+<ul>
+  <li><a href="/map/states/overall/">State sites map</a>, one view per indicator, full width.</li>
+  <li><a href="/map/cities/">City sites map</a>, with an indicator switch.</li>
+</ul>
+
+<h2 class="h4 mt-4" id="counties">Counties by state</h2>
+<p>{{ countyStates.length }} pages, each ranking one state's county sites against the U.S. county average. The <a href="/rankings/counties/#by-state">county hub map</a> shows the same averages.</p>
+<ul class="list-inline">
+  {% for st in countyStates %}<li class="list-inline-item mb-1"><a href="/rankings/counties/{{ st.slug }}/">{{ st.name }}</a> <span class="text-muted small">({{ st.scoredCount }})</span></li>{% endfor %}
+</ul>
+
+<h2 class="h4 mt-4" id="education">Education peer groups</h2>
+<p>{{ eduGroups.groups.length }} pages under the <a href="/rankings/edu/">education hub</a>, each comparing one set of college and university sites with all education sites. A group with fewer than 5 fully scanned sites gets a page but no average.</p>
+{% for kindKey in ["state", "system", "metro", "research", "list", "conference"] %}
+{% set kindGroups = eduGroups.byKind[kindKey] %}
+{% if kindGroups.length %}
+<h3 class="h5 mt-3" id="edu-{{ kindKey }}">{{ eduGroups.kinds[kindKey].label }} <span class="text-muted fw-normal">({{ kindGroups.length }})</span></h3>
+<p class="small text-muted mb-2">{{ eduGroups.kinds[kindKey].intro }}</p>
+<ul class="list-inline">
+  {% for g in kindGroups %}<li class="list-inline-item mb-1"><a href="{{ g.url }}">{{ g.name }}</a> <span class="text-muted small">({{ g.scoredCount }})</span></li>{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+
+<h2 class="h4 mt-4" id="home">Homepage</h2>
+<p>The <a href="/">homepage</a> carries the grade tiles per indicator with group tabs, the grade distribution, and the top five failing checks per indicator for every site on the list.</p>

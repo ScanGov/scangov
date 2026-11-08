@@ -4,6 +4,8 @@
 	"type": "module",
 	"scripts": {
 		"build": "npx @11ty/eleventy --quiet",
+		"test": "node --test scripts/*.test.mjs",
+		"check:output": "node scripts/check-build-output.js _site && SITEMAP_CHECK_MODE=walk node scripts/check-sitemap-completeness.js",
 		"build-nocolor": "cross-env NODE_DISABLE_COLORS=1 npx @11ty/eleventy",
 		"build-ghpages": "npx @11ty/eleventy --pathprefix=/scangov/",
 		"start": "npx @11ty/eleventy --serve --quiet",

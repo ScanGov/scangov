@@ -25,6 +25,17 @@ The higher education cohort is defined by `_data/edu_institutions.csv` (plus any
 - **Push to main:** The `deploy-to-ghpages` workflow builds and deploys on every push to main.
 - **Manual:** The same workflow can be triggered manually from the GitHub Actions UI via `workflow_dispatch`.
 
+### Build checks
+
+The deploy fails, or warns on the run summary, when the data or the output is short of what the site expects. Everything is a JSON parse or a walk of the built files; nothing is re-rendered.
+
+- **Payload validation** (`scripts/fetch-auditor-data.js`, prepare job): at least 5,000 records, all 50 states plus DC, at least 75% of records graded (status 200), and no more than a 10% drop in domains overall or within any category (states, cities, counties, edu, federal) against the committed file. A newest scan older than 14 days is a warning. On errors the build keeps the committed data file and annotates the run.
+- **Page counts** (`scripts/check-build-output.js`, deploy job): every sitemap URL exists on disk, each sitemap section lists at least as many pages as the data has entries for, every profile view and status page is present, and no page contains `undefined`, `NaN`, `null` or `[object Object]` as text. Expected counts come from `content/build-manifest.njk`, which the core build writes to `/data/build-manifest.json` from the same global data the templates paginate.
+- **Sitemap completeness** (`scripts/check-sitemap-completeness.js`, deploy job): every built page is listed or deliberately excluded, and `<lastmod>` values parse.
+- **Unit tests** (`npm test`, prepare job): the `scripts/*.test.mjs` files, under a second.
+
+Run `npm run check:output` after a local `npm run build` to run the two output checks against `_site/`.
+
 ### Data structure
 
 Each domain record includes pre-computed scores per audit topic. The topic list comes from the data repo's `standards/audits.json` at build time (`scripts/topics.js`, `_data/topics.js`), alphabetical with readability last:
