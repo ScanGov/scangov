@@ -1,6 +1,9 @@
+import { pathToFileURL } from 'node:url';
 import crypto from 'crypto';
 import * as fs from 'fs';
 import { stateDomainList } from '../_data/variables.js';
+import { categoryOf } from './categories.js';
+import { ciAnnotate } from './ci-annotate.js';
 
 // The auditor's buildhomepages event writes the homepage payload to S3
 // (bucket audits.scangov.org, key homepages/latest.json). The bucket is public;
@@ -28,8 +31,21 @@ const REQUIRED_TOPICS = ['botability', 'accessibility', 'security', 'usability',
 // dropped 352 of 4,841 scored records, six states among them (2026-10-25).
 const UNSCORED_OK_TOPICS = new Set(['readability']);
 const OUTPUT_FILE = './public/data/myscangov_homepage_audits.json';
-const MIN_RECORD_COUNT = 900;
+// Validation thresholds (validateData). The relative checks against the
+// previous data file are the real protection; the absolute floor only guards
+// against a tiny committed file. 7,049 records on 2026-11-08.
+const MIN_RECORD_COUNT = 5000;
 const MAX_DROP_PERCENT = 10;
+// Share of complete records the auditor actually graded (status 200): 86.5% on
+// 2026-11-08. A payload where the scanner was blocked en masse keeps every
+// domain, so the drop check alone would wave it through.
+const MIN_GRADED_PERCENT = 75;
+// Categories (scripts/categories.js) smaller than this are too noisy for a
+// percentage drop check.
+const MIN_CATEGORY_SIZE = 20;
+// A newest record time older than this is a warning, not an error: the payload
+// was probably not rebuilt (SCANGOV_HASH_SECRET unset, or the trigger failed).
+const MAX_AGE_DAYS = 14;
 
 function generateAuthParams() {
     const time = Date.now();
@@ -73,55 +89,85 @@ function compareDomainCoverage(newDomains, existingDomains) {
     return { missing, added };
 }
 
-function validateData(complete) {
+// Is this payload good enough to replace the committed data file? Errors block
+// the write (prepare-data.js then builds with the previous file); warnings are
+// only surfaced. `existing` is the previous data file's records, if any.
+export function validateData(complete, existing = [], { now = Date.now() } = {}) {
     const errors = [];
+    const warnings = [];
 
-    // Check minimum record count
     if (complete.length < MIN_RECORD_COUNT) {
         errors.push(`Only ${complete.length} records (minimum: ${MIN_RECORD_COUNT})`);
     }
 
-    // Check all 50 states + DC are present
+    // All 50 states + DC are present
     const domainKeys = new Set(complete.map(d => d.urlkey));
     const missingStates = stateDomainList.filter(s => !domainKeys.has(s));
     if (missingStates.length > 0) {
         errors.push(`Missing ${missingStates.length} state(s): ${missingStates.join(', ')}`);
     }
 
-    // Check domain coverage vs previous data
-    if (fs.existsSync(OUTPUT_FILE)) {
-        try {
-            const existingDomains = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf8'));
-            if (existingDomains.length > 0) {
-                const { missing, added } = compareDomainCoverage(complete, existingDomains);
+    // Most sites were actually graded
+    const graded = complete.filter(d => d.status === 200).length;
+    const gradedPercent = complete.length ? (graded / complete.length) * 100 : 0;
+    if (gradedPercent < MIN_GRADED_PERCENT) {
+        errors.push(`Only ${gradedPercent.toFixed(1)}% of records are graded (${graded} of ${complete.length} at status 200, minimum ${MIN_GRADED_PERCENT}%)`);
+    }
 
-                if (missing.length > 0) {
-                    console.log(`\n${missing.length} domains in existing data but missing from new data:`);
-                    for (const m of missing) {
-                        console.log(`  - ${m}`);
-                    }
-                }
-
-                if (added.length > 0) {
-                    console.log(`\n${added.length} new domains not in existing data:`);
-                    for (const a of added) {
-                        console.log(`  + ${a}`);
-                    }
-                }
-
-                const dropPercent = (missing.length / existingDomains.length) * 100;
-                if (dropPercent > MAX_DROP_PERCENT) {
-                    errors.push(
-                        `Domain count dropped ${dropPercent.toFixed(1)}% (${missing.length} of ${existingDomains.length} missing, max ${MAX_DROP_PERCENT}%)`
-                    );
-                }
-            }
-        } catch {
-            console.log('Could not read existing data file for comparison');
+    // The payload is a recent scan
+    const newest = complete.reduce((max, d) => (Number.isFinite(d.time) && d.time > max ? d.time : max), 0);
+    if (newest > 0) {
+        const ageDays = (now - newest) / 86400000;
+        if (ageDays > MAX_AGE_DAYS) {
+            warnings.push(`Newest scan is ${Math.round(ageDays)} days old (${new Date(newest).toISOString().slice(0, 10)}); the homepages payload may not have been rebuilt`);
         }
     }
 
-    return errors;
+    // Domain coverage vs previous data, overall and per category
+    if (existing.length > 0) {
+        const { missing, added } = compareDomainCoverage(complete, existing);
+
+        if (missing.length > 0) {
+            console.log(`\n${missing.length} domains in existing data but missing from new data:`);
+            for (const m of missing) {
+                console.log(`  - ${m}`);
+            }
+        }
+
+        if (added.length > 0) {
+            console.log(`\n${added.length} new domains not in existing data:`);
+            for (const a of added) {
+                console.log(`  + ${a}`);
+            }
+        }
+
+        const dropPercent = (missing.length / existing.length) * 100;
+        if (dropPercent > MAX_DROP_PERCENT) {
+            errors.push(
+                `Domain count dropped ${dropPercent.toFixed(1)}% (${missing.length} of ${existing.length} missing, max ${MAX_DROP_PERCENT}%)`
+            );
+        }
+
+        // The overall check hides a lost category inside a large one (edu is
+        // 3,000+ sites; losing every county would be well under 10%).
+        const byCategory = (list) => {
+            const out = {};
+            for (const d of list) (out[categoryOf(d.urlkey)] ||= new Set()).add(d.urlkey);
+            return out;
+        };
+        const newCats = byCategory(complete);
+        for (const [category, oldKeys] of Object.entries(byCategory(existing))) {
+            if (oldKeys.size < MIN_CATEGORY_SIZE) continue;
+            const newKeys = newCats[category] || new Set();
+            const lost = [...oldKeys].filter(k => !newKeys.has(k)).length;
+            const pct = (lost / oldKeys.size) * 100;
+            if (pct > MAX_DROP_PERCENT) {
+                errors.push(`${category}: ${pct.toFixed(1)}% of domains missing (${lost} of ${oldKeys.size}, max ${MAX_DROP_PERCENT}%)`);
+            }
+        }
+    }
+
+    return { errors, warnings };
 }
 
 async function payloadLastModified() {
@@ -227,12 +273,20 @@ export async function fetchAuditorData({ force = false } = {}) {
     console.log(`\nSummary: Fetched ${records.length} domains, filtered ${filtered.length} incomplete, ${complete.length} valid records (${blocked} blocked/unreachable, shown as unknown grade)`);
 
     // Validate before returning
-    const errors = validateData(complete);
-    if (errors.length > 0) {
-        console.error('\n*** DATA VALIDATION FAILED ***');
-        for (const err of errors) {
-            console.error(`  - ${err}`);
+    let existing = [];
+    if (fs.existsSync(OUTPUT_FILE)) {
+        try {
+            existing = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf8'));
+        } catch {
+            console.log('Could not read existing data file for comparison');
         }
+    }
+    const { errors, warnings } = validateData(complete, existing);
+    if (warnings.length > 0) {
+        ciAnnotate('warning', 'Audit data warnings', warnings);
+    }
+    if (errors.length > 0) {
+        ciAnnotate('error', 'Audit data validation failed', errors);
         if (!force) {
             console.error('\nData file was NOT updated. Previous data remains intact.');
             return null;
@@ -244,7 +298,7 @@ export async function fetchAuditorData({ force = false } = {}) {
 }
 
 // Run standalone
-const isMainModule = process.argv[1] && process.argv[1].includes('fetch-auditor-data');
+const isMainModule = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
 if (isMainModule) {
     const force = process.argv.includes('--force');
     try {

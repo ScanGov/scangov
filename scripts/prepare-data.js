@@ -5,11 +5,13 @@
 // hands the resulting files to every build job, which set SKIP_DATA_PREP=1.
 //
 // Usage: node scripts/prepare-data.js
+import { pathToFileURL } from 'node:url';
 import * as fs from 'fs';
 import { fetchAuditorData } from './fetch-auditor-data.js';
 import { appendChangelog } from './changelog.js';
 import { normalizeAuditData } from './normalize-audit-data.js';
 import { default as domainData } from '../_data/domains.js';
+import { ciAnnotate } from './ci-annotate.js';
 
 export const DATA_FILE = './public/data/myscangov_homepage_audits.json';
 
@@ -39,7 +41,10 @@ export async function prepareData({ serve = false } = {}) {
     const auditData = await fetchAuditorData();
     if (auditData === null) {
       if (fs.existsSync(DATA_FILE)) {
-        console.warn('\n⚠ New audit data failed validation. Building with previous data.\n');
+        // Visible on the Actions run summary (scripts/ci-annotate.js), not only in this log.
+        ciAnnotate('warning', 'New audit data failed validation; building with the previous data file', [
+          `${DATA_FILE} is unchanged from the last commit (see the validation errors above)`,
+        ]);
       } else {
         throw new Error('Audit data failed validation and no previous data file exists. Cannot build.');
       }
@@ -71,7 +76,7 @@ export async function prepareData({ serve = false } = {}) {
   console.log(`prepare-data: ${domainDataFilled.length} domains ready`);
 }
 
-const isMainModule = process.argv[1] && process.argv[1].includes('prepare-data');
+const isMainModule = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
 if (isMainModule) {
   try {
     await prepareData();

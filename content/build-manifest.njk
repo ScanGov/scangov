@@ -1,0 +1,30 @@
+---
+layout: false
+permalink: /data/build-manifest.json
+eleventyExcludeFromCollections: true
+sitemap: false
+---
+{#- How many pages this build should have produced, from the same global data
+    the paginated templates read. The core process writes it (profile shards
+    ignore everything outside content/profile/), merge-shards carries it into
+    the deploy, and scripts/check-build-output.js compares the merged _site/
+    and sitemap against it. The deploy job never has the prepared data file,
+    so this is how the expected counts reach it. -#}
+{
+  "domains": {{ domains | length }},
+  {# One page per domain for each view, except the changelog, which has one
+      page per domain with scan history (_data/domain_changelog.js). -#}
+  "profilePages": {
+    "overall": {{ domains | length }},
+    "pulse": {{ domains | length }},
+    "changelog": {{ domain_changelog | length }},
+    "report": {{ domains | length }},
+    "details": {{ domains | length }}
+  },
+  "orgPages": {{ orgPages | length }},
+  "countyStates": {{ countyStates | length }},
+  "countyStateTopics": {{ countyStateTopics | length }},
+  "eduGroupPages": {{ eduGroupPages | length }},
+  "issuePagesListed": {{ issuePages | rejectattr("unlisted") | length }},
+  "statusPages": {{ statusPages | length }}
+}

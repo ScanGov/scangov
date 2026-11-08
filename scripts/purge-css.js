@@ -5,6 +5,7 @@
 // different shards, so it can only run once everything is merged).
 //
 // Usage: node scripts/purge-css.js [siteDir]
+import { pathToFileURL } from 'node:url';
 import * as fs from 'fs';
 import { join } from 'path';
 import { PurgeCSS } from 'purgecss';
@@ -43,7 +44,7 @@ export async function purgeCss(siteDir = '_site') {
   console.log(`purge-css: wrote ${out} (${results[0].css.length} bytes)`);
 }
 
-const isMainModule = process.argv[1] && process.argv[1].includes('purge-css');
+const isMainModule = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
 if (isMainModule) {
   await purgeCss(process.argv[2] || '_site');
 }
