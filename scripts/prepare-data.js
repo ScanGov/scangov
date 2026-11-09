@@ -50,7 +50,8 @@ export async function prepareData({ serve = false } = {}) {
       }
     } else {
       // Sites that returned no page content are not graded (see normalize-audit-data.js).
-      const { records, reclassified } = normalizeAuditData(auditData);
+      const { records, reclassified, deduped } = normalizeAuditData(auditData);
+      for (const d of deduped) console.log(`prepare-data: dropped duplicate record for ${d.urlkey} (${d.name}); keeping the newest scan`);
       console.log(`prepare-data: ${reclassified} sites returned no page content and are recorded as status 995`);
       fs.writeFileSync(DATA_FILE, JSON.stringify(records), 'utf8');
     }
