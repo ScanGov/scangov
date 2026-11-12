@@ -18,7 +18,7 @@
     {% for abbr, d in cityMap.outlines %}<path class="sg-map-state" d="{{ d }}"/>{% endfor %}
     {% for c in cityMap.points %}
       {% set cScore = c.scores[topic] %}
-      <a href="/profile/{{ c.urlkey | slugify }}/overall/" tabindex="-1"><circle class="sg-map-dot" cx="{{ c.x }}" cy="{{ c.y }}" r="4.5" style="fill: var(--bs-{{ s | colorVar }})"><title>{{ c.name }}: {% if s >= 0 %}grade {{ s | gradify }}, {{ topicName }} score {{ s }}{% else %}not fully scanned, so not graded{% if c.status %} (status {{ c.status }}){% endif %}{% endif %}</title></circle></a>
+      <a href="/profile/{{ c.urlkey | slugify }}/overall/" tabindex="-1"><circle class="sg-map-dot" cx="{{ c.x }}" cy="{{ c.y }}" r="4.5" style="fill: var(--bs-{{ cScore | colorVar }})"><title>{{ c.name }}: {% if cScore >= 0 %}grade {{ cScore | gradify }}, {{ topicName }} score {{ cScore }}{% else %}not fully scanned, so not graded{% if c.status %} (status {{ c.status }}){% endif %}{% endif %}</title></circle></a>
     {% endfor %}
   </svg>
   <ul class="sg-legend">
