@@ -678,6 +678,11 @@ a.list-group-item:hover {
     color: white;
 }
 
+/* Org name with no org page: plain text, so not link blue. */
+.breadcrumb-item span.bc-org {
+    color: white;
+}
+
 [data-bs-theme=light] .bc-sep {
     color: var(--bs-body-color);
 }
@@ -691,6 +696,10 @@ a.list-group-item:hover {
 [data-bs-theme=light] .breadcrumb-item a.bc-domain:visited,
 [data-bs-theme=light] .breadcrumb-item a.bc-org-current,
 [data-bs-theme=light] .breadcrumb-item a.bc-org-current:visited {
+    color: var(--bs-body-color);
+}
+
+[data-bs-theme=light] .breadcrumb-item span.bc-org {
     color: var(--bs-body-color);
 }
 
@@ -3957,6 +3966,15 @@ blockquote .lead {
 }
 .sg-map-county--unscanned {
   fill: var(--bs-inaccessible);
+}
+/* A county whose site the auditor looked at but did not score (item.skipped,
+   e.g. too little text): the warning tone at a tint, so it reads as a
+   caution rather than a failure or a gap in the scan. */
+.sg-map-county--skipped {
+  fill: color-mix(in oklab, var(--bs-warning) 45%, var(--bs-body-bg));
+}
+.sg-swatch--skipped {
+  background: color-mix(in oklab, var(--bs-warning) 45%, var(--bs-body-bg));
 }
 .sg-swatch--pass {
   background: color-mix(in oklab, var(--sg-chart-muted) 30%, var(--bs-body-bg));
