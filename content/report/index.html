@@ -82,7 +82,7 @@ showActions: true
   <p>{{ groupSummaries | groupsSentence("overall") }} Each group name links to its rankings; pick a group above for its own Pulse page.</p>
   {% chart pulseCharts.groupsAverages.overall %}
   {% chart pulseCharts.groupsGrades.overall %}
-  <p class="mt-4">{{ groupSummaries | indicatorPatternSentence(audits) }} The chart compares every site's average on each indicator with the state group, the group that scores highest overall.</p>
+  <p>{{ groupSummaries | indicatorPatternSentence(audits) }} The chart compares every site's average on each indicator with the state group, the group that scores highest overall.</p>
   {% chart pulseCharts.indicatorAverages %}
 </section>
 {% endif %}
@@ -91,7 +91,7 @@ showActions: true
 <section aria-labelledby="by-place" class="mt-5">
   <h2 id="by-place">By place</h2>
   {% if showStateMap %}
-  <h3 class="mt-3">State sites</h3>
+  <h3>State sites</h3>
   <p>Each state is colored by the overall grade of its main site. Select a state for its report, or see the <a href="/rankings/states/">state rankings</a>.</p>
   {% set mapId = "state-site-map" %}
   {% set mapData = false %}
@@ -115,7 +115,7 @@ showActions: true
     </div>
   </div>
 
-  <h3 class="mt-5">County sites in the three most populous states</h3>
+  <h3>County sites in the three most populous states</h3>
   <p>Every county in California, Texas, and Florida, colored by its site's overall grade. Each state has its own page with the full county ranking.</p>
   <div class="row">
     {# The three most populous states by the 2020 Census; population is not in the dataset, so the pick is fixed here. #}
@@ -151,7 +151,7 @@ showActions: true
   {% for t in indicatorKeys %}
   {% set catInfo = audits[t] %}
   {% set topicName = catInfo.displayName | lower %}
-  <h3 class="mt-5"><i class="fa-solid fa-{{ catInfo.icon }}" aria-hidden="true"></i> {{ catInfo.displayName }}</h3>
+  <h3><i class="fa-solid fa-{{ catInfo.icon }}" aria-hidden="true"></i> {{ catInfo.displayName }}</h3>
   {% if s.topFailures[t].length %}
   <p>{{ catInfo.description }} {{ s | topFailureSentence(t, topicName) }}</p>
   {% chart s.charts.failures[t] %}

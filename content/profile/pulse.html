@@ -37,7 +37,7 @@ eleventyComputed:
   </script>
 
   <div class="border-bottom pb-4 mb-4">
-    <h2 class="mb-3">Grades</h2>
+    <h2>Grades</h2>
     <p>Scores for each indicator.</p>
     <div class="col-12 col-lg-10">
       <canvas id="grades-chart"></canvas>
@@ -109,7 +109,7 @@ eleventyComputed:
   </div>
 
   <div class="pb-4 mb-4">
-    <h2 class="mb-3">Top issues</h2>
+    <h2>Top issues</h2>
     <span class="d-none" id="sg-clapping-ref"><i class="fa-solid fa-hands-clapping"></i></span>
     <p>Failing checks for this domain per indicator.</p>
     <div class="row">
@@ -117,7 +117,7 @@ eleventyComputed:
         {% set lower = indicator.toLowerCase() %}
         {% set catInfo = audits[lower] %}
         <div class="col-12 col-lg-10 mb-4">
-          <h3 class="h5">{{ indicator }}</h3>
+          <h3>{{ indicator }}</h3>
           <canvas id="chart-{{ lower }}"></canvas>
           {% if catInfo %}
           <div class="alert alert-info small mt-2" role="alert">

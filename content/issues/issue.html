@@ -86,7 +86,7 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 <div class="row">
   {% if item.byState %}
   <div class="col-12 {% if item.breakdown %}col-lg-7{% endif %}">
-    <h2 class="h4 mt-4" id="by-state">By state</h2>
+    <h2 id="by-state">By state</h2>
     <p>The share of tested {{ group.noun }} in each state that {{ issue.failPhrase }}.{% if group.hasStatePages %} Select a state to see its {{ check.topicLabel | lower }} rankings.{% endif %}</p>
     <div class="table-responsive">
       <table class="table table-sm" data-sortable>
@@ -127,7 +127,7 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 </div>
 {% endif %}
 
-<h2 class="h4 mt-5" id="sites">The {{ item.failCount | numberFormat }} {{ group.noun }} that {{ issue.failPhrase }}</h2>
+<h2 id="sites">The {{ item.failCount | numberFormat }} {{ group.noun }} that {{ issue.failPhrase }}</h2>
 <p>Sorted by {% if item.byState %}state, then {% endif %}name. Each site links to its {{ check.topicLabel | lower }} report and shows its {{ check.topicLabel | lower }} and overall grades from the same scan.{% if item.columns.length %} {{ "ARI and Flesch-Kincaid (FK) are the two reading grades from that scan. Both show a U.S. school grade." if item.columns.length == 2 }}{% endif %}</p>
 <div class="table-responsive">
   <table class="table rankings-table" data-sortable data-paginate="50" data-paginate-unit="sites">
@@ -158,14 +158,14 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 
 <section class="mt-5" aria-labelledby="about-check">
   {% if issue.isFeature %}
-  <h2 class="h4" id="about-check">About these checks</h2>
+  <h2 id="about-check">About these checks</h2>
   <p><i class="fa-solid fa-{{ check.topicIcon }}" aria-hidden="true"></i> {{ check.description }} These <a href="{{ check.standardsUrl }}">{{ check.topicLabel | lower }} checks</a> test each part of that.{% if check.note %} {{ check.note }}{% endif %}</p>
   <ul class="sg-failures">
     {% for c in item.checks %}
     <li><a href="{{ c.standardsUrl }}">{{ c.label | humanizeLabel }}</a>. {{ c.description }} {{ c.risk }}</li>
     {% endfor %}
   </ul>
-  <h3 class="h5">Guidance</h3>
+  <h3>Guidance</h3>
   <ul>
     {% for c in item.checks %}<li><a href="{{ c.standardsUrl }}">{{ c.label | humanizeLabel }} standard</a>, with how to fix it</li>{% endfor %}
     {% set seen = [] %}
@@ -173,11 +173,11 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
     <li><a href="{{ group.hub }}{{ issue.topic }}/">{{ rankingsLabel }}</a></li>
   </ul>
   {% else %}
-  <h2 class="h4" id="about-check">About this check</h2>
+  <h2 id="about-check">About this check</h2>
   <p><a href="{{ check.standardsUrl }}"><i class="fa-solid fa-{{ check.topicIcon }}" aria-hidden="true"></i> {{ check.label | humanizeLabel }}</a> is one of the {{ check.topicLabel | lower }} checks. {{ check.description }}</p>
-  {% if check.why %}<h3 class="h5">Why it matters</h3><p>{{ check.why }}</p>{% endif %}
-  {% if check.risk %}<h3 class="h5">Risk</h3><p>{{ check.risk }}</p>{% endif %}
-  <h3 class="h5">Guidance</h3>
+  {% if check.why %}<h3>Why it matters</h3><p>{{ check.why }}</p>{% endif %}
+  {% if check.risk %}<h3>Risk</h3><p>{{ check.risk }}</p>{% endif %}
+  <h3>Guidance</h3>
   <ul>
     <li><a href="{{ check.standardsUrl }}">{{ check.label | humanizeLabel }} standard</a>, with how to fix it</li>
     {% for g in check.guidance %}<li><a href="https://standards.scangov.org{{ g.url }}">{{ g.displayName }}</a></li>{% endfor %}
