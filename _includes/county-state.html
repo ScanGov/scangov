@@ -76,7 +76,7 @@
       </div>
     </div>
 
-    <h2 class="h4 mt-4">Top 3 {{ st.name }} county sites by {{ topicName }} score</h2>
+    <h2>Top 3 {{ st.name }} county sites by {{ topicName }} score</h2>
     <div class="row g-3">
       {% for d in st.top3[topic] %}
       <div class="col-12 col-md-4">
@@ -86,8 +86,8 @@
           </div>
           <div class="card-body">
             <p class="small text-muted mb-1">#{{ d.rankingPosition }} in {{ st.name }}{% if d.nationalRank %} &middot; U.S. rank {{ d.nationalRank }}{% endif %}</p>
-            <h3 class="h5 mb-1"><a href="/profile/{{ d.urlkey | slugify }}/overall/">{{ d.name }}</a></h3>
-            <p class="mb-2"><span class="badge text-bg-{{ d.score | colorify }}">{{ d.score | gradify }}</span> {{ d.score }} {{ topicName }}</p>
+            <h3><a href="/profile/{{ d.urlkey | slugify }}/overall/">{{ d.name }}</a></h3>
+            <p><span class="badge text-bg-{{ d.score | colorify }}">{{ d.score | gradify }}</span> {{ d.score }} {{ topicName }}</p>
             <ul class="list-inline small mb-0">
               {% for t in indicatorKeys %}
               {% set ts = d.scores[t].score if d.scores and d.scores[t] else null %}
@@ -103,14 +103,14 @@
     {% if specificAttribute %}
       {# The figure's own title is the section heading (headingLevel 2 in the spec); repeating it above would say the same thing twice. #}
       <div class="mt-4">{% chart st.charts.failures[specificAttribute] %}</div>
-      <h3 class="h5 mt-4">What each check means</h3>
+      <h3>What each check means</h3>
       <ul class="sg-failures">
         {% for f in st.topFailures[specificAttribute] %}
         <li><a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} {{ f.risk }}</li>
         {% endfor %}
       </ul>
     {% else %}
-      <h2 class="h4 mt-5">Most common failures by indicator</h2>
+      <h2>Most common failures by indicator</h2>
       <p>The check {{ st.name }} county sites fail most often in each indicator. Each indicator page lists the top five.</p>
       <ul class="sg-failures">
         {% for t in indicatorKeys %}
@@ -131,7 +131,7 @@
     {% set stateIssues = [] %}
     {% for ip in issuePages %}{% if ip.group.key == "counties" and not ip.unlisted and (not specificAttribute or ip.issue.topic == specificAttribute) %}{% for s in ip.states %}{% if s.code == st.code %}{% set stateIssues = (stateIssues.push({ page: ip, state: s }), stateIssues) %}{% endif %}{% endfor %}{% endif %}{% endfor %}
     {% if stateIssues.length %}
-    <h2 class="h4 mt-5">{{ st.name }} county sites by {% if specificAttribute %}{{ topicName }} {% endif %}issue</h2>
+    <h2>{{ st.name }} county sites by {% if specificAttribute %}{{ topicName }} {% endif %}issue</h2>
     <p>How many fully scanned {{ st.name }} county sites have each problem, next to the U.S. county share. Each issue links to the list of {{ st.name }} sites that have it.</p>
     <ul class="sg-failures">
       {% for si in stateIssues %}
@@ -140,7 +140,7 @@
     </ul>
     {% endif %}
 
-    <h2 class="h4 mt-5">All {{ st.name }} county sites by {{ topicName }} score</h2>
+    <h2>All {{ st.name }} county sites by {{ topicName }} score</h2>
     {% set tableCaption = st.name + " county sites ranked by " + topicName + " score" %}
     {% set paginateRows = 50 %}
     {% include "ranking-table-block.html" %}

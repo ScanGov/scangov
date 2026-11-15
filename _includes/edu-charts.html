@@ -49,7 +49,7 @@
 
 {% chart g.charts.area[topic] %}
 
-<h2 class="h4 mt-4" id="by-state">Public college sites by state</h2>
+<h2 id="by-state">Public college sites by state</h2>
 <p>Average {{ topicName }} score of the fully scanned public college and university sites in each state, darker for higher. Select a state on the map or in the table for its page, which also lists the state's private institutions.</p>
 <div class="row">
   <div class="col-12 col-lg-7">
@@ -96,7 +96,7 @@
 </div>
 <p class="small text-muted">Sites counts the public institutions in each state; the state page lists private nonprofit institutions too.{% if eduGroups.unknownCount %} {{ eduGroups.unknownCount }} education sites on our list are not matched to an institution record yet, so they have no state here. They count in every other figure on this page.{% endif %}</p>
 
-<h2 class="h4 mt-5" id="more-comparisons">More comparisons</h2>
+<h2 id="more-comparisons">More comparisons</h2>
 <p>The same rankings for other peer sets. Each page ranks its members, shows the most common failures, and compares the group with all education sites.</p>
 <ul class="list-inline">
   {% for g in eduGroups.byKind.list %}<li class="list-inline-item mb-2"><a class="btn btn-outline-secondary btn-sm" href="{{ g.url }}{% if specificAttribute %}{{ specificAttribute }}/{% endif %}">{{ g.name }} <span class="text-muted">({{ g.count }})</span></a></li>{% endfor %}
@@ -129,7 +129,7 @@
 
 {% if specificAttribute %}
 <div class="mt-4">{% chart g.charts.failures[specificAttribute] %}</div>
-<h3 class="h5 mt-4">What each check means</h3>
+<h3>What each check means</h3>
 <ul class="sg-failures">
   {% for f in g.topFailures[specificAttribute] %}
   <li><a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} {{ f.risk }}</li>
@@ -139,7 +139,7 @@
 {% set issueLinks = [] %}
 {% for ip in issuePages %}{% if ip.group.key == "edu" and ip.issue.topic == specificAttribute and not ip.unlisted %}{% set issueLinks = (issueLinks.push(ip), issueLinks) %}{% endif %}{% endfor %}
 {% if issueLinks.length %}
-<h3 class="h5 mt-4">Every site with one problem</h3>
+<h3>Every site with one problem</h3>
 <ul class="sg-failures">
   {% for ip in issueLinks %}
   <li><a href="{{ ip.url }}">{{ ip.title }}</a>: {{ ip.failCount | numberFormat }} of {{ ip.testedCount | numberFormat }} fully scanned sites ({{ (ip.share * 100) | round }}%), with every site listed.</li>
@@ -147,7 +147,7 @@
 </ul>
 {% endif %}
 {% else %}
-<h2 class="h4 mt-5">Most common failures by indicator</h2>
+<h2>Most common failures by indicator</h2>
 <p>The check education sites fail most often in each indicator. Each indicator page lists the top five.</p>
 <ul class="sg-failures">
   {% for t in indicatorKeys %}
@@ -159,5 +159,5 @@
 </ul>
 {% endif %}
 
-<h2 class="h4 mt-5">All education sites by {{ topicName }} score</h2>
+<h2>All education sites by {{ topicName }} score</h2>
 {% endif %}

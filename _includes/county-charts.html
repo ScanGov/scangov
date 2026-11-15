@@ -45,7 +45,7 @@
 
 {% chart nat.charts.area[topic] %}
 
-<h2 class="h4 mt-4" id="by-state">County sites by state</h2>
+<h2 id="by-state">County sites by state</h2>
 <p>Average {{ topicName }} score of the fully scanned county sites in each state, darker for higher. Select a state on the map or in the table for its county rankings.</p>
 <div class="row">
   <div class="col-12 col-lg-7">
@@ -96,7 +96,7 @@
 
 {% if specificAttribute %}
 <div class="mt-4">{% chart nat.charts.failures[specificAttribute] %}</div>
-<h3 class="h5 mt-4">What each check means</h3>
+<h3>What each check means</h3>
 <ul class="sg-failures">
   {% for f in nat.topFailures[specificAttribute] %}
   <li><a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} {{ f.risk }}</li>
@@ -106,7 +106,7 @@
 {% set issueLinks = [] %}
 {% for ip in issuePages %}{% if ip.group.key == "counties" and ip.issue.topic == specificAttribute and not ip.unlisted %}{% set issueLinks = (issueLinks.push(ip), issueLinks) %}{% endif %}{% endfor %}
 {% if issueLinks.length %}
-<h3 class="h5 mt-4">Every site with one problem</h3>
+<h3>Every site with one problem</h3>
 <ul class="sg-failures">
   {% for ip in issueLinks %}
   <li><a href="{{ ip.url }}">{{ ip.title }}</a>: {{ ip.failCount | numberFormat }} of {{ ip.testedCount | numberFormat }} fully scanned sites ({{ (ip.share * 100) | round }}%), with a county map, the share in each state, and every site listed.</li>
@@ -115,5 +115,5 @@
 {% endif %}
 {% endif %}
 
-<h2 class="h4 mt-5">All U.S. county sites by {{ topicName }} score</h2>
+<h2>All U.S. county sites by {{ topicName }} score</h2>
 {% endif %}

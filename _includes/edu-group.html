@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <p class="mt-3">{{ grp.intro }}</p>
+    <p>{{ grp.intro }}</p>
 
     {% if grp.scoredCount == 0 %}
     <div class="alert alert-info mt-4" role="status">
@@ -73,7 +73,7 @@
     </div>
 
     {% if grp.top3[topic].length %}
-    <h2 class="h4 mt-4">Top {{ grp.top3[topic].length }} {{ grp.headlineNoun }} by {{ topicName }} score</h2>
+    <h2>Top {{ grp.top3[topic].length }} {{ grp.headlineNoun }} by {{ topicName }} score</h2>
     <div class="row g-3">
       {% for d in grp.top3[topic] %}
       <div class="col-12 col-md-4">
@@ -83,8 +83,8 @@
           </div>
           <div class="card-body">
             <p class="small text-muted mb-1">#{{ d.rankingPosition }} in {{ grp.shortName }}{% if d.nationalRank %} &middot; U.S. education rank {{ d.nationalRank }}{% endif %}</p>
-            <h3 class="h5 mb-1"><a href="/profile/{{ d.urlkey | slugify }}/overall/">{{ d.name }}</a></h3>
-            <p class="mb-2"><span class="badge text-bg-{{ d.score | colorify }}">{{ d.score | gradify }}</span> {{ d.score }} {{ topicName }}</p>
+            <h3><a href="/profile/{{ d.urlkey | slugify }}/overall/">{{ d.name }}</a></h3>
+            <p><span class="badge text-bg-{{ d.score | colorify }}">{{ d.score | gradify }}</span> {{ d.score }} {{ topicName }}</p>
             <ul class="list-inline small mb-0">
               {% for t in indicatorKeys %}
               {% set ts = d.scores[t].score if d.scores and d.scores[t] else null %}
@@ -100,7 +100,7 @@
 
     {% if specificAttribute %}
       <div class="mt-4">{% chart grp.charts.failures[specificAttribute] %}</div>
-      <h3 class="h5 mt-4">What each check means</h3>
+      <h3>What each check means</h3>
       <ul class="sg-failures">
         {% for f in grp.topFailures[specificAttribute] %}
         <li><a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} {{ f.risk }}</li>
@@ -109,7 +109,7 @@
       {% set issueLinks = [] %}
       {% for ip in issuePages %}{% if ip.group.key == "edu" and ip.issue.topic == specificAttribute and not ip.unlisted %}{% set issueLinks = (issueLinks.push(ip), issueLinks) %}{% endif %}{% endfor %}
       {% if issueLinks.length %}
-      <h3 class="h5 mt-4">Every education site with one problem</h3>
+      <h3>Every education site with one problem</h3>
       <ul class="sg-failures">
         {% for ip in issueLinks %}
         <li><a href="{{ ip.url }}">{{ ip.title }}</a>: {{ ip.failCount | numberFormat }} of {{ ip.testedCount | numberFormat }} fully scanned education sites ({{ (ip.share * 100) | round }}%), with every site listed.</li>
@@ -117,7 +117,7 @@
       </ul>
       {% endif %}
     {% else %}
-      <h2 class="h4 mt-5">Most common failures by indicator</h2>
+      <h2>Most common failures by indicator</h2>
       <p>The check {{ grp.headlineNoun }} fail most often in each indicator. Each indicator page lists the top five.</p>
       <ul class="sg-failures">
         {% for t in indicatorKeys %}
@@ -130,7 +130,7 @@
     {% endif %}
 
     {% for section in grp.sections %}
-    <h2 class="h4 mt-5" id="section-{{ section.key }}">{{ section.label }} by {{ topicName }} score</h2>
+    <h2 id="section-{{ section.key }}">{{ section.label }} by {{ topicName }} score</h2>
     {% if not section.inHeadline %}
     <p class="small text-muted">{{ section.count }} sites, {{ section.scoredCount }} fully scanned{% if section.hasAverage %}, average {{ topicName }} score {{ section.averages[topic] }} ({{ section.averages[topic] | gradify }}){% endif %}. {{ section.note }}</p>
     {% elif grp.sections.length > 1 %}
