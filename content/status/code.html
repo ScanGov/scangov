@@ -17,6 +17,12 @@ eleventyComputed:
   breadcrumbCurrent: "{{ statusPage.code }} {{ statusPage.label }}"
 ---
 
+{% if statusPage.pageNum == 0 %}
+{% set statusDef = statusPage %}
+{% include "status-alert.html" %}
+<h2 id="sites">Sites with this status</h2>
+{% endif %}
+
 {% if statusPage.count > 0 %}
 <div class="table-responsive">
   <table class="table">

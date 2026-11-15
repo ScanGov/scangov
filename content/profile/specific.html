@@ -23,6 +23,16 @@ eleventyComputed:
 
 <div class="col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10">
   {% set cards = topics.names %}
+  <div class="d-none" id="heading-status">
+    {% set pageHeading = "Status" %}
+    {% set headingPrefix = domainSlug %}
+    {% include "page-heading.html" %}
+  </div>
+  <div class="d-none" id="heading-pages">
+    {% set pageHeading = "Pages" %}
+    {% set headingPrefix = domainSlug %}
+    {% include "page-heading.html" %}
+  </div>
   {% for card in cards %}
     {% set scorekey = card.toLowerCase() %}
     <div class="d-none" id="heading-{{ scorekey }}">
@@ -32,6 +42,54 @@ eleventyComputed:
     </div>
   {% endfor %}
   {% include "details.html" %}
+  <div class="d-none" id="details-status">
+    {% set statusDef = statusDefinitions[domain.status] %}
+    {% if statusDef %}
+    {% set statusSite = domain.urlkey %}
+    {% include "status-alert.html" %}
+    {% endif %}
+  </div>
+  <div class="d-none" id="details-pages">
+    <ul class="nav nav-tabs filter small mb-0">
+      <li class="nav-item"><a class="nav-link js-filter-trigger active mx-1" href="#all" data-topic-key="all">
+        <i class="fa-solid fa-circle-notch" aria-hidden="true"></i> All</a></li>
+      {% for t in profileLinks.topics %}
+      <li class="nav-item"><a class="nav-link js-filter-trigger mx-1" href="#{{ t.key }}" data-topic-key="{{ t.key }}">
+        <i class="fa-solid fa-{{ t.icon }} me-2" aria-hidden="true" title="{{ t.title }}"></i>{{ t.title }}</a></li>
+      {% endfor %}
+    </ul>
+    {% for t in profileLinks.topics %}
+    <select class="form-select js-subfilters d-none" id="subfilter-select-{{ t.key }}" data-topic-key="{{ t.key }}" aria-label="All {{ t.title }} standards">
+      <option value="{{ t.key }}">All {{ t.title }} standards</option>
+      {% for attr in audits[t.key].attributes | sort(false, false, "displayName") %}
+      <option value="{{ t.key }}:{{ attr.scorekey or attr.key }}">{{ attr.displayName }}</option>
+      {% endfor %}
+    </select>
+    {% endfor %}
+    <div class="table-responsive">
+      <table class="table" id="pages-table">
+        <caption class="visually-hidden">Pages and issue counts</caption>
+        <colgroup>
+          <col style="width:5rem">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col" class="text-nowrap">Issues</th>
+            <th scope="col">Page</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="pages-issues"></td>
+            <td><a href="/profile/{{ domain.urlkey | slugify }}/overall/">{{ domain.title or domain.urlkey }}</a><br>
+              <span class="small text-body-secondary font-monospace">/</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="/js/pages-view.js" defer></script>
+  </div>
   {% for card in cards %}
     {% set scorekey = card.toLowerCase() %}
     <div class="d-none" id="details-{{ scorekey }}">
