@@ -135,8 +135,23 @@
     {% if not mapPage %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 py-3">
+            <div class="col-12 py-3 d-flex flex-wrap align-items-center justify-content-between gap-2">
                 {% include "breadcrumb-profile.html" %}
+                {% if not orgPage %}
+                <div class="d-flex flex-wrap align-items-center gap-3">
+                    <span class="small text-body-secondary font-monospace">
+                        Last scan:
+                        <span id="updated">{% if domain.time %}{{ domain.time | standardFormatDate }}{% else %}{{ updates }}{% endif %}</span>
+                        {% set infoHref = "https://docs.scangov.org/scans/" %}
+                        {% set infoLabel = "Last scan" %}
+                        {% set infoDescription = "How often ScanGov scans this site." %}
+                        {% set infoMatchTextColor = true %}
+                        {% include "info-icon.html" %}
+                    </span>
+                    {% set actionsCompact = true %}
+                    {% include "actions.html" %}
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

@@ -39,36 +39,33 @@ showActions: true
   <p>ScanGov scans the homepage of {{ pp.scope }}, {{ s.count | numberFormat }} sites. Each scan runs the checks on <a href="https://standards.scangov.org/">standards.scangov.org</a> for {{ topics.sentence }}. A site counts as fully scanned when its homepage responded and returned page content; sites that did not are listed with their <a href="/status/">scan status</a> and left out of every figure here. The <a href="{{ pp.hub }}">{{ pp.label | lower }} rankings</a> list every site; <a href="/pulse/">Pulse for all sites</a> compares the groups.</p>
   {% endif %}
   <div class="row g-3 mb-2">
-    <div class="col-6 col-lg-3">
-      <div class="card h-100"><div class="card-body">
-        <p class="sg-stat-value">{{ s.scoredCount | numberFormat }} <span class="fs-5 text-muted">of {{ s.count | numberFormat }}</span></p>
-        <p class="sg-stat-label">{{ pp.noun | capitalize }} fully scanned. We couldn't fully scan {{ (s.count - s.scoredCount) | numberFormat }}</p>
-      </div></div>
-    </div>
-    <div class="col-6 col-lg-3">
-      <div class="card h-100"><div class="card-body">
-        <p class="sg-stat-value"><span class="badge text-bg-{{ s.averages.overall | colorify }}">{{ s.averages.overall | gradify }}</span> {{ s.averages.overall }}</p>
-        <p class="sg-stat-label">Average overall score of the fully scanned {{ pp.noun }}</p>
-      </div></div>
-    </div>
-    <div class="col-6 col-lg-3">
-      <div class="card h-100"><div class="card-body">
-        {% if pp.isAll %}
-        <p class="sg-stat-value">{{ groupSummaries.length }}</p>
-        <p class="sg-stat-label">Groups ranked: {% for g in groupSummaries %}<a href="/pulse/{{ g.key }}/">{{ g.label | lower }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
-        {% else %}
-        {% set gradeA = s.gradeDistribution.overall.A %}
-        <p class="sg-stat-value">{{ ((gradeA / s.scoredCount) * 100) | round if s.scoredCount else 0 }}%</p>
-        <p class="sg-stat-label">Fully scanned {{ pp.noun }} earning an A overall ({{ gradeA | numberFormat }} sites)</p>
-        {% endif %}
-      </div></div>
-    </div>
-    <div class="col-6 col-lg-3">
-      <div class="card h-100"><div class="card-body">
-        <p class="sg-stat-value">{{ s.scanWindow.to | standardFormatDate }}</p>
-        <p class="sg-stat-label">Newest scan. Sites were scanned between {{ s.scanWindow.from | standardFormatDate }} and this date</p>
-      </div></div>
-    </div>
+    {% set statLabel = "Fully scanned" %}
+    {% set statValue %}{{ s.scoredCount | numberFormat }} <span class="fs-5">of {{ s.count | numberFormat }}</span>{% endset %}
+    {% set statFooter %}{{ pp.noun | capitalize }} fully scanned. We couldn't fully scan {{ (s.count - s.scoredCount) | numberFormat }}{% endset %}
+    {% set statColor = "" %}
+    {% include "stat-card.html" %}
+    {% set statLabel = "Average overall score" %}
+    {% set statValue %}{{ s.averages.overall | gradify }} <span class="fs-5">{{ s.averages.overall }}</span>{% endset %}
+    {% set statFooter %}Average overall score of the fully scanned {{ pp.noun }}{% endset %}
+    {% set statColor = s.averages.overall | colorify %}
+    {% include "stat-card.html" %}
+    {% if pp.isAll %}
+    {% set statLabel = "Groups ranked" %}
+    {% set statValue = groupSummaries.length %}
+    {% set statFooter %}{% for g in groupSummaries %}<a href="/pulse/{{ g.key }}/">{{ g.label | lower }}</a>{% if not loop.last %}, {% endif %}{% endfor %}{% endset %}
+    {% else %}
+    {% set gradeA = s.gradeDistribution.overall.A %}
+    {% set statLabel = "Earning an A" %}
+    {% set statValue = (((gradeA / s.scoredCount) * 100) | round if s.scoredCount else 0) + "%" %}
+    {% set statFooter %}Fully scanned {{ pp.noun }} earning an A overall ({{ gradeA | numberFormat }} sites){% endset %}
+    {% endif %}
+    {% set statColor = "" %}
+    {% include "stat-card.html" %}
+    {% set statLabel = "Newest scan" %}
+    {% set statValue = s.scanWindow.to | standardFormatDate %}
+    {% set statFooter %}Sites were scanned between {{ s.scanWindow.from | standardFormatDate }} and this date{% endset %}
+    {% set statColor = "" %}
+    {% include "stat-card.html" %}
   </div>
 </section>
 

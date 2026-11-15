@@ -5,6 +5,9 @@
   and copied into each site repo's _includes/ (scangov, standards,
   scangov-com, docs), alongside public/css/scangov.css and feedback.html.
 
+  Set `actionsCompact` to drop the spacing and bottom border when the actions
+  sit in a header row (the domain pages in scangov).
+
   Usage: include on any page where the standard page actions should appear:
 
     {% include "actions.html" %}
@@ -30,11 +33,26 @@
 #}
 {% set actionsSocialSites = ["https://scangov.com", "https://scangov.org", "https://docs.scangov.org", "https://standards.scangov.org", "https://data.scangov.org"] %}
 {% set actionsEmailSites = ["https://scangov.com", "https://scangov.org", "https://standards.scangov.org", "https://docs.scangov.org", "https://data.scangov.org"] %}
-<div class="actions d-flex flex-wrap gap-2 mt-3 mb-3 pb-3 border-bottom">
+<div class="actions d-flex flex-wrap gap-2{% if not actionsCompact %} mt-3 mb-3 pb-3 border-bottom{% endif %}">
     <a href="https://scangov.com" id="rescan-action" class="btn btn-outline-primary btn-sm d-none" aria-label="Rescan" title="Rescan">
         <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
     </a>
     {% if profile and not mapPage and not orgPage %}
+    {# The domain's failing checks, for the Download menu. issues-download.js builds the files in the browser. #}
+    {% set issueList = [] %}
+    {% if domain.status == 200 %}
+    {% for topicKey in topics.keys %}
+    {% if domain.scores[topicKey] | length %}
+    {% for attrKey, score in domain[topicKey] %}
+    {% if not score %}
+    {% set attrInfo = domain[topicKey] | findAuditAttribute(topicKey, attrKey) %}
+    {% set ignored = issueList.push({ "topic": topicKey, "attribute": attrKey, "displayName": (attrInfo.displayName if attrInfo else attrKey), "error": (attrInfo.displayName if attrInfo else attrKey), "description": (attrInfo.description if attrInfo else ""), "why": (attrInfo.why if attrInfo else "") }) %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    <script type="application/json" id="issues-data">{{ { "domain": domain.urlkey, "issues": issueList } | dump | replace("<", "\\u003c") | safe }}</script>
     <div class="dropdown">
         <button
             type="button"
@@ -44,17 +62,26 @@
             aria-expanded="false"
             aria-label="Download"
             title="Download">
-            <i class="fa-solid fa-download" aria-hidden="true"></i>
+            <i class="fa-solid fa-download" aria-hidden="true"></i><i class="fa-solid fa-check d-none" aria-hidden="true"></i>
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="download-menu">
-            <li class="small">
+            <li class="small px-3 pt-2"><i class="fa-solid fa-window-maximize me-1" aria-hidden="true"></i>All issues</li>
+            <li class="small px-3"><button type="button" class="dropdown-item" data-issues-format="csv" data-issues-scope="all"><i class="fa-solid fa-file-csv me-1" aria-hidden="true"></i>.csv</button></li>
+            <li class="small px-3"><button type="button" class="dropdown-item" data-issues-format="json" data-issues-scope="all"><i class="fa-solid fa-file-code me-1" aria-hidden="true"></i>.json</button></li>
+            <li class="small px-3"><button type="button" class="dropdown-item" data-issues-format="md" data-issues-scope="all"><i class="fa-brands fa-markdown me-1" aria-hidden="true"></i>.md</button></li>
+            <li class="small px-3 pt-2 d-none" data-issues-topic><i class="fa-solid fa-list-check me-1" aria-hidden="true"></i><span data-issues-topic-label>Indicator issues</span></li>
+            <li class="small px-3 d-none" data-issues-topic><button type="button" class="dropdown-item" data-issues-format="csv" data-issues-scope="topic"><i class="fa-solid fa-file-csv me-1" aria-hidden="true"></i>.csv</button></li>
+            <li class="small px-3 d-none" data-issues-topic><button type="button" class="dropdown-item" data-issues-format="json" data-issues-scope="topic"><i class="fa-solid fa-file-code me-1" aria-hidden="true"></i>.json</button></li>
+            <li class="small px-3 d-none" data-issues-topic><button type="button" class="dropdown-item" data-issues-format="md" data-issues-scope="topic"><i class="fa-brands fa-markdown me-1" aria-hidden="true"></i>.md</button></li>
+            <li class="small px-3 pt-2"><i class="fa-regular fa-file-pdf me-1" aria-hidden="true"></i>Report</li>
+            <li class="small px-3">
                 <a href="/profile/{{ domain.urlkey | slugify }}/report/" class="dropdown-item">
-                    <i class="fa-regular fa-file-pdf"></i>
-                    .pdf
+                    <i class="fa-regular fa-file-pdf me-1" aria-hidden="true"></i>.pdf
                 </a>
             </li>
         </ul>
     </div>
+    <script src="/js/issues-download.js" defer></script>
     {% endif %}
     <div class="dropdown">
         <button

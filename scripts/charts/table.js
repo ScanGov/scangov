@@ -1,6 +1,8 @@
 // The data table twin of every chart, rendered from the same spec so the
-// numbers cannot drift from the marks. Closed by default inside <details>;
-// the summary is keyboard focusable and announced.
+// numbers cannot drift from the marks. Closed by default inside the same
+// Bootstrap accordion as the "Data table" on scangov.com report charts
+// (components/_includes/report-chart.html); the button is keyboard focusable
+// and announced.
 
 import { esc, formatValue, formatCount } from './format.js';
 
@@ -57,9 +59,15 @@ export function renderTable(spec) {
         case 'area': parts = binRows(spec); break;
         default: parts = barRows(spec);
     }
-    const summary = spec.tableSummary || 'View the data table';
-    return `<details class="sg-chart-data"><summary>${esc(summary)}</summary>`
-        + `<div class="table-responsive"><table class="table table-sm">`
+    const label = spec.tableSummary || 'Data table';
+    const base = `${spec.id}-table`;
+    return `<div class="accordion"><div class="accordion-item">`
+        + `<h2 class="accordion-header" id="${esc(base)}-heading">`
+        + `<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${esc(base)}-collapse" aria-expanded="false" aria-controls="${esc(base)}-collapse">`
+        + `<i class="fa-solid fa-table me-2" aria-hidden="true"></i>${esc(label)}</button></h2>`
+        + `<div id="${esc(base)}-collapse" class="accordion-collapse collapse" aria-labelledby="${esc(base)}-heading"><div class="accordion-body">`
+        + `<div class="table-responsive"><table class="table table-sm table-bordered small">`
         + `<caption class="visually-hidden">${esc(spec.title)}</caption>`
-        + `<thead>${headers(parts.columns)}</thead><tbody>${parts.body}</tbody></table></div></details>`;
+        + `<thead>${headers(parts.columns)}</thead><tbody>${parts.body}</tbody></table></div>`
+        + `</div></div></div></div>`;
 }

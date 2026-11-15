@@ -58,18 +58,6 @@
 {% if profile %}
 <ul class="small list-unstyled text-body-secondary font-monospace">
     {% if not mapPage and not orgPage %}
-    {% if site.url == 'https://scangov.org' and domain.name %}
-    <li>
-        Managed by:
-        {% set orgHref = domain.name | orgUrl %}{% if orgHref %}<a href="{{ orgHref }}">{{ domain.name }}</a>{% else %}{{ domain.name }}{% endif %}
-    </li>
-    {% endif %}
-    {% if domain.status %}
-    <li>
-        Status:
-        <a href="/status/{{ domain.status }}/">{{ domain.status }}</a>
-    </li>
-    {% endif %}
     {% if site.url == 'https://scangov.org' %}
     <li>
         Pages: 1 (homepage only &middot; <a href="https://scangov.com/plans">get full site scan</a>)
@@ -80,7 +68,7 @@
     </li>
     {% endif %}
     {% endif %}
-    {% if not orgPage %}
+    {% if mapPage %}
     {% if site.url == 'https://scangov.org' %}
     <li>
         Last scan:

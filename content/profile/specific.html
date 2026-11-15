@@ -32,7 +32,6 @@ eleventyComputed:
     </div>
   {% endfor %}
   {% include "details.html" %}
-  {% include "actions.html" %}
   {% for card in cards %}
     {% set scorekey = card.toLowerCase() %}
     <div class="d-none" id="details-{{ scorekey }}">
