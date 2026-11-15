@@ -114,21 +114,9 @@ Pulse
 </a>
 </li>
 <li class="nav-item me-3 me-lg-0 small">
-<a class="nav-link mx-1" href="/dashboards/">
-<svg class="fa-solid fa-table-cells-large me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table-cells-large" xlink:href="/assets/fa-sprite.svg#fas-fa-table-cells-large"></use></svg>
-Dashboards
-</a>
-</li>
-<li class="nav-item me-3 me-lg-0 small">
 <a class="nav-link mx-1" href="/changelog/">
 <svg class="fa-solid fa-timeline me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-timeline" xlink:href="/assets/fa-sprite.svg#fas-fa-timeline"></use></svg>
 Changelog
-</a>
-</li>
-<li class="nav-item me-3 me-lg-0 small">
-<a class="nav-link mx-1 active" aria-current="page" href="/status/">
-<svg class="fa-solid fa-server me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-server" xlink:href="/assets/fa-sprite.svg#fas-fa-server"></use></svg>
-Status
 </a>
 </li>
 <li class="nav-item me-3 me-lg-0 small">
@@ -175,6 +163,25 @@ Last scan:
 <div class="container">
 <div class="row">
 <div class="col-12">
+<div class="alert alert-warning" role="alert">
+<h2 id="scan-failed">Scan failed <svg class="fa-solid fa-diamond-turn-right" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-diamond-turn-right" xlink:href="/assets/fa-sprite.svg#fas-fa-diamond-turn-right"></use></svg></h2>
+<p>We weren&#39;t able to fully scan your site.</p>
+<h3 id="description">Description</h3>
+<p>The URL has permanently moved to a new address.</p>
+<h3 id="problem">Problem</h3>
+<p>Links and search engines pointing to this URL land on a redirect instead of the final page, which can slow load times, dilute SEO signals, and cause automated scans that don't follow redirects to miss the real content.</p>
+<h3 id="recommendation">Recommendation</h3>
+<p>Point your links at the new address instead of the old one, and make sure the redirect is one you meant to set up.</p>
+<h3 id="technical-recommendation">Technical recommendation</h3>
+<p>Update internal links, sitemaps, and external references to point directly at the destination URL. Confirm the redirect is intentional and permanent, not a leftover from an old site migration.</p>
+<h3 id="details">Details</h3>
+<ul class="list-unstyled font-monospace">
+<li>Label: Moved Permanently</li>
+<li>Type: redirect</li>
+<li>Code: 301</li>
+</ul>
+</div>
+<h2 id="sites">Sites with this status</h2>
 <div class="alert alert-info" role="alert">
 No sites with this status.
 </div>

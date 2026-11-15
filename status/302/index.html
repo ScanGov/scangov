@@ -114,21 +114,9 @@ Pulse
 </a>
 </li>
 <li class="nav-item me-3 me-lg-0 small">
-<a class="nav-link mx-1" href="/dashboards/">
-<svg class="fa-solid fa-table-cells-large me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table-cells-large" xlink:href="/assets/fa-sprite.svg#fas-fa-table-cells-large"></use></svg>
-Dashboards
-</a>
-</li>
-<li class="nav-item me-3 me-lg-0 small">
 <a class="nav-link mx-1" href="/changelog/">
 <svg class="fa-solid fa-timeline me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-timeline" xlink:href="/assets/fa-sprite.svg#fas-fa-timeline"></use></svg>
 Changelog
-</a>
-</li>
-<li class="nav-item me-3 me-lg-0 small">
-<a class="nav-link mx-1 active" aria-current="page" href="/status/">
-<svg class="fa-solid fa-server me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-server" xlink:href="/assets/fa-sprite.svg#fas-fa-server"></use></svg>
-Status
 </a>
 </li>
 <li class="nav-item me-3 me-lg-0 small">
@@ -175,6 +163,25 @@ Last scan:
 <div class="container">
 <div class="row">
 <div class="col-12">
+<div class="alert alert-warning" role="alert">
+<h2 id="scan-failed">Scan failed <svg class="fa-solid fa-diamond-turn-right" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-diamond-turn-right" xlink:href="/assets/fa-sprite.svg#fas-fa-diamond-turn-right"></use></svg></h2>
+<p>We weren&#39;t able to fully scan your site.</p>
+<h3 id="description">Description</h3>
+<p>The URL has temporarily moved to a new address.</p>
+<h3 id="problem">Problem</h3>
+<p>Search engines treat this as a temporary move, so the original URL keeps its indexing weight even though visitors are sent elsewhere. It's easy to leave a 302 in place long after the move became permanent.</p>
+<h3 id="recommendation">Recommendation</h3>
+<p>Decide whether this move is permanent. If it is, ask your web team to make it a permanent redirect. If it's temporary, remove it once you no longer need it.</p>
+<h3 id="technical-recommendation">Technical recommendation</h3>
+<p>If the move is permanent, switch to a 301 redirect. If it's genuinely temporary, confirm the destination is correct and remove the redirect once it's no longer needed.</p>
+<h3 id="details">Details</h3>
+<ul class="list-unstyled font-monospace">
+<li>Label: Found</li>
+<li>Type: redirect</li>
+<li>Code: 302</li>
+</ul>
+</div>
+<h2 id="sites">Sites with this status</h2>
 <div class="alert alert-info" role="alert">
 No sites with this status.
 </div>

@@ -114,21 +114,9 @@ Pulse
 </a>
 </li>
 <li class="nav-item me-3 me-lg-0 small">
-<a class="nav-link mx-1" href="/dashboards/">
-<svg class="fa-solid fa-table-cells-large me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table-cells-large" xlink:href="/assets/fa-sprite.svg#fas-fa-table-cells-large"></use></svg>
-Dashboards
-</a>
-</li>
-<li class="nav-item me-3 me-lg-0 small">
 <a class="nav-link mx-1" href="/changelog/">
 <svg class="fa-solid fa-timeline me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-timeline" xlink:href="/assets/fa-sprite.svg#fas-fa-timeline"></use></svg>
 Changelog
-</a>
-</li>
-<li class="nav-item me-3 me-lg-0 small">
-<a class="nav-link mx-1 active" aria-current="page" href="/status/">
-<svg class="fa-solid fa-server me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-server" xlink:href="/assets/fa-sprite.svg#fas-fa-server"></use></svg>
-Status
 </a>
 </li>
 <li class="nav-item me-3 me-lg-0 small">
@@ -175,6 +163,27 @@ Last scan:
 <div class="container">
 <div class="row">
 <div class="col-12">
+<div class="alert alert-danger" role="alert">
+<h2 id="scan-failed">Scan failed <svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg></h2>
+<p>We weren&#39;t able to fully scan your site.</p>
+<h3 id="description">Description</h3>
+<p>The server encountered an unexpected error and could not complete the request.</p>
+<h3 id="problem">Problem</h3>
+<p>An unhandled error on the server prevented the page from loading at all, affecting every visitor who requests this URL.</p>
+<h3 id="recommendation">Recommendation</h3>
+<p>Something broke on your site. Ask your web team to check the error logs and fix it.</p>
+<h3 id="technical-recommendation">Technical recommendation</h3>
+<p>Check server error logs for the underlying exception and fix the code or configuration issue causing the crash.</p>
+<h3 id="details">Details</h3>
+<ul class="list-unstyled font-monospace">
+<li>Label: Internal Server Error</li>
+<li>Type: inaccessible</li>
+<li>Code: 500</li>
+</ul>
+<h3 id="scangovbot">ScanGovBot</h3>
+<p>Our scanner identifies itself as ScanGovBot. If your site uses a firewall or bot protection, allow it through: <a href="https://scangov.com/bot" class="font-monospace">https://scangov.com/bot</a></p>
+</div>
+<h2 id="sites">Sites with this status</h2>
 <div class="alert alert-info" role="alert">
 No sites with this status.
 </div>

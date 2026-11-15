@@ -114,21 +114,9 @@ Pulse
 </a>
 </li>
 <li class="nav-item me-3 me-lg-0 small">
-<a class="nav-link mx-1" href="/dashboards/">
-<svg class="fa-solid fa-table-cells-large me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table-cells-large" xlink:href="/assets/fa-sprite.svg#fas-fa-table-cells-large"></use></svg>
-Dashboards
-</a>
-</li>
-<li class="nav-item me-3 me-lg-0 small">
 <a class="nav-link mx-1" href="/changelog/">
 <svg class="fa-solid fa-timeline me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-timeline" xlink:href="/assets/fa-sprite.svg#fas-fa-timeline"></use></svg>
 Changelog
-</a>
-</li>
-<li class="nav-item me-3 me-lg-0 small">
-<a class="nav-link mx-1 active" aria-current="page" href="/status/">
-<svg class="fa-solid fa-server me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-server" xlink:href="/assets/fa-sprite.svg#fas-fa-server"></use></svg>
-Status
 </a>
 </li>
 <li class="nav-item me-3 me-lg-0 small">
@@ -175,6 +163,27 @@ Last scan:
 <div class="container">
 <div class="row">
 <div class="col-12">
+<div class="alert alert-danger" role="alert">
+<h2 id="scan-failed">Scan failed <svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg></h2>
+<p>We weren&#39;t able to fully scan your site.</p>
+<h3 id="description">Description</h3>
+<p>The server could not find the requested page or resource.</p>
+<h3 id="problem">Problem</h3>
+<p>The page no longer exists at this address, creating a broken link for anyone who visits it, including from search results, bookmarks, or other sites linking here.</p>
+<h3 id="recommendation">Recommendation</h3>
+<p>Put the page back, or send this address to wherever the content lives now. Then update any menus or links still pointing here.</p>
+<h3 id="technical-recommendation">Technical recommendation</h3>
+<p>Restore the page at this URL, or set up a redirect to its new location or the closest relevant page. Update internal links and the sitemap to remove the dead URL.</p>
+<h3 id="details">Details</h3>
+<ul class="list-unstyled font-monospace">
+<li>Label: Not Found</li>
+<li>Type: inaccessible</li>
+<li>Code: 404</li>
+</ul>
+<h3 id="scangovbot">ScanGovBot</h3>
+<p>Our scanner identifies itself as ScanGovBot. If your site uses a firewall or bot protection, allow it through: <a href="https://scangov.com/bot" class="font-monospace">https://scangov.com/bot</a></p>
+</div>
+<h2 id="sites">Sites with this status</h2>
 <div class="table-responsive">
 <table class="table">
 <caption class="visually-hidden">Sites returning status 404 Not Found</caption>

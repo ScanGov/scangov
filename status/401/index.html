@@ -114,21 +114,9 @@ Pulse
 </a>
 </li>
 <li class="nav-item me-3 me-lg-0 small">
-<a class="nav-link mx-1" href="/dashboards/">
-<svg class="fa-solid fa-table-cells-large me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table-cells-large" xlink:href="/assets/fa-sprite.svg#fas-fa-table-cells-large"></use></svg>
-Dashboards
-</a>
-</li>
-<li class="nav-item me-3 me-lg-0 small">
 <a class="nav-link mx-1" href="/changelog/">
 <svg class="fa-solid fa-timeline me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-timeline" xlink:href="/assets/fa-sprite.svg#fas-fa-timeline"></use></svg>
 Changelog
-</a>
-</li>
-<li class="nav-item me-3 me-lg-0 small">
-<a class="nav-link mx-1 active" aria-current="page" href="/status/">
-<svg class="fa-solid fa-server me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-server" xlink:href="/assets/fa-sprite.svg#fas-fa-server"></use></svg>
-Status
 </a>
 </li>
 <li class="nav-item me-3 me-lg-0 small">
@@ -175,6 +163,27 @@ Last scan:
 <div class="container">
 <div class="row">
 <div class="col-12">
+<div class="alert alert-danger" role="alert">
+<h2 id="scan-failed">Scan failed <svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg></h2>
+<p>We weren&#39;t able to fully scan your site.</p>
+<h3 id="description">Description</h3>
+<p>The requested resource requires authentication. The client must log in to access it.</p>
+<h3 id="problem">Problem</h3>
+<p>This page is locked behind a login, so it's invisible to the public, search engines, and AI tools — even if it's meant to be publicly available.</p>
+<h3 id="recommendation">Recommendation</h3>
+<p>Decide whether this page is meant to be public. If it is, ask your web team to remove the login requirement. If it isn't, take it out of your sitemap and off your public pages.</p>
+<h3 id="technical-recommendation">Technical recommendation</h3>
+<p>If the page should be public, remove the authentication requirement. If it's intentionally private, remove it from your sitemap and any public-facing links.</p>
+<h3 id="details">Details</h3>
+<ul class="list-unstyled font-monospace">
+<li>Label: Unauthorized</li>
+<li>Type: inaccessible</li>
+<li>Code: 401</li>
+</ul>
+<h3 id="scangovbot">ScanGovBot</h3>
+<p>Our scanner identifies itself as ScanGovBot. If your site uses a firewall or bot protection, allow it through: <a href="https://scangov.com/bot" class="font-monospace">https://scangov.com/bot</a></p>
+</div>
+<h2 id="sites">Sites with this status</h2>
 <div class="alert alert-info" role="alert">
 No sites with this status.
 </div>

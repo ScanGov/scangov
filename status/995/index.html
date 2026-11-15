@@ -114,21 +114,9 @@ Pulse
 </a>
 </li>
 <li class="nav-item me-3 me-lg-0 small">
-<a class="nav-link mx-1" href="/dashboards/">
-<svg class="fa-solid fa-table-cells-large me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table-cells-large" xlink:href="/assets/fa-sprite.svg#fas-fa-table-cells-large"></use></svg>
-Dashboards
-</a>
-</li>
-<li class="nav-item me-3 me-lg-0 small">
 <a class="nav-link mx-1" href="/changelog/">
 <svg class="fa-solid fa-timeline me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-timeline" xlink:href="/assets/fa-sprite.svg#fas-fa-timeline"></use></svg>
 Changelog
-</a>
-</li>
-<li class="nav-item me-3 me-lg-0 small">
-<a class="nav-link mx-1 active" aria-current="page" href="/status/">
-<svg class="fa-solid fa-server me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-server" xlink:href="/assets/fa-sprite.svg#fas-fa-server"></use></svg>
-Status
 </a>
 </li>
 <li class="nav-item me-3 me-lg-0 small">
@@ -175,6 +163,27 @@ Last scan:
 <div class="container">
 <div class="row">
 <div class="col-12">
+<div class="alert alert-danger" role="alert">
+<h2 id="scan-blocked">Scan blocked <svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg></h2>
+<p>We couldn&#39;t fully scan your site because it responded without any page content.</p>
+<h3 id="description">Description</h3>
+<p>The server answered the request, but the page it returned had no content for the scanner to read.</p>
+<h3 id="problem">Problem</h3>
+<p>The server returned a success status, but the page had no readable content. That usually means a bot-protection layer (a CDN, firewall, or hosting feature) served an empty or interstitial page to a visitor it didn't recognize, including <a href="https://scangov.com/bot">ScanGovBot</a>. Search engines and AI tools that hit the same wall see nothing either, so the site can't be evaluated or indexed by them.</p>
+<h3 id="recommendation">Recommendation</h3>
+<p>Something on your site is serving an empty page to good bots. Ask whoever manages your security settings to let good bots through. <a href="https://scangov.com/bot">Learn more</a> about what to allow.</p>
+<h3 id="technical-recommendation">Technical recommendation</h3>
+<p>Check your bot-protection or CDN rules for responses that return 200 with a challenge, interstitial, or empty body. Allow the ScanGovBot user-agent, or allowlist 44.236.34.143, and confirm the homepage HTML is returned to non-browser clients.</p>
+<h3 id="details">Details</h3>
+<ul class="list-unstyled font-monospace">
+<li>Label: No page content</li>
+<li>Type: inaccessible</li>
+<li>Code: 995</li>
+</ul>
+<h3 id="scangovbot">ScanGovBot</h3>
+<p>Our scanner identifies itself as ScanGovBot. If your site uses a firewall or bot protection, allow it through: <a href="https://scangov.com/bot" class="font-monospace">https://scangov.com/bot</a></p>
+</div>
+<h2 id="sites">Sites with this status</h2>
 <div class="table-responsive">
 <table class="table">
 <caption class="visually-hidden">Sites returning status 995 No page content</caption>
