@@ -1,0 +1,27 @@
+{#
+  Stat card for a headline figure (pulse and rankings pages). Same card as the
+  small grade card in grade-card.html: short label in the header, the figure
+  large in the body, and a plain sentence in the footer.
+
+  Single source of truth, maintained in https://github.com/ScanGov/components
+  and copied into each site repo's _includes/.
+
+  Set these before including:
+    statLabel    short header text, such as "Fully scanned"
+    statValue    the figure; may contain HTML (use a set block)
+    statFooter   one sentence that explains the figure; may contain HTML
+    statColor    optional status color: success, warning, or danger.
+                 Leave it empty for the plain card.
+    statHref     optional link for the whole figure
+
+  Wrap the includes in a `row g-3`; each include renders its own column.
+#}
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+  <div class="card card-grade-sm w-100{% if statColor %} text-bg-{{ statColor }}{% endif %}">
+    <div class="card-header">{{ statLabel }}</div>
+    {% if statHref %}<a href="{{ statHref }}" class="card-body text-decoration-none">{% else %}<div class="card-body">{% endif %}
+      <div class="display-2">{{ statValue | safe }}</div>
+    {% if statHref %}</a>{% else %}</div>{% endif %}
+    {% if statFooter %}<div class="card-footer text-start">{{ statFooter | safe }}</div>{% endif %}
+  </div>
+</div>
