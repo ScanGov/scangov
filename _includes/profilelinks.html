@@ -1,63 +1,53 @@
-{% if orgPage %}
-    {% set base = "/org/" +  org.name | slugify %}
-    {% set baseDetails = base + "/" %}
-    {% set dashboardUrl = base + "/" %}
-{% else %}
-    {% set base = "/profile/" + domainSlug | slugify %}
-    {% set baseDetails = base + "/details/" %}
-    {% set dashboardUrl = base + "/overall/" %}
-{% endif %}
+{#
+  The links, their order, and their icons come from _data/profileLinks.js, which
+  reads profilelinks.json in the ScanGov/data repo. my.scangov.com builds its
+  left nav from the same file. Edit the list there, not here.
+#}
+{# Counts for the badges `my` shows. scangov.org scans the homepage only, so Pages is 1. #}
+{% set linkCounts = { "pages": 1 } %}
+{% set linkSite = "scangov-org" if orgPage else "scangov" %}
+{% set linkSlug = org.name | slugify if orgPage else domainSlug | slugify %}
 <div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
     <div class="list-group mb-5 position-sticky" style="top: 1rem;">
-        <a href="{{ base }}/{% if not orgPage %}overall/{% endif %}" class="list-group-item list-group-item-action{% if page.url == dashboardUrl %} active{% endif %}"{% if page.url == dashboardUrl %} aria-current="page"{% endif %}>
-            <i class="fa-solid fa-gauge"></i>
-            <small>Dashboard</small>
-        </a>
-        <a href="{{ baseDetails }}?attr=accessibility" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
-            <span><i class="fa-solid fa-universal-access"></i> <small>Accessibility</small></span>
-            {% if domain.status == 200 and domain.scores.accessibility %}<i class="fa-solid fa-circle text-{{ domain.scores.accessibility.score | colorify }} fa-xs"></i>{% endif %}
-        </a>
-        <a href="{{ baseDetails }}?attr=botability" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
-            <span><i class="fa-solid fa-robot"></i> <small>Botability</small></span>
-            {% if domain.status == 200 and domain.scores.botability %}<i class="fa-solid fa-circle text-{{ domain.scores.botability.score | colorify }} fa-xs"></i>{% endif %}
-        </a>
-        <a href="{{ baseDetails }}?attr=security" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
-            <span><i class="fa-solid fa-shield-halved"></i> <small>Security</small></span>
-            {% if domain.status == 200 and domain.scores.security %}<i class="fa-solid fa-circle text-{{ domain.scores.security.score | colorify }} fa-xs"></i>{% endif %}
-        </a>
-        <a href="{{ baseDetails }}?attr=usability" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
-            <span><i class="fa-solid fa-hand-pointer"></i> <small>Usability</small></span>
-            {% if domain.status == 200 and domain.scores.usability %}<i class="fa-solid fa-circle text-{{ domain.scores.usability.score | colorify }} fa-xs"></i>{% endif %}
-        </a>
-        {# Readability is listed last on purpose (see _data/topics.js) and only once audits.json carries the topic. #}
-        {% if audits.readability %}
-        <a href="{{ baseDetails }}?attr=readability" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
-            <span><i class="fa-solid fa-book-open"></i> <small>Readability</small></span>
-            {% if domain.status == 200 and domain.scores.readability %}<i class="fa-solid fa-circle text-{{ domain.scores.readability.score | colorify }} fa-xs"></i>{% endif %}
+        {% for item in profileLinks.items %}
+        {% set template = item.href[linkSite] %}
+        {% if template %}
+        {% set href = template | replace("{slug}", linkSlug) | replace("{status}", domain.status) | replace("{redirect}", domain.redirect) %}
+        {% if item.type == "topics" %}
+        {% for t in profileLinks.topics %}
+        {% if t.key != "readability" or audits.readability %}
+        <a href="{{ href | replace("{topic}", t.key) }}" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+            <span><i class="fa-solid fa-{{ t.icon }}"></i> <small>{{ t.title }}</small></span>
+            {% if domain.status == 200 and domain.scores[t.key] %}<i class="fa-solid fa-circle text-{{ domain.scores[t.key].score | colorify }} fa-xs"></i>{% endif %}
         </a>
         {% endif %}
-        <a href="{{ base }}/pulse/" class="list-group-item list-group-item-action{% if page.url == base + '/pulse/' %} active{% endif %}"{% if page.url == base + '/pulse/' %} aria-current="page"{% endif %}>
-            <i class="fa-solid fa-wave-square"></i>
-            <small>Pulse</small>
+        {% endfor %}
+        {% elif item.dot == "status" %}
+        {% if domain.status %}
+        {% set navStatusColor = "success" if domain.status == 200 else ("warning" if (domain.status == 301 or domain.status == 302) else "danger") %}
+        <a href="{{ href }}" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+            <span><i class="fa-solid fa-{{ item.icon }}" aria-hidden="true"></i> <small>{{ item.title }}</small></span>
+            <i class="fa-solid fa-circle text-{{ navStatusColor }} fa-xs" aria-hidden="true"></i>
         </a>
-        {% if siteContext and not orgPage %}
-            <a href="{{ siteContext.rankingsUrl }}" class="list-group-item list-group-item-action">
-                <i class="fa-solid fa-ranking-star"></i>
-                <small>{{ siteContext.rankingsLabel }}</small>
-            </a>
         {% endif %}
-        {% if not orgPage %}
-            <a href="{{ base }}/changelog/" class="list-group-item list-group-item-action{% if page.url == base + '/changelog/' %} active{% endif %}"{% if page.url == base + '/changelog/' %} aria-current="page"{% endif %}>
-                <i class="fa-solid fa-timeline"></i>
-                <small>Changelog</small>
-            </a>
-            {% if site.url == 'https://scangov.org' %}
-            <a href="{{ domain.redirect }}" target="_blank" class="list-group-item list-group-item-action">
-                <i class="fa-solid fa-up-right-from-square"></i>
-                <small>Site</small>
-            </a>
-            {% endif %}
+        {% elif item.external %}
+        <a href="{{ href }}" target="_blank" class="list-group-item list-group-item-action">
+            <i class="fa-solid fa-{{ item.icon }}"></i>
+            <small>{{ item.title }}</small>
+        </a>
+        {% elif item.count and linkCounts[item.count] != undefined %}
+        <a href="{{ href }}" class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+            <span><i class="fa-solid fa-{{ item.icon }}"></i> <small>{{ item.title }}</small></span>
+            <span class="badge border bg-secondary-subtle border-secondary-subtle">{{ linkCounts[item.count] }}</span>
+        </a>
+        {% else %}
+        <a href="{{ href }}" class="list-group-item list-group-item-action{% if page.url == href %} active{% endif %}"{% if page.url == href %} aria-current="page"{% endif %}>
+            <i class="fa-solid fa-{{ item.icon }}"></i>
+            <small>{{ item.title }}</small>
+        </a>
         {% endif %}
+        {% endif %}
+        {% endfor %}
     </div>
 </div>
 <script>

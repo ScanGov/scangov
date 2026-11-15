@@ -1,0 +1,41 @@
+{#
+  The scan-status message, as on my.scangov.com's Status page: a colored alert with
+  the scan status, what it means, the problem, and what to do. Set before including:
+    statusDef   one entry of status.json (code, label, type, scangovStatus, ...)
+    statusSite  optional domain, listed under Details
+#}
+{% if statusDef.type == "active" %}{% set statusColor = "success" %}{% set statusIcon = "fa-circle-check" %}
+{% elif statusDef.type == "redirect" %}{% set statusColor = "warning" %}{% set statusIcon = "fa-diamond-turn-right" %}
+{% elif statusDef.type == "inaccessible" %}{% set statusColor = "danger" %}{% set statusIcon = "fa-circle-xmark" %}
+{% else %}{% set statusColor = "secondary" %}{% set statusIcon = "fa-circle-question" %}{% endif %}
+<div class="alert alert-{{ statusColor }}" role="alert">
+  <h2>{{ statusDef.scangovStatus }} <i class="fa-solid {{ statusIcon }}" aria-hidden="true"></i></h2>
+  <p>{{ statusDef.statusDescription }}</p>
+
+  <h3>Description</h3>
+  <p>{{ statusDef.description }}</p>
+  {% if statusDef.problem and statusDef.problem != "None." %}
+  <h3>Problem</h3>
+  <p>{{ statusDef.problem | safe }}</p>
+  {% endif %}
+  {% if statusDef.recommendation and statusDef.recommendation != "None." %}
+  <h3>Recommendation</h3>
+  <p>{{ statusDef.recommendation | safe }}</p>
+  {% endif %}
+  {% if statusDef.recommendationTechnical and statusDef.recommendationTechnical != "None." %}
+  <h3>Technical recommendation</h3>
+  <p>{{ statusDef.recommendationTechnical | safe }}</p>
+  {% endif %}
+
+  <h3>Details</h3>
+  <ul class="list-unstyled font-monospace">
+    {% if statusSite %}<li>Site: <a href="https://{{ statusSite }}" target="_blank" rel="noopener noreferrer">{{ statusSite }}</a></li>{% endif %}
+    <li>Label: {{ statusDef.label }}</li>
+    <li>Type: {{ statusDef.type }}</li>
+    <li>Code: {{ statusDef.code }}</li>
+  </ul>
+  {% if statusDef.type == "inaccessible" %}
+  <h3>ScanGovBot</h3>
+  <p>Our scanner identifies itself as ScanGovBot. If your site uses a firewall or bot protection, allow it through: <a href="https://scangov.com/bot" class="font-monospace">https://scangov.com/bot</a></p>
+  {% endif %}
+</div>

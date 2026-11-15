@@ -55,19 +55,8 @@
     </li>
 </ul>
 {% endif %}
-{% if profile %}
+{% if profile and mapPage %}
 <ul class="small list-unstyled text-body-secondary font-monospace">
-    {% if not mapPage and not orgPage %}
-    {% if site.url == 'https://scangov.org' %}
-    <li>
-        Pages: 1 (homepage only &middot; <a href="https://scangov.com/plans">get full site scan</a>)
-    </li>
-    {% elif site.url == 'https://my.scangov.com' %}
-    <li>
-        Pages: 1
-    </li>
-    {% endif %}
-    {% endif %}
     {% if mapPage %}
     {% if site.url == 'https://scangov.org' %}
     <li>
