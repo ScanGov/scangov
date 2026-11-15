@@ -3741,16 +3741,8 @@ blockquote .lead {
   border-radius: 1px;
   vertical-align: .2em;
 }
-.sg-chart-data {
+.sg-chart .accordion {
   margin-top: .75rem;
-  font-size: .9rem;
-}
-.sg-chart-data summary {
-  cursor: pointer;
-  width: fit-content;
-}
-.sg-chart-data .table-responsive {
-  margin-top: .5rem;
 }
 
 /* Entrance motion: bars grow from the baseline once, values fade in after. */

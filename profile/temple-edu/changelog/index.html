@@ -146,7 +146,7 @@ Search
 <div>
 <div class="container-fluid">
 <div class="row">
-<div class="col-12 py-3">
+<div class="col-12 py-3 d-flex flex-wrap align-items-center justify-content-between gap-2">
 <nav aria-label="breadcrumb" class="fs-5 font-monospace">
 <ol class="breadcrumb mb-0">
 <li class="breadcrumb-item">
@@ -155,6 +155,99 @@ Search
 </li>
 </ol>
 </nav>
+<div class="d-flex flex-wrap align-items-center gap-3">
+<span class="small text-body-secondary font-monospace">
+Last scan:
+<span id="updated">10/27/2026</span>
+<a href="https://docs.scangov.org/scans/" class="icon-link" style="color: inherit; position: relative; z-index: 2;" aria-label="More about Last scan" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="How often ScanGov scans this site. <a href=&quot;https://docs.scangov.org/scans/&quot;>Learn more</a>">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+</a>
+</span>
+<div class="actions d-flex flex-wrap gap-2">
+<a href="https://scangov.com" id="rescan-action" class="btn btn-outline-primary btn-sm d-none" aria-label="Rescan" title="Rescan">
+<svg class="fa-solid fa-arrows-rotate" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrows-rotate" xlink:href="/assets/fa-sprite.svg#fas-fa-arrows-rotate"></use></svg>
+</a>
+<script type="application/json" id="issues-data">{"domain":"temple.edu","issues":[]}</script>
+<div class="dropdown">
+<button type="button" id="download-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download" title="Download">
+<svg class="fa-solid fa-download" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-download" xlink:href="/assets/fa-sprite.svg#fas-fa-download"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg>
+</button>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="download-menu">
+<li class="small px-3 pt-2"><svg class="fa-solid fa-window-maximize me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-window-maximize" xlink:href="/assets/fa-sprite.svg#fas-fa-window-maximize"></use></svg>All issues</li>
+<li class="small px-3"><button type="button" class="dropdown-item" data-issues-format="csv" data-issues-scope="all"><svg class="fa-solid fa-file-csv me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-csv" xlink:href="/assets/fa-sprite.svg#fas-fa-file-csv"></use></svg>.csv</button></li>
+<li class="small px-3"><button type="button" class="dropdown-item" data-issues-format="json" data-issues-scope="all"><svg class="fa-solid fa-file-code me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-code" xlink:href="/assets/fa-sprite.svg#fas-fa-file-code"></use></svg>.json</button></li>
+<li class="small px-3"><button type="button" class="dropdown-item" data-issues-format="md" data-issues-scope="all"><svg class="fa-brands fa-markdown me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-markdown" xlink:href="/assets/fa-sprite.svg#fab-fa-markdown"></use></svg>.md</button></li>
+<li class="small px-3 pt-2 d-none" data-issues-topic=""><svg class="fa-solid fa-list-check me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-list-check" xlink:href="/assets/fa-sprite.svg#fas-fa-list-check"></use></svg><span data-issues-topic-label="">Indicator issues</span></li>
+<li class="small px-3 d-none" data-issues-topic=""><button type="button" class="dropdown-item" data-issues-format="csv" data-issues-scope="topic"><svg class="fa-solid fa-file-csv me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-csv" xlink:href="/assets/fa-sprite.svg#fas-fa-file-csv"></use></svg>.csv</button></li>
+<li class="small px-3 d-none" data-issues-topic=""><button type="button" class="dropdown-item" data-issues-format="json" data-issues-scope="topic"><svg class="fa-solid fa-file-code me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-code" xlink:href="/assets/fa-sprite.svg#fas-fa-file-code"></use></svg>.json</button></li>
+<li class="small px-3 d-none" data-issues-topic=""><button type="button" class="dropdown-item" data-issues-format="md" data-issues-scope="topic"><svg class="fa-brands fa-markdown me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-markdown" xlink:href="/assets/fa-sprite.svg#fab-fa-markdown"></use></svg>.md</button></li>
+<li class="small px-3 pt-2"><svg class="fa-regular fa-file-pdf me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#far-fa-file-pdf" xlink:href="/assets/fa-sprite.svg#far-fa-file-pdf"></use></svg>Report</li>
+<li class="small px-3">
+<a href="/profile/temple-edu/report/" class="dropdown-item">
+<svg class="fa-regular fa-file-pdf me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#far-fa-file-pdf" xlink:href="/assets/fa-sprite.svg#far-fa-file-pdf"></use></svg>.pdf
+</a>
+</li>
+</ul>
+</div>
+<script src="/js/issues-download.js" defer=""></script>
+<div class="dropdown">
+<button type="button" id="share-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share" title="Share">
+<svg class="fa-solid fa-share-from-square" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-share-from-square" xlink:href="/assets/fa-sprite.svg#fas-fa-share-from-square"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg>
+</button>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="share-menu">
+<li class="small">
+<button type="button" class="dropdown-item" data-action="copy-link" data-copy-value="/profile/temple-edu/overall/">
+<svg class="fa-solid fa-gauge" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-gauge" xlink:href="/assets/fa-sprite.svg#fas-fa-gauge"></use></svg>
+Copy dashboard link
+</button>
+</li>
+<li class="small">
+<button type="button" class="dropdown-item" data-action="copy-link">
+<svg class="fa-solid fa-link" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>
+Copy link
+</button>
+</li>
+<li class="small">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fscangov.org%2Fprofile%2Ftemple-edu%2Fchangelog%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-linkedin-in" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-linkedin-in" xlink:href="/assets/fa-sprite.svg#fab-fa-linkedin-in"></use></svg>
+LinkedIn
+</a>
+</li>
+<li class="small">
+<a href="https://bsky.app/intent/compose?text=temple.edu%20changelog%20https%3A%2F%2Fscangov.org%2Fprofile%2Ftemple-edu%2Fchangelog%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-bluesky" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-bluesky" xlink:href="/assets/fa-sprite.svg#fab-fa-bluesky"></use></svg>
+Bluesky
+</a>
+</li>
+<li class="small">
+<a href="https://mastodon.social/share?text=temple.edu%20changelog%20https%3A%2F%2Fscangov.org%2Fprofile%2Ftemple-edu%2Fchangelog%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-mastodon" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-mastodon" xlink:href="/assets/fa-sprite.svg#fab-fa-mastodon"></use></svg>
+Mastodon
+</a>
+</li>
+<li class="small">
+<a href="https://x.com/intent/tweet?text=temple.edu%20changelog&url=https%3A%2F%2Fscangov.org%2Fprofile%2Ftemple-edu%2Fchangelog%2F&via=ScanGov" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-x-twitter" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-x-twitter" xlink:href="/assets/fa-sprite.svg#fab-fa-x-twitter"></use></svg>
+X
+</a>
+</li>
+<li class="small">
+<a href="mailto:?subject=temple.edu%20changelog&body=https%3A%2F%2Fscangov.org%2Fprofile%2Ftemple-edu%2Fchangelog%2F" class="dropdown-item">
+<svg class="fa-solid fa-envelope" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-envelope" xlink:href="/assets/fa-sprite.svg#fas-fa-envelope"></use></svg>
+Email
+</a>
+</li>
+</ul>
+</div>
+</div>
+<span class="visually-hidden" id="action-status" role="status" aria-live="polite"></span>
+<script src="/js/action-buttons.js" defer=""></script>
+<script>
+    if (window.location.hostname === 'my.scangov.com') {
+        document.getElementById('rescan-action').classList.remove('d-none');
+    }
+</script>
+</div>
 </div>
 </div>
 </div>
@@ -226,98 +319,9 @@ Search
 </h1>
 <ul class="small list-unstyled text-body-secondary font-monospace">
 <li>
-Managed by:
-Temple University
-</li>
-<li>
-Status:
-<a href="/status/200/">200</a>
-</li>
-<li>
 Pages: 1 (homepage only &middot; <a href="https://scangov.com/plans">get full site scan</a>)
 </li>
-<li>
-Last scan:
-<span id="updated">10/27/2026</span>
-<a href="https://docs.scangov.org/scans/" class="icon-link" style="color: inherit; position: relative; z-index: 2;" aria-label="More about Last scan" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="How often ScanGov scans this site. <a href=&quot;https://docs.scangov.org/scans/&quot;>Learn more</a>">
-<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
-</a>
-</li>
 </ul>
-<div class="actions d-flex flex-wrap gap-2 mt-3 mb-3 pb-3 border-bottom">
-<a href="https://scangov.com" id="rescan-action" class="btn btn-outline-primary btn-sm d-none" aria-label="Rescan" title="Rescan">
-<svg class="fa-solid fa-arrows-rotate" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrows-rotate" xlink:href="/assets/fa-sprite.svg#fas-fa-arrows-rotate"></use></svg>
-</a>
-<div class="dropdown">
-<button type="button" id="download-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download" title="Download">
-<svg class="fa-solid fa-download" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-download" xlink:href="/assets/fa-sprite.svg#fas-fa-download"></use></svg>
-</button>
-<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="download-menu">
-<li class="small">
-<a href="/profile/temple-edu/report/" class="dropdown-item">
-<svg class="fa-regular fa-file-pdf" aria-hidden="true"><use href="/assets/fa-sprite.svg#far-fa-file-pdf" xlink:href="/assets/fa-sprite.svg#far-fa-file-pdf"></use></svg>
-.pdf
-</a>
-</li>
-</ul>
-</div>
-<div class="dropdown">
-<button type="button" id="share-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share" title="Share">
-<svg class="fa-solid fa-share-from-square" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-share-from-square" xlink:href="/assets/fa-sprite.svg#fas-fa-share-from-square"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg>
-</button>
-<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="share-menu">
-<li class="small">
-<button type="button" class="dropdown-item" data-action="copy-link" data-copy-value="/profile/temple-edu/overall/">
-<svg class="fa-solid fa-gauge" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-gauge" xlink:href="/assets/fa-sprite.svg#fas-fa-gauge"></use></svg>
-Copy dashboard link
-</button>
-</li>
-<li class="small">
-<button type="button" class="dropdown-item" data-action="copy-link">
-<svg class="fa-solid fa-link" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>
-Copy link
-</button>
-</li>
-<li class="small">
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fscangov.org%2Fprofile%2Ftemple-edu%2Fchangelog%2F" class="dropdown-item" rel="nofollow" target="_blank">
-<svg class="fa-brands fa-linkedin-in" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-linkedin-in" xlink:href="/assets/fa-sprite.svg#fab-fa-linkedin-in"></use></svg>
-LinkedIn
-</a>
-</li>
-<li class="small">
-<a href="https://bsky.app/intent/compose?text=temple.edu%20changelog%20https%3A%2F%2Fscangov.org%2Fprofile%2Ftemple-edu%2Fchangelog%2F" class="dropdown-item" rel="nofollow" target="_blank">
-<svg class="fa-brands fa-bluesky" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-bluesky" xlink:href="/assets/fa-sprite.svg#fab-fa-bluesky"></use></svg>
-Bluesky
-</a>
-</li>
-<li class="small">
-<a href="https://mastodon.social/share?text=temple.edu%20changelog%20https%3A%2F%2Fscangov.org%2Fprofile%2Ftemple-edu%2Fchangelog%2F" class="dropdown-item" rel="nofollow" target="_blank">
-<svg class="fa-brands fa-mastodon" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-mastodon" xlink:href="/assets/fa-sprite.svg#fab-fa-mastodon"></use></svg>
-Mastodon
-</a>
-</li>
-<li class="small">
-<a href="https://x.com/intent/tweet?text=temple.edu%20changelog&url=https%3A%2F%2Fscangov.org%2Fprofile%2Ftemple-edu%2Fchangelog%2F&via=ScanGov" class="dropdown-item" rel="nofollow" target="_blank">
-<svg class="fa-brands fa-x-twitter" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-x-twitter" xlink:href="/assets/fa-sprite.svg#fab-fa-x-twitter"></use></svg>
-X
-</a>
-</li>
-<li class="small">
-<a href="mailto:?subject=temple.edu%20changelog&body=https%3A%2F%2Fscangov.org%2Fprofile%2Ftemple-edu%2Fchangelog%2F" class="dropdown-item">
-<svg class="fa-solid fa-envelope" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-envelope" xlink:href="/assets/fa-sprite.svg#fas-fa-envelope"></use></svg>
-Email
-</a>
-</li>
-</ul>
-</div>
-</div>
-<span class="visually-hidden" id="action-status" role="status" aria-live="polite"></span>
-<script src="/js/action-buttons.js" defer=""></script>
-<script>
-    if (window.location.hostname === 'my.scangov.com') {
-        document.getElementById('rescan-action').classList.remove('d-none');
-    }
-</script>
 <div id="changelog-section">
 <div class="row">
 <div class="col-12">

@@ -146,7 +146,7 @@ Search
 <div>
 <div class="container-fluid">
 <div class="row">
-<div class="col-12 py-3">
+<div class="col-12 py-3 d-flex flex-wrap align-items-center justify-content-between gap-2">
 <nav aria-label="breadcrumb" class="fs-5 font-monospace">
 <ol class="breadcrumb mb-0">
 <li class="breadcrumb-item">
@@ -155,6 +155,99 @@ Search
 </li>
 </ol>
 </nav>
+<div class="d-flex flex-wrap align-items-center gap-3">
+<span class="small text-body-secondary font-monospace">
+Last scan:
+<span id="updated">10/28/2026</span>
+<a href="https://docs.scangov.org/scans/" class="icon-link" style="color: inherit; position: relative; z-index: 2;" aria-label="More about Last scan" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="How often ScanGov scans this site. <a href=&quot;https://docs.scangov.org/scans/&quot;>Learn more</a>">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+</a>
+</span>
+<div class="actions d-flex flex-wrap gap-2">
+<a href="https://scangov.com" id="rescan-action" class="btn btn-outline-primary btn-sm d-none" aria-label="Rescan" title="Rescan">
+<svg class="fa-solid fa-arrows-rotate" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrows-rotate" xlink:href="/assets/fa-sprite.svg#fas-fa-arrows-rotate"></use></svg>
+</a>
+<script type="application/json" id="issues-data">{"domain":"co.freestone.tx.us","issues":[{"topic":"accessibility","attribute":"frame-title","displayName":"\u003cframe> or \u003ciframe> elements have a title","error":"\u003cframe> or \u003ciframe> elements have a title","description":"Embedded frames have titles so screen readers can describe their content.","why":"Gives screen reader users meaningful descriptions of interactive elements so they can understand and use them."},{"topic":"accessibility","attribute":"target-size","displayName":"Touch targets have sufficient size and spacing","error":"Touch targets have sufficient size and spacing","description":"Buttons and interactive elements are large enough to tap easily on touch screens.","why":"Follows established patterns that prevent common usability barriers for people with disabilities."},{"topic":"botability","attribute":"schema-government-organization","displayName":"GovernmentOrganization Schema.org type","error":"GovernmentOrganization Schema.org type","description":"Homepage is marked up as an official government organization.","why":"Identifies websites as official government agencies for AI systems and search engines to recognize automatically."},{"topic":"botability","attribute":"xml","displayName":"Sitemap XML","error":"Sitemap XML","description":"The sitemap file uses the required XML format.","why":"Stores site structure in a readable format, helping search engines efficiently crawl and index all website pages."},{"topic":"botability","attribute":"status","displayName":"Sitemap status","error":"Sitemap status","description":"The sitemap file loads and returns a successful response.","why":"Confirms the sitemap is accessible, ensuring search engines can easily find and index all pages on the site."},{"topic":"security","attribute":"errors-in-console","displayName":"Errors in the console","error":"Errors in the console","description":"The page loads without JavaScript or network errors.","why":"Signals problems in website code, helping developers fix issues that could affect how the site works or displays."},{"topic":"security","attribute":"dotgov","displayName":"Sponsored top-level domain (sTLD)","error":"Sponsored top-level domain (sTLD)","description":"The site uses a government-issued domain (.gov, .edu, or .mil).","why":"Defines trusted website categories, helping users identify official sites and improving credibility and security for specific organizations."},{"topic":"usability","attribute":"description","displayName":"Page description","error":"Page description","description":"The page has a meta description that summarizes its content for search results.","why":"Describes page content briefly, helping users understand what to expect and improving search engine results."},{"topic":"usability","attribute":"fcp","displayName":"First Contentful Paint (FCP)","error":"First Contentful Paint (FCP)","description":"The page starts displaying content within 1.8 seconds.","why":"Measures how quickly important content appears, improving user experience by reducing wait time when loading a page."},{"topic":"usability","attribute":"lcp","displayName":"Largest Contentful Paint (LCP)","error":"Largest Contentful Paint (LCP)","description":"The page's main content loads within 2.5 seconds.","why":"Measures when the main content fully loads, improving user experience by showing the most important part of a page quickly."},{"topic":"usability","attribute":"ogsitename","displayName":"Open Graph site name","error":"Open Graph site name","description":"The site has a name for social media and browser display.","why":"Sets the website's title for social media sharing, ensuring consistent branding and better previews when content is shared."},{"topic":"usability","attribute":"ogtype","displayName":"Open Graph type","error":"Open Graph type","description":"The page declares its content type for social media cards.","why":"Specifies content type for social media, improving how links are displayed and enhancing engagement when shared online."},{"topic":"usability","attribute":"ogtitle","displayName":"Open Graph title","error":"Open Graph title","description":"The page has a title for social media previews.","why":"Sets a clear title for shared content, ensuring accurate and engaging previews on social media platforms."},{"topic":"usability","attribute":"ogdescription","displayName":"Open Graph description","error":"Open Graph description","description":"The page has a description for social media previews.","why":"Provides a brief summary of content, helping users understand what the link is about when shared on social media."},{"topic":"usability","attribute":"ogurl","displayName":"Open Graph URL","error":"Open Graph URL","description":"The page has a canonical URL for social media sharing.","why":"Defines the URL of the shared content, ensuring correct linking and improving how the page is displayed on social media."},{"topic":"usability","attribute":"ogimage","displayName":"Open Graph image","error":"Open Graph image","description":"The page has a preview image for social media cards.","why":"Sets an image for social media previews, improving engagement by displaying relevant visuals when content is shared."},{"topic":"usability","attribute":"ogimagealt","displayName":"Open Graph image alt","error":"Open Graph image alt","description":"The social media preview image has alt text for screen readers.","why":"Provides a description for the image, improving accessibility and helping search engines understand the image content."},{"topic":"readability","attribute":"reading-level","displayName":"Reading level","error":"Reading level","description":"Page text reads at or below a 7th grade level so most users can understand it.","why":"Improves communication by helping readers quickly understand messages without confusion or frustration."}]}</script>
+<div class="dropdown">
+<button type="button" id="download-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download" title="Download">
+<svg class="fa-solid fa-download" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-download" xlink:href="/assets/fa-sprite.svg#fas-fa-download"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg>
+</button>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="download-menu">
+<li class="small px-3 pt-2"><svg class="fa-solid fa-window-maximize me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-window-maximize" xlink:href="/assets/fa-sprite.svg#fas-fa-window-maximize"></use></svg>All issues</li>
+<li class="small px-3"><button type="button" class="dropdown-item" data-issues-format="csv" data-issues-scope="all"><svg class="fa-solid fa-file-csv me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-csv" xlink:href="/assets/fa-sprite.svg#fas-fa-file-csv"></use></svg>.csv</button></li>
+<li class="small px-3"><button type="button" class="dropdown-item" data-issues-format="json" data-issues-scope="all"><svg class="fa-solid fa-file-code me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-code" xlink:href="/assets/fa-sprite.svg#fas-fa-file-code"></use></svg>.json</button></li>
+<li class="small px-3"><button type="button" class="dropdown-item" data-issues-format="md" data-issues-scope="all"><svg class="fa-brands fa-markdown me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-markdown" xlink:href="/assets/fa-sprite.svg#fab-fa-markdown"></use></svg>.md</button></li>
+<li class="small px-3 pt-2 d-none" data-issues-topic=""><svg class="fa-solid fa-list-check me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-list-check" xlink:href="/assets/fa-sprite.svg#fas-fa-list-check"></use></svg><span data-issues-topic-label="">Indicator issues</span></li>
+<li class="small px-3 d-none" data-issues-topic=""><button type="button" class="dropdown-item" data-issues-format="csv" data-issues-scope="topic"><svg class="fa-solid fa-file-csv me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-csv" xlink:href="/assets/fa-sprite.svg#fas-fa-file-csv"></use></svg>.csv</button></li>
+<li class="small px-3 d-none" data-issues-topic=""><button type="button" class="dropdown-item" data-issues-format="json" data-issues-scope="topic"><svg class="fa-solid fa-file-code me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-code" xlink:href="/assets/fa-sprite.svg#fas-fa-file-code"></use></svg>.json</button></li>
+<li class="small px-3 d-none" data-issues-topic=""><button type="button" class="dropdown-item" data-issues-format="md" data-issues-scope="topic"><svg class="fa-brands fa-markdown me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-markdown" xlink:href="/assets/fa-sprite.svg#fab-fa-markdown"></use></svg>.md</button></li>
+<li class="small px-3 pt-2"><svg class="fa-regular fa-file-pdf me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#far-fa-file-pdf" xlink:href="/assets/fa-sprite.svg#far-fa-file-pdf"></use></svg>Report</li>
+<li class="small px-3">
+<a href="/profile/co-freestone-tx-us/report/" class="dropdown-item">
+<svg class="fa-regular fa-file-pdf me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#far-fa-file-pdf" xlink:href="/assets/fa-sprite.svg#far-fa-file-pdf"></use></svg>.pdf
+</a>
+</li>
+</ul>
+</div>
+<script src="/js/issues-download.js" defer=""></script>
+<div class="dropdown">
+<button type="button" id="share-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share" title="Share">
+<svg class="fa-solid fa-share-from-square" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-share-from-square" xlink:href="/assets/fa-sprite.svg#fas-fa-share-from-square"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg>
+</button>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="share-menu">
+<li class="small">
+<button type="button" class="dropdown-item" data-action="copy-link" data-copy-value="/profile/co-freestone-tx-us/overall/">
+<svg class="fa-solid fa-gauge" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-gauge" xlink:href="/assets/fa-sprite.svg#fas-fa-gauge"></use></svg>
+Copy dashboard link
+</button>
+</li>
+<li class="small">
+<button type="button" class="dropdown-item" data-action="copy-link">
+<svg class="fa-solid fa-link" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>
+Copy link
+</button>
+</li>
+<li class="small">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fscangov.org%2Fprofile%2Fco-freestone-tx-us%2Fdetails%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-linkedin-in" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-linkedin-in" xlink:href="/assets/fa-sprite.svg#fab-fa-linkedin-in"></use></svg>
+LinkedIn
+</a>
+</li>
+<li class="small">
+<a href="https://bsky.app/intent/compose?text=co.freestone.tx.us%20digital%20experience%20monitor%20https%3A%2F%2Fscangov.org%2Fprofile%2Fco-freestone-tx-us%2Fdetails%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-bluesky" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-bluesky" xlink:href="/assets/fa-sprite.svg#fab-fa-bluesky"></use></svg>
+Bluesky
+</a>
+</li>
+<li class="small">
+<a href="https://mastodon.social/share?text=co.freestone.tx.us%20digital%20experience%20monitor%20https%3A%2F%2Fscangov.org%2Fprofile%2Fco-freestone-tx-us%2Fdetails%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-mastodon" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-mastodon" xlink:href="/assets/fa-sprite.svg#fab-fa-mastodon"></use></svg>
+Mastodon
+</a>
+</li>
+<li class="small">
+<a href="https://x.com/intent/tweet?text=co.freestone.tx.us%20digital%20experience%20monitor&url=https%3A%2F%2Fscangov.org%2Fprofile%2Fco-freestone-tx-us%2Fdetails%2F&via=ScanGov" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-x-twitter" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-x-twitter" xlink:href="/assets/fa-sprite.svg#fab-fa-x-twitter"></use></svg>
+X
+</a>
+</li>
+<li class="small">
+<a href="mailto:?subject=co.freestone.tx.us%20digital%20experience%20monitor&body=https%3A%2F%2Fscangov.org%2Fprofile%2Fco-freestone-tx-us%2Fdetails%2F" class="dropdown-item">
+<svg class="fa-solid fa-envelope" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-envelope" xlink:href="/assets/fa-sprite.svg#fas-fa-envelope"></use></svg>
+Email
+</a>
+</li>
+</ul>
+</div>
+</div>
+<span class="visually-hidden" id="action-status" role="status" aria-live="polite"></span>
+<script src="/js/action-buttons.js" defer=""></script>
+<script>
+    if (window.location.hostname === 'my.scangov.com') {
+        document.getElementById('rescan-action').classList.remove('d-none');
+    }
+</script>
+</div>
 </div>
 </div>
 </div>
@@ -248,98 +341,9 @@ Search
 </div>
 <ul class="small list-unstyled text-body-secondary font-monospace">
 <li>
-Managed by:
-Freestone County, TX
-</li>
-<li>
-Status:
-<a href="/status/200/">200</a>
-</li>
-<li>
 Pages: 1 (homepage only &middot; <a href="https://scangov.com/plans">get full site scan</a>)
 </li>
-<li>
-Last scan:
-<span id="updated">10/28/2026</span>
-<a href="https://docs.scangov.org/scans/" class="icon-link" style="color: inherit; position: relative; z-index: 2;" aria-label="More about Last scan" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="How often ScanGov scans this site. <a href=&quot;https://docs.scangov.org/scans/&quot;>Learn more</a>">
-<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
-</a>
-</li>
 </ul>
-<div class="actions d-flex flex-wrap gap-2 mt-3 mb-3 pb-3 border-bottom">
-<a href="https://scangov.com" id="rescan-action" class="btn btn-outline-primary btn-sm d-none" aria-label="Rescan" title="Rescan">
-<svg class="fa-solid fa-arrows-rotate" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrows-rotate" xlink:href="/assets/fa-sprite.svg#fas-fa-arrows-rotate"></use></svg>
-</a>
-<div class="dropdown">
-<button type="button" id="download-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download" title="Download">
-<svg class="fa-solid fa-download" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-download" xlink:href="/assets/fa-sprite.svg#fas-fa-download"></use></svg>
-</button>
-<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="download-menu">
-<li class="small">
-<a href="/profile/co-freestone-tx-us/report/" class="dropdown-item">
-<svg class="fa-regular fa-file-pdf" aria-hidden="true"><use href="/assets/fa-sprite.svg#far-fa-file-pdf" xlink:href="/assets/fa-sprite.svg#far-fa-file-pdf"></use></svg>
-.pdf
-</a>
-</li>
-</ul>
-</div>
-<div class="dropdown">
-<button type="button" id="share-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share" title="Share">
-<svg class="fa-solid fa-share-from-square" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-share-from-square" xlink:href="/assets/fa-sprite.svg#fas-fa-share-from-square"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg>
-</button>
-<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="share-menu">
-<li class="small">
-<button type="button" class="dropdown-item" data-action="copy-link" data-copy-value="/profile/co-freestone-tx-us/overall/">
-<svg class="fa-solid fa-gauge" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-gauge" xlink:href="/assets/fa-sprite.svg#fas-fa-gauge"></use></svg>
-Copy dashboard link
-</button>
-</li>
-<li class="small">
-<button type="button" class="dropdown-item" data-action="copy-link">
-<svg class="fa-solid fa-link" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>
-Copy link
-</button>
-</li>
-<li class="small">
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fscangov.org%2Fprofile%2Fco-freestone-tx-us%2Fdetails%2F" class="dropdown-item" rel="nofollow" target="_blank">
-<svg class="fa-brands fa-linkedin-in" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-linkedin-in" xlink:href="/assets/fa-sprite.svg#fab-fa-linkedin-in"></use></svg>
-LinkedIn
-</a>
-</li>
-<li class="small">
-<a href="https://bsky.app/intent/compose?text=co.freestone.tx.us%20digital%20experience%20monitor%20https%3A%2F%2Fscangov.org%2Fprofile%2Fco-freestone-tx-us%2Fdetails%2F" class="dropdown-item" rel="nofollow" target="_blank">
-<svg class="fa-brands fa-bluesky" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-bluesky" xlink:href="/assets/fa-sprite.svg#fab-fa-bluesky"></use></svg>
-Bluesky
-</a>
-</li>
-<li class="small">
-<a href="https://mastodon.social/share?text=co.freestone.tx.us%20digital%20experience%20monitor%20https%3A%2F%2Fscangov.org%2Fprofile%2Fco-freestone-tx-us%2Fdetails%2F" class="dropdown-item" rel="nofollow" target="_blank">
-<svg class="fa-brands fa-mastodon" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-mastodon" xlink:href="/assets/fa-sprite.svg#fab-fa-mastodon"></use></svg>
-Mastodon
-</a>
-</li>
-<li class="small">
-<a href="https://x.com/intent/tweet?text=co.freestone.tx.us%20digital%20experience%20monitor&url=https%3A%2F%2Fscangov.org%2Fprofile%2Fco-freestone-tx-us%2Fdetails%2F&via=ScanGov" class="dropdown-item" rel="nofollow" target="_blank">
-<svg class="fa-brands fa-x-twitter" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-x-twitter" xlink:href="/assets/fa-sprite.svg#fab-fa-x-twitter"></use></svg>
-X
-</a>
-</li>
-<li class="small">
-<a href="mailto:?subject=co.freestone.tx.us%20digital%20experience%20monitor&body=https%3A%2F%2Fscangov.org%2Fprofile%2Fco-freestone-tx-us%2Fdetails%2F" class="dropdown-item">
-<svg class="fa-solid fa-envelope" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-envelope" xlink:href="/assets/fa-sprite.svg#fas-fa-envelope"></use></svg>
-Email
-</a>
-</li>
-</ul>
-</div>
-</div>
-<span class="visually-hidden" id="action-status" role="status" aria-live="polite"></span>
-<script src="/js/action-buttons.js" defer=""></script>
-<script>
-    if (window.location.hostname === 'my.scangov.com') {
-        document.getElementById('rescan-action').classList.remove('d-none');
-    }
-</script>
 <div class="d-none" id="details-accessibility">
 <div id="specific-accessibility">
 <h2 class="my-3" id="grade-score">Grade / score</h2>
