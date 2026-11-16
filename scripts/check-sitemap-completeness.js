@@ -198,7 +198,12 @@ function checkViaFilesystemWalk(siteRoot, sitemapPaths) {
   const numberedPatterns = [];
   for (const f of contentFiles) {
     const block = readFrontmatterBlock(f);
-    const numbered = isNumberedListingPage(block);
+    // A paginated template whose permalink interpolates its alias is normally per-item,
+    // but a topic listing (content/rankings/topic.html) is a numbered listing: it says
+    // so with `sitemapNumberedUnlisted: true`. Its first page is still expected in the
+    // sitemap; only the URLs ending in a page number are exempt.
+    const numberedUnlisted = /(^|\n)\s*sitemapNumberedUnlisted:\s*true/.test(block);
+    const numbered = isNumberedListingPage(block) || numberedUnlisted;
     // Templates whose directory data file computes `sitemap` per page (e.g.
     // orgs.11tydata.js) are conditionally excluded, same as in ndjson mode.
     if (!isIntentionallyExcluded(block) && !hasComputedSitemapFlag(f) && !numbered) continue;
@@ -213,7 +218,7 @@ function checkViaFilesystemWalk(siteRoot, sitemapPaths) {
       value = rel === 'index' ? '/' : `/${rel.replace(/\/index$/, '')}/`;
     }
     if (!value.startsWith('/')) value = `/${value}`;
-    if (numbered && !isIntentionallyExcluded(block) && !hasComputedSitemapFlag(f)) {
+    if (numbered && (numberedUnlisted || (!isIntentionallyExcluded(block) && !hasComputedSitemapFlag(f)))) {
       // Numbered listing pages (/rankings/2/) are deliberately unlisted; the
       // first page (/rankings/) is still expected in the sitemap. A template
       // that spells out its own page-number permalink (rankings/cities/index.html:
