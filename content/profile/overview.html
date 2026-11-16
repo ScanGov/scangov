@@ -25,10 +25,13 @@ eleventyComputed:
   {% include "page-heading.html" %}
   {% include "details.html" %}
   {% include "profile-summary.html" %}
+  {# A site that was not scanned: the cards take the status color (danger, or warning for a redirect), and the indicator cards are gray, as on my.scangov.com. #}
+  {% set statusDef = statusDefinitions[domain.status] %}
+  {% set cardKind = "warning" if statusDef.type == "redirect" else "danger" %}
   <div id="overall-section">
     <div class="row g-3">
       <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
-        <div class="card card-grade {% if (domain.status != 200) %}{% else %}text-bg-{{ domain.overallScore | colorify }}{% endif %}" id="overall-card" score="{{ domain.overallScore }}">
+        <div class="card card-grade {% if (domain.status != 200) %}text-bg-{{ cardKind }}{% else %}text-bg-{{ domain.overallScore | colorify }}{% endif %}" id="overall-card" score="{{ domain.overallScore }}">
           <div class="card-header">
             Overall
             {% set infoHref = "https://docs.scangov.org/grades" %}
@@ -36,17 +39,18 @@ eleventyComputed:
             {% set infoDescription = "How we calculate letter grades." %}
             {% include "info-icon.html" %}
           </div>
-          <a href="/profile/{{ domain.urlkey | slugify }}/overall/" class="card-body text-decoration-none stretched-link" style="position: relative;">
+          <a href="/profile/{{ domain.urlkey | slugify }}/{% if domain.status != 200 %}details/?attr=status{% else %}overall/{% endif %}" class="card-body text-decoration-none stretched-link" style="position: relative;">
             <p class="display-1" id="overall-grade">{% if (domain.status != 200) %}-{% else %}{{ domain.overallScore | gradify }}{% endif %}</p>
           </a>
+          {% if domain.status != 200 and statusDef %}<div class="card-footer">{{ statusDef.scangovStatus }}</div>{% endif %}
         </div>
       </div>
       {% set cards = topics.names %}
       {% for card in cards %}
         {% set lower = card.toLowerCase() %}
-        {% if domain.scores[lower] %}
+        {% if domain.scores[lower] or domain.status != 200 %}
           <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
-            <div class="card card-grade {% if (domain.status != 200) or (domain.scores[lower] | length === 0) %}{% else %}text-bg-{{ domain.scores[lower].score | colorify }}{% endif %}" id="{{ lower }}-card" score="{{ domain.scores[lower].score }}">
+            <div class="card card-grade {% if (domain.status != 200) or (domain.scores[lower] | length === 0) %}text-bg-secondary{% else %}text-bg-{{ domain.scores[lower].score | colorify }}{% endif %}" id="{{ lower }}-card" score="{{ domain.scores[lower].score }}">
               <div class="card-header">
                 {{ card }}
                 {% set infoHref = "https://docs.scangov.org/indicators/" %}
