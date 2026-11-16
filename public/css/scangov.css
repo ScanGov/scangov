@@ -3831,22 +3831,9 @@ blockquote .lead {
   }
 }
 
-/* County state pages (/rankings/counties/{st}/): stat tiles and the
-   screenshot placeholder in the top-three cards. The placeholder reserves the
-   image's aspect ratio so a future screenshot causes no layout shift. */
-.sg-stat-value {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  line-height: 1.1;
-  margin-bottom: .25rem;
-}
-.sg-stat-value .badge {
-  font-size: .45em;
-  vertical-align: .35em;
-}
-.sg-stat-label {
-  font-size: .9375rem;
-  margin: 0;
-}
+/* Screenshot placeholder in the top-three cards on county state pages
+   (/rankings/counties/{st}/). It reserves the image's aspect ratio so a future
+   screenshot causes no layout shift. */
 .sg-shot {
   aspect-ratio: 16 / 10;
   background: var(--bs-body-secondary-bg);

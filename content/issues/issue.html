@@ -27,7 +27,7 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 {% set rankingsLabel = (group.hubLabel + " " + (check.topicLabel | lower) + " rankings") | trim | capitalize %}
 
 <div class="sg-charts-large">
-<p class="lead">Of the {{ item.testedCount | numberFormat }} scanned U.S. {{ group.noun }} we tested, {{ item.failCount | numberFormat }} ({{ sharePct }}%) {{ issue.failPhrase }}.
+<p>Of the {{ item.testedCount | numberFormat }} scanned U.S. {{ group.noun }} we tested, {{ item.failCount | numberFormat }} ({{ sharePct }}%) {{ issue.failPhrase }}.
 {% if check.lead %}{{ check.lead }}{% endif %}
 {% if item.markCount %}Another {{ item.markCount | numberFormat }} ({{ (item.markCount / item.testedCount * 100) | round }}%) {{ item.mark.phrase }}. No check fails for that, so they count as passing here{% if item.map %}, and the map shows them in their own color{% endif %}.{% endif %}
 {% if item.skippedCount %}Another {{ item.skippedCount | numberFormat }} {{ item.skipped.phrase }}. They get no pass or fail{% if item.map %}, and the map shows them in their own color{% endif %}.{% endif %}
