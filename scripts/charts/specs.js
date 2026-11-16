@@ -215,3 +215,15 @@ export function statusByGroupSpec({ id = 'status-by-group', title = 'Sites witho
     const top = Math.max(...rows.map(r => r.value));
     return { id, type: 'bar', title, subtitle, headingLevel, valueFormat: 'percent', max: Math.min(100, Math.max(5, Math.ceil(top / 5) * 5)), labelHeader: 'Group', valueHeader: 'Share without a grade', rows };
 }
+
+// Bars for one status code's page: every status code with sites except the successful
+// scan (200), with the page's own code in the chart color and the rest muted, so the
+// code reads against the others. `total` is every site on the list.
+export function statusCodeFocusSpec({ id = 'status-code-focus', title, subtitle, headingLevel = 2, statuses, code }) {
+    const rows = (statuses || [])
+        .filter(s => s.type !== 'active' && s.count > 0)
+        .sort((a, b) => b.count - a.count)
+        .map(s => ({ key: String(s.code), label: `${s.code} ${s.label}`, href: String(s.code) === String(code) ? undefined : `/status/${s.code}/`, value: s.count }));
+    if (!rows.some(r => r.key === String(code))) return null;
+    return { id, type: 'bar', title, subtitle, headingLevel, valueFormat: 'count', labelHeader: 'Status code', valueHeader: 'Sites', emphasis: String(code), rows };
+}

@@ -21,9 +21,8 @@ eleventyComputed:
 {% set statusDef = statusPage %}
 {% include "status-alert.html" %}
 {% if statusExamples[statusPage.code] %}
-<h2 id="examples">Examples</h2>
 {% for ex in statusExamples[statusPage.code] %}
-<h3>{{ ex.title }}</h3>
+<h2 id="{{ ex.title | slugify }}">{{ ex.title }}</h2>
 <div class="position-relative mb-3">
   <button type="button" class="btn btn-outline-primary btn-sm position-absolute top-0 end-0 m-2" data-action="copy-text" data-copy-target="#example-{{ loop.index }}" aria-label="Copy: {{ ex.title }}" title="Copy">
     <i class="fa-solid fa-copy" aria-hidden="true"></i><i class="fa-solid fa-check d-none" aria-hidden="true"></i>
@@ -32,8 +31,16 @@ eleventyComputed:
 </div>
 {% endfor %}
 {% endif %}
+{% if statusPage.type == "active" %}
+{% set focusChart = statusGroups | statusTypesPie((statusSummary.total | numberFormat) + " sites, by scan status") %}
+{% else %}
+{% set focusTitle = "Sites by status code" %}
+{% set focusSubtitle = (statusPage.count | numberFormat) + " of " + (statusSummary.total | numberFormat) + " sites (" + statusSummary.byCode[statusPage.code].share + "%) return " + statusPage.code + ". Sites that were scanned successfully are not shown." %}
+{% set focusChart = statusGroups | statusCodeFocus(statusPage.code, focusTitle, focusSubtitle) %}
+{% endif %}
+{% if focusChart %}<div class="sg-chart-section">{% chart focusChart %}</div>{% endif %}
 {% set groupPie = statusGroupCounts[statusPage.code] | statusGroupPie((statusPage.count | numberFormat) + " sites, by group (a site in two groups counts in both)") %}
-{% if groupPie %}{% chart groupPie %}{% endif %}
+{% if groupPie %}<div class="sg-chart-section">{% chart groupPie %}</div>{% endif %}
 <h2 id="sites">Sites with this status</h2>
 <p>Download this list: <a href="/data/status/{{ statusPage.code }}.csv" download>.csv</a> or <a href="/data/status/{{ statusPage.code }}.json" download>.json</a>.</p>
 {% endif %}
