@@ -131,38 +131,91 @@ Search
 </nav>
 <main id="main-content">
 <div>
-<div class="pt-5 pb-4 mb-4 border-bottom">
-<div class="container">
+<div class="container-fluid">
 <div class="row">
-<div class="col-12">
-<h1 class="display-5" id="higher-education-website-botability-rankings">Higher education website botability rankings</h1>
-<p class="lead fs-5">Project ScanGov <a href="https://standards.scangov.org/botability/">botability</a> rankings for U.S. public college and university websites.</p>
-<ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
-<li>
-Sites: 2991
-</li>
-<li>
-Last scan:
-<span id="updated">11/8/2026</span>
+<div class="col-12 py-3 d-flex flex-wrap align-items-center justify-content-between gap-2">
+<nav aria-label="Breadcrumb" class="breadcrumb-default">
+<ol class="breadcrumb small font-monospace mb-0">
+<li class="breadcrumb-item"><a href="/rankings/">Rankings</a></li>
+<li class="breadcrumb-item"><a href="/rankings/edu/">Education</a></li>
+<li class="breadcrumb-item active" aria-current="page">Botability</li>
+</ol>
+</nav>
+<div class="d-flex flex-wrap align-items-center gap-3 ms-auto">
+<p class="small text-body-secondary font-monospace mb-0">
+<svg class="fa-solid fa-window-maximize" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-window-maximize" xlink:href="/assets/fa-sprite.svg#fas-fa-window-maximize"></use></svg> 2,991 sites
+&middot;
+<svg class="fa-solid fa-bars-progress" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-bars-progress" xlink:href="/assets/fa-sprite.svg#fas-fa-bars-progress"></use></svg> Last scan: <span id="updated">11/8/2026</span>
 <a href="https://docs.scangov.org/scans/" class="icon-link" style="color: inherit; position: relative; z-index: 2;" aria-label="More about Last scan" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="How often ScanGov scans this site. <a href=&quot;https://docs.scangov.org/scans/&quot;>Learn more</a>">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+</a>
+</p>
+<div class="actions d-flex flex-wrap gap-2">
+<a href="https://scangov.com" id="rescan-action" class="btn btn-outline-primary btn-sm d-none" aria-label="Rescan" title="Rescan">
+<svg class="fa-solid fa-arrows-rotate" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrows-rotate" xlink:href="/assets/fa-sprite.svg#fas-fa-arrows-rotate"></use></svg>
+</a>
+<div class="dropdown">
+<button type="button" id="share-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share" title="Share">
+<svg class="fa-solid fa-share-from-square" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-share-from-square" xlink:href="/assets/fa-sprite.svg#fas-fa-share-from-square"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg>
+</button>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="share-menu">
+<li class="small">
+<button type="button" class="dropdown-item" data-action="copy-link">
+<svg class="fa-solid fa-link" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>
+Copy link
+</button>
+</li>
+<li class="small">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fscangov.org%2Frankings%2Fedu%2Fbotability%2F24%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-linkedin-in" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-linkedin-in" xlink:href="/assets/fa-sprite.svg#fab-fa-linkedin-in"></use></svg>
+LinkedIn
+</a>
+</li>
+<li class="small">
+<a href="https://bsky.app/intent/compose?text=Higher%20education%20website%20botability%20rankings%20https%3A%2F%2Fscangov.org%2Frankings%2Fedu%2Fbotability%2F24%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-bluesky" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-bluesky" xlink:href="/assets/fa-sprite.svg#fab-fa-bluesky"></use></svg>
+Bluesky
+</a>
+</li>
+<li class="small">
+<a href="https://mastodon.social/share?text=Higher%20education%20website%20botability%20rankings%20https%3A%2F%2Fscangov.org%2Frankings%2Fedu%2Fbotability%2F24%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-mastodon" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-mastodon" xlink:href="/assets/fa-sprite.svg#fab-fa-mastodon"></use></svg>
+Mastodon
+</a>
+</li>
+<li class="small">
+<a href="https://x.com/intent/tweet?text=Higher%20education%20website%20botability%20rankings&url=https%3A%2F%2Fscangov.org%2Frankings%2Fedu%2Fbotability%2F24%2F&via=ScanGov" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-x-twitter" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-x-twitter" xlink:href="/assets/fa-sprite.svg#fab-fa-x-twitter"></use></svg>
+X
+</a>
+</li>
+<li class="small">
+<a href="mailto:?subject=Higher%20education%20website%20botability%20rankings&body=https%3A%2F%2Fscangov.org%2Frankings%2Fedu%2Fbotability%2F24%2F" class="dropdown-item">
+<svg class="fa-solid fa-envelope" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-envelope" xlink:href="/assets/fa-sprite.svg#fas-fa-envelope"></use></svg>
+Email
 </a>
 </li>
 </ul>
 </div>
 </div>
+<span class="visually-hidden" id="action-status" role="status" aria-live="polite"></span>
+<script src="/js/action-buttons.js" defer=""></script>
+<script>
+    if (window.location.hostname === 'my.scangov.com') {
+        document.getElementById('rescan-action').classList.remove('d-none');
+    }
+</script>
 </div>
 </div>
 </div>
-<div class="container-fluid">
-<div class="row">
-<div id="home">
+</div>
+<div class="pt-0 pb-4 mb-4 border-bottom">
 <div class="container">
 <div class="row">
 <div class="col-12">
 <ul class="nav nav-pills filter small mb-4" aria-label="Group">
 <li class="nav-item">
-<a class="nav-link mx-1" href="/rankings/botability/">
+<a class="nav-link mx-1" href="/botability/">
 All</a>
 </li>
 <li class="nav-item">
@@ -212,8 +265,17 @@ Education</a>
 <svg class="fa-solid fa-book-open" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-book-open" xlink:href="/assets/fa-sprite.svg#fas-fa-book-open"></use></svg>Readability</a>
 </li>
 </ul>
+<h1 class="display-5" id="higher-education-website-botability-rankings">Higher education website botability rankings</h1>
+<p class="lead fs-5">Project ScanGov <a href="https://standards.scangov.org/botability/">botability</a> rankings for U.S. public college and university websites.</p>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+<div class="row">
+<div id="home">
+<div class="container">
 <div class="row">
 <div class="col-12">
 <div class="table-responsive">
@@ -1969,6 +2031,7 @@ Education</a>
 </div>
 </div>
 </div>
+<p>Download the data: <a href="/data/rankings/edu.csv" download="">CSV</a> or <a href="/data/rankings/edu.json" download="">JSON</a>.</p>
 <div class="row mt-4">
 <div class="col-12">
 <div class="alert alert-info small p-5" role="alert">
@@ -2006,7 +2069,7 @@ Education</a>
 </ul>
 <h3 id="grades-scores">Grades/scores</h3>
 <ul>
-<li><a href="https://scangov.org/rankings/botability/">Botability grades/scores on Project ScanGov</a></li>
+<li><a href="https://scangov.org/botability/">Botability grades/scores on Project ScanGov</a></li>
 </ul>
 <h3 id="scangov">ScanGov</h3>
 <ul>
@@ -2087,28 +2150,113 @@ margin-bottom: 0;
 <div class="col-6 col-sm-6 col-md-3 mb-3">
 <ul class="nav flex-column">
 <li class="small mb-1">
-<a href="https://docs.scangov.org/community" class="nav-link p-0 text-body-secondary">Community</a>
+<a href="https://scangov.com/about" class="nav-link p-0 text-body-secondary">About</a>
 </li>
 <li class="small mb-1">
-<a href="https://scangov.substack.com" class="nav-link p-0 text-body-secondary">Newsletter</a>
+<a href="https://scangov.com/bot" class="nav-link p-0 text-body-secondary">ScanGovBot</a>
 </li>
 <li class="small mb-1">
-<a href="https://github.com/ScanGov" class="nav-link p-0 text-body-secondary">GitHub</a>
+<a href="https://scangov.com/people" class="nav-link p-0 text-body-secondary">People</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/news" class="nav-link p-0 text-body-secondary">News</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/press" class="nav-link p-0 text-body-secondary">Press</a>
 </li>
 <li class="small mb-1">
 <a href="https://scangov.com/contact" class="nav-link p-0 text-body-secondary">Contact</a>
 </li>
-</ul>
-</div>
-<div class="col-6 col-sm-6 col-md-3 mb-3">
-<ul class="nav flex-column">
 <li class="small mb-1">
-<a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">ScanGov scorecard</a>
+<a href="https://docs.scangov.org/feedback" class="nav-link p-0 text-body-secondary">Feedback</a>
 </li>
 </ul>
 </div>
 <div class="col-6 col-sm-6 col-md-3 mb-3">
 <ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.com/features" class="nav-link p-0 text-body-secondary">Features</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/plans" class="nav-link p-0 text-body-secondary">Plans</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/compare/" class="nav-link p-0 text-body-secondary">Compare</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/demo" class="nav-link p-0 text-body-secondary">Demo</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/who-we-serve/" class="nav-link p-0 text-body-secondary">Who we serve</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/what-they-say/" class="nav-link p-0 text-body-secondary">What they say</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/accessibility-lawsuit/" class="nav-link p-0 text-body-secondary">Accessibility lawsuit help</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/showcase" class="nav-link p-0 text-body-secondary">Showcase</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/now-scanning" class="nav-link p-0 text-body-secondary">Now scanning ...</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/tools/" class="nav-link p-0 text-body-secondary">Tools</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.com/subscribe/" class="nav-link p-0 text-body-secondary">Newsletters</a>
+</li>
+<li class="small mb-1">
+<a href="https://linkedin.com/company/scangov" class="nav-link p-0 text-body-secondary">LinkedIn</a>
+</li>
+<li class="small mb-1">
+<a href="https://www.youtube.com/@scangov" class="nav-link p-0 text-body-secondary">YouTube</a>
+</li>
+<li class="small mb-1">
+<a href="https://github.com/scangov" class="nav-link p-0 text-body-secondary">GitHub</a>
+</li>
+<li class="small mb-1">
+<a href="https://discord.gg/aTCrf8HD" class="nav-link p-0 text-body-secondary">Discord</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/news/feed.xml" class="nav-link p-0 text-body-secondary">RSS</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.org" class="nav-link p-0 text-body-secondary">Project ScanGov</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.org/rankings/" class="nav-link p-0 text-body-secondary">Rankings</a>
+</li>
+<li class="small mb-1">
+<a href="https://standards.scangov.org" class="nav-link p-0 text-body-secondary">Standards</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/" class="nav-link p-0 text-body-secondary">Docs</a>
+</li>
+<li class="small mb-1">
+<a href="https://data.scangov.org" class="nav-link p-0 text-body-secondary">Data</a>
+</li>
+<li class="small mb-1">
+<a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">ScanGov scorecard</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/accessibility-statement" class="nav-link p-0 text-body-secondary">Accessibility statement</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/privacy-statement" class="nav-link p-0 text-body-secondary">Privacy statement</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/conduct" class="nav-link p-0 text-body-secondary">Code of conduct</a>
+</li>
 <li class="small mb-1">
 <a href="/site-index/" class="nav-link p-0 text-body-secondary">Site index</a>
 </li>

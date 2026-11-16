@@ -132,39 +132,85 @@ Search
 </nav>
 <main id="main-content">
 <div>
-<div class="pt-5 pb-4 mb-4 border-bottom">
-<div class="container">
+<div class="container-fluid">
 <div class="row">
-<div class="col-12">
-<nav aria-label="Breadcrumb" class="breadcrumb-default mb-3">
-<ol class="breadcrumb small font-monospace">
+<div class="col-12 py-3 d-flex flex-wrap align-items-center justify-content-between gap-2">
+<nav aria-label="Breadcrumb" class="breadcrumb-default">
+<ol class="breadcrumb small font-monospace mb-0">
 <li class="breadcrumb-item"><a href="/rankings/">Rankings</a></li>
 <li class="breadcrumb-item"><a href="/rankings/edu/">Education</a></li>
 <li class="breadcrumb-item active" aria-current="page">Illinois</li>
 </ol>
 </nav>
-<h1 class="display-5" id="illinois-college-websites-ranked-by-digital-experience">Illinois college websites ranked by digital experience</h1>
-<p class="lead fs-5">Rankings, grades, and the most common failures for 53 public and 71 private college and university websites in Illinois, from ScanGov homepage scans.</p>
-<ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
-<li>
-Sites: 124
-</li>
-<li>
-Last scan:
-<span id="updated">11/8/2026</span>
+<div class="d-flex flex-wrap align-items-center gap-3 ms-auto">
+<p class="small text-body-secondary font-monospace mb-0">
+<svg class="fa-solid fa-window-maximize" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-window-maximize" xlink:href="/assets/fa-sprite.svg#fas-fa-window-maximize"></use></svg> 124 sites
+&middot;
+<svg class="fa-solid fa-bars-progress" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-bars-progress" xlink:href="/assets/fa-sprite.svg#fas-fa-bars-progress"></use></svg> Last scan: <span id="updated">11/8/2026</span>
 <a href="https://docs.scangov.org/scans/" class="icon-link" style="color: inherit; position: relative; z-index: 2;" aria-label="More about Last scan" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="How often ScanGov scans this site. <a href=&quot;https://docs.scangov.org/scans/&quot;>Learn more</a>">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+</a>
+</p>
+<div class="actions d-flex flex-wrap gap-2">
+<a href="https://scangov.com" id="rescan-action" class="btn btn-outline-primary btn-sm d-none" aria-label="Rescan" title="Rescan">
+<svg class="fa-solid fa-arrows-rotate" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrows-rotate" xlink:href="/assets/fa-sprite.svg#fas-fa-arrows-rotate"></use></svg>
+</a>
+<div class="dropdown">
+<button type="button" id="share-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share" title="Share">
+<svg class="fa-solid fa-share-from-square" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-share-from-square" xlink:href="/assets/fa-sprite.svg#fas-fa-share-from-square"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg>
+</button>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="share-menu">
+<li class="small">
+<button type="button" class="dropdown-item" data-action="copy-link">
+<svg class="fa-solid fa-link" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>
+Copy link
+</button>
+</li>
+<li class="small">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fscangov.org%2Frankings%2Fedu%2Fil%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-linkedin-in" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-linkedin-in" xlink:href="/assets/fa-sprite.svg#fab-fa-linkedin-in"></use></svg>
+LinkedIn
+</a>
+</li>
+<li class="small">
+<a href="https://bsky.app/intent/compose?text=Illinois%20college%20websites%20ranked%20by%20digital%20experience%20https%3A%2F%2Fscangov.org%2Frankings%2Fedu%2Fil%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-bluesky" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-bluesky" xlink:href="/assets/fa-sprite.svg#fab-fa-bluesky"></use></svg>
+Bluesky
+</a>
+</li>
+<li class="small">
+<a href="https://mastodon.social/share?text=Illinois%20college%20websites%20ranked%20by%20digital%20experience%20https%3A%2F%2Fscangov.org%2Frankings%2Fedu%2Fil%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-mastodon" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-mastodon" xlink:href="/assets/fa-sprite.svg#fab-fa-mastodon"></use></svg>
+Mastodon
+</a>
+</li>
+<li class="small">
+<a href="https://x.com/intent/tweet?text=Illinois%20college%20websites%20ranked%20by%20digital%20experience&url=https%3A%2F%2Fscangov.org%2Frankings%2Fedu%2Fil%2F&via=ScanGov" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-x-twitter" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-x-twitter" xlink:href="/assets/fa-sprite.svg#fab-fa-x-twitter"></use></svg>
+X
+</a>
+</li>
+<li class="small">
+<a href="mailto:?subject=Illinois%20college%20websites%20ranked%20by%20digital%20experience&body=https%3A%2F%2Fscangov.org%2Frankings%2Fedu%2Fil%2F" class="dropdown-item">
+<svg class="fa-solid fa-envelope" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-envelope" xlink:href="/assets/fa-sprite.svg#fas-fa-envelope"></use></svg>
+Email
 </a>
 </li>
 </ul>
 </div>
 </div>
+<span class="visually-hidden" id="action-status" role="status" aria-live="polite"></span>
+<script src="/js/action-buttons.js" defer=""></script>
+<script>
+    if (window.location.hostname === 'my.scangov.com') {
+        document.getElementById('rescan-action').classList.remove('d-none');
+    }
+</script>
 </div>
 </div>
 </div>
-<div class="container-fluid">
-<div class="row">
-<div id="home" class="col-12">
+</div>
+<div class="pt-0 pb-4 mb-4 border-bottom">
 <div class="container">
 <div class="row">
 <div class="col-12">
@@ -221,38 +267,59 @@ Education</a>
 </li>
 </ul>
 <p class="small text-muted mt-2 mb-0">Showing Illinois college and university sites. <a href="/rankings/edu/">All education sites</a></p>
+<h1 class="display-5" id="illinois-college-websites-ranked-by-digital-experience">Illinois college websites ranked by digital experience</h1>
+<p class="lead fs-5">Rankings, grades, and the most common failures for 53 public and 71 private college and university websites in Illinois, from ScanGov homepage scans.</p>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+<div class="row">
+<div id="home" class="col-12">
+<div class="container">
 <p>Public colleges and universities in Illinois are ranked and averaged together; private nonprofit institutions are listed below with their own average.</p>
 <div class="row g-3 mb-2 mt-3">
-<div class="col-6 col-lg-3">
-<div class="card h-100"><div class="card-body">
-<p class="sg-stat-value"><span class="badge text-bg-warning">B</span> 86</p>
-<p class="sg-stat-label">Average overall score of 50 fully scanned Illinois public college sites</p>
-</div></div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100 text-bg-warning">
+<div class="card-header">Average overall score</div>
+<div class="card-body">
+<div class="display-2">B <span class="fs-5">86</span></div>
 </div>
-<div class="col-6 col-lg-3">
-<div class="card h-100"><div class="card-body">
-<p class="sg-stat-value">4th</p>
-<p class="sg-stat-label">of 48 states and territories, ranked by average overall score</p>
-</div></div>
+<div class="card-footer text-start">Average overall score of 50 fully scanned Illinois public college sites</div>
 </div>
-<div class="col-6 col-lg-3">
-<div class="card h-100"><div class="card-body">
-<p class="sg-stat-value">50 <span class="fs-5 text-muted">of 53</span></p>
-<p class="sg-stat-label">Illinois public college sites fully scanned. We couldn't fully scan 3, so they're listed without grades</p>
-</div></div>
 </div>
-<div class="col-6 col-lg-3">
-<div class="card h-100"><div class="card-body">
-<p class="sg-stat-value"><span class="badge text-bg-warning">B</span> 85</p>
-<p class="sg-stat-label">Average overall score of all 2,687 fully scanned education sites</p>
-</div></div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100">
+<div class="card-header">Rank in its kind</div>
+<div class="card-body">
+<div class="display-2">4th</div>
+</div>
+<div class="card-footer text-start">of 48 states and territories, ranked by average overall score</div>
+</div>
+</div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100">
+<div class="card-header">Fully scanned</div>
+<div class="card-body">
+<div class="display-2">50 <span class="fs-5">of 53</span></div>
+</div>
+<div class="card-footer text-start">Illinois public college sites fully scanned. We couldn't fully scan 3, so they're listed without grades</div>
+</div>
+</div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100 text-bg-warning">
+<div class="card-header">All education sites</div>
+<div class="card-body">
+<div class="display-2">B <span class="fs-5">85</span></div>
+</div>
+<div class="card-footer text-start">Average overall score of all 2,687 fully scanned education sites</div>
+</div>
 </div>
 </div>
 <figure class="sg-chart sg-chart--area" id="edu-state-il-area-overall" aria-labelledby="edu-state-il-area-overall-title"><figcaption><h3 class="sg-chart-title" id="edu-state-il-area-overall-title">How Illinois overall scores are distributed</h3><p class="sg-chart-sub" id="edu-state-il-area-overall-sub">Smoothed distribution of the 50 fully scanned Illinois public college sites, score 0 to 100. Height shows how many sites score near each value.</p></figcaption><div class="sg-area" aria-hidden="true"><svg class="sg-area-svg" viewBox="0 0 1000 300" preserveAspectRatio="none" focusable="false"><path class="sg-area-fill" d="M8.0 292.0L17.8 292.0L27.7 292.0L37.5 292.0L47.4 292.0L57.2 292.0L67.0 292.0L76.9 292.0L86.7 292.0L96.6 292.0L106.4 292.0L116.2 292.0L126.1 292.0L135.9 292.0L145.8 292.0L155.6 292.0L165.4 292.0L175.3 292.0L185.1 292.0L195.0 292.0L204.8 292.0L214.6 292.0L224.5 292.0L234.3 292.0L244.2 292.0L254.0 292.0L263.8 292.0L273.7 292.0L283.5 292.0L293.4 292.0L303.2 292.0L313.0 292.0L322.9 292.0L332.7 292.0L342.6 292.0L352.4 292.0L362.2 292.0L372.1 292.0L381.9 292.0L391.8 292.0L401.6 292.0L411.4 292.0L421.3 292.0L431.1 292.0L441.0 292.0L450.8 292.0L460.6 292.0L470.5 292.0L480.3 292.0L490.2 292.0L500.0 292.0L509.8 292.0L519.7 292.0L529.5 292.0L539.4 292.0L549.2 292.0L559.0 292.0L568.9 292.0L578.7 292.0L588.6 291.9L598.4 291.8L608.2 291.5L618.1 291.0L627.9 290.0L637.8 288.5L647.6 286.1L657.4 282.9L667.3 278.9L677.1 273.8L687.0 267.3L696.8 258.9L706.6 248.2L716.5 235.0L726.3 219.8L736.2 204.1L746.0 189.5L755.8 177.4L765.7 168.5L775.5 162.4L785.4 157.7L795.2 152.2L805.0 144.0L814.9 131.2L824.7 113.1L834.6 90.0L844.4 64.1L854.2 39.0L864.1 18.9L873.9 8.0L883.8 8.7L893.6 21.2L903.4 44.1L913.3 74.1L923.1 107.7L933.0 141.9L942.8 174.0L952.6 202.6L962.5 226.8L972.3 246.3L982.2 261.4L992.0 272.6L992.0 292L8 292Z"></path><path class="sg-area-line" d="M8.0 292.0L17.8 292.0L27.7 292.0L37.5 292.0L47.4 292.0L57.2 292.0L67.0 292.0L76.9 292.0L86.7 292.0L96.6 292.0L106.4 292.0L116.2 292.0L126.1 292.0L135.9 292.0L145.8 292.0L155.6 292.0L165.4 292.0L175.3 292.0L185.1 292.0L195.0 292.0L204.8 292.0L214.6 292.0L224.5 292.0L234.3 292.0L244.2 292.0L254.0 292.0L263.8 292.0L273.7 292.0L283.5 292.0L293.4 292.0L303.2 292.0L313.0 292.0L322.9 292.0L332.7 292.0L342.6 292.0L352.4 292.0L362.2 292.0L372.1 292.0L381.9 292.0L391.8 292.0L401.6 292.0L411.4 292.0L421.3 292.0L431.1 292.0L441.0 292.0L450.8 292.0L460.6 292.0L470.5 292.0L480.3 292.0L490.2 292.0L500.0 292.0L509.8 292.0L519.7 292.0L529.5 292.0L539.4 292.0L549.2 292.0L559.0 292.0L568.9 292.0L578.7 292.0L588.6 291.9L598.4 291.8L608.2 291.5L618.1 291.0L627.9 290.0L637.8 288.5L647.6 286.1L657.4 282.9L667.3 278.9L677.1 273.8L687.0 267.3L696.8 258.9L706.6 248.2L716.5 235.0L726.3 219.8L736.2 204.1L746.0 189.5L755.8 177.4L765.7 168.5L775.5 162.4L785.4 157.7L795.2 152.2L805.0 144.0L814.9 131.2L824.7 113.1L834.6 90.0L844.4 64.1L854.2 39.0L864.1 18.9L873.9 8.0L883.8 8.7L893.6 21.2L903.4 44.1L913.3 74.1L923.1 107.7L933.0 141.9L942.8 174.0L952.6 202.6L962.5 226.8L972.3 246.3L982.2 261.4L992.0 272.6" vector-effect="non-scaling-stroke"></path><line class="sg-area-marker sg-area-marker--0" x1="854.2" y1="8" x2="854.2" y2="292" vector-effect="non-scaling-stroke"></line><line class="sg-area-marker sg-area-marker--1" x1="844.4" y1="8" x2="844.4" y2="292" vector-effect="non-scaling-stroke"></line></svg><div class="sg-area-labels"><span class="sg-marker-label sg-marker-label--0 sg-marker-label--flip" style="--x:0.86">Illinois average 86</span><span class="sg-marker-label sg-marker-label--1 sg-marker-label--flip" style="--x:0.85">All education average 85</span></div><div class="sg-axis-row"><span class="sg-tick" style="--x:0">0</span><span class="sg-tick" style="--x:0.25">25</span><span class="sg-tick" style="--x:0.5">50</span><span class="sg-tick" style="--x:0.75">75</span><span class="sg-tick" style="--x:1">100</span></div><p class="sg-axis-title">Score, 0 to 100</p></div><p class="visually-hidden">Distribution of 50 scores. The data table lists counts by score range.</p><ul class="sg-legend"><li><span class="sg-swatch sg-fill-series-1 sg-swatch--line" aria-hidden="true"></span>Illinois average</li><li><span class="sg-swatch sg-fill-muted sg-swatch--line" aria-hidden="true"></span>All education average</li></ul><div class="accordion"><div class="accordion-item"><h2 class="accordion-header" id="edu-state-il-area-overall-table-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edu-state-il-area-overall-table-collapse" aria-expanded="false" aria-controls="edu-state-il-area-overall-table-collapse"><svg class="fa-solid fa-table me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table" xlink:href="/assets/fa-sprite.svg#fas-fa-table"></use></svg>Data table</button></h2><div id="edu-state-il-area-overall-table-collapse" class="accordion-collapse collapse" aria-labelledby="edu-state-il-area-overall-table-heading"><div class="accordion-body"><div class="table-responsive"><table class="table table-sm table-bordered small"><caption class="visually-hidden">How Illinois overall scores are distributed</caption><thead><tr><th scope="col">Score range</th><th scope="col">Sites</th></tr></thead><tbody><tr><th scope="row">0 to 9</th><td class="sg-num">0</td></tr><tr><th scope="row">10 to 19</th><td class="sg-num">0</td></tr><tr><th scope="row">20 to 29</th><td class="sg-num">0</td></tr><tr><th scope="row">30 to 39</th><td class="sg-num">0</td></tr><tr><th scope="row">40 to 49</th><td class="sg-num">0</td></tr><tr><th scope="row">50 to 59</th><td class="sg-num">0</td></tr><tr><th scope="row">60 to 69</th><td class="sg-num">1</td></tr><tr><th scope="row">70 to 79</th><td class="sg-num">10</td></tr><tr><th scope="row">80 to 89</th><td class="sg-num">26</td></tr><tr><th scope="row">90 to 100</th><td class="sg-num">13</td></tr></tbody></table></div></div></div></div></div></figure>
 <div class="row">
-<div class="col-12 col-lg-6"><figure class="sg-chart sg-chart--stackedBar" id="edu-state-il-grades-overall" aria-labelledby="edu-state-il-grades-overall-title"><figcaption><h3 class="sg-chart-title" id="edu-state-il-grades-overall-title">Illinois by overall grade, compared with all education sites</h3><p class="sg-chart-sub" id="edu-state-il-grades-overall-sub">Share of fully scanned sites in each grade band. Illinois: 50 sites. All education: 2687 sites.</p></figcaption><ol class="sg-bars sg-bars--stacked" aria-describedby="edu-state-il-grades-overall-sub"><li class="sg-row" style="--i:0"><span class="sg-label">Illinois</span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:0.26" data-tip="Illinois · A (90 to 100): 26% (13 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">A 26%</span><span class="visually-hidden">A (90 to 100): 26% (13 sites)</span></span><span class="sg-seg text-bg-warning" style="--r:0.72" data-tip="Illinois · B to C (70 to 89): 72% (36 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">B–C 72%</span><span class="visually-hidden">B to C (70 to 89): 72% (36 sites)</span></span><span class="sg-seg text-bg-danger" style="--r:0.02" data-tip="Illinois · D to F (below 70): 2% (1 sites)" tabindex="0"><span class="visually-hidden">D to F (below 70): 2% (1 sites)</span></span></span></li><li class="sg-row" style="--i:1"><span class="sg-label"><a href="/rankings/edu/">All education sites</a></span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:0.2453" data-tip="All education sites · A (90 to 100): 25% (659 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">A 25%</span><span class="visually-hidden">A (90 to 100): 25% (659 sites)</span></span><span class="sg-seg text-bg-warning" style="--r:0.7313" data-tip="All education sites · B to C (70 to 89): 73% (1,965 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">B–C 73%</span><span class="visually-hidden">B to C (70 to 89): 73% (1,965 sites)</span></span><span class="sg-seg text-bg-danger" style="--r:0.0234" data-tip="All education sites · D to F (below 70): 2% (63 sites)" tabindex="0"><span class="visually-hidden">D to F (below 70): 2% (63 sites)</span></span></span></li></ol><ul class="sg-legend"><li><span class="sg-swatch text-bg-success " aria-hidden="true"></span>A (90 to 100)</li><li><span class="sg-swatch text-bg-warning " aria-hidden="true"></span>B to C (70 to 89)</li><li><span class="sg-swatch text-bg-danger " aria-hidden="true"></span>D to F (below 70)</li></ul><div class="accordion"><div class="accordion-item"><h2 class="accordion-header" id="edu-state-il-grades-overall-table-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edu-state-il-grades-overall-table-collapse" aria-expanded="false" aria-controls="edu-state-il-grades-overall-table-collapse"><svg class="fa-solid fa-table me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table" xlink:href="/assets/fa-sprite.svg#fas-fa-table"></use></svg>Data table</button></h2><div id="edu-state-il-grades-overall-table-collapse" class="accordion-collapse collapse" aria-labelledby="edu-state-il-grades-overall-table-heading"><div class="accordion-body"><div class="table-responsive"><table class="table table-sm table-bordered small"><caption class="visually-hidden">Illinois by overall grade, compared with all education sites</caption><thead><tr><th scope="col">Group</th><th scope="col">A (90 to 100)</th><th scope="col">B to C (70 to 89)</th><th scope="col">D to F (below 70)</th></tr></thead><tbody><tr><th scope="row">Illinois</th><td class="sg-num">26% (13)</td><td class="sg-num">72% (36)</td><td class="sg-num">2% (1)</td></tr><tr><th scope="row"><a href="/rankings/edu/">All education sites</a></th><td class="sg-num">25% (659)</td><td class="sg-num">73% (1,965)</td><td class="sg-num">2% (63)</td></tr></tbody></table></div></div></div></div></div></figure></div>
+<div class="col-12 col-lg-6"><figure class="sg-chart sg-chart--stackedBar" id="edu-state-il-grades-overall" aria-labelledby="edu-state-il-grades-overall-title"><figcaption><h3 class="sg-chart-title" id="edu-state-il-grades-overall-title">Illinois by overall grade, compared with all education sites</h3><p class="sg-chart-sub" id="edu-state-il-grades-overall-sub">Share of fully scanned sites in each grade band. Illinois: 50 sites. All education: 2687 sites.</p></figcaption><ol class="sg-bars sg-bars--stacked" aria-describedby="edu-state-il-grades-overall-sub"><li class="sg-row" style="--i:0"><span class="sg-label">Illinois</span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:0.26" data-tip="Illinois · A (90 to 100): 26% (13 sites)" tabindex="0"><span class="visually-hidden">A (90 to 100): 26% (13 sites)</span></span><span class="sg-seg text-bg-warning" style="--r:0.72" data-tip="Illinois · B to C (70 to 89): 72% (36 sites)" tabindex="0"><span class="visually-hidden">B to C (70 to 89): 72% (36 sites)</span></span><span class="sg-seg text-bg-danger" style="--r:0.02" data-tip="Illinois · D to F (below 70): 2% (1 sites)" tabindex="0"><span class="visually-hidden">D to F (below 70): 2% (1 sites)</span></span></span></li><li class="sg-row" style="--i:1"><span class="sg-label"><a href="/rankings/edu/">All education sites</a></span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:0.2453" data-tip="All education sites · A (90 to 100): 25% (659 sites)" tabindex="0"><span class="visually-hidden">A (90 to 100): 25% (659 sites)</span></span><span class="sg-seg text-bg-warning" style="--r:0.7313" data-tip="All education sites · B to C (70 to 89): 73% (1,965 sites)" tabindex="0"><span class="visually-hidden">B to C (70 to 89): 73% (1,965 sites)</span></span><span class="sg-seg text-bg-danger" style="--r:0.0234" data-tip="All education sites · D to F (below 70): 2% (63 sites)" tabindex="0"><span class="visually-hidden">D to F (below 70): 2% (63 sites)</span></span></span></li></ol><ul class="sg-legend"><li><span class="sg-swatch text-bg-success " aria-hidden="true"></span>A (90 to 100)</li><li><span class="sg-swatch text-bg-warning " aria-hidden="true"></span>B to C (70 to 89)</li><li><span class="sg-swatch text-bg-danger " aria-hidden="true"></span>D to F (below 70)</li></ul><div class="accordion"><div class="accordion-item"><h2 class="accordion-header" id="edu-state-il-grades-overall-table-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edu-state-il-grades-overall-table-collapse" aria-expanded="false" aria-controls="edu-state-il-grades-overall-table-collapse"><svg class="fa-solid fa-table me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table" xlink:href="/assets/fa-sprite.svg#fas-fa-table"></use></svg>Data table</button></h2><div id="edu-state-il-grades-overall-table-collapse" class="accordion-collapse collapse" aria-labelledby="edu-state-il-grades-overall-table-heading"><div class="accordion-body"><div class="table-responsive"><table class="table table-sm table-bordered small"><caption class="visually-hidden">Illinois by overall grade, compared with all education sites</caption><thead><tr><th scope="col">Group</th><th scope="col">A (90 to 100)</th><th scope="col">B to C (70 to 89)</th><th scope="col">D to F (below 70)</th></tr></thead><tbody><tr><th scope="row">Illinois</th><td class="sg-num">26% (13)</td><td class="sg-num">72% (36)</td><td class="sg-num">2% (1)</td></tr><tr><th scope="row"><a href="/rankings/edu/">All education sites</a></th><td class="sg-num">25% (659)</td><td class="sg-num">73% (1,965)</td><td class="sg-num">2% (63)</td></tr></tbody></table></div></div></div></div></div></figure></div>
 <div class="col-12 col-lg-6"><figure class="sg-chart sg-chart--benchmarkBar" id="edu-state-il-topics" aria-labelledby="edu-state-il-topics-title"><figcaption><h3 class="sg-chart-title" id="edu-state-il-topics-title">Illinois average score by indicator, compared with all education sites</h3><p class="sg-chart-sub" id="edu-state-il-topics-sub">Average of the 50 fully scanned Illinois public college sites, score 0 to 100. The comparison covers 2687 fully scanned education sites.</p></figcaption><ol class="sg-bars" style="--sg-value-room:4ch" aria-describedby="edu-state-il-topics-sub"><li class="sg-row" style="--i:0;--r:0.93"><span class="sg-label"><a href="/rankings/edu/il/accessibility/">Accessibility</a></span><span class="sg-plot" data-tip="Accessibility: 93 · All education: 91" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">93</span><span class="sg-bench" style="--b:0.91"><span class="visually-hidden">All education: 91</span></span></span></li><li class="sg-row" style="--i:1;--r:0.89"><span class="sg-label"><a href="/rankings/edu/il/botability/">Botability</a></span><span class="sg-plot" data-tip="Botability: 89 · All education: 89" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">89</span><span class="sg-bench" style="--b:0.89"><span class="visually-hidden">All education: 89</span></span></span></li><li class="sg-row" style="--i:2;--r:0.86"><span class="sg-label"><a href="/rankings/edu/il/security/">Security</a></span><span class="sg-plot" data-tip="Security: 86 · All education: 85" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">86</span><span class="sg-bench" style="--b:0.85"><span class="visually-hidden">All education: 85</span></span></span></li><li class="sg-row" style="--i:3;--r:0.68"><span class="sg-label"><a href="/rankings/edu/il/usability/">Usability</a></span><span class="sg-plot" data-tip="Usability: 68 · All education: 68" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">68</span><span class="sg-bench" style="--b:0.68"><span class="visually-hidden">All education: 68</span></span></span></li><li class="sg-row" style="--i:4;--r:0.69"><span class="sg-label"><a href="/rankings/edu/il/readability/">Readability</a></span><span class="sg-plot" data-tip="Readability: 69 · All education: 56" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">69</span><span class="sg-bench" style="--b:0.56"><span class="visually-hidden">All education: 56</span></span></span></li></ol><ul class="sg-legend"><li><span class="sg-swatch sg-fill-series-1 " aria-hidden="true"></span>Illinois</li><li><span class="sg-swatch sg-fill-muted sg-swatch--line" aria-hidden="true"></span>All education</li></ul><div class="accordion"><div class="accordion-item"><h2 class="accordion-header" id="edu-state-il-topics-table-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edu-state-il-topics-table-collapse" aria-expanded="false" aria-controls="edu-state-il-topics-table-collapse"><svg class="fa-solid fa-table me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table" xlink:href="/assets/fa-sprite.svg#fas-fa-table"></use></svg>Data table</button></h2><div id="edu-state-il-topics-table-collapse" class="accordion-collapse collapse" aria-labelledby="edu-state-il-topics-table-heading"><div class="accordion-body"><div class="table-responsive"><table class="table table-sm table-bordered small"><caption class="visually-hidden">Illinois average score by indicator, compared with all education sites</caption><thead><tr><th scope="col">Indicator</th><th scope="col">Illinois average</th><th scope="col">All education average</th></tr></thead><tbody><tr><th scope="row"><a href="/rankings/edu/il/accessibility/">Accessibility</a></th><td class="sg-num">93</td><td class="sg-num">91</td></tr><tr><th scope="row"><a href="/rankings/edu/il/botability/">Botability</a></th><td class="sg-num">89</td><td class="sg-num">89</td></tr><tr><th scope="row"><a href="/rankings/edu/il/security/">Security</a></th><td class="sg-num">86</td><td class="sg-num">85</td></tr><tr><th scope="row"><a href="/rankings/edu/il/usability/">Usability</a></th><td class="sg-num">68</td><td class="sg-num">68</td></tr><tr><th scope="row"><a href="/rankings/edu/il/readability/">Readability</a></th><td class="sg-num">69</td><td class="sg-num">56</td></tr></tbody></table></div></div></div></div></div></figure></div>
 </div>
 <h2 id="top-3-illinois-public-college-sites-by-overall-score">Top 3 Illinois public college sites by overall score</h2>
@@ -3035,28 +3102,113 @@ margin-bottom: 0;
 <div class="col-6 col-sm-6 col-md-3 mb-3">
 <ul class="nav flex-column">
 <li class="small mb-1">
-<a href="https://docs.scangov.org/community" class="nav-link p-0 text-body-secondary">Community</a>
+<a href="https://scangov.com/about" class="nav-link p-0 text-body-secondary">About</a>
 </li>
 <li class="small mb-1">
-<a href="https://scangov.substack.com" class="nav-link p-0 text-body-secondary">Newsletter</a>
+<a href="https://scangov.com/bot" class="nav-link p-0 text-body-secondary">ScanGovBot</a>
 </li>
 <li class="small mb-1">
-<a href="https://github.com/ScanGov" class="nav-link p-0 text-body-secondary">GitHub</a>
+<a href="https://scangov.com/people" class="nav-link p-0 text-body-secondary">People</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/news" class="nav-link p-0 text-body-secondary">News</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/press" class="nav-link p-0 text-body-secondary">Press</a>
 </li>
 <li class="small mb-1">
 <a href="https://scangov.com/contact" class="nav-link p-0 text-body-secondary">Contact</a>
 </li>
-</ul>
-</div>
-<div class="col-6 col-sm-6 col-md-3 mb-3">
-<ul class="nav flex-column">
 <li class="small mb-1">
-<a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">ScanGov scorecard</a>
+<a href="https://docs.scangov.org/feedback" class="nav-link p-0 text-body-secondary">Feedback</a>
 </li>
 </ul>
 </div>
 <div class="col-6 col-sm-6 col-md-3 mb-3">
 <ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.com/features" class="nav-link p-0 text-body-secondary">Features</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/plans" class="nav-link p-0 text-body-secondary">Plans</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/compare/" class="nav-link p-0 text-body-secondary">Compare</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/demo" class="nav-link p-0 text-body-secondary">Demo</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/who-we-serve/" class="nav-link p-0 text-body-secondary">Who we serve</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/what-they-say/" class="nav-link p-0 text-body-secondary">What they say</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/accessibility-lawsuit/" class="nav-link p-0 text-body-secondary">Accessibility lawsuit help</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/showcase" class="nav-link p-0 text-body-secondary">Showcase</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/now-scanning" class="nav-link p-0 text-body-secondary">Now scanning ...</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/tools/" class="nav-link p-0 text-body-secondary">Tools</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.com/subscribe/" class="nav-link p-0 text-body-secondary">Newsletters</a>
+</li>
+<li class="small mb-1">
+<a href="https://linkedin.com/company/scangov" class="nav-link p-0 text-body-secondary">LinkedIn</a>
+</li>
+<li class="small mb-1">
+<a href="https://www.youtube.com/@scangov" class="nav-link p-0 text-body-secondary">YouTube</a>
+</li>
+<li class="small mb-1">
+<a href="https://github.com/scangov" class="nav-link p-0 text-body-secondary">GitHub</a>
+</li>
+<li class="small mb-1">
+<a href="https://discord.gg/aTCrf8HD" class="nav-link p-0 text-body-secondary">Discord</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/news/feed.xml" class="nav-link p-0 text-body-secondary">RSS</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.org" class="nav-link p-0 text-body-secondary">Project ScanGov</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.org/rankings/" class="nav-link p-0 text-body-secondary">Rankings</a>
+</li>
+<li class="small mb-1">
+<a href="https://standards.scangov.org" class="nav-link p-0 text-body-secondary">Standards</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/" class="nav-link p-0 text-body-secondary">Docs</a>
+</li>
+<li class="small mb-1">
+<a href="https://data.scangov.org" class="nav-link p-0 text-body-secondary">Data</a>
+</li>
+<li class="small mb-1">
+<a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">ScanGov scorecard</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/accessibility-statement" class="nav-link p-0 text-body-secondary">Accessibility statement</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/privacy-statement" class="nav-link p-0 text-body-secondary">Privacy statement</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/conduct" class="nav-link p-0 text-body-secondary">Code of conduct</a>
+</li>
 <li class="small mb-1">
 <a href="/site-index/" class="nav-link p-0 text-body-secondary">Site index</a>
 </li>

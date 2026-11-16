@@ -132,39 +132,85 @@ Search
 </nav>
 <main id="main-content">
 <div>
-<div class="pt-5 pb-4 mb-4 border-bottom">
-<div class="container">
+<div class="container-fluid">
 <div class="row">
-<div class="col-12">
-<nav aria-label="Breadcrumb" class="breadcrumb-default mb-3">
-<ol class="breadcrumb small font-monospace">
+<div class="col-12 py-3 d-flex flex-wrap align-items-center justify-content-between gap-2">
+<nav aria-label="Breadcrumb" class="breadcrumb-default">
+<ol class="breadcrumb small font-monospace mb-0">
 <li class="breadcrumb-item"><a href="/rankings/">Rankings</a></li>
 <li class="breadcrumb-item"><a href="/rankings/counties/">Counties</a></li>
 <li class="breadcrumb-item active" aria-current="page">Hawaii</li>
 </ol>
 </nav>
-<h1 class="display-5" id="hawaii-county-websites-ranked-by-digital-experience">Hawaii county websites ranked by digital experience</h1>
-<p class="lead fs-5">Rankings, grades, and the most common failures for 2 Hawaii county websites across accessibility, botability, security, usability, and readability.</p>
-<ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
-<li>
-Sites: 2
-</li>
-<li>
-Last scan:
-<span id="updated">11/8/2026</span>
+<div class="d-flex flex-wrap align-items-center gap-3 ms-auto">
+<p class="small text-body-secondary font-monospace mb-0">
+<svg class="fa-solid fa-window-maximize" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-window-maximize" xlink:href="/assets/fa-sprite.svg#fas-fa-window-maximize"></use></svg> 2 sites
+&middot;
+<svg class="fa-solid fa-bars-progress" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-bars-progress" xlink:href="/assets/fa-sprite.svg#fas-fa-bars-progress"></use></svg> Last scan: <span id="updated">11/8/2026</span>
 <a href="https://docs.scangov.org/scans/" class="icon-link" style="color: inherit; position: relative; z-index: 2;" aria-label="More about Last scan" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="How often ScanGov scans this site. <a href=&quot;https://docs.scangov.org/scans/&quot;>Learn more</a>">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+</a>
+</p>
+<div class="actions d-flex flex-wrap gap-2">
+<a href="https://scangov.com" id="rescan-action" class="btn btn-outline-primary btn-sm d-none" aria-label="Rescan" title="Rescan">
+<svg class="fa-solid fa-arrows-rotate" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrows-rotate" xlink:href="/assets/fa-sprite.svg#fas-fa-arrows-rotate"></use></svg>
+</a>
+<div class="dropdown">
+<button type="button" id="share-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share" title="Share">
+<svg class="fa-solid fa-share-from-square" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-share-from-square" xlink:href="/assets/fa-sprite.svg#fas-fa-share-from-square"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg>
+</button>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="share-menu">
+<li class="small">
+<button type="button" class="dropdown-item" data-action="copy-link">
+<svg class="fa-solid fa-link" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>
+Copy link
+</button>
+</li>
+<li class="small">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fscangov.org%2Frankings%2Fcounties%2Fhi%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-linkedin-in" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-linkedin-in" xlink:href="/assets/fa-sprite.svg#fab-fa-linkedin-in"></use></svg>
+LinkedIn
+</a>
+</li>
+<li class="small">
+<a href="https://bsky.app/intent/compose?text=Hawaii%20county%20websites%20ranked%20by%20digital%20experience%20https%3A%2F%2Fscangov.org%2Frankings%2Fcounties%2Fhi%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-bluesky" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-bluesky" xlink:href="/assets/fa-sprite.svg#fab-fa-bluesky"></use></svg>
+Bluesky
+</a>
+</li>
+<li class="small">
+<a href="https://mastodon.social/share?text=Hawaii%20county%20websites%20ranked%20by%20digital%20experience%20https%3A%2F%2Fscangov.org%2Frankings%2Fcounties%2Fhi%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-mastodon" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-mastodon" xlink:href="/assets/fa-sprite.svg#fab-fa-mastodon"></use></svg>
+Mastodon
+</a>
+</li>
+<li class="small">
+<a href="https://x.com/intent/tweet?text=Hawaii%20county%20websites%20ranked%20by%20digital%20experience&url=https%3A%2F%2Fscangov.org%2Frankings%2Fcounties%2Fhi%2F&via=ScanGov" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-x-twitter" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-x-twitter" xlink:href="/assets/fa-sprite.svg#fab-fa-x-twitter"></use></svg>
+X
+</a>
+</li>
+<li class="small">
+<a href="mailto:?subject=Hawaii%20county%20websites%20ranked%20by%20digital%20experience&body=https%3A%2F%2Fscangov.org%2Frankings%2Fcounties%2Fhi%2F" class="dropdown-item">
+<svg class="fa-solid fa-envelope" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-envelope" xlink:href="/assets/fa-sprite.svg#fas-fa-envelope"></use></svg>
+Email
 </a>
 </li>
 </ul>
 </div>
 </div>
+<span class="visually-hidden" id="action-status" role="status" aria-live="polite"></span>
+<script src="/js/action-buttons.js" defer=""></script>
+<script>
+    if (window.location.hostname === 'my.scangov.com') {
+        document.getElementById('rescan-action').classList.remove('d-none');
+    }
+</script>
 </div>
 </div>
 </div>
-<div class="container-fluid">
-<div class="row">
-<div id="home" class="col-12">
+</div>
+<div class="pt-0 pb-4 mb-4 border-bottom">
 <div class="container">
 <div class="row">
 <div class="col-12">
@@ -221,32 +267,53 @@ Education</a>
 </li>
 </ul>
 <p class="small text-muted mt-2 mb-0">Showing Hawaii county sites. <a href="/rankings/counties/">All U.S. county sites</a></p>
+<h1 class="display-5" id="hawaii-county-websites-ranked-by-digital-experience">Hawaii county websites ranked by digital experience</h1>
+<p class="lead fs-5">Rankings, grades, and the most common failures for 2 Hawaii county websites across accessibility, botability, security, usability, and readability.</p>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+<div class="row">
+<div id="home" class="col-12">
+<div class="container">
 <div class="row g-3 mb-2 mt-3">
-<div class="col-6 col-lg-3">
-<div class="card h-100"><div class="card-body">
-<p class="sg-stat-value"><span class="badge text-bg-success">A</span> 91</p>
-<p class="sg-stat-label">Average overall score of 1 fully scanned Hawaii county sites</p>
-</div></div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100 text-bg-success">
+<div class="card-header">Average overall score</div>
+<div class="card-body">
+<div class="display-2">A <span class="fs-5">91</span></div>
 </div>
-<div class="col-6 col-lg-3">
-<div class="card h-100"><div class="card-body">
-<p class="sg-stat-value">1st</p>
-<p class="sg-stat-label">of 49 states, ranked by average overall score</p>
-</div></div>
+<div class="card-footer text-start">Average overall score of 1 fully scanned Hawaii county sites</div>
 </div>
-<div class="col-6 col-lg-3">
-<div class="card h-100"><div class="card-body">
-<p class="sg-stat-value">1 <span class="fs-5 text-muted">of 2</span></p>
-<p class="sg-stat-label">Sites fully scanned. We couldn't fully scan 1, so they're listed without grades</p>
-</div></div>
 </div>
-<div class="col-6 col-lg-3">
-<div class="card h-100"><div class="card-body">
-<p class="sg-stat-value"><span class="badge text-bg-warning">C</span> 76</p>
-<p class="sg-stat-label">U.S. county average overall score, 2471 fully scanned sites</p>
-</div></div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100">
+<div class="card-header">Rank among states</div>
+<div class="card-body">
+<div class="display-2">1st</div>
+</div>
+<div class="card-footer text-start">of 49 states, ranked by average overall score</div>
+</div>
+</div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100">
+<div class="card-header">Fully scanned</div>
+<div class="card-body">
+<div class="display-2">1 <span class="fs-5">of 2</span></div>
+</div>
+<div class="card-footer text-start">Sites fully scanned. We couldn't fully scan 1, so they're listed without grades</div>
+</div>
+</div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100 text-bg-warning">
+<div class="card-header">U.S. county average</div>
+<div class="card-body">
+<div class="display-2">C <span class="fs-5">76</span></div>
+</div>
+<div class="card-footer text-start">U.S. county average overall score, 2471 fully scanned sites</div>
+</div>
 </div>
 </div>
 <p class="small text-muted">Hawaii's state site, <a href="/profile/hawaii-gov/overall/">hawaii.gov</a>, ranks 2nd of 51 state sites with an A. <a href="/rankings/states/">State rankings</a>.</p>
@@ -277,7 +344,7 @@ Education</a>
 </figure>
 </div>
 <div class="col-12 col-lg-6">
-<figure class="sg-chart sg-chart--stackedBar" id="county-hi-grades-overall" aria-labelledby="county-hi-grades-overall-title"><figcaption><h3 class="sg-chart-title" id="county-hi-grades-overall-title">Hawaii counties by overall grade, compared with all U.S. counties</h3><p class="sg-chart-sub" id="county-hi-grades-overall-sub">Share of fully scanned sites in each grade band. Hawaii: 1 sites. U.S.: 2471 sites.</p></figcaption><ol class="sg-bars sg-bars--stacked" aria-describedby="county-hi-grades-overall-sub"><li class="sg-row" style="--i:0"><span class="sg-label">Hawaii</span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:1" data-tip="Hawaii · A (90 to 100): 100% (1 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">A 100%</span><span class="visually-hidden">A (90 to 100): 100% (1 sites)</span></span></span></li><li class="sg-row" style="--i:1"><span class="sg-label"><a href="/rankings/counties/">All U.S. counties</a></span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:0.0364" data-tip="All U.S. counties · A (90 to 100): 4% (90 sites)" tabindex="0"><span class="visually-hidden">A (90 to 100): 4% (90 sites)</span></span><span class="sg-seg text-bg-warning" style="--r:0.8219" data-tip="All U.S. counties · B to C (70 to 89): 82% (2,031 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">B–C 82%</span><span class="visually-hidden">B to C (70 to 89): 82% (2,031 sites)</span></span><span class="sg-seg text-bg-danger" style="--r:0.1416" data-tip="All U.S. counties · D to F (below 70): 14% (350 sites)" tabindex="0"><span class="sg-seg-label" aria-hidden="true">D–F 14%</span><span class="visually-hidden">D to F (below 70): 14% (350 sites)</span></span></span></li></ol><ul class="sg-legend"><li><span class="sg-swatch text-bg-success " aria-hidden="true"></span>A (90 to 100)</li><li><span class="sg-swatch text-bg-warning " aria-hidden="true"></span>B to C (70 to 89)</li><li><span class="sg-swatch text-bg-danger " aria-hidden="true"></span>D to F (below 70)</li></ul><div class="accordion"><div class="accordion-item"><h2 class="accordion-header" id="county-hi-grades-overall-table-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#county-hi-grades-overall-table-collapse" aria-expanded="false" aria-controls="county-hi-grades-overall-table-collapse"><svg class="fa-solid fa-table me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table" xlink:href="/assets/fa-sprite.svg#fas-fa-table"></use></svg>Data table</button></h2><div id="county-hi-grades-overall-table-collapse" class="accordion-collapse collapse" aria-labelledby="county-hi-grades-overall-table-heading"><div class="accordion-body"><div class="table-responsive"><table class="table table-sm table-bordered small"><caption class="visually-hidden">Hawaii counties by overall grade, compared with all U.S. counties</caption><thead><tr><th scope="col">Group</th><th scope="col">A (90 to 100)</th><th scope="col">B to C (70 to 89)</th><th scope="col">D to F (below 70)</th></tr></thead><tbody><tr><th scope="row">Hawaii</th><td class="sg-num">100% (1)</td><td class="sg-num">0% (0)</td><td class="sg-num">0% (0)</td></tr><tr><th scope="row"><a href="/rankings/counties/">All U.S. counties</a></th><td class="sg-num">4% (90)</td><td class="sg-num">82% (2,031)</td><td class="sg-num">14% (350)</td></tr></tbody></table></div></div></div></div></div></figure>
+<figure class="sg-chart sg-chart--stackedBar" id="county-hi-grades-overall" aria-labelledby="county-hi-grades-overall-title"><figcaption><h3 class="sg-chart-title" id="county-hi-grades-overall-title">Hawaii counties by overall grade, compared with all U.S. counties</h3><p class="sg-chart-sub" id="county-hi-grades-overall-sub">Share of fully scanned sites in each grade band. Hawaii: 1 sites. U.S.: 2471 sites.</p></figcaption><ol class="sg-bars sg-bars--stacked" aria-describedby="county-hi-grades-overall-sub"><li class="sg-row" style="--i:0"><span class="sg-label">Hawaii</span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:1" data-tip="Hawaii · A (90 to 100): 100% (1 sites)" tabindex="0"><span class="visually-hidden">A (90 to 100): 100% (1 sites)</span></span></span></li><li class="sg-row" style="--i:1"><span class="sg-label"><a href="/rankings/counties/">All U.S. counties</a></span><span class="sg-plot sg-stack"><span class="sg-seg text-bg-success" style="--r:0.0364" data-tip="All U.S. counties · A (90 to 100): 4% (90 sites)" tabindex="0"><span class="visually-hidden">A (90 to 100): 4% (90 sites)</span></span><span class="sg-seg text-bg-warning" style="--r:0.8219" data-tip="All U.S. counties · B to C (70 to 89): 82% (2,031 sites)" tabindex="0"><span class="visually-hidden">B to C (70 to 89): 82% (2,031 sites)</span></span><span class="sg-seg text-bg-danger" style="--r:0.1416" data-tip="All U.S. counties · D to F (below 70): 14% (350 sites)" tabindex="0"><span class="visually-hidden">D to F (below 70): 14% (350 sites)</span></span></span></li></ol><ul class="sg-legend"><li><span class="sg-swatch text-bg-success " aria-hidden="true"></span>A (90 to 100)</li><li><span class="sg-swatch text-bg-warning " aria-hidden="true"></span>B to C (70 to 89)</li><li><span class="sg-swatch text-bg-danger " aria-hidden="true"></span>D to F (below 70)</li></ul><div class="accordion"><div class="accordion-item"><h2 class="accordion-header" id="county-hi-grades-overall-table-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#county-hi-grades-overall-table-collapse" aria-expanded="false" aria-controls="county-hi-grades-overall-table-collapse"><svg class="fa-solid fa-table me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table" xlink:href="/assets/fa-sprite.svg#fas-fa-table"></use></svg>Data table</button></h2><div id="county-hi-grades-overall-table-collapse" class="accordion-collapse collapse" aria-labelledby="county-hi-grades-overall-table-heading"><div class="accordion-body"><div class="table-responsive"><table class="table table-sm table-bordered small"><caption class="visually-hidden">Hawaii counties by overall grade, compared with all U.S. counties</caption><thead><tr><th scope="col">Group</th><th scope="col">A (90 to 100)</th><th scope="col">B to C (70 to 89)</th><th scope="col">D to F (below 70)</th></tr></thead><tbody><tr><th scope="row">Hawaii</th><td class="sg-num">100% (1)</td><td class="sg-num">0% (0)</td><td class="sg-num">0% (0)</td></tr><tr><th scope="row"><a href="/rankings/counties/">All U.S. counties</a></th><td class="sg-num">4% (90)</td><td class="sg-num">82% (2,031)</td><td class="sg-num">14% (350)</td></tr></tbody></table></div></div></div></div></div></figure>
 <figure class="sg-chart sg-chart--benchmarkBar" id="county-hi-topics" aria-labelledby="county-hi-topics-title"><figcaption><h3 class="sg-chart-title" id="county-hi-topics-title">Hawaii county average score by indicator, compared with all U.S. counties</h3><p class="sg-chart-sub" id="county-hi-topics-sub">Average of the 1 fully scanned Hawaii county sites, score 0 to 100. U.S. average covers 2471 fully scanned county sites.</p></figcaption><ol class="sg-bars" style="--sg-value-room:5ch" aria-describedby="county-hi-topics-sub"><li class="sg-row" style="--i:0;--r:0.97"><span class="sg-label"><a href="/rankings/counties/hi/accessibility/">Accessibility</a></span><span class="sg-plot" data-tip="Accessibility: 97 · U.S. counties: 88" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">97</span><span class="sg-bench" style="--b:0.88"><span class="visually-hidden">U.S. counties: 88</span></span></span></li><li class="sg-row" style="--i:1;--r:0.9"><span class="sg-label"><a href="/rankings/counties/hi/botability/">Botability</a></span><span class="sg-plot" data-tip="Botability: 90 · U.S. counties: 76" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">90</span><span class="sg-bench" style="--b:0.76"><span class="visually-hidden">U.S. counties: 76</span></span></span></li><li class="sg-row" style="--i:2;--r:1"><span class="sg-label"><a href="/rankings/counties/hi/security/">Security</a></span><span class="sg-plot" data-tip="Security: 100 · U.S. counties: 83" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">100</span><span class="sg-bench" style="--b:0.83"><span class="visually-hidden">U.S. counties: 83</span></span></span></li><li class="sg-row" style="--i:3;--r:0.68"><span class="sg-label"><a href="/rankings/counties/hi/usability/">Usability</a></span><span class="sg-plot" data-tip="Usability: 68 · U.S. counties: 48" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">68</span><span class="sg-bench" style="--b:0.48"><span class="visually-hidden">U.S. counties: 48</span></span></span></li><li class="sg-row" style="--i:4;--r:1"><span class="sg-label"><a href="/rankings/counties/hi/readability/">Readability</a></span><span class="sg-plot" data-tip="Readability: 100 · U.S. counties: 62" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">100</span><span class="sg-bench" style="--b:0.62"><span class="visually-hidden">U.S. counties: 62</span></span></span></li></ol><ul class="sg-legend"><li><span class="sg-swatch sg-fill-series-1 " aria-hidden="true"></span>Hawaii</li><li><span class="sg-swatch sg-fill-muted sg-swatch--line" aria-hidden="true"></span>U.S. counties</li></ul><div class="accordion"><div class="accordion-item"><h2 class="accordion-header" id="county-hi-topics-table-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#county-hi-topics-table-collapse" aria-expanded="false" aria-controls="county-hi-topics-table-collapse"><svg class="fa-solid fa-table me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table" xlink:href="/assets/fa-sprite.svg#fas-fa-table"></use></svg>Data table</button></h2><div id="county-hi-topics-table-collapse" class="accordion-collapse collapse" aria-labelledby="county-hi-topics-table-heading"><div class="accordion-body"><div class="table-responsive"><table class="table table-sm table-bordered small"><caption class="visually-hidden">Hawaii county average score by indicator, compared with all U.S. counties</caption><thead><tr><th scope="col">Indicator</th><th scope="col">Hawaii average</th><th scope="col">U.S. counties average</th></tr></thead><tbody><tr><th scope="row"><a href="/rankings/counties/hi/accessibility/">Accessibility</a></th><td class="sg-num">97</td><td class="sg-num">88</td></tr><tr><th scope="row"><a href="/rankings/counties/hi/botability/">Botability</a></th><td class="sg-num">90</td><td class="sg-num">76</td></tr><tr><th scope="row"><a href="/rankings/counties/hi/security/">Security</a></th><td class="sg-num">100</td><td class="sg-num">83</td></tr><tr><th scope="row"><a href="/rankings/counties/hi/usability/">Usability</a></th><td class="sg-num">68</td><td class="sg-num">48</td></tr><tr><th scope="row"><a href="/rankings/counties/hi/readability/">Readability</a></th><td class="sg-num">100</td><td class="sg-num">62</td></tr></tbody></table></div></div></div></div></div></figure>
 </div>
 </div>
@@ -461,28 +528,113 @@ margin-bottom: 0;
 <div class="col-6 col-sm-6 col-md-3 mb-3">
 <ul class="nav flex-column">
 <li class="small mb-1">
-<a href="https://docs.scangov.org/community" class="nav-link p-0 text-body-secondary">Community</a>
+<a href="https://scangov.com/about" class="nav-link p-0 text-body-secondary">About</a>
 </li>
 <li class="small mb-1">
-<a href="https://scangov.substack.com" class="nav-link p-0 text-body-secondary">Newsletter</a>
+<a href="https://scangov.com/bot" class="nav-link p-0 text-body-secondary">ScanGovBot</a>
 </li>
 <li class="small mb-1">
-<a href="https://github.com/ScanGov" class="nav-link p-0 text-body-secondary">GitHub</a>
+<a href="https://scangov.com/people" class="nav-link p-0 text-body-secondary">People</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/news" class="nav-link p-0 text-body-secondary">News</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/press" class="nav-link p-0 text-body-secondary">Press</a>
 </li>
 <li class="small mb-1">
 <a href="https://scangov.com/contact" class="nav-link p-0 text-body-secondary">Contact</a>
 </li>
-</ul>
-</div>
-<div class="col-6 col-sm-6 col-md-3 mb-3">
-<ul class="nav flex-column">
 <li class="small mb-1">
-<a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">ScanGov scorecard</a>
+<a href="https://docs.scangov.org/feedback" class="nav-link p-0 text-body-secondary">Feedback</a>
 </li>
 </ul>
 </div>
 <div class="col-6 col-sm-6 col-md-3 mb-3">
 <ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.com/features" class="nav-link p-0 text-body-secondary">Features</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/plans" class="nav-link p-0 text-body-secondary">Plans</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/compare/" class="nav-link p-0 text-body-secondary">Compare</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/demo" class="nav-link p-0 text-body-secondary">Demo</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/who-we-serve/" class="nav-link p-0 text-body-secondary">Who we serve</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/what-they-say/" class="nav-link p-0 text-body-secondary">What they say</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/accessibility-lawsuit/" class="nav-link p-0 text-body-secondary">Accessibility lawsuit help</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/showcase" class="nav-link p-0 text-body-secondary">Showcase</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/now-scanning" class="nav-link p-0 text-body-secondary">Now scanning ...</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/tools/" class="nav-link p-0 text-body-secondary">Tools</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.com/subscribe/" class="nav-link p-0 text-body-secondary">Newsletters</a>
+</li>
+<li class="small mb-1">
+<a href="https://linkedin.com/company/scangov" class="nav-link p-0 text-body-secondary">LinkedIn</a>
+</li>
+<li class="small mb-1">
+<a href="https://www.youtube.com/@scangov" class="nav-link p-0 text-body-secondary">YouTube</a>
+</li>
+<li class="small mb-1">
+<a href="https://github.com/scangov" class="nav-link p-0 text-body-secondary">GitHub</a>
+</li>
+<li class="small mb-1">
+<a href="https://discord.gg/aTCrf8HD" class="nav-link p-0 text-body-secondary">Discord</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/news/feed.xml" class="nav-link p-0 text-body-secondary">RSS</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.org" class="nav-link p-0 text-body-secondary">Project ScanGov</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.org/rankings/" class="nav-link p-0 text-body-secondary">Rankings</a>
+</li>
+<li class="small mb-1">
+<a href="https://standards.scangov.org" class="nav-link p-0 text-body-secondary">Standards</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/" class="nav-link p-0 text-body-secondary">Docs</a>
+</li>
+<li class="small mb-1">
+<a href="https://data.scangov.org" class="nav-link p-0 text-body-secondary">Data</a>
+</li>
+<li class="small mb-1">
+<a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">ScanGov scorecard</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/accessibility-statement" class="nav-link p-0 text-body-secondary">Accessibility statement</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/privacy-statement" class="nav-link p-0 text-body-secondary">Privacy statement</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/conduct" class="nav-link p-0 text-body-secondary">Code of conduct</a>
+</li>
 <li class="small mb-1">
 <a href="/site-index/" class="nav-link p-0 text-body-secondary">Site index</a>
 </li>

@@ -132,35 +132,84 @@ Search
 </nav>
 <main id="main-content">
 <div>
-<div class="pt-5 pb-4 mb-4 border-bottom">
-<div class="container">
+<div class="container-fluid">
 <div class="row">
-<div class="col-12">
-<nav aria-label="Breadcrumb" class="breadcrumb-default mb-3">
-<ol class="breadcrumb small font-monospace">
+<div class="col-12 py-3 d-flex flex-wrap align-items-center justify-content-between gap-2">
+<nav aria-label="Breadcrumb" class="breadcrumb-default">
+<ol class="breadcrumb small font-monospace mb-0">
 <li class="breadcrumb-item"><a href="/issues/">Issues</a></li>
 <li class="breadcrumb-item active" aria-current="page">County websites with robots.txt problems</li>
 </ol>
 </nav>
-<h1 class="display-5" id="county-websites-with-robots-txt-problems">County websites with robots.txt problems</h1>
-<p class="lead fs-5">562 of 2,400 fully scanned U.S. county websites have a robots.txt problem. A map, the share in each state, and every site listed, from ScanGov homepage scans.</p>
-<ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
-<li>
-Sites: 2876
-</li>
-<li>
-Last scan:
-<span id="updated">11/8/2026</span>
+<div class="d-flex flex-wrap align-items-center gap-3 ms-auto">
+<p class="small text-body-secondary font-monospace mb-0">
+<svg class="fa-solid fa-window-maximize" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-window-maximize" xlink:href="/assets/fa-sprite.svg#fas-fa-window-maximize"></use></svg> 2,876 sites
+&middot;
+<svg class="fa-solid fa-bars-progress" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-bars-progress" xlink:href="/assets/fa-sprite.svg#fas-fa-bars-progress"></use></svg> Last scan: <span id="updated">11/8/2026</span>
 <a href="https://docs.scangov.org/scans/" class="icon-link" style="color: inherit; position: relative; z-index: 2;" aria-label="More about Last scan" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="How often ScanGov scans this site. <a href=&quot;https://docs.scangov.org/scans/&quot;>Learn more</a>">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+</a>
+</p>
+<div class="actions d-flex flex-wrap gap-2">
+<a href="https://scangov.com" id="rescan-action" class="btn btn-outline-primary btn-sm d-none" aria-label="Rescan" title="Rescan">
+<svg class="fa-solid fa-arrows-rotate" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrows-rotate" xlink:href="/assets/fa-sprite.svg#fas-fa-arrows-rotate"></use></svg>
+</a>
+<div class="dropdown">
+<button type="button" id="share-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share" title="Share">
+<svg class="fa-solid fa-share-from-square" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-share-from-square" xlink:href="/assets/fa-sprite.svg#fas-fa-share-from-square"></use></svg><svg class="fa-solid fa-check d-none" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-check" xlink:href="/assets/fa-sprite.svg#fas-fa-check"></use></svg>
+</button>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="share-menu">
+<li class="small">
+<button type="button" class="dropdown-item" data-action="copy-link">
+<svg class="fa-solid fa-link" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-link" xlink:href="/assets/fa-sprite.svg#fas-fa-link"></use></svg>
+Copy link
+</button>
+</li>
+<li class="small">
+<a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fscangov.org%2Fissues%2Frobots%2Fcounties%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-linkedin-in" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-linkedin-in" xlink:href="/assets/fa-sprite.svg#fab-fa-linkedin-in"></use></svg>
+LinkedIn
+</a>
+</li>
+<li class="small">
+<a href="https://bsky.app/intent/compose?text=County%20websites%20with%20robots.txt%20problems%20https%3A%2F%2Fscangov.org%2Fissues%2Frobots%2Fcounties%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-bluesky" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-bluesky" xlink:href="/assets/fa-sprite.svg#fab-fa-bluesky"></use></svg>
+Bluesky
+</a>
+</li>
+<li class="small">
+<a href="https://mastodon.social/share?text=County%20websites%20with%20robots.txt%20problems%20https%3A%2F%2Fscangov.org%2Fissues%2Frobots%2Fcounties%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-mastodon" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-mastodon" xlink:href="/assets/fa-sprite.svg#fab-fa-mastodon"></use></svg>
+Mastodon
+</a>
+</li>
+<li class="small">
+<a href="https://x.com/intent/tweet?text=County%20websites%20with%20robots.txt%20problems&url=https%3A%2F%2Fscangov.org%2Fissues%2Frobots%2Fcounties%2F&via=ScanGov" class="dropdown-item" rel="nofollow" target="_blank">
+<svg class="fa-brands fa-x-twitter" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-x-twitter" xlink:href="/assets/fa-sprite.svg#fab-fa-x-twitter"></use></svg>
+X
+</a>
+</li>
+<li class="small">
+<a href="mailto:?subject=County%20websites%20with%20robots.txt%20problems&body=https%3A%2F%2Fscangov.org%2Fissues%2Frobots%2Fcounties%2F" class="dropdown-item">
+<svg class="fa-solid fa-envelope" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-envelope" xlink:href="/assets/fa-sprite.svg#fas-fa-envelope"></use></svg>
+Email
 </a>
 </li>
 </ul>
 </div>
 </div>
+<span class="visually-hidden" id="action-status" role="status" aria-live="polite"></span>
+<script src="/js/action-buttons.js" defer=""></script>
+<script>
+    if (window.location.hostname === 'my.scangov.com') {
+        document.getElementById('rescan-action').classList.remove('d-none');
+    }
+</script>
 </div>
 </div>
 </div>
+</div>
+<div class="pt-0 pb-4 mb-4 border-bottom">
 <div class="container">
 <div class="row">
 <div class="col-12">
@@ -190,35 +239,57 @@ Federal</a>
 Education</a>
 </li>
 </ul>
+<h1 class="display-5" id="county-websites-with-robots-txt-problems">County websites with robots.txt problems</h1>
+<p class="lead fs-5">562 of 2,400 fully scanned U.S. county websites have a robots.txt problem. A map, the share in each state, and every site listed, from ScanGov homepage scans.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-12">
 <div class="sg-charts-large">
 <p class="lead">Of the 2,400 fully scanned U.S. county sites we tested, 562 (23%) have a robots.txt problem.
 Another 719 (30%) have no robots.txt file at all. No check fails for that, so they count as passing here, and the map shows them in their own color.
 Among states with at least 10 tested sites, Washington has the highest share (69%). Nebraska has the lowest (3%).
 A robots.txt file tells search engines and AI agents which parts of a site they may crawl and where to find the sitemap. When a site has one, it has to follow the format and not block the whole site. A site fails if it fails any of these checks: <a href="https://standards.scangov.org/valid">Robots valid</a>and <a href="https://standards.scangov.org/allowed">Robots allowed</a>.</p>
 <div class="row g-3 mb-2">
-<div class="col-6 col-lg-3">
-<div class="card h-100"><div class="card-body">
-<p class="sg-stat-value">562 <span class="fs-5 text-muted">of 2,400</span></p>
-<p class="sg-stat-label">County sites that have a robots.txt problem</p>
-</div></div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100">
+<div class="card-header">Failing</div>
+<div class="card-body">
+<div class="display-2">562 <span class="fs-5">of 2,400</span></div>
 </div>
-<div class="col-6 col-lg-3">
-<div class="card h-100"><div class="card-body">
-<p class="sg-stat-value">23%</p>
-<p class="sg-stat-label">Share of tested county sites that fail these checks</p>
-</div></div>
+<div class="card-footer text-start">County sites that have a robots.txt problem</div>
 </div>
-<div class="col-6 col-lg-3">
-<div class="card h-100"><div class="card-body">
-<p class="sg-stat-value">45 <span class="fs-5 text-muted">of 49</span></p>
-<p class="sg-stat-label">States with at least one failing county site</p>
-</div></div>
 </div>
-<div class="col-6 col-lg-3">
-<div class="card h-100"><div class="card-body">
-<p class="sg-stat-value">69%</p>
-<p class="sg-stat-label"><a href="/rankings/counties/wa/botability/">Washington</a> has the highest share: 22 of 32 tested county sites</p>
-</div></div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100">
+<div class="card-header">Share failing</div>
+<div class="card-body">
+<div class="display-2">23%</div>
+</div>
+<div class="card-footer text-start">Share of tested county sites that fail these checks</div>
+</div>
+</div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100">
+<div class="card-header">States affected</div>
+<div class="card-body">
+<div class="display-2">45 <span class="fs-5">of 49</span></div>
+</div>
+<div class="card-footer text-start">States with at least one failing county site</div>
+</div>
+</div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100">
+<div class="card-header">Highest state</div>
+<div class="card-body">
+<div class="display-2">69%</div>
+</div>
+<div class="card-footer text-start"><a href="/rankings/counties/wa/botability/">Washington</a> has the highest share: 22 of 32 tested county sites</div>
+</div>
 </div>
 </div>
 <figure class="sg-chart sg-chart--map" id="issue-map-robots-counties" aria-labelledby="issue-map-robots-counties-title">
@@ -246,7 +317,7 @@ A robots.txt file tells search engines and AI agents which parts of a site they 
 <div class="row">
 <div class="col-12 col-lg-7">
 <h2 id="by-state">By state</h2>
-<p>The share of tested county sites in each state that have a robots.txt problem. Select a state to see its botability rankings.</p>
+<p>The share of tested county sites in each state that have a robots.txt problem. Select a state for its botability rankings.</p>
 <div class="table-responsive">
 <table class="table table-sm" data-sortable="">
 <caption class="visually-hidden">States by share of county sites failing the robots.txt checks</caption>
@@ -4291,28 +4362,113 @@ margin-bottom: 0;
 <div class="col-6 col-sm-6 col-md-3 mb-3">
 <ul class="nav flex-column">
 <li class="small mb-1">
-<a href="https://docs.scangov.org/community" class="nav-link p-0 text-body-secondary">Community</a>
+<a href="https://scangov.com/about" class="nav-link p-0 text-body-secondary">About</a>
 </li>
 <li class="small mb-1">
-<a href="https://scangov.substack.com" class="nav-link p-0 text-body-secondary">Newsletter</a>
+<a href="https://scangov.com/bot" class="nav-link p-0 text-body-secondary">ScanGovBot</a>
 </li>
 <li class="small mb-1">
-<a href="https://github.com/ScanGov" class="nav-link p-0 text-body-secondary">GitHub</a>
+<a href="https://scangov.com/people" class="nav-link p-0 text-body-secondary">People</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/news" class="nav-link p-0 text-body-secondary">News</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/press" class="nav-link p-0 text-body-secondary">Press</a>
 </li>
 <li class="small mb-1">
 <a href="https://scangov.com/contact" class="nav-link p-0 text-body-secondary">Contact</a>
 </li>
-</ul>
-</div>
-<div class="col-6 col-sm-6 col-md-3 mb-3">
-<ul class="nav flex-column">
 <li class="small mb-1">
-<a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">ScanGov scorecard</a>
+<a href="https://docs.scangov.org/feedback" class="nav-link p-0 text-body-secondary">Feedback</a>
 </li>
 </ul>
 </div>
 <div class="col-6 col-sm-6 col-md-3 mb-3">
 <ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.com/features" class="nav-link p-0 text-body-secondary">Features</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/plans" class="nav-link p-0 text-body-secondary">Plans</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/compare/" class="nav-link p-0 text-body-secondary">Compare</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/demo" class="nav-link p-0 text-body-secondary">Demo</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/who-we-serve/" class="nav-link p-0 text-body-secondary">Who we serve</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/what-they-say/" class="nav-link p-0 text-body-secondary">What they say</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/accessibility-lawsuit/" class="nav-link p-0 text-body-secondary">Accessibility lawsuit help</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/showcase" class="nav-link p-0 text-body-secondary">Showcase</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/now-scanning" class="nav-link p-0 text-body-secondary">Now scanning ...</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/tools/" class="nav-link p-0 text-body-secondary">Tools</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.com/subscribe/" class="nav-link p-0 text-body-secondary">Newsletters</a>
+</li>
+<li class="small mb-1">
+<a href="https://linkedin.com/company/scangov" class="nav-link p-0 text-body-secondary">LinkedIn</a>
+</li>
+<li class="small mb-1">
+<a href="https://www.youtube.com/@scangov" class="nav-link p-0 text-body-secondary">YouTube</a>
+</li>
+<li class="small mb-1">
+<a href="https://github.com/scangov" class="nav-link p-0 text-body-secondary">GitHub</a>
+</li>
+<li class="small mb-1">
+<a href="https://discord.gg/aTCrf8HD" class="nav-link p-0 text-body-secondary">Discord</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/news/feed.xml" class="nav-link p-0 text-body-secondary">RSS</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.org" class="nav-link p-0 text-body-secondary">Project ScanGov</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.org/rankings/" class="nav-link p-0 text-body-secondary">Rankings</a>
+</li>
+<li class="small mb-1">
+<a href="https://standards.scangov.org" class="nav-link p-0 text-body-secondary">Standards</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/" class="nav-link p-0 text-body-secondary">Docs</a>
+</li>
+<li class="small mb-1">
+<a href="https://data.scangov.org" class="nav-link p-0 text-body-secondary">Data</a>
+</li>
+<li class="small mb-1">
+<a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">ScanGov scorecard</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/accessibility-statement" class="nav-link p-0 text-body-secondary">Accessibility statement</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/privacy-statement" class="nav-link p-0 text-body-secondary">Privacy statement</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/conduct" class="nav-link p-0 text-body-secondary">Code of conduct</a>
+</li>
 <li class="small mb-1">
 <a href="/site-index/" class="nav-link p-0 text-body-secondary">Site index</a>
 </li>

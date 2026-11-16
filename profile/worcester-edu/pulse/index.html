@@ -145,8 +145,7 @@ Search
 </nav>
 <div class="d-flex flex-wrap align-items-center gap-3">
 <span class="small text-body-secondary font-monospace">
-Last scan:
-<span id="updated">10/31/2026</span>
+<svg class="fa-solid fa-bars-progress" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-bars-progress" xlink:href="/assets/fa-sprite.svg#fas-fa-bars-progress"></use></svg> Last scan: <span id="updated">10/31/2026</span>
 <a href="https://docs.scangov.org/scans/" class="icon-link" style="color: inherit; position: relative; z-index: 2;" aria-label="More about Last scan" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="How often ScanGov scans this site. <a href=&quot;https://docs.scangov.org/scans/&quot;>Learn more</a>">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
 </a>
@@ -309,80 +308,10 @@ Email
 <h1 class="display-6" id="worcester-edu-pulse">
 <span class="visually-hidden">worcester.edu </span>Pulse
 </h1>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-<script>
-    var _isDark;
-    document.addEventListener('DOMContentLoaded', function () {
-      _isDark = document.documentElement.getAttribute('data-bs-theme') !== 'light';
-      Chart.defaults.color = _isDark ? '#fff' : '#000';
-      Chart.defaults.borderColor = _isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
-    });
-  </script>
 <div class="border-bottom pb-4 mb-4">
 <h2 id="grades">Grades</h2>
 <p>Scores for each indicator.</p>
-<div class="col-12 col-lg-10">
-<canvas id="grades-chart"></canvas>
-</div>
-<script>
-      document.addEventListener('DOMContentLoaded', function () {
-        function scoreToGrade(s) {
-          if (s >= 90) return 'A';
-          if (s >= 80) return 'B';
-          if (s >= 70) return 'C';
-          if (s >= 60) return 'D';
-          return 'F';
-        }
-        
-        var gradesUrls = [
-          '/profile/worcester-edu/overall/',
-          '/profile/worcester-edu/details/?attr=accessibility',
-          '/profile/worcester-edu/details/?attr=botability',
-          '/profile/worcester-edu/details/?attr=security',
-          '/profile/worcester-edu/details/?attr=usability',
-          '/profile/worcester-edu/details/?attr=readability'
-        ];
-        var gradesScores = [
-          88,
-          96,
-          81,
-          75,
-          81,
-          100
-        ];
-        var baseLabels = ["Overall","Accessibility","Botability","Security","Usability","Readability"];
-        var gradesEl = document.getElementById('grades-chart');
-        var gradesChart = new Chart(gradesEl, {
-          type: 'bar',
-          data: {
-            labels: baseLabels.map(function (l, i) { return l + ' (' + scoreToGrade(gradesScores[i]) + ')'; }),
-            datasets: [{
-              data: gradesScores,
-              backgroundColor: gradesScores.map(function (s) {
-                if (_isDark) {
-                  if (s >= 90) return '#70e17b';
-                  if (s >= 70) return '#face00';
-                  return '#e41d3d';
-                } else {
-                  if (s >= 90) return '#1a7a27';
-                  if (s >= 70) return '#8a6600';
-                  return '#b91c1c';
-                }
-              })
-            }]
-          },
-          options: {
-            indexAxis: 'y',
-            plugins: { legend: { display: false } },
-            scales: {
-              x: { min: 0, max: 100 }
-            },
-            onHover: function (e, els) { e.native.target.style.cursor = els.length ? 'pointer' : 'default'; },
-            onClick: function (e, els) { if (els.length) window.location.href = gradesUrls[els[0].index]; }
-          }
-        });
-      });
-    </script>
+<figure class="sg-chart sg-chart--bar" id="domain-scores" aria-labelledby="domain-scores-title"><figcaption><h3 class="sg-chart-title" id="domain-scores-title">Scores by indicator</h3></figcaption><ol class="sg-bars" style="--sg-value-room:5ch"><li class="sg-row" style="--i:0;--r:0.88"><span class="sg-label"><a href="/profile/worcester-edu/overall/">Overall</a></span><span class="sg-plot" data-tip="Overall: 88" tabindex="0"><span class="sg-fill sg-fill-warning" aria-hidden="true"></span><span class="sg-value">88</span></span></li><li class="sg-row" style="--i:1;--r:0.96"><span class="sg-label"><a href="/profile/worcester-edu/details/?attr=accessibility">Accessibility</a></span><span class="sg-plot" data-tip="Accessibility: 96" tabindex="0"><span class="sg-fill sg-fill-success" aria-hidden="true"></span><span class="sg-value">96</span></span></li><li class="sg-row" style="--i:2;--r:0.81"><span class="sg-label"><a href="/profile/worcester-edu/details/?attr=botability">Botability</a></span><span class="sg-plot" data-tip="Botability: 81" tabindex="0"><span class="sg-fill sg-fill-warning" aria-hidden="true"></span><span class="sg-value">81</span></span></li><li class="sg-row" style="--i:3;--r:0.75"><span class="sg-label"><a href="/profile/worcester-edu/details/?attr=security">Security</a></span><span class="sg-plot" data-tip="Security: 75" tabindex="0"><span class="sg-fill sg-fill-warning" aria-hidden="true"></span><span class="sg-value">75</span></span></li><li class="sg-row" style="--i:4;--r:0.81"><span class="sg-label"><a href="/profile/worcester-edu/details/?attr=usability">Usability</a></span><span class="sg-plot" data-tip="Usability: 81" tabindex="0"><span class="sg-fill sg-fill-warning" aria-hidden="true"></span><span class="sg-value">81</span></span></li><li class="sg-row" style="--i:5;--r:1"><span class="sg-label"><a href="/profile/worcester-edu/details/?attr=readability">Readability</a></span><span class="sg-plot" data-tip="Readability: 100" tabindex="0"><span class="sg-fill sg-fill-success" aria-hidden="true"></span><span class="sg-value">100</span></span></li></ol><div class="accordion"><div class="accordion-item"><h2 class="accordion-header" id="domain-scores-table-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#domain-scores-table-collapse" aria-expanded="false" aria-controls="domain-scores-table-collapse"><svg class="fa-solid fa-table me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table" xlink:href="/assets/fa-sprite.svg#fas-fa-table"></use></svg>Data table</button></h2><div id="domain-scores-table-collapse" class="accordion-collapse collapse" aria-labelledby="domain-scores-table-heading"><div class="accordion-body"><div class="table-responsive"><table class="table table-sm table-bordered small"><caption class="visually-hidden">Scores by indicator</caption><thead><tr><th scope="col">Indicator</th><th scope="col">Score</th></tr></thead><tbody><tr><th scope="row"><a href="/profile/worcester-edu/overall/">Overall</a></th><td class="sg-num">88</td></tr><tr><th scope="row"><a href="/profile/worcester-edu/details/?attr=accessibility">Accessibility</a></th><td class="sg-num">96</td></tr><tr><th scope="row"><a href="/profile/worcester-edu/details/?attr=botability">Botability</a></th><td class="sg-num">81</td></tr><tr><th scope="row"><a href="/profile/worcester-edu/details/?attr=security">Security</a></th><td class="sg-num">75</td></tr><tr><th scope="row"><a href="/profile/worcester-edu/details/?attr=usability">Usability</a></th><td class="sg-num">81</td></tr><tr><th scope="row"><a href="/profile/worcester-edu/details/?attr=readability">Readability</a></th><td class="sg-num">100</td></tr></tbody></table></div></div></div></div></div></figure>
 <div class="alert alert-info small mt-2" role="alert">
 Grades
 <a href="https://docs.scangov.org/grades/" class="icon-link" style="position: relative; z-index: 2;" aria-label="More about Grades" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="How we calculate letter grades. <a href=&quot;https://docs.scangov.org/grades/&quot;>Learn more</a>">
@@ -397,12 +326,12 @@ Standards
 </div>
 <div class="pb-4 mb-4">
 <h2 id="top-issues">Top issues</h2>
-<span class="d-none" id="sg-clapping-ref"><svg class="fa-solid fa-hands-clapping" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-hands-clapping" xlink:href="/assets/fa-sprite.svg#fas-fa-hands-clapping"></use></svg></span>
 <p>Failing checks for this domain per indicator.</p>
-<div class="row">
-<div class="col-12 col-lg-10 mb-4">
+<div class="mb-4">
 <h3 id="accessibility">Accessibility</h3>
-<canvas id="chart-accessibility"></canvas>
+<ul>
+<li><a href="https://standards.scangov.org/label-content-name-mismatch">Elements with visible text labels have matching accessible names</a></li>
+</ul>
 <div class="alert alert-info small mt-2" role="alert">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
 Accessibility:
@@ -410,14 +339,16 @@ Accessibility:
 &middot;
 <a href="https://standards.scangov.org/guidance/accessibility/">Guidance</a>
 &middot;
-<a href="https://scangov.org/rankings/accessibility/">Project ScanGov</a>
+<a href="https://scangov.org/accessibility/">Project ScanGov</a>
 &middot;
 <a href="https://scangov.com/accessibility/">ScanGov</a>
 </div>
 </div>
-<div class="col-12 col-lg-10 mb-4">
+<div class="mb-4">
 <h3 id="botability">Botability</h3>
-<canvas id="chart-botability"></canvas>
+<ul>
+<li><a href="https://standards.scangov.org/link-text">Link text</a></li><li><a href="https://standards.scangov.org/sitemap-robots">Sitemap in robots.txt</a></li>
+</ul>
 <div class="alert alert-info small mt-2" role="alert">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
 Botability:
@@ -425,14 +356,16 @@ Botability:
 &middot;
 <a href="https://standards.scangov.org/guidance/botability/">Guidance</a>
 &middot;
-<a href="https://scangov.org/rankings/botability/">Project ScanGov</a>
+<a href="https://scangov.org/botability/">Project ScanGov</a>
 &middot;
 <a href="https://scangov.com/botability/">ScanGov</a>
 </div>
 </div>
-<div class="col-12 col-lg-10 mb-4">
+<div class="mb-4">
 <h3 id="security">Security</h3>
-<canvas id="chart-security"></canvas>
+<ul>
+<li><a href="https://standards.scangov.org/errors-in-console">Errors in the console</a></li><li><a href="https://standards.scangov.org/xcontenttypeoptions">X-Content-Type-Options</a></li>
+</ul>
 <div class="alert alert-info small mt-2" role="alert">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
 Security:
@@ -440,14 +373,16 @@ Security:
 &middot;
 <a href="https://standards.scangov.org/guidance/security/">Guidance</a>
 &middot;
-<a href="https://scangov.org/rankings/security/">Project ScanGov</a>
+<a href="https://scangov.org/security/">Project ScanGov</a>
 &middot;
 <a href="https://scangov.com/security/">ScanGov</a>
 </div>
 </div>
-<div class="col-12 col-lg-10 mb-4">
+<div class="mb-4">
 <h3 id="usability">Usability</h3>
-<canvas id="chart-usability"></canvas>
+<ul>
+<li><a href="https://standards.scangov.org/ogimagealt">Open Graph image alt</a></li><li><a href="https://standards.scangov.org/lcp">Largest Contentful Paint (LCP)</a></li><li><a href="https://standards.scangov.org/ttfb">Time to First Byte (TTFB)</a></li>
+</ul>
 <div class="alert alert-info small mt-2" role="alert">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
 Usability:
@@ -455,14 +390,14 @@ Usability:
 &middot;
 <a href="https://standards.scangov.org/guidance/usability/">Guidance</a>
 &middot;
-<a href="https://scangov.org/rankings/usability/">Project ScanGov</a>
+<a href="https://scangov.org/usability/">Project ScanGov</a>
 &middot;
 <a href="https://scangov.com/usability/">ScanGov</a>
 </div>
 </div>
-<div class="col-12 col-lg-10 mb-4">
+<div class="mb-4">
 <h3 id="readability">Readability</h3>
-<canvas id="chart-readability"></canvas>
+<div class="alert alert-success" role="status"><svg class="fa-solid fa-hands-clapping" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-hands-clapping" xlink:href="/assets/fa-sprite.svg#fas-fa-hands-clapping"></use></svg> No readability issues!</div>
 <div class="alert alert-info small mt-2" role="alert">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
 Readability:
@@ -470,97 +405,11 @@ Readability:
 &middot;
 <a href="https://standards.scangov.org/guidance/readability/">Guidance</a>
 &middot;
-<a href="https://scangov.org/rankings/readability/">Project ScanGov</a>
+<a href="https://scangov.org/readability/">Project ScanGov</a>
 &middot;
 <a href="https://scangov.com/readability/">ScanGov</a>
 </div>
 </div>
-</div>
-<script>
-      document.addEventListener('DOMContentLoaded', function () {
-        var indicatorLabels = {"botability":{"crawlable":"Crawlable","text-content":"Content available in document","schema-government-organization":"GovernmentOrganization Schema.org type","status":"Sitemap status","xml":"Sitemap XML","valid":"Robots valid","allowed":"Robots allowed","sitemap-robots":"Sitemap in robots.txt","canonical":"Canonical","link-text":"Link text","hreflang":"hreflang"},"accessibility":{"accesskeys":"[accesskey] values are unique","aria-allowed-attr":"[aria-*] attributes match their roles","aria-allowed-role":"Uses ARIA roles only on compatible elements","aria-command-name":"button, link, and menuitem elements have accessible names","aria-conditional-attr":"ARIA attributes are used as specified for the element's role","aria-deprecated-role":"Deprecated ARIA roles were not used","aria-dialog-name":"Elements with role=\"dialog\" or role=\"alertdialog\" have accessible names","aria-hidden-body":"[aria-hidden=\"true\"] is not present on the document <body>","aria-hidden-focus":"[aria-hidden=\"true\"] elements do not contain focusable descendents","aria-input-field-name":"ARIA input fields have accessible names","aria-meter-name":"ARIA meter elements have accessible names","aria-progressbar-name":"ARIA progressbar elements have accessible names","aria-prohibited-attr":"Elements use only permitted ARIA attributes","aria-required-attr":"[role]s have all required [aria-*] attributes","aria-required-children":"Elements with an ARIA [role] that require children to contain a specific [role] have all required children","aria-required-parent":"[role]s are contained by their required parent element","aria-roles":"[role] values are valid","aria-text":"Elements with the role=text attribute do not have focusable descendents","aria-toggle-field-name":"ARIA toggle fields have accessible names","aria-tooltip-name":"ARIA tooltip elements have accessible names","aria-treeitem-name":"ARIA treeitem elements have accessible names","aria-valid-attr-value":"[aria-*] attributes have valid values","aria-valid-attr":"[aria-*] attributes are valid and not misspelled","button-name":"Buttons have an accessible name","bypass":"The page contains a heading, skip link, or landmark region","color-contrast":"Background and foreground colors have a sufficient contrast ratio","definition-list":"<dl>'s contain only properly-ordered <dt> and <dd> groups, <script>, <template> or <div> elements","dlitem":"Definition list items are wrapped in <dl> elements","document-title":"Document has a <title> element","duplicate-id-aria":"ARIA IDs are unique","form-field-multiple-labels":"No form fields have multiple labels","frame-title":"<frame> or <iframe> elements have a title","heading-order":"Heading elements appear in a sequentially-descending order","html-has-lang":"<html> element has a [lang] attribute","html-lang-valid":"<html> element has a valid value for its [lang] attribute","html-xml-lang-mismatch":"<html> element has an [xml:lang] attribute with the same base language as the [lang] attribute","image-alt":"Image elements have [alt] attributes","image-redundant-alt":"Image elements do not have [alt] attributes that are redundant text","input-button-name":"Input buttons have discernible text","input-image-alt":"<input type=\"image\"> elements have [alt] text","label":"Form elements have associated labels","link-in-text-block":"Links are distinguishable without relying on color","link-name":"Links have a discernible name","list":"Lists contain only <li> elements and script supporting elements (<script> and <template>)","listitem":"List items (<li>) are contained within <ul>, <ol> or <menu> parent elements","meta-refresh":"The document does not use <meta http-equiv=\"refresh\">","meta-viewport":"[user-scalable=\"no\"] is not used in the <meta name=\"viewport\"> element and the [maximum-scale] attribute is not less than 5","object-alt":"<object> elements have alternate text","select-name":"Select elements have associated label elements","skip-link":"Skip links are focusable","tabindex":"No element has a [tabindex] value greater than 0","table-duplicate-name":"Tables have different content in the summary attribute and <caption>","target-size":"Touch targets have sufficient size and spacing","td-headers-attr":"Cells in a <table> element that use the [headers] attribute refer to table cells within the same table","th-has-data-cells":"<th> elements and elements with [role=\"columnheader\"/\"rowheader\"] have data cells they describe","valid-lang":"[lang] attributes have a valid value","video-caption":"<video> elements contain a <track> element with [kind=\"captions\"]","empty-heading":"All heading elements contain content","identical-links-same-purpose":"Identical links have the same purpose","landmark-one-main":"Document has a main landmark","label-content-name-mismatch":"Elements with visible text labels have matching accessible names","table-fake-caption":"Tables use <caption> instead of cells with the [colspan] attribute to indicate a caption","td-has-header":"<td> elements in a large <table> have one or more table headers","image-aspect-ratio":"Image aspect ratio","doctype":"Valid doctype","charset":"Character encoding"},"usability":{"title":"Page title","description":"Page description","viewport":"Viewport meta tag","www":"www resolution","cls":"Cumulative Layout Shift (CLS)","fcp":"First Contentful Paint (FCP)","inp":"Interaction to Next Paint (INP)","lcp":"Largest Contentful Paint (LCP)","ttfb":"Time to First Byte (TTFB)","ogsitename":"Open Graph site name","ogtype":"Open Graph type","ogtitle":"Open Graph title","ogdescription":"Open Graph description","ogurl":"Open Graph URL","ogimage":"Open Graph image","ogimagealt":"Open Graph image alt"},"security":{"csp":"Content security policy (CSP)","hsts":"HTTP Strict Transport Security (HSTS)","securitytxt":"security.txt","xcontenttypeoptions":"X-Content-Type-Options","errors-in-console":"Errors in the console","clickjacking-mitigation":"Clickjacking mitigation","paste-preventing-inputs":"Paste preventing inputs","https":"Hypertext Transfer Protocol Secure (HTTPS)","dotgov":"Sponsored top-level domain (sTLD)"},"readability":{"reading-level":"Reading level"}};
-        var indicatorColors = {"accessibility":"#a8f2ff","botability":"#e7f434","security":"#ff8d7b","usability":"#d5bfff","readability":"#ffb3d1"};
-        var indicatorColorsLight = {"accessibility":"#1d4e9a","botability":"#4d7c00","security":"#a85000","usability":"#7b3fa0","readability":"#c2185b"};
-        
-        var domainAttrs = {
-          accessibility: {"aria-allowed-attr":true,"aria-command-name":true,"aria-conditional-attr":true,"aria-deprecated-role":true,"aria-hidden-body":true,"aria-hidden-focus":true,"aria-prohibited-attr":true,"aria-required-attr":true,"aria-required-children":true,"aria-required-parent":true,"aria-roles":true,"aria-valid-attr-value":true,"aria-valid-attr":true,"button-name":true,"color-contrast":true,"document-title":true,"frame-title":true,"heading-order":true,"html-has-lang":true,"html-lang-valid":true,"image-alt":true,"label":true,"link-name":true,"meta-viewport":true,"skip-link":true,"tabindex":true,"target-size":true,"landmark-one-main":true,"presentation-role-conflict":true,"label-content-name-mismatch":false,"image-aspect-ratio":true,"doctype":true,"charset":true},
-          botability: {"canonical":true,"link-text":false,"hreflang":true,"crawlable":true,"text-content":true,"schema-government-organization":true,"valid":true,"xml":true,"allowed":true,"status":true,"sitemap-robots":false},
-          security: {"csp":true,"hsts":true,"errors-in-console":false,"clickjacking-mitigation":true,"paste-preventing-inputs":true,"https":true,"dotgov":true,"xcontenttypeoptions":false},
-          usability: {"title":true,"description":true,"viewport":true,"ogsitename":true,"ogtype":true,"ogtitle":true,"ogdescription":true,"ogurl":true,"ogimage":true,"ogimagealt":false,"fcp":true,"lcp":false,"cls":true,"ttfb":false,"inp":true,"www":true},
-          readability: {"reading-level":true}
-          
-        };
-        ["accessibility","botability","security","usability","readability"].forEach(function (key) {
-          var attrs = domainAttrs[key] || {};
-          var failing = Object.entries(attrs)
-            .filter(function (e) { return !e[1]; })
-            .map(function (e) {
-              var attr = e[0];
-              var label = (indicatorLabels[key] && indicatorLabels[key][attr])
-                || attr.split('-').map(function (w) { return w[0].toUpperCase() + w.slice(1); }).join(' ');
-              return { attr: attr, label: label };
-            });
-          var urls = failing.map(function (d) { return 'https://standards.scangov.org/' + d.attr; });
-          var el = document.getElementById('chart-' + key);
-          if (!el || !failing.length) {
-            if (el) {
-              var div = document.createElement('div');
-              div.className = 'alert alert-success';
-              var iconHtml = (document.getElementById('sg-clapping-ref') || {}).innerHTML || '';
-              div.innerHTML = iconHtml + ' No ' + key + ' issues!';
-              el.parentNode.replaceChild(div, el);
-            }
-            return;
-          }
-          var chart = new Chart(el, {
-            type: 'bar',
-            data: {
-              labels: failing.map(function (d) { return d.label; }),
-              datasets: [{ data: failing.map(function () { return 1; }), backgroundColor: _isDark ? (indicatorColors[key] || '#dee2e6') : (indicatorColorsLight[key] || '#212529') }]
-            },
-            options: {
-              indexAxis: 'y',
-              plugins: { legend: { display: false } },
-              scales: {
-                x: { display: false, min: 0, max: 1 },
-                y: {
-                  afterFit: function (scale) { scale.width = 280; },
-                  ticks: {
-                    callback: function (value) {
-                      var label = this.getLabelForValue(value);
-                      if (!label || label.length <= 30) return label;
-                      var words = label.split(' ');
-                      var lines = [];
-                      var current = '';
-                      words.forEach(function (word) {
-                        var candidate = current ? current + ' ' + word : word;
-                        if (candidate.length > 30) {
-                          if (current) lines.push(current);
-                          current = word;
-                        } else {
-                          current = candidate;
-                        }
-                      });
-                      if (current) lines.push(current);
-                      return lines;
-                    }
-                  }
-                }
-              },
-              onHover: function (event, elements) {
-                event.native.target.style.cursor = elements.length ? 'pointer' : 'default';
-              }
-            }
-          });
-          el.addEventListener('click', function (event) {
-            var points = chart.getElementsAtEventForMode(event, 'nearest', { intersect: true }, true);
-            if (points.length > 0) {
-              window.open(urls[points[0].index], '_blank');
-            }
-          });
-        });
-      });
-    </script>
 </div>
 </div>
 </div>
@@ -628,28 +477,113 @@ margin-bottom: 0;
 <div class="col-6 col-sm-6 col-md-3 mb-3">
 <ul class="nav flex-column">
 <li class="small mb-1">
-<a href="https://docs.scangov.org/community" class="nav-link p-0 text-body-secondary">Community</a>
+<a href="https://scangov.com/about" class="nav-link p-0 text-body-secondary">About</a>
 </li>
 <li class="small mb-1">
-<a href="https://scangov.substack.com" class="nav-link p-0 text-body-secondary">Newsletter</a>
+<a href="https://scangov.com/bot" class="nav-link p-0 text-body-secondary">ScanGovBot</a>
 </li>
 <li class="small mb-1">
-<a href="https://github.com/ScanGov" class="nav-link p-0 text-body-secondary">GitHub</a>
+<a href="https://scangov.com/people" class="nav-link p-0 text-body-secondary">People</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/news" class="nav-link p-0 text-body-secondary">News</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/press" class="nav-link p-0 text-body-secondary">Press</a>
 </li>
 <li class="small mb-1">
 <a href="https://scangov.com/contact" class="nav-link p-0 text-body-secondary">Contact</a>
 </li>
-</ul>
-</div>
-<div class="col-6 col-sm-6 col-md-3 mb-3">
-<ul class="nav flex-column">
 <li class="small mb-1">
-<a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">ScanGov scorecard</a>
+<a href="https://docs.scangov.org/feedback" class="nav-link p-0 text-body-secondary">Feedback</a>
 </li>
 </ul>
 </div>
 <div class="col-6 col-sm-6 col-md-3 mb-3">
 <ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.com/features" class="nav-link p-0 text-body-secondary">Features</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/plans" class="nav-link p-0 text-body-secondary">Plans</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/compare/" class="nav-link p-0 text-body-secondary">Compare</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/demo" class="nav-link p-0 text-body-secondary">Demo</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/who-we-serve/" class="nav-link p-0 text-body-secondary">Who we serve</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/what-they-say/" class="nav-link p-0 text-body-secondary">What they say</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/accessibility-lawsuit/" class="nav-link p-0 text-body-secondary">Accessibility lawsuit help</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/showcase" class="nav-link p-0 text-body-secondary">Showcase</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/now-scanning" class="nav-link p-0 text-body-secondary">Now scanning ...</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/tools/" class="nav-link p-0 text-body-secondary">Tools</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.com/subscribe/" class="nav-link p-0 text-body-secondary">Newsletters</a>
+</li>
+<li class="small mb-1">
+<a href="https://linkedin.com/company/scangov" class="nav-link p-0 text-body-secondary">LinkedIn</a>
+</li>
+<li class="small mb-1">
+<a href="https://www.youtube.com/@scangov" class="nav-link p-0 text-body-secondary">YouTube</a>
+</li>
+<li class="small mb-1">
+<a href="https://github.com/scangov" class="nav-link p-0 text-body-secondary">GitHub</a>
+</li>
+<li class="small mb-1">
+<a href="https://discord.gg/aTCrf8HD" class="nav-link p-0 text-body-secondary">Discord</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.com/news/feed.xml" class="nav-link p-0 text-body-secondary">RSS</a>
+</li>
+</ul>
+</div>
+<div class="col-6 col-sm-6 col-md-3 mb-3">
+<ul class="nav flex-column">
+<li class="small mb-1">
+<a href="https://scangov.org" class="nav-link p-0 text-body-secondary">Project ScanGov</a>
+</li>
+<li class="small mb-1">
+<a href="https://scangov.org/rankings/" class="nav-link p-0 text-body-secondary">Rankings</a>
+</li>
+<li class="small mb-1">
+<a href="https://standards.scangov.org" class="nav-link p-0 text-body-secondary">Standards</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/" class="nav-link p-0 text-body-secondary">Docs</a>
+</li>
+<li class="small mb-1">
+<a href="https://data.scangov.org" class="nav-link p-0 text-body-secondary">Data</a>
+</li>
+<li class="small mb-1">
+<a href="https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" class="nav-link p-0 text-body-secondary">ScanGov scorecard</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/accessibility-statement" class="nav-link p-0 text-body-secondary">Accessibility statement</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/privacy-statement" class="nav-link p-0 text-body-secondary">Privacy statement</a>
+</li>
+<li class="small mb-1">
+<a href="https://docs.scangov.org/conduct" class="nav-link p-0 text-body-secondary">Code of conduct</a>
+</li>
 <li class="small mb-1">
 <a href="/site-index/" class="nav-link p-0 text-body-secondary">Site index</a>
 </li>
