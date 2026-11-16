@@ -1251,6 +1251,12 @@ th.sortable {
 
 /* Rankings table */
 
+/* The rank column is only as wide as its number, so Site sits right beside it. */
+.rankings-col-rank {
+    width: 1%;
+    white-space: nowrap;
+}
+
 .rankings-col-site {
     word-break: break-word;
 }
