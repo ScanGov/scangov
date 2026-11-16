@@ -2283,6 +2283,10 @@ td a:hover .fa-circle-info {
     color: #b8d293 !important;
 }
 
+.fa-note-sticky {
+    color: #ffe29a !important;
+}
+
 .fa-code {
     color: #bbc8f5 !important;
 }
@@ -2739,7 +2743,8 @@ a .fa-up-right-from-square {
 [data-bs-theme=light] .fa-star:not([class*="text-"]),
 [data-bs-theme=light] .fa-arrow-right-to-bracket:not([class*="text-"]),
 [data-bs-theme=light] .fa-check-circle:not([class*="text-"]),
-[data-bs-theme=light] .fa-square-check:not([class*="text-"]) {
+[data-bs-theme=light] .fa-square-check:not([class*="text-"]),
+[data-bs-theme=light] .fa-note-sticky:not([class*="text-"]) {
     color: var(--bs-body-color) !important;
     fill: var(--bs-body-color) !important;
 }
