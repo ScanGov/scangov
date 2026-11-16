@@ -27,31 +27,27 @@
     {% else %}
 
     <div class="row g-3 mb-2 mt-3">
-      <div class="col-6 col-lg-3">
-        <div class="card h-100"><div class="card-body">
-          <p class="sg-stat-value"><span class="badge text-bg-{{ avg | colorify }}">{{ avg | gradify }}</span> {{ avg }}</p>
-          <p class="sg-stat-label">Average {{ topicName }} score of {{ st.scoredCount }} fully scanned {{ st.name }} county sites</p>
-        </div></div>
-      </div>
-      <div class="col-6 col-lg-3">
-        <div class="card h-100"><div class="card-body">
-          <p class="sg-stat-value">{% if rank %}{{ rank | ordinal }}{% else %}&ndash;{% endif %}</p>
-          <p class="sg-stat-label">{% if rank %}of {{ st.stateCount }} states, ranked by average {{ topicName }} score{% else %}Not ranked: no {{ st.name }} county site has a {{ topicName }} score yet{% endif %}</p>
-        </div></div>
-      </div>
-      <div class="col-6 col-lg-3">
-        <div class="card h-100"><div class="card-body">
-          {% set noResponseCount = st.count - st.respondingCount %}
-          <p class="sg-stat-value">{{ st.scoredCount }} <span class="fs-5 text-muted">of {{ st.count }}</span></p>
-          <p class="sg-stat-label">Sites fully scanned{% if st.partialCount or noResponseCount %}. We couldn't fully scan {{ st.partialCount + noResponseCount }}, so they're listed without grades{% endif %}</p>
-        </div></div>
-      </div>
-      <div class="col-6 col-lg-3">
-        <div class="card h-100"><div class="card-body">
-          <p class="sg-stat-value"><span class="badge text-bg-{{ natAvg | colorify }}">{{ natAvg | gradify }}</span> {{ natAvg }}</p>
-          <p class="sg-stat-label">U.S. county average {{ topicName }} score, {{ st.national.scoredCount }} fully scanned sites</p>
-        </div></div>
-      </div>
+      {% set statLabel = "Average " + topicName + " score" %}
+      {% set statValue %}{{ avg | gradify }} <span class="fs-5">{{ avg }}</span>{% endset %}
+      {% set statFooter %}Average {{ topicName }} score of {{ st.scoredCount }} fully scanned {{ st.name }} county sites{% endset %}
+      {% set statColor = avg | colorify %}
+      {% include "stat-card.html" %}
+      {% set statLabel = "Rank among states" %}
+      {% set statValue %}{% if rank %}{{ rank | ordinal }}{% else %}&ndash;{% endif %}{% endset %}
+      {% set statFooter %}{% if rank %}of {{ st.stateCount }} states, ranked by average {{ topicName }} score{% else %}Not ranked: no {{ st.name }} county site has a {{ topicName }} score yet{% endif %}{% endset %}
+      {% set statColor = "" %}
+      {% include "stat-card.html" %}
+      {% set noResponseCount = st.count - st.respondingCount %}
+      {% set statLabel = "Fully scanned" %}
+      {% set statValue %}{{ st.scoredCount }} <span class="fs-5">of {{ st.count }}</span>{% endset %}
+      {% set statFooter %}Sites fully scanned{% if st.partialCount or noResponseCount %}. We couldn't fully scan {{ st.partialCount + noResponseCount }}, so they're listed without grades{% endif %}{% endset %}
+      {% set statColor = "" %}
+      {% include "stat-card.html" %}
+      {% set statLabel = "U.S. county average" %}
+      {% set statValue %}{{ natAvg | gradify }} <span class="fs-5">{{ natAvg }}</span>{% endset %}
+      {% set statFooter %}U.S. county average {{ topicName }} score, {{ st.national.scoredCount }} fully scanned sites{% endset %}
+      {% set statColor = natAvg | colorify %}
+      {% include "stat-card.html" %}
     </div>
 
     {# The state's own site, from the state rankings, so readers can move between the two. #}

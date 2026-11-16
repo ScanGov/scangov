@@ -35,40 +35,38 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 {% if issue.isFeature %}{{ check.description }} A site fails if it fails any of these checks: {% for c in item.checks %}<a href="{{ c.standardsUrl }}">{{ c.label | humanizeLabel }}</a>{% if loop.length > 2 and not loop.last %}, {% endif %}{% if loop.revindex == 2 %}and {% endif %}{% endfor %}.{% else %}This page uses the <a href="{{ check.standardsUrl }}">{{ check.label | humanizeLabel }}</a> check. It passes when {{ check.description[0] | lower }}{{ check.description.slice(1) }}{% if check.note %} {{ check.note }}{% endif %}{% endif %}</p>
 
 <div class="row g-3 mb-2">
-  <div class="col-6 col-lg-3">
-    <div class="card h-100"><div class="card-body">
-      <p class="sg-stat-value">{{ item.failCount | numberFormat }} <span class="fs-5 text-muted">of {{ item.testedCount | numberFormat }}</span></p>
-      <p class="sg-stat-label">{{ group.noun | capitalize }} that {{ issue.failPhrase }}</p>
-    </div></div>
-  </div>
-  <div class="col-6 col-lg-3">
-    <div class="card h-100"><div class="card-body">
-      <p class="sg-stat-value">{{ sharePct }}%</p>
-      <p class="sg-stat-label">Share of tested {{ group.noun }} that fail {{ "these checks" if issue.isFeature else "this check" }}</p>
-    </div></div>
-  </div>
-  <div class="col-6 col-lg-3">
-    <div class="card h-100"><div class="card-body">
-      {% if item.byState %}
-      <p class="sg-stat-value">{{ item.statesAffected }} <span class="fs-5 text-muted">of {{ item.states | length }}</span></p>
-      <p class="sg-stat-label">States with at least one failing {{ group.oneSite }}</p>
-      {% else %}
-      <p class="sg-stat-value">{{ item.passCount | numberFormat }}</p>
-      <p class="sg-stat-label">Tested {{ group.noun }} that pass {{ "these checks" if issue.isFeature else "this check" }}</p>
-      {% endif %}
-    </div></div>
-  </div>
-  <div class="col-6 col-lg-3">
-    <div class="card h-100"><div class="card-body">
-      {% if item.byState and item.highestState %}
-      <p class="sg-stat-value">{{ (item.highestState.share * 100) | round }}%</p>
-      <p class="sg-stat-label">{% if item.highestState.href %}<a href="{{ item.highestState.href }}">{{ item.highestState.name }}</a>{% else %}{{ item.highestState.name }}{% endif %} has the highest share: {{ item.highestState.failing }} of {{ item.highestState.tested }} tested {{ group.noun }}</p>
-      {% else %}
-      <p class="sg-stat-value">{{ item.scoredCount | numberFormat }} <span class="fs-5 text-muted">of {{ item.count | numberFormat }}</span></p>
-      <p class="sg-stat-label">{{ group.noun | capitalize }} fully scanned</p>
-      {% endif %}
-    </div></div>
-  </div>
+  {% set statLabel = "Failing" %}
+  {% set statValue %}{{ item.failCount | numberFormat }} <span class="fs-5">of {{ item.testedCount | numberFormat }}</span>{% endset %}
+  {% set statFooter %}{{ group.noun | capitalize }} that {{ issue.failPhrase }}{% endset %}
+  {% set statColor = "" %}
+  {% include "stat-card.html" %}
+  {% set statLabel = "Share failing" %}
+  {% set statValue = sharePct + "%" %}
+  {% set statFooter %}Share of tested {{ group.noun }} that fail {{ "these checks" if issue.isFeature else "this check" }}{% endset %}
+  {% set statColor = "" %}
+  {% include "stat-card.html" %}
+  {% if item.byState %}
+  {% set statLabel = "States affected" %}
+  {% set statValue %}{{ item.statesAffected }} <span class="fs-5">of {{ item.states | length }}</span>{% endset %}
+  {% set statFooter %}States with at least one failing {{ group.oneSite }}{% endset %}
+  {% else %}
+  {% set statLabel = "Passing" %}
+  {% set statValue = item.passCount | numberFormat %}
+  {% set statFooter %}Tested {{ group.noun }} that pass {{ "these checks" if issue.isFeature else "this check" }}{% endset %}
+  {% endif %}
+  {% set statColor = "" %}
+  {% include "stat-card.html" %}
+  {% if item.byState and item.highestState %}
+  {% set statLabel = "Highest state" %}
+  {% set statValue = ((item.highestState.share * 100) | round) + "%" %}
+  {% set statFooter %}{% if item.highestState.href %}<a href="{{ item.highestState.href }}">{{ item.highestState.name }}</a>{% else %}{{ item.highestState.name }}{% endif %} has the highest share: {{ item.highestState.failing }} of {{ item.highestState.tested }} tested {{ group.noun }}{% endset %}
+  {% else %}
+  {% set statLabel = "Fully scanned" %}
+  {% set statValue %}{{ item.scoredCount | numberFormat }} <span class="fs-5">of {{ item.count | numberFormat }}</span>{% endset %}
+  {% set statFooter %}{{ group.noun | capitalize }} fully scanned{% endset %}
+  {% endif %}
+  {% set statColor = "" %}
+  {% include "stat-card.html" %}
 </div>
 
 {% if item.map %}
