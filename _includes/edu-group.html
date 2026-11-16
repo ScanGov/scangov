@@ -29,36 +29,33 @@
     {% else %}
 
     <div class="row g-3 mb-2 mt-3">
-      <div class="col-6 col-lg-3">
-        <div class="card h-100"><div class="card-body">
-          {% if grp.hasAverage %}
-          <p class="sg-stat-value"><span class="badge text-bg-{{ avg | colorify }}">{{ avg | gradify }}</span> {{ avg }}</p>
-          <p class="sg-stat-label">Average {{ topicName }} score of {{ grp.scoredCount }} fully scanned {{ grp.headlineNoun }}</p>
-          {% else %}
-          <p class="sg-stat-value">&ndash;</p>
-          <p class="sg-stat-label">No average: fewer than {{ grp.minAverage }} {{ grp.headlineNoun }} were fully scanned ({{ grp.scoredCount }})</p>
-          {% endif %}
-        </div></div>
-      </div>
-      <div class="col-6 col-lg-3">
-        <div class="card h-100"><div class="card-body">
-          <p class="sg-stat-value">{% if rank %}{{ rank | ordinal }}{% else %}&ndash;{% endif %}</p>
-          <p class="sg-stat-label">{% if rank %}of {{ grp.kindCount }} {{ eduGroups.kinds[grp.kind].plural }}, ranked by average {{ topicName }} score{% else %}Not ranked among {{ eduGroups.kinds[grp.kind].plural }}{% endif %}</p>
-        </div></div>
-      </div>
-      <div class="col-6 col-lg-3">
-        <div class="card h-100"><div class="card-body">
-          {% set noResponseCount = grp.headlineCount - grp.respondingCount %}
-          <p class="sg-stat-value">{{ grp.scoredCount }} <span class="fs-5 text-muted">of {{ grp.headlineCount }}</span></p>
-          <p class="sg-stat-label">{{ grp.headlineNoun | capitalize }} fully scanned{% if grp.partialCount or noResponseCount %}. We couldn't fully scan {{ grp.partialCount + noResponseCount }}, so they're listed without grades{% endif %}</p>
-        </div></div>
-      </div>
-      <div class="col-6 col-lg-3">
-        <div class="card h-100"><div class="card-body">
-          <p class="sg-stat-value"><span class="badge text-bg-{{ natAvg | colorify }}">{{ natAvg | gradify }}</span> {{ natAvg }}</p>
-          <p class="sg-stat-label">Average {{ topicName }} score of all {{ eduGroups.national.scoredCount | numberFormat }} fully scanned education sites</p>
-        </div></div>
-      </div>
+      {% set statLabel = "Average " + topicName + " score" %}
+      {% if grp.hasAverage %}
+      {% set statValue %}{{ avg | gradify }} <span class="fs-5">{{ avg }}</span>{% endset %}
+      {% set statFooter %}Average {{ topicName }} score of {{ grp.scoredCount }} fully scanned {{ grp.headlineNoun }}{% endset %}
+      {% set statColor = avg | colorify %}
+      {% else %}
+      {% set statValue = "&ndash;" %}
+      {% set statFooter %}No average: fewer than {{ grp.minAverage }} {{ grp.headlineNoun }} were fully scanned ({{ grp.scoredCount }}){% endset %}
+      {% set statColor = "" %}
+      {% endif %}
+      {% include "stat-card.html" %}
+      {% set statLabel = "Rank in its kind" %}
+      {% set statValue %}{% if rank %}{{ rank | ordinal }}{% else %}&ndash;{% endif %}{% endset %}
+      {% set statFooter %}{% if rank %}of {{ grp.kindCount }} {{ eduGroups.kinds[grp.kind].plural }}, ranked by average {{ topicName }} score{% else %}Not ranked among {{ eduGroups.kinds[grp.kind].plural }}{% endif %}{% endset %}
+      {% set statColor = "" %}
+      {% include "stat-card.html" %}
+      {% set noResponseCount = grp.headlineCount - grp.respondingCount %}
+      {% set statLabel = "Fully scanned" %}
+      {% set statValue %}{{ grp.scoredCount }} <span class="fs-5">of {{ grp.headlineCount }}</span>{% endset %}
+      {% set statFooter %}{{ grp.headlineNoun | capitalize }} fully scanned{% if grp.partialCount or noResponseCount %}. We couldn't fully scan {{ grp.partialCount + noResponseCount }}, so they're listed without grades{% endif %}{% endset %}
+      {% set statColor = "" %}
+      {% include "stat-card.html" %}
+      {% set statLabel = "All education sites" %}
+      {% set statValue %}{{ natAvg | gradify }} <span class="fs-5">{{ natAvg }}</span>{% endset %}
+      {% set statFooter %}Average {{ topicName }} score of all {{ eduGroups.national.scoredCount | numberFormat }} fully scanned education sites{% endset %}
+      {% set statColor = natAvg | colorify %}
+      {% include "stat-card.html" %}
     </div>
 
     {% chart grp.charts.area[topic] %}
