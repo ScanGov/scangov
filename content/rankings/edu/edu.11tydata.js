@@ -7,6 +7,7 @@
 // short; a long system or conference name is the one thing that can push a
 // title past 60 characters, and the name cannot be cut.
 
+import { rankingCrumbs } from '../../../scripts/ranking-nav.js';
 import { rankingsSchema, visibleCrumbs, toJsonLd } from '../../../scripts/profile-summary.js';
 import { pageMember, pageTitle, pageDescriptionHtml } from '../../../scripts/topic-rankings.js';
 
@@ -67,12 +68,12 @@ export default {
     },
     breadcrumbParent: (data) => {
       const g = groupOf(data);
-      if (!g) return data.breadcrumbParent;
+      if (!g) { const c = rankingCrumbs(data); return c ? c.parents : data.breadcrumbParent; }
       return data.gp.topic ? [...crumbs, { title: g.name, url: g.url }] : crumbs;
     },
     breadcrumbCurrent: (data) => {
       const g = groupOf(data);
-      if (!g) return data.breadcrumbCurrent;
+      if (!g) { const c = rankingCrumbs(data); return c ? c.current : data.breadcrumbCurrent; }
       return data.gp.topic ? data.gp.topicInfo.displayName : g.name;
     },
     siteCountOverride: (data) => {
