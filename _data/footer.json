@@ -1,14 +1,43 @@
 [
   [
-    { "title": "Community", "url": "https://docs.scangov.org/community" },
-    { "title": "Newsletter", "url": "https://scangov.substack.com" },
-    { "title": "GitHub", "url": "https://github.com/ScanGov" },
-    { "title": "Contact", "url": "https://scangov.com/contact" }
+    {"title": "About", "url": "https://scangov.com/about"},
+    {"title": "ScanGovBot", "url": "https://scangov.com/bot"},
+    {"title": "People", "url": "https://scangov.com/people"},
+    {"title": "News", "url": "https://scangov.com/news"},
+    {"title": "Press", "url": "https://scangov.com/press"},
+    {"title": "Contact", "url": "https://scangov.com/contact"},
+    {"title": "Feedback", "url": "https://docs.scangov.org/feedback"}
   ],
   [
-    { "title": "ScanGov scorecard", "url": "https://my.scangov.com/public/key5279-1751598352407/scangov-org/report" }
+    {"title": "Features", "url": "https://scangov.com/features"},
+    {"title": "Plans", "url": "https://scangov.com/plans"},
+    {"title": "Compare", "url": "https://scangov.com/compare/"},
+    {"title": "Demo", "url": "https://scangov.com/demo"},
+    {"title": "Who we serve", "url": "https://scangov.com/who-we-serve/"},
+    {"title": "What they say", "url": "https://scangov.com/what-they-say/"},
+    {"title": "Accessibility lawsuit help", "url": "https://scangov.com/accessibility-lawsuit/"},
+    {"title": "Showcase", "url": "https://scangov.com/showcase"},
+    {"title": "Now scanning ...", "url": "https://scangov.com/now-scanning"},
+    {"title": "Tools", "url": "https://scangov.com/tools/"}
   ],
   [
-    { "title": "Site index", "url": "/site-index/" }
+    {"title": "Newsletters", "url": "https://scangov.com/subscribe/"},
+    {"title": "LinkedIn", "url": "https://linkedin.com/company/scangov"},
+    {"title": "YouTube", "url": "https://www.youtube.com/@scangov"},
+    {"title": "GitHub", "url": "https://github.com/scangov"},
+    {"title": "Discord", "url": "https://discord.gg/aTCrf8HD"},
+    {"title": "RSS", "url": "https://scangov.com/news/feed.xml"}
+  ],
+  [
+    {"title": "Project ScanGov", "url": "https://scangov.org"},
+    {"title": "Rankings", "url": "https://scangov.org/rankings/"},
+    {"title": "Standards", "url": "https://standards.scangov.org"},
+    {"title": "Docs", "url": "https://docs.scangov.org/"},
+    {"title": "Data", "url": "https://data.scangov.org"},
+    {"title": "ScanGov scorecard", "url": "https://my.scangov.com/public/key5279-1751598352407/scangov-org/report"},
+    {"title": "Accessibility statement", "url": "https://docs.scangov.org/accessibility-statement"},
+    {"title": "Privacy statement", "url": "https://docs.scangov.org/privacy-statement"},
+    {"title": "Code of conduct", "url": "https://docs.scangov.org/conduct"},
+    {"title": "Site index", "url": "/site-index/"}
   ]
 ]
