@@ -20,7 +20,7 @@ import { purgeCss } from './scripts/purge-css.js';
 import { renderOgMap } from './scripts/og-map.js';
 import { renderIssueOgMaps } from './scripts/og-issue-map.js';
 import { renderChart } from './scripts/charts/render.js';
-import { domainScoresSpec } from './scripts/charts/specs.js';
+import { domainScoresSpec, pieFromGradeBar, groupsPieSpec, orgGradesPieSpec, orgScoresSpec, orgFailuresSpec } from './scripts/charts/specs.js';
 import { humanizeLabel } from './scripts/charts/format.js';
 import { ordinal } from './scripts/counties.js';
 import { gradeSentence, groupsSentence, indicatorPatternSentence, topFailureSentence } from './scripts/narrative.js';
@@ -122,6 +122,23 @@ export default async function(eleventyConfig) {
     })
     // The spec for the scores chart on a domain's dashboard (see domainScoresSpec).
     eleventyConfig.addFilter('domainScoresSpec', (domain, topicKeys, topicNames) => domainScoresSpec({ domain, topics: topicKeys, labels: topicNames }))
+    // The single-row grade bar as a pie, and sites by group as a pie (see specs.js).
+    // One CSV field: empty for nothing, a number as is, text quoted with its quotes doubled.
+    eleventyConfig.addFilter('csvCell', (value) => {
+        if (value === null || value === undefined) return ''
+        if (typeof value === 'number' || typeof value === 'boolean') return String(value)
+        return '"' + String(value).replace(/"/g, '""') + '"'
+    })
+    // Static charts for an organization's Pulse page (see specs.js).
+    eleventyConfig.addFilter('orgGradesPie', (domains, headingLevel) => orgGradesPieSpec({ domains, headingLevel }))
+    eleventyConfig.addFilter('orgScores', (domains, topicKeys, topicNames, slug, headingLevel) => orgScoresSpec({ domains, topics: topicKeys, labels: topicNames, slug, headingLevel }))
+    eleventyConfig.addFilter('orgFailures', (domains, topic, auditsData, title, headingLevel) => orgFailuresSpec({ id: `org-fails-${topic}`, title, headingLevel, domains, topic, audits: auditsData }))
+    // A copy of a chart spec with another heading level, for a chart that opens its own section.
+    eleventyConfig.addFilter('withHeading', (spec, level) => ({ ...spec, headingLevel: level }))
+    eleventyConfig.addFilter('withTitleHref', (spec, href) => ({ ...spec, titleHref: href }))
+    eleventyConfig.addFilter('withSubtitle', (spec, subtitle) => ({ ...spec, subtitle }))
+    eleventyConfig.addFilter('pieFromGradeBar', (spec) => pieFromGradeBar(spec))
+    eleventyConfig.addFilter('groupsPieSpec', (groups, id, title, subtitle, headingLevel) => groupsPieSpec({ id, title, subtitle, headingLevel, groups }))
     // "8" -> "8th"; audits.json display names without their angle brackets.
     eleventyConfig.addFilter('ordinal', (n) => ordinal(n))
     // 4105 -> "4,105"; leaves non-numbers untouched.

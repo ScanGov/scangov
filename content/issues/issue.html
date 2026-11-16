@@ -87,7 +87,7 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
   {% if item.byState %}
   <div class="col-12 {% if item.breakdown %}col-lg-7{% endif %}">
     <h2 id="by-state">By state</h2>
-    <p>The share of tested {{ group.noun }} in each state that {{ issue.failPhrase }}.{% if group.hasStatePages %} Select a state to see its {{ check.topicLabel | lower }} rankings.{% endif %}</p>
+    <p>The share of tested {{ group.noun }} in each state that {{ issue.failPhrase }}.{% if group.hasStatePages %} Select a state for its {{ check.topicLabel | lower }} rankings.{% endif %}</p>
     <div class="table-responsive">
       <table class="table table-sm" data-sortable>
         <caption class="visually-hidden">States by share of {{ group.noun }} failing the {{ check.label if issue.isFeature else (check.label | humanizeLabel) }} {{ "checks" if issue.isFeature else "check" }}</caption>

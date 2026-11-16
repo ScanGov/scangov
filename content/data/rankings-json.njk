@@ -1,0 +1,11 @@
+---
+layout: false
+pagination:
+  data: rankingsExport
+  size: 1
+  alias: list
+permalink: "/data/rankings/{{ list.key }}.json"
+eleventyExcludeFromCollections: true
+sitemap: false
+---
+{{ list.rows | dump(1) | safe }}

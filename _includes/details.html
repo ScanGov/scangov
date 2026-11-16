@@ -41,9 +41,11 @@
 {# siteCountOverride: pages scoped below a group, such as /rankings/counties/tx/, pass their own count #}
 {% set siteCount = siteCountOverride if siteCountOverride else ((filterCounts[urlParts[2]] | length) if filterCounts[urlParts[2]] else (domains | length)) %}
 <ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
+    {% if page.url != "/" %}
     <li>
         Sites: {{ siteCount }}
     </li>
+    {% endif %}
     <li>
         Last scan:
         <span id="updated">{{ updates }}</span>

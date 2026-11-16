@@ -1,7 +1,7 @@
 // A hover tip for the dots and counties on the maps (city-map.html, county-map.html).
 // Each shape is already a link to the site's report inside an SVG <a> with a <title>.
 // This swaps the slow native tooltip for a small card that shows the same text with a
-// "View report" link, and stays open while the pointer moves onto it. The shapes keep
+// "Open report" link, and stays open while the pointer moves onto it. The shapes keep
 // working as plain links without it. Tab order is unchanged: the shapes stay out of it,
 // and the table on the page is the keyboard route to every site.
 (function () {
@@ -18,7 +18,7 @@
   tip.setAttribute('role', 'tooltip');
   const text = document.createElement('div');
   const report = document.createElement('a');
-  report.textContent = 'View report';
+  report.textContent = 'Open report';
   tip.append(text, report);
   document.body.appendChild(tip);
 
