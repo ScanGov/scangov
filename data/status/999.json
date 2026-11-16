@@ -1,0 +1,1250 @@
+[
+ {
+  "site": "ahu.edu",
+  "organization": "AdventHealth University",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ahu-edu/overall/"
+ },
+ {
+  "site": "airdefenseartillery.com",
+  "organization": "Department of Defense",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/airdefenseartillery-com/overall/"
+ },
+ {
+  "site": "ajrca.edu",
+  "organization": "Academy for Jewish Religion California",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ajrca-edu/overall/"
+ },
+ {
+  "site": "alaskacc.edu",
+  "organization": "Alaska Christian College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/alaskacc-edu/overall/"
+ },
+ {
+  "site": "alleganyco.gov",
+  "organization": "Allegany County, NY",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/alleganyco-gov/overall/"
+ },
+ {
+  "site": "allentownpa.gov",
+  "organization": "City of Allentown, PA",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/allentownpa-gov/overall/"
+ },
+ {
+  "site": "anderson.edu",
+  "organization": "Anderson University",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/anderson-edu/overall/"
+ },
+ {
+  "site": "ascent.edu",
+  "organization": "Ascent College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ascent-edu/overall/"
+ },
+ {
+  "site": "atkinsoncounty.org",
+  "organization": "Atkinson County, GA",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/atkinsoncounty-org/overall/"
+ },
+ {
+  "site": "atom.edu",
+  "organization": "Atlantic Institute of Oriental Medicine",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/atom-edu/overall/"
+ },
+ {
+  "site": "awc.edu",
+  "organization": "Allegheny Wesleyan College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/awc-edu/overall/"
+ },
+ {
+  "site": "batestech.edu",
+  "organization": "Bates Technical College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/batestech-edu/overall/"
+ },
+ {
+  "site": "bennett.edu",
+  "organization": "Bennett College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bennett-edu/overall/"
+ },
+ {
+  "site": "bethanywv.edu",
+  "organization": "Bethany College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bethanywv-edu/overall/"
+ },
+ {
+  "site": "blueridge.edu",
+  "organization": "Blue Ridge Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/blueridge-edu/overall/"
+ },
+ {
+  "site": "bmdpark.com",
+  "organization": "Bais Medrash of Dexter Park",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bmdpark-com/overall/"
+ },
+ {
+  "site": "bradleycountytn.gov",
+  "organization": "Bradley County, TN",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bradleycountytn-gov/overall/"
+ },
+ {
+  "site": "branchcounty.gov",
+  "organization": "Branch County, MI",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/branchcounty-gov/overall/"
+ },
+ {
+  "site": "bsu.edu",
+  "organization": "Ball State University",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bsu-edu/overall/"
+ },
+ {
+  "site": "bua.edu",
+  "organization": "Baptist University of the Americas",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bua-edu/overall/"
+ },
+ {
+  "site": "buttecountyid.us",
+  "organization": "Butte County, ID",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/buttecountyid-us/overall/"
+ },
+ {
+  "site": "capecounty.us",
+  "organization": "Cape Girardeau County, MO",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/capecounty-us/overall/"
+ },
+ {
+  "site": "casalomacollege.edu",
+  "organization": "Casa Loma College-Los Angeles",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/casalomacollege-edu/overall/"
+ },
+ {
+  "site": "ccbs.edu",
+  "organization": "Carolina College of Biblical Studies",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ccbs-edu/overall/"
+ },
+ {
+  "site": "cccti.edu",
+  "organization": "Caldwell Community College and Technical Institute",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cccti-edu/overall/"
+ },
+ {
+  "site": "ceaprc.edu",
+  "organization": "Center for Advanced Studies On Puerto Rico and the Caribbean",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ceaprc-edu/overall/"
+ },
+ {
+  "site": "chicago.gov",
+  "organization": "City of Chicago, IL",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/chicago-gov/overall/"
+ },
+ {
+  "site": "cincollege.org",
+  "organization": "California Indian Nations College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cincollege-org/overall/"
+ },
+ {
+  "site": "cjc.edu",
+  "organization": "California Jazz Conservatory",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cjc-edu/overall/"
+ },
+ {
+  "site": "cleveland.edu",
+  "organization": "Cleveland University-Kansas City",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cleveland-edu/overall/"
+ },
+ {
+  "site": "clevelandstatecc.edu",
+  "organization": "Cleveland State Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/clevelandstatecc-edu/overall/"
+ },
+ {
+  "site": "clinchcountyga.gov",
+  "organization": "Clinch County, GA",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/clinchcountyga-gov/overall/"
+ },
+ {
+  "site": "cmpr.edu",
+  "organization": "Puerto Rico Conservatory of Music",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cmpr-edu/overall/"
+ },
+ {
+  "site": "cncc.edu",
+  "organization": "Colorado Northwestern Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cncc-edu/overall/"
+ },
+ {
+  "site": "co.nobles.mn.us",
+  "organization": "Nobles County, MN",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-nobles-mn-us/overall/"
+ },
+ {
+  "site": "cometocrawford.com",
+  "organization": "Crawford County, IN",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cometocrawford-com/overall/"
+ },
+ {
+  "site": "contracosta.ca.gov",
+  "organization": "Contra Costa County, CA",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/contracosta-ca-gov/overall/"
+ },
+ {
+  "site": "csld.edu",
+  "organization": "Conway School of Landscape Design",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/csld-edu/overall/"
+ },
+ {
+  "site": "cyttl.edu",
+  "organization": "Central Yeshiva Tomchei Tmimim Lubavitz",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cyttl-edu/overall/"
+ },
+ {
+  "site": "dekalbcounty.org",
+  "organization": "DeKalb County, IL",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dekalbcounty-org/overall/"
+ },
+ {
+  "site": "dewey.edu",
+  "organization": "Dewey University",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dewey-edu/overall/"
+ },
+ {
+  "site": "dvbic.org",
+  "organization": "Department of Defense",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dvbic-org/overall/"
+ },
+ {
+  "site": "edgefieldcounty.sc.gov",
+  "organization": "Edgefield County, SC",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/edgefieldcounty-sc-gov/overall/"
+ },
+ {
+  "site": "edpuniversity.edu",
+  "organization": "EDP University of Puerto Rico",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/edpuniversity-edu/overall/"
+ },
+ {
+  "site": "einsteinmed.edu",
+  "organization": "Albert Einstein College of Medicine",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/einsteinmed-edu/overall/"
+ },
+ {
+  "site": "euusosh.org",
+  "organization": "Department of Labor",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/euusosh-org/overall/"
+ },
+ {
+  "site": "familyoffaith.edu",
+  "organization": "Family of Faith Christian University",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/familyoffaith-edu/overall/"
+ },
+ {
+  "site": "flhcon.edu",
+  "organization": "Finger Lakes Health College of Nursing & Health Sciences",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/flhcon-edu/overall/"
+ },
+ {
+  "site": "franklincollege.edu",
+  "organization": "Franklin College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/franklincollege-edu/overall/"
+ },
+ {
+  "site": "frcog.org",
+  "organization": "Franklin County, MA",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/frcog-org/overall/"
+ },
+ {
+  "site": "ftb.ca.gov",
+  "organization": "",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ftb-ca-gov/overall/"
+ },
+ {
+  "site": "gasconadecounty.org",
+  "organization": "Gasconade County, MO",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gasconadecounty-org/overall/"
+ },
+ {
+  "site": "glaciercountymt.gov",
+  "organization": "Glacier County, MT",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/glaciercountymt-gov/overall/"
+ },
+ {
+  "site": "gladwincounty-mi.gov",
+  "organization": "Gladwin County, MI",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gladwincounty-mi-gov/overall/"
+ },
+ {
+  "site": "gracechristian.edu",
+  "organization": "Grace Christian University",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gracechristian-edu/overall/"
+ },
+ {
+  "site": "gscollege.edu",
+  "organization": "Good Samaritan College of Nursing and Health Science",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gscollege-edu/overall/"
+ },
+ {
+  "site": "guernseycounty.org",
+  "organization": "Guernsey County, OH",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/guernseycounty-org/overall/"
+ },
+ {
+  "site": "hancockcountymaine.gov",
+  "organization": "Hancock County, ME",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hancockcountymaine-gov/overall/"
+ },
+ {
+  "site": "hcu.edu",
+  "organization": "Heritage Christian University",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hcu-edu/overall/"
+ },
+ {
+  "site": "hechalshemuel.com",
+  "organization": "Yeshivat Hechal Shemuel",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hechalshemuel-com/overall/"
+ },
+ {
+  "site": "hempsteadcountyar.com",
+  "organization": "Hempstead County, AR",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hempsteadcountyar-com/overall/"
+ },
+ {
+  "site": "hennepintech.edu",
+  "organization": "Hennepin Technical College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hennepintech-edu/overall/"
+ },
+ {
+  "site": "hickorycomo.net",
+  "organization": "Hickory County, MO",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hickorycomo-net/overall/"
+ },
+ {
+  "site": "hjc.edu",
+  "organization": "Huntington Junior College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hjc-edu/overall/"
+ },
+ {
+  "site": "hotspringcounty.org",
+  "organization": "Hot Spring County, AR",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hotspringcounty-org/overall/"
+ },
+ {
+  "site": "ioniacounty.org",
+  "organization": "Ionia County, MI",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ioniacounty-org/overall/"
+ },
+ {
+  "site": "iosco.net",
+  "organization": "Iosco County, MI",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/iosco-net/overall/"
+ },
+ {
+  "site": "iwp.edu",
+  "organization": "Institute of World Politics",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/iwp-edu/overall/"
+ },
+ {
+  "site": "jacksoncountyar.com",
+  "organization": "Jackson County, AR",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/jacksoncountyar-com/overall/"
+ },
+ {
+  "site": "jeffersoncounty.iowa.gov",
+  "organization": "Jefferson County, IA",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/jeffersoncounty-iowa-gov/overall/"
+ },
+ {
+  "site": "johnsoncounty.arkansas.gov",
+  "organization": "Johnson County, AR",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/johnsoncounty-arkansas-gov/overall/"
+ },
+ {
+  "site": "lacity.gov",
+  "organization": "City of Los Angeles, CA",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lacity-gov/overall/"
+ },
+ {
+  "site": "lextheo.edu",
+  "organization": "Lexington Theological Seminary",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lextheo-edu/overall/"
+ },
+ {
+  "site": "livingstone.edu",
+  "organization": "Livingstone College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/livingstone-edu/overall/"
+ },
+ {
+  "site": "macc.edu",
+  "organization": "Moberly Area Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/macc-edu/overall/"
+ },
+ {
+  "site": "madisoncountyky.gov",
+  "organization": "Madison County, KY",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/madisoncountyky-gov/overall/"
+ },
+ {
+  "site": "mainemedia.edu",
+  "organization": "Maine Media College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mainemedia-edu/overall/"
+ },
+ {
+  "site": "makeitparadise.org",
+  "organization": "",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/makeitparadise-org/overall/"
+ },
+ {
+  "site": "mass.gov",
+  "organization": "State of Massachusetts",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mass-gov/overall/"
+ },
+ {
+  "site": "mayland.edu",
+  "organization": "Mayland Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mayland-edu/overall/"
+ },
+ {
+  "site": "mcclain-co-ok.us",
+  "organization": "McClain County, OK",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mcclain-co-ok-us/overall/"
+ },
+ {
+  "site": "mcdowellcountycommission.com",
+  "organization": "McDowell County, WV",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mcdowellcountycommission-com/overall/"
+ },
+ {
+  "site": "mchp.edu",
+  "organization": "Maine College of Health Professions",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mchp-edu/overall/"
+ },
+ {
+  "site": "medinaco.org",
+  "organization": "Medina County, OH",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/medinaco-org/overall/"
+ },
+ {
+  "site": "mhrc.edu",
+  "organization": "Machzikei Hadath Rabbinical College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mhrc-edu/overall/"
+ },
+ {
+  "site": "michigan.gov",
+  "organization": "State of Michigan",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/michigan-gov/overall/"
+ },
+ {
+  "site": "midway.edu",
+  "organization": "Midway University",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/midway-edu/overall/"
+ },
+ {
+  "site": "milivcounty.gov",
+  "organization": "Livingston County, MI",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/milivcounty-gov/overall/"
+ },
+ {
+  "site": "milligan.edu",
+  "organization": "Milligan University",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/milligan-edu/overall/"
+ },
+ {
+  "site": "minnehahacounty.gov",
+  "organization": "Minnehaha County, SD",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/minnehahacounty-gov/overall/"
+ },
+ {
+  "site": "miottawa.org",
+  "organization": "Ottawa County, MI",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/miottawa-org/overall/"
+ },
+ {
+  "site": "montgomerycounty.ky.gov",
+  "organization": "Montgomery County, KY",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/montgomerycounty-ky-gov/overall/"
+ },
+ {
+  "site": "morrisontech.edu",
+  "organization": "Morrison Institute of Technology",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/morrisontech-edu/overall/"
+ },
+ {
+  "site": "msmary.edu",
+  "organization": "Mount St. Mary's University",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/msmary-edu/overall/"
+ },
+ {
+  "site": "mtaloy.edu",
+  "organization": "Mount Aloysius College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mtaloy-edu/overall/"
+ },
+ {
+  "site": "myy.edu",
+  "organization": "Mosdos Yaakov V'Yisroel",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/myy-edu/overall/"
+ },
+ {
+  "site": "ncmissouri.edu",
+  "organization": "North Central Missouri College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ncmissouri-edu/overall/"
+ },
+ {
+  "site": "newhope.edu",
+  "organization": "New Hope Christian College-Eugene",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/newhope-edu/overall/"
+ },
+ {
+  "site": "newriver.edu",
+  "organization": "New River Community and Technical College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/newriver-edu/overall/"
+ },
+ {
+  "site": "nnu.edu",
+  "organization": "Northwest Nazarene University",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nnu-edu/overall/"
+ },
+ {
+  "site": "nwicc.edu",
+  "organization": "Northwest Iowa Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nwicc-edu/overall/"
+ },
+ {
+  "site": "nwscc.edu",
+  "organization": "Northwest Shoals Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nwscc-edu/overall/"
+ },
+ {
+  "site": "nyctcm.edu",
+  "organization": "New York College of Traditional Chinese Medicine",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nyctcm-edu/overall/"
+ },
+ {
+  "site": "nyts.edu",
+  "organization": "New York Theological Seminary",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nyts-edu/overall/"
+ },
+ {
+  "site": "oakhills.edu",
+  "organization": "Oak Hills Christian College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/oakhills-edu/overall/"
+ },
+ {
+  "site": "obriencounty.iowa.gov",
+  "organization": "O'Brien County, IA",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/obriencounty-iowa-gov/overall/"
+ },
+ {
+  "site": "ohiochristian.edu",
+  "organization": "Ohio Christian University",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ohiochristian-edu/overall/"
+ },
+ {
+  "site": "osceolacountyia.gov",
+  "organization": "Osceola County, IA",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/osceolacountyia-gov/overall/"
+ },
+ {
+  "site": "otda.ny.gov",
+  "organization": "",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/otda-ny-gov/overall/"
+ },
+ {
+  "site": "oup.org",
+  "organization": "Department of Housing and Urban Development",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/oup-org/overall/"
+ },
+ {
+  "site": "paloaltocounty.iowa.gov",
+  "organization": "Palo Alto County, IA",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/paloaltocounty-iowa-gov/overall/"
+ },
+ {
+  "site": "peace.edu",
+  "organization": "William Peace University",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/peace-edu/overall/"
+ },
+ {
+  "site": "perrycountyil.gov",
+  "organization": "Perry County, IL",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/perrycountyil-gov/overall/"
+ },
+ {
+  "site": "perrycountyky.gov",
+  "organization": "Perry County, KY",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/perrycountyky-gov/overall/"
+ },
+ {
+  "site": "pia.edu",
+  "organization": "Pittsburgh Institute of Aeronautics",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pia-edu/overall/"
+ },
+ {
+  "site": "pikecountyar.org",
+  "organization": "Pike County, AR",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pikecountyar-org/overall/"
+ },
+ {
+  "site": "piscataquis.us",
+  "organization": "Piscataquis County, ME",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/piscataquis-us/overall/"
+ },
+ {
+  "site": "pit.edu",
+  "organization": "Pennsylvania Institute of Technology",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pit-edu/overall/"
+ },
+ {
+  "site": "pittcc.edu",
+  "organization": "Pitt Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pittcc-edu/overall/"
+ },
+ {
+  "site": "plymouthcountyiowa.gov",
+  "organization": "Plymouth County, IA",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/plymouthcountyiowa-gov/overall/"
+ },
+ {
+  "site": "popecountymn.gov",
+  "organization": "Pope County, MN",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/popecountymn-gov/overall/"
+ },
+ {
+  "site": "ps.edu",
+  "organization": "Phoenix Seminary",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ps-edu/overall/"
+ },
+ {
+  "site": "raleighcounty.gov",
+  "organization": "Raleigh County, WV",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/raleighcounty-gov/overall/"
+ },
+ {
+  "site": "rustcollege.edu",
+  "organization": "Rust College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rustcollege-edu/overall/"
+ },
+ {
+  "site": "salinatech.edu",
+  "organization": "Salina Area Technical College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/salinatech-edu/overall/"
+ },
+ {
+  "site": "sandiegocounty.gov",
+  "organization": "County of San Diego, CA",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sandiegocounty-gov/overall/"
+ },
+ {
+  "site": "sccc.edu",
+  "organization": "Seward County Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sccc-edu/overall/"
+ },
+ {
+  "site": "scottcounty.com",
+  "organization": "Scott County, TN",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/scottcounty-com/overall/"
+ },
+ {
+  "site": "shaarephraim.org",
+  "organization": "Yeshiva Shaar Ephraim",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/shaarephraim-org/overall/"
+ },
+ {
+  "site": "snead.edu",
+  "organization": "Snead State Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/snead-edu/overall/"
+ },
+ {
+  "site": "socalsem.edu",
+  "organization": "Southern California Seminary",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/socalsem-edu/overall/"
+ },
+ {
+  "site": "somersetcounty-me.org",
+  "organization": "Somerset County, ME",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/somersetcounty-me-org/overall/"
+ },
+ {
+  "site": "southwesterncc.edu",
+  "organization": "Southwestern Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/southwesterncc-edu/overall/"
+ },
+ {
+  "site": "sowela.edu",
+  "organization": "SOWELA Technical Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sowela-edu/overall/"
+ },
+ {
+  "site": "stephenscountyga.gov",
+  "organization": "Stephens County, GA",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/stephenscountyga-gov/overall/"
+ },
+ {
+  "site": "studentaid.gov",
+  "organization": "Department of Education",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/studentaid-gov/overall/"
+ },
+ {
+  "site": "sully.sdcounty.gov",
+  "organization": "Sully County, SD",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sully-sdcounty-gov/overall/"
+ },
+ {
+  "site": "sumnercountytn.gov",
+  "organization": "Sumner County, TN",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sumnercountytn-gov/overall/"
+ },
+ {
+  "site": "surry.edu",
+  "organization": "Surry Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/surry-edu/overall/"
+ },
+ {
+  "site": "thechristcollege.edu",
+  "organization": "The Christ College of Nursing and Health Sciences",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/thechristcollege-edu/overall/"
+ },
+ {
+  "site": "tricountycc.edu",
+  "organization": "Tri-County Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tricountycc-edu/overall/"
+ },
+ {
+  "site": "umo.edu",
+  "organization": "University of Mount Olive",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/umo-edu/overall/"
+ },
+ {
+  "site": "unitecpr.edu",
+  "organization": "Universal Technology College of Puerto Rico",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/unitecpr-edu/overall/"
+ },
+ {
+  "site": "unwsp.edu",
+  "organization": "University of Northwestern-St Paul",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/unwsp-edu/overall/"
+ },
+ {
+  "site": "uolivet.edu",
+  "organization": "The University of Olivet",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/uolivet-edu/overall/"
+ },
+ {
+  "site": "ussemiquincentennial.gov",
+  "organization": "U.S. Semiquincentennial Commission",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ussemiquincentennial-gov/overall/"
+ },
+ {
+  "site": "virginiasmtnplayground.com",
+  "organization": "Giles County, VA",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/virginiasmtnplayground-com/overall/"
+ },
+ {
+  "site": "westshore.edu",
+  "organization": "West Shore Community College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/westshore-edu/overall/"
+ },
+ {
+  "site": "wilberforce.edu",
+  "organization": "Wilberforce University",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/wilberforce-edu/overall/"
+ },
+ {
+  "site": "williamson.edu",
+  "organization": "Williamson College of the Trades",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/williamson-edu/overall/"
+ },
+ {
+  "site": "williamsoncountyil.gov",
+  "organization": "Williamson County, IL",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/williamsoncountyil-gov/overall/"
+ },
+ {
+  "site": "ydc.edu",
+  "organization": "Yeshiva Derech Chaim",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ydc-edu/overall/"
+ },
+ {
+  "site": "yeshivakarlinstolin.org",
+  "organization": "Yeshiva Karlin Stolin",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yeshivakarlinstolin-org/overall/"
+ },
+ {
+  "site": "yeshivatyy.com",
+  "organization": "Yeshiva Gedola Tiferes Yaakov Yitzchok",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yeshivatyy-com/overall/"
+ },
+ {
+  "site": "yokny.org",
+  "organization": "Yeshiva of Kasho",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yokny-org/overall/"
+ },
+ {
+  "site": "zanestate.edu",
+  "organization": "Zane State College",
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/zanestate-edu/overall/"
+ }
+]

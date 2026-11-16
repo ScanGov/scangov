@@ -1,0 +1,578 @@
+[
+ {
+  "site": "ace.cbp.gov",
+  "organization": "",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ace-cbp-gov/overall/"
+ },
+ {
+  "site": "askjan.org",
+  "organization": "Department of Labor",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/askjan-org/overall/"
+ },
+ {
+  "site": "auglaizecounty.org",
+  "organization": "Auglaize County, OH",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/auglaizecounty-org/overall/"
+ },
+ {
+  "site": "bosque.gov",
+  "organization": "U.S. Department of Agriculture",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bosque-gov/overall/"
+ },
+ {
+  "site": "buttevotes.net",
+  "organization": "",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/buttevotes-net/overall/"
+ },
+ {
+  "site": "carlislecounty.ky.gov",
+  "organization": "Carlisle County, KY",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/carlislecounty-ky-gov/overall/"
+ },
+ {
+  "site": "carson.org",
+  "organization": "Carson City, NV",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/carson-org/overall/"
+ },
+ {
+  "site": "ccfc.ca.gov",
+  "organization": "State of California",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ccfc-ca-gov/overall/"
+ },
+ {
+  "site": "cdo.gov",
+  "organization": "General Services Administration",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cdo-gov/overall/"
+ },
+ {
+  "site": "cfo.gov",
+  "organization": "General Services Administration",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cfo-gov/overall/"
+ },
+ {
+  "site": "cgaux.org",
+  "organization": "U.S. Coast Guard Auxiliary",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cgaux-org/overall/"
+ },
+ {
+  "site": "childreninadversity.gov",
+  "organization": "U.S. Agency for International Development",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/childreninadversity-gov/overall/"
+ },
+ {
+  "site": "co.bertie.nc.us",
+  "organization": "Bertie County, NC",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-bertie-nc-us/overall/"
+ },
+ {
+  "site": "co.knox.oh.us",
+  "organization": "Knox County, OH",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-knox-oh-us/overall/"
+ },
+ {
+  "site": "co.logan.oh.us",
+  "organization": "Logan County, OH",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-logan-oh-us/overall/"
+ },
+ {
+  "site": "coralreef.gov",
+  "organization": "Department of the Interior",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/coralreef-gov/overall/"
+ },
+ {
+  "site": "countycourthouse.org",
+  "organization": "Washington County, OK",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/countycourthouse-org/overall/"
+ },
+ {
+  "site": "cttso.gov",
+  "organization": "Department of Defense",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cttso-gov/overall/"
+ },
+ {
+  "site": "dickinsoncountyiowa.gov",
+  "organization": "Dickinson County, IA",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dickinsoncountyiowa-gov/overall/"
+ },
+ {
+  "site": "emmetcountyia.gov",
+  "organization": "Emmet County, IA",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/emmetcountyia-gov/overall/"
+ },
+ {
+  "site": "fatherhoodgov.info",
+  "organization": "Department of Health and Human Services",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fatherhoodgov-info/overall/"
+ },
+ {
+  "site": "file.lacounty.gov",
+  "organization": "",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/file-lacounty-gov/overall/"
+ },
+ {
+  "site": "firelands.bgsu.edu",
+  "organization": "Bowling Green State University-Firelands",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/firelands-bgsu-edu/overall/"
+ },
+ {
+  "site": "fitnyc.edu",
+  "organization": "Fashion Institute of Technology",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fitnyc-edu/overall/"
+ },
+ {
+  "site": "fpc.gov",
+  "organization": "General Services Administration",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fpc-gov/overall/"
+ },
+ {
+  "site": "girlshealth.gov",
+  "organization": "Department of Health and Human Services",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/girlshealth-gov/overall/"
+ },
+ {
+  "site": "gov.orangecounty59.us",
+  "organization": "Orange County, IN",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gov-orangecounty59-us/overall/"
+ },
+ {
+  "site": "govecountyks.gov",
+  "organization": "Gove County, KS",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/govecountyks-gov/overall/"
+ },
+ {
+  "site": "grantcountyar.com",
+  "organization": "Grant County, AR",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/grantcountyar-com/overall/"
+ },
+ {
+  "site": "hcgov.us",
+  "organization": "Department of Health and Human Services",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hcgov-us/overall/"
+ },
+ {
+  "site": "heartlandcfc.org",
+  "organization": "Combined Federal Campaign",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/heartlandcfc-org/overall/"
+ },
+ {
+  "site": "info.benefitscal.com",
+  "organization": "",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/info-benefitscal-com/overall/"
+ },
+ {
+  "site": "internetforall.gov",
+  "organization": "Department of Commerce",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/internetforall-gov/overall/"
+ },
+ {
+  "site": "itap.gov",
+  "organization": "U.S. Department of Agriculture",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/itap-gov/overall/"
+ },
+ {
+  "site": "knottcountyky.gov",
+  "organization": "Knott County, KY",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/knottcountyky-gov/overall/"
+ },
+ {
+  "site": "lanecountyks.org",
+  "organization": "Lane County, KS",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lanecountyks-org/overall/"
+ },
+ {
+  "site": "lewiscountymo.org",
+  "organization": "Lewis County, MO",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lewiscountymo-org/overall/"
+ },
+ {
+  "site": "maconnc.org",
+  "organization": "Macon County, NC",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/maconnc-org/overall/"
+ },
+ {
+  "site": "majorcountyok.org",
+  "organization": "Major County, OK",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/majorcountyok-org/overall/"
+ },
+ {
+  "site": "mcmo.us",
+  "organization": "Montgomery County, MO",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mcmo-us/overall/"
+ },
+ {
+  "site": "medicalbillrights.net",
+  "organization": "Department of Health and Human Services",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/medicalbillrights-net/overall/"
+ },
+ {
+  "site": "medicalbillrights.org",
+  "organization": "Department of Health and Human Services",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/medicalbillrights-org/overall/"
+ },
+ {
+  "site": "millercountyar.gov",
+  "organization": "Miller County, AR",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/millercountyar-gov/overall/"
+ },
+ {
+  "site": "myfuture.com",
+  "organization": "Department of Defense",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/myfuture-com/overall/"
+ },
+ {
+  "site": "nci-fyi.org",
+  "organization": "Department of Health and Human Services",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nci-fyi-org/overall/"
+ },
+ {
+  "site": "neglecteddiseases.gov",
+  "organization": "U.S. Agency for International Development",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/neglecteddiseases-gov/overall/"
+ },
+ {
+  "site": "niem.gov",
+  "organization": "Department of Homeland Security",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/niem-gov/overall/"
+ },
+ {
+  "site": "notify.gov",
+  "organization": "General Services Administration",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/notify-gov/overall/"
+ },
+ {
+  "site": "nrel.gov",
+  "organization": "Department of Energy",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nrel-gov/overall/"
+ },
+ {
+  "site": "payettecounty.org",
+  "organization": "Payette County, ID",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/payettecounty-org/overall/"
+ },
+ {
+  "site": "pr100.gov",
+  "organization": "Department of Energy",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pr100-gov/overall/"
+ },
+ {
+  "site": "prosperafrica.gov",
+  "organization": "U.S. Agency for International Development",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/prosperafrica-gov/overall/"
+ },
+ {
+  "site": "prowerscounty.net",
+  "organization": "Prowers County, CO",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/prowerscounty-net/overall/"
+ },
+ {
+  "site": "pulaskicountymo.org",
+  "organization": "Pulaski County, MO",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pulaskicountymo-org/overall/"
+ },
+ {
+  "site": "scijinks.gov",
+  "organization": "National Aeronautics and Space Administration",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/scijinks-gov/overall/"
+ },
+ {
+  "site": "sddac.com",
+  "organization": "County of San Diego, CA",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sddac-com/overall/"
+ },
+ {
+  "site": "sdparks.org",
+  "organization": "County of San Diego, CA",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sdparks-org/overall/"
+ },
+ {
+  "site": "searcyco.org",
+  "organization": "Searcy County, AR",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/searcyco-org/overall/"
+ },
+ {
+  "site": "siouxcountyia.gov",
+  "organization": "Sioux County, IA",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/siouxcountyia-gov/overall/"
+ },
+ {
+  "site": "todaysmilitary.com",
+  "organization": "Department of Defense",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/todaysmilitary-com/overall/"
+ },
+ {
+  "site": "treatmentworksforvets.org",
+  "organization": "Department of Veterans Affairs",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/treatmentworksforvets-org/overall/"
+ },
+ {
+  "site": "tregocountyks.gov",
+  "organization": "Trego County, KS",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tregocountyks-gov/overall/"
+ },
+ {
+  "site": "trimblecounty.ky.gov",
+  "organization": "Trimble County, KY",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/trimblecounty-ky-gov/overall/"
+ },
+ {
+  "site": "tswg.gov",
+  "organization": "Department of Defense",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tswg-gov/overall/"
+ },
+ {
+  "site": "uncg.edu",
+  "organization": "University of North Carolina at Greensboro",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/uncg-edu/overall/"
+ },
+ {
+  "site": "usip.gov",
+  "organization": "United States Institute of Peace",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/usip-gov/overall/"
+ },
+ {
+  "site": "uspsoig.gov",
+  "organization": "United States Postal Service",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/uspsoig-gov/overall/"
+ },
+ {
+  "site": "vavmc.com",
+  "organization": "Department of Veterans Affairs",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/vavmc-com/overall/"
+ },
+ {
+  "site": "waste.gov",
+  "organization": "Executive Office of the President",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/waste-gov/overall/"
+ },
+ {
+  "site": "wichitacountytx.com",
+  "organization": "Wichita County, TX",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/wichitacountytx-com/overall/"
+ },
+ {
+  "site": "workwithusaid.gov",
+  "organization": "U.S. Agency for International Development",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/workwithusaid-gov/overall/"
+ },
+ {
+  "site": "wsco.edu",
+  "organization": "Washington State College of Ohio",
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/wsco-edu/overall/"
+ }
+]

@@ -1,0 +1,162 @@
+[
+ {
+  "status_code": 200,
+  "status_label": "OK",
+  "status_type": "active",
+  "scan_status": "Scan successful",
+  "sites": 6097,
+  "share_of_sites": 0.865
+ },
+ {
+  "status_code": 301,
+  "status_label": "Moved Permanently",
+  "status_type": "redirect",
+  "scan_status": "Scan failed",
+  "sites": 0,
+  "share_of_sites": 0
+ },
+ {
+  "status_code": 302,
+  "status_label": "Found",
+  "status_type": "redirect",
+  "scan_status": "Scan failed",
+  "sites": 0,
+  "share_of_sites": 0
+ },
+ {
+  "status_code": 400,
+  "status_label": "Bad Request",
+  "status_type": "inaccessible",
+  "scan_status": "Scan failed",
+  "sites": 0,
+  "share_of_sites": 0
+ },
+ {
+  "status_code": 401,
+  "status_label": "Unauthorized",
+  "status_type": "inaccessible",
+  "scan_status": "Scan failed",
+  "sites": 0,
+  "share_of_sites": 0
+ },
+ {
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "scan_status": "Scan failed",
+  "sites": 232,
+  "share_of_sites": 0.033
+ },
+ {
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "scan_status": "Scan failed",
+  "sites": 14,
+  "share_of_sites": 0.002
+ },
+ {
+  "status_code": 408,
+  "status_label": "Request Timeout",
+  "status_type": "inaccessible",
+  "scan_status": "Scan failed",
+  "sites": 10,
+  "share_of_sites": 0.001
+ },
+ {
+  "status_code": 410,
+  "status_label": "Gone",
+  "status_type": "inaccessible",
+  "scan_status": "Scan failed",
+  "sites": 0,
+  "share_of_sites": 0
+ },
+ {
+  "status_code": 429,
+  "status_label": "Too Many Requests",
+  "status_type": "inaccessible",
+  "scan_status": "Scan failed",
+  "sites": 0,
+  "share_of_sites": 0
+ },
+ {
+  "status_code": 500,
+  "status_label": "Internal Server Error",
+  "status_type": "inaccessible",
+  "scan_status": "Scan failed",
+  "sites": 0,
+  "share_of_sites": 0
+ },
+ {
+  "status_code": 502,
+  "status_label": "Bad Gateway",
+  "status_type": "inaccessible",
+  "scan_status": "Scan failed",
+  "sites": 1,
+  "share_of_sites": 0
+ },
+ {
+  "status_code": 503,
+  "status_label": "Service Unavailable",
+  "status_type": "inaccessible",
+  "scan_status": "Scan failed",
+  "sites": 4,
+  "share_of_sites": 0.001
+ },
+ {
+  "status_code": 993,
+  "status_label": "Certificate error",
+  "status_type": "inaccessible",
+  "scan_status": "Scan failed",
+  "sites": 10,
+  "share_of_sites": 0.001
+ },
+ {
+  "status_code": 994,
+  "status_label": "Page failed to load",
+  "status_type": "inaccessible",
+  "scan_status": "Scan failed",
+  "sites": 72,
+  "share_of_sites": 0.01
+ },
+ {
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "scan_status": "Scan blocked",
+  "sites": 66,
+  "share_of_sites": 0.009
+ },
+ {
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "scan_status": "Scan blocked",
+  "sites": 219,
+  "share_of_sites": 0.031
+ },
+ {
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "scan_status": "Scan skipped",
+  "sites": 51,
+  "share_of_sites": 0.007
+ },
+ {
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "scan_status": "Scan skipped",
+  "sites": 114,
+  "share_of_sites": 0.016
+ },
+ {
+  "status_code": 999,
+  "status_label": "Request Denied",
+  "status_type": "inaccessible",
+  "scan_status": "Scan failed",
+  "sites": 156,
+  "share_of_sites": 0.022
+ }
+]

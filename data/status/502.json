@@ -1,0 +1,10 @@
+[
+ {
+  "site": "bellcounty.ky.gov",
+  "organization": "Bell County, KY",
+  "status_code": 502,
+  "status_label": "Bad Gateway",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bellcounty-ky-gov/overall/"
+ }
+]

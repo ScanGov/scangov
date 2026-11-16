@@ -1,0 +1,82 @@
+[
+ {
+  "site": "adlnet.gov",
+  "organization": "Department of Defense",
+  "status_code": 408,
+  "status_label": "Request Timeout",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/adlnet-gov/overall/"
+ },
+ {
+  "site": "co.hardin.oh.us",
+  "organization": "Hardin County, OH",
+  "status_code": 408,
+  "status_label": "Request Timeout",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-hardin-oh-us/overall/"
+ },
+ {
+  "site": "co.houston.mn.us",
+  "organization": "Houston County, MN",
+  "status_code": 408,
+  "status_label": "Request Timeout",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-houston-mn-us/overall/"
+ },
+ {
+  "site": "crispcounty.com",
+  "organization": "Crisp County, GA",
+  "status_code": 408,
+  "status_label": "Request Timeout",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/crispcounty-com/overall/"
+ },
+ {
+  "site": "csusm.edu",
+  "organization": "California State University-San Marcos",
+  "status_code": 408,
+  "status_label": "Request Timeout",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/csusm-edu/overall/"
+ },
+ {
+  "site": "mccookcountysd.com",
+  "organization": "McCook County, SD",
+  "status_code": 408,
+  "status_label": "Request Timeout",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mccookcountysd-com/overall/"
+ },
+ {
+  "site": "northamptoncounty.org",
+  "organization": "Northampton County, PA",
+  "status_code": 408,
+  "status_label": "Request Timeout",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/northamptoncounty-org/overall/"
+ },
+ {
+  "site": "pmi.gov",
+  "organization": "U.S. Agency for International Development",
+  "status_code": 408,
+  "status_label": "Request Timeout",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pmi-gov/overall/"
+ },
+ {
+  "site": "salmonrecovery.gov",
+  "organization": "Department of the Interior",
+  "status_code": 408,
+  "status_label": "Request Timeout",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/salmonrecovery-gov/overall/"
+ },
+ {
+  "site": "usalearning.gov",
+  "organization": "Office of Personnel Management",
+  "status_code": 408,
+  "status_label": "Request Timeout",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/usalearning-gov/overall/"
+ }
+]

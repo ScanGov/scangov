@@ -1,0 +1,914 @@
+[
+ {
+  "site": "abc.edu",
+  "organization": "Appalachian Bible College",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/abc-edu/overall/"
+ },
+ {
+  "site": "accessesmeralda.com",
+  "organization": "Esmeralda County, NV",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/accessesmeralda-com/overall/"
+ },
+ {
+  "site": "allendalecounty.com",
+  "organization": "Allendale County, SC",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/allendalecounty-com/overall/"
+ },
+ {
+  "site": "arapahoeco.gov",
+  "organization": "Arapahoe County, CO",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/arapahoeco-gov/overall/"
+ },
+ {
+  "site": "ashlandcountywi.gov",
+  "organization": "Ashland County, WI",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ashlandcountywi-gov/overall/"
+ },
+ {
+  "site": "atenasuniversity.edu",
+  "organization": "Atenas University",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/atenasuniversity-edu/overall/"
+ },
+ {
+  "site": "baismedrashzichronmeir.com",
+  "organization": "Beth Medrash of Asbury Park",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/baismedrashzichronmeir-com/overall/"
+ },
+ {
+  "site": "baismedroshelyon.com",
+  "organization": "Bais Medrash Elyon",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/baismedroshelyon-com/overall/"
+ },
+ {
+  "site": "bellcountytx.com",
+  "organization": "Bell County, TX",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bellcountytx-com/overall/"
+ },
+ {
+  "site": "bentcounty.net",
+  "organization": "Bent County, CO",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bentcounty-net/overall/"
+ },
+ {
+  "site": "bethmedrashmeoryitzchok.com",
+  "organization": "Beth Medrash Meor Yitzchok",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bethmedrashmeoryitzchok-com/overall/"
+ },
+ {
+  "site": "betmedrashgadolaterettorah.com",
+  "organization": "Bet Medrash Gadol Ateret Torah",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/betmedrashgadolaterettorah-com/overall/"
+ },
+ {
+  "site": "bisgreengovprd.wpenginepowered.com",
+  "organization": "Greene County, TN",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bisgreengovprd-wpenginepowered-com/overall/"
+ },
+ {
+  "site": "bondpro.gov",
+  "organization": "Department of the Treasury",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bondpro-gov/overall/"
+ },
+ {
+  "site": "brazosport.edu",
+  "organization": "Brazosport College",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/brazosport-edu/overall/"
+ },
+ {
+  "site": "calhouncountyar.com",
+  "organization": "Calhoun County, AR",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/calhouncountyar-com/overall/"
+ },
+ {
+  "site": "carlislecountyky.com",
+  "organization": "Carlisle County, KY",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/carlislecountyky-com/overall/"
+ },
+ {
+  "site": "carrollcountymd.gov",
+  "organization": "Carroll County, MD",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/carrollcountymd-gov/overall/"
+ },
+ {
+  "site": "cartercountymontana.squarespace.com",
+  "organization": "Carter County, MT",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cartercountymontana-squarespace-com/overall/"
+ },
+ {
+  "site": "catroncounty.us",
+  "organization": "Catron County, NM",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/catroncounty-us/overall/"
+ },
+ {
+  "site": "centralyeshivabethjoseph.com",
+  "organization": "Central Yeshiva Beth Joseph",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/centralyeshivabethjoseph-com/overall/"
+ },
+ {
+  "site": "charlottecountyva.gov",
+  "organization": "Charlotte County, VA",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/charlottecountyva-gov/overall/"
+ },
+ {
+  "site": "cherokeecounty.iowa.gov",
+  "organization": "Cherokee County, IA",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cherokeecounty-iowa-gov/overall/"
+ },
+ {
+  "site": "clarendoncollege.edu",
+  "organization": "Clarendon College",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/clarendoncollege-edu/overall/"
+ },
+ {
+  "site": "claycountytngov.com",
+  "organization": "Clay County, TN",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/claycountytngov-com/overall/"
+ },
+ {
+  "site": "clearwatercountymn.gov",
+  "organization": "Clearwater County, MN",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/clearwatercountymn-gov/overall/"
+ },
+ {
+  "site": "co.cook.mn.us",
+  "organization": "Cook County, MN",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-cook-mn-us/overall/"
+ },
+ {
+  "site": "co.jackson.wi.us",
+  "organization": "Jackson County, WI",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-jackson-wi-us/overall/"
+ },
+ {
+  "site": "co.marquette.mi.us",
+  "organization": "Marquette County, MI",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-marquette-mi-us/overall/"
+ },
+ {
+  "site": "co.pacific.wa.us",
+  "organization": "Pacific County, WA",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-pacific-wa-us/overall/"
+ },
+ {
+  "site": "co.somerset.pa.us",
+  "organization": "Somerset County, PA",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-somerset-pa-us/overall/"
+ },
+ {
+  "site": "co.wabasha.mn.us",
+  "organization": "Wabasha County, MN",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-wabasha-mn-us/overall/"
+ },
+ {
+  "site": "coastal.edu",
+  "organization": "",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/coastal-edu/overall/"
+ },
+ {
+  "site": "cortland.edu",
+  "organization": "State University of New York at Cortland",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cortland-edu/overall/"
+ },
+ {
+  "site": "crookcounty.wy.gov",
+  "organization": "Crook County, WY",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/crookcounty-wy-gov/overall/"
+ },
+ {
+  "site": "csudh.edu",
+  "organization": "California State University-Dominguez Hills",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/csudh-edu/overall/"
+ },
+ {
+  "site": "dawsonmt.gov",
+  "organization": "Dawson County, MT",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dawsonmt-gov/overall/"
+ },
+ {
+  "site": "dfafacts.gov",
+  "organization": "U.S. Agency for International Development",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dfafacts-gov/overall/"
+ },
+ {
+  "site": "dtcc.edu",
+  "organization": "Delaware Technical Community College-Terry",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dtcc-edu/overall/"
+ },
+ {
+  "site": "dunncountywi.gov",
+  "organization": "Dunn County, WI",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dunncountywi-gov/overall/"
+ },
+ {
+  "site": "emsa.ca.gov",
+  "organization": "State of California",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/emsa-ca-gov/overall/"
+ },
+ {
+  "site": "fsd.gov",
+  "organization": "General Services Administration",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fsd-gov/overall/"
+ },
+ {
+  "site": "gannon.edu",
+  "organization": "Gannon University",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gannon-edu/overall/"
+ },
+ {
+  "site": "gatescountync.gov",
+  "organization": "Gates County, NC",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gatescountync-gov/overall/"
+ },
+ {
+  "site": "geneseecountymi.gov",
+  "organization": "Genesee County, MI",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/geneseecountymi-gov/overall/"
+ },
+ {
+  "site": "gogebic.gov",
+  "organization": "Gogebic County, MI",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gogebic-gov/overall/"
+ },
+ {
+  "site": "grantsolutions.gov",
+  "organization": "Department of Health and Human Services",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/grantsolutions-gov/overall/"
+ },
+ {
+  "site": "halecounty.org",
+  "organization": "Hale County, TX",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/halecounty-org/overall/"
+ },
+ {
+  "site": "hamiltoncounty.iowa.gov",
+  "organization": "Hamilton County, IA",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hamiltoncounty-iowa-gov/overall/"
+ },
+ {
+  "site": "hudhomestore.gov",
+  "organization": "Department of Housing and Urban Development",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hudhomestore-gov/overall/"
+ },
+ {
+  "site": "hydecountync.gov",
+  "organization": "Hyde County, NC",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hydecountync-gov/overall/"
+ },
+ {
+  "site": "ingham.org",
+  "organization": "Ingham County, MI",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ingham-org/overall/"
+ },
+ {
+  "site": "jacksoncountyok.com",
+  "organization": "Jackson County, OK",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/jacksoncountyok-com/overall/"
+ },
+ {
+  "site": "jimmycarterlibrary.gov",
+  "organization": "National Archives and Records Administration",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/jimmycarterlibrary-gov/overall/"
+ },
+ {
+  "site": "juntos.gov",
+  "organization": "Department of Homeland Security",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/juntos-gov/overall/"
+ },
+ {
+  "site": "kc.edu",
+  "organization": "Kettering College",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/kc-edu/overall/"
+ },
+ {
+  "site": "lakecountyor.org",
+  "organization": "Lake County, OR",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lakecountyor-org/overall/"
+ },
+ {
+  "site": "leecountync.gov",
+  "organization": "Lee County, NC",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/leecountync-gov/overall/"
+ },
+ {
+  "site": "lincolncountyga.com",
+  "organization": "Lincoln County, GA",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lincolncountyga-com/overall/"
+ },
+ {
+  "site": "lincolnky.com",
+  "organization": "Lincoln County, KY",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lincolnky-com/overall/"
+ },
+ {
+  "site": "livingstonparishla.gov",
+  "organization": "Livingston Parish, LA",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/livingstonparishla-gov/overall/"
+ },
+ {
+  "site": "lowndes-al.gov",
+  "organization": "Lowndes County, AL",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lowndes-al-gov/overall/"
+ },
+ {
+  "site": "luzernecounty.org",
+  "organization": "Luzerne County, PA",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/luzernecounty-org/overall/"
+ },
+ {
+  "site": "max.gov",
+  "organization": "Executive Office of the President",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/max-gov/overall/"
+ },
+ {
+  "site": "mctx.org",
+  "organization": "Montgomery County, TX",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mctx-org/overall/"
+ },
+ {
+  "site": "medicalcountermeasures.gov",
+  "organization": "Department of Health and Human Services",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/medicalcountermeasures-gov/overall/"
+ },
+ {
+  "site": "mesivtaofeasternparkway.com",
+  "organization": "Mesivta of Eastern Parkway-Yeshiva Zichron Meilech",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mesivtaofeasternparkway-com/overall/"
+ },
+ {
+  "site": "msmu.edu",
+  "organization": "Mount Saint Mary's University",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/msmu-edu/overall/"
+ },
+ {
+  "site": "my.mo.gov",
+  "organization": "State of Missouri",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/my-mo-gov/overall/"
+ },
+ {
+  "site": "myglades.com",
+  "organization": "Glades County, FL",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/myglades-com/overall/"
+ },
+ {
+  "site": "neabigread.org",
+  "organization": "National Endowment for the Arts",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/neabigread-org/overall/"
+ },
+ {
+  "site": "northwood.edu",
+  "organization": "Northwood University",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/northwood-edu/overall/"
+ },
+ {
+  "site": "nv.gov",
+  "organization": "State of Nevada",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nv-gov/overall/"
+ },
+ {
+  "site": "ohrhameir.com",
+  "organization": "Ohr Hameir Theological Seminary",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ohrhameir-com/overall/"
+ },
+ {
+  "site": "peru.edu",
+  "organization": "Peru State College",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/peru-edu/overall/"
+ },
+ {
+  "site": "pgcc.edu",
+  "organization": "Prince George's Community College",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pgcc-edu/overall/"
+ },
+ {
+  "site": "polkcountywi.gov",
+  "organization": "Polk County, WI",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/polkcountywi-gov/overall/"
+ },
+ {
+  "site": "pstcc.edu",
+  "organization": "Pellissippi State Community College",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pstcc-edu/overall/"
+ },
+ {
+  "site": "rabbijacobjoseph.com",
+  "organization": "Rabbi Jacob Joseph School",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rabbijacobjoseph-com/overall/"
+ },
+ {
+  "site": "rabbinicalacademyrabbichaimberlin.com",
+  "organization": "Rabbinical Academy Mesivta Rabbi Chaim Berlin",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rabbinicalacademyrabbichaimberlin-com/overall/"
+ },
+ {
+  "site": "rabbinicalcollegebethshraga.com",
+  "organization": "Rabbinical College Beth Shraga",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rabbinicalcollegebethshraga-com/overall/"
+ },
+ {
+  "site": "rappahannockcountyva.gov",
+  "organization": "Rappahannock County, VA",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rappahannockcountyva-gov/overall/"
+ },
+ {
+  "site": "research.fs.usda.gov",
+  "organization": "U.S. Department of Agriculture - Forest Service",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/research-fs-usda-gov/overall/"
+ },
+ {
+  "site": "rewardsforjustice.net",
+  "organization": "Department of State",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rewardsforjustice-net/overall/"
+ },
+ {
+  "site": "rfj.tips",
+  "organization": "Department of State",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rfj-tips/overall/"
+ },
+ {
+  "site": "robertsoncountytn.gov",
+  "organization": "Robertson County, TN",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/robertsoncountytn-gov/overall/"
+ },
+ {
+  "site": "roguecc.edu",
+  "organization": "Rogue Community College",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/roguecc-edu/overall/"
+ },
+ {
+  "site": "ruskcounty.org",
+  "organization": "Rusk County, WI",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ruskcounty-org/overall/"
+ },
+ {
+  "site": "savingsbond.gov",
+  "organization": "Department of the Treasury",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/savingsbond-gov/overall/"
+ },
+ {
+  "site": "schuylkillcountypa.gov",
+  "organization": "Schuylkill County, PA",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/schuylkillcountypa-gov/overall/"
+ },
+ {
+  "site": "sebastiancountyar.gov",
+  "organization": "Sebastian County, AR",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sebastiancountyar-gov/overall/"
+ },
+ {
+  "site": "seminolecountyfl.gov",
+  "organization": "Seminole County, FL",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/seminolecountyfl-gov/overall/"
+ },
+ {
+  "site": "slgs.gov",
+  "organization": "Department of the Treasury",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/slgs-gov/overall/"
+ },
+ {
+  "site": "somersetmd.us",
+  "organization": "Somerset County, MD",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/somersetmd-us/overall/"
+ },
+ {
+  "site": "sthelenaparish.la.gov",
+  "organization": "Saint Helena Parish, LA",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sthelenaparish-la-gov/overall/"
+ },
+ {
+  "site": "taaps.gov",
+  "organization": "Department of the Treasury",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/taaps-gov/overall/"
+ },
+ {
+  "site": "telsheyeshivachicago.com",
+  "organization": "Telshe Yeshiva-Chicago",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/telsheyeshivachicago-com/overall/"
+ },
+ {
+  "site": "together.gov",
+  "organization": "Department of Homeland Security",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/together-gov/overall/"
+ },
+ {
+  "site": "treasuryauctions.gov",
+  "organization": "Department of the Treasury",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/treasuryauctions-gov/overall/"
+ },
+ {
+  "site": "treasurydirect.gov",
+  "organization": "Department of the Treasury",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/treasurydirect-gov/overall/"
+ },
+ {
+  "site": "txwes.edu",
+  "organization": "Texas Wesleyan University",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/txwes-edu/overall/"
+ },
+ {
+  "site": "unioncoms.com",
+  "organization": "Union County, MS",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/unioncoms-com/overall/"
+ },
+ {
+  "site": "vancecounty.org",
+  "organization": "Vance County, NC",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/vancecounty-org/overall/"
+ },
+ {
+  "site": "wa.gov",
+  "organization": "State of Washington",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/wa-gov/overall/"
+ },
+ {
+  "site": "washingtoncounty.in.gov",
+  "organization": "Washington County, IN",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/washingtoncounty-in-gov/overall/"
+ },
+ {
+  "site": "www2.cuny.edu",
+  "organization": "CUNY System Office",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/www2-cuny-edu/overall/"
+ },
+ {
+  "site": "yeshivabethmoshe.com",
+  "organization": "Yeshivath Beth Moshe",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yeshivabethmoshe-com/overall/"
+ },
+ {
+  "site": "yeshivadmonsey.com",
+  "organization": "Yeshiva D'monsey Rabbinical College",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yeshivadmonsey-com/overall/"
+ },
+ {
+  "site": "yeshivagedolahkessertorah.com",
+  "organization": "Yeshiva Gedolah Kesser Torah",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yeshivagedolahkessertorah-com/overall/"
+ },
+ {
+  "site": "yeshivaofmachzikaihadas.com",
+  "organization": "Yeshiva of Machzikai Hadas",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yeshivaofmachzikaihadas-com/overall/"
+ },
+ {
+  "site": "yeshivasemekhatorah.com",
+  "organization": "Yeshivas Emek Hatorah",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yeshivasemekhatorah-com/overall/"
+ },
+ {
+  "site": "yeshivasnovominsk.com",
+  "organization": "Yeshivas Novominsk",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yeshivasnovominsk-com/overall/"
+ },
+ {
+  "site": "yeshivazichronaryeh.com",
+  "organization": "Yeshiva Zichron Aryeh",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yeshivazichronaryeh-com/overall/"
+ },
+ {
+  "site": "yvcc.edu",
+  "organization": "Yakima Valley College",
+  "status_code": 998,
+  "status_label": "Blocked by robots.txt",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yvcc-edu/overall/"
+ }
+]

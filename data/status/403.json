@@ -1,0 +1,1858 @@
+[
+ {
+  "site": "adamscountyil.gov",
+  "organization": "Adams County, IL",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/adamscountyil-gov/overall/"
+ },
+ {
+  "site": "albemarle.org",
+  "organization": "Albemarle County, VA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/albemarle-org/overall/"
+ },
+ {
+  "site": "allegancounty.org",
+  "organization": "Allegan County, MI",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/allegancounty-org/overall/"
+ },
+ {
+  "site": "amadorgov.org",
+  "organization": "Amador County, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/amadorgov-org/overall/"
+ },
+ {
+  "site": "americorps.gov",
+  "organization": "Corporation for National and Community Service",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/americorps-gov/overall/"
+ },
+ {
+  "site": "appj.org",
+  "organization": "Acadia Parish, LA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/appj-org/overall/"
+ },
+ {
+  "site": "arm.gov",
+  "organization": "Department of Energy",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/arm-gov/overall/"
+ },
+ {
+  "site": "atf.gov",
+  "organization": "Department of Justice",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/atf-gov/overall/"
+ },
+ {
+  "site": "atlantic-county.org",
+  "organization": "Atlantic County, NJ",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/atlantic-county-org/overall/"
+ },
+ {
+  "site": "avondaleaz.gov",
+  "organization": "City of Avondale, AZ",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/avondaleaz-gov/overall/"
+ },
+ {
+  "site": "baltimorecountymd.gov",
+  "organization": "Baltimore County, MD",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/baltimorecountymd-gov/overall/"
+ },
+ {
+  "site": "bedfordcountyva.gov",
+  "organization": "Bedford County, VA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bedfordcountyva-gov/overall/"
+ },
+ {
+  "site": "bernco.gov",
+  "organization": "Bernalillo County, NM",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bernco-gov/overall/"
+ },
+ {
+  "site": "bha.colorado.gov",
+  "organization": "Colorado Behavioral Health Administration",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bha-colorado-gov/overall/"
+ },
+ {
+  "site": "bof.fire.ca.gov",
+  "organization": "State of California",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bof-fire-ca-gov/overall/"
+ },
+ {
+  "site": "brazoriacountytx.gov",
+  "organization": "Brazoria County, TX",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/brazoriacountytx-gov/overall/"
+ },
+ {
+  "site": "brokenarrowok.gov",
+  "organization": "City of Broken Arrow, OK",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/brokenarrowok-gov/overall/"
+ },
+ {
+  "site": "bryancountyga.gov",
+  "organization": "Bryan County, GA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bryancountyga-gov/overall/"
+ },
+ {
+  "site": "buckeyeaz.gov",
+  "organization": "City of Buckeye, AZ",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/buckeyeaz-gov/overall/"
+ },
+ {
+  "site": "calcasieu.gov",
+  "organization": "Calcasieu Parish, LA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/calcasieu-gov/overall/"
+ },
+ {
+  "site": "campusdrugprevention.gov",
+  "organization": "Department of Justice",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/campusdrugprevention-gov/overall/"
+ },
+ {
+  "site": "careeronestop.org",
+  "organization": "Employment and Training Administration",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/careeronestop-org/overall/"
+ },
+ {
+  "site": "carlsbadca.gov",
+  "organization": "City of Carlsbad, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/carlsbadca-gov/overall/"
+ },
+ {
+  "site": "carsoncity.gov",
+  "organization": "Carson City, NV",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/carsoncity-gov/overall/"
+ },
+ {
+  "site": "carvercountymn.gov",
+  "organization": "Carver County, MN",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/carvercountymn-gov/overall/"
+ },
+ {
+  "site": "casscountynd.gov",
+  "organization": "Cass County, ND",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/casscountynd-gov/overall/"
+ },
+ {
+  "site": "catoosa.com",
+  "organization": "Catoosa County, GA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/catoosa-com/overall/"
+ },
+ {
+  "site": "cbacfc.org",
+  "organization": "Combined Federal Campaign",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cbacfc-org/overall/"
+ },
+ {
+  "site": "cbo.gov",
+  "organization": "Congressional Budget Office",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cbo-gov/overall/"
+ },
+ {
+  "site": "charlescountymd.gov",
+  "organization": "Charles County, MD",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/charlescountymd-gov/overall/"
+ },
+ {
+  "site": "chathamcountync.gov",
+  "organization": "Chatham County, NC",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/chathamcountync-gov/overall/"
+ },
+ {
+  "site": "chattanooga.gov",
+  "organization": "City of Chattanooga, TN",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/chattanooga-gov/overall/"
+ },
+ {
+  "site": "chulavistaca.gov",
+  "organization": "City of Chula Vista, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/chulavistaca-gov/overall/"
+ },
+ {
+  "site": "ci.staunton.va.us",
+  "organization": "Staunton, VA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ci-staunton-va-us/overall/"
+ },
+ {
+  "site": "cityofcarrollton.com",
+  "organization": "City of Carrollton, TX",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cityofcarrollton-com/overall/"
+ },
+ {
+  "site": "cityoffullerton.com",
+  "organization": "City of Fullerton, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cityoffullerton-com/overall/"
+ },
+ {
+  "site": "cityofhenderson.com",
+  "organization": "City of Henderson, NV",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cityofhenderson-com/overall/"
+ },
+ {
+  "site": "cityofkaty.com",
+  "organization": "City of Katy, TX",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cityofkaty-com/overall/"
+ },
+ {
+  "site": "cityoflancasterca.org",
+  "organization": "City of Lancaster, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cityoflancasterca-org/overall/"
+ },
+ {
+  "site": "cityoflaredo.com",
+  "organization": "City of Laredo, TX",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cityoflaredo-com/overall/"
+ },
+ {
+  "site": "cityoforange.org",
+  "organization": "City of Orange, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cityoforange-org/overall/"
+ },
+ {
+  "site": "cityofpasadena.net",
+  "organization": "City of Pasadena, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cityofpasadena-net/overall/"
+ },
+ {
+  "site": "cityofranchocordova.org",
+  "organization": "City of Rancho Cordova",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cityofranchocordova-org/overall/"
+ },
+ {
+  "site": "claycountygov.com",
+  "organization": "Clay County, FL",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/claycountygov-com/overall/"
+ },
+ {
+  "site": "claycountyillinois.org",
+  "organization": "Clay County, IL",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/claycountyillinois-org/overall/"
+ },
+ {
+  "site": "clintoncountypa.gov",
+  "organization": "Clinton County, PA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/clintoncountypa-gov/overall/"
+ },
+ {
+  "site": "cmts.gov",
+  "organization": "Department of Defense",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cmts-gov/overall/"
+ },
+ {
+  "site": "co.augusta.va.us",
+  "organization": "Augusta County, VA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-augusta-va-us/overall/"
+ },
+ {
+  "site": "co.monroe.wi.us",
+  "organization": "Monroe County, WI",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-monroe-wi-us/overall/"
+ },
+ {
+  "site": "co.rock.wi.us",
+  "organization": "Rock County, WI",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-rock-wi-us/overall/"
+ },
+ {
+  "site": "colorado.gov",
+  "organization": "State of Colorado",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/colorado-gov/overall/"
+ },
+ {
+  "site": "conejoscounty.colorado.gov",
+  "organization": "Conejos County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/conejoscounty-colorado-gov/overall/"
+ },
+ {
+  "site": "cor.net",
+  "organization": "City of Richardson, TX",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cor-net/overall/"
+ },
+ {
+  "site": "countyofkingsca.gov",
+  "organization": "Kings County, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/countyofkingsca-gov/overall/"
+ },
+ {
+  "site": "countyofmonterey.gov",
+  "organization": "Monterey County, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/countyofmonterey-gov/overall/"
+ },
+ {
+  "site": "crowleycounty.colorado.gov",
+  "organization": "Crowley County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/crowleycounty-colorado-gov/overall/"
+ },
+ {
+  "site": "csscoperations.com",
+  "organization": "Department of Health and Human Services",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/csscoperations-com/overall/"
+ },
+ {
+  "site": "currycountynm.gov",
+  "organization": "Curry County, NM",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/currycountynm-gov/overall/"
+ },
+ {
+  "site": "darenc.gov",
+  "organization": "Dare County, NC",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/darenc-gov/overall/"
+ },
+ {
+  "site": "dea.gov",
+  "organization": "Department of Justice",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dea-gov/overall/"
+ },
+ {
+  "site": "dnfsb.gov",
+  "organization": "Defense Nuclear Facilities Safety Board",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dnfsb-gov/overall/"
+ },
+ {
+  "site": "dodea.edu",
+  "organization": "Department of Defense",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dodea-edu/overall/"
+ },
+ {
+  "site": "dolocnty.colorado.gov",
+  "organization": "Dolores County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dolocnty-colorado-gov/overall/"
+ },
+ {
+  "site": "dorchestercountysc.gov",
+  "organization": "Dorchester County, SC",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dorchestercountysc-gov/overall/"
+ },
+ {
+  "site": "douglascounty-ne.gov",
+  "organization": "Douglas County, NE",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/douglascounty-ne-gov/overall/"
+ },
+ {
+  "site": "ed.gov",
+  "organization": "Department of Education",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ed-gov/overall/"
+ },
+ {
+  "site": "elcajon.gov",
+  "organization": "City of El Cajon, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/elcajon-gov/overall/"
+ },
+ {
+  "site": "ellago-tx.gov",
+  "organization": "City of El Lago, TX",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ellago-tx-gov/overall/"
+ },
+ {
+  "site": "faa.gov",
+  "organization": "Department of Transportation",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/faa-gov/overall/"
+ },
+ {
+  "site": "fauquiercounty.gov",
+  "organization": "Fauquier County, VA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fauquiercounty-gov/overall/"
+ },
+ {
+  "site": "fcc.gov",
+  "organization": "Federal Communications Commission",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fcc-gov/overall/"
+ },
+ {
+  "site": "fcva.us",
+  "organization": "Frederick County, VA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fcva-us/overall/"
+ },
+ {
+  "site": "fdlco.wi.gov",
+  "organization": "Fond du Lac County, WI",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fdlco-wi-gov/overall/"
+ },
+ {
+  "site": "fire.ca.gov",
+  "organization": "State of California",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fire-ca-gov/overall/"
+ },
+ {
+  "site": "flpd.gov",
+  "organization": "City of Fort Lauderdale, FL",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/flpd-gov/overall/"
+ },
+ {
+  "site": "fns.usda.gov",
+  "organization": "",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fns-usda-gov/overall/"
+ },
+ {
+  "site": "foodsafety.gov",
+  "organization": "Department of Health and Human Services",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/foodsafety-gov/overall/"
+ },
+ {
+  "site": "forsythco.com",
+  "organization": "Forsyth County, GA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/forsythco-com/overall/"
+ },
+ {
+  "site": "fremont.gov",
+  "organization": "City of Fremont, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fremont-gov/overall/"
+ },
+ {
+  "site": "fremontpolice.gov",
+  "organization": "City of Fremont, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fremontpolice-gov/overall/"
+ },
+ {
+  "site": "fresnocitycollege.edu",
+  "organization": "Fresno City College",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fresnocitycollege-edu/overall/"
+ },
+ {
+  "site": "gadsdencountyfl.gov",
+  "organization": "Gadsden County, FL",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gadsdencountyfl-gov/overall/"
+ },
+ {
+  "site": "galvestoncountytx.gov",
+  "organization": "Galveston County, TX",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/galvestoncountytx-gov/overall/"
+ },
+ {
+  "site": "gc.cuny.edu",
+  "organization": "CUNY Graduate School and University Center",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gc-cuny-edu/overall/"
+ },
+ {
+  "site": "getinternet.gov",
+  "organization": "Federal Communications Commission",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/getinternet-gov/overall/"
+ },
+ {
+  "site": "getsmartaboutdrugs.gov",
+  "organization": "Department of Justice",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/getsmartaboutdrugs-gov/overall/"
+ },
+ {
+  "site": "gfcounty.nd.gov",
+  "organization": "Grand Forks County, ND",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gfcounty-nd-gov/overall/"
+ },
+ {
+  "site": "gilpincounty.colorado.gov",
+  "organization": "Gilpin County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gilpincounty-colorado-gov/overall/"
+ },
+ {
+  "site": "glendaleca.gov",
+  "organization": "City of Glendale, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/glendaleca-gov/overall/"
+ },
+ {
+  "site": "goodyearaz.gov",
+  "organization": "City of Goodyear, AZ",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/goodyearaz-gov/overall/"
+ },
+ {
+  "site": "gov.perrycountytn.com",
+  "organization": "Perry County, TN",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gov-perrycountytn-com/overall/"
+ },
+ {
+  "site": "greensboro-nc.gov",
+  "organization": "City of Greensboro, NC",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/greensboro-nc-gov/overall/"
+ },
+ {
+  "site": "hancockcounty-il.gov",
+  "organization": "Hancock County, IL",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hancockcounty-il-gov/overall/"
+ },
+ {
+  "site": "hartcountyga.gov",
+  "organization": "Hart County, GA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hartcountyga-gov/overall/"
+ },
+ {
+  "site": "hawaiicounty.gov",
+  "organization": "Hawaiʻi County, HI",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hawaiicounty-gov/overall/"
+ },
+ {
+  "site": "hcnj.us",
+  "organization": "Hudson County, NJ",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hcnj-us/overall/"
+ },
+ {
+  "site": "heat.gov",
+  "organization": "Department of Commerce",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/heat-gov/overall/"
+ },
+ {
+  "site": "hhs.gov",
+  "organization": "Department of Health and Human Services",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hhs-gov/overall/"
+ },
+ {
+  "site": "hillsboro-oregon.gov",
+  "organization": "City of Hillsboro, OR",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hillsboro-oregon-gov/overall/"
+ },
+ {
+  "site": "hinsdalecounty.colorado.gov",
+  "organization": "Hinsdale County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hinsdalecounty-colorado-gov/overall/"
+ },
+ {
+  "site": "hrsa.gov",
+  "organization": "Department of Health and Human Services",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hrsa-gov/overall/"
+ },
+ {
+  "site": "investor.gov",
+  "organization": "Securities and Exchange Commission",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/investor-gov/overall/"
+ },
+ {
+  "site": "jacksoncounty.colorado.gov",
+  "organization": "Jackson County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/jacksoncounty-colorado-gov/overall/"
+ },
+ {
+  "site": "jeffersoncountyar.gov",
+  "organization": "Jefferson County, AR",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/jeffersoncountyar-gov/overall/"
+ },
+ {
+  "site": "johnsoncountytx.org",
+  "organization": "Johnson County, TX",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/johnsoncountytx-org/overall/"
+ },
+ {
+  "site": "joincalfire.com",
+  "organization": "",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/joincalfire-com/overall/"
+ },
+ {
+  "site": "justthinktwice.gov",
+  "organization": "Department of Justice",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/justthinktwice-gov/overall/"
+ },
+ {
+  "site": "kcmo.gov",
+  "organization": "City of Kansas City, MO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/kcmo-gov/overall/"
+ },
+ {
+  "site": "kendallcountyil.gov",
+  "organization": "Kendall County, IL",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/kendallcountyil-gov/overall/"
+ },
+ {
+  "site": "kentwa.gov",
+  "organization": "City of Kent, WA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/kentwa-gov/overall/"
+ },
+ {
+  "site": "kerncounty.com",
+  "organization": "Kern County, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/kerncounty-com/overall/"
+ },
+ {
+  "site": "kershaw.sc.gov",
+  "organization": "Kershaw County, SC",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/kershaw-sc-gov/overall/"
+ },
+ {
+  "site": "kiowacounty.colorado.gov",
+  "organization": "Kiowa County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/kiowacounty-colorado-gov/overall/"
+ },
+ {
+  "site": "kitcarsoncounty.colorado.gov",
+  "organization": "Kit Carson County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/kitcarsoncounty-colorado-gov/overall/"
+ },
+ {
+  "site": "lamission.edu",
+  "organization": "Los Angeles Mission College",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lamission-edu/overall/"
+ },
+ {
+  "site": "lasanimascounty.colorado.gov",
+  "organization": "Las Animas County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lasanimascounty-colorado-gov/overall/"
+ },
+ {
+  "site": "lavc.edu",
+  "organization": "Los Angeles Valley College",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lavc-edu/overall/"
+ },
+ {
+  "site": "library.ca.gov",
+  "organization": "",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/library-ca-gov/overall/"
+ },
+ {
+  "site": "lincolncounty.colorado.gov",
+  "organization": "Lincoln County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lincolncounty-colorado-gov/overall/"
+ },
+ {
+  "site": "logancounty.colorado.gov",
+  "organization": "Logan County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/logancounty-colorado-gov/overall/"
+ },
+ {
+  "site": "lorainccc.edu",
+  "organization": "Lorain County Community College",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lorainccc-edu/overall/"
+ },
+ {
+  "site": "lovelafayette.org",
+  "organization": "",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lovelafayette-org/overall/"
+ },
+ {
+  "site": "lyoncountymn.gov",
+  "organization": "Lyon County, MN",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lyoncountymn-gov/overall/"
+ },
+ {
+  "site": "maderacounty.com",
+  "organization": "Madera County, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/maderacounty-com/overall/"
+ },
+ {
+  "site": "malheurco.org",
+  "organization": "Malheur County, OR",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/malheurco-org/overall/"
+ },
+ {
+  "site": "marathoncounty.gov",
+  "organization": "Marathon County, WI",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/marathoncounty-gov/overall/"
+ },
+ {
+  "site": "marionfl.org",
+  "organization": "Marion County, FL",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/marionfl-org/overall/"
+ },
+ {
+  "site": "mchenrycountyil.gov",
+  "organization": "McHenry County, IL",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mchenrycountyil-gov/overall/"
+ },
+ {
+  "site": "mercercounty.org",
+  "organization": "Mercer County, NJ",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mercercounty-org/overall/"
+ },
+ {
+  "site": "middlesexcountynj.gov",
+  "organization": "Middlesex County, NJ",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/middlesexcountynj-gov/overall/"
+ },
+ {
+  "site": "moffatcounty.colorado.gov",
+  "organization": "Moffat County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/moffatcounty-colorado-gov/overall/"
+ },
+ {
+  "site": "montgomeryal.gov",
+  "organization": "City of Montgomery, AL",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/montgomeryal-gov/overall/"
+ },
+ {
+  "site": "morgancounty.colorado.gov",
+  "organization": "Morgan County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/morgancounty-colorado-gov/overall/"
+ },
+ {
+  "site": "musselshellcounty.org",
+  "organization": "Musselshell County, MT",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/musselshellcounty-org/overall/"
+ },
+ {
+  "site": "myplate.gov",
+  "organization": "U.S. Department of Agriculture",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/myplate-gov/overall/"
+ },
+ {
+  "site": "ncstatecollege.edu",
+  "organization": "North Central State College",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ncstatecollege-edu/overall/"
+ },
+ {
+  "site": "newarkca.gov",
+  "organization": "City of Newark, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/newarkca-gov/overall/"
+ },
+ {
+  "site": "newhavenct.gov",
+  "organization": "City of New Haven, CT",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/newhavenct-gov/overall/"
+ },
+ {
+  "site": "nh.gov",
+  "organization": "State of New Hampshire",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nh-gov/overall/"
+ },
+ {
+  "site": "nhtsa.gov",
+  "organization": "Department of Transportation",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nhtsa-gov/overall/"
+ },
+ {
+  "site": "nmaahcstore.com",
+  "organization": "Smithsonian Institution",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nmaahcstore-com/overall/"
+ },
+ {
+  "site": "nsa.gov",
+  "organization": "Department of Defense",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nsa-gov/overall/"
+ },
+ {
+  "site": "nuecesco.com",
+  "organization": "Nueces County, TX",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nuecesco-com/overall/"
+ },
+ {
+  "site": "nwosu.edu",
+  "organization": "Northwestern Oklahoma State University",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nwosu-edu/overall/"
+ },
+ {
+  "site": "okeechobeecountyfl.gov",
+  "organization": "Okeechobee County, FL",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/okeechobeecountyfl-gov/overall/"
+ },
+ {
+  "site": "olatheks.gov",
+  "organization": "City of Olathe, KS",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/olatheks-gov/overall/"
+ },
+ {
+  "site": "opsu.edu",
+  "organization": "Oklahoma Panhandle State University",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/opsu-edu/overall/"
+ },
+ {
+  "site": "organdonor.gov",
+  "organization": "Department of Health and Human Services",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/organdonor-gov/overall/"
+ },
+ {
+  "site": "osac.gov",
+  "organization": "Department of State",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/osac-gov/overall/"
+ },
+ {
+  "site": "osfm.fire.ca.gov",
+  "organization": "State of California",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/osfm-fire-ca-gov/overall/"
+ },
+ {
+  "site": "osha.gov",
+  "organization": "Department of Labor",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/osha-gov/overall/"
+ },
+ {
+  "site": "oterocounty.colorado.gov",
+  "organization": "Otero County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/oterocounty-colorado-gov/overall/"
+ },
+ {
+  "site": "passaiccountynj.org",
+  "organization": "Passaic County, NJ",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/passaiccountynj-org/overall/"
+ },
+ {
+  "site": "pearlandtx.gov",
+  "organization": "City of Pearland, TX",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pearlandtx-gov/overall/"
+ },
+ {
+  "site": "perquimanscountync.gov",
+  "organization": "Perquimans County, NC",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/perquimanscountync-gov/overall/"
+ },
+ {
+  "site": "personcountync.gov",
+  "organization": "Person County, NC",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/personcountync-gov/overall/"
+ },
+ {
+  "site": "phillipscounty.colorado.gov",
+  "organization": "Phillips County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/phillipscounty-colorado-gov/overall/"
+ },
+ {
+  "site": "pinellastaxcollector.gov",
+  "organization": "",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pinellastaxcollector-gov/overall/"
+ },
+ {
+  "site": "pocahontascounty.iowa.gov",
+  "organization": "Pocahontas County, IA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pocahontascounty-iowa-gov/overall/"
+ },
+ {
+  "site": "polkcountyiowa.gov",
+  "organization": "Polk County, IA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/polkcountyiowa-gov/overall/"
+ },
+ {
+  "site": "pomonaca.gov",
+  "organization": "City of Pomona, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pomonaca-gov/overall/"
+ },
+ {
+  "site": "potomacstatecollege.edu",
+  "organization": "Potomac State College of West Virginia University",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/potomacstatecollege-edu/overall/"
+ },
+ {
+  "site": "princegeorgescountymd.gov",
+  "organization": "Prince George's County, MD",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/princegeorgescountymd-gov/overall/"
+ },
+ {
+  "site": "puc.colorado.gov",
+  "organization": "Colorado Governor's Office of Information Technology",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/puc-colorado-gov/overall/"
+ },
+ {
+  "site": "racinecounty.com",
+  "organization": "Racine County, WI",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/racinecounty-com/overall/"
+ },
+ {
+  "site": "rd.usda.gov",
+  "organization": "",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rd-usda-gov/overall/"
+ },
+ {
+  "site": "reevescounty.org",
+  "organization": "Reeves County, TX",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/reevescounty-org/overall/"
+ },
+ {
+  "site": "regulations.gov",
+  "organization": "General Services Administration",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/regulations-gov/overall/"
+ },
+ {
+  "site": "riograndecounty.colorado.gov",
+  "organization": "Rio Grande County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/riograndecounty-colorado-gov/overall/"
+ },
+ {
+  "site": "rocklandcountyny.gov",
+  "organization": "",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rocklandcountyny-gov/overall/"
+ },
+ {
+  "site": "rsu.edu",
+  "organization": "Rogers State University",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rsu-edu/overall/"
+ },
+ {
+  "site": "rural.gov",
+  "organization": "U.S. Department of Agriculture",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rural-gov/overall/"
+ },
+ {
+  "site": "saguachecounty.colorado.gov",
+  "organization": "Saguache County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/saguachecounty-colorado-gov/overall/"
+ },
+ {
+  "site": "sanbenitocountyca.gov",
+  "organization": "San Benito County, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sanbenitocountyca-gov/overall/"
+ },
+ {
+  "site": "sanjoseca.gov",
+  "organization": "City of San Jose, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sanjoseca-gov/overall/"
+ },
+ {
+  "site": "sanjuancounty.colorado.gov",
+  "organization": "San Juan County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sanjuancounty-colorado-gov/overall/"
+ },
+ {
+  "site": "santaclaraca.gov",
+  "organization": "City of Santa Clara, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/santaclaraca-gov/overall/"
+ },
+ {
+  "site": "scgov.net",
+  "organization": "Sarasota County, FL",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/scgov-net/overall/"
+ },
+ {
+  "site": "sdsheriff.gov",
+  "organization": "",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sdsheriff-gov/overall/"
+ },
+ {
+  "site": "sedgwickcounty.colorado.gov",
+  "organization": "Sedgwick County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sedgwickcounty-colorado-gov/overall/"
+ },
+ {
+  "site": "sen.gov",
+  "organization": "United States Senate",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sen-gov/overall/"
+ },
+ {
+  "site": "senate.gov",
+  "organization": "United States Senate",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/senate-gov/overall/"
+ },
+ {
+  "site": "sequatchiecountytn.gov",
+  "organization": "Sequatchie County, TN",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sequatchiecountytn-gov/overall/"
+ },
+ {
+  "site": "sheboygancounty.com",
+  "organization": "Sheboygan County, WI",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sheboygancounty-com/overall/"
+ },
+ {
+  "site": "sjcounty.net",
+  "organization": "San Juan County, NM",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sjcounty-net/overall/"
+ },
+ {
+  "site": "skamaniacounty.org",
+  "organization": "Skamania County, WA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/skamaniacounty-org/overall/"
+ },
+ {
+  "site": "somersetcountynj.gov",
+  "organization": "Somerset County, NJ",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/somersetcountynj-gov/overall/"
+ },
+ {
+  "site": "ssa.gov",
+  "organization": "Social Security Administration",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ssa-gov/overall/"
+ },
+ {
+  "site": "stamfordct.gov",
+  "organization": "City of Stamford, CT",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/stamfordct-gov/overall/"
+ },
+ {
+  "site": "state.gov",
+  "organization": "Department of State",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/state-gov/overall/"
+ },
+ {
+  "site": "stcharlesparish.gov",
+  "organization": "St. Charles Parish, LA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/stcharlesparish-gov/overall/"
+ },
+ {
+  "site": "stennis.gov",
+  "organization": "Stennis Center for Public Service",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/stennis-gov/overall/"
+ },
+ {
+  "site": "stewartcountyga.gov",
+  "organization": "Stewart County, GA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/stewartcountyga-gov/overall/"
+ },
+ {
+  "site": "stlucieco.gov",
+  "organization": "Saint Lucie County, FL",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/stlucieco-gov/overall/"
+ },
+ {
+  "site": "stopbullying.gov",
+  "organization": "Department of Health and Human Services",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/stopbullying-gov/overall/"
+ },
+ {
+  "site": "subr.edu",
+  "organization": "Southern University and A & M College",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/subr-edu/overall/"
+ },
+ {
+  "site": "sulc.edu",
+  "organization": "Southern University Law Center",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sulc-edu/overall/"
+ },
+ {
+  "site": "suno.edu",
+  "organization": "Southern University at New Orleans",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/suno-edu/overall/"
+ },
+ {
+  "site": "suttercounty.org",
+  "organization": "Sutter County, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/suttercounty-org/overall/"
+ },
+ {
+  "site": "switzerland-county.com",
+  "organization": "Switzerland County, IN",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/switzerland-county-com/overall/"
+ },
+ {
+  "site": "tcnj.edu",
+  "organization": "The College of New Jersey",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tcnj-edu/overall/"
+ },
+ {
+  "site": "tempe.gov",
+  "organization": "City of Tempe, AZ",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tempe-gov/overall/"
+ },
+ {
+  "site": "tjc.edu",
+  "organization": "Tyler Junior College",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tjc-edu/overall/"
+ },
+ {
+  "site": "toombscountyga.gov",
+  "organization": "Toombs County, GA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/toombscountyga-gov/overall/"
+ },
+ {
+  "site": "trafficsafetymarketing.gov",
+  "organization": "Department of Transportation",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/trafficsafetymarketing-gov/overall/"
+ },
+ {
+  "site": "transportation.gov",
+  "organization": "Department of Transportation",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/transportation-gov/overall/"
+ },
+ {
+  "site": "ucmerced.edu",
+  "organization": "University of California-Merced",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ucmerced-edu/overall/"
+ },
+ {
+  "site": "uco.edu",
+  "organization": "University of Central Oklahoma",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/uco-edu/overall/"
+ },
+ {
+  "site": "umes.edu",
+  "organization": "University of Maryland Eastern Shore",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/umes-edu/overall/"
+ },
+ {
+  "site": "unioncountyky.org",
+  "organization": "Union County, KY",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/unioncountyky-org/overall/"
+ },
+ {
+  "site": "unioncountync.gov",
+  "organization": "Union County, NC",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/unioncountync-gov/overall/"
+ },
+ {
+  "site": "usda.gov",
+  "organization": "U.S. Department of Agriculture",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/usda-gov/overall/"
+ },
+ {
+  "site": "usembassy.gov",
+  "organization": "Department of State",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/usembassy-gov/overall/"
+ },
+ {
+  "site": "usitc.gov",
+  "organization": "United States International Trade Commission",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/usitc-gov/overall/"
+ },
+ {
+  "site": "usmarshals.gov",
+  "organization": "Department of Justice",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/usmarshals-gov/overall/"
+ },
+ {
+  "site": "usmma.edu",
+  "organization": "United States Merchant Marine Academy",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/usmma-edu/overall/"
+ },
+ {
+  "site": "warrencountynj.gov",
+  "organization": "",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/warrencountynj-gov/overall/"
+ },
+ {
+  "site": "washco.utah.gov",
+  "organization": "Washington County, UT",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/washco-utah-gov/overall/"
+ },
+ {
+  "site": "washingtoncounty.colorado.gov",
+  "organization": "Washington County, CO",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/washingtoncounty-colorado-gov/overall/"
+ },
+ {
+  "site": "washingtoncountyar.gov",
+  "organization": "Washington County, AR",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/washingtoncountyar-gov/overall/"
+ },
+ {
+  "site": "washingtoncountyks.gov",
+  "organization": "Washington County, KS",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/washingtoncountyks-gov/overall/"
+ },
+ {
+  "site": "wcsu.edu",
+  "organization": "Western Connecticut State University",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/wcsu-edu/overall/"
+ },
+ {
+  "site": "webstercountyia.gov",
+  "organization": "Webster County, IA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/webstercountyia-gov/overall/"
+ },
+ {
+  "site": "whatcom.edu",
+  "organization": "Whatcom Community College",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/whatcom-edu/overall/"
+ },
+ {
+  "site": "whistleblowers.gov",
+  "organization": "Department of Labor",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/whistleblowers-gov/overall/"
+ },
+ {
+  "site": "wilsoncountync.gov",
+  "organization": "Wilson County, NC",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/wilsoncountync-gov/overall/"
+ },
+ {
+  "site": "wlac.edu",
+  "organization": "West Los Angeles College",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/wlac-edu/overall/"
+ },
+ {
+  "site": "wvu.edu",
+  "organization": "West Virginia University",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/wvu-edu/overall/"
+ },
+ {
+  "site": "wvutech.edu",
+  "organization": "West Virginia University Institute of Technology",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/wvutech-edu/overall/"
+ },
+ {
+  "site": "yolocounty.gov",
+  "organization": "Yolo County, CA",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yolocounty-gov/overall/"
+ },
+ {
+  "site": "yumaaz.gov",
+  "organization": "City of Yuma, AZ",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yumaaz-gov/overall/"
+ },
+ {
+  "site": "yumacountyaz.gov",
+  "organization": "",
+  "status_code": 403,
+  "status_label": "Forbidden",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yumacountyaz-gov/overall/"
+ }
+]

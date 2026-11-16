@@ -1,0 +1,530 @@
+[
+ {
+  "site": "aamu.edu",
+  "organization": "Alabama A & M University",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/aamu-edu/overall/"
+ },
+ {
+  "site": "adacounty.id.gov",
+  "organization": "Ada County, ID",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/adacounty-id-gov/overall/"
+ },
+ {
+  "site": "arecibo.inter.edu",
+  "organization": "Inter American University of Puerto Rico-Arecibo",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/arecibo-inter-edu/overall/"
+ },
+ {
+  "site": "arvadaco.gov",
+  "organization": "City of Arvada, CO",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/arvadaco-gov/overall/"
+ },
+ {
+  "site": "assessor.lacounty.gov",
+  "organization": "",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/assessor-lacounty-gov/overall/"
+ },
+ {
+  "site": "bmcc.cuny.edu",
+  "organization": "CUNY Borough of Manhattan Community College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bmcc-cuny-edu/overall/"
+ },
+ {
+  "site": "brownsvilletx.gov",
+  "organization": "City of Brownsville, TX",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/brownsvilletx-gov/overall/"
+ },
+ {
+  "site": "buffalony.gov",
+  "organization": "City of Buffalo, NY",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/buffalony-gov/overall/"
+ },
+ {
+  "site": "cameroncountytx.gov",
+  "organization": "Cameron County, TX",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cameroncountytx-gov/overall/"
+ },
+ {
+  "site": "centenaryuniversity.edu",
+  "organization": "Centenary University",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/centenaryuniversity-edu/overall/"
+ },
+ {
+  "site": "chenangocountyny.gov",
+  "organization": "Chenango County, NY",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/chenangocountyny-gov/overall/"
+ },
+ {
+  "site": "cia.edu",
+  "organization": "Cleveland Institute of Art",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cia-edu/overall/"
+ },
+ {
+  "site": "claytoncountyga.gov",
+  "organization": "",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/claytoncountyga-gov/overall/"
+ },
+ {
+  "site": "clcillinois.edu",
+  "organization": "College of Lake County",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/clcillinois-edu/overall/"
+ },
+ {
+  "site": "co.erath.tx.us",
+  "organization": "Erath County, TX",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-erath-tx-us/overall/"
+ },
+ {
+  "site": "cuw.edu",
+  "organization": "Concordia University-Wisconsin",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cuw-edu/overall/"
+ },
+ {
+  "site": "delcony.gov",
+  "organization": "Delaware County, NY",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/delcony-gov/overall/"
+ },
+ {
+  "site": "durhamnc.gov",
+  "organization": "City of Durham, NC",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/durhamnc-gov/overall/"
+ },
+ {
+  "site": "elcamino.edu",
+  "organization": "El Camino Community College District",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/elcamino-edu/overall/"
+ },
+ {
+  "site": "ensign.edu",
+  "organization": "Ensign College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ensign-edu/overall/"
+ },
+ {
+  "site": "erskine.edu",
+  "organization": "Erskine College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/erskine-edu/overall/"
+ },
+ {
+  "site": "ffiec.gov",
+  "organization": "Federal Reserve Board of Governors",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ffiec-gov/overall/"
+ },
+ {
+  "site": "fremontcountyid.gov",
+  "organization": "Fremont County, ID",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fremontcountyid-gov/overall/"
+ },
+ {
+  "site": "fullerton.edu",
+  "organization": "California State University-Fullerton",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fullerton-edu/overall/"
+ },
+ {
+  "site": "gallatinky.org",
+  "organization": "Gallatin County, KY",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gallatinky-org/overall/"
+ },
+ {
+  "site": "generations.edu",
+  "organization": "Generations College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/generations-edu/overall/"
+ },
+ {
+  "site": "glenville.edu",
+  "organization": "Glenville State University",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/glenville-edu/overall/"
+ },
+ {
+  "site": "gmu.edu",
+  "organization": "George Mason University",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gmu-edu/overall/"
+ },
+ {
+  "site": "gunnisoncounty.org",
+  "organization": "Gunnison County, CO",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gunnisoncounty-org/overall/"
+ },
+ {
+  "site": "hampton.gov",
+  "organization": "City of Hampton, VA",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hampton-gov/overall/"
+ },
+ {
+  "site": "hardingsd.net",
+  "organization": "Harding County, SD",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hardingsd-net/overall/"
+ },
+ {
+  "site": "harneycountyor.gov",
+  "organization": "Harney County, OR",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/harneycountyor-gov/overall/"
+ },
+ {
+  "site": "hawkeyecollege.edu",
+  "organization": "Hawkeye Community College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hawkeyecollege-edu/overall/"
+ },
+ {
+  "site": "hssu.edu",
+  "organization": "Harris-Stowe State University",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hssu-edu/overall/"
+ },
+ {
+  "site": "isanticountymn.gov",
+  "organization": "Isanti County, MN",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/isanticountymn-gov/overall/"
+ },
+ {
+  "site": "jamescitycountyva.gov",
+  "organization": "James City County, VA",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/jamescitycountyva-gov/overall/"
+ },
+ {
+  "site": "kalcounty.gov",
+  "organization": "Kalamazoo County, MI",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/kalcounty-gov/overall/"
+ },
+ {
+  "site": "kenoshacountywi.gov",
+  "organization": "Kenosha County, WI",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/kenoshacountywi-gov/overall/"
+ },
+ {
+  "site": "kent.edu",
+  "organization": "Kent State University at Kent",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/kent-edu/overall/"
+ },
+ {
+  "site": "lamarcc.edu",
+  "organization": "Lamar Community College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lamarcc-edu/overall/"
+ },
+ {
+  "site": "law.cuny.edu",
+  "organization": "CUNY School of Law",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/law-cuny-edu/overall/"
+ },
+ {
+  "site": "lcsc.edu",
+  "organization": "Lewis-Clark State College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lcsc-edu/overall/"
+ },
+ {
+  "site": "mableton.gov",
+  "organization": "City Of Mableton",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mableton-gov/overall/"
+ },
+ {
+  "site": "mgcc.edu",
+  "organization": "Mountain Gateway Community College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mgcc-edu/overall/"
+ },
+ {
+  "site": "monroecc.edu",
+  "organization": "Monroe Community College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/monroecc-edu/overall/"
+ },
+ {
+  "site": "morris.edu",
+  "organization": "Morris College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/morris-edu/overall/"
+ },
+ {
+  "site": "napacounty.gov",
+  "organization": "Napa County, CA",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/napacounty-gov/overall/"
+ },
+ {
+  "site": "odessa.edu",
+  "organization": "Odessa College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/odessa-edu/overall/"
+ },
+ {
+  "site": "ottawa.edu",
+  "organization": "Ottawa University",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ottawa-edu/overall/"
+ },
+ {
+  "site": "ozarka.edu",
+  "organization": "Ozarka College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ozarka-edu/overall/"
+ },
+ {
+  "site": "portagecounty-oh.gov",
+  "organization": "Portage County, OH",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/portagecounty-oh-gov/overall/"
+ },
+ {
+  "site": "putnamcountyny.gov",
+  "organization": "Putnam County, NY",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/putnamcountyny-gov/overall/"
+ },
+ {
+  "site": "qcc.cuny.edu",
+  "organization": "CUNY Queensborough Community College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/qcc-cuny-edu/overall/"
+ },
+ {
+  "site": "rcm.upr.edu",
+  "organization": "University of Puerto Rico-Medical Sciences",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rcm-upr-edu/overall/"
+ },
+ {
+  "site": "safecom.gov",
+  "organization": "Department of the Interior",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/safecom-gov/overall/"
+ },
+ {
+  "site": "sfcc.edu",
+  "organization": "Santa Fe Community College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sfcc-edu/overall/"
+ },
+ {
+  "site": "si.edu",
+  "organization": "Smithsonian Institution",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/si-edu/overall/"
+ },
+ {
+  "site": "spartanburgcounty.gov",
+  "organization": "Spartanburg County, SC",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/spartanburgcounty-gov/overall/"
+ },
+ {
+  "site": "srcity.org",
+  "organization": "City of Santa Rosa, CA",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/srcity-org/overall/"
+ },
+ {
+  "site": "swcollege.edu",
+  "organization": "Sisseton Wahpeton College",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/swcollege-edu/overall/"
+ },
+ {
+  "site": "tusculum.edu",
+  "organization": "Tusculum University",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tusculum-edu/overall/"
+ },
+ {
+  "site": "umflint.edu",
+  "organization": "University of Michigan-Flint",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/umflint-edu/overall/"
+ },
+ {
+  "site": "utoledo.edu",
+  "organization": "University of Toledo",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/utoledo-edu/overall/"
+ },
+ {
+  "site": "vsc.edu",
+  "organization": "Vermont State Colleges-Office of the Chancellor",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/vsc-edu/overall/"
+ },
+ {
+  "site": "winnebagocountywi.gov",
+  "organization": "Winnebago County, WI",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/winnebagocountywi-gov/overall/"
+ },
+ {
+  "site": "yorkcountysc.gov",
+  "organization": "York County, SC",
+  "status_code": 995,
+  "status_label": "No page content",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yorkcountysc-gov/overall/"
+ }
+]

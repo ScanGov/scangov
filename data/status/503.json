@@ -1,0 +1,34 @@
+[
+ {
+  "site": "co.montgomery.ny.us",
+  "organization": "Montgomery County, NY",
+  "status_code": 503,
+  "status_label": "Service Unavailable",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-montgomery-ny-us/overall/"
+ },
+ {
+  "site": "copiahcountyms.gov",
+  "organization": "Copiah County, MS",
+  "status_code": 503,
+  "status_label": "Service Unavailable",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/copiahcountyms-gov/overall/"
+ },
+ {
+  "site": "hindscountyms.com",
+  "organization": "Hinds County, MS",
+  "status_code": 503,
+  "status_label": "Service Unavailable",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hindscountyms-com/overall/"
+ },
+ {
+  "site": "winnparishpolicejury.com",
+  "organization": "Winn Parish, LA",
+  "status_code": 503,
+  "status_label": "Service Unavailable",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/winnparishpolicejury-com/overall/"
+ }
+]

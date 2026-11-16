@@ -1,0 +1,114 @@
+[
+ {
+  "site": "adaircounty.ky.gov",
+  "organization": "Adair County, KY",
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/adaircounty-ky-gov/overall/"
+ },
+ {
+  "site": "ars-grin.gov",
+  "organization": "U.S. Department of Agriculture",
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ars-grin-gov/overall/"
+ },
+ {
+  "site": "coahomacc.edu",
+  "organization": "Coahoma Community College",
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/coahomacc-edu/overall/"
+ },
+ {
+  "site": "energycodes.gov",
+  "organization": "Department of Energy",
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/energycodes-gov/overall/"
+ },
+ {
+  "site": "fountaincounty.net",
+  "organization": "Fountain County, IN",
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fountaincounty-net/overall/"
+ },
+ {
+  "site": "franklincoms.weebly.com",
+  "organization": "Franklin County, MS",
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/franklincoms-weebly-com/overall/"
+ },
+ {
+  "site": "graysoncountyky.gov",
+  "organization": "Grayson County, KY",
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/graysoncountyky-gov/overall/"
+ },
+ {
+  "site": "jmu.edu",
+  "organization": "",
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/jmu-edu/overall/"
+ },
+ {
+  "site": "laredo.edu",
+  "organization": "",
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/laredo-edu/overall/"
+ },
+ {
+  "site": "mercercounty.ky.gov",
+  "organization": "Mercer County, KY",
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mercercounty-ky-gov/overall/"
+ },
+ {
+  "site": "ohio.gov",
+  "organization": "State of Ohio",
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ohio-gov/overall/"
+ },
+ {
+  "site": "skagitcounty.net",
+  "organization": "Skagit County, WA",
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/skagitcounty-net/overall/"
+ },
+ {
+  "site": "ualr.edu",
+  "organization": "",
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ualr-edu/overall/"
+ },
+ {
+  "site": "yumacounty.net",
+  "organization": "Yuma County, CO",
+  "status_code": 404,
+  "status_label": "Not Found",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yumacounty-net/overall/"
+ }
+]

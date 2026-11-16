@@ -1,0 +1,82 @@
+[
+ {
+  "site": "carolinascollege.edu",
+  "organization": "Carolinas College of Health Sciences",
+  "status_code": 993,
+  "status_label": "Certificate error",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/carolinascollege-edu/overall/"
+ },
+ {
+  "site": "cio.gov",
+  "organization": "General Services Administration",
+  "status_code": 993,
+  "status_label": "Certificate error",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cio-gov/overall/"
+ },
+ {
+  "site": "co.becker.mn.us",
+  "organization": "Becker County, MN",
+  "status_code": 993,
+  "status_label": "Certificate error",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-becker-mn-us/overall/"
+ },
+ {
+  "site": "co.bee.tx.us",
+  "organization": "Bee County, TX",
+  "status_code": 993,
+  "status_label": "Certificate error",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-bee-tx-us/overall/"
+ },
+ {
+  "site": "evaluation.gov",
+  "organization": "General Services Administration",
+  "status_code": 993,
+  "status_label": "Certificate error",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/evaluation-gov/overall/"
+ },
+ {
+  "site": "jackcounty.org",
+  "organization": "Jack County, TX",
+  "status_code": 993,
+  "status_label": "Certificate error",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/jackcounty-org/overall/"
+ },
+ {
+  "site": "new.uno.edu",
+  "organization": "University of New Orleans",
+  "status_code": 993,
+  "status_label": "Certificate error",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/new-uno-edu/overall/"
+ },
+ {
+  "site": "opa.ca.gov",
+  "organization": "State of California",
+  "status_code": 993,
+  "status_label": "Certificate error",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/opa-ca-gov/overall/"
+ },
+ {
+  "site": "umfk.maine.edu",
+  "organization": "University of Maine at Fort Kent",
+  "status_code": 993,
+  "status_label": "Certificate error",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/umfk-maine-edu/overall/"
+ },
+ {
+  "site": "waynecountyutah.org",
+  "organization": "Wayne County, UT",
+  "status_code": 993,
+  "status_label": "Certificate error",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/waynecountyutah-org/overall/"
+ }
+]

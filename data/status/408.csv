@@ -1,0 +1,12 @@
+site,organization,status_code,status_label,status_type,report
+"adlnet.gov","Department of Defense",408,"Request Timeout","inaccessible","https://scangov.org/profile/adlnet-gov/overall/"
+"co.hardin.oh.us","Hardin County, OH",408,"Request Timeout","inaccessible","https://scangov.org/profile/co-hardin-oh-us/overall/"
+"co.houston.mn.us","Houston County, MN",408,"Request Timeout","inaccessible","https://scangov.org/profile/co-houston-mn-us/overall/"
+"crispcounty.com","Crisp County, GA",408,"Request Timeout","inaccessible","https://scangov.org/profile/crispcounty-com/overall/"
+"csusm.edu","California State University-San Marcos",408,"Request Timeout","inaccessible","https://scangov.org/profile/csusm-edu/overall/"
+"mccookcountysd.com","McCook County, SD",408,"Request Timeout","inaccessible","https://scangov.org/profile/mccookcountysd-com/overall/"
+"northamptoncounty.org","Northampton County, PA",408,"Request Timeout","inaccessible","https://scangov.org/profile/northamptoncounty-org/overall/"
+"pmi.gov","U.S. Agency for International Development",408,"Request Timeout","inaccessible","https://scangov.org/profile/pmi-gov/overall/"
+"salmonrecovery.gov","Department of the Interior",408,"Request Timeout","inaccessible","https://scangov.org/profile/salmonrecovery-gov/overall/"
+"usalearning.gov","Office of Personnel Management",408,"Request Timeout","inaccessible","https://scangov.org/profile/usalearning-gov/overall/"
+

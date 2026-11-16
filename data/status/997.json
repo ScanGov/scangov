@@ -1,0 +1,410 @@
+[
+ {
+  "site": "algercounty.gov",
+  "organization": "Alger County, MI",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/algercounty-gov/overall/"
+ },
+ {
+  "site": "arts.gov",
+  "organization": "National Endowment for the Arts",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/arts-gov/overall/"
+ },
+ {
+  "site": "bourboncountyks.org",
+  "organization": "Bourbon County, KS",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bourboncountyks-org/overall/"
+ },
+ {
+  "site": "caldwell.edu",
+  "organization": "Caldwell University",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/caldwell-edu/overall/"
+ },
+ {
+  "site": "campbellcountyky.gov",
+  "organization": "Campbell County, KY",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/campbellcountyky-gov/overall/"
+ },
+ {
+  "site": "co.alleghany.va.us",
+  "organization": "Alleghany County, VA",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-alleghany-va-us/overall/"
+ },
+ {
+  "site": "co.dekalb.in.us",
+  "organization": "DeKalb County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-dekalb-in-us/overall/"
+ },
+ {
+  "site": "co.greene.in.us",
+  "organization": "Greene County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-greene-in-us/overall/"
+ },
+ {
+  "site": "co.hendricks.in.us",
+  "organization": "Hendricks County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-hendricks-in-us/overall/"
+ },
+ {
+  "site": "co.marshall.in.us",
+  "organization": "Marshall County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-marshall-in-us/overall/"
+ },
+ {
+  "site": "co.walker.tx.us",
+  "organization": "Walker County, TX",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-walker-tx-us/overall/"
+ },
+ {
+  "site": "conservation.gov",
+  "organization": "Department of the Interior",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/conservation-gov/overall/"
+ },
+ {
+  "site": "criticalminerals.gov",
+  "organization": "Department of the Interior",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/criticalminerals-gov/overall/"
+ },
+ {
+  "site": "dearborncounty.org",
+  "organization": "Dearborn County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dearborncounty-org/overall/"
+ },
+ {
+  "site": "douglas.co.us",
+  "organization": "Douglas County, CO",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/douglas-co-us/overall/"
+ },
+ {
+  "site": "evansvillegov.org",
+  "organization": "Vanderburgh County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/evansvillegov-org/overall/"
+ },
+ {
+  "site": "gao.gov",
+  "organization": "Government Accountability Office",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gao-gov/overall/"
+ },
+ {
+  "site": "huntington.in.us",
+  "organization": "Huntington County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/huntington-in-us/overall/"
+ },
+ {
+  "site": "johnsoncounty.in.gov",
+  "organization": "Johnson County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/johnsoncounty-in-gov/overall/"
+ },
+ {
+  "site": "kosciusko.in.gov",
+  "organization": "Kosciusko County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/kosciusko-in-gov/overall/"
+ },
+ {
+  "site": "lagrangecounty.org",
+  "organization": "LaGrange County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lagrangecounty-org/overall/"
+ },
+ {
+  "site": "littlehoop.edu",
+  "organization": "Cankdeska Cikana Community College",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/littlehoop-edu/overall/"
+ },
+ {
+  "site": "ltu.edu",
+  "organization": "Lawrence Technological University",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ltu-edu/overall/"
+ },
+ {
+  "site": "lubbockcounty.gov",
+  "organization": "Lubbock County, TX",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lubbockcounty-gov/overall/"
+ },
+ {
+  "site": "macuniversity.edu",
+  "organization": "Mid-Atlantic Christian University",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/macuniversity-edu/overall/"
+ },
+ {
+  "site": "marinecadastre.gov",
+  "organization": "Department of Commerce",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/marinecadastre-gov/overall/"
+ },
+ {
+  "site": "maui.hawaii.edu",
+  "organization": "University of Hawaii Maui College",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/maui-hawaii-edu/overall/"
+ },
+ {
+  "site": "mbu.edu",
+  "organization": "Maranatha Baptist University",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mbu-edu/overall/"
+ },
+ {
+  "site": "mitigationcommission.gov",
+  "organization": "Department of the Interior",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mitigationcommission-gov/overall/"
+ },
+ {
+  "site": "morgancounty.in.gov",
+  "organization": "Morgan County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/morgancounty-in-gov/overall/"
+ },
+ {
+  "site": "neh.gov",
+  "organization": "National Endowment for the Humanities",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/neh-gov/overall/"
+ },
+ {
+  "site": "nelsoncountyky.gov",
+  "organization": "Nelson County, KY",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nelsoncountyky-gov/overall/"
+ },
+ {
+  "site": "newtoncounty.in.gov",
+  "organization": "Newton County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/newtoncounty-in-gov/overall/"
+ },
+ {
+  "site": "nicholls.edu",
+  "organization": "Nicholls State University",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nicholls-edu/overall/"
+ },
+ {
+  "site": "owencounty.in.gov",
+  "organization": "Owen County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/owencounty-in-gov/overall/"
+ },
+ {
+  "site": "patersonnj.gov",
+  "organization": "City of Paterson, NJ",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/patersonnj-gov/overall/"
+ },
+ {
+  "site": "phelpscounty.org",
+  "organization": "Phelps County, MO",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/phelpscounty-org/overall/"
+ },
+ {
+  "site": "pikecounty.in.gov",
+  "organization": "Pike County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pikecounty-in-gov/overall/"
+ },
+ {
+  "site": "pvamu.edu",
+  "organization": "Prairie View A & M University",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pvamu-edu/overall/"
+ },
+ {
+  "site": "rankincounty.org",
+  "organization": "Rankin County, MS",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rankincounty-org/overall/"
+ },
+ {
+  "site": "salemcountynj.gov",
+  "organization": "Salem County, NJ",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/salemcountynj-gov/overall/"
+ },
+ {
+  "site": "sherman.edu",
+  "organization": "Sherman College of Chiropractic",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sherman-edu/overall/"
+ },
+ {
+  "site": "sic.edu",
+  "organization": "Southeastern Illinois College",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sic-edu/overall/"
+ },
+ {
+  "site": "sullivancounty.in.gov",
+  "organization": "Sullivan County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sullivancounty-in-gov/overall/"
+ },
+ {
+  "site": "thomasmorecollege.edu",
+  "organization": "Thomas More College of Liberal Arts",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/thomasmorecollege-edu/overall/"
+ },
+ {
+  "site": "tiptongov.com",
+  "organization": "Tipton County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tiptongov-com/overall/"
+ },
+ {
+  "site": "tm.edu",
+  "organization": "Turtle Mountain Community College",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tm-edu/overall/"
+ },
+ {
+  "site": "vigocounty.in.gov",
+  "organization": "Vigo County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/vigocounty-in-gov/overall/"
+ },
+ {
+  "site": "waynecountyga.us",
+  "organization": "Wayne County, GA",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/waynecountyga-us/overall/"
+ },
+ {
+  "site": "whitleycounty.in.gov",
+  "organization": "Whitley County, IN",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/whitleycounty-in-gov/overall/"
+ },
+ {
+  "site": "wscal.edu",
+  "organization": "Westminster Theological Seminary in California",
+  "status_code": 997,
+  "status_label": "Crawl-delay too long",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/wscal-edu/overall/"
+ }
+]

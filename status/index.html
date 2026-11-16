@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
-<meta name="description" content="HTTP status types for websites monitored by ScanGov.">
+<meta name="description" content="7,046 websites by scan status: 6,097 scanned, 949 inaccessible. See what each HTTP status code means and how to fix it.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="google-site-verification" content="_ERDDvxXZ9zhBphib_yClmS6_LCOWVkARR7Ur2bXtBE">
 <meta property="og:locale" content="en_US">
@@ -13,18 +13,19 @@
 <link rel="alternate" hreflang="en" href="https://scangov.org/status/">
 <link rel="alternate" hreflang="x-default" href="https://scangov.org/status/">
 <!-- Title -->
-<title>Status - Project ScanGov</title>
+<title>Scan status: why some websites can’t be scanned - Project ScanGov</title>
 <!-- Open Graph -->
 <meta property="og:site_name" content="Project ScanGov">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Status">
-<meta property="og:description" content="HTTP status types for websites monitored by ScanGov.">
+<meta property="og:title" content="Scan status: why some websites can’t be scanned">
+<meta property="og:description" content="7,046 websites by scan status: 6,097 scanned, 949 inaccessible. See what each HTTP status code means and how to fix it.">
 <meta property="og:url" content="https://scangov.org/status/">
 <meta property="og:image" content="https://scangov.com/assets/img/avatar-og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="ScanGov logo">
 <meta property="article:modified_time" content="2026-11-08T16:12:05.153Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Scan status of websites","url":"https://scangov.org/status/","description":"How 7,046 websites break down by scan status, with what each HTTP status code means and how to fix it.","dateModified":"2026-11-08T16:12:05.153Z","isPartOf":{"@type":"WebSite","name":"Project ScanGov","url":"https://scangov.org/"}},{"@type":"Dataset","name":"Scan status of websites scanned by Project ScanGov","description":"Every HTTP status code the scanner found, with its type and the number of sites out of 7,046.","url":"https://scangov.org/status/","creator":{"@type":"Organization","name":"ScanGov","url":"https://scangov.com"},"spatialCoverage":"United States","dateModified":"2026-11-08T16:12:05.153Z","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by/4.0/","variableMeasured":["status_code","status_label","status_type","scan_status","sites","share_of_sites"],"distribution":[{"@type":"DataDownload","encodingFormat":"text/csv","contentUrl":"https://scangov.org/data/status/all.csv"},{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://scangov.org/data/status/all.json"}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scangov.org/"},{"@type":"ListItem","position":2,"name":"Status","item":"https://scangov.org/status/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why was my site not scanned?","acceptedAnswer":{"@type":"Answer","text":"Our scanner could not load your homepage or read its content. The usual causes are a firewall or bot protection that turns automated visitors away, a robots.txt rule that blocks bots, a redirect, or a site that was down or slow when we visited. Find your status code in the table to see the exact reason and what to do."}},{"@type":"Question","name":"What is ScanGovBot and how do I allow it?","acceptedAnswer":{"@type":"Answer","text":"ScanGovBot is the name our scanner uses when it visits a site. It crawls slowly and only reads the homepage. If your site uses a firewall, CDN or bot protection, ask whoever manages it to allow ScanGovBot by name, and make sure robots.txt does not block it."}},{"@type":"Question","name":"What does a 403 Forbidden status mean?","acceptedAnswer":{"@type":"Answer","text":"Your server understood the request but refused it. This often means a security setting is turning visitors away and catching good bots too. Ask whoever manages your security settings to let good bots through."}},{"@type":"Question","name":"What does a 404 Not Found status mean?","acceptedAnswer":{"@type":"Answer","text":"The address we have for your homepage does not exist on your server. Put the page back, or send the address to wherever the content lives now, then update any menus or links that still point there."}},{"@type":"Question","name":"What is the difference between a 301 and a 302 redirect?","acceptedAnswer":{"@type":"Answer","text":"A 301 says the address moved permanently, and a 302 says it moved temporarily. Search engines treat them differently, so use a 301 for a permanent move and remove a 302 once it is no longer needed. Linking straight to the final address avoids both."}},{"@type":"Question","name":"Does a status other than 200 hurt my site?","acceptedAnswer":{"@type":"Answer","text":"A site that does not load for our scanner often does not load for search engines and AI crawlers either, so it can be harder to find. Redirects and blocked requests are worth fixing even when visitors see the page normally."}}]}]}</script>
 <link rel="icon" href="/assets/img/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
@@ -114,6 +115,12 @@ Pulse
 </a>
 </li>
 <li class="nav-item me-3 me-lg-0 small">
+<a class="nav-link mx-1 active" aria-current="page" href="/status/">
+<svg class="fa-solid fa-circle-check text-neutral-icon me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-check" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-check"></use></svg>
+Status
+</a>
+</li>
+<li class="nav-item me-3 me-lg-0 small">
 <a class="nav-link mx-1" href="/changelog/">
 <svg class="fa-solid fa-timeline me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-timeline" xlink:href="/assets/fa-sprite.svg#fas-fa-timeline"></use></svg>
 Changelog
@@ -165,25 +172,25 @@ LinkedIn
 </a>
 </li>
 <li class="small">
-<a href="https://bsky.app/intent/compose?text=Status%20https%3A%2F%2Fscangov.org%2Fstatus%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<a href="https://bsky.app/intent/compose?text=Scan%20status%20https%3A%2F%2Fscangov.org%2Fstatus%2F" class="dropdown-item" rel="nofollow" target="_blank">
 <svg class="fa-brands fa-bluesky" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-bluesky" xlink:href="/assets/fa-sprite.svg#fab-fa-bluesky"></use></svg>
 Bluesky
 </a>
 </li>
 <li class="small">
-<a href="https://mastodon.social/share?text=Status%20https%3A%2F%2Fscangov.org%2Fstatus%2F" class="dropdown-item" rel="nofollow" target="_blank">
+<a href="https://mastodon.social/share?text=Scan%20status%20https%3A%2F%2Fscangov.org%2Fstatus%2F" class="dropdown-item" rel="nofollow" target="_blank">
 <svg class="fa-brands fa-mastodon" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-mastodon" xlink:href="/assets/fa-sprite.svg#fab-fa-mastodon"></use></svg>
 Mastodon
 </a>
 </li>
 <li class="small">
-<a href="https://x.com/intent/tweet?text=Status&url=https%3A%2F%2Fscangov.org%2Fstatus%2F&via=ScanGov" class="dropdown-item" rel="nofollow" target="_blank">
+<a href="https://x.com/intent/tweet?text=Scan%20status&url=https%3A%2F%2Fscangov.org%2Fstatus%2F&via=ScanGov" class="dropdown-item" rel="nofollow" target="_blank">
 <svg class="fa-brands fa-x-twitter" aria-hidden="true"><use href="/assets/fa-sprite.svg#fab-fa-x-twitter" xlink:href="/assets/fa-sprite.svg#fab-fa-x-twitter"></use></svg>
 X
 </a>
 </li>
 <li class="small">
-<a href="mailto:?subject=Status&body=https%3A%2F%2Fscangov.org%2Fstatus%2F" class="dropdown-item">
+<a href="mailto:?subject=Scan%20status&body=https%3A%2F%2Fscangov.org%2Fstatus%2F" class="dropdown-item">
 <svg class="fa-solid fa-envelope" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-envelope" xlink:href="/assets/fa-sprite.svg#fas-fa-envelope"></use></svg>
 Email
 </a>
@@ -206,8 +213,8 @@ Email
 <div class="container">
 <div class="row">
 <div class="col-12">
-<h1 class="display-6" id="status">Status</h1>
-<p>HTTP status types for websites monitored by ScanGov.</p>
+<h1 class="display-6" id="scan-status">Scan status</h1>
+<p>7,046 websites by scan status: 6,097 scanned, 949 inaccessible. See what each HTTP status code means and how to fix it.</p>
 </div>
 </div>
 </div>
@@ -216,201 +223,317 @@ Email
 <div class="container">
 <div class="row">
 <div class="col-12">
+<p>Project ScanGov scans the homepage of 7,046 websites. Each site gets a scan status: whether our scanner could load the page, and if not, why. A status other than 200 usually means search engines and AI crawlers hit the same problem. Find the status code of a site below to see what it means and how to fix it.</p>
+<div class="row g-3">
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100">
+<div class="card-header">Sites</div>
+<a href="/sites/" class="card-body text-decoration-none stretched-link" style="position: relative;">
+<div class="display-2">7,046</div>
+<span class="visually-hidden">Sites</span>
+</a>
+<div class="card-footer text-start">On the list</div>
+</div>
+</div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100 text-bg-success">
+<div class="card-header">Scan successful</div>
+<a href="/status/200/" class="card-body text-decoration-none stretched-link" style="position: relative;">
+<div class="display-2">6,097</div>
+<span class="visually-hidden">Scan successful</span>
+</a>
+<div class="card-footer text-start">86.5% of sites</div>
+</div>
+</div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100 text-bg-warning">
+<div class="card-header">Redirects</div>
+<a href="#redirect" class="card-body text-decoration-none stretched-link" style="position: relative;">
+<div class="display-2">0</div>
+<span class="visually-hidden">Redirects</span>
+</a>
+<div class="card-footer text-start">0% of sites</div>
+</div>
+</div>
+<div class="col-6 col-lg-3 d-flex align-items-stretch">
+<div class="card card-grade-sm w-100 text-bg-danger">
+<div class="card-header">Inaccessible</div>
+<a href="#inaccessible" class="card-body text-decoration-none stretched-link" style="position: relative;">
+<div class="display-2">949</div>
+<span class="visually-hidden">Inaccessible</span>
+</a>
+<div class="card-footer text-start">13.5% of sites</div>
+</div>
+</div>
+</div>
+<div class="border-top pt-4 mt-5">
+<div class="row g-4">
+<div class="col-12 col-lg-6">
+<figure class="sg-chart sg-chart--pie" id="status-types" aria-labelledby="status-types-title"><figcaption><h2 class="sg-chart-title" id="status-types-title">Sites by scan status</h2><p class="sg-chart-sub" id="status-types-sub">7,046 sites, by scan status</p></figcaption><div class="d-flex flex-wrap align-items-center gap-4"><svg viewBox="-1.02 -1.02 2.04 2.04" role="img" aria-labelledby="status-types-title" aria-describedby="status-types-pie-text" focusable="false" style="width:12rem;height:12rem;flex:none" stroke="var(--bs-body-bg)" stroke-width=".015"><path d="M0 0 L0.00000 -1.00000 A1 1 0 1 1 -0.74881 -0.66279 Z" style="fill:var(--bs-success)"><title>Scanned: 6,097 (87%)</title></path><path d="M0 0 L-0.74881 -0.66279 A1 1 0 0 1 -0.00000 -1.00000 Z" style="fill:var(--bs-danger)"><title>Inaccessible: 949 (13%)</title></path></svg><span class="visually-hidden" id="status-types-pie-text">Scanned 87%, Redirect 0%, Inaccessible 13%</span><ul class="sg-legend" style="flex-direction:column;margin:0"><li><span class="sg-swatch" style="background:var(--bs-success)" aria-hidden="true"></span><a href="#active">Scanned</a>: 6,097 (87%)</li><li><span class="sg-swatch" style="background:var(--bs-warning)" aria-hidden="true"></span><a href="#redirect">Redirect</a>: 0 (0%)</li><li><span class="sg-swatch" style="background:var(--bs-danger)" aria-hidden="true"></span><a href="#inaccessible">Inaccessible</a>: 949 (13%)</li></ul></div><div class="accordion"><div class="accordion-item"><h2 class="accordion-header" id="status-types-table-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#status-types-table-collapse" aria-expanded="false" aria-controls="status-types-table-collapse"><svg class="fa-solid fa-table me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table" xlink:href="/assets/fa-sprite.svg#fas-fa-table"></use></svg>Data table</button></h2><div id="status-types-table-collapse" class="accordion-collapse collapse" aria-labelledby="status-types-table-heading"><div class="accordion-body"><div class="table-responsive"><table class="table table-sm table-bordered small"><caption class="visually-hidden">Sites by scan status</caption><thead><tr><th scope="col">Status type</th><th scope="col">Sites</th></tr></thead><tbody><tr><th scope="row"><a href="#active">Scanned</a></th><td class="sg-num">6,097</td></tr><tr><th scope="row"><a href="#redirect">Redirect</a></th><td class="sg-num">0</td></tr><tr><th scope="row"><a href="#inaccessible">Inaccessible</a></th><td class="sg-num">949</td></tr></tbody></table></div></div></div></div></div></figure>
+</div>
+<div class="col-12 col-lg-6">
+<figure class="sg-chart sg-chart--bar" id="status-codes" aria-labelledby="status-codes-title"><figcaption><h2 class="sg-chart-title" id="status-codes-title">Sites we could not scan, by status code</h2><p class="sg-chart-sub" id="status-codes-sub">949 sites we could not scan</p></figcaption><ol class="sg-bars" style="--sg-value-room:5ch" aria-describedby="status-codes-sub"><li class="sg-row" style="--i:0;--r:0.7733"><span class="sg-label"><a href="/status/403/">403 Forbidden</a></span><span class="sg-plot" data-tip="403 Forbidden: 232" tabindex="0"><span class="sg-fill sg-fill-danger" aria-hidden="true"></span><span class="sg-value">232</span></span></li><li class="sg-row" style="--i:1;--r:0.73"><span class="sg-label"><a href="/status/996/">996 Challenge page</a></span><span class="sg-plot" data-tip="996 Challenge page: 219" tabindex="0"><span class="sg-fill sg-fill-danger" aria-hidden="true"></span><span class="sg-value">219</span></span></li><li class="sg-row" style="--i:2;--r:0.52"><span class="sg-label"><a href="/status/999/">999 Request Denied</a></span><span class="sg-plot" data-tip="999 Request Denied: 156" tabindex="0"><span class="sg-fill sg-fill-danger" aria-hidden="true"></span><span class="sg-value">156</span></span></li><li class="sg-row" style="--i:3;--r:0.38"><span class="sg-label"><a href="/status/998/">998 Blocked by robots.txt</a></span><span class="sg-plot" data-tip="998 Blocked by robots.txt: 114" tabindex="0"><span class="sg-fill sg-fill-danger" aria-hidden="true"></span><span class="sg-value">114</span></span></li><li class="sg-row" style="--i:4;--r:0.24"><span class="sg-label"><a href="/status/994/">994 Page failed to load</a></span><span class="sg-plot" data-tip="994 Page failed to load: 72" tabindex="0"><span class="sg-fill sg-fill-danger" aria-hidden="true"></span><span class="sg-value">72</span></span></li><li class="sg-row" style="--i:5;--r:0.22"><span class="sg-label"><a href="/status/995/">995 No page content</a></span><span class="sg-plot" data-tip="995 No page content: 66" tabindex="0"><span class="sg-fill sg-fill-danger" aria-hidden="true"></span><span class="sg-value">66</span></span></li><li class="sg-row" style="--i:6;--r:0.17"><span class="sg-label"><a href="/status/997/">997 Crawl-delay too long</a></span><span class="sg-plot" data-tip="997 Crawl-delay too long: 51" tabindex="0"><span class="sg-fill sg-fill-danger" aria-hidden="true"></span><span class="sg-value">51</span></span></li><li class="sg-row" style="--i:7;--r:0.0467"><span class="sg-label"><a href="/status/404/">404 Not Found</a></span><span class="sg-plot" data-tip="404 Not Found: 14" tabindex="0"><span class="sg-fill sg-fill-danger" aria-hidden="true"></span><span class="sg-value">14</span></span></li><li class="sg-row" style="--i:8;--r:0.0333"><span class="sg-label"><a href="/status/408/">408 Request Timeout</a></span><span class="sg-plot" data-tip="408 Request Timeout: 10" tabindex="0"><span class="sg-fill sg-fill-danger" aria-hidden="true"></span><span class="sg-value">10</span></span></li><li class="sg-row" style="--i:9;--r:0.0333"><span class="sg-label"><a href="/status/993/">993 Certificate error</a></span><span class="sg-plot" data-tip="993 Certificate error: 10" tabindex="0"><span class="sg-fill sg-fill-danger" aria-hidden="true"></span><span class="sg-value">10</span></span></li><li class="sg-row" style="--i:10;--r:0.0133"><span class="sg-label"><a href="/status/503/">503 Service Unavailable</a></span><span class="sg-plot" data-tip="503 Service Unavailable: 4" tabindex="0"><span class="sg-fill sg-fill-danger" aria-hidden="true"></span><span class="sg-value">4</span></span></li><li class="sg-row" style="--i:11;--r:0.0033"><span class="sg-label"><a href="/status/502/">502 Bad Gateway</a></span><span class="sg-plot" data-tip="502 Bad Gateway: 1" tabindex="0"><span class="sg-fill sg-fill-danger" aria-hidden="true"></span><span class="sg-value">1</span></span></li></ol><div class="accordion"><div class="accordion-item"><h2 class="accordion-header" id="status-codes-table-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#status-codes-table-collapse" aria-expanded="false" aria-controls="status-codes-table-collapse"><svg class="fa-solid fa-table me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table" xlink:href="/assets/fa-sprite.svg#fas-fa-table"></use></svg>Data table</button></h2><div id="status-codes-table-collapse" class="accordion-collapse collapse" aria-labelledby="status-codes-table-heading"><div class="accordion-body"><div class="table-responsive"><table class="table table-sm table-bordered small"><caption class="visually-hidden">Sites we could not scan, by status code</caption><thead><tr><th scope="col">Status code</th><th scope="col">Sites</th></tr></thead><tbody><tr><th scope="row"><a href="/status/403/">403 Forbidden</a></th><td class="sg-num">232</td></tr><tr><th scope="row"><a href="/status/996/">996 Challenge page</a></th><td class="sg-num">219</td></tr><tr><th scope="row"><a href="/status/999/">999 Request Denied</a></th><td class="sg-num">156</td></tr><tr><th scope="row"><a href="/status/998/">998 Blocked by robots.txt</a></th><td class="sg-num">114</td></tr><tr><th scope="row"><a href="/status/994/">994 Page failed to load</a></th><td class="sg-num">72</td></tr><tr><th scope="row"><a href="/status/995/">995 No page content</a></th><td class="sg-num">66</td></tr><tr><th scope="row"><a href="/status/997/">997 Crawl-delay too long</a></th><td class="sg-num">51</td></tr><tr><th scope="row"><a href="/status/404/">404 Not Found</a></th><td class="sg-num">14</td></tr><tr><th scope="row"><a href="/status/408/">408 Request Timeout</a></th><td class="sg-num">10</td></tr><tr><th scope="row"><a href="/status/993/">993 Certificate error</a></th><td class="sg-num">10</td></tr><tr><th scope="row"><a href="/status/503/">503 Service Unavailable</a></th><td class="sg-num">4</td></tr><tr><th scope="row"><a href="/status/502/">502 Bad Gateway</a></th><td class="sg-num">1</td></tr></tbody></table></div></div></div></div></div></figure>
+</div>
+<div class="col-12">
+<figure class="sg-chart sg-chart--bar" id="status-by-group" aria-labelledby="status-by-group-title"><figcaption><h2 class="sg-chart-title" id="status-by-group-title">Sites without a grade, by type</h2><p class="sg-chart-sub" id="status-by-group-sub">Share of each type&#39;s sites with no grade, from the latest scan</p></figcaption><ol class="sg-bars" style="--sg-value-room:5ch" aria-describedby="status-by-group-sub"><li class="sg-row" style="--i:0;--r:0.7059"><span class="sg-label"><a href="/rankings/states/">States</a></span><span class="sg-plot" data-tip="States: 18%" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">18%</span></span></li><li class="sg-row" style="--i:1;--r:0.5633"><span class="sg-label"><a href="/rankings/counties/">Counties</a></span><span class="sg-plot" data-tip="Counties: 14%" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">14%</span></span></li><li class="sg-row" style="--i:2;--r:0.812"><span class="sg-label"><a href="/rankings/cities/">Cities</a></span><span class="sg-plot" data-tip="Cities: 20%" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">20%</span></span></li><li class="sg-row" style="--i:3;--r:0.8222"><span class="sg-label"><a href="/rankings/federal/">Federal</a></span><span class="sg-plot" data-tip="Federal: 21%" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">21%</span></span></li><li class="sg-row" style="--i:4;--r:0.4066"><span class="sg-label"><a href="/rankings/edu/">Education</a></span><span class="sg-plot" data-tip="Education: 10%" tabindex="0"><span class="sg-fill sg-fill-series-1" aria-hidden="true"></span><span class="sg-value">10%</span></span></li></ol><div class="accordion"><div class="accordion-item"><h2 class="accordion-header" id="status-by-group-table-heading"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#status-by-group-table-collapse" aria-expanded="false" aria-controls="status-by-group-table-collapse"><svg class="fa-solid fa-table me-2" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-table" xlink:href="/assets/fa-sprite.svg#fas-fa-table"></use></svg>Data table</button></h2><div id="status-by-group-table-collapse" class="accordion-collapse collapse" aria-labelledby="status-by-group-table-heading"><div class="accordion-body"><div class="table-responsive"><table class="table table-sm table-bordered small"><caption class="visually-hidden">Sites without a grade, by type</caption><thead><tr><th scope="col">Group</th><th scope="col">Share without a grade</th></tr></thead><tbody><tr><th scope="row"><a href="/rankings/states/">States</a></th><td class="sg-num">18%</td><td class="sg-num">9 of 51 sites</td></tr><tr><th scope="row"><a href="/rankings/counties/">Counties</a></th><td class="sg-num">14%</td><td class="sg-num">405 of 2876 sites</td></tr><tr><th scope="row"><a href="/rankings/cities/">Cities</a></th><td class="sg-num">20%</td><td class="sg-num">54 of 266 sites</td></tr><tr><th scope="row"><a href="/rankings/federal/">Federal</a></th><td class="sg-num">21%</td><td class="sg-num">178 of 866 sites</td></tr><tr><th scope="row"><a href="/rankings/edu/">Education</a></th><td class="sg-num">10%</td><td class="sg-num">304 of 2991 sites</td></tr></tbody></table></div></div></div></div></div></figure>
+</div>
+</div>
+</div>
+<section aria-labelledby="active-heading" id="active" class="border-top pt-4 mt-5">
+<h2 id="active-heading">
+<svg class="fa-solid fa-circle-check" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-check" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-check"></use></svg>
+Scan successful
+</h2>
+<p>The homepage loaded normally, so we could scan it and give it a grade. 6,097 sites (86.5%).</p>
 <div class="table-responsive">
 <table class="table">
-<caption class="visually-hidden">HTTP status types</caption>
+<caption class="visually-hidden">Scan successful status codes</caption>
 <thead>
 <tr>
 <th>Code</th>
-<th>Type</th>
 <th>Label</th>
 <th>Sites</th>
+<th>Share</th>
+<th>What to do</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr id="200">
 <td><a href="/status/200/">200</a></td>
-<td>
-<svg class="fa-solid fa-circle-check" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-check" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-check"></use></svg>
-Active
-</td>
 <td>OK</td>
-<td><a href="/status/200/">6097</a></td>
-</tr>
-<tr>
-<td><a href="/status/301/">301</a></td>
-<td>
-<svg class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrow-right-arrow-left" xlink:href="/assets/fa-sprite.svg#fas-fa-arrow-right-arrow-left"></use></svg>
-Redirect
-</td>
-<td>Moved Permanently</td>
-<td><a href="/status/301/">0</a></td>
-</tr>
-<tr>
-<td><a href="/status/302/">302</a></td>
-<td>
-<svg class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrow-right-arrow-left" xlink:href="/assets/fa-sprite.svg#fas-fa-arrow-right-arrow-left"></use></svg>
-Redirect
-</td>
-<td>Found</td>
-<td><a href="/status/302/">0</a></td>
-</tr>
-<tr>
-<td><a href="/status/400/">400</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Bad Request</td>
-<td><a href="/status/400/">0</a></td>
-</tr>
-<tr>
-<td><a href="/status/401/">401</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Unauthorized</td>
-<td><a href="/status/401/">0</a></td>
-</tr>
-<tr>
-<td><a href="/status/403/">403</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Forbidden</td>
-<td><a href="/status/403/">232</a></td>
-</tr>
-<tr>
-<td><a href="/status/404/">404</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Not Found</td>
-<td><a href="/status/404/">14</a></td>
-</tr>
-<tr>
-<td><a href="/status/408/">408</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Request Timeout</td>
-<td><a href="/status/408/">10</a></td>
-</tr>
-<tr>
-<td><a href="/status/410/">410</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Gone</td>
-<td><a href="/status/410/">0</a></td>
-</tr>
-<tr>
-<td><a href="/status/429/">429</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Too Many Requests</td>
-<td><a href="/status/429/">0</a></td>
-</tr>
-<tr>
-<td><a href="/status/500/">500</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Internal Server Error</td>
-<td><a href="/status/500/">0</a></td>
-</tr>
-<tr>
-<td><a href="/status/502/">502</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Bad Gateway</td>
-<td><a href="/status/502/">1</a></td>
-</tr>
-<tr>
-<td><a href="/status/503/">503</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Service Unavailable</td>
-<td><a href="/status/503/">4</a></td>
-</tr>
-<tr>
-<td><a href="/status/993/">993</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Certificate error</td>
-<td><a href="/status/993/">10</a></td>
-</tr>
-<tr>
-<td><a href="/status/994/">994</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Page failed to load</td>
-<td><a href="/status/994/">72</a></td>
-</tr>
-<tr>
-<td><a href="/status/995/">995</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>No page content</td>
-<td><a href="/status/995/">66</a></td>
-</tr>
-<tr>
-<td><a href="/status/996/">996</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Challenge page</td>
-<td><a href="/status/996/">219</a></td>
-</tr>
-<tr>
-<td><a href="/status/997/">997</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Crawl-delay too long</td>
-<td><a href="/status/997/">51</a></td>
-</tr>
-<tr>
-<td><a href="/status/998/">998</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Blocked by robots.txt</td>
-<td><a href="/status/998/">114</a></td>
-</tr>
-<tr>
-<td><a href="/status/999/">999</a></td>
-<td>
-<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
-Inaccessible
-</td>
-<td>Request Denied</td>
-<td><a href="/status/999/">156</a></td>
+<td><a href="/status/200/">6,097</a></td>
+<td>86.5%</td>
+<td>Nothing to do.</td>
 </tr>
 </tbody>
 </table>
 </div>
+</section>
+<section aria-labelledby="redirect-heading" id="redirect" class="border-top pt-4 mt-5">
+<h2 id="redirect-heading">
+<svg class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrow-right-arrow-left" xlink:href="/assets/fa-sprite.svg#fas-fa-arrow-right-arrow-left"></use></svg>
+Redirects
+</h2>
+<p>The address sends visitors somewhere else. We scan the page it lands on only when the redirect is set up the way scanners expect, so a redirect is usually worth a look. 0 sites (0%).</p>
+<p>No sites currently have this status.</p>
+<div class="table-responsive">
+<table class="table">
+<caption class="visually-hidden">Redirects status codes</caption>
+<thead>
+<tr>
+<th>Code</th>
+<th>Label</th>
+<th>Sites</th>
+<th>Share</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr id="301">
+<td><a href="/status/301/">301</a></td>
+<td>Moved Permanently</td>
+<td><a href="/status/301/">0</a></td>
+<td>0%</td>
+<td>Point your links at the new address instead of the old one, and make sure the redirect is one you meant to set up.</td>
+</tr>
+<tr id="302">
+<td><a href="/status/302/">302</a></td>
+<td>Found</td>
+<td><a href="/status/302/">0</a></td>
+<td>0%</td>
+<td>Decide whether this move is permanent. If it is, ask your web team to make it a permanent redirect. If it's temporary, remove it once you no longer need it.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section aria-labelledby="inaccessible-heading" id="inaccessible" class="border-top pt-4 mt-5">
+<h2 id="inaccessible-heading">
+<svg class="fa-solid fa-circle-xmark" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-xmark" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-xmark"></use></svg>
+Inaccessible
+</h2>
+<p>The site did not load for our scanner: it was blocked, down, empty, or slow. Visitors, search engines and AI crawlers may be hitting the same wall. 949 sites (13.5%).</p>
+<div class="table-responsive">
+<table class="table">
+<caption class="visually-hidden">Inaccessible status codes</caption>
+<thead>
+<tr>
+<th>Code</th>
+<th>Label</th>
+<th>Sites</th>
+<th>Share</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr id="400">
+<td><a href="/status/400/">400</a></td>
+<td>Bad Request</td>
+<td><a href="/status/400/">0</a></td>
+<td>0%</td>
+<td>Open the address in a browser and see if it works. If it doesn't, ask your web team to look at what's wrong with it.</td>
+</tr>
+<tr id="401">
+<td><a href="/status/401/">401</a></td>
+<td>Unauthorized</td>
+<td><a href="/status/401/">0</a></td>
+<td>0%</td>
+<td>Decide whether this page is meant to be public. If it is, ask your web team to remove the login requirement. If it isn't, take it out of your sitemap and off your public pages.</td>
+</tr>
+<tr id="403">
+<td><a href="/status/403/">403</a></td>
+<td>Forbidden</td>
+<td><a href="/status/403/">232</a></td>
+<td>3.3%</td>
+<td>Something on your site is turning visitors away, and it's catching good bots too. Ask whoever manages your security settings to let good bots through. <a href="https://scangov.com/bot">Learn more</a> about what to allow.</td>
+</tr>
+<tr id="404">
+<td><a href="/status/404/">404</a></td>
+<td>Not Found</td>
+<td><a href="/status/404/">14</a></td>
+<td>0.2%</td>
+<td>Put the page back, or send this address to wherever the content lives now. Then update any menus or links still pointing here.</td>
+</tr>
+<tr id="408">
+<td><a href="/status/408/">408</a></td>
+<td>Request Timeout</td>
+<td><a href="/status/408/">10</a></td>
+<td>0.1%</td>
+<td>Your site is taking too long to answer. Ask your web team to look at why pages are slow.</td>
+</tr>
+<tr id="410">
+<td><a href="/status/410/">410</a></td>
+<td>Gone</td>
+<td><a href="/status/410/">0</a></td>
+<td>0%</td>
+<td>If this content moved somewhere else, send this address there instead. If it's really gone, remove links to it from your menus and sitemap.</td>
+</tr>
+<tr id="429">
+<td><a href="/status/429/">429</a></td>
+<td>Too Many Requests</td>
+<td><a href="/status/429/">0</a></td>
+<td>0%</td>
+<td>Your site is turning away visitors for asking too often. Ask your web team to give good bots more room. Good bots already crawl slowly. <a href="https://scangov.com/bot">Learn more</a> about what to allow.</td>
+</tr>
+<tr id="500">
+<td><a href="/status/500/">500</a></td>
+<td>Internal Server Error</td>
+<td><a href="/status/500/">0</a></td>
+<td>0%</td>
+<td>Something broke on your site. Ask your web team to check the error logs and fix it.</td>
+</tr>
+<tr id="502">
+<td><a href="/status/502/">502</a></td>
+<td>Bad Gateway</td>
+<td><a href="/status/502/">1</a></td>
+<td>0%</td>
+<td>One of the systems behind your site isn't responding. Ask your web team or hosting provider to check it.</td>
+</tr>
+<tr id="503">
+<td><a href="/status/503/">503</a></td>
+<td>Service Unavailable</td>
+<td><a href="/status/503/">4</a></td>
+<td>0.1%</td>
+<td>Your site is down or too busy to answer. If this is planned maintenance, it should clear up on its own. If not, ask your hosting provider to look into it.</td>
+</tr>
+<tr id="993">
+<td><a href="/status/993/">993</a></td>
+<td>Certificate error</td>
+<td><a href="/status/993/">10</a></td>
+<td>0.1%</td>
+<td>Your site's security certificate isn't valid. Ask whoever manages your hosting to renew or reissue it, and check that it covers every host name people use to reach your site, with and without www.</td>
+</tr>
+<tr id="994">
+<td><a href="/status/994/">994</a></td>
+<td>Page failed to load</td>
+<td><a href="/status/994/">72</a></td>
+<td>1%</td>
+<td>Your home page didn't load in our browser. Ask your web team to open it in a fresh browser session and watch for a blank screen, a spinner that never stops, or errors in the browser console.</td>
+</tr>
+<tr id="995">
+<td><a href="/status/995/">995</a></td>
+<td>No page content</td>
+<td><a href="/status/995/">66</a></td>
+<td>0.9%</td>
+<td>Something on your site is serving an empty page to good bots. Ask whoever manages your security settings to let good bots through. <a href="https://scangov.com/bot">Learn more</a> about what to allow.</td>
+</tr>
+<tr id="996">
+<td><a href="/status/996/">996</a></td>
+<td>Challenge page</td>
+<td><a href="/status/996/">219</a></td>
+<td>3.1%</td>
+<td>Ask whoever manages your hosting, CDN or firewall to let good bots through by name instead of challenging every unknown visitor. <a href="https://scangov.com/bot">Learn more</a> about what to allow.</td>
+</tr>
+<tr id="997">
+<td><a href="/status/997/">997</a></td>
+<td>Crawl-delay too long</td>
+<td><a href="/status/997/">51</a></td>
+<td>0.7%</td>
+<td>Ask whoever manages your robots.txt to lower the crawl-delay for good bots, or to leave it out for ScanGovBot. <a href="https://scangov.com/bot">Learn more</a> about what to allow.</td>
+</tr>
+<tr id="998">
+<td><a href="/status/998/">998</a></td>
+<td>Blocked by robots.txt</td>
+<td><a href="/status/998/">114</a></td>
+<td>1.6%</td>
+<td>If you want ScanGov to scan your site, ask whoever manages your robots.txt to allow good bots. <a href="https://scangov.com/bot">Learn more</a> about what to allow.</td>
+</tr>
+<tr id="999">
+<td><a href="/status/999/">999</a></td>
+<td>Request Denied</td>
+<td><a href="/status/999/">156</a></td>
+<td>2.2%</td>
+<td>Your site is blocking automated visitors on purpose, and that includes good bots. Ask whoever set that up to let good bots through. <a href="https://scangov.com/bot">Learn more</a> about what to allow.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section aria-labelledby="download" class="border-top pt-4 mt-5">
+<h2 id="download">Download the data</h2>
+<p>Every status code with its number of sites: <a href="/data/status/all.csv" download="">.csv</a> or <a href="/data/status/all.json" download="">.json</a>. Each status code page also has a download of its sites.</p>
+</section>
+<section aria-labelledby="find-a-site" class="border-top pt-4 mt-5">
+<h2 id="find-a-site">Find your site's status</h2>
+<p>Search for a domain to see its scan status and grade.</p>
+<div class="row">
+<div class="col-12 col-md-6">
+<form id="search-form" action="/search/" class="search-form">
+<label class="form-label visually-hidden" for="search-input">Search domains</label>
+<div class="input-group input-group-lg">
+<input name="search" type="text" class="form-control shadow" placeholder="Search domains" id="search-input" autocomplete="off">
+<button type="submit" class="btn btn-primary">Go</button>
+</div>
+<div id="search-results"></div>
+</form>
+</div>
+</div>
+</section>
+<section aria-labelledby="for-site-owners" class="border-top pt-4 mt-5">
+<h2 id="for-site-owners">For site owners</h2>
+<p>Most scans that fail come down to three fixes.</p>
+<ul>
+<li>Allow ScanGovBot through your firewall or bot protection. This clears most 403, 429, and challenge page statuses. <a href="https://scangov.com/bot">Learn about ScanGovBot</a>.</li>
+<li>Point links, menus, and your sitemap at the final address, not at a redirect. This clears 301 and 302 statuses.</li>
+<li>Fix or restore pages that return an error. This clears 404, 410, 500, 502, and 503 statuses.</li>
+</ul>
+<p>Each status code page lists the sites with that status and the fix in more detail. The <a href="https://docs.scangov.org/status">status documentation</a> covers the same codes for technical teams.</p>
+</section>
+<section aria-labelledby="faq" class="border-top pt-4 mt-5">
+<h2 id="faq">Frequently asked questions</h2>
+<h3 id="why-was-my-site-not-scanned">Why was my site not scanned?</h3>
+<p>Our scanner could not load your homepage or read its content. The usual causes are a firewall or bot protection that turns automated visitors away, a robots.txt rule that blocks bots, a redirect, or a site that was down or slow when we visited. Find your status code in the table to see the exact reason and what to do.</p>
+<h3 id="what-is-scangovbot-and-how-do-i-allow-it">What is ScanGovBot and how do I allow it?</h3>
+<p>ScanGovBot is the name our scanner uses when it visits a site. It crawls slowly and only reads the homepage. If your site uses a firewall, CDN or bot protection, ask whoever manages it to allow ScanGovBot by name, and make sure robots.txt does not block it.</p>
+<h3 id="what-does-a-403-forbidden-status-mean">What does a 403 Forbidden status mean?</h3>
+<p>Your server understood the request but refused it. This often means a security setting is turning visitors away and catching good bots too. Ask whoever manages your security settings to let good bots through.</p>
+<h3 id="what-does-a-404-not-found-status-mean">What does a 404 Not Found status mean?</h3>
+<p>The address we have for your homepage does not exist on your server. Put the page back, or send the address to wherever the content lives now, then update any menus or links that still point there.</p>
+<h3 id="what-is-the-difference-between-a-301-and-a-302-redirect">What is the difference between a 301 and a 302 redirect?</h3>
+<p>A 301 says the address moved permanently, and a 302 says it moved temporarily. Search engines treat them differently, so use a 301 for a permanent move and remove a 302 once it is no longer needed. Linking straight to the final address avoids both.</p>
+<h3 id="does-a-status-other-than-200-hurt-my-site">Does a status other than 200 hurt my site?</h3>
+<p>A site that does not load for our scanner often does not load for search engines and AI crawlers either, so it can be harder to find. Redirects and blocked requests are worth fixing even when visitors see the page normally.</p>
+</section>
 </div>
 </div>
 </div>

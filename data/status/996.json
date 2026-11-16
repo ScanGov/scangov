@@ -1,0 +1,1754 @@
+[
+ {
+  "site": "abtech.edu",
+  "organization": "Asheville-Buncombe Technical Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/abtech-edu/overall/"
+ },
+ {
+  "site": "afthunderbirds.com",
+  "organization": "Department of the Air Force",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/afthunderbirds-com/overall/"
+ },
+ {
+  "site": "altoonawater.gov",
+  "organization": "Altoona Water Authority",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/altoonawater-gov/overall/"
+ },
+ {
+  "site": "american.edu",
+  "organization": "American University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/american-edu/overall/"
+ },
+ {
+  "site": "apachecountyaz.gov",
+  "organization": "Apache County, AZ",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/apachecountyaz-gov/overall/"
+ },
+ {
+  "site": "az.gov",
+  "organization": "State of Arizona",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/az-gov/overall/"
+ },
+ {
+  "site": "bakercountyfl.org",
+  "organization": "Baker County, FL",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bakercountyfl-org/overall/"
+ },
+ {
+  "site": "bellevuecollege.edu",
+  "organization": "Bellevue College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bellevuecollege-edu/overall/"
+ },
+ {
+  "site": "belmontcollege.edu",
+  "organization": "Belmont College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/belmontcollege-edu/overall/"
+ },
+ {
+  "site": "bendoregon.gov",
+  "organization": "City of Bend, OR",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bendoregon-gov/overall/"
+ },
+ {
+  "site": "bentoncountyar.gov",
+  "organization": "Benton County, AR",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/bentoncountyar-gov/overall/"
+ },
+ {
+  "site": "berkeleycountysc.gov",
+  "organization": "Berkeley County, SC",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/berkeleycountysc-gov/overall/"
+ },
+ {
+  "site": "blc.edu",
+  "organization": "Bethany Lutheran College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/blc-edu/overall/"
+ },
+ {
+  "site": "boisecounty.us",
+  "organization": "Boise County, ID",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/boisecounty-us/overall/"
+ },
+ {
+  "site": "brazoscountytx.gov",
+  "organization": "Brazos County, TX",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/brazoscountytx-gov/overall/"
+ },
+ {
+  "site": "brevardfl.gov",
+  "organization": "Brevard County, FL",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/brevardfl-gov/overall/"
+ },
+ {
+  "site": "broward.org",
+  "organization": "Broward County, FL",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/broward-org/overall/"
+ },
+ {
+  "site": "brunswickco.com",
+  "organization": "Brunswick County, VA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/brunswickco-com/overall/"
+ },
+ {
+  "site": "carrollcountyiowa.gov",
+  "organization": "Carroll County, IA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/carrollcountyiowa-gov/overall/"
+ },
+ {
+  "site": "caspercollege.edu",
+  "organization": "Casper College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/caspercollege-edu/overall/"
+ },
+ {
+  "site": "cayugacounty.gov",
+  "organization": "Cayuga County, NY",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cayugacounty-gov/overall/"
+ },
+ {
+  "site": "cbu.edu",
+  "organization": "Christian Brothers University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cbu-edu/overall/"
+ },
+ {
+  "site": "ccny.cuny.edu",
+  "organization": "CUNY City College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ccny-cuny-edu/overall/"
+ },
+ {
+  "site": "ccp.edu",
+  "organization": "Community College of Philadelphia",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ccp-edu/overall/"
+ },
+ {
+  "site": "ccsf.edu",
+  "organization": "City College of San Francisco",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ccsf-edu/overall/"
+ },
+ {
+  "site": "chaffeecounty.org",
+  "organization": "Chaffee County, CO",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/chaffeecounty-org/overall/"
+ },
+ {
+  "site": "chattanoogastate.edu",
+  "organization": "Chattanooga State Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/chattanoogastate-edu/overall/"
+ },
+ {
+  "site": "christiancountyil.gov",
+  "organization": "Christian County, IL",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/christiancountyil-gov/overall/"
+ },
+ {
+  "site": "citizentools.ai",
+  "organization": "",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/citizentools-ai/overall/"
+ },
+ {
+  "site": "cityofmonongahela-pa.gov",
+  "organization": "City of Monongahela, Pennsylvania",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cityofmonongahela-pa-gov/overall/"
+ },
+ {
+  "site": "clarkcountyks.com",
+  "organization": "Clark County, KS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/clarkcountyks-com/overall/"
+ },
+ {
+  "site": "clarkecounty.gov",
+  "organization": "Clarke County, VA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/clarkecounty-gov/overall/"
+ },
+ {
+  "site": "clarysagecollege.com",
+  "organization": "Clary Sage College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/clarysagecollege-com/overall/"
+ },
+ {
+  "site": "co.buchanan.mo.us",
+  "organization": "Buchanan County, MO",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-buchanan-mo-us/overall/"
+ },
+ {
+  "site": "co.greene.ia.us",
+  "organization": "Greene County, IA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-greene-ia-us/overall/"
+ },
+ {
+  "site": "co.lincoln.wi.us",
+  "organization": "Lincoln County, WI",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-lincoln-wi-us/overall/"
+ },
+ {
+  "site": "co.platte.mo.us",
+  "organization": "Platte County, MO",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-platte-mo-us/overall/"
+ },
+ {
+  "site": "co.waushara.wi.us",
+  "organization": "Waushara County, WI",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/co-waushara-wi-us/overall/"
+ },
+ {
+  "site": "columbia.edu",
+  "organization": "Columbia University in the City of New York",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/columbia-edu/overall/"
+ },
+ {
+  "site": "commerce.gov",
+  "organization": "Department of Commerce",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/commerce-gov/overall/"
+ },
+ {
+  "site": "commonwealthu.edu",
+  "organization": "Commonwealth University of Pennsylvania",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/commonwealthu-edu/overall/"
+ },
+ {
+  "site": "communitycarecollege.edu",
+  "organization": "Community Care College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/communitycarecollege-edu/overall/"
+ },
+ {
+  "site": "congress.gov",
+  "organization": "",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/congress-gov/overall/"
+ },
+ {
+  "site": "costillacounty.gov",
+  "organization": "Costilla County, CO",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/costillacounty-gov/overall/"
+ },
+ {
+  "site": "county.milwaukee.gov",
+  "organization": "Milwaukee County, WI",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/county-milwaukee-gov/overall/"
+ },
+ {
+  "site": "countyofglenn.net",
+  "organization": "Glenn County, CA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/countyofglenn-net/overall/"
+ },
+ {
+  "site": "cst.edu",
+  "organization": "Claremont School of Theology",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/cst-edu/overall/"
+ },
+ {
+  "site": "currencyreader.gov",
+  "organization": "Library of Congress",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/currencyreader-gov/overall/"
+ },
+ {
+  "site": "daviessky.org",
+  "organization": "Daviess County, KY",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/daviessky-org/overall/"
+ },
+ {
+  "site": "decaturcountyiowa.gov",
+  "organization": "Decatur County, IA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/decaturcountyiowa-gov/overall/"
+ },
+ {
+  "site": "deltacollege.edu",
+  "organization": "San Joaquin Delta College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/deltacollege-edu/overall/"
+ },
+ {
+  "site": "deltacountytx.com",
+  "organization": "Delta County, TX",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/deltacountytx-com/overall/"
+ },
+ {
+  "site": "deltastate.edu",
+  "organization": "Delta State University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/deltastate-edu/overall/"
+ },
+ {
+  "site": "delval.edu",
+  "organization": "Delaware Valley University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/delval-edu/overall/"
+ },
+ {
+  "site": "detroitmi.gov",
+  "organization": "City of Detroit, MI",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/detroitmi-gov/overall/"
+ },
+ {
+  "site": "dkcoks.gov",
+  "organization": "Dickinson County, KS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dkcoks-gov/overall/"
+ },
+ {
+  "site": "doane.edu",
+  "organization": "Doane University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/doane-edu/overall/"
+ },
+ {
+  "site": "dtsc.ca.gov",
+  "organization": "State of California",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/dtsc-ca-gov/overall/"
+ },
+ {
+  "site": "eaglecounty.us",
+  "organization": "Eagle County, CO",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/eaglecounty-us/overall/"
+ },
+ {
+  "site": "eda.gov",
+  "organization": "Department of Commerce",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/eda-gov/overall/"
+ },
+ {
+  "site": "elkhartcounty.com",
+  "organization": "Elkhart County, IN",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/elkhartcounty-com/overall/"
+ },
+ {
+  "site": "emergency.marincounty.gov",
+  "organization": "",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/emergency-marincounty-gov/overall/"
+ },
+ {
+  "site": "emich.edu",
+  "organization": "Eastern Michigan University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/emich-edu/overall/"
+ },
+ {
+  "site": "etbu.edu",
+  "organization": "East Texas Baptist University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/etbu-edu/overall/"
+ },
+ {
+  "site": "eurekacountynv.gov",
+  "organization": "Eureka County, NV",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/eurekacountynv-gov/overall/"
+ },
+ {
+  "site": "evangelineparishpolicejury.com",
+  "organization": "Evangeline Parish, LA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/evangelineparishpolicejury-com/overall/"
+ },
+ {
+  "site": "evergreen.edu",
+  "organization": "The Evergreen State College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/evergreen-edu/overall/"
+ },
+ {
+  "site": "faytechcc.edu",
+  "organization": "Fayetteville Technical Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/faytechcc-edu/overall/"
+ },
+ {
+  "site": "ferc.gov",
+  "organization": "Federal Energy Regulatory Commission",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ferc-gov/overall/"
+ },
+ {
+  "site": "fishersin.gov",
+  "organization": "City of Fishers, IN",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fishersin-gov/overall/"
+ },
+ {
+  "site": "fnal.gov",
+  "organization": "Department of Energy",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fnal-gov/overall/"
+ },
+ {
+  "site": "fredonia.edu",
+  "organization": "SUNY at Fredonia",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/fredonia-edu/overall/"
+ },
+ {
+  "site": "gallaudet.edu",
+  "organization": "Gallaudet University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gallaudet-edu/overall/"
+ },
+ {
+  "site": "garfieldcountywa.gov",
+  "organization": "Garfield County, WA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/garfieldcountywa-gov/overall/"
+ },
+ {
+  "site": "gccaz.edu",
+  "organization": "Glendale Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gccaz-edu/overall/"
+ },
+ {
+  "site": "gcsu.edu",
+  "organization": "Georgia College & State University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gcsu-edu/overall/"
+ },
+ {
+  "site": "glascockcountyga.com",
+  "organization": "Glascock County, GA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/glascockcountyga-com/overall/"
+ },
+ {
+  "site": "graham.az.gov",
+  "organization": "Graham County, AZ",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/graham-az-gov/overall/"
+ },
+ {
+  "site": "grahamcountyks.com",
+  "organization": "Graham County, KS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/grahamcountyks-com/overall/"
+ },
+ {
+  "site": "grayco.org",
+  "organization": "Gray County, KS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/grayco-org/overall/"
+ },
+ {
+  "site": "greeleycounty.org",
+  "organization": "Greeley County, KS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/greeleycounty-org/overall/"
+ },
+ {
+  "site": "greenlakecountywi.gov",
+  "organization": "Green Lake County, WI",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/greenlakecountywi-gov/overall/"
+ },
+ {
+  "site": "gtu.edu",
+  "organization": "Graduate Theological Union",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/gtu-edu/overall/"
+ },
+ {
+  "site": "guthriecounty.gov",
+  "organization": "Guthrie County, IA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/guthriecounty-gov/overall/"
+ },
+ {
+  "site": "hainesalaska.gov",
+  "organization": "Haines Borough, AK",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hainesalaska-gov/overall/"
+ },
+ {
+  "site": "hardincountyia.gov",
+  "organization": "Hardin County, IA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hardincountyia-gov/overall/"
+ },
+ {
+  "site": "harrisoncountyms.gov",
+  "organization": "Harrison County, MS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/harrisoncountyms-gov/overall/"
+ },
+ {
+  "site": "harveycounty.gov",
+  "organization": "Harvey County, KS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/harveycounty-gov/overall/"
+ },
+ {
+  "site": "haskellcounty.org",
+  "organization": "Haskell County, KS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/haskellcounty-org/overall/"
+ },
+ {
+  "site": "haverford.edu",
+  "organization": "Haverford College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/haverford-edu/overall/"
+ },
+ {
+  "site": "hc.edu",
+  "organization": "Houston Christian University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hc-edu/overall/"
+ },
+ {
+  "site": "highlandcova.org",
+  "organization": "Highland County, VA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/highlandcova-org/overall/"
+ },
+ {
+  "site": "hiram.edu",
+  "organization": "Hiram College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hiram-edu/overall/"
+ },
+ {
+  "site": "hudoig.gov",
+  "organization": "Department of Housing and Urban Development",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/hudoig-gov/overall/"
+ },
+ {
+  "site": "iaia.edu",
+  "organization": "Institute of American Indian and Alaska Native Culture and Arts Development",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/iaia-edu/overall/"
+ },
+ {
+  "site": "icc.edu",
+  "organization": "Illinois Central College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/icc-edu/overall/"
+ },
+ {
+  "site": "inl.gov",
+  "organization": "Department of Energy",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/inl-gov/overall/"
+ },
+ {
+  "site": "itc.edu",
+  "organization": "Interdenominational Theological Center",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/itc-edu/overall/"
+ },
+ {
+  "site": "iup.edu",
+  "organization": "Indiana University of Pennsylvania-Main Campus",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/iup-edu/overall/"
+ },
+ {
+  "site": "jackcounty.texas.gov",
+  "organization": "Jack County, TX",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/jackcounty-texas-gov/overall/"
+ },
+ {
+  "site": "jacksonms.gov",
+  "organization": "City of Jackson, MS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/jacksonms-gov/overall/"
+ },
+ {
+  "site": "jccc.edu",
+  "organization": "Johnson County Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/jccc-edu/overall/"
+ },
+ {
+  "site": "johnsonco.org",
+  "organization": "Johnson County, GA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/johnsonco-org/overall/"
+ },
+ {
+  "site": "jonescountyms.com",
+  "organization": "Jones County, MS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/jonescountyms-com/overall/"
+ },
+ {
+  "site": "judsonu.edu",
+  "organization": "Judson University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/judsonu-edu/overall/"
+ },
+ {
+  "site": "kearnycountykansas.com",
+  "organization": "Kearny County, KS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/kearnycountykansas-com/overall/"
+ },
+ {
+  "site": "keene.edu",
+  "organization": "Keene State College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/keene-edu/overall/"
+ },
+ {
+  "site": "lacrossecounty.org",
+  "organization": "La Crosse County, WI",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lacrossecounty-org/overall/"
+ },
+ {
+  "site": "lafayettecountywi.org",
+  "organization": "Lafayette County, WI",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lafayettecountywi-org/overall/"
+ },
+ {
+  "site": "lamarcountyal.gov",
+  "organization": "Lamar County, AL",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lamarcountyal-gov/overall/"
+ },
+ {
+  "site": "larimer.gov",
+  "organization": "Larimer County, CO",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/larimer-gov/overall/"
+ },
+ {
+  "site": "laruecountyky.gov",
+  "organization": "Larue County, KY",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/laruecountyky-gov/overall/"
+ },
+ {
+  "site": "lascruces.gov",
+  "organization": "City of Las Cruces, NM",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lascruces-gov/overall/"
+ },
+ {
+  "site": "lbl.gov",
+  "organization": "Department of Energy",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lbl-gov/overall/"
+ },
+ {
+  "site": "leecounty.org",
+  "organization": "Lee County, IA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/leecounty-org/overall/"
+ },
+ {
+  "site": "leeward.hawaii.edu",
+  "organization": "Leeward Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/leeward-hawaii-edu/overall/"
+ },
+ {
+  "site": "lewiscountywv.org",
+  "organization": "Lewis County, WV",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lewiscountywv-org/overall/"
+ },
+ {
+  "site": "lifewest.edu",
+  "organization": "Life Chiropractic College West",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lifewest-edu/overall/"
+ },
+ {
+  "site": "lima.osu.edu",
+  "organization": "Ohio State University-Lima Campus",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lima-osu-edu/overall/"
+ },
+ {
+  "site": "lincolncountyid.gov",
+  "organization": "Lincoln County, ID",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/lincolncountyid-gov/overall/"
+ },
+ {
+  "site": "linncountyor.gov",
+  "organization": "Linn County, OR",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/linncountyor-gov/overall/"
+ },
+ {
+  "site": "louisvilleky.gov",
+  "organization": "Jefferson County, KY",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/louisvilleky-gov/overall/"
+ },
+ {
+  "site": "mansfield.osu.edu",
+  "organization": "Ohio State University-Mansfield Campus",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mansfield-osu-edu/overall/"
+ },
+ {
+  "site": "maricopa.edu",
+  "organization": "Maricopa Community College System Office",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/maricopa-edu/overall/"
+ },
+ {
+  "site": "marincounty.gov",
+  "organization": "Marin County, CA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/marincounty-gov/overall/"
+ },
+ {
+  "site": "mbda.gov",
+  "organization": "Department of Commerce",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mbda-gov/overall/"
+ },
+ {
+  "site": "mcleancounty.ky.gov",
+  "organization": "McLean County, KY",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mcleancounty-ky-gov/overall/"
+ },
+ {
+  "site": "mcneese.edu",
+  "organization": "McNeese State University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mcneese-edu/overall/"
+ },
+ {
+  "site": "mesacc.edu",
+  "organization": "Mesa Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mesacc-edu/overall/"
+ },
+ {
+  "site": "mhcc.edu",
+  "organization": "Mt Hood Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mhcc-edu/overall/"
+ },
+ {
+  "site": "mineralcountycolorado.com",
+  "organization": "Mineral County, CO",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mineralcountycolorado-com/overall/"
+ },
+ {
+  "site": "mitchellcountync.gov",
+  "organization": "Mitchell County, NC",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mitchellcountync-gov/overall/"
+ },
+ {
+  "site": "mn.gov",
+  "organization": "State of Minnesota",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mn-gov/overall/"
+ },
+ {
+  "site": "monroecountyil.gov",
+  "organization": "Monroe County, IL",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/monroecountyil-gov/overall/"
+ },
+ {
+  "site": "montcoga.gov",
+  "organization": "Montgomery County, GA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/montcoga-gov/overall/"
+ },
+ {
+  "site": "montgomerycountyia.gov",
+  "organization": "Montgomery County, IA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/montgomerycountyia-gov/overall/"
+ },
+ {
+  "site": "mscc.edu",
+  "organization": "Motlow State Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mscc-edu/overall/"
+ },
+ {
+  "site": "mwcc.edu",
+  "organization": "Mount Wachusett Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/mwcc-edu/overall/"
+ },
+ {
+  "site": "myskillsmyfuture.org",
+  "organization": "Employment and Training Administration",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/myskillsmyfuture-org/overall/"
+ },
+ {
+  "site": "necmusic.edu",
+  "organization": "The New England Conservatory of Music",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/necmusic-edu/overall/"
+ },
+ {
+  "site": "newark.osu.edu",
+  "organization": "Ohio State University-Newark Campus",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/newark-osu-edu/overall/"
+ },
+ {
+  "site": "newbedford-ma.gov",
+  "organization": "City of New Bedford, MA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/newbedford-ma-gov/overall/"
+ },
+ {
+  "site": "newbrunswick.rutgers.edu",
+  "organization": "Rutgers University-New Brunswick",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/newbrunswick-rutgers-edu/overall/"
+ },
+ {
+  "site": "newschool.edu",
+  "organization": "The New School",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/newschool-edu/overall/"
+ },
+ {
+  "site": "nga.gov",
+  "organization": "National Gallery of Art",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nga-gov/overall/"
+ },
+ {
+  "site": "northwell.edu",
+  "organization": "Elmezzi Graduate School of Molecular Medicine",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/northwell-edu/overall/"
+ },
+ {
+  "site": "nyaa.edu",
+  "organization": "New York Academy of Art",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/nyaa-edu/overall/"
+ },
+ {
+  "site": "oklahomatechnicalcollege.com",
+  "organization": "Oklahoma Technical College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/oklahomatechnicalcollege-com/overall/"
+ },
+ {
+  "site": "olc.edu",
+  "organization": "Oglala Lakota College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/olc-edu/overall/"
+ },
+ {
+  "site": "osumarion.osu.edu",
+  "organization": "Ohio State University-Marion Campus",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/osumarion-osu-edu/overall/"
+ },
+ {
+  "site": "osuokc.edu",
+  "organization": "Oklahoma State University-Oklahoma City",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/osuokc-edu/overall/"
+ },
+ {
+  "site": "paradisevalley.edu",
+  "organization": "",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/paradisevalley-edu/overall/"
+ },
+ {
+  "site": "pawneecountykansas.com",
+  "organization": "Pawnee County, KS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pawneecountykansas-com/overall/"
+ },
+ {
+  "site": "pba.edu",
+  "organization": "Palm Beach Atlantic University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pba-edu/overall/"
+ },
+ {
+  "site": "pct.edu",
+  "organization": "Pennsylvania College of Technology",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pct-edu/overall/"
+ },
+ {
+  "site": "pencol.edu",
+  "organization": "Peninsula College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pencol-edu/overall/"
+ },
+ {
+  "site": "phoenixcollege.edu",
+  "organization": "Phoenix College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/phoenixcollege-edu/overall/"
+ },
+ {
+  "site": "pinal.gov",
+  "organization": "Pinal County, AZ",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/pinal-gov/overall/"
+ },
+ {
+  "site": "powellcountymt.gov",
+  "organization": "Powell County, MT",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/powellcountymt-gov/overall/"
+ },
+ {
+  "site": "psuca.edu",
+  "organization": "Pacific States University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/psuca-edu/overall/"
+ },
+ {
+  "site": "quitmancountyms.org",
+  "organization": "Quitman County, MS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/quitmancountyms-org/overall/"
+ },
+ {
+  "site": "rabuncounty.ga.gov",
+  "organization": "Rabun County, GA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rabuncounty-ga-gov/overall/"
+ },
+ {
+  "site": "racc.edu",
+  "organization": "Reading Area Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/racc-edu/overall/"
+ },
+ {
+  "site": "raleighnc.gov",
+  "organization": "City of Raleigh, NC",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/raleighnc-gov/overall/"
+ },
+ {
+  "site": "randolphcollege.edu",
+  "organization": "Randolph College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/randolphcollege-edu/overall/"
+ },
+ {
+  "site": "rca.edu",
+  "organization": "Rabbinical College of America",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rca-edu/overall/"
+ },
+ {
+  "site": "reinhardt.edu",
+  "organization": "Reinhardt University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/reinhardt-edu/overall/"
+ },
+ {
+  "site": "renocountyks.gov",
+  "organization": "Reno County, KS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/renocountyks-gov/overall/"
+ },
+ {
+  "site": "riosalado.edu",
+  "organization": "Rio Salado College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/riosalado-edu/overall/"
+ },
+ {
+  "site": "rockinghamcountync.gov",
+  "organization": "Rockingham County, NC",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rockinghamcountync-gov/overall/"
+ },
+ {
+  "site": "rookscountyks.gov",
+  "organization": "Rooks County, KS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/rookscountyks-gov/overall/"
+ },
+ {
+  "site": "sage.edu",
+  "organization": "Russell Sage College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sage-edu/overall/"
+ },
+ {
+  "site": "saintvincentseminary.edu",
+  "organization": "Saint Vincent Seminary",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/saintvincentseminary-edu/overall/"
+ },
+ {
+  "site": "salinecountyks.gov",
+  "organization": "Saline County, KS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/salinecountyks-gov/overall/"
+ },
+ {
+  "site": "santacruzcountyaz.gov",
+  "organization": "Santa Cruz County, AZ",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/santacruzcountyaz-gov/overall/"
+ },
+ {
+  "site": "scad.edu",
+  "organization": "Savannah College of Art and Design",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/scad-edu/overall/"
+ },
+ {
+  "site": "sco.ca.gov",
+  "organization": "State of California",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sco-ca-gov/overall/"
+ },
+ {
+  "site": "scottsdalecc.edu",
+  "organization": "Scottsdale Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/scottsdalecc-edu/overall/"
+ },
+ {
+  "site": "seu.edu",
+  "organization": "Southeastern University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/seu-edu/overall/"
+ },
+ {
+  "site": "shastacounty.gov",
+  "organization": "Shasta County, CA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/shastacounty-gov/overall/"
+ },
+ {
+  "site": "sheridancountyks.gov",
+  "organization": "Sheridan County, KS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/sheridancountyks-gov/overall/"
+ },
+ {
+  "site": "skagway.org",
+  "organization": "Skagway, AK",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/skagway-org/overall/"
+ },
+ {
+  "site": "southmountaincc.edu",
+  "organization": "South Mountain Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/southmountaincc-edu/overall/"
+ },
+ {
+  "site": "springfieldmo.gov",
+  "organization": "City of Springfield, MO",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/springfieldmo-gov/overall/"
+ },
+ {
+  "site": "stantoncountyks.com",
+  "organization": "Stanton County, KS",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/stantoncountyks-com/overall/"
+ },
+ {
+  "site": "stevenscountywa.gov",
+  "organization": "Stevens County, WA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/stevenscountywa-gov/overall/"
+ },
+ {
+  "site": "stlouiscountymo.gov",
+  "organization": "St. Louis County, MO",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/stlouiscountymo-gov/overall/"
+ },
+ {
+  "site": "suny.edu",
+  "organization": "SUNY-System Office",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/suny-edu/overall/"
+ },
+ {
+  "site": "susqu.edu",
+  "organization": "Susquehanna University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/susqu-edu/overall/"
+ },
+ {
+  "site": "svu.edu",
+  "organization": "Southern Virginia University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/svu-edu/overall/"
+ },
+ {
+  "site": "talbotcountyga.org",
+  "organization": "Talbot County, GA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/talbotcountyga-org/overall/"
+ },
+ {
+  "site": "tangipahoa.org",
+  "organization": "Tangipahoa Parish, LA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tangipahoa-org/overall/"
+ },
+ {
+  "site": "tcc.edu",
+  "organization": "Tidewater Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tcc-edu/overall/"
+ },
+ {
+  "site": "tmcc.edu",
+  "organization": "Truckee Meadows Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tmcc-edu/overall/"
+ },
+ {
+  "site": "tnstate.edu",
+  "organization": "Tennessee State University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tnstate-edu/overall/"
+ },
+ {
+  "site": "travel.state.gov",
+  "organization": "",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/travel-state-gov/overall/"
+ },
+ {
+  "site": "treasurer.ca.gov",
+  "organization": "State of California",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/treasurer-ca-gov/overall/"
+ },
+ {
+  "site": "tsbc.edu",
+  "organization": "Tri-State Bible College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tsbc-edu/overall/"
+ },
+ {
+  "site": "tularecounty.ca.gov",
+  "organization": "",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tularecounty-ca-gov/overall/"
+ },
+ {
+  "site": "tuolumnecounty.ca.gov",
+  "organization": "Tuolumne County, CA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/tuolumnecounty-ca-gov/overall/"
+ },
+ {
+  "site": "uc.edu",
+  "organization": "University of Cincinnati-Main Campus",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/uc-edu/overall/"
+ },
+ {
+  "site": "ucsc.edu",
+  "organization": "University of California-Santa Cruz",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ucsc-edu/overall/"
+ },
+ {
+  "site": "ultimatemedical.edu",
+  "organization": "Ultimate Medical Academy",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/ultimatemedical-edu/overall/"
+ },
+ {
+  "site": "umdearborn.edu",
+  "organization": "University of Michigan-Dearborn",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/umdearborn-edu/overall/"
+ },
+ {
+  "site": "umich.edu",
+  "organization": "University of Michigan-Ann Arbor",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/umich-edu/overall/"
+ },
+ {
+  "site": "unioncounty-fl.gov",
+  "organization": "Union County, FL",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/unioncounty-fl-gov/overall/"
+ },
+ {
+  "site": "unioncountyil.gov",
+  "organization": "Union County, IL",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/unioncountyil-gov/overall/"
+ },
+ {
+  "site": "upstate.edu",
+  "organization": "Upstate Medical University",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/upstate-edu/overall/"
+ },
+ {
+  "site": "useuosh.org",
+  "organization": "Department of Labor",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/useuosh-org/overall/"
+ },
+ {
+  "site": "vallejo.gov",
+  "organization": "City of Vallejo, CA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/vallejo-gov/overall/"
+ },
+ {
+  "site": "volstate.edu",
+  "organization": "Volunteer State Community College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/volstate-edu/overall/"
+ },
+ {
+  "site": "vote.gov",
+  "organization": "General Services Administration",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/vote-gov/overall/"
+ },
+ {
+  "site": "web.culpepercounty.gov",
+  "organization": "Culpeper County, VA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/web-culpepercounty-gov/overall/"
+ },
+ {
+  "site": "wheelercounty.org",
+  "organization": "Wheeler County, GA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/wheelercounty-org/overall/"
+ },
+ {
+  "site": "wilkescountyga.org",
+  "organization": "Wilkes County, GA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/wilkescountyga-org/overall/"
+ },
+ {
+  "site": "williams.edu",
+  "organization": "Williams College",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/williams-edu/overall/"
+ },
+ {
+  "site": "worthcountyboc.com",
+  "organization": "Worth County, GA",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/worthcountyboc-com/overall/"
+ },
+ {
+  "site": "yakutatak.us",
+  "organization": "Yakutat, AK",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yakutatak-us/overall/"
+ },
+ {
+  "site": "yosan.edu",
+  "organization": "Yo San University of Traditional Chinese Medicine",
+  "status_code": 996,
+  "status_label": "Challenge page",
+  "status_type": "inaccessible",
+  "report": "https://scangov.org/profile/yosan-edu/overall/"
+ }
+]

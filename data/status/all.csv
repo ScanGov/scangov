@@ -1,0 +1,22 @@
+status_code,status_label,status_type,scan_status,sites,share_of_sites
+200,"OK","active","Scan successful",6097,0.865
+301,"Moved Permanently","redirect","Scan failed",0,0
+302,"Found","redirect","Scan failed",0,0
+400,"Bad Request","inaccessible","Scan failed",0,0
+401,"Unauthorized","inaccessible","Scan failed",0,0
+403,"Forbidden","inaccessible","Scan failed",232,0.033
+404,"Not Found","inaccessible","Scan failed",14,0.002
+408,"Request Timeout","inaccessible","Scan failed",10,0.001
+410,"Gone","inaccessible","Scan failed",0,0
+429,"Too Many Requests","inaccessible","Scan failed",0,0
+500,"Internal Server Error","inaccessible","Scan failed",0,0
+502,"Bad Gateway","inaccessible","Scan failed",1,0
+503,"Service Unavailable","inaccessible","Scan failed",4,0.001
+993,"Certificate error","inaccessible","Scan failed",10,0.001
+994,"Page failed to load","inaccessible","Scan failed",72,0.01
+995,"No page content","inaccessible","Scan blocked",66,0.009
+996,"Challenge page","inaccessible","Scan blocked",219,0.031
+997,"Crawl-delay too long","inaccessible","Scan skipped",51,0.007
+998,"Blocked by robots.txt","inaccessible","Scan skipped",114,0.016
+999,"Request Denied","inaccessible","Scan failed",156,0.022
+
