@@ -161,7 +161,7 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
     {% for c in item.checks %}<li><a href="{{ c.standardsUrl }}">{{ c.label | humanizeLabel }} standard</a>, with how to fix it</li>{% endfor %}
     {% set seen = [] %}
     {% for c in item.checks %}{% for g in c.guidance %}{% if g.url not in seen %}{% set seen = (seen.push(g.url), seen) %}<li><a href="https://standards.scangov.org{{ g.url }}">{{ g.displayName }}</a></li>{% endif %}{% endfor %}{% endfor %}
-    <li><a href="{{ group.hub }}{{ issue.topic }}/">{{ rankingsLabel }}</a></li>
+    <li><a href="{{ (group.hub + issue.topic + '/') if group.key != 'all' else ('/' + issue.topic + '/') }}">{{ rankingsLabel }}</a></li>
   </ul>
   {% else %}
   <h2 id="about-check">About this check</h2>
@@ -172,7 +172,7 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
   <ul>
     <li><a href="{{ check.standardsUrl }}">{{ check.label | humanizeLabel }} standard</a>, with how to fix it</li>
     {% for g in check.guidance %}<li><a href="https://standards.scangov.org{{ g.url }}">{{ g.displayName }}</a></li>{% endfor %}
-    <li><a href="{{ group.hub }}{{ issue.topic }}/">{{ rankingsLabel }}</a></li>
+    <li><a href="{{ (group.hub + issue.topic + '/') if group.key != 'all' else ('/' + issue.topic + '/') }}">{{ rankingsLabel }}</a></li>
   </ul>
   {% endif %}
 </section>

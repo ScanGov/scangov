@@ -11,7 +11,7 @@ pagination:
   size: 1
   alias: chunk
   addAllPagesToCollections: true
-permalink: "/rankings/{{ chunk.topic }}/{% if chunk.pageNumber > 0 %}{{ chunk.pageNumber }}/{% endif %}"
+permalink: "{{ chunk.url }}"
 ---
 
 {% set pagination = chunk.pagination %}

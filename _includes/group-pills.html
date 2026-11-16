@@ -21,7 +21,11 @@
   {% for g in pillGroups %}
   {% if not pillsAvailable or g.key in pillsAvailable %}
   {% set pillTitle = g.label %}
+  {% if g.key == "all" and pillsAllBase and pillsSuffix %}
+  {% set pillUrl = pillsAllBase + pillsSuffix %}
+  {% else %}
   {% set pillUrl = pillsBase + ((pillsAllSegment or "") if g.key == "all" else g.key + "/") + (pillsSuffix or "") %}
+  {% endif %}
   {% set pillActive = pillsActive == g.key %}
   {% set pillIcon = false %}
   {% set pillIconTitle = false %}

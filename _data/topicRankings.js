@@ -27,6 +27,7 @@ import { loadAudits } from '../scripts/load-audits.js';
 import { topicKeysFrom, topicName } from '../scripts/topics.js';
 import { categoryOf } from '../scripts/categories.js';
 import { scoreOf } from '../scripts/counties.js';
+import { topicHrefs, legacyHrefs } from '../scripts/ranking-urls.js';
 
 const PAGE_SIZE = 100;
 
@@ -87,10 +88,9 @@ function rankedCopies(records, topic) {
 }
 
 function chunksFor(rows, topic, topicLabel, cohort, cfg) {
-    const base = `/rankings/${cfg.path}${topic}/`;
     const pageCount = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
-    const hrefs = [];
-    for (let i = 0; i < pageCount; i++) hrefs.push(i === 0 ? base : `${base}${i}/`);
+    const hrefs = topicHrefs(topic, cfg.path, pageCount);
+    const oldHrefs = legacyHrefs(topic, cfg.path, pageCount);
     const pages = hrefs.map((_, i) => i);
     const lower = topicLabel.toLowerCase();
     const link = `<a href="https://standards.scangov.org/${topic}/">${lower}</a>`;
@@ -103,6 +103,8 @@ function chunksFor(rows, topic, topicLabel, cohort, cfg) {
             pageNumber: i,
             pageCount,
             url: hrefs[i],
+            // Only the all-sites pages moved; the old address redirects here.
+            legacyUrl: oldHrefs ? oldHrefs[i] : null,
             member: rows.slice(i * PAGE_SIZE, (i + 1) * PAGE_SIZE),
             pagination: {
                 pageNumber: i,

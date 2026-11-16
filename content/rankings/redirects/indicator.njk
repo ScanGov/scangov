@@ -1,0 +1,15 @@
+---
+layout: false
+pagination:
+  data: topicRankings.overall
+  size: 1
+  alias: moved
+permalink: "{{ moved.legacyUrl }}"
+sitemap: false
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="refresh" content="0;url={{ moved.url }}"><link rel="canonical" href="{{ site.url }}{{ moved.url }}"></head>
+<body><p>Redirecting to <a href="{{ moved.url }}">{{ moved.url }}</a></p></body>
+</html>
