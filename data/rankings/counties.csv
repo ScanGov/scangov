@@ -1,4 +1,4 @@
-rank,site,organization,fully_scanned,overall_score,overall_grade,accessibility_score,accessibility_grade,botability_score,botability_grade,security_score,security_grade,usability_score,usability_grade,readability_score,readability_grade,report
+rank,site,organization,scanned,overall_score,overall_grade,accessibility_score,accessibility_grade,botability_score,botability_grade,security_score,security_grade,usability_score,usability_grade,readability_score,readability_grade,report
 1,"pickawaycountyohio.gov","Pickaway County, OH",true,97,"A",100,"A",100,"A",87,"B",100,"A",0,"F","https://scangov.org/profile/pickawaycountyohio-gov/overall/"
 2,"jocogov.org","Johnson County, Kansas",true,95,"A",100,"A",81,"B",87,"B",100,"A",100,"A","https://scangov.org/profile/jocogov-org/overall/"
 2,"randolphcounty-mo.com","Randolph County, MO",true,95,"A",100,"A",90,"A",75,"C",100,"A",100,"A","https://scangov.org/profile/randolphcounty-mo-com/overall/"

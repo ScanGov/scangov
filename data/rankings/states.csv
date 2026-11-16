@@ -1,4 +1,4 @@
-rank,site,organization,fully_scanned,overall_score,overall_grade,accessibility_score,accessibility_grade,botability_score,botability_grade,security_score,security_grade,usability_score,usability_grade,readability_score,readability_grade,report
+rank,site,organization,scanned,overall_score,overall_grade,accessibility_score,accessibility_grade,botability_score,botability_grade,security_score,security_grade,usability_score,usability_grade,readability_score,readability_grade,report
 1,"ca.gov","State of California",true,98,"A",96,"A",100,"A",100,"A",100,"A",100,"A","https://scangov.org/profile/ca-gov/overall/"
 2,"iowa.gov","State of Iowa",true,97,"A",96,"A",90,"A",100,"A",100,"A",100,"A","https://scangov.org/profile/iowa-gov/overall/"
 2,"nc.gov","State of North Carolina",true,97,"A",100,"A",90,"A",100,"A",93,"A",100,"A","https://scangov.org/profile/nc-gov/overall/"

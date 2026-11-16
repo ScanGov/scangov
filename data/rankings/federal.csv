@@ -1,4 +1,4 @@
-rank,site,organization,fully_scanned,overall_score,overall_grade,accessibility_score,accessibility_grade,botability_score,botability_grade,security_score,security_grade,usability_score,usability_grade,readability_score,readability_grade,report
+rank,site,organization,scanned,overall_score,overall_grade,accessibility_score,accessibility_grade,botability_score,botability_grade,security_score,security_grade,usability_score,usability_grade,readability_score,readability_grade,report
 1,"mycreditunion.gov","National Credit Union Administration",true,98,"A",100,"A",100,"A",100,"A",93,"A",100,"A","https://scangov.org/profile/mycreditunion-gov/overall/"
 1,"lukefretwell.com","",true,98,"A",100,"A",100,"A",88,"B",100,"A",100,"A","https://scangov.org/profile/lukefretwell-com/overall/"
 1,"proudlyservingbook.com","",true,98,"A",100,"A",100,"A",87,"B",100,"A",100,"A","https://scangov.org/profile/proudlyservingbook-com/overall/"
