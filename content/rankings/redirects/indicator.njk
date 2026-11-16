@@ -4,7 +4,7 @@ pagination:
   data: topicRankings.overall
   size: 1
   alias: moved
-permalink: "{{ moved.legacyUrl }}"
+permalink: "/rankings/{{ moved.topic }}/{% if moved.pageNumber > 0 %}{{ moved.pageNumber }}/{% endif %}"
 sitemap: false
 eleventyExcludeFromCollections: true
 ---
