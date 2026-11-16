@@ -172,3 +172,46 @@ export function orgFailuresSpec({ id, title, headingLevel = 4, domains, topic, a
     if (!rows.length) return null;
     return { id, type: 'bar', title, headingLevel, labelHeader: 'Check', valueHeader: 'Domains failing', rows };
 }
+
+// Pie: every site by scan status type (active, redirect, inaccessible). Each
+// slice links to its group on the status page. `statuses` is statusGroups.
+const STATUS_TYPES = [
+    { type: 'active', label: 'Scanned', color: 'success' },
+    { type: 'redirect', label: 'Redirect', color: 'warning' },
+    { type: 'inaccessible', label: 'Inaccessible', color: 'danger' },
+];
+
+export function statusTypesPieSpec({ id = 'status-types', title = 'Sites by scan status', subtitle, headingLevel = 2, statuses }) {
+    return {
+        id, type: 'pie', title, subtitle, headingLevel,
+        labelHeader: 'Status type', valueHeader: 'Sites',
+        rows: STATUS_TYPES.map(t => ({
+            key: t.type,
+            label: t.label,
+            color: t.color,
+            href: `#${t.type}`,
+            value: (statuses || []).filter(s => s.type === t.type).reduce((n, s) => n + s.count, 0),
+        })),
+    };
+}
+
+// Bars: sites by status code, leaving out the codes with no sites and the
+// successful scan (200), which would dwarf the rest. Labels link to the code's page.
+export function statusCodesBarsSpec({ id = 'status-codes', title = 'Sites we could not scan, by status code', subtitle, headingLevel = 2, statuses }) {
+    const rows = (statuses || [])
+        .filter(s => s.type !== 'active' && s.count > 0)
+        .sort((a, b) => b.count - a.count)
+        .map(s => ({ key: String(s.code), label: `${s.code} ${s.label}`, href: `/status/${s.code}/`, value: s.count, color: s.type === 'redirect' ? 'warning' : 'danger' }));
+    if (!rows.length) return null;
+    return { id, type: 'bar', title, subtitle, headingLevel, valueFormat: 'count', labelHeader: 'Status code', valueHeader: 'Sites', rows };
+}
+
+// Bars: the share of each rankings group's sites with no grade. `groups` is groupSummaries.
+export function statusByGroupSpec({ id = 'status-by-group', title = 'Sites without a grade, by type', subtitle, headingLevel = 2, groups }) {
+    const rows = (groups || [])
+        .filter(g => g.count > 0)
+        .map(g => ({ key: g.key, label: g.label, href: g.hub, value: ((g.count - g.scoredCount) / g.count) * 100, detail: `${g.count - g.scoredCount} of ${g.count} sites` }));
+    if (!rows.length) return null;
+    const top = Math.max(...rows.map(r => r.value));
+    return { id, type: 'bar', title, subtitle, headingLevel, valueFormat: 'percent', max: Math.min(100, Math.max(5, Math.ceil(top / 5) * 5)), labelHeader: 'Group', valueHeader: 'Share without a grade', rows };
+}

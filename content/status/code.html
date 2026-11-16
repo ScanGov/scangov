@@ -1,31 +1,46 @@
 ---
 layout: layouts/page
-sitemap: false
 showLastUpdated: true
 pagination:
   data: statusPages
   size: 1
   alias: statusPage
-  addAllPagesToCollections: false
+  addAllPagesToCollections: true
 permalink: "status/{{ statusPage.code }}/{% if statusPage.pageNum > 0 %}{{ statusPage.pageNum + 1 }}/{% endif %}"
 eleventyComputed:
   title: "{{ statusPage.code }} {{ statusPage.label }}"
-  description: "{{ statusPage.description }}"
+  seoTitle: "{% if statusPage.type == 'active' %}{{ statusPage.code }} {{ statusPage.label }}: sites scanned successfully{% else %}{{ statusPage.code }} {{ statusPage.label }} status: how to fix it{% endif %}"
+  description: "{{ statusPage.description | safe }} {{ statusPage.count | numberFormat }} websites return this status{% if statusPage.type != 'active' %}. See what it means and how to fix it{% endif %}."
   breadcrumbParent:
     - url: "/status/"
-      title: "Status"
+      title: "Scan status"
   breadcrumbCurrent: "{{ statusPage.code }} {{ statusPage.label }}"
 ---
 
 {% if statusPage.pageNum == 0 %}
 {% set statusDef = statusPage %}
 {% include "status-alert.html" %}
+{% if statusExamples[statusPage.code] %}
+<h2 id="examples">Examples</h2>
+{% for ex in statusExamples[statusPage.code] %}
+<h3>{{ ex.title }}</h3>
+<div class="position-relative mb-3">
+  <button type="button" class="btn btn-outline-primary btn-sm position-absolute top-0 end-0 m-2" data-action="copy-text" data-copy-target="#example-{{ loop.index }}" aria-label="Copy: {{ ex.title }}" title="Copy">
+    <i class="fa-solid fa-copy" aria-hidden="true"></i><i class="fa-solid fa-check d-none" aria-hidden="true"></i>
+  </button>
+  <pre id="example-{{ loop.index }}" class="border rounded p-3 pe-5 mb-0"><code>{{ ex.code }}</code></pre>
+</div>
+{% endfor %}
+{% endif %}
+{% set groupPie = statusGroupCounts[statusPage.code] | statusGroupPie((statusPage.count | numberFormat) + " sites, by group (a site in two groups counts in both)") %}
+{% if groupPie %}{% chart groupPie %}{% endif %}
 <h2 id="sites">Sites with this status</h2>
+<p>Download this list: <a href="/data/status/{{ statusPage.code }}.csv" download>.csv</a> or <a href="/data/status/{{ statusPage.code }}.json" download>.json</a>.</p>
 {% endif %}
 
 {% if statusPage.count > 0 %}
 <div class="table-responsive">
-  <table class="table">
+  <table class="table" data-sortable>
     <caption class="visually-hidden">Sites returning status {{ statusPage.code }} {{ statusPage.label }}</caption>
     <thead>
       <tr>
@@ -69,4 +84,18 @@ eleventyComputed:
     </nav>
   </div>
 </div>
+{% endif %}
+
+{% if statusPage.pageNum == 0 %}
+<section aria-labelledby="related-statuses" class="border-top pt-4 mt-5">
+  <h2 id="related-statuses">Related statuses</h2>
+  <ul>
+    {% for g in statusGroups %}
+    {% if g.type == statusPage.type and g.code != statusPage.code %}
+    <li><a href="/status/{{ g.code }}/">{{ g.code }} {{ g.label }}</a>: {{ g.count | numberFormat }} sites</li>
+    {% endif %}
+    {% endfor %}
+    <li><a href="/status/">All scan statuses</a></li>
+  </ul>
+</section>
 {% endif %}

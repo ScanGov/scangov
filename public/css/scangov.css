@@ -2159,6 +2159,10 @@ a[href$=".mp4"]::after {
     color: #face00 !important;
 }
 
+.fa-diamond-turn-right {
+    color: #face00 !important;
+}
+
 .fa-arrow-pointer {
     color: #d5bfff;
 }
@@ -2766,12 +2770,23 @@ a .fa-up-right-from-square {
     color: #e41d3d !important;
 }
 
-/* Status icons (pass/warning) keep their semantic color in light mode instead of
+/* Status icons (pass/redirect/inaccessible/warning) keep their semantic color in light mode instead of
    blending into body text - matches how .text-success/.text-danger utility icons
    are already excluded from the blanket rule above. */
 [data-bs-theme=light] .fa-circle-check:not([class*="text-"]) {
     color: var(--bs-success) !important;
     fill: var(--bs-success) !important;
+}
+
+[data-bs-theme=light] .fa-circle-xmark:not([class*="text-"]) {
+    color: #e41d3d !important;
+    fill: #e41d3d !important;
+}
+
+[data-bs-theme=light] .fa-arrow-right-arrow-left:not([class*="text-"]),
+[data-bs-theme=light] .fa-diamond-turn-right:not([class*="text-"]) {
+    color: var(--bs-warning) !important;
+    fill: var(--bs-warning) !important;
 }
 
 [data-bs-theme=light] .fa-triangle-exclamation:not([class*="text-"]) {
