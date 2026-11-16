@@ -13,6 +13,8 @@
 {% set pillsAllSegment = "" %}
 {% set pillsSuffix = (specificAttribute + "/") if specificAttribute else "" %}
 {% set pillsAvailable = false %}
+{# The All pill of an indicator page is /{indicator}/, not /rankings/{indicator}/. #}
+{% set pillsAllBase = "/" %}
 {% if page.url.indexOf("/cities/") != -1 %}{% set pillsActive = "cities" %}
 {% elif page.url.indexOf("/counties/") != -1 %}{% set pillsActive = "counties" %}
 {% elif page.url.indexOf("/states/") != -1 %}{% set pillsActive = "states" %}
@@ -31,7 +33,7 @@
     {% for topic in topics.names %}
     {% set topicKey = topic.toLowerCase() %}
     {% set pillTitle = topic %}
-    {% set pillUrl = "/rankings/" + directory + topicKey + "/" %}
+    {% set pillUrl = ("/rankings/" + directory + topicKey + "/") if directory else ("/" + topicKey + "/") %}
     {% set pillIcon = "fa-solid fa-" + audits[topicKey].icon %}
     {% set pillActive = specificAttribute === topicKey %}
     {% include "filter-pill.html" %}

@@ -46,7 +46,7 @@ export default async function () {
         averages: all.averages,
         benchmarks: (groups.find(g => g.key === 'states') || { averages: {} }).averages,
         seriesLabel: 'All sites', benchmarkLabel: 'State sites',
-        hrefFor: t => `/rankings/${t}/`,
+        hrefFor: t => `/${t}/`,
     });
 
     return charts;

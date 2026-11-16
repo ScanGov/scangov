@@ -50,7 +50,7 @@ keywords: domains, websites
               {% set infoDescription = audits[lower].description %}
               {% include "info-icon.html" %}
             </div>
-            <a href="/rankings/{{ lower }}/" id="summary-{{ lower }}-link" class="card-body text-decoration-none stretched-link" style="position: relative;">
+            <a href="/{{ lower }}/" id="summary-{{ lower }}-link" class="card-body text-decoration-none stretched-link" style="position: relative;">
               <p class="display-1" id="summary-{{ lower }}-grade">{% if homepagesummary.all[lower] !== null %}{{ homepagesummary.all[lower] | gradify }}{% else %}&ndash;{% endif %}</p>
             </a>
           </div>
@@ -133,7 +133,7 @@ keywords: domains, websites
       {% set lower = indicator.toLowerCase() %}
       {% set catInfo = audits[lower] %}
       <section class="border-top pt-4 mt-4 sg-series-{{ lower }}" aria-labelledby="top-issues-{{ lower }}" style="content-visibility:auto;contain-intrinsic-size:auto 40rem">
-        <h3 id="top-issues-{{ lower }}"><a href="/rankings/{{ lower }}/">{{ indicator }}</a></h3>
+        <h3 id="top-issues-{{ lower }}"><a href="/{{ lower }}/">{{ indicator }}</a></h3>
         <div class="sg-charts-large">{% chart all.charts.failures[lower] %}</div>
         {% if catInfo %}
         <div class="alert alert-info small" role="note">
@@ -143,7 +143,7 @@ keywords: domains, websites
           &middot;
           <a href="https://standards.scangov.org{{ catInfo.url }}/">Guidance</a>
           &middot;
-          <a href="{{ site.url }}{{ catInfo.rankingsUrl }}">Project ScanGov rankings</a>
+          <a href="{{ site.url }}/{{ lower }}/">Project ScanGov rankings</a>
           &middot;
           <a href="https://scangov.com{{ catInfo.scangovUrl }}">How ScanGov helps</a>
         </div>
@@ -196,7 +196,7 @@ keywords: domains, websites
           card.className = card.className.replace(/\btext-bg-\S+/, '').trim() + (color ? ' text-bg-' + color : '');
           grade.textContent = gradeForScore(score);
           if (link) {
-            link.href = topic === 'overall' ? '/rankings/' + categoryPath : '/rankings/' + categoryPath + topic + '/';
+            link.href = topic === 'overall' ? '/rankings/' + categoryPath : (categoryPath ? '/rankings/' + categoryPath + topic + '/' : '/' + topic + '/');
           }
         });
         var hubLink = document.getElementById('homepage-hub-link');

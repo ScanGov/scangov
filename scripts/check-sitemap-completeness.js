@@ -3,7 +3,7 @@
 // its own frontmatter explicitly opts out via `eleventyExcludeFromCollections:
 // true`, `addAllPagesToCollections: false`, or `sitemap: false` — or unless
 // it's a numbered listing page (pagination with no custom per-item
-// `permalink:`, e.g. /rankings/accessibility/2/), which is deliberately
+// `permalink:`, e.g. /accessibility/2/), which is deliberately
 // excluded: thin, mostly-duplicate pages most sites keep out of a sitemap on
 // purpose, a different category from the actual bug this checks for.
 //
@@ -290,7 +290,7 @@ const sitemapPaths = new Set(
 // The readability pages must stay in the sitemap. The checks below only catch a
 // built page that is missing, so a removed or renamed page would go unnoticed.
 const REQUIRED_READABILITY_PATHS = [
-  '/rankings/readability/',
+  '/readability/',
   '/rankings/states/readability/',
   '/rankings/counties/readability/',
   '/rankings/cities/readability/',
