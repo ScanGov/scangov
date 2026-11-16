@@ -6,7 +6,7 @@
         {% include "rankingtabs.html" %}
       </div>
     </div>
-    {# Optional charts/narrative block above the table, set by the calling template (e.g. "county-charts.html"). #}
+    {# Optional charts/narrative block above the table, set by the calling template (none are set now: rankings pages show filters and the table only). #}
     {% if chartsInclude %}
       {% include chartsInclude %}
     {% endif %}
@@ -24,11 +24,6 @@
 <script>
 (function () {
   var ATTR = '{{ specificAttribute }}';
-  var STANDARDS_URLS = {
-    {% for catKey, cat in audits %}{% if cat.attributes %}'{{ catKey }}': { {% for attr in cat.attributes %}'{{ attr.key }}': 'https://standards.scangov.org/{{ attr.key }}', {% endfor %} },
-    {% endif %}{% endfor %}
-  };
-
   // Orgs with a page (more than one site, see _data/orgPages.js); other org
   // names render as plain text, matching the server-rendered rows.
   var ORG_PAGES = {};
@@ -59,41 +54,8 @@
     return s >= 90 ? 'success' : s >= 70 ? 'warning' : 'danger';
   }
 
-  var iconSvg = {};
-  function getIcon(cls) {
-    if (!iconSvg[cls]) {
-      var el = document.querySelector('svg.fa-' + cls);
-      iconSvg[cls] = el ? el.outerHTML : '';
-    }
-    return iconSvg[cls];
-  }
-
-  function primeIconCache() {
-    ['circle-check', 'circle-xmark', 'circle-exclamation'].forEach(getIcon);
-  }
-
   function scoreOf(d) {
     return ATTR ? (d.scores[ATTR] ? d.scores[ATTR].score : 0) : d.overallScore;
-  }
-
-  function statusIcons(d) {
-    if (d.status !== 200) {
-      return '<span>' + getIcon('circle-exclamation') + '</span>';
-    }
-    var out = '';
-    var cats = ATTR ? [ATTR] : Object.keys(d.scores);
-    cats.forEach(function (cat) {
-      var attrs = d[cat];
-      if (!attrs) return;
-      for (var a in attrs) {
-        var icon = attrs[a] ? getIcon('circle-check') : getIcon('circle-xmark');
-        var stdUrl = STANDARDS_URLS[cat] && STANDARDS_URLS[cat][a];
-        out += stdUrl
-          ? ' <a href="' + stdUrl + '">' + icon + '</a>'
-          : ' <span>' + icon + '</span>';
-      }
-    });
-    return out;
   }
 
   function renderRow(d) {
@@ -107,7 +69,6 @@
       (d.name && ORG_PAGES[slugify(d.name)]
         ? '<a class="small text-muted" href="/org/' + slugify(d.name) + '/">' + d.name + '</a>'
         : '<span class="small text-muted">' + d.name + '</span>') + '</td>' +
-      '<td data-sort="' + score + '">' + statusIcons(d) + '</td>' +
       '<td class="text-center grade-display-column" data-sort="' + score + '">' +
       '<span class="badge text-bg-' + colorFor(score) + '" title="' + score + '%">' + gradeFor(score) + '</span>' +
       '</td></tr>';
@@ -141,8 +102,7 @@
     th.setAttribute('aria-sort', sortState.dir);
 
     if (!fullData) {
-      primeIconCache();
-      tbody.innerHTML = '<tr><td colspan="4" class="text-center py-3">Loading…</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="3" class="text-center py-3">Loading…</td></tr>';
       try {
         var res = await fetch('/data/myscangov_homepage_audits.json');
         var raw = await res.json();
@@ -158,7 +118,7 @@
         });
         fullData = raw;
       } catch (e) {
-        tbody.innerHTML = '<tr><td colspan="4" class="text-center text-danger py-3">Failed to load data.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="3" class="text-center text-danger py-3">Failed to load data.</td></tr>';
         return;
       }
     }

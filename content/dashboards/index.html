@@ -48,7 +48,7 @@ keywords: dashboards, rankings, pulse, issues
 </ul>
 
 <h2 id="counties">Counties by state</h2>
-<p>{{ countyStates.length }} pages, each ranking one state's county sites against the U.S. county average. The <a href="/rankings/counties/#by-state">county hub map</a> shows the same averages.</p>
+<p>{{ countyStates.length }} pages, each ranking one state's county sites against the U.S. county average. The <a href="/pulse/counties/#by-state">county hub map</a> shows the same averages.</p>
 <ul class="list-inline">
   {% for st in countyStates %}<li class="list-inline-item mb-1"><a href="/rankings/counties/{{ st.slug }}/">{{ st.name }}</a> <span class="text-muted small">({{ st.scoredCount }})</span></li>{% endfor %}
 </ul>

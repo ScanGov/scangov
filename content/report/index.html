@@ -28,17 +28,10 @@ showActions: true
 {% set pillsSuffix = "" %}
 {% set pillsAllSegment = "" %}
 {% set pillsAvailable = false %}
-<div class="mb-4">{% include "group-pills.html" %}</div>
+{% include "group-pills.html" %}
 
 <div class="sg-charts-large">
-<section aria-labelledby="what-we-scan">
-  <h2 id="what-we-scan">What we scan</h2>
-  {% if pp.isAll %}
-  <p>ScanGov scans the homepage of every site on our list, {{ s.count | numberFormat }} sites across states, counties, cities, federal agencies, and public higher education. Each scan runs the checks on <a href="https://standards.scangov.org/">standards.scangov.org</a> for {{ topics.sentence }}. A site counts as fully scanned when its homepage responded and returned page content; sites that did not are listed with their <a href="/status/">scan status</a> and left out of every figure here. Pick a group above to see the same figures for one group, or see <a href="/dashboards/">every dashboard</a>.</p>
-  {% else %}
-  <p>ScanGov scans the homepage of {{ pp.scope }}, {{ s.count | numberFormat }} sites. Each scan runs the checks on <a href="https://standards.scangov.org/">standards.scangov.org</a> for {{ topics.sentence }}. A site counts as fully scanned when its homepage responded and returned page content; sites that did not are listed with their <a href="/status/">scan status</a> and left out of every figure here. The <a href="{{ pp.hub }}">{{ pp.label | lower }} rankings</a> list every site; <a href="/pulse/">Pulse for all sites</a> compares the groups.</p>
-  {% endif %}
-  <div class="row g-3 mb-2">
+<div class="row g-3 mb-2">
     {% set statLabel = "Fully scanned" %}
     {% set statValue %}{{ s.scoredCount | numberFormat }} <span class="fs-5">of {{ s.count | numberFormat }}</span>{% endset %}
     {% set statFooter %}{{ pp.noun | capitalize }} fully scanned. We couldn't fully scan {{ (s.count - s.scoredCount) | numberFormat }}{% endset %}
@@ -67,6 +60,14 @@ showActions: true
     {% set statColor = "" %}
     {% include "stat-card.html" %}
   </div>
+
+<section aria-labelledby="what-we-scan">
+  <h2 id="what-we-scan">What we scan</h2>
+  {% if pp.isAll %}
+  <p>ScanGov scans the homepage of every site on our list, {{ s.count | numberFormat }} sites across states, counties, cities, federal agencies, and public higher education. Each scan runs the checks on <a href="https://standards.scangov.org/">standards.scangov.org</a> for {{ topics.sentence }}. A site counts as fully scanned when its homepage responded and returned page content; sites that did not are listed with their <a href="/status/">scan status</a> and left out of every figure here. Pick a group above to see the same figures for one group, or see <a href="/dashboards/">every dashboard</a>.</p>
+  {% else %}
+  <p>ScanGov scans the homepage of {{ pp.scope }}, {{ s.count | numberFormat }} sites. Each scan runs the checks on <a href="https://standards.scangov.org/">standards.scangov.org</a> for {{ topics.sentence }}. A site counts as fully scanned when its homepage responded and returned page content; sites that did not are listed with their <a href="/status/">scan status</a> and left out of every figure here. The <a href="{{ pp.hub }}">{{ pp.label | lower }} rankings</a> list every site; <a href="/pulse/">Pulse for all sites</a> compares the groups.</p>
+  {% endif %}
 </section>
 
 <section aria-labelledby="how-sites-are-doing" class="mt-5">
@@ -114,6 +115,10 @@ showActions: true
       <p class="small mt-2 mb-0">Highest county averages: {% for st in rankedStates %}{% if loop.index0 < 3 %}<a href="/rankings/counties/{{ st.slug }}/">{{ st.name }}</a> ({{ st.averages.overall }}){% if loop.index0 < 2 %}, {% endif %}{% endif %}{% endfor %}. Lowest: {% for st in rankedStates | reverse %}{% if loop.index0 < 3 %}<a href="/rankings/counties/{{ st.slug }}/">{{ st.name }}</a> ({{ st.averages.overall }}){% if loop.index0 < 2 %}, {% endif %}{% endif %}{% endfor %}.</p>
     </div>
   </div>
+
+  <h3 id="by-state">County sites by state</h3>
+  <p>Average overall score of the fully scanned county sites in each state. Select a state for its county rankings.</p>
+  {% include "county-states-table.html" %}
 
   <h3>County sites in the three most populous states</h3>
   <p>Every county in California, Texas, and Florida, colored by its site's overall grade. Each state has its own page with the full county ranking.</p>
@@ -180,6 +185,20 @@ showActions: true
   {% endfor %}
 </section>
 
+{% if pp.topRows.length %}
+<section aria-labelledby="top-sites" class="mt-5">
+  <h2 id="top-sites">Top {{ pp.topRows.length }} {{ pp.noun }}</h2>
+  <p>The {{ pp.topRows.length }} {{ pp.noun }} with the highest overall scores. <a href="{{ pp.hub }}">{{ pp.rankingsLink }}</a> list every site, with indicator filters.</p>
+  {% set member = pp.topRows %}
+  {% set specificAttribute = "" %}
+  {% set currentsort = "" %}
+  {% set compactTable = true %}
+  {% set tableCaption = "Top " + pp.topRows.length + " " + pp.noun + " by overall score" %}
+  {% include "ranking-table-block.html" %}
+  <p><a href="{{ pp.hub }}">{{ pp.rankingsLink }}</a></p>
+</section>
+{% endif %}
+
 <section aria-labelledby="where-to-go-next" class="mt-5">
   <h2 id="where-to-go-next">Where to go next</h2>
   <ul>
@@ -192,7 +211,7 @@ showActions: true
     <li><a href="/pulse/">Pulse for all sites</a>: every group compared.</li>
     {% endif %}
     {% if pp.isAll or pp.key == "counties" %}
-    <li><a href="/rankings/counties/#by-state">County rankings by state</a>: a map and table of all 48 states with county sites.</li>
+    <li><a href="/pulse/counties/#by-state">County scores by state</a>: a map and table of all 48 states with county sites.</li>
     {% endif %}
     {% for ip in issuePages %}{% if not ip.unlisted and ip.group.key == pp.key %}
     <li><a href="{{ ip.url }}">{{ ip.title }}</a>: {{ ip.failCount | numberFormat }} of {{ ip.testedCount | numberFormat }} fully scanned {{ ip.group.noun }}, {% if ip.map %}on a county map with every site listed{% else %}with every site listed{% endif %}.</li>

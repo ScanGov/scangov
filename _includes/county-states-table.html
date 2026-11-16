@@ -1,0 +1,39 @@
+{#
+  Table of the states with county sites: how many county sites each has and the
+  average grade of its fully scanned ones, overall and per indicator. Each state
+  links to its county rankings. Used on the counties Pulse page.
+  Expects `countyStates`, `indicatorKeys` and `audits`.
+#}
+<div class="table-responsive mt-3">
+  <table class="table table-sm" data-sortable>
+    <caption class="visually-hidden">States by average county site grade in each indicator</caption>
+    <thead>
+      <tr>
+        <th scope="col">State</th>
+        <th scope="col" class="text-center">Sites</th>
+        <th scope="col" class="text-center">Overall</th>
+        {% for t in indicatorKeys %}<th scope="col" class="text-center">{{ audits[t].displayName }}</th>{% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in countyStates %}
+      <tr>
+        <th scope="row" data-sort="{{ s.name }}"><a href="/rankings/counties/{{ s.slug }}/">{{ s.name }}</a></th>
+        <td class="text-center sg-num" data-sort="{{ s.scoredCount }}">{{ s.scoredCount }}<span class="text-muted"> of {{ s.count }}</span></td>
+        {% for t in ["overall"].concat(indicatorKeys) %}
+        {% set v = s.averages[t] %}
+        <td class="text-center" data-sort="{{ v if v !== null else -1 }}">
+          <span class="badge text-bg-{{ v | colorify }}" title="{% if v !== null %}Average {{ t }} score {{ v }}{% else %}No fully scanned sites{% endif %}">{{ v | gradify }}</span>
+          {% if v !== null %}<span class="visually-hidden">{{ v }}</span>{% endif %}
+        </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% set missingStates = [] %}
+{% for code, info in stateNames %}{% set found = false %}{% for s in countyStates %}{% if s.code == code %}{% set found = true %}{% endif %}{% endfor %}{% if not found and code != "DC" %}{% set missingStates = (missingStates.push(info.name), missingStates) %}{% endif %}{% endfor %}
+{% if missingStates.length %}
+<p class="small text-muted">No county sites on our list yet for {{ missingStates | join(", ") }}. Connecticut and Rhode Island have no county governments; Connecticut's planning regions stand in for its counties.</p>
+{% endif %}

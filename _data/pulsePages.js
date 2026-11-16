@@ -7,9 +7,19 @@
 
 import { default as siteSummary } from './siteSummary.js';
 import { default as groupSummaries } from './groupSummaries.js';
+import { default as topicsData } from './topics.js';
+import { default as sorts } from './sorts.js';
+import { default as stateData } from './states.js';
+import { default as countyData } from './counties.js';
+import { default as cityData } from './cities.js';
+import { default as federalData } from './federal.js';
+import { default as eduData } from './edu.js';
 
 // noun: plural for counts ("N county sites"); scope: what we scan, for the
 // intro and the data footnote; descNoun: the population in meta descriptions.
+const TOP = 100;
+const DATA = { states: stateData, counties: countyData, cities: cityData, federal: federalData, edu: eduData };
+
 const COPY = {
     cities: { noun: 'city sites', scope: 'every city site on our list', descNoun: 'U.S. city websites' },
     counties: { noun: 'county sites', scope: 'every county site on our list', descNoun: 'U.S. county websites' },
@@ -27,19 +37,29 @@ function withFailuresHeading(summary, headingLevel) {
     return { ...summary, charts: { ...summary.charts, failures } };
 }
 
+// The meta description: the population, what the scans check, and the headline
+// number, so the snippet in search results says something specific.
+function describe({ population, count, average, topicSentence }) {
+    const avg = Number.isFinite(average) ? ` The average overall score is ${Math.round(average)} out of 100.` : '';
+    return `${count.toLocaleString('en-US')} ${population} scanned for ${topicSentence}.${avg}`;
+}
+
 export default async function () {
     const all = await siteSummary();
     const groups = await groupSummaries();
+    const topicSentence = (await topicsData()).sentence;
     const pages = [{
         key: 'all',
         label: 'All',
         isAll: true,
-        title: 'Pulse',
+        title: 'Pulse: how U.S. websites score',
         permalink: '/pulse/',
         hub: '/rankings/',
         noun: 'sites',
         scope: 'every site on our list',
-        description: 'The state of digital experience across every site ScanGov scans.',
+        description: describe({ population: 'U.S. websites', count: all.count, average: all.averages && all.averages.overall, topicSentence }),
+        rankingsLink: 'All rankings',
+        topRows: sorts().overall.slice(0, TOP),
         summary: all,
     }];
     for (const g of groups) {
@@ -49,12 +69,14 @@ export default async function () {
             key: g.key,
             label: g.label,
             isAll: false,
-            title: `Pulse: ${g.label.toLowerCase()}`,
+            title: `Pulse: how ${copy.descNoun} score`,
             permalink: `/pulse/${g.key}/`,
             hub: g.hub,
             noun: copy.noun,
             scope: copy.scope,
-            description: `The state of digital experience across the ${copy.descNoun} ScanGov scans: grades, how scores are distributed, and the checks these sites fail most.`,
+            description: describe({ population: copy.descNoun, count: g.count, average: g.averages && g.averages.overall, topicSentence }),
+            rankingsLink: `All ${g.singular} rankings`,
+            topRows: DATA[g.key]().slice(0, TOP),
             summary: withFailuresHeading(g, 4),
         });
     }

@@ -20,6 +20,7 @@ import { purgeCss } from './scripts/purge-css.js';
 import { renderOgMap } from './scripts/og-map.js';
 import { renderIssueOgMaps } from './scripts/og-issue-map.js';
 import { renderChart } from './scripts/charts/render.js';
+import { domainScoresSpec } from './scripts/charts/specs.js';
 import { humanizeLabel } from './scripts/charts/format.js';
 import { ordinal } from './scripts/counties.js';
 import { gradeSentence, groupsSentence, indicatorPatternSentence, topFailureSentence } from './scripts/narrative.js';
@@ -119,6 +120,8 @@ export default async function(eleventyConfig) {
         }
         return renderChart(spec)
     })
+    // The spec for the scores chart on a domain's dashboard (see domainScoresSpec).
+    eleventyConfig.addFilter('domainScoresSpec', (domain, topicKeys, topicNames) => domainScoresSpec({ domain, topics: topicKeys, labels: topicNames }))
     // "8" -> "8th"; audits.json display names without their angle brackets.
     eleventyConfig.addFilter('ordinal', (n) => ordinal(n))
     // 4105 -> "4,105"; leaves non-numbers untouched.
