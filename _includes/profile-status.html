@@ -1,0 +1,15 @@
+{#
+  The message on a dashboard for a site that has no grade: a colored alert, as my.scangov.com
+  shows, with the status in plain words. Danger for a site that could not be reached or turned
+  the scanner away, warning for a redirect or a homepage that sent no page content. Used by
+  profile-summary.html when there is no grade summary.
+#}
+{% set statusDef = statusDefinitions[domain.status] %}
+{% set statusKind = "warning" if (domain.status == 200 or statusDef.type == "redirect") else "danger" %}
+<div class="alert alert-{{ statusKind }} mt-3 mb-4" role="note" id="profile-summary">
+  <i class="fa-solid fa-note-sticky" aria-hidden="true"></i> <strong>{{ domain.urlkey }}</strong> has no grade.
+  {%- if domain.status == 200 %} The homepage responded without page content, so there are no scores yet.
+  {%- elif statusDef %} {{ statusDef.scangovStatus }}: {{ domain.status }} {{ statusDef.label }}.
+  {%- endif %}
+  <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr=status">What this status means</a>.
+</div>
