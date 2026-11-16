@@ -4,14 +4,15 @@
 //
 // Spec:
 //   id            required, unique on the page; prefixes every generated id
-//   type          bar | benchmarkBar | stackedBar | histogram | area
+//   type          bar | benchmarkBar | stackedBar | histogram | area | pie
 //   title         sentence case; names the population ("Texas counties by grade")
 //   headingLevel  2..4 (default 3) so the page outline stays in order
+//   titleHref     optional address the title links to (a group chart links to its rankings)
 //   subtitle      the denominator and units ("218 responding sites, score 0 to 100")
 //   caveat        one sentence shown under the marks, next to what it qualifies
 //   valueFormat   count | percent | score
 //   max           axis maximum (default: 100 for percent and score, a nice number otherwise)
-//   rows          bar types: [{ key, label, href, value, benchmark, color, srText, detail }]
+//   rows          bar types and pie: [{ key, label, href, value, benchmark, color, srText, detail }]
 //   series        stackedBar: [{ key, short, label, color }] in segment order
 //   emphasis      bar types: row key drawn in series-1 while the rest are muted
 //   bins          histogram and area: [{ from, to, count }]
@@ -28,6 +29,7 @@ import { esc, clampHeading, fillClass } from './format.js';
 import { renderBarList, renderStackedBars } from './bars.js';
 import { renderHistogram } from './histogram.js';
 import { renderArea } from './area.js';
+import { renderPie } from './pie.js';
 import { renderTable } from './table.js';
 
 function renderLegend(items) {
@@ -74,10 +76,12 @@ export function renderChart(spec) {
         case 'stackedBar': marks = renderStackedBars(withIds); break;
         case 'histogram': marks = renderHistogram(withIds); break;
         case 'area': marks = renderArea(withIds); break;
+        case 'pie': marks = renderPie(withIds); break;
         default: throw new Error(`chart ${spec.id}: unknown type ${type}`);
     }
 
-    const caption = `<figcaption><h${h} class="sg-chart-title" id="${titleId}">${esc(spec.title)}</h${h}>`
+    const titleText = spec.titleHref ? `<a href="${esc(spec.titleHref)}">${esc(spec.title)}</a>` : esc(spec.title);
+    const caption = `<figcaption><h${h} class="sg-chart-title" id="${titleId}">${titleText}</h${h}>`
         + (spec.subtitle ? `<p class="sg-chart-sub" id="${subtitleId}">${esc(spec.subtitle)}</p>` : '')
         + `</figcaption>`;
     const legend = renderLegend(autoLegend(withIds));

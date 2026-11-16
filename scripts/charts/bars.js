@@ -58,10 +58,9 @@ export function renderStackedBars(spec) {
         const segments = row.segments.filter(seg => seg.share > 0).map(seg => {
             const series = byKey.get(seg.key) || { label: seg.key, color: 'series-1' };
             const pct = Math.round(seg.share * 100);
-            const inline = seg.share >= 0.12 ? `<span class="sg-seg-label" aria-hidden="true">${esc(series.short || series.key)} ${pct}%</span>` : '';
             const detail = `${series.label}: ${pct}% (${formatValue(seg.value, 'count')}${spec.unit ? ' ' + spec.unit : ''})`;
             const sr = `<span class="visually-hidden">${esc(detail)}</span>`;
-            return `<span class="sg-seg text-bg-${esc(series.color)}" style="--r:${ratio(seg.share, 1)}" data-tip="${esc(`${row.label} · ${detail}`)}" tabindex="0">${inline}${sr}</span>`;
+            return `<span class="sg-seg text-bg-${esc(series.color)}" style="--r:${ratio(seg.share, 1)}" data-tip="${esc(`${row.label} · ${detail}`)}" tabindex="0">${sr}</span>`;
         }).join('');
         return `<li class="sg-row" style="--i:${i}"><span class="sg-label">${labelHtml(row)}</span><span class="sg-plot sg-stack">${segments}</span></li>`;
     }).join('');

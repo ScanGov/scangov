@@ -26,11 +26,11 @@
     <link rel="alternate" hreflang="en" href="{{ site.url }}{{ page.url }}">
     <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url }}">
     <!-- Title -->
-    <title>{% if title %}{{ title }} - {% endif %}{{ site.title }}</title>
+    <title>{% if seoTitle or title %}{{ seoTitle or title }} - {% endif %}{{ site.title }}</title>
     <!-- Open Graph -->
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:type" content="{% if isStandard or isGuidance or isDoc %}article{% else %}website{% endif %}">
-    {% if title %}<meta property="og:title" content="{{ title }}">{% endif %}
+    {% if seoTitle or title %}<meta property="og:title" content="{{ seoTitle or title }}">{% endif %}
     {% if description %}<meta property="og:description" content="{{ description }}">{% endif %}
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     {% if ogImage %}

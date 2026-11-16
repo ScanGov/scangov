@@ -30,6 +30,18 @@ showActions: true
 {% set pillsAvailable = false %}
 {% include "group-pills.html" %}
 
+<nav aria-label="On this page">
+  <ul class="list-inline small">
+    <li class="list-inline-item"><a href="#how-sites-are-doing">How sites are doing</a></li>
+    {% if pp.isAll %}<li class="list-inline-item"><a href="#groups-compared">Groups compared</a></li>{% endif %}
+    {% if showStateMap or showCountyMaps or showCityMap %}<li class="list-inline-item"><a href="#by-place">By place</a></li>{% endif %}
+    <li class="list-inline-item"><a href="#where-sites-fail">Where sites fail</a></li>
+    {% if pp.topRows.length %}<li class="list-inline-item"><a href="#top-sites">Top {{ pp.topRows.length }}</a></li>{% endif %}
+    <li class="list-inline-item"><a href="#what-we-scan">What we scan</a></li>
+    <li class="list-inline-item"><a href="#where-to-go-next">Where to go next</a></li>
+  </ul>
+</nav>
+
 <div class="sg-charts-large">
 <div class="row g-3 mb-2">
     {% set statLabel = "Fully scanned" %}
@@ -74,15 +86,25 @@ showActions: true
   <h2 id="how-sites-are-doing">How sites are doing</h2>
   <p>{{ s | gradeSentence("overall score", "overall") }} The curve shows where scores cluster; the bar shows the share in each grade band.</p>
   {% chart s.charts.area.overall %}
-  {% chart s.charts.grades.overall %}
+  {% set gradesPie = s.charts.grades.overall | pieFromGradeBar %}
+  {% chart gradesPie %}
 </section>
 
 {% if pp.isAll %}
 <section aria-labelledby="groups-compared" class="mt-5">
   <h2 id="groups-compared">Groups compared</h2>
   <p>{{ groupSummaries | groupsSentence("overall") }} Each group name links to its rankings; pick a group above for its own Pulse page.</p>
+  {% set sitesByGroup = groupSummaries | groupsPieSpec("pulse-sites-by-group", "Sites by type", "All " + (s.count | numberFormat) + " sites on the list, by group", 3) %}
+  {% chart sitesByGroup %}
   {% chart pulseCharts.groupsAverages.overall %}
-  {% chart pulseCharts.groupsGrades.overall %}
+  <h3>Grades by group</h3>
+  <p>Share of each group's fully scanned sites in each grade band.</p>
+  <div class="row g-4">
+    {% for gradePie in pulseCharts.groupsGradePies.overall %}
+    {% set gradePie = gradePie | withHeading(4) %}
+    <div class="col-12 col-md-6 col-xl-4">{% chart gradePie %}</div>
+    {% endfor %}
+  </div>
   <p>{{ groupSummaries | indicatorPatternSentence(audits) }} The chart compares every site's average on each indicator with the state group, the group that scores highest overall.</p>
   {% chart pulseCharts.indicatorAverages %}
 </section>
@@ -93,7 +115,7 @@ showActions: true
   <h2 id="by-place">By place</h2>
   {% if showStateMap %}
   <h3>State sites</h3>
-  <p>Each state is colored by the overall grade of its main site. Select a state for its report, or see the <a href="/rankings/states/">state rankings</a>.</p>
+  <p>Each state is colored by the overall grade of its main site. Select a state for its report, or visit the <a href="/rankings/states/">state rankings</a>.</p>
   {% set mapId = "state-site-map" %}
   {% set mapData = false %}
   {% set mapTopic = "overall" %}
@@ -103,7 +125,7 @@ showActions: true
 
   {% if showCountyMaps %}
   <h3 class="{{ "mt-5" if showStateMap else "mt-3" }}">County sites, by state</h3>
-  <p>Each state is shaded by the average overall score of its fully scanned county sites, darker for higher. Select a state for its county rankings, or see the <a href="/rankings/counties/">county rankings</a> for every state.</p>
+  <p>Each state is shaded by the average overall score of its fully scanned county sites, darker for higher. Select a state for its county rankings, or visit the <a href="/rankings/counties/">county rankings</a> for every state.</p>
   {% set mapId = "county-state-map" %}
   {% set mapData = countyStateMap %}
   {% set mapTopic = "overall" %}
@@ -150,24 +172,16 @@ showActions: true
 </section>
 {% endif %}
 
-<section aria-labelledby="where-sites-fail" class="mt-5">
+<section aria-labelledby="where-sites-fail" class="mt-5" style="content-visibility:auto;contain-intrinsic-size:auto 40rem">
   <h2 id="where-sites-fail">Where sites fail</h2>
   <p>For each indicator, the five checks that fully scanned {{ pp.noun }} fail most often. A site can fail more than one check. In each chart, a check links to the list of {{ pp.noun }} failing it where we have one, or to its standard; the notes under the chart link every standard.</p>
   {% for t in indicatorKeys %}
   {% set catInfo = audits[t] %}
   {% set topicName = catInfo.displayName | lower %}
-  <h3><i class="fa-solid fa-{{ catInfo.icon }}" aria-hidden="true"></i> {{ catInfo.displayName }}</h3>
+  <h3>{{ catInfo.displayName }}</h3>
   {% if s.topFailures[t].length %}
   <p>{{ catInfo.description }} {{ s | topFailureSentence(t, topicName) }}</p>
   {% chart s.charts.failures[t] %}
-  <details class="small mb-3">
-    <summary>What each {{ topicName }} check means</summary>
-    <ul class="sg-failures mt-2">
-      {% for f in s.topFailures[t] %}
-      <li><a href="{{ f.standardsUrl }}">{{ f.label | humanizeLabel }}</a>. {{ f.description }} {{ f.risk }}</li>
-      {% endfor %}
-    </ul>
-  </details>
   {% else %}
   <p>{{ catInfo.description }} No {{ topicName }} check failed among the fully scanned {{ pp.noun }} in this scan window.</p>
   {% endif %}
@@ -186,7 +200,7 @@ showActions: true
 </section>
 
 {% if pp.topRows.length %}
-<section aria-labelledby="top-sites" class="mt-5">
+<section aria-labelledby="top-sites" class="mt-5" style="content-visibility:auto;contain-intrinsic-size:auto 40rem">
   <h2 id="top-sites">Top {{ pp.topRows.length }} {{ pp.noun }}</h2>
   <p>The {{ pp.topRows.length }} {{ pp.noun }} with the highest overall scores. <a href="{{ pp.hub }}">{{ pp.rankingsLink }}</a> list every site, with indicator filters.</p>
   {% set member = pp.topRows %}
@@ -199,7 +213,7 @@ showActions: true
 </section>
 {% endif %}
 
-<section aria-labelledby="where-to-go-next" class="mt-5">
+<section aria-labelledby="where-to-go-next" class="mt-5" style="content-visibility:auto;contain-intrinsic-size:auto 40rem">
   <h2 id="where-to-go-next">Where to go next</h2>
   <ul>
     {% if pp.isAll %}
@@ -220,6 +234,8 @@ showActions: true
     <li><a href="/changelog/">Changelog</a>: what changed in the latest scans.</li>
     <li><a href="/status/">Scan status</a>: why some sites could not be fully scanned.</li>
   </ul>
+  {% set downloadKey = pp.key %}
+  {% include "data-download.html" %}
 </section>
 </div>
 

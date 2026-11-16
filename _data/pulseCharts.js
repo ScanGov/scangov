@@ -4,7 +4,7 @@
 import { default as siteSummary } from './siteSummary.js';
 import { default as groupSummaries } from './groupSummaries.js';
 import { loadAudits } from '../scripts/load-audits.js';
-import { gradeDistributionSpec, topicAveragesSpec, rankedGroupsSpec } from '../scripts/charts/specs.js';
+import { gradeDistributionSpec, topicAveragesSpec, rankedGroupsSpec, pieFromGradeBar } from '../scripts/charts/specs.js';
 import { topicKeysFrom, allTopicKeysFrom } from '../scripts/topics.js';
 
 export default async function () {
@@ -15,16 +15,20 @@ export default async function () {
     const groups = await groupSummaries();
     const label = t => (audits[t] && audits[t].displayName) || t;
     const fmt = new Intl.NumberFormat('en-US');
-    const charts = { groupsGrades: {}, groupsAverages: {} };
+    const charts = { groupsGradePies: {}, groupsAverages: {} };
 
     for (const topic of ALL_TOPICS) {
         const topicName = topic === 'overall' ? 'overall' : label(topic).toLowerCase();
-        charts.groupsGrades[topic] = gradeDistributionSpec({
-            id: `pulse-groups-grades-${topic}`,
-            title: `Sites by ${topicName} grade, by group`,
-            subtitle: `Share of each group's fully scanned sites in each grade band. ${groups.map(g => `${g.label}: ${fmt.format(g.scoredCount)}`).join('. ')}.`,
-            groups: groups.map(g => ({ key: g.key, label: g.label, href: g.hub, distribution: g.gradeDistribution[topic], total: g.scoredCount })),
-        });
+        // One pie per group: each group's fully scanned sites add up to 100%, so a pie
+        // reads at a glance where one stacked bar per group did not.
+        charts.groupsGradePies[topic] = groups.map(g => pieFromGradeBar(gradeDistributionSpec({
+            id: `pulse-grades-${g.key}-${topic}`,
+            title: g.label,
+            subtitle: `${fmt.format(g.scoredCount)} sites`,
+            titleHref: g.hub + (topic === 'overall' ? '' : topic + '/'),
+            headingLevel: 3,
+            groups: [{ key: g.key, label: g.label, href: g.hub, distribution: g.gradeDistribution[topic], total: g.scoredCount }],
+        })));
         charts.groupsAverages[topic] = rankedGroupsSpec({
             id: `pulse-groups-average-${topic}`,
             title: `Average ${topicName} score by group`,

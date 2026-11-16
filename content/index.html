@@ -5,7 +5,6 @@ title: Digital experience monitor
 description: A ScanGov project tracking web accessibility, botability, security, usability, and readability.
 descriptionHtml: 'A <a href="https://scangov.com">ScanGov</a> project tracking web <a href="https://scangov.com/accessibility/">accessibility</a>, <a href="https://scangov.com/botability/">botability</a>, <a href="https://scangov.com/security/">security</a>, and <a href="https://scangov.com/usability/">usability</a>.'
 search: true
-plainDescription: true
 showLastUpdated: true
 keywords: domains, websites
 ---
@@ -58,44 +57,99 @@ keywords: domains, websites
         </div>
       {% endfor %}
     </div>
-    <p class="small mt-3 mb-0">See the <a href="/rankings/" id="homepage-hub-link">rankings for all sites</a>, the <a href="/pulse/counties/#by-state">county rankings by state</a>, or <a href="/dashboards/">every dashboard</a>.</p>
+    <p class="small mt-3 mb-0">Visit the <a href="/rankings/" id="homepage-hub-link">rankings for all sites</a>, the <a href="/pulse/counties/#by-state">county scores by state</a>, or <a href="/dashboards/">every dashboard</a>.</p>
+
+    <nav aria-label="On this page" class="mt-3">
+      <ul class="list-inline small">
+        <li class="list-inline-item"><a href="#domains">Domains</a></li>
+        <li class="list-inline-item"><a href="#grades-by-group">Grades by group</a></li>
+        <li class="list-inline-item"><a href="#rankings">Rankings</a></li>
+        <li class="list-inline-item"><a href="#top-issues">Top issues</a></li>
+      </ul>
+    </nav>
 
     {% set all = siteSummary %}
     <div class="border-top pt-4 mt-4">
-      <h2>Domains</h2>
-      <p>How scanned domains break down by type and overall grade. See <a href="/pulse/" id="homepage-pulse-link">Pulse</a> for more.</p>
-      {% chart all.charts.grades.overall %}
-      {% chart pulseCharts.groupsGrades.overall %}
+      <h2 id="domains">Domains</h2>
+      <p>How scanned domains break down by type and overall grade. Visit <a href="/pulse/" id="homepage-pulse-link">Pulse</a> for more.</p>
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          {% set sitesByGroup = groupSummaries | groupsPieSpec("home-sites-by-group", "Sites by type", "All " + (all.count | numberFormat) + " sites on the list, by group", 3) %}
+          {% chart sitesByGroup %}
+        </div>
+        <div class="col-12 col-lg-6">
+          {% set gradesPie = all.charts.grades.overall | pieFromGradeBar | withTitleHref("/rankings/") | withSubtitle((all.scoredCount | numberFormat) + " sites") %}
+          {% chart gradesPie %}
+        </div>
+      </div>
     </div>
 
-    <div class="border-top pt-4 mt-4 mb-4">
-      <h2>Top issues</h2>
-      <p>Top 5 failing checks per indicator.</p>
-      <div class="row sg-charts-even">
-        {% for indicator in topics.names %}
-          {% set lower = indicator.toLowerCase() %}
-          {% set catInfo = audits[lower] %}
-          <div class="col-12 col-lg-6 mb-4 d-flex flex-column">
-            <h3>{{ indicator }}</h3>
-            {% if catInfo %}<p>{{ catInfo.description }}</p>{% endif %}
-            <div class="sg-series-{{ lower }}">{% chart all.charts.failures[lower] %}</div>
-            {% if catInfo %}
-            <div class="alert alert-info small mt-auto" role="note">
-              <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-              {{ catInfo.displayName }}:
-              <a href="https://standards.scangov.org/{{ lower }}/">Standards</a>
-              &middot;
-              <a href="https://standards.scangov.org{{ catInfo.url }}/">Guidance</a>
-              &middot;
-              <a href="{{ site.url }}{{ catInfo.rankingsUrl }}">Project ScanGov rankings</a>
-              &middot;
-              <a href="https://scangov.com{{ catInfo.scangovUrl }}">How ScanGov helps</a>
-            </div>
-            {% endif %}
-          </div>
+    <div class="border-top pt-4 mt-4">
+      <h2 id="grades-by-group">Grades by group</h2>
+      <p>Share of each group's fully scanned sites in each grade band.</p>
+      <div class="row g-4">
+        {% for gradePie in pulseCharts.groupsGradePies.overall %}
+        <div class="col-12 col-md-6 col-xl-4">{% chart gradePie %}</div>
         {% endfor %}
       </div>
     </div>
+
+    <div class="border-top pt-4 mt-4" style="content-visibility:auto;contain-intrinsic-size:auto 40rem">
+      <h2 id="rankings">Rankings</h2>
+      <p>The five highest and five lowest overall scores in each group.</p>
+      {% for g in homepageRankings %}
+      <div class="border-top pt-4 mt-4">
+      <h3 id="rankings-{{ g.key }}"><a href="{{ g.hub }}">{{ g.label }}</a></h3>
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          {% set member = g.top %}
+          {% set tableId = "home-top-" + g.key %}
+          {% set tableCaption = "Top five " + (g.label | lower) + " by overall score" %}
+          {% set specificAttribute = "" %}
+          {% set currentsort = "" %}
+          {% set compactTable = true %}
+          <h4>Top five</h4>
+          {% include "ranking-table-block.html" %}
+        </div>
+        <div class="col-12 col-lg-6">
+          {% set member = g.bottom %}
+          {% set tableId = "home-bottom-" + g.key %}
+          {% set tableCaption = "Bottom five " + (g.label | lower) + " by overall score" %}
+          <h4>Bottom five</h4>
+          {% include "ranking-table-block.html" %}
+        </div>
+      </div>
+      <p><a href="{{ g.hub }}">{{ g.link }}</a></p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="border-top pt-4 mt-4">
+      <h2 id="top-issues">Top issues</h2>
+      <p>Top 5 failing checks per indicator.</p>
+    </div>
+    {# One full-width section per indicator, so each reads as its own part of the page. #}
+    {% for indicator in topics.names %}
+      {% set lower = indicator.toLowerCase() %}
+      {% set catInfo = audits[lower] %}
+      <section class="border-top pt-4 mt-4 sg-series-{{ lower }}" aria-labelledby="top-issues-{{ lower }}" style="content-visibility:auto;contain-intrinsic-size:auto 40rem">
+        <h3 id="top-issues-{{ lower }}"><a href="/rankings/{{ lower }}/">{{ indicator }}</a></h3>
+        <div class="sg-charts-large">{% chart all.charts.failures[lower] %}</div>
+        {% if catInfo %}
+        <div class="alert alert-info small" role="note">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          {{ catInfo.displayName }}:
+          <a href="https://standards.scangov.org/{{ lower }}/">Standards</a>
+          &middot;
+          <a href="https://standards.scangov.org{{ catInfo.url }}/">Guidance</a>
+          &middot;
+          <a href="{{ site.url }}{{ catInfo.rankingsUrl }}">Project ScanGov rankings</a>
+          &middot;
+          <a href="https://scangov.com{{ catInfo.scangovUrl }}">How ScanGov helps</a>
+        </div>
+        {% endif %}
+      </section>
+    {% endfor %}
   </div>
 </div>
 

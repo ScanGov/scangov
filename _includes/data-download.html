@@ -1,0 +1,8 @@
+{#
+  Links to the rankings data as files. Set `downloadKey` to the rankings group
+  before including: all, states, counties, cities, federal or edu. The files come
+  from _data/rankingsExport.js (content/data/rankings-csv.njk and rankings-json.njk).
+#}
+{% if downloadKey %}
+<p>Download the data: <a href="/data/rankings/{{ downloadKey }}.csv" download>CSV</a> or <a href="/data/rankings/{{ downloadKey }}.json" download>JSON</a>.</p>
+{% endif %}
