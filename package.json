@@ -38,8 +38,7 @@
 	"dependencies": {
 		"@11ty/font-awesome": "github:aaronhans/eleventy-plugin-font-awesome",
 		"@11ty/is-land": "^4.0.0",
-		"leaflet": "^1.9.4",
-		"purgecss": "^7.0.2"
+		"leaflet": "^1.9.4"
 	},
 	"overrides": {
 		"sharp": "^0.35.3",

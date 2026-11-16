@@ -5,7 +5,7 @@ name: Deploy to GitHub Pages
 #   prepare  refresh the audit data once (scripts/prepare-data.js)
 #   build    matrix: one "core" job (every page except profiles) plus N
 #            "profiles" shards, each rendering every N-th domain's profile pages
-#   deploy   merge the shard outputs, purge CSS, check the sitemap and the
+#   deploy   merge the shard outputs, check the sitemap and the
 #            page counts against the data (scripts/check-build-output.js), publish
 # Data checks: prepare validates the auditor payload (scripts/fetch-auditor-data.js)
 # and falls back to the committed file with a run annotation when it fails.
@@ -183,7 +183,7 @@ jobs:
           done
           ls -l shards/*/
 
-      - name: Merge shards, purge CSS, check sitemap and page counts
+      - name: Merge shards, check sitemap and page counts
         run: |
           set -e
           mkdir -p _site
@@ -195,7 +195,6 @@ jobs:
             inputs="$inputs extracted/$name"
           done
           node scripts/merge-shards.js _site $inputs
-          node scripts/purge-css.js _site
           SITEMAP_CHECK_MODE=walk node scripts/check-sitemap-completeness.js
           node scripts/check-build-output.js _site
 

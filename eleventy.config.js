@@ -16,7 +16,6 @@ import { sitemapSectionFor } from './scripts/sitemap-sections.js';
 import slimHtmlPlugin from './_config/slim-html.js';
 import { isCore, isProfiles, isSingle, describeRole } from './_config/build-role.js';
 import { prepareData } from './scripts/prepare-data.js';
-import { purgeCss } from './scripts/purge-css.js';
 import { renderOgMap } from './scripts/og-map.js';
 import { renderIssueOgMaps } from './scripts/og-issue-map.js';
 import { renderChart } from './scripts/charts/render.js';
@@ -419,8 +418,6 @@ export default async function(eleventyConfig) {
     // Last, so it runs after every other transform (Font Awesome inlines its sprite in a transform).
     eleventyConfig.addPlugin(slimHtmlPlugin)
 
-    // PurgeCSS samples pages from several sections, so in a sharded build it runs
-    // after scripts/merge-shards.js instead (scripts/purge-css.js).
     eleventyConfig.on('eleventy.after', async ({ dir, directories }) => {
         const output = directories?.output || dir.output;
         // Social unfurl images. Pulse (scripts/og-map.js), once per build:
@@ -428,7 +425,6 @@ export default async function(eleventyConfig) {
         if (isCore || isSingle) await renderOgMap(output);
         // Same for the issue pages (scripts/og-issue-map.js), one image per page with a map.
         if (isCore || isSingle) await renderIssueOgMaps(output);
-        if (isSingle) await purgeCss(output);
     });
 }
 
