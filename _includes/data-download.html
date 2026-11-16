@@ -1,8 +1,19 @@
 {#
-  Links to the rankings data as files. Set `downloadKey` to the rankings group
-  before including: all, states, counties, cities, federal or edu. The files come
-  from _data/rankingsExport.js (content/data/rankings-csv.njk and rankings-json.njk).
+  The rankings data as files, as a Download button with a menu like the one on
+  my.scangov.com. Set `dataDownloadKey` (from page data: all, states, counties, cities,
+  federal or edu); nothing shows without it. The files come from _data/rankingsExport.js
+  (content/data/rankings-csv.njk and rankings-json.njk). Shown beside Share in the row
+  above the h1 (jumbotron.html).
 #}
-{% if downloadKey %}
-<p>Download the data: <a href="/data/rankings/{{ downloadKey }}.csv" download>CSV</a> or <a href="/data/rankings/{{ downloadKey }}.json" download>JSON</a>.</p>
+{% if dataDownloadKey %}
+<div class="dropdown">
+    <button type="button" id="data-download-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download" title="Download">
+        <i class="fa-solid fa-download" aria-hidden="true"></i>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="data-download-menu">
+        <li class="small px-3 pt-2"><i class="fa-solid fa-window-maximize me-1" aria-hidden="true"></i>All sites in this list</li>
+        <li class="small px-3"><a href="/data/rankings/{{ dataDownloadKey }}.csv" class="dropdown-item" download><i class="fa-solid fa-file-csv me-1" aria-hidden="true"></i>.csv</a></li>
+        <li class="small px-3"><a href="/data/rankings/{{ dataDownloadKey }}.json" class="dropdown-item" download><i class="fa-solid fa-file-code me-1" aria-hidden="true"></i>.json</a></li>
+    </ul>
+</div>
 {% endif %}

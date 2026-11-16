@@ -15,6 +15,8 @@
 {% set pillsAvailable = false %}
 {# The All pill of an indicator page is /{indicator}/, not /rankings/{indicator}/. #}
 {% set pillsAllBase = "/" %}
+{# The indicator pills sit right under the group pills, so these need less room below. #}
+{% set pillsStacked = true %}
 {% if page.url.indexOf("/cities/") != -1 %}{% set pillsActive = "cities" %}
 {% elif page.url.indexOf("/counties/") != -1 %}{% set pillsActive = "counties" %}
 {% elif page.url.indexOf("/states/") != -1 %}{% set pillsActive = "states" %}
@@ -23,7 +25,7 @@
 {% else %}{% set pillsActive = "all" %}{% endif %}
 {% include "group-pills.html" %}
 
-<ul class="nav nav-tabs filter small mb-0">
+<ul class="nav nav-pills filter small mb-4">
     {% set pillTitle = "All" %}
     {% set pillUrl = "/rankings/" + directory %}
     {% set pillIcon = "fa-solid fa-circle-notch" %}

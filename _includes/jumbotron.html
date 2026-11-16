@@ -218,6 +218,7 @@
                 {% if showLastUpdated and not profile %}
                 <div class="d-flex flex-wrap align-items-center gap-3 ms-auto">
                     {% include "scan-info.html" %}
+                    {% include "data-download.html" %}
                     {% set actionsCompact = true %}
                     {% include "actions.html" %}
                 </div>

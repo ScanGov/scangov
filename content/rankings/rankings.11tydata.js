@@ -26,6 +26,9 @@ export default {
     breadcrumbParent: (data) => { const c = rankingCrumbs(data); return c ? c.parents : data.breadcrumbParent; },
     breadcrumbCurrent: (data) => { const c = rankingCrumbs(data); return c ? c.current : data.breadcrumbCurrent; },
     rankingFilters: (data) => rankingFilters(data),
+    // The Download menu in the row above the h1 (_includes/data-download.html): the national
+    // group pages only; per-state and per-group pages carry their own scope.
+    dataDownloadKey: (data) => { const f = rankingFilters(data); return f && !f.stateContext && !f.groupContext ? (f.currentsort || 'all') : undefined; },
     schema: (data) => {
       const member = pageMember(data);
       const title = pageTitle(data);
