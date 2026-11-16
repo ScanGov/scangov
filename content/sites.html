@@ -1,0 +1,203 @@
+---
+home: false
+layout: layouts/page
+title: Sites
+permalink: /sites/
+showLastUpdated: true
+dataDownloadKey: all
+keywords: U.S. websites, state websites, county websites, city websites, federal websites, college websites
+---
+{#
+  The list itself: how many websites ScanGov scans, in which groups, who runs them, and why some
+  have no grade. Numbers come from _data/sitesPage.js (scripts/sites-page.js), the same summaries
+  the rankings and Pulse pages use. The group rows carry ids (#counties and so on) that the site
+  count in the row above every data page links to (_includes/scan-info.html).
+#}
+{% set p = sitesPage %}
+{% set s = siteSummary %}
+
+<div class="row g-3">
+  {% set statLabel = "Sites" %}
+  {% set statValue = p.total | numberFormat %}
+  {% set statFooter %}{{ p.groups | length }} types{% endset %}
+  {% set statColor = "" %}
+  {% set statHref = "/rankings/" %}
+  {% include "stat-card.html" %}
+  {% set statLabel = "Scanned" %}
+  {% set statValue = p.scored | numberFormat %}
+  {% set statFooter %}What we could access{% endset %}
+  {% set statColor = "" %}
+  {% set statHref = "/status/200/" %}
+  {% include "stat-card.html" %}
+  {% set statLabel = "Not scanned" %}
+  {% set statValue = (p.total - p.scored) | numberFormat %}
+  {% set statFooter %}What we couldn't access{% endset %}
+  {% set statColor = "" %}
+  {% set statHref = "/status/" %}
+  {% include "stat-card.html" %}
+  {% set statLabel = "Organizations" %}
+  {% set statValue = p.organizations.count | numberFormat %}
+  {% set statFooter %}Orgs with multiple sites{% endset %}
+  {% set statColor = "" %}
+  {% set statHref = "#by-organization" %}
+  {% include "stat-card.html" %}
+</div>
+
+<section aria-labelledby="how-many" class="border-top pt-4 mt-5">
+  <h2 id="how-many">How many websites does Project ScanGov scan?</h2>
+  <p>Project ScanGov scans {{ p.total | numberFormat }} U.S. websites: state, county, city, federal, and public college and university sites. {{ p.scored | numberFormat }} of them ({{ p.scoredShare }}%) have a grade from the latest scan. Each scan checks the homepage for {{ topics.sentence }}.</p>
+</section>
+
+<section aria-labelledby="by-type" class="border-top pt-4 mt-5">
+  <h2 id="by-type">Sites by type</h2>
+  {% set sitesByGroup = groupSummaries | groupsPieSpec("sites-by-group", "Sites by type", (p.total | numberFormat) + " sites, by group", 3) %}
+  {% chart sitesByGroup %}
+  <div class="table-responsive">
+    <table class="table">
+      <caption class="visually-hidden">Sites by type, with how many were scanned and their average score</caption>
+      <thead>
+        <tr>
+          <th scope="col">Type</th>
+          <th scope="col" class="text-end">Sites</th>
+          <th scope="col" class="text-end">Scanned</th>
+          <th scope="col" class="text-center">Average score</th>
+          <th scope="col">Pages</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for g in p.groups %}
+        <tr id="{{ g.key }}">
+          <th scope="row">{{ g.label }}</th>
+          <td class="text-end">{{ g.count | numberFormat }}</td>
+          <td class="text-end">{{ g.scored | numberFormat }}</td>
+          <td class="text-center">{% if g.average !== null %}<span class="badge text-bg-{{ g.average | colorify }}">{{ g.average | gradify }}</span> {{ g.average }}{% else %}&ndash;{% endif %}</td>
+          <td><a href="{{ g.rankings }}">Rankings</a> &middot; <a href="{{ g.pulse }}">Pulse</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% if p.overlap %}
+  <p>{{ p.overlap }} consolidated city and county {{ "site is" if p.overlap == 1 else "sites are" }} in both the county and city groups, so the groups add up to {{ p.groupsSum | numberFormat }}, not {{ p.total | numberFormat }}.</p>
+  {% endif %}
+</section>
+
+<section aria-labelledby="by-state" class="border-top pt-4 mt-5" style="content-visibility:auto;contain-intrinsic-size:auto 60rem">
+  <h2 id="by-state">Sites by state</h2>
+  <p>The sites that belong to a state: its own site, its county and city sites, and its public college and university sites. A count links to that state's list where there is one.</p>
+  <div class="table-responsive">
+    <table class="table table-sm" data-sortable>
+      <caption class="visually-hidden">Sites in each state: the state's site, county sites, city sites, and education sites</caption>
+      <thead>
+        <tr>
+          <th scope="col">State</th>
+          <th scope="col">State site</th>
+          <th scope="col" class="text-end">Counties</th>
+          <th scope="col" class="text-end">Cities</th>
+          <th scope="col" class="text-end">Education</th>
+          <th scope="col" class="text-end">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in p.byState.rows %}
+        <tr>
+          <th scope="row" data-sort="{{ r.name }}">{{ r.name }}</th>
+          <td>{% if r.stateSite %}<a href="/profile/{{ r.stateSite | slugify }}/overall/">{{ r.stateSite }}</a>{% else %}&ndash;{% endif %}</td>
+          <td class="text-end" data-sort="{{ r.counties }}">{% if r.countiesUrl %}<a href="{{ r.countiesUrl }}">{{ r.counties | numberFormat }}</a>{% else %}{{ r.counties | numberFormat }}{% endif %}</td>
+          <td class="text-end" data-sort="{{ r.cities }}">{{ r.cities | numberFormat }}</td>
+          <td class="text-end" data-sort="{{ r.edu }}">{% if r.eduUrl %}<a href="{{ r.eduUrl }}">{{ r.edu | numberFormat }}</a>{% else %}{{ r.edu | numberFormat }}{% endif %}</td>
+          <td class="text-end" data-sort="{{ r.total }}">{{ r.total | numberFormat }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p>Federal sites ({{ p.byState.unplaced.federal | numberFormat }}) belong to no state, and {{ p.byState.unplaced.edu | numberFormat }} education sites have no state on the list or are in a territory, so they are not in these rows. A consolidated city and county site appears in both the Counties and Cities columns.</p>
+</section>
+
+<section aria-labelledby="by-organization" class="border-top pt-4 mt-5" style="content-visibility:auto;contain-intrinsic-size:auto 30rem">
+  <h2 id="by-organization">Sites by organization</h2>
+  <p>{{ p.organizations.count }} organizations run more than one site on the list. These are the largest. Each page lists the organization's sites and how they score.</p>
+  <ul>
+    {% for o in p.organizations.top %}
+    {% set orgHref = o.name | orgUrl %}
+    <li>{% if orgHref %}<a href="{{ orgHref }}">{{ o.name }}</a>{% else %}{{ o.name }}{% endif %}: {{ o.count }} sites</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section aria-labelledby="no-grade" class="border-top pt-4 mt-5" style="content-visibility:auto;contain-intrinsic-size:auto 30rem">
+  <h2 id="no-grade">Why some sites have no grade</h2>
+  <p>A site is scanned when its homepage loaded and sent us its page content. {{ (p.total - p.scored) | numberFormat }} sites are not scanned: they did not respond, blocked the scanner, or sent no page content. They stay on the list and show why.</p>
+  <ul>
+    {% for st in p.statuses %}
+    <li><a href="/status/{{ st.code }}/">{{ st.code }} {{ st.label }}</a>: {{ st.count | numberFormat }} sites</li>
+    {% endfor %}
+  </ul>
+  <p>The <a href="/status/">status page</a> explains each code.</p>
+</section>
+
+<section aria-labelledby="how-we-scan" class="border-top pt-4 mt-5" style="content-visibility:auto;contain-intrinsic-size:auto 30rem">
+  <h2 id="how-we-scan">How we scan</h2>
+  <p>Project ScanGov, a <a href="https://scangov.com">ScanGov</a> project, loads the homepage of each site on the list and checks it against the standards for {{ topics.sentence }}. It does not crawl the rest of the site. ScanGov itself scans every page of your own site.</p>
+  <ul>
+    {% for key in topics.keys %}
+    <li><a href="/{{ key }}/">{{ audits[key].displayName }}</a>: {{ audits[key].attributes | length }} standards</li>
+    {% endfor %}
+  </ul>
+  <p>The scanner identifies itself as <a href="https://scangov.com/bot">ScanGovBot</a>. A site that blocks it stays on the list without a grade. The <a href="https://docs.scangov.org/scans/">scan documentation</a> explains how scans run and what each check means.</p>
+</section>
+
+<section aria-labelledby="faq" class="border-top pt-4 mt-5" style="content-visibility:auto;contain-intrinsic-size:auto 40rem">
+  <h2 id="faq">Frequently asked questions</h2>
+  <h3>Does Project ScanGov scan every page of a site?</h3>
+  <p>No. The scores on this site come from each site's homepage. <a href="https://scangov.com">ScanGov</a>, the service, scans every page of a site you add to it.</p>
+  <h3>Which sites are on the list?</h3>
+  <p>State, county, city, federal, and public college and university websites: {{ p.total | numberFormat }} in all. The <a href="/rankings/">rankings</a> list every one.</p>
+  <h3>When were the sites last scanned?</h3>
+  <p>The latest scan was on {{ updates }}. Each site's report shows its own scan date.</p>
+  <h3>Why does my site have no grade?</h3>
+  <p>A site gets a grade when its homepage loaded and sent us its page content. A site that did not respond, blocked the scanner, or sent no page content stays on the list without a grade, and its status says why. Find the code on the <a href="/status/">status page</a>, and allow <a href="https://scangov.com/bot">ScanGovBot</a> if your firewall turns it away.</p>
+  <h3>How do I add a site?</h3>
+  <p>Use the <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKiSG0f07leAwW1QqIMSoDIgTA92m0jVy6NADtiaoPhg4rww/viewform" rel="noopener noreferrer">contact form</a> to tell us about a site that belongs on the list.</p>
+</section>
+
+<section aria-labelledby="use-the-data" class="border-top pt-4 mt-5" style="content-visibility:auto;contain-intrinsic-size:auto 30rem">
+  <h2 id="use-the-data">Use the data</h2>
+  <p>The list, with each site's scores and grades, is free to use under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 license</a>. Credit Project ScanGov.</p>
+  <ul>
+    <li>All sites: <a href="/data/rankings/all.csv" download>CSV</a> or <a href="/data/rankings/all.json" download>JSON</a></li>
+    {% for g in p.groups %}
+    <li>{{ g.label }}: <a href="/data/rankings/{{ g.key }}.csv" download>CSV</a> or <a href="/data/rankings/{{ g.key }}.json" download>JSON</a></li>
+    {% endfor %}
+  </ul>
+  <p>Each row is one site. The columns are rank, site, organization, scanned, the overall score and grade, a score and grade for each indicator ({{ topics.names | join(", ") | lower }}), and a link to the site's report.</p>
+  <p>To cite the data, follow the citation instructions on the <a href="https://data.scangov.org/datasets/homepage-audits/">Homepage Audits dataset</a> page of the ScanGov data site.</p>
+</section>
+
+<section aria-labelledby="find-a-site" class="border-top pt-4 mt-5">
+  <h2 id="find-a-site">Find a site</h2>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      {% include "search.html" %}
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="add-a-site" class="border-top pt-4 mt-5">
+  <h2 id="add-a-site">Add a site</h2>
+  <p>Does a website belong on the list? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKiSG0f07leAwW1QqIMSoDIgTA92m0jVy6NADtiaoPhg4rww/viewform" rel="noopener noreferrer">Tell us with the contact form</a>. The full list, with every site's results, is in the <a href="https://data.scangov.org/">ScanGov data repository</a> and in the CSV and JSON downloads above.</p>
+</section>
+
+<section aria-labelledby="where-to-go" class="border-top pt-4 mt-5">
+  <h2 id="where-to-go">Browse the sites</h2>
+  <ul>
+    <li><a href="/rankings/">Rankings</a>: every site, with filters by type and indicator.</li>
+    <li><a href="/pulse/">Pulse</a>: how the sites score and where they fail.</li>
+    {% for key in topics.keys %}
+    <li><a href="/{{ key }}/">{{ audits[key].displayName }}</a>: what it measures and how sites score.</li>
+    {% endfor %}
+    <li><a href="/changelog/">Changelog</a>: what changed in the latest scans.</li>
+    <li><a href="/site-index/">Site index</a>: every page on this site.</li>
+  </ul>
+</section>

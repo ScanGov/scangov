@@ -17,7 +17,7 @@ export default {
       const shows = it.map ? 'A map, the share in each state, and every site listed'
         : it.byState ? 'The share in each state and every site listed'
         : 'Every site listed';
-      return `${fmt.format(it.failCount)} of ${fmt.format(it.testedCount)} fully scanned ${it.group.descNoun} ${it.issue.failPhrase}. ${shows}, from ScanGov homepage scans.`;
+      return `${fmt.format(it.failCount)} of ${fmt.format(it.testedCount)} scanned ${it.group.descNoun} ${it.issue.failPhrase}. ${shows}, from ScanGov homepage scans.`;
     },
     breadcrumbParent: (data) => (data.item ? [{ title: 'Issues', url: '/issues/' }] : data.breadcrumbParent),
     // An unlisted issue page (scripts/issues.js `unlisted`) builds at its URL

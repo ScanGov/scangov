@@ -27,8 +27,8 @@ permalink: "{{ ip.permalink }}"
 
 <div class="row g-3 mb-2">
   {% set statLabel = "Average score" %}
-  {% set statValue %}{{ avg | gradify }} <span class="fs-5">{{ avg }}</span>{% endset %}
-  {% set statFooter %}Average {{ lower }} score of the {{ s.scoredCount | numberFormat }} fully scanned sites{% endset %}
+  {% set statValue = avg | gradify %}
+  {% set statFooter %}Average {{ lower }} score of the {{ s.scoredCount | numberFormat }} scanned sites: {{ avg }}{% endset %}
   {% set statColor = avg | colorify %}
   {% include "stat-card.html" %}
   {% set statLabel = "Earning an A" %}
@@ -45,8 +45,8 @@ permalink: "{{ ip.permalink }}"
   {% include "stat-card.html" %}
   {% endif %}
   {% set statLabel = "Sites scanned" %}
-  {% set statValue %}{{ s.scoredCount | numberFormat }} <span class="fs-5">of {{ s.count | numberFormat }}</span>{% endset %}
-  {% set statFooter %}Fully scanned. The rest could not be scanned, so they have no {{ lower }} score{% endset %}
+  {% set statValue = s.scoredCount | numberFormat %}
+  {% set statFooter %}of {{ s.count | numberFormat }} sites scanned. The rest could not be scanned, so they have no {{ lower }} score{% endset %}
   {% set statColor = "" %}
   {% include "stat-card.html" %}
 </div>
@@ -87,7 +87,7 @@ permalink: "{{ ip.permalink }}"
   {% set failChart = s.charts.failures[t] | withHeading(3) %}
   {% chart failChart %}
   {% else %}
-  <p>No {{ lower }} check failed among the fully scanned sites in this scan window.</p>
+  <p>No {{ lower }} check failed among the scanned sites in this scan window.</p>
   {% endif %}
 </section>
 
@@ -121,10 +121,10 @@ permalink: "{{ ip.permalink }}"
   <ul>
     <li><a href="/rankings/{{ t }}/">All sites ranked by {{ lower }}</a>: every site with a {{ lower }} score, 100 to a page.</li>
     {% for g in groupSummaries %}
-    <li><a href="{{ g.hub }}{{ t }}/">{{ g.label }} ranked by {{ lower }}</a>: {{ g.scoredCount | numberFormat }} fully scanned sites.</li>
+    <li><a href="{{ g.hub }}{{ t }}/">{{ g.label }} ranked by {{ lower }}</a>: {{ g.scoredCount | numberFormat }} scanned sites.</li>
     {% endfor %}
     {% for ip2 in issuePages %}{% if not ip2.unlisted and ip2.group.key == "all" and ip2.issue.topic == t %}
-    <li><a href="{{ ip2.url }}">{{ ip2.title }}</a>: {{ ip2.failCount | numberFormat }} of {{ ip2.testedCount | numberFormat }} fully scanned sites.</li>
+    <li><a href="{{ ip2.url }}">{{ ip2.title }}</a>: {{ ip2.failCount | numberFormat }} of {{ ip2.testedCount | numberFormat }} scanned sites.</li>
     {% endif %}{% endfor %}
     <li><a href="/pulse/">Pulse</a>: how every indicator scores across all sites and each group.</li>
     <li><a href="https://standards.scangov.org/{{ t }}/">{{ catInfo.displayName }} standards</a> and <a href="https://scangov.com{{ catInfo.scangovUrl }}">how ScanGov helps with {{ lower }}</a>.</li>

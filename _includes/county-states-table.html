@@ -1,6 +1,6 @@
 {#
   Table of the states with county sites: how many county sites each has and the
-  average grade of its fully scanned ones, overall and per indicator. Each state
+  average grade of its scanned ones, overall and per indicator. Each state
   links to its county rankings. Used on the counties Pulse page.
   Expects `countyStates`, `indicatorKeys` and `audits`.
 #}
@@ -23,7 +23,7 @@
         {% for t in ["overall"].concat(indicatorKeys) %}
         {% set v = s.averages[t] %}
         <td class="text-center" data-sort="{{ v if v !== null else -1 }}">
-          <span class="badge text-bg-{{ v | colorify }}" title="{% if v !== null %}Average {{ t }} score {{ v }}{% else %}No fully scanned sites{% endif %}">{{ v | gradify }}</span>
+          <span class="badge text-bg-{{ v | colorify }}" title="{% if v !== null %}Average {{ t }} score {{ v }}{% else %}No scanned sites{% endif %}">{{ v | gradify }}</span>
           {% if v !== null %}<span class="visually-hidden">{{ v }}</span>{% endif %}
         </td>
         {% endfor %}

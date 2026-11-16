@@ -11,10 +11,12 @@ keywords: dashboards, rankings, pulse, issues
   rankings hubs, the county state pages, the maps, and the education peer
   groups. Every entry comes from the data the pages themselves render from
   (pulsePages, issuePages, groupSummaries, countyStates, eduGroups), so the
-  list cannot drift from what is built. Counts are fully scanned sites.
+  list cannot drift from what is built. Counts are scanned sites.
 #}
 {% set indicatorKeys = topics.keys %}
 <p>Every page that sums up scan results for a set of sites. Each one shows averages, grade shares, and the checks that set fails most, and links the sites behind the numbers. Indicator views of each page sit at the same address with <code>/{indicator}/</code> added.</p>
+
+<p>The list behind these dashboards, with how many sites are in each group, is on the <a href="/sites/">sites page</a>.</p>
 
 <h2 id="pulse">Pulse</h2>
 <p>How scores are distributed and where sites fail, for every site on the list and for each group.</p>
@@ -54,7 +56,7 @@ keywords: dashboards, rankings, pulse, issues
 </ul>
 
 <h2 id="education">Education peer groups</h2>
-<p>{{ eduGroups.groups.length }} pages under the <a href="/rankings/edu/">education hub</a>, each comparing one set of college and university sites with all education sites. A group with fewer than 5 fully scanned sites gets a page but no average.</p>
+<p>{{ eduGroups.groups.length }} pages under the <a href="/rankings/edu/">education hub</a>, each comparing one set of college and university sites with all education sites. A group with fewer than 5 scanned sites gets a page but no average.</p>
 {% for kindKey in ["state", "system", "metro", "research", "list", "conference"] %}
 {% set kindGroups = eduGroups.byKind[kindKey] %}
 {% if kindGroups.length %}

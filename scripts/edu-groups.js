@@ -16,9 +16,9 @@
 //
 // Membership comes from the IPEDS metadata in _data/edu_institutions.csv
 // (scripts/edu-meta.js). Populations follow scripts/group-summary.js: a site
-// is fully scanned (scored) when it responded with page content, and every
-// average, distribution, share and rank uses fully scanned sites only. A
-// group whose headline population has fewer than MIN_AVERAGE fully scanned
+// is scanned (scored) when it responded with page content, and every
+// average, distribution, share and rank uses scanned sites only. A
+// group whose headline population has fewer than MIN_AVERAGE scanned
 // sites gets its page and table but no average or rank.
 
 import { isResponding, isPartial, scoreOf, rankDense, domainKey, mean } from './counties.js';
@@ -98,7 +98,7 @@ function buildCharts(group, national, audits) {
     const TOPICS = topicKeysFrom(audits);
     const ALL_TOPICS = allTopicKeysFrom(audits);
     const idBase = `edu-${group.kind}-${group.slug}`;
-    const respondingText = `${group.scoredCount} fully scanned ${group.headlineNoun}`;
+    const respondingText = `${group.scoredCount} scanned ${group.headlineNoun}`;
     const charts = { failures: {}, area: {}, grades: {} };
     const headlineScored = group.headlineRecords.filter(isScored);
     for (const topic of ALL_TOPICS) {
@@ -106,7 +106,7 @@ function buildCharts(group, national, audits) {
         charts.grades[topic] = gradeDistributionSpec({
             id: `${idBase}-grades-${topic}`,
             title: `${group.name} by ${label} grade, compared with all education sites`,
-            subtitle: `Share of fully scanned sites in each grade band. ${group.name}: ${group.scoredCount} sites. All education: ${national.scoredCount} sites.`,
+            subtitle: `Share of scanned sites in each grade band. ${group.name}: ${group.scoredCount} sites. All education: ${national.scoredCount} sites.`,
             groups: [
                 { key: group.slug, label: group.shortName, distribution: group.gradeDistribution[topic], total: group.scoredCount },
                 { key: 'edu', label: 'All education sites', href: '/rankings/edu/', distribution: national.gradeDistribution[topic], total: national.scoredCount },
@@ -138,7 +138,7 @@ function buildCharts(group, national, audits) {
     charts.topics = topicAveragesSpec({
         id: `${idBase}-topics`,
         title: `${group.shortName} average score by indicator, compared with all education sites`,
-        subtitle: `Average of the ${respondingText}, score 0 to 100. The comparison covers ${national.scoredCount} fully scanned education sites.`,
+        subtitle: `Average of the ${respondingText}, score 0 to 100. The comparison covers ${national.scoredCount} scanned education sites.`,
         topics: TOPICS.map(t => ({ key: t, label: topicLabel(audits, t) })),
         averages: group.averages, benchmarks: national.averages,
         seriesLabel: group.shortName, benchmarkLabel: 'All education',

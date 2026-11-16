@@ -12,11 +12,11 @@ import { buildGroupSummary } from '../scripts/group-summary.js';
 import { issueHrefFor } from '../scripts/issues.js';
 
 const GROUPS = [
-    { key: 'states', cardTitle: 'State', label: 'States', singular: 'state', hub: '/rankings/states/', data: stateData, groupTitle: 'U.S. state', groupText: 'fully scanned U.S. state sites' },
-    { key: 'counties', cardTitle: 'County', label: 'Counties', singular: 'county', hub: '/rankings/counties/', data: countyData, groupTitle: 'U.S. county', groupText: 'fully scanned U.S. county sites' },
-    { key: 'cities', cardTitle: 'City', label: 'Cities', singular: 'city', hub: '/rankings/cities/', data: cityData, groupTitle: 'U.S. city', groupText: 'fully scanned U.S. city sites' },
-    { key: 'federal', cardTitle: 'Federal', label: 'Federal', singular: 'federal', hub: '/rankings/federal/', data: federalData, groupTitle: 'federal', groupText: 'fully scanned federal sites' },
-    { key: 'edu', cardTitle: 'Education', label: 'Education', singular: 'education', hub: '/rankings/edu/', data: eduData, groupTitle: 'education', groupText: 'fully scanned education sites' },
+    { key: 'states', cardTitle: 'State', label: 'States', singular: 'state', hub: '/rankings/states/', data: stateData, groupTitle: 'U.S. state', groupText: 'scanned U.S. state sites' },
+    { key: 'counties', cardTitle: 'County', label: 'Counties', singular: 'county', hub: '/rankings/counties/', data: countyData, groupTitle: 'U.S. county', groupText: 'scanned U.S. county sites' },
+    { key: 'cities', cardTitle: 'City', label: 'Cities', singular: 'city', hub: '/rankings/cities/', data: cityData, groupTitle: 'U.S. city', groupText: 'scanned U.S. city sites' },
+    { key: 'federal', cardTitle: 'Federal', label: 'Federal', singular: 'federal', hub: '/rankings/federal/', data: federalData, groupTitle: 'federal', groupText: 'scanned federal sites' },
+    { key: 'edu', cardTitle: 'Education', label: 'Education', singular: 'education', hub: '/rankings/edu/', data: eduData, groupTitle: 'education', groupText: 'scanned education sites' },
 ];
 
 export default async function () {

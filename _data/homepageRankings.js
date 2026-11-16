@@ -1,6 +1,6 @@
-// The top five and bottom five fully scanned sites of each rankings group, for the
+// The top five and bottom five scanned sites of each rankings group, for the
 // homepage. Same ranked lists as the rankings pages (rankingPosition is already set),
-// in the homepage tab order. A site that was not fully scanned has no grade, so it
+// in the homepage tab order. A site that was not scanned has no grade, so it
 // is left out of the bottom five. Default export only.
 
 import { default as stateData } from './states.js';

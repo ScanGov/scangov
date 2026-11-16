@@ -14,7 +14,7 @@
 //                  content checks were never scored (partialCount, see
 //                  isPartial); listed in tables without scores, excluded from
 //                  every average, distribution, share and rank
-//   fully scanned  responding and not partial (scoredCount); the population
+//   scanned  responding and not partial (scoredCount); the population
 //                  behind every figure on the page
 
 import { isCounty, stateCodeOf, isResponding, scoreOf, isPartial, rankDense, gradeOf, domainKey } from './counties.js';
@@ -33,7 +33,7 @@ function profileHref(d) {
     return `/profile/${slugify(domainKey(d))}/overall/`;
 }
 
-// Copies of a state's records sorted for one topic: fully scanned sites by
+// Copies of a state's records sorted for one topic: scanned sites by
 // score, then partial scans, then non-responding sites, each group by name.
 // Partial and non-responding copies carry no score, grade or rank.
 // rankingPosition is the in-state rank so the shared ranking table include
@@ -63,7 +63,7 @@ function buildCharts(state, national, audits) {
     const TOPICS = topicKeysFrom(audits);
     const ALL_TOPICS = allTopicKeysFrom(audits);
     const idBase = `county-${state.slug}`;
-    const respondingText = `${state.scoredCount} fully scanned ${state.name} county sites`;
+    const respondingText = `${state.scoredCount} scanned ${state.name} county sites`;
     const topicHref = topic => `/rankings/counties/${state.slug}/${topic}/`;
     const charts = { failures: {}, histogram: {}, area: {}, grades: {} };
 
@@ -72,7 +72,7 @@ function buildCharts(state, national, audits) {
         charts.grades[topic] = gradeDistributionSpec({
             id: `${idBase}-grades-${topic}`,
             title: `${state.name} counties by ${label} grade, compared with all U.S. counties`,
-            subtitle: `Share of fully scanned sites in each grade band. ${state.name}: ${state.scoredCount} sites. U.S.: ${national.scoredCount} sites.`,
+            subtitle: `Share of scanned sites in each grade band. ${state.name}: ${state.scoredCount} sites. U.S.: ${national.scoredCount} sites.`,
             groups: [
                 { key: state.code, label: state.name, distribution: state.gradeDistribution[topic], total: state.scoredCount },
                 { key: 'US', label: 'All U.S. counties', href: '/rankings/counties/', distribution: national.gradeDistribution[topic], total: national.scoredCount },
@@ -114,7 +114,7 @@ function buildCharts(state, national, audits) {
     charts.topics = topicAveragesSpec({
         id: `${idBase}-topics`,
         title: `${state.name} county average score by indicator, compared with all U.S. counties`,
-        subtitle: `Average of the ${respondingText}, score 0 to 100. U.S. average covers ${national.scoredCount} fully scanned county sites.`,
+        subtitle: `Average of the ${respondingText}, score 0 to 100. U.S. average covers ${national.scoredCount} scanned county sites.`,
         topics: TOPICS.map(t => ({ key: t, label: topicLabel(audits, t) })),
         averages: state.averages, benchmarks: national.averages,
         seriesLabel: state.name, benchmarkLabel: 'U.S. counties',
@@ -173,7 +173,7 @@ export function buildCountyStates(domains, stateNames, audits = {}, geo = null) 
         scanWindow: scanWindow(counties),
         ...summarize(scored, attrIndex),
     };
-    national.charts = buildGroupCharts(national, scored, audits, { idBase: 'county-us', groupTitle: 'U.S. county', groupText: 'fully scanned U.S. county sites', issueHref: issueHrefFor('counties') });
+    national.charts = buildGroupCharts(national, scored, audits, { idBase: 'county-us', groupTitle: 'U.S. county', groupText: 'scanned U.S. county sites', issueHref: issueHrefFor('counties') });
 
     const byState = new Map();
     const unplaced = [];

@@ -11,7 +11,7 @@ export default async function () {
     return buildGroupSummary(eduData(), audits, {
         idBase: 'edu',
         groupTitle: 'education',
-        groupText: 'fully scanned education sites',
+        groupText: 'scanned education sites',
         issueHref: issueHrefFor('edu'),
     });
 }

@@ -245,7 +245,7 @@ export default async function(eleventyConfig) {
     eleventyConfig.addFilter('allAuditStatusIcons', (domainData) => {
         let output = ''
         if (domainData.status !== 200) {
-            output = `<span title="Not fully scanned, so not graded (status ${domainData.status})"><i class="fa-solid fa-circle-exclamation text-warning"></i></span>`
+            output = `<span title="Not scanned, so not graded (status ${domainData.status})"><i class="fa-solid fa-circle-exclamation text-warning"></i></span>`
         } else {
             for (var a in domainData.scores) {
                 output += writeStatusIconsForAttribute(domainData[a], a)

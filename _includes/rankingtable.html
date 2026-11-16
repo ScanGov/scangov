@@ -7,7 +7,7 @@
     compactTable  replaces the per-check status icons (about 64 per row) with
                   one grade badge per indicator, or one pass meter on topic
                   pages; state pages are always compact
-  A site that was not fully scanned shows no grade and a plain statement of
+  A site that was not scanned shows no grade and a plain statement of
   why, the same state as its profile page.
 #}
 {% set compact = stateContext or compactTable %}
@@ -25,8 +25,8 @@
 {% if not hideStatusColumn %}
   <td data-sort="{{ rowScore if graded else -1 }}">
     {% if compact and not graded %}
-      <span class="small text-muted"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> Not fully scanned, so not graded.
-        {% if d.partial %}The site responded without page content.{% elif d.status %}{% for s in statusGroups %}{% if s.code == d.status %}{{ s.statusDescription }}{% endif %}{% endfor %} <a href="/status/{{ d.status }}/">Status {{ d.status }}</a>{% endif %}</span>
+      <span class="small text-muted"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> Not scanned, so not graded.
+        {% if d.partial %}The site responded without page content.{% elif d.status %}{% for s in statusGroups %}{% if s.code == d.status %}{{ s.statusDescription | replace("fully scan", "scan") }}{% endif %}{% endfor %} <a href="/status/{{ d.status }}/">Status {{ d.status }}</a>{% endif %}</span>
     {% elif compact and not specificAttribute %}
       <ul class="list-inline small mb-0 text-nowrap">
         {# One badge per topic (topics.keys, from audits.json); a topic this record was not graded on shows a dash. #}
@@ -52,7 +52,7 @@
     {% if graded %}
       <span class="badge text-bg-{{ rowScore | colorify }}" title="{{ rowScore }}%">{{ rowScore | gradify }}</span>
     {% else %}
-      <span class="badge text-bg-inaccessible" title="Not fully scanned, so not graded">-</span>
+      <span class="badge text-bg-inaccessible" title="Not scanned, so not graded">-</span>
     {% endif %}
   </td>
 </tr>

@@ -13,7 +13,7 @@ export default async function () {
         // No group title: the whole list is not a group, so chart titles drop
         // the population slot (see buildGroupCharts).
         groupTitle: '',
-        groupText: 'fully scanned sites',
+        groupText: 'scanned sites',
         // Pulse nests each failures chart under an h2 section and an h3
         // indicator heading, so the chart title takes h4.
         failuresHeadingLevel: 4,

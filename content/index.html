@@ -63,7 +63,7 @@ keywords: domains, websites
       <p>How scanned domains break down by type and overall grade. Visit <a href="/pulse/" id="homepage-pulse-link">Pulse</a> for more.</p>
       <div class="row g-4">
         <div class="col-12 col-lg-6">
-          {% set sitesByGroup = groupSummaries | groupsPieSpec("home-sites-by-group", "Sites by type", "All " + (all.count | numberFormat) + " sites on the list, by group", 3) %}
+          {% set sitesByGroup = groupSummaries | groupsPieSpec("home-sites-by-group", "Sites by type", (all.count | numberFormat) + " sites, by group" + ((" (" + sitesPage.overlap + (" is" if sitesPage.overlap == 1 else " are") + " in two groups)") if sitesPage.overlap else ""), 3) | withTitleHref("/sites/") %}
           {% chart sitesByGroup %}
         </div>
         <div class="col-12 col-lg-6">
@@ -75,7 +75,7 @@ keywords: domains, websites
 
     <div class="border-top pt-4 mt-4">
       <h2 id="grades-by-group">Grades by group</h2>
-      <p>Share of each group's fully scanned sites in each grade band.</p>
+      <p>Share of each group's scanned sites in each grade band.</p>
       <div class="row g-4">
         {% for gradePie in pulseCharts.groupsGradePies.overall %}
         <div class="col-12 col-md-6 col-xl-4">{% chart gradePie %}</div>

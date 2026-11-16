@@ -4,9 +4,9 @@
 // ISSUES and the groups from buildGroups() are the configuration;
 // buildIssuePage() turns one pair into everything its template needs.
 // Populations follow group-summary.js:
-// a site counts as fully scanned when it responded with page content
-// (isScored); only fully scanned sites can pass or fail a check, so every
-// share on the page is failing / fully scanned. A fully scanned site whose
+// a site counts as scanned when it responded with page content
+// (isScored); only scanned sites can pass or fail a check, so every
+// share on the page is failing / scanned. A scanned site whose
 // record lacks the check is "not tested" and is named as such, never counted
 // as passing.
 
@@ -43,7 +43,7 @@ export function formatGrade(score) {
 // indicator. A page is either one check (`check`: the key on the record) or
 // one feature made of several checks (`checks`: the keys, plus `verdict(d)`,
 // which returns { verdict: 'fail' | 'pass' | 'untested', stage, mark } for a
-// fully scanned record; `stage` names what is wrong for the breakdown chart,
+// scanned record; `stage` names what is wrong for the breakdown chart,
 // and `mark` flags a passing site the map should still show in its own
 // color, named by `mark.label`, without counting it as a problem; `stages`,
 // when given, colors the map's failing counties by stage, 'severe' tone or
@@ -80,7 +80,7 @@ export const ISSUES = [
         titleSuffix: 'not on a .gov domain',
         failLabel: 'Not on .gov',
         passLabel: 'On .gov',
-        // Used in sentences: "1,093 of 2,435 fully scanned county sites are not on a .gov domain."
+        // Used in sentences: "1,093 of 2,435 scanned county sites are not on a .gov domain."
         failPhrase: 'are not on a .gov domain',
         failPhraseSingular: 'is not on a .gov domain',
         breakdown: {
@@ -124,7 +124,7 @@ export const ISSUES = [
         titleSuffix: 'with sitemap problems',
         failLabel: 'Sitemap problem',
         passLabel: 'Sitemap works',
-        // "1,082 of 2,400 fully scanned county sites have a sitemap problem."
+        // "1,082 of 2,400 scanned county sites have a sitemap problem."
         failPhrase: 'have a sitemap problem',
         failPhraseSingular: 'has a sitemap problem',
         breakdown: {
@@ -178,7 +178,7 @@ export const ISSUES = [
         titleSuffix: 'with robots.txt problems',
         failLabel: 'robots.txt problem',
         passLabel: 'robots.txt works',
-        // "1,300 of 2,399 fully scanned county sites have a robots.txt problem."
+        // "1,300 of 2,399 scanned county sites have a robots.txt problem."
         failPhrase: 'have a robots.txt problem',
         failPhraseSingular: 'has a robots.txt problem',
         breakdown: {
@@ -198,7 +198,7 @@ export const ISSUES = [
         // before that the key only marked that the fetch succeeded (see
         // isPartial in counties.js). The check was run on purpose against
         // the sites that looked like they render with JavaScript, so a
-        // fully scanned site with no result is one that did not look that
+        // scanned site with no result is one that did not look that
         // way and counts as passing here (user decision 2026-10-25), not as
         // untested. The per-site measurement (contentInfo) is not in the
         // homepages payload, so there is no breakdown chart yet.
@@ -212,7 +212,7 @@ export const ISSUES = [
         titleSuffix: 'that need JavaScript to show their content',
         failLabel: 'Needs JavaScript',
         passLabel: 'Content in the HTML',
-        // "38 of 41 fully scanned county sites need JavaScript to show their main content."
+        // "38 of 41 scanned county sites need JavaScript to show their main content."
         failPhrase: 'need JavaScript to show their main content',
         failPhraseSingular: 'needs JavaScript to show its main content',
     },
@@ -248,7 +248,7 @@ export const ISSUES = [
         titleSuffix: 'that are hard to read',
         failLabel: 'Above 8th grade',
         passLabel: 'At or below 8th grade',
-        // "886 of 2,317 fully scanned county sites read above an 8th grade level."
+        // "886 of 2,317 scanned county sites read above an 8th grade level."
         failPhrase: 'read above an 8th grade level',
         failPhraseSingular: 'reads above an 8th grade level',
         lead: 'Hard text slows people down. Some give up before they find what they need. We score the text on each homepage with the Automated Readability Index (ARI). It estimates the U.S. school grade a reader needs.',
@@ -299,7 +299,7 @@ export const ISSUES = [
         titleSuffix: 'missing Open Graph tags',
         failLabel: 'Missing tags',
         passLabel: 'All tags set',
-        // "1,920 of 2,419 fully scanned county sites are missing Open Graph tags."
+        // "1,920 of 2,419 scanned county sites are missing Open Graph tags."
         failPhrase: 'are missing Open Graph tags',
         failPhraseSingular: 'is missing Open Graph tags',
         breakdown: {
@@ -348,7 +348,7 @@ export function issueUrl(issue, group) {
     return `/issues/${issue.slug}/${group.key}/`;
 }
 
-// { verdict, stage } for a fully scanned record. Feature pages supply their
+// { verdict, stage } for a scanned record. Feature pages supply their
 // own function; single-check pages read the one key.
 function verdictOf(d, issue) {
     if (issue.verdict) return issue.verdict(d);

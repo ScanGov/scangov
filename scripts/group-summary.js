@@ -2,9 +2,9 @@
 // sites, ...). Shared by scripts/county-states.js (national county figures)
 // and the group hub data files such as _data/stateSummary.js.
 //
-// Populations: `records` is every site in the group; a site is fully scanned
+// Populations: `records` is every site in the group; a site is scanned
 // (scored) when it responded and returned page content (see isScored). Every
-// average, distribution, share and rank uses fully scanned sites only.
+// average, distribution, share and rank uses scanned sites only.
 
 import { isResponding, isPartial, scoreOf, gradeOf, mean } from './counties.js';
 import { topicKeysFrom, allTopicKeysFrom } from './topics.js';
@@ -56,7 +56,7 @@ export function scanWindow(records) {
 }
 
 // Averages, grade distribution, histogram and most-failed checks over one
-// list of fully scanned records.
+// list of scanned records.
 export function summarize(scored, attrIndex) {
     const topics = Object.keys(attrIndex);
     const averages = {};
@@ -109,7 +109,7 @@ export function summarize(scored, attrIndex) {
 
 // Chart specs for a group hub: distribution curve, grade split, and the
 // most-failed checks per indicator. `groupText` names the population in
-// subtitles, e.g. "fully scanned U.S. county sites"; `groupTitle` names it
+// subtitles, e.g. "scanned U.S. county sites"; `groupTitle` names it
 // in titles, e.g. "U.S. county". An empty `groupTitle` (the whole list, which
 // is not a group) drops that slot: "How overall scores are distributed",
 // "All sites by overall grade", "Most common usability failures".
@@ -154,7 +154,7 @@ export function buildGroupCharts(summary, scored, audits, { idBase, groupTitle, 
             id: `${idBase}-grades-${topic}`,
             title: groupTitle ? capitalize(`${groupTitle} sites by ${label} grade`) : `All sites by ${label} grade`,
             subtitle: `Share of the ${respondingText} in each grade band`,
-            groups: [{ key: idBase, label: `All ${groupText.replace(/^fully scanned /, '')}`, distribution: summary.gradeDistribution[topic], total: summary.scoredCount }],
+            groups: [{ key: idBase, label: `All ${groupText.replace(/^scanned /, '')}`, distribution: summary.gradeDistribution[topic], total: summary.scoredCount }],
         });
     }
     for (const topic of topicKeysFrom(audits)) {

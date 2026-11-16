@@ -19,7 +19,7 @@ export default async function () {
 
     for (const topic of ALL_TOPICS) {
         const topicName = topic === 'overall' ? 'overall' : label(topic).toLowerCase();
-        // One pie per group: each group's fully scanned sites add up to 100%, so a pie
+        // One pie per group: each group's scanned sites add up to 100%, so a pie
         // reads at a glance where one stacked bar per group did not.
         charts.groupsGradePies[topic] = groups.map(g => pieFromGradeBar(gradeDistributionSpec({
             id: `pulse-grades-${g.key}-${topic}`,
@@ -32,7 +32,7 @@ export default async function () {
         charts.groupsAverages[topic] = rankedGroupsSpec({
             id: `pulse-groups-average-${topic}`,
             title: `Average ${topicName} score by group`,
-            subtitle: `Mean ${topicName} score of each group's fully scanned sites, 0 to 100. All sites: ${all.averages[topic]}.`,
+            subtitle: `Mean ${topicName} score of each group's scanned sites, 0 to 100. All sites: ${all.averages[topic]}.`,
             labelHeader: 'Group', valueHeader: `Average ${topicName} score`,
             groups: groups.filter(g => g.scoredCount > 0).map(g => ({ key: g.key, label: g.label, href: g.hub, value: g.averages[topic], detail: `${fmt.format(g.scoredCount)} sites` })),
         });
@@ -41,7 +41,7 @@ export default async function () {
     charts.indicatorAverages = topicAveragesSpec({
         id: 'pulse-indicators',
         title: 'Average score by indicator, all sites',
-        subtitle: `Mean score of the ${fmt.format(all.scoredCount)} fully scanned sites for each indicator, 0 to 100, with the state group's average for comparison.`,
+        subtitle: `Mean score of the ${fmt.format(all.scoredCount)} scanned sites for each indicator, 0 to 100, with the state group's average for comparison.`,
         topics: TOPICS.map(t => ({ key: t, label: label(t) })),
         averages: all.averages,
         benchmarks: (groups.find(g => g.key === 'states') || { averages: {} }).averages,

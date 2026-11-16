@@ -34,7 +34,7 @@ eleventyComputed:
     {% if scoresSpec %}
     {% chart scoresSpec %}
     {% else %}
-    <p>This site was not fully scanned, so it has no scores yet.</p>
+    <p>This site was not scanned, so it has no scores yet.</p>
     {% endif %}
     <div class="alert alert-info small mt-2" role="alert">
       Grades
@@ -75,7 +75,7 @@ eleventyComputed:
           {% elif domain.status == 200 %}
           <div class="alert alert-success" role="status"><i class="fa-solid fa-hands-clapping" aria-hidden="true"></i> No {{ lower }} issues!</div>
           {% else %}
-          <p>Not fully scanned, so there are no checks to list.</p>
+          <p>Not scanned, so there are no checks to list.</p>
           {% endif %}
           {% if catInfo %}
           <div class="alert alert-info small mt-2" role="alert">

@@ -30,7 +30,7 @@ export default async function () {
         return {
             url: st ? st.slug : stateName,
             name: entry.name,
-            label: st ? `${st.name}: ${st.scoredCount} fully scanned public college sites` : `${stateName}: no college sites on our list`,
+            label: st ? `${st.name}: ${st.scoredCount} scanned public college sites` : `${stateName}: no college sites on our list`,
             href: st ? st.url : '/rankings/edu/#by-state',
             status: st && st.hasAverage ? 200 : 0,
             path: entry.path,

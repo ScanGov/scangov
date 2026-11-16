@@ -9,12 +9,12 @@ pagination:
 permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 ---
 {#
-  One issue page: every fully scanned site in a group that fails one check,
+  One issue page: every scanned site in a group that fails one check,
   or one feature made of several checks (item.issue.isFeature; item.checks).
   Data: one scripts/issues.js page object (see buildIssuePage). Every number
   on the page comes from `item`, so the intro, tiles, map, tables and footnote
-  cannot disagree. Populations: scanned (item.count), fully scanned
-  (item.scoredCount), tested (item.testedCount: fully scanned minus the few
+  cannot disagree. Populations: scanned (item.count), scanned
+  (item.scoredCount), tested (item.testedCount: scanned minus the few
   records that lack the check), failing (item.failCount).
   Group features: item.map (counties, the national county map), item.byState
   (counties and cities, whose record names carry a state code),
@@ -27,7 +27,7 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 {% set rankingsLabel = (group.hubLabel + " " + (check.topicLabel | lower) + " rankings") | trim | capitalize %}
 
 <div class="sg-charts-large">
-<p class="lead">Of the {{ item.testedCount | numberFormat }} fully scanned U.S. {{ group.noun }} we tested, {{ item.failCount | numberFormat }} ({{ sharePct }}%) {{ issue.failPhrase }}.
+<p class="lead">Of the {{ item.testedCount | numberFormat }} scanned U.S. {{ group.noun }} we tested, {{ item.failCount | numberFormat }} ({{ sharePct }}%) {{ issue.failPhrase }}.
 {% if check.lead %}{{ check.lead }}{% endif %}
 {% if item.markCount %}Another {{ item.markCount | numberFormat }} ({{ (item.markCount / item.testedCount * 100) | round }}%) {{ item.mark.phrase }}. No check fails for that, so they count as passing here{% if item.map %}, and the map shows them in their own color{% endif %}.{% endif %}
 {% if item.skippedCount %}Another {{ item.skippedCount | numberFormat }} {{ item.skipped.phrase }}. They get no pass or fail{% if item.map %}, and the map shows them in their own color{% endif %}.{% endif %}
@@ -36,8 +36,8 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 
 <div class="row g-3 mb-2">
   {% set statLabel = "Failing" %}
-  {% set statValue %}{{ item.failCount | numberFormat }} <span class="fs-5">of {{ item.testedCount | numberFormat }}</span>{% endset %}
-  {% set statFooter %}{{ group.noun | capitalize }} that {{ issue.failPhrase }}{% endset %}
+  {% set statValue = item.failCount | numberFormat %}
+  {% set statFooter %}{{ group.noun | capitalize }} that {{ issue.failPhrase }}, of {{ item.testedCount | numberFormat }} tested{% endset %}
   {% set statColor = "" %}
   {% include "stat-card.html" %}
   {% set statLabel = "Share failing" %}
@@ -47,8 +47,8 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
   {% include "stat-card.html" %}
   {% if item.byState %}
   {% set statLabel = "States affected" %}
-  {% set statValue %}{{ item.statesAffected }} <span class="fs-5">of {{ item.states | length }}</span>{% endset %}
-  {% set statFooter %}States with at least one failing {{ group.oneSite }}{% endset %}
+  {% set statValue = item.statesAffected %}
+  {% set statFooter %}States with at least one failing {{ group.oneSite }}, of {{ item.states | length }}{% endset %}
   {% else %}
   {% set statLabel = "Passing" %}
   {% set statValue = item.passCount | numberFormat %}
@@ -61,9 +61,9 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
   {% set statValue = ((item.highestState.share * 100) | round) + "%" %}
   {% set statFooter %}{% if item.highestState.href %}<a href="{{ item.highestState.href }}">{{ item.highestState.name }}</a>{% else %}{{ item.highestState.name }}{% endif %} has the highest share: {{ item.highestState.failing }} of {{ item.highestState.tested }} tested {{ group.noun }}{% endset %}
   {% else %}
-  {% set statLabel = "Fully scanned" %}
-  {% set statValue %}{{ item.scoredCount | numberFormat }} <span class="fs-5">of {{ item.count | numberFormat }}</span>{% endset %}
-  {% set statFooter %}{{ group.noun | capitalize }} fully scanned{% endset %}
+  {% set statLabel = "Scanned" %}
+  {% set statValue = item.scoredCount | numberFormat %}
+  {% set statFooter %}{{ group.noun | capitalize }} scanned, of {{ item.count | numberFormat }}{% endset %}
   {% endif %}
   {% set statColor = "" %}
   {% include "stat-card.html" %}
@@ -188,8 +188,8 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 {% include "data-footnote.html" %}
 {% set noResultCount = item.untestedCount - item.skippedCount %}
 {% if item.skippedCount %}
-<p class="small text-muted">{{ item.skippedCount | numberFormat }} fully scanned {{ group.noun if item.skippedCount != 1 else group.oneSite }} {{ item.skipped.phrase }}. {{ "They are" if item.skippedCount != 1 else "It is" }} left out of the share.</p>
+<p class="small text-muted">{{ item.skippedCount | numberFormat }} scanned {{ group.noun if item.skippedCount != 1 else group.oneSite }} {{ item.skipped.phrase }}. {{ "They are" if item.skippedCount != 1 else "It is" }} left out of the share.</p>
 {% endif %}
 {% if noResultCount %}
-<p class="small text-muted">{{ noResultCount | numberFormat }} fully scanned {{ group.noun if noResultCount != 1 else group.oneSite }} {{ "have" if noResultCount != 1 else "has" }} no result for {{ "these checks" if issue.isFeature else "this check" }} and {{ "are" if noResultCount != 1 else "is" }} left out of the share.</p>
+<p class="small text-muted">{{ noResultCount | numberFormat }} scanned {{ group.noun if noResultCount != 1 else group.oneSite }} {{ "have" if noResultCount != 1 else "has" }} no result for {{ "these checks" if issue.isFeature else "this check" }} and {{ "are" if noResultCount != 1 else "is" }} left out of the share.</p>
 {% endif %}

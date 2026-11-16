@@ -11,7 +11,7 @@ export default async function () {
     return buildGroupSummary(stateData(), audits, {
         idBase: 'states',
         groupTitle: 'U.S. state',
-        groupText: 'fully scanned U.S. state sites',
+        groupText: 'scanned U.S. state sites',
         issueHref: issueHrefFor('states'),
     });
 }
