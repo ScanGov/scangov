@@ -81,11 +81,13 @@ eleventyComputed:
           <div class="alert alert-info small mt-2" role="alert">
             <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
             {{ catInfo.displayName }}:
-            <a href="https://standards.scangov.org/{{ lower }}/">Standards</a>
+            <a href="/{{ lower }}/">About {{ catInfo.displayName | lower }}</a>
+    &middot;
+    <a href="https://standards.scangov.org/{{ lower }}/">Standards</a>
             &middot;
             <a href="https://standards.scangov.org{{ catInfo.url }}/">Guidance</a>
             &middot;
-            <a href="{{ site.url }}/{{ lower }}/">Project ScanGov</a>
+            <a href="{{ site.url }}/rankings/{{ lower }}/">Project ScanGov</a>
             &middot;
             <a href="https://scangov.com{{ catInfo.scangovUrl }}">ScanGov</a>
           </div>

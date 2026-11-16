@@ -13,8 +13,6 @@
 {% set pillsAllSegment = "" %}
 {% set pillsSuffix = (specificAttribute + "/") if specificAttribute else "" %}
 {% set pillsAvailable = false %}
-{# The All pill of an indicator page is /{indicator}/, not /rankings/{indicator}/. #}
-{% set pillsAllBase = "/" %}
 {# The indicator pills sit right under the group pills, so these need less room below. #}
 {% set pillsStacked = true %}
 {% if page.url.indexOf("/cities/") != -1 %}{% set pillsActive = "cities" %}
@@ -35,7 +33,7 @@
     {% for topic in topics.names %}
     {% set topicKey = topic.toLowerCase() %}
     {% set pillTitle = topic %}
-    {% set pillUrl = ("/rankings/" + directory + topicKey + "/") if directory else ("/" + topicKey + "/") %}
+    {% set pillUrl = "/rankings/" + directory + topicKey + "/" %}
     {% set pillIcon = "fa-solid fa-" + audits[topicKey].icon %}
     {% set pillActive = specificAttribute === topicKey %}
     {% include "filter-pill.html" %}

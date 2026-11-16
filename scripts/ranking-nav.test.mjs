@@ -13,13 +13,6 @@ test('an indicator under all sites has the Rankings parent', () => {
   assert.deepEqual(rankingCrumbs(page('/rankings/accessibility/')), { parents: [{ title: 'Rankings', url: '/rankings/' }], current: 'Accessibility' });
 });
 
-test('the indicator page at the top level has the same breadcrumb and filters', () => {
-  assert.deepEqual(rankingCrumbs(page('/accessibility/')), { parents: [{ title: 'Rankings', url: '/rankings/' }], current: 'Accessibility' });
-  const f = rankingFilters(page('/accessibility/1/'));
-  assert.equal(f.specificAttribute, 'accessibility');
-  assert.equal(f.currentsort, '');
-});
-
 test('a group page and its indicator page nest', () => {
   assert.deepEqual(rankingCrumbs(page('/rankings/states/')), { parents: [{ title: 'Rankings', url: '/rankings/' }], current: 'States' });
   assert.deepEqual(rankingCrumbs(page('/rankings/states/usability/2/')).parents.map(p => p.title), ['Rankings', 'States']);

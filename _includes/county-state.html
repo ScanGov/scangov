@@ -137,7 +137,6 @@
     {% include "ranking-table-block.html" %}
     <script src="/js/table-paginate.js" defer></script>
 
-    {% include "topic-about.html" %}
 
     <nav class="d-flex justify-content-between mt-4 small" aria-label="Other states">
       <span>{% if st.prev %}<a href="/rankings/counties/{{ st.prev.slug }}/{{ topicPath }}">Previous state: {{ st.prev.name }}</a>{% endif %}</span>

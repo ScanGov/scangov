@@ -181,11 +181,13 @@ showActions: true
   <div class="alert alert-info small" role="note">
     <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
     {{ catInfo.displayName }}:
+    <a href="/{{ t }}/">About {{ catInfo.displayName | lower }}</a>
+    &middot;
     <a href="https://standards.scangov.org/{{ t }}/">Standards</a>
     &middot;
     <a href="https://standards.scangov.org{{ catInfo.url }}/">Guidance</a>
     &middot;
-    <a href="{{ site.url }}/{{ t }}/">Project ScanGov rankings</a>
+    <a href="{{ site.url }}/rankings/{{ t }}/">Project ScanGov rankings</a>
     &middot;
     <a href="https://scangov.com{{ catInfo.scangovUrl }}">How ScanGov helps</a>
   </div>
