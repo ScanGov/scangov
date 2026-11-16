@@ -11,5 +11,5 @@
   {%- if domain.status == 200 %} The homepage responded without page content, so there are no scores yet.
   {%- elif statusDef %} {{ statusDef.scangovStatus }}: {{ domain.status }} {{ statusDef.label }}.
   {%- endif %}
-  <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr=status">What this status means</a>.
+  <a href="/profile/{{ domain.urlkey | slugify }}/details/?attr=status">What this status means</a>{% if statusDef %}, or see <a href="/status/{{ domain.status }}/">all sites with status {{ domain.status }}</a>{% endif %}.
 </div>

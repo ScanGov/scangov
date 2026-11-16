@@ -1,4 +1,4 @@
-// Action buttons: Edit, Copy link, Copy, Download, Print, Reset. See
+// Action buttons: Edit, Copy link, Copy text, Copy, Download, Print, Reset. See
 // _includes/action-buttons.html and the buttons skill in ScanGov/skills.
 //
 // A bar is `[data-actions]` with `data-content` (a selector for the document)
@@ -323,6 +323,16 @@
       succeed(owner(button), done);
     } catch (error) { fail('Could not copy. Select the address bar and copy it.'); }
   }
+  // The text of the element a button points at: <button data-action="copy-text" data-copy-target="#id">,
+  // for a code example on a page.
+  async function copyText(button) {
+    const source = document.querySelector(button.dataset.copyTarget || '');
+    try {
+      if (!source) throw new Error('No text to copy');
+      await navigator.clipboard.writeText(source.textContent);
+      succeed(button, 'Copied');
+    } catch (error) { fail('Could not copy. Select the text and copy it yourself.'); }
+  }
   async function copyDocument(button) {
     const name = button.dataset.copy;
     const format = formats[name];
@@ -361,6 +371,7 @@
     if (target.dataset.copy) copyDocument(target);
     else if (target.dataset.download) download(target);
     else if (target.dataset.action === 'copy-link') copyLink(target);
+    else if (target.dataset.action === 'copy-text') copyText(target);
     else if (target.dataset.action === 'copy-page-link') copyPage(target, pageLink, 'Link copied');
     else if (target.dataset.action === 'copy-page') copyPage(target, pageText, 'Copied');
     else if (target.dataset.action === 'print') window.print();

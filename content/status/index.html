@@ -1,36 +1,133 @@
 ---
 layout: layouts/page
-title: Status
+title: Scan status
 description: HTTP status types for websites monitored by ScanGov.
 showLastUpdated: true
 ---
+{#
+  The scan status of every site on the list. Numbers come from _data/statusSummary.js (built
+  from statusGroups), the questions from _data/statusFaq.js, which also feeds the FAQPage schema
+  in status.11tydata.js. The search description and schema are set there too.
+#}
+{% set s = statusSummary %}
 
-<div class="table-responsive">
-  <table class="table">
-    <caption class="visually-hidden">HTTP status types</caption>
-    <thead>
-      <tr>
-        <th>Code</th>
-        <th>Type</th>
-        <th>Label</th>
-        <th>Sites</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for s in statusGroups %}
-      <tr>
-        <td><a href="/status/{{ s.code }}/">{{ s.code }}</a></td>
-        <td>
-          {% if s.type == 'active' %}<i class="fa-solid fa-circle-check"></i>
-          {% elif s.type == 'redirect' %}<i class="fa-solid fa-arrow-right-arrow-left"></i>
-          {% elif s.type == 'inaccessible' %}<i class="fa-solid fa-circle-xmark"></i>
-          {% endif %}
-          {{ s.type | capitalize }}
-        </td>
-        <td>{{ s.label }}</td>
-        <td><a href="/status/{{ s.code }}/">{{ s.count }}</a></td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+<p>Project ScanGov scans the homepage of {{ s.total | numberFormat }} websites. Each site gets a scan status: whether our scanner could load the page, and if not, why. A status other than 200 usually means search engines and AI crawlers hit the same problem. Find the status code of a site below to see what it means and how to fix it.</p>
+
+<div class="row g-3">
+  {% set statLabel = "Sites" %}
+  {% set statValue = s.total | numberFormat %}
+  {% set statFooter %}On the list{% endset %}
+  {% set statColor = "" %}
+  {% set statHref = "/sites/" %}
+  {% include "stat-card.html" %}
+  {% set statLabel = "Scan successful" %}
+  {% set statValue = s.byType.active.count | numberFormat %}
+  {% set statFooter %}{{ s.byType.active.share }}% of sites{% endset %}
+  {% set statColor = "success" %}
+  {% set statHref = "/status/200/" %}
+  {% include "stat-card.html" %}
+  {% set statLabel = "Redirects" %}
+  {% set statValue = s.byType.redirect.count | numberFormat %}
+  {% set statFooter %}{{ s.byType.redirect.share }}% of sites{% endset %}
+  {% set statColor = "warning" %}
+  {% set statHref = "#redirect" %}
+  {% include "stat-card.html" %}
+  {% set statLabel = "Inaccessible" %}
+  {% set statValue = s.byType.inaccessible.count | numberFormat %}
+  {% set statFooter %}{{ s.byType.inaccessible.share }}% of sites{% endset %}
+  {% set statColor = "danger" %}
+  {% set statHref = "#inaccessible" %}
+  {% include "stat-card.html" %}
 </div>
+
+<div class="border-top pt-4 mt-5">
+  <div class="row g-4">
+    <div class="col-12 col-lg-6">
+      {% set statusPie = statusGroups | statusTypesPie((s.total | numberFormat) + " sites, by scan status") %}
+      {% chart statusPie %}
+    </div>
+    <div class="col-12 col-lg-6">
+      {% set statusBars = statusGroups | statusCodesBars(((s.total - s.byType.active.count) | numberFormat) + " sites we could not scan") %}
+      {% if statusBars %}{% chart statusBars %}{% endif %}
+    </div>
+    <div class="col-12">
+      {% set statusGroupBars = groupSummaries | statusByGroup("Share of each type's sites with no grade, from the latest scan") %}
+      {% if statusGroupBars %}{% chart statusGroupBars %}{% endif %}
+    </div>
+  </div>
+</div>
+
+{% for t in s.types %}
+<section aria-labelledby="{{ t.type }}-heading" id="{{ t.type }}" class="border-top pt-4 mt-5">
+  <h2 id="{{ t.type }}-heading">
+    {% if t.type == 'active' %}<i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+    {% elif t.type == 'redirect' %}<i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i>
+    {% elif t.type == 'inaccessible' %}<i class="fa-solid fa-circle-xmark" aria-hidden="true"></i>
+    {% endif %}
+    {{ t.heading }}
+  </h2>
+  <p>{{ t.meaning }} {{ t.count | numberFormat }} sites ({{ t.share }}%).</p>
+  {% if t.count == 0 %}
+  <p>No sites currently have this status.</p>
+  {% endif %}
+  <div class="table-responsive">
+    <table class="table">
+      <caption class="visually-hidden">{{ t.heading }} status codes</caption>
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Label</th>
+          <th>Sites</th>
+          <th>Share</th>
+          <th>What to do</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in t.rows %}
+        <tr id="{{ r.code }}">
+          <td><a href="/status/{{ r.code }}/">{{ r.code }}</a></td>
+          <td>{{ r.label }}</td>
+          <td><a href="/status/{{ r.code }}/">{{ r.count | numberFormat }}</a></td>
+          <td>{{ r.share }}%</td>
+          <td>{% if r.recommendation and r.recommendation != "None." %}{{ r.recommendation | safe }}{% else %}Nothing to do.{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endfor %}
+
+<section aria-labelledby="download" class="border-top pt-4 mt-5">
+  <h2 id="download">Download the data</h2>
+  <p>Every status code with its number of sites: <a href="/data/status/all.csv" download>.csv</a> or <a href="/data/status/all.json" download>.json</a>. Each status code page also has a download of its sites.</p>
+</section>
+
+<section aria-labelledby="find-a-site" class="border-top pt-4 mt-5">
+  <h2 id="find-a-site">Find your site's status</h2>
+  <p>Search for a domain to see its scan status and grade.</p>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      {% include "search.html" %}
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="for-site-owners" class="border-top pt-4 mt-5">
+  <h2 id="for-site-owners">For site owners</h2>
+  <p>Most scans that fail come down to three fixes.</p>
+  <ul>
+    <li>Allow ScanGovBot through your firewall or bot protection. This clears most 403, 429, and challenge page statuses. <a href="https://scangov.com/bot">Learn about ScanGovBot</a>.</li>
+    <li>Point links, menus, and your sitemap at the final address, not at a redirect. This clears 301 and 302 statuses.</li>
+    <li>Fix or restore pages that return an error. This clears 404, 410, 500, 502, and 503 statuses.</li>
+  </ul>
+  <p>Each status code page lists the sites with that status and the fix in more detail. The <a href="https://docs.scangov.org/status">status documentation</a> covers the same codes for technical teams.</p>
+</section>
+
+<section aria-labelledby="faq" class="border-top pt-4 mt-5">
+  <h2 id="faq">Frequently asked questions</h2>
+  {% for f in statusFaq %}
+  <h3>{{ f.q }}</h3>
+  <p>{{ f.a }}</p>
+  {% endfor %}
+</section>

@@ -1,0 +1,11 @@
+---
+layout: false
+pagination:
+  data: statusExports
+  size: 1
+  alias: list
+permalink: "/data/status/{{ list.key }}.json"
+eleventyExcludeFromCollections: true
+sitemap: false
+---
+{{ list.rows | dump(1) | safe }}

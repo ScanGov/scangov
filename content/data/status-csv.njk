@@ -1,0 +1,13 @@
+---
+layout: false
+pagination:
+  data: statusExports
+  size: 1
+  alias: list
+permalink: "/data/status/{{ list.key }}.csv"
+eleventyExcludeFromCollections: true
+sitemap: false
+---
+{{ list.columns | join(",") }}
+{% for row in list.rows %}{% for col in list.columns %}{{ row[col] | csvCell | safe }}{% if not loop.last %},{% endif %}{% endfor %}
+{% endfor %}
