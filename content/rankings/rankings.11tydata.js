@@ -1,5 +1,6 @@
 import { rankingsSchema, toJsonLd } from '../../scripts/profile-summary.js';
 import { topicPageComputed, pageMember, pageTitle, pageDescriptionHtml } from '../../scripts/topic-rankings.js';
+import { rankingCrumbs, rankingFilters } from '../../scripts/ranking-nav.js';
 
 // Dataset + ItemList JSON-LD for every rankings page that paginates a
 // domain list under the `member` alias, or a topicRankings chunk under the
@@ -20,6 +21,11 @@ export default {
     keywords: topicPageComputed.keywords,
     member: topicPageComputed.member,
     sitemap: topicPageComputed.sitemap,
+    // Shown above the h1 (see scripts/ranking-nav.js). The county state pages and the
+    // education group pages replace the breadcrumb in their own data files.
+    breadcrumbParent: (data) => { const c = rankingCrumbs(data); return c ? c.parents : data.breadcrumbParent; },
+    breadcrumbCurrent: (data) => { const c = rankingCrumbs(data); return c ? c.current : data.breadcrumbCurrent; },
+    rankingFilters: (data) => rankingFilters(data),
     schema: (data) => {
       const member = pageMember(data);
       const title = pageTitle(data);

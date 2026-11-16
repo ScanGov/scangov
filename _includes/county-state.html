@@ -19,11 +19,6 @@
 {% set indicatorKeys = topics.keys %}
 <div id="home" class="col-12">
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        {% include "rankingtabs.html" %}
-      </div>
-    </div>
 
     {% if st.scoredCount == 0 %}
     <div class="alert alert-info mt-4" role="status">

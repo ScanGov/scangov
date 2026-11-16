@@ -31,44 +31,17 @@
      support another deployment, add a branch here and re-sync - don't fork
      the file.
 
-  4. `showLastUpdated` - set in page front matter for non-profile pages that
-     need a "Last updated" row (e.g. /pulse/). Renders a single-item ul with
-     the same mono/border-bottom styling as the profile list above.
+  4. `showLastUpdated` - the site count and last scan for non-profile pages moved to
+     scan-info.html, in the row above the h1 (jumbotron.html). Only the map pages'
+     "Last scan" row remains here.
 #}
-{% if showLastUpdated and not profile %}
-{% set urlParts = page.url.split('/') %}
-{% set filterCounts = { federal: federal, states: states, cities: cities, counties: counties, edu: edu } %}
-{# siteCountOverride: pages scoped below a group, such as /rankings/counties/tx/, pass their own count #}
-{% set siteCount = siteCountOverride if siteCountOverride else ((filterCounts[urlParts[2]] | length) if filterCounts[urlParts[2]] else (domains | length)) %}
-<ul class="small list-unstyled text-body-secondary font-monospace mt-2 mb-0">
-    {% if page.url != "/" %}
-    <li>
-        Sites: {{ siteCount }}
-    </li>
-    {% endif %}
-    <li>
-        Last scan:
-        <span id="updated">{{ updates }}</span>
-        {% set infoHref = "https://docs.scangov.org/scans/" %}
-        {% set infoLabel = "Last scan" %}
-        {% set infoDescription = "How often ScanGov scans this site." %}
-        {% set infoMatchTextColor = true %}
-        {% include "info-icon.html" %}
-    </li>
-</ul>
-{% endif %}
 {% if profile and mapPage %}
 <ul class="small list-unstyled text-body-secondary font-monospace">
     {% if mapPage %}
     {% if site.url == 'https://scangov.org' %}
     <li>
-        Last scan:
-        <span id="updated">{% if domain.time %}{{ domain.time | standardFormatDate }}{% else %}{{ updates }}{% endif %}</span>
-        {% set infoHref = "https://docs.scangov.org/scans/" %}
-        {% set infoLabel = "Last scan" %}
-        {% set infoDescription = "How often ScanGov scans this site." %}
-        {% set infoMatchTextColor = true %}
-        {% include "info-icon.html" %}
+        {% set lastScanDate = (domain.time | standardFormatDate) if domain.time else updates %}
+        {% include "last-scan.html" %}
     </li>
     {% elif site.url == 'https://my.scangov.com' %}
     <li>

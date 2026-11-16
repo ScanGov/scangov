@@ -28,6 +28,8 @@ export default {
         isAccessibleForFree: true,
       }).replace(/</g, '\\u003c');
     },
+    // The group pills above the h1 (_includes/filters-bar.html).
+    groupPills: (data) => (data.pp ? { base: '/pulse/', active: data.pp.key, allSegment: '', suffix: '', available: false } : data.groupPills),
     // The "Sites: N" line in the jumbotron shows the group's list size.
     siteCountOverride: (data) => (data.pp && !data.pp.isAll ? data.pp.summary.count : data.siteCountOverride),
   },

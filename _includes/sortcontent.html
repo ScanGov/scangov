@@ -1,11 +1,6 @@
 {# A div, not <main>: the layout already provides <main id="main-content">, and nested main landmarks are invalid. #}
 <div id="home">
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        {% include "rankingtabs.html" %}
-      </div>
-    </div>
     {# Optional charts/narrative block above the table, set by the calling template (none are set now: rankings pages show filters and the table only). #}
     {% if chartsInclude %}
       {% include chartsInclude %}

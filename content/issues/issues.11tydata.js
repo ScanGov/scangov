@@ -35,6 +35,10 @@ export default {
       const crumbs = visibleCrumbs([{ title: 'Issues', url: '/issues/' }], data.item.title, data.page.url);
       return toJsonLd(breadcrumbSchema(data.site.url, crumbs));
     },
+    // The group pills above the h1 (_includes/filters-bar.html).
+    groupPills: (data) => (data.item
+      ? { base: `/issues/${data.item.issue.slug}/`, active: data.item.group.key, allSegment: 'all/', suffix: '', available: data.item.availableGroups }
+      : data.groupPills),
     // The "Sites: N" line in the jumbotron is rendered by the layout; show the
     // group's list size, not the whole dataset.
     siteCountOverride: (data) => (data.item ? data.item.count : data.siteCountOverride),

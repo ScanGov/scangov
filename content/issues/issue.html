@@ -26,13 +26,6 @@ permalink: "issues/{{ item.issue.slug }}/{{ item.group.key }}/"
 {% set sharePct = (item.share * 100) | round %}
 {% set rankingsLabel = (group.hubLabel + " " + (check.topicLabel | lower) + " rankings") | trim | capitalize %}
 
-{% set pillsBase = "/issues/" + issue.slug + "/" %}
-{% set pillsActive = group.key %}
-{% set pillsAllSegment = "all/" %}
-{% set pillsSuffix = "" %}
-{% set pillsAvailable = item.availableGroups %}
-{% include "group-pills.html" %}
-
 <div class="sg-charts-large">
 <p class="lead">Of the {{ item.testedCount | numberFormat }} fully scanned U.S. {{ group.noun }} we tested, {{ item.failCount | numberFormat }} ({{ sharePct }}%) {{ issue.failPhrase }}.
 {% if check.lead %}{{ check.lead }}{% endif %}

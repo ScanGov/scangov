@@ -23,13 +23,6 @@ showActions: true
 {% set showCountyMaps = pp.isAll or pp.key == "counties" %}
 {% set showCityMap = pp.key == "cities" %}
 
-{% set pillsBase = "/pulse/" %}
-{% set pillsActive = pp.key %}
-{% set pillsSuffix = "" %}
-{% set pillsAllSegment = "" %}
-{% set pillsAvailable = false %}
-{% include "group-pills.html" %}
-
 <nav aria-label="On this page">
   <ul class="list-inline small">
     <li class="list-inline-item"><a href="#how-sites-are-doing">How sites are doing</a></li>

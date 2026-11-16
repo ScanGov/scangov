@@ -1,5 +1,5 @@
-<nav aria-label="Breadcrumb" class="breadcrumb-default mb-3">
-  <ol class="breadcrumb small font-monospace">
+<nav aria-label="Breadcrumb" class="breadcrumb-default{% if not breadcrumbFlush %} mb-3{% endif %}">
+  <ol class="breadcrumb small font-monospace{% if breadcrumbFlush %} mb-0{% endif %}">
     {% if breadcrumbParent %}
       {% for crumb in breadcrumbParent %}
         <li class="breadcrumb-item"><a href="{{ crumb.url }}">{{ crumb.title }}</a></li>

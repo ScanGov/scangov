@@ -1,0 +1,22 @@
+{#
+  The filters above the h1: the rankings filters (group pills and indicator tabs) on
+  the rankings pages, or the group pills alone on the Pulse and issue pages. The pages
+  pass them as data (rankingFilters, groupPills) because the layout cannot see variables
+  set in a page body. See scripts/ranking-nav.js.
+#}
+{% if rankingFilters %}
+{% set currentsort = rankingFilters.currentsort %}
+{% set specificAttribute = rankingFilters.specificAttribute %}
+{% set stateContext = rankingFilters.stateContext %}
+{% set st = rankingFilters.st %}
+{% set groupContext = rankingFilters.groupContext %}
+{% set grp = rankingFilters.grp %}
+{% include "rankingtabs.html" %}
+{% elif groupPills %}
+{% set pillsBase = groupPills.base %}
+{% set pillsActive = groupPills.active %}
+{% set pillsAllSegment = groupPills.allSegment %}
+{% set pillsSuffix = groupPills.suffix %}
+{% set pillsAvailable = groupPills.available %}
+{% include "group-pills.html" %}
+{% endif %}
