@@ -134,9 +134,10 @@ export default async function(eleventyConfig) {
     eleventyConfig.addFilter('orgScores', (domains, topicKeys, topicNames, slug, headingLevel) => orgScoresSpec({ domains, topics: topicKeys, labels: topicNames, slug, headingLevel }))
     eleventyConfig.addFilter('orgFailures', (domains, topic, auditsData, title, headingLevel) => orgFailuresSpec({ id: `org-fails-${topic}`, title, headingLevel, domains, topic, audits: auditsData }))
     // A copy of a chart spec with another heading level, for a chart that opens its own section.
-    eleventyConfig.addFilter('withHeading', (spec, level) => ({ ...spec, headingLevel: level }))
-    eleventyConfig.addFilter('withTitleHref', (spec, href) => ({ ...spec, titleHref: href }))
-    eleventyConfig.addFilter('withSubtitle', (spec, subtitle) => ({ ...spec, subtitle }))
+    // A missing spec (a domain with no scores has none) stays missing, so `{% if spec %}` still works.
+    eleventyConfig.addFilter('withHeading', (spec, level) => (spec ? { ...spec, headingLevel: level } : spec))
+    eleventyConfig.addFilter('withTitleHref', (spec, href) => (spec ? { ...spec, titleHref: href } : spec))
+    eleventyConfig.addFilter('withSubtitle', (spec, subtitle) => (spec ? { ...spec, subtitle } : spec))
     eleventyConfig.addFilter('pieFromGradeBar', (spec) => pieFromGradeBar(spec))
     eleventyConfig.addFilter('groupsPieSpec', (groups, id, title, subtitle, headingLevel) => groupsPieSpec({ id, title, subtitle, headingLevel, groups }))
     // "8" -> "8th"; audits.json display names without their angle brackets.
