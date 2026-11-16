@@ -150,6 +150,16 @@ Search
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
 </a>
 </p>
+<div class="dropdown">
+<button type="button" id="data-download-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download" title="Download">
+<svg class="fa-solid fa-download" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-download" xlink:href="/assets/fa-sprite.svg#fas-fa-download"></use></svg>
+</button>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="data-download-menu">
+<li class="small px-3 pt-2"><svg class="fa-solid fa-window-maximize me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-window-maximize" xlink:href="/assets/fa-sprite.svg#fas-fa-window-maximize"></use></svg>All sites in this list</li>
+<li class="small px-3"><a href="/data/rankings/counties.csv" class="dropdown-item" download=""><svg class="fa-solid fa-file-csv me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-csv" xlink:href="/assets/fa-sprite.svg#fas-fa-file-csv"></use></svg>.csv</a></li>
+<li class="small px-3"><a href="/data/rankings/counties.json" class="dropdown-item" download=""><svg class="fa-solid fa-file-code me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-code" xlink:href="/assets/fa-sprite.svg#fas-fa-file-code"></use></svg>.json</a></li>
+</ul>
+</div>
 <div class="actions d-flex flex-wrap gap-2">
 <a href="https://scangov.com" id="rescan-action" class="btn btn-outline-primary btn-sm d-none" aria-label="Rescan" title="Rescan">
 <svg class="fa-solid fa-arrows-rotate" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrows-rotate" xlink:href="/assets/fa-sprite.svg#fas-fa-arrows-rotate"></use></svg>
@@ -213,7 +223,7 @@ Email
 <div class="container">
 <div class="row">
 <div class="col-12">
-<ul class="nav nav-pills filter small mb-4" aria-label="Group">
+<ul class="nav nav-pills filter small mb-1" aria-label="Group">
 <li class="nav-item">
 <a class="nav-link mx-1" href="/rankings/">
 All</a>
@@ -239,7 +249,7 @@ Federal</a>
 Education</a>
 </li>
 </ul>
-<ul class="nav nav-tabs filter small mb-0">
+<ul class="nav nav-pills filter small mb-4">
 <li class="nav-item">
 <a class="nav-link mx-1 active" aria-current="page" href="/rankings/counties/">
 <svg class="fa-solid fa-circle-notch" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-notch" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-notch"></use></svg>All</a>
@@ -1430,11 +1440,9 @@ Education</a>
 </li>
 </ul>
 </nav>
-<p class="small text-muted mb-0">Page 13 of 29</p>
 </div>
 </div>
 </div>
-<p>Download the data: <a href="/data/rankings/counties.csv" download="">CSV</a> or <a href="/data/rankings/counties.json" download="">JSON</a>.</p>
 </div>
 </div>
 </div>

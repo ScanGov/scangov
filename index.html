@@ -322,15 +322,6 @@ Readability
 </div>
 </div>
 </div>
-<p class="small mt-3 mb-0">Visit the <a href="/rankings/" id="homepage-hub-link">rankings for all sites</a>, the <a href="/pulse/counties/#by-state">county scores by state</a>, or <a href="/dashboards/">every dashboard</a>.</p>
-<nav aria-label="On this page" class="mt-3">
-<ul class="list-inline small">
-<li class="list-inline-item"><a href="#domains">Domains</a></li>
-<li class="list-inline-item"><a href="#grades-by-group">Grades by group</a></li>
-<li class="list-inline-item"><a href="#rankings">Rankings</a></li>
-<li class="list-inline-item"><a href="#top-issues">Top issues</a></li>
-</ul>
-</nav>
 <div class="border-top pt-4 mt-4">
 <h2 id="domains">Domains</h2>
 <p>How scanned domains break down by type and overall grade. Visit <a href="/pulse/" id="homepage-pulse-link">Pulse</a> for more.</p>
@@ -1236,7 +1227,6 @@ Readability:
   document.addEventListener('DOMContentLoaded', function() {
     var topics = ["overall","accessibility","botability","security","usability","readability"];
     var categoryPaths = { all: '', cities: 'cities/', counties: 'counties/', states: 'states/', federal: 'federal/', edu: 'edu/' };
-    var hubLabels = { all: 'rankings for all sites', cities: 'city rankings', counties: 'county rankings', states: 'state rankings', federal: 'federal rankings', edu: 'education rankings' };
     var colorForScore = function(score) {
       if (score === null || score === undefined) return null;
       if (score >= 90) return 'success';
@@ -1275,11 +1265,6 @@ Readability:
             link.href = topic === 'overall' ? '/rankings/' + categoryPath : (categoryPath ? '/rankings/' + categoryPath + topic + '/' : '/' + topic + '/');
           }
         });
-        var hubLink = document.getElementById('homepage-hub-link');
-        if (hubLink) {
-          hubLink.href = '/rankings/' + categoryPath;
-          hubLink.textContent = hubLabels[category] || hubLabels.all;
-        }
         var pulseLink = document.getElementById('homepage-pulse-link');
         if (pulseLink) pulseLink.href = '/pulse/' + categoryPath;
       });

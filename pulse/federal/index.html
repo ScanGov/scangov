@@ -144,6 +144,16 @@ Search
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
 </a>
 </p>
+<div class="dropdown">
+<button type="button" id="data-download-menu" class="btn btn-outline-primary btn-sm" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download" title="Download">
+<svg class="fa-solid fa-download" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-download" xlink:href="/assets/fa-sprite.svg#fas-fa-download"></use></svg>
+</button>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="data-download-menu">
+<li class="small px-3 pt-2"><svg class="fa-solid fa-window-maximize me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-window-maximize" xlink:href="/assets/fa-sprite.svg#fas-fa-window-maximize"></use></svg>All sites in this list</li>
+<li class="small px-3"><a href="/data/rankings/federal.csv" class="dropdown-item" download=""><svg class="fa-solid fa-file-csv me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-csv" xlink:href="/assets/fa-sprite.svg#fas-fa-file-csv"></use></svg>.csv</a></li>
+<li class="small px-3"><a href="/data/rankings/federal.json" class="dropdown-item" download=""><svg class="fa-solid fa-file-code me-1" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-file-code" xlink:href="/assets/fa-sprite.svg#fas-fa-file-code"></use></svg>.json</a></li>
+</ul>
+</div>
 <div class="actions d-flex flex-wrap gap-2">
 <a href="https://scangov.com" id="rescan-action" class="btn btn-outline-primary btn-sm d-none" aria-label="Rescan" title="Rescan">
 <svg class="fa-solid fa-arrows-rotate" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-arrows-rotate" xlink:href="/assets/fa-sprite.svg#fas-fa-arrows-rotate"></use></svg>
@@ -1513,7 +1523,6 @@ Readability:
 <li><a href="/changelog/">Changelog</a>: what changed in the latest scans.</li>
 <li><a href="/status/">Scan status</a>: why some sites could not be fully scanned.</li>
 </ul>
-<p>Download the data: <a href="/data/rankings/federal.csv" download="">CSV</a> or <a href="/data/rankings/federal.json" download="">JSON</a>.</p>
 </section>
 </div>
 <section class="alert alert-info small mt-4" role="note" aria-labelledby="about-this-data">
