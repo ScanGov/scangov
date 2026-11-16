@@ -7,6 +7,7 @@
 // Titles follow the query-bearing pattern from ../notes/plans/06: under 60
 // characters before header.html appends the site name.
 
+import { rankingCrumbs } from '../../../scripts/ranking-nav.js';
 import { rankingsSchema, visibleCrumbs, toJsonLd } from '../../../scripts/profile-summary.js';
 import { pageMember, pageTitle, pageDescriptionHtml } from '../../../scripts/topic-rankings.js';
 import { topicSentence } from '../../../scripts/topics.js';
@@ -44,14 +45,14 @@ export default {
     },
     breadcrumbParent: (data) => {
       const st = stateOf(data);
-      if (!st) return data.breadcrumbParent;
+      if (!st) { const c = rankingCrumbs(data); return c ? c.parents : data.breadcrumbParent; }
       return data.item
         ? [...crumbs, { title: st.name, url: `/rankings/counties/${st.slug}/` }]
         : crumbs;
     },
     breadcrumbCurrent: (data) => {
       const st = stateOf(data);
-      if (!st) return data.breadcrumbCurrent;
+      if (!st) { const c = rankingCrumbs(data); return c ? c.current : data.breadcrumbCurrent; }
       return data.item ? data.item.topicInfo.displayName : st.name;
     },
     // The "Sites: N" line in the jumbotron is rendered by the layout, which
