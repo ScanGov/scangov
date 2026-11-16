@@ -1,0 +1,18 @@
+{#
+  How many sites the page covers and when they were last scanned, at the right of
+  the row above the h1 (the same place a domain page shows its last scan). Shown on
+  pages that set `showLastUpdated`. The count follows the page's group (from the URL),
+  or `siteCountOverride` for pages scoped below a group, such as /rankings/counties/tx/
+  and the status code pages; the whole list otherwise.
+#}
+{% if showLastUpdated and not profile %}
+{% set urlParts = page.url.split('/') %}
+{% set filterCounts = { federal: federal, states: states, cities: cities, counties: counties, edu: edu } %}
+{% set siteCount = siteCountOverride if siteCountOverride else ((filterCounts[urlParts[2]] | length) if filterCounts[urlParts[2]] else (domains | length)) %}
+<p class="small text-body-secondary font-monospace mb-0">
+    <i class="fa-solid fa-window-maximize" aria-hidden="true"></i> {{ siteCount | numberFormat }} sites
+    &middot;
+    {% set lastScanDate = updates %}
+    {% include "last-scan.html" %}
+</p>
+{% endif %}

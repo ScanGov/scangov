@@ -140,13 +140,8 @@
                 {% if not orgPage %}
                 <div class="d-flex flex-wrap align-items-center gap-3">
                     <span class="small text-body-secondary font-monospace">
-                        Last scan:
-                        <span id="updated">{% if domain.time %}{{ domain.time | standardFormatDate }}{% else %}{{ updates }}{% endif %}</span>
-                        {% set infoHref = "https://docs.scangov.org/scans/" %}
-                        {% set infoLabel = "Last scan" %}
-                        {% set infoDescription = "How often ScanGov scans this site." %}
-                        {% set infoMatchTextColor = true %}
-                        {% include "info-icon.html" %}
+                        {% set lastScanDate = (domain.time | standardFormatDate) if domain.time else updates %}
+                        {% include "last-scan.html" %}
                     </span>
                     {% set actionsCompact = true %}
                     {% include "actions.html" %}
@@ -209,13 +204,33 @@
     <p class="lead fs-5">{{ description }}</p>
     {% endif %}
     {% else %}
-    <div class="pt-5 pb-4{% if not noBorder %} mb-4 border-bottom{% endif %}">
+    {# The row at the top of the page, full width like the domain pages' breadcrumb row: the
+       breadcrumb on the left, last scan and Share on the right. #}
+    {% set hasHeaderRow = breadcrumbParent or breadcrumbCurrent or (showLastUpdated and not profile) %}
+    {% if hasHeaderRow %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 py-3 d-flex flex-wrap align-items-center justify-content-between gap-2">
+                {% if breadcrumbParent or breadcrumbCurrent %}
+                {% set breadcrumbFlush = true %}
+                {% include "breadcrumb-default.html" %}
+                {% endif %}
+                {% if showLastUpdated and not profile %}
+                <div class="d-flex flex-wrap align-items-center gap-3 ms-auto">
+                    {% include "scan-info.html" %}
+                    {% set actionsCompact = true %}
+                    {% include "actions.html" %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="{{ 'pt-0' if hasHeaderRow else ('pt-3' if (rankingFilters or groupPills) else 'pt-5') }} pb-4{% if not noBorder %} mb-4 border-bottom{% endif %}">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    {% if breadcrumbParent %}
-                    {% include "breadcrumb-default.html" %}
-                    {% endif %}
+                    {% include "filters-bar.html" %}
                     {% if title %}
                     <h1 class="display-5">{{ title }}</h1>
                     {% endif %}
@@ -234,7 +249,7 @@
                         </div>
                     </div>
                     {% endif %}
-                    {% if showActions %}
+                    {% if showActions and not showLastUpdated %}
                     {% include "actions.html" %}
                     {% endif %}
                 </div>

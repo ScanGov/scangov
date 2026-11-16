@@ -1,0 +1,17 @@
+{#
+  "Last scan: date (i)": the bars-progress icon, the date, and the info tooltip. The same
+  markup as lastScanText() in my.scangov.com's src/shared/profiledetails.mjs, so the
+  scan line reads the same on every page that shows it (domain pages, rankings, Pulse).
+
+  Single source of truth, maintained in https://github.com/ScanGov/components and
+  copied into each site repo's _includes/. Set before including:
+    lastScanDate   the date to show, already formatted
+  The caller wraps it, for example in
+  <span class="small text-body-secondary font-monospace">.
+#}
+<i class="fa-solid fa-bars-progress" aria-hidden="true"></i> Last scan: <span id="updated">{{ lastScanDate }}</span>
+{% set infoHref = "https://docs.scangov.org/scans/" %}
+{% set infoLabel = "Last scan" %}
+{% set infoDescription = "How often ScanGov scans this site." %}
+{% set infoMatchTextColor = true %}
+{% include "info-icon.html" %}
