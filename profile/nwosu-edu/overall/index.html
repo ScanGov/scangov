@@ -139,7 +139,7 @@ Search
 <ol class="breadcrumb mb-0">
 <li class="breadcrumb-item">
 <svg class="fa-solid fa-hand-point-right" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-hand-point-right" xlink:href="/assets/fa-sprite.svg#fas-fa-hand-point-right"></use></svg>
-<span class="bc-org">Northwestern Oklahoma State University</span><span class="bc-sep"> / </span><a href="/profile/nwosu-edu/overall/" class="bc-domain">nwosu.edu</a>
+<span class="bc-org">Northwestern Oklahoma State University</span><span class="bc-sep"> / </span><a href="/profile/nwosu-edu/overall/" class="bc-domain">nwosu.edu</a> <svg class="fa-solid fa-circle text-danger" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle" xlink:href="/assets/fa-sprite.svg#fas-fa-circle"></use></svg>
 </li>
 </ol>
 </nav>
@@ -303,18 +303,93 @@ Email
 <h1 class="display-6" id="nwosu-edu-dashboard">
 <span class="visually-hidden">nwosu.edu </span>Dashboard
 </h1>
+<div class="alert alert-danger mt-3 mb-4" role="note" id="profile-summary">
+<svg class="fa-solid fa-note-sticky" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-note-sticky" xlink:href="/assets/fa-sprite.svg#fas-fa-note-sticky"></use></svg> <strong>nwosu.edu</strong> has no grade. Scan failed: 403 Forbidden.
+<a href="/profile/nwosu-edu/details/?attr=status">What this status means</a>.
+</div>
 <div id="overall-section">
 <div class="row g-3">
 <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
-<div class="card card-grade " id="overall-card" score="">
+<div class="card card-grade text-bg-danger" id="overall-card" score="">
 <div class="card-header">
 Overall
 <a href="https://docs.scangov.org/grades" class="icon-link" style="position: relative; z-index: 2;" aria-label="More about Overall" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="How we calculate letter grades. <a href=&quot;https://docs.scangov.org/grades&quot;>Learn more</a>">
 <svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
 </a>
 </div>
-<a href="/profile/nwosu-edu/overall/" class="card-body text-decoration-none stretched-link" style="position: relative;">
+<a href="/profile/nwosu-edu/details/?attr=status" class="card-body text-decoration-none stretched-link" style="position: relative;">
 <p class="display-1" id="overall-grade">-</p>
+</a>
+<div class="card-footer">Scan failed</div>
+</div>
+</div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
+<div class="card card-grade text-bg-secondary" id="accessibility-card" score="">
+<div class="card-header">
+Accessibility
+<a href="https://docs.scangov.org/indicators/" class="icon-link" style="position: relative; z-index: 2;" aria-label="More about Accessibility" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="Meet WCAG standards so every type of user can use your website. <a href=&quot;https://docs.scangov.org/indicators/&quot;>Learn more</a>">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+</a>
+</div>
+<a href="/profile/nwosu-edu/details/?attr=accessibility" class="card-body text-decoration-none stretched-link" style="position: relative;">
+<p class="display-1" id="accessibility-grade">
+-</p>
+</a>
+</div>
+</div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
+<div class="card card-grade text-bg-secondary" id="botability-card" score="">
+<div class="card-header">
+Botability
+<a href="https://docs.scangov.org/indicators/" class="icon-link" style="position: relative; z-index: 2;" aria-label="More about Botability" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="Help AI and search engines discover, crawl, and index your website. <a href=&quot;https://docs.scangov.org/indicators/&quot;>Learn more</a>">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+</a>
+</div>
+<a href="/profile/nwosu-edu/details/?attr=botability" class="card-body text-decoration-none stretched-link" style="position: relative;">
+<p class="display-1" id="botability-grade">
+-</p>
+</a>
+</div>
+</div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
+<div class="card card-grade text-bg-secondary" id="security-card" score="">
+<div class="card-header">
+Security
+<a href="https://docs.scangov.org/indicators/" class="icon-link" style="position: relative; z-index: 2;" aria-label="More about Security" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="Secure your site and protect users with proper security practices. <a href=&quot;https://docs.scangov.org/indicators/&quot;>Learn more</a>">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+</a>
+</div>
+<a href="/profile/nwosu-edu/details/?attr=security" class="card-body text-decoration-none stretched-link" style="position: relative;">
+<p class="display-1" id="security-grade">
+-</p>
+</a>
+</div>
+</div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
+<div class="card card-grade text-bg-secondary" id="usability-card" score="">
+<div class="card-header">
+Usability
+<a href="https://docs.scangov.org/indicators/" class="icon-link" style="position: relative; z-index: 2;" aria-label="More about Usability" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="Optimize content structure so users quickly find what they need. <a href=&quot;https://docs.scangov.org/indicators/&quot;>Learn more</a>">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+</a>
+</div>
+<a href="/profile/nwosu-edu/details/?attr=usability" class="card-body text-decoration-none stretched-link" style="position: relative;">
+<p class="display-1" id="usability-grade">
+-</p>
+</a>
+</div>
+</div>
+<div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex align-items-stretch">
+<div class="card card-grade text-bg-secondary" id="readability-card" score="">
+<div class="card-header">
+Readability
+<a href="https://docs.scangov.org/indicators/" class="icon-link" style="position: relative; z-index: 2;" aria-label="More about Readability" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="Write content at a reading level most users can understand. <a href=&quot;https://docs.scangov.org/indicators/&quot;>Learn more</a>">
+<svg class="fa-solid fa-circle-info" aria-hidden="true"><use href="/assets/fa-sprite.svg#fas-fa-circle-info" xlink:href="/assets/fa-sprite.svg#fas-fa-circle-info"></use></svg>
+</a>
+</div>
+<a href="/profile/nwosu-edu/details/?attr=readability" class="card-body text-decoration-none stretched-link" style="position: relative;">
+<p class="display-1" id="readability-grade">
+-</p>
 </a>
 </div>
 </div>
