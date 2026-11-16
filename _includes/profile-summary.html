@@ -1,8 +1,10 @@
 {#- Generated summary for a profile overview page. `summary` is computed in
     content/profile/profile.11tydata.js; absent when the homepage could not be scanned. -#}
 {% if summary %}
-<p class="mt-3 mb-4" id="profile-summary">
-  <strong>{{ domain.urlkey }}</strong> scores {{ summary.grade }} ({{ summary.score }}%) overall,
+{# The grade picks the alert: A is success, B info, C warning, and D or F danger. #}
+{% set summaryAlert = "success" if summary.score >= 90 else ("info" if summary.score >= 80 else ("warning" if summary.score >= 70 else "danger")) %}
+<div class="alert alert-{{ summaryAlert }} mt-3 mb-4" role="note" id="profile-summary">
+  <i class="fa-solid fa-note-sticky" aria-hidden="true"></i> <strong>{{ domain.urlkey }}</strong> scores {{ summary.grade }} ({{ summary.score }}%) overall,
   {%- if summary.categoryMedian !== null %} {{ summary.categoryCompare }} the {{ summary.categoryLabel }} median of {{ summary.categoryMedian }}%{% if summary.nationalMedian !== null %} and {{ summary.nationalCompare }} the national median of {{ summary.nationalMedian }}%{% endif %},{% elif summary.nationalMedian !== null %} {{ summary.nationalCompare }} the national median of {{ summary.nationalMedian }}%,{% endif %}
   passing {{ summary.passed }} of {{ summary.total }} standards on its homepage{% if summary.date %} as of {{ summary.date }}{% endif %}.
   {%- if summary.failing | length %}
@@ -12,5 +14,5 @@
   {%- if siteContext %}
   {% if siteContext.statePageUrl %}<a href="{{ siteContext.statePageUrl }}">Compare it with the other {{ siteContext.stateSiteCount - 1 if siteContext.stateSiteCount else '' }} {{ siteContext.stateName }} county sites</a>.{% else %}<a href="{{ siteContext.hubUrl }}">Visit the {{ siteContext.categoryLabel }} rankings</a>.{% endif %}
   {%- endif %}
-</p>
+</div>
 {% endif %}
