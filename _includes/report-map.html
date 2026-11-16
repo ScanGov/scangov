@@ -26,7 +26,7 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
                 {% set score = state.scores[mapKey] %}
                 {% if sequential and score >= 0 %}{% set mix = 25 + (75 * (score - range.min) / (range.max - range.min)) if range.max > range.min else 100 %}{% endif %}
                 <path style="fill: {% if sequential %}{% if score >= 0 %}color-mix(in oklab, var(--sg-chart-series-1) {{ mix | round }}%, var(--bs-body-bg)){% else %}var(--bs-inaccessible){% endif %}{% else %}var(--bs-{{ score | colorVar }}){% endif %}" d="{{ state.path }}" {% if state.url == "dc.gov" %}class="report-map-borders"{% endif %}>
-                <title>{{ state.label if state.label else state.url }} / {% if score >= 0 %}{% if sequential %}Average score: {{ score }}{% else %}Grade: {{ score | gradify }} / Score: {{ score }}%{% endif %}{% else %}{% if state.status >= 300 %}Not fully scanned ({{ state.status }}){% else %}No data{% endif %}{% endif %}</title>
+                <title>{{ state.label if state.label else state.url }} / {% if score >= 0 %}{% if sequential %}Average score: {{ score }}{% else %}Grade: {{ score | gradify }} / Score: {{ score }}%{% endif %}{% else %}{% if state.status >= 300 %}Not scanned ({{ state.status }}){% else %}No data{% endif %}{% endif %}</title>
                 </path>
             </a>
         {% endfor %}
@@ -149,6 +149,6 @@ https://commons.wikimedia.org/wiki/File:Blank_US_Map_(states_only).svg
     <span class="text-bg-success">　</span> A
     <span class="text-bg-warning">　</span> B-C
     <span class="text-bg-danger">　</span> D-F
-    <span class="text-bg-inaccessible">　</span> Not fully scanned / no data
+    <span class="text-bg-inaccessible">　</span> Not scanned / no data
     {% endif %}
 </p>

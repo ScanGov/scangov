@@ -33,7 +33,7 @@ export default {
         '@context': 'https://schema.org',
         '@type': 'Dataset',
         name: `${f.label}: how U.S. websites score`,
-        description: `Scores for ${f.lower} across ${f.summary.scoredCount.toLocaleString('en-US')} fully scanned U.S. websites, with the most common failures.`,
+        description: `Scores for ${f.lower} across ${f.summary.scoredCount.toLocaleString('en-US')} scanned U.S. websites, with the most common failures.`,
         url: `${data.site.url}/${f.topic}/`,
         creator: { '@type': 'Organization', name: data.site.org, url: data.site['org-url'] },
         spatialCoverage: 'United States',

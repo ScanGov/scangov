@@ -18,14 +18,14 @@
     {% for abbr, d in cityMap.outlines %}<path class="sg-map-state" d="{{ d }}"/>{% endfor %}
     {% for c in cityMap.points %}
       {% set cScore = c.scores[topic] %}
-      <a href="/profile/{{ c.urlkey | slugify }}/overall/" tabindex="-1"><circle class="sg-map-dot" cx="{{ c.x }}" cy="{{ c.y }}" r="4.5" style="fill: var(--bs-{{ cScore | colorVar }})"><title>{{ c.name }}: {% if cScore >= 0 %}grade {{ cScore | gradify }}, {{ topicName }} score {{ cScore }}{% else %}not fully scanned, so not graded{% if c.status %} (status {{ c.status }}){% endif %}{% endif %}</title></circle></a>
+      <a href="/profile/{{ c.urlkey | slugify }}/overall/" tabindex="-1"><circle class="sg-map-dot" cx="{{ c.x }}" cy="{{ c.y }}" r="4.5" style="fill: var(--bs-{{ cScore | colorVar }})"><title>{{ c.name }}: {% if cScore >= 0 %}grade {{ cScore | gradify }}, {{ topicName }} score {{ cScore }}{% else %}not scanned, so not graded{% if c.status %} (status {{ c.status }}){% endif %}{% endif %}</title></circle></a>
     {% endfor %}
   </svg>
   <ul class="sg-legend">
     <li><span class="sg-swatch text-bg-success" aria-hidden="true"></span>A (90 to 100)</li>
     <li><span class="sg-swatch text-bg-warning" aria-hidden="true"></span>B to C (70 to 89)</li>
     <li><span class="sg-swatch text-bg-danger" aria-hidden="true"></span>D to F (below 70)</li>
-    <li><span class="sg-swatch sg-fill-inaccessible" aria-hidden="true"></span>Not fully scanned</li>
+    <li><span class="sg-swatch sg-fill-inaccessible" aria-hidden="true"></span>Not scanned</li>
   </ul>
   {% if cityMap.missingCount %}
   <p class="sg-chart-caveat">{{ cityMap.missingCount }} city sites have no map location yet and appear only in the table.</p>

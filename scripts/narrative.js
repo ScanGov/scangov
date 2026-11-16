@@ -15,11 +15,11 @@ function gradeCounts(summary, topic) {
     return { a: d.A, bc: d.B + d.C, df: d.D + d.F, total: summary.scoredCount };
 }
 
-// "Of 4,105 fully scanned sites, 31% (1,270) earn an A for overall score,
+// "Of 4,105 scanned sites, 31% (1,270) earn an A for overall score,
 // 60% (2,463) a B or C, and 9% (372) a D or F. The average score is 79."
 export function gradeSentence(summary, topicName = 'overall score', topic = 'overall') {
     const g = gradeCounts(summary, topic);
-    return `Of ${n(g.total)} fully scanned sites, ${pct(g.a, g.total)}% (${n(g.a)}) earn an A for ${topicName}, `
+    return `Of ${n(g.total)} scanned sites, ${pct(g.a, g.total)}% (${n(g.a)}) earn an A for ${topicName}, `
         + `${pct(g.bc, g.total)}% (${n(g.bc)}) a B or C, and ${pct(g.df, g.total)}% (${n(g.df)}) a D or F. `
         + `The average score is ${summary.averages[topic]}.`;
 }

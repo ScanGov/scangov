@@ -22,14 +22,14 @@
 
     {% if st.scoredCount == 0 %}
     <div class="alert alert-info mt-4" role="status">
-      We weren't able to fully scan any of the {{ st.count }} {{ st.name }} county sites on our list, so there are no scores to show yet.
+      We weren't able to scan any of the {{ st.count }} {{ st.name }} county sites on our list, so there are no scores to show yet.
     </div>
     {% else %}
 
     <div class="row g-3 mb-2 mt-3">
       {% set statLabel = "Average " + topicName + " score" %}
-      {% set statValue %}{{ avg | gradify }} <span class="fs-5">{{ avg }}</span>{% endset %}
-      {% set statFooter %}Average {{ topicName }} score of {{ st.scoredCount }} fully scanned {{ st.name }} county sites{% endset %}
+      {% set statValue = avg | gradify %}
+      {% set statFooter %}Average {{ topicName }} score of {{ st.scoredCount }} scanned {{ st.name }} county sites: {{ avg }}{% endset %}
       {% set statColor = avg | colorify %}
       {% include "stat-card.html" %}
       {% set statLabel = "Rank among states" %}
@@ -38,21 +38,21 @@
       {% set statColor = "" %}
       {% include "stat-card.html" %}
       {% set noResponseCount = st.count - st.respondingCount %}
-      {% set statLabel = "Fully scanned" %}
-      {% set statValue %}{{ st.scoredCount }} <span class="fs-5">of {{ st.count }}</span>{% endset %}
-      {% set statFooter %}Sites fully scanned{% if st.partialCount or noResponseCount %}. We couldn't fully scan {{ st.partialCount + noResponseCount }}, so they're listed without grades{% endif %}{% endset %}
+      {% set statLabel = "Scanned" %}
+      {% set statValue = st.scoredCount %}
+      {% set statFooter %}of {{ st.count }} sites scanned{% if st.partialCount or noResponseCount %}. We couldn't scan {{ st.partialCount + noResponseCount }}, so they're listed without grades{% endif %}{% endset %}
       {% set statColor = "" %}
       {% include "stat-card.html" %}
       {% set statLabel = "U.S. county average" %}
-      {% set statValue %}{{ natAvg | gradify }} <span class="fs-5">{{ natAvg }}</span>{% endset %}
-      {% set statFooter %}U.S. county average {{ topicName }} score, {{ st.national.scoredCount }} fully scanned sites{% endset %}
+      {% set statValue = natAvg | gradify %}
+      {% set statFooter %}U.S. county average {{ topicName }} score, {{ st.national.scoredCount }} scanned sites: {{ natAvg }}{% endset %}
       {% set statColor = natAvg | colorify %}
       {% include "stat-card.html" %}
     </div>
 
     {# The state's own site, from the state rankings, so readers can move between the two. #}
     {% for sd in states %}{% if sd.name == "State of " + st.name or (st.code == "DC" and sd.urlkey == "dc.gov") %}
-    <p class="small text-muted">{{ st.name }}'s state site, <a href="/profile/{{ sd.urlkey | slugify }}/overall/">{{ sd.urlkey }}</a>, {% if sd.rankingPosition %}{% set sg = sd.overallScore | gradify %}ranks {{ sd.rankingPosition | ordinal }} of {{ states | length }} state sites with {{ "an" if sg in ["A", "F"] else "a" }} {{ sg }}{% else %}could not be fully scanned{% endif %}. <a href="/rankings/states/">State rankings</a>.</p>
+    <p class="small text-muted">{{ st.name }}'s state site, <a href="/profile/{{ sd.urlkey | slugify }}/overall/">{{ sd.urlkey }}</a>, {% if sd.rankingPosition %}{% set sg = sd.overallScore | gradify %}ranks {{ sd.rankingPosition | ordinal }} of {{ states | length }} state sites with {{ "an" if sg in ["A", "F"] else "a" }} {{ sg }}{% else %}could not be scanned{% endif %}. <a href="/rankings/states/">State rankings</a>.</p>
     {% endif %}{% endfor %}
 
     {# Distribution curve full width, then the map beside the comparison bars. #}
@@ -123,7 +123,7 @@
     {% for ip in issuePages %}{% if ip.group.key == "counties" and not ip.unlisted and (not specificAttribute or ip.issue.topic == specificAttribute) %}{% for s in ip.states %}{% if s.code == st.code %}{% set stateIssues = (stateIssues.push({ page: ip, state: s }), stateIssues) %}{% endif %}{% endfor %}{% endif %}{% endfor %}
     {% if stateIssues.length %}
     <h2>{{ st.name }} county sites by {% if specificAttribute %}{{ topicName }} {% endif %}issue</h2>
-    <p>How many fully scanned {{ st.name }} county sites have each problem, next to the U.S. county share. Each issue links to the list of {{ st.name }} sites that have it.</p>
+    <p>How many scanned {{ st.name }} county sites have each problem, next to the U.S. county share. Each issue links to the list of {{ st.name }} sites that have it.</p>
     <ul class="sg-failures">
       {% for si in stateIssues %}
       <li><strong>{{ (si.state.share * 100) | round }}% ({{ si.state.failing }} of {{ si.state.tested }} sites)</strong> <a href="{{ si.page.url }}#state-{{ si.state.slug }}">{{ si.page.issue.failPhrase }}</a>. U.S. counties: {{ (si.page.share * 100) | round }}%.</li>

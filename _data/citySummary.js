@@ -11,7 +11,7 @@ export default async function () {
     return buildGroupSummary(cityData(), audits, {
         idBase: 'cities',
         groupTitle: 'U.S. city',
-        groupText: 'fully scanned U.S. city sites',
+        groupText: 'scanned U.S. city sites',
         issueHref: issueHrefFor('cities'),
     });
 }

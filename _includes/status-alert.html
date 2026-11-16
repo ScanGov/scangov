@@ -10,7 +10,8 @@
 {% else %}{% set statusColor = "secondary" %}{% set statusIcon = "fa-circle-question" %}{% endif %}
 <div class="alert alert-{{ statusColor }}" role="alert">
   <h2>{{ statusDef.scangovStatus }} <i class="fa-solid {{ statusIcon }}" aria-hidden="true"></i></h2>
-  <p>{{ statusDef.statusDescription }}</p>
+  {# status.json is shared with my.scangov.com, which scans whole sites. Here only the homepage is scanned. #}
+  <p>{{ statusDef.statusDescription | replace("fully scan", "scan") }}</p>
 
   <h3>Description</h3>
   <p>{{ statusDef.description }}</p>

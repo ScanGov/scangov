@@ -8,11 +8,11 @@ keywords: websites, issues, failing checks
 ---
 {#
   One row per issue, one column per group (the homepage groups), each cell the
-  share of fully scanned sites in that group failing the check, linking to the
+  share of scanned sites in that group failing the check, linking to the
   page that lists them. Rows and cells both come from issuePages, so the table
   cannot disagree with the pages. A group an issue has no page for shows a dash.
 #}
-<p>Each page takes one check, or one feature made of a few related checks, from <a href="https://standards.scangov.org/">standards.scangov.org</a> and one group of sites, and lists every fully scanned site in that group that fails it. The <a href="/rankings/">rankings</a> show how sites score overall; these pages show who has one specific problem. Pick a cell for the list.</p>
+<p>Each page takes one check, or one feature made of a few related checks, from <a href="https://standards.scangov.org/">standards.scangov.org</a> and one group of sites, and lists every scanned site in that group that fails it. The <a href="/rankings/">rankings</a> show how sites score overall; these pages show who has one specific problem. Pick a cell for the list.</p>
 {% set groupOrder = ["all", "cities", "counties", "states", "federal", "edu"] %}
 {% set groupLabels = { all: "All", cities: "Cities", counties: "Counties", states: "States", federal: "Federal", edu: "Education" } %}
 {% set rows = [] %}
@@ -20,7 +20,7 @@ keywords: websites, issues, failing checks
 {% for ip in issuePages %}{% if not ip.unlisted and ip.issue.slug not in seen %}{% set seen = (seen.push(ip.issue.slug), seen) %}{% set rows = (rows.push(ip), rows) %}{% endif %}{% endfor %}
 <div class="table-responsive">
   <table class="table table-sm align-top">
-    <caption class="visually-hidden">Share of fully scanned sites failing each check, by group</caption>
+    <caption class="visually-hidden">Share of scanned sites failing each check, by group</caption>
     <thead>
       <tr>
         <th scope="col">Issue</th>
@@ -46,4 +46,4 @@ keywords: websites, issues, failing checks
     </tbody>
   </table>
 </div>
-<p class="small text-muted">Shares are failing sites divided by fully scanned sites that were tested for the check. More checks will be added over time.</p>
+<p class="small text-muted">Shares are failing sites divided by scanned sites that were tested for the check. More checks will be added over time.</p>

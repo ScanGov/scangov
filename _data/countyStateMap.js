@@ -33,7 +33,7 @@ export default async function () {
         return {
             url: st ? st.slug : stateName,
             name: entry.name,
-            label: st ? `${st.name}: ${st.scoredCount} fully scanned county sites` : `${stateName}: no county sites on our list`,
+            label: st ? `${st.name}: ${st.scoredCount} scanned county sites` : `${stateName}: no county sites on our list`,
             href: st ? `/rankings/counties/${st.slug}/` : '/rankings/counties/',
             status: st && st.scoredCount ? 200 : 0,
             path: entry.path,

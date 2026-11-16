@@ -24,19 +24,19 @@
 
     {% if grp.scoredCount == 0 %}
     <div class="alert alert-info mt-4" role="status">
-      We weren't able to fully scan any of the {{ grp.headlineCount }} {{ grp.headlineNoun }} on our list, so there are no scores to show yet.
+      We weren't able to scan any of the {{ grp.headlineCount }} {{ grp.headlineNoun }} on our list, so there are no scores to show yet.
     </div>
     {% else %}
 
     <div class="row g-3 mb-2 mt-3">
       {% set statLabel = "Average " + topicName + " score" %}
       {% if grp.hasAverage %}
-      {% set statValue %}{{ avg | gradify }} <span class="fs-5">{{ avg }}</span>{% endset %}
-      {% set statFooter %}Average {{ topicName }} score of {{ grp.scoredCount }} fully scanned {{ grp.headlineNoun }}{% endset %}
+      {% set statValue = avg | gradify %}
+      {% set statFooter %}Average {{ topicName }} score of {{ grp.scoredCount }} scanned {{ grp.headlineNoun }}: {{ avg }}{% endset %}
       {% set statColor = avg | colorify %}
       {% else %}
       {% set statValue = "&ndash;" %}
-      {% set statFooter %}No average: fewer than {{ grp.minAverage }} {{ grp.headlineNoun }} were fully scanned ({{ grp.scoredCount }}){% endset %}
+      {% set statFooter %}No average: fewer than {{ grp.minAverage }} {{ grp.headlineNoun }} were scanned ({{ grp.scoredCount }}){% endset %}
       {% set statColor = "" %}
       {% endif %}
       {% include "stat-card.html" %}
@@ -46,14 +46,14 @@
       {% set statColor = "" %}
       {% include "stat-card.html" %}
       {% set noResponseCount = grp.headlineCount - grp.respondingCount %}
-      {% set statLabel = "Fully scanned" %}
-      {% set statValue %}{{ grp.scoredCount }} <span class="fs-5">of {{ grp.headlineCount }}</span>{% endset %}
-      {% set statFooter %}{{ grp.headlineNoun | capitalize }} fully scanned{% if grp.partialCount or noResponseCount %}. We couldn't fully scan {{ grp.partialCount + noResponseCount }}, so they're listed without grades{% endif %}{% endset %}
+      {% set statLabel = "Scanned" %}
+      {% set statValue = grp.scoredCount %}
+      {% set statFooter %}of {{ grp.headlineCount }} {{ grp.headlineNoun }} scanned{% if grp.partialCount or noResponseCount %}. We couldn't scan {{ grp.partialCount + noResponseCount }}, so they're listed without grades{% endif %}{% endset %}
       {% set statColor = "" %}
       {% include "stat-card.html" %}
       {% set statLabel = "All education sites" %}
-      {% set statValue %}{{ natAvg | gradify }} <span class="fs-5">{{ natAvg }}</span>{% endset %}
-      {% set statFooter %}Average {{ topicName }} score of all {{ eduGroups.national.scoredCount | numberFormat }} fully scanned education sites{% endset %}
+      {% set statValue = natAvg | gradify %}
+      {% set statFooter %}Average {{ topicName }} score of all {{ eduGroups.national.scoredCount | numberFormat }} scanned education sites: {{ natAvg }}{% endset %}
       {% set statColor = natAvg | colorify %}
       {% include "stat-card.html" %}
     </div>
@@ -104,7 +104,7 @@
       <h3>Every education site with one problem</h3>
       <ul class="sg-failures">
         {% for ip in issueLinks %}
-        <li><a href="{{ ip.url }}">{{ ip.title }}</a>: {{ ip.failCount | numberFormat }} of {{ ip.testedCount | numberFormat }} fully scanned education sites ({{ (ip.share * 100) | round }}%), with every site listed.</li>
+        <li><a href="{{ ip.url }}">{{ ip.title }}</a>: {{ ip.failCount | numberFormat }} of {{ ip.testedCount | numberFormat }} scanned education sites ({{ (ip.share * 100) | round }}%), with every site listed.</li>
         {% endfor %}
       </ul>
       {% endif %}
@@ -124,9 +124,9 @@
     {% for section in grp.sections %}
     <h2 id="section-{{ section.key }}">{{ section.label }} by {{ topicName }} score</h2>
     {% if not section.inHeadline %}
-    <p class="small text-muted">{{ section.count }} sites, {{ section.scoredCount }} fully scanned{% if section.hasAverage %}, average {{ topicName }} score {{ section.averages[topic] }} ({{ section.averages[topic] | gradify }}){% endif %}. {{ section.note }}</p>
+    <p class="small text-muted">{{ section.count }} sites, {{ section.scoredCount }} scanned{% if section.hasAverage %}, average {{ topicName }} score {{ section.averages[topic] }} ({{ section.averages[topic] | gradify }}){% endif %}. {{ section.note }}</p>
     {% elif grp.sections.length > 1 %}
-    <p class="small text-muted">{{ section.count }} sites, {{ section.scoredCount }} fully scanned{% if section.hasAverage %}, average {{ topicName }} score {{ section.averages[topic] }} ({{ section.averages[topic] | gradify }}){% endif %}. Part of the headline average.</p>
+    <p class="small text-muted">{{ section.count }} sites, {{ section.scoredCount }} scanned{% if section.hasAverage %}, average {{ topicName }} score {{ section.averages[topic] }} ({{ section.averages[topic] | gradify }}){% endif %}. Part of the headline average.</p>
     {% endif %}
     {% set member = section.byTopic[topic] %}
     {% set tableCaption = section.label + " ranked by " + topicName + " score" %}

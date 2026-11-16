@@ -1,8 +1,8 @@
 // The rankings as downloadable files: one list per rankings group plus all sites.
 // Same ranked lists as the rankings pages (rankingPosition is already set). Each
-// row is one site: its rank, organization, whether it was fully scanned, the
+// row is one site: its rank, organization, whether it was scanned, the
 // overall score and grade, and the score and grade for each indicator. A site that
-// was not fully scanned keeps its row with empty scores, so the file lists every
+// was not scanned keeps its row with empty scores, so the file lists every
 // site the page does. Feeds content/data/rankings-csv.njk and rankings-json.njk.
 // Default export only.
 
@@ -36,7 +36,7 @@ export default async function () {
                 rank: d.rankingPosition ?? null,
                 site: d.urlkey,
                 organization: d.name || '',
-                fully_scanned: scored,
+                scanned: scored,
                 overall_score: scored ? scoreOf(d, 'overall') : null,
                 overall_grade: scored && scoreOf(d, 'overall') !== null ? gradeOf(scoreOf(d, 'overall')) : null,
             };

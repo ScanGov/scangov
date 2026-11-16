@@ -479,7 +479,7 @@ export const addRankingPosition = function(data, attribute) {
         } else {
             rankingScore = o.overallScore;
         }
-        // A site that was not fully scanned has no score and no rank.
+        // A site that was not scanned has no score and no rank.
         if (!Number.isFinite(rankingScore)) {
             o.rankingPosition = null;
             return;

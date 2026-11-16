@@ -36,7 +36,7 @@ eleventyComputed:
                                 {{ domain.overallScore | gradify }}
                             </div>
                             {% if domain.status != 200 %}
-                            <div class="small">Not fully scanned, so not graded (status {{ domain.status }})</div>
+                            <div class="small">Not scanned, so not graded (status {{ domain.status }})</div>
                             {% endif %}
                         </a>
                     </div>
