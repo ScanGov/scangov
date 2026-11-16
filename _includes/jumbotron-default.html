@@ -2,12 +2,12 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        {% if title %}<h1 class="display-5">{{ title | safe }}</h1>{% endif %}
+        {% if title %}<h1 class="display-6">{{ title | safe }}</h1>{% endif %}
         {% if not search and not hideDescription %}
           {% if descriptionHtml %}
-            <p class="lead fs-5">{{ descriptionHtml | safe }}</p>
+            <p>{{ descriptionHtml | safe }}</p>
           {% elif description %}
-            <p class="lead fs-5">{{ description | safe }}</p>
+            <p>{{ description | safe }}</p>
           {% endif %}
         {% endif %}
         {% include "details.html" %}
