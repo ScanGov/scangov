@@ -17,5 +17,6 @@ export default async function () {
         const count = rows.reduce((n, s) => n + s.count, 0);
         return { ...t, rows, count, share: share(count) };
     });
-    return { total, types, byType: Object.fromEntries(types.map(t => [t.type, t])) };
+    const byCode = Object.fromEntries(types.flatMap(t => t.rows).map(r => [r.code, r]));
+    return { total, types, byCode, byType: Object.fromEntries(types.map(t => [t.type, t])) };
 }

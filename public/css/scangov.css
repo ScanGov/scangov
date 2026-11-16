@@ -4070,6 +4070,16 @@ blockquote .lead {
 .sg-charts-large .sg-chart-title {
   font-size: 1.25rem;
 }
+/* A chart that opens its own section (status code pages): the title is sized like the page's h2s. */
+.sg-chart-section .sg-chart-title {
+  font-size: calc(1.325rem + .9vw);
+  margin-bottom: .5rem;
+}
+@media (min-width: 1200px) {
+  .sg-chart-section .sg-chart-title {
+    font-size: 2rem;
+  }
+}
 .sg-charts-large .report-map {
   width: 100%;
 }

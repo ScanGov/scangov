@@ -19,7 +19,7 @@ import { prepareData } from './scripts/prepare-data.js';
 import { renderOgMap } from './scripts/og-map.js';
 import { renderIssueOgMaps } from './scripts/og-issue-map.js';
 import { renderChart } from './scripts/charts/render.js';
-import { domainScoresSpec, pieFromGradeBar, groupsPieSpec, orgGradesPieSpec, orgScoresSpec, orgFailuresSpec, statusTypesPieSpec, statusCodesBarsSpec, statusByGroupSpec } from './scripts/charts/specs.js';
+import { domainScoresSpec, pieFromGradeBar, groupsPieSpec, orgGradesPieSpec, orgScoresSpec, orgFailuresSpec, statusTypesPieSpec, statusCodesBarsSpec, statusByGroupSpec, statusCodeFocusSpec } from './scripts/charts/specs.js';
 import { humanizeLabel } from './scripts/charts/format.js';
 import { ordinal } from './scripts/counties.js';
 import { gradeSentence, groupsSentence, indicatorPatternSentence, topFailureSentence } from './scripts/narrative.js';
@@ -140,6 +140,7 @@ export default async function(eleventyConfig) {
     // Charts for the /status/ page (see specs.js).
     eleventyConfig.addFilter('statusTypesPie', (statuses, subtitle) => statusTypesPieSpec({ statuses, subtitle }))
     eleventyConfig.addFilter('statusCodesBars', (statuses, subtitle) => statusCodesBarsSpec({ statuses, subtitle }))
+    eleventyConfig.addFilter('statusCodeFocus', (statuses, code, title, subtitle) => statusCodeFocusSpec({ statuses, code, title, subtitle }))
     eleventyConfig.addFilter('statusGroupPie', (groups, subtitle) => (groups && groups.length > 1 ? groupsPieSpec({ id: 'status-code-groups', title: 'Sites with this status, by type', subtitle, headingLevel: 2, groups }) : null))
     eleventyConfig.addFilter('statusByGroup', (groups, subtitle) => statusByGroupSpec({ groups, subtitle }))
     eleventyConfig.addFilter('pieFromGradeBar', (spec) => pieFromGradeBar(spec))
