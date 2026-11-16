@@ -17,7 +17,7 @@
   { key: "federal", label: "Federal" },
   { key: "edu", label: "Education" }
 ] %}
-<ul class="nav nav-pills filter small mb-0" aria-label="Group">
+<ul class="nav nav-pills filter small mb-4" aria-label="Group">
   {% for g in pillGroups %}
   {% if not pillsAvailable or g.key in pillsAvailable %}
   {% set pillTitle = g.label %}

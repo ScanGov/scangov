@@ -1,6 +1,6 @@
 // State outlines colored by the average score of the public college and
 // university sites in each state, for the education hub
-// (_includes/edu-charts.html via report-map.html) and its social image
+// (the Pulse pages, via report-map.html) and its social image
 // (scripts/og-map.js). Same shape as countyStateMap.js; the figures are the
 // state groups' headline averages (scripts/edu-groups.js), so the map, the
 // hub table and the state page headline agree. Each state links to its page.

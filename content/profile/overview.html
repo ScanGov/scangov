@@ -66,5 +66,11 @@ eleventyComputed:
       {% endfor %}
     </div>
   </div>
+  {% set scoresSpec = domain | domainScoresSpec(topics.keys, topics.names) %}
+  {% if scoresSpec %}
+  <div class="sg-charts-large mt-4">
+    {% chart scoresSpec %}
+  </div>
+  {% endif %}
 
 </div>

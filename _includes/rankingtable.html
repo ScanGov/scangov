@@ -21,6 +21,8 @@
     {% set orgHref = d.name | orgUrl %}{% if orgHref %}<a class="small text-muted" href="{{ orgHref }}">{{ d.name }}</a>{% else %}<span class="small text-muted">{{ d.name }}</span>{% endif %}
     {% if (stateContext or groupContext) and d.nationalRank %}<span class="small text-muted d-block">U.S. rank {{ d.nationalRank }}</span>{% endif %}
   </td>
+{% set hideStatusColumn = not (stateContext or compactTable) or (compactTable and not stateContext and not groupContext and not specificAttribute) %}
+{% if not hideStatusColumn %}
   <td data-sort="{{ rowScore if graded else -1 }}">
     {% if compact and not graded %}
       <span class="small text-muted"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> Not fully scanned, so not graded.
@@ -45,6 +47,7 @@
       {{ d | allAuditStatusIcons | safe }}
     {% endif %}
   </td>
+{% endif %}
   <td class="text-center grade-display-column" data-sort="{{ rowScore if graded else -1 }}">
     {% if graded %}
       <span class="badge text-bg-{{ rowScore | colorify }}" title="{{ rowScore }}%">{{ rowScore | gradify }}</span>

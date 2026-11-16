@@ -3,7 +3,7 @@
 // the figure explains itself without a caption written by hand.
 
 import { GRADE_BUCKETS } from '../counties.js';
-import { humanizeLabel, formatCount } from './format.js';
+import { humanizeLabel, formatCount, slugify } from './format.js';
 
 const GRADE_SERIES = GRADE_BUCKETS.map(b => ({ key: b.key, short: b.grades.join('–'), label: b.label, color: b.color }));
 
@@ -71,5 +71,27 @@ export function rankedGroupsSpec({ id, title, subtitle, headingLevel, groups, em
         id, type: 'bar', title, subtitle, headingLevel, caveat, emphasis,
         valueFormat: 'score', max: 100, labelHeader, valueHeader,
         rows: groups.map(g => ({ key: g.key, label: g.label, href: g.href, value: g.value, detail: g.detail })),
+    };
+}
+
+// Bars: one domain's overall score and one row per indicator, colored by grade
+// band (90 and up success, 70 and up warning, below that danger, as on the
+// domain's Pulse page). A row links to the page for that indicator. Indicators
+// the site was not graded on are left out; no scores gives no spec.
+export function domainScoresSpec({ id = 'domain-scores', title = 'Scores by indicator', subtitle, headingLevel = 2, domain, topics, labels }) {
+    if (!domain || domain.status !== 200 || !Number.isFinite(domain.overallScore)) return null;
+    const slug = slugify(domain.urlkey);
+    const color = (score) => (score >= 90 ? 'success' : score >= 70 ? 'warning' : 'danger');
+    const rows = [{ key: 'overall', label: 'Overall', value: domain.overallScore, href: `/profile/${slug}/overall/`, color: color(domain.overallScore) }];
+    topics.forEach((key, i) => {
+        const score = domain.scores && domain.scores[key] ? domain.scores[key].score : null;
+        if (!Number.isFinite(score)) return;
+        rows.push({ key, label: labels[i], value: score, href: `/profile/${slug}/details/?attr=${key}`, color: color(score) });
+    });
+    return {
+        id, type: 'bar', title, subtitle, headingLevel,
+        valueFormat: 'score', max: 100,
+        labelHeader: 'Indicator', valueHeader: 'Score',
+        rows,
     };
 }

@@ -1,5 +1,5 @@
 {#
-  The rankings table and its legend. Expects `member` (the rows), and reads
+  The rankings table. Expects `member` (the rows), and reads
   `currentsort` (truthy enables client-side sorting via tablesort-init.js) and
   `specificAttribute` (topic key or "") through rankingtable.html.
   Set `paginateRows` (a page size) to page a long table client-side with
@@ -21,25 +21,6 @@
           {% endfor %}
         </tbody>
       </table>
-    </div>
-    <div class="alert alert-info small mt-2" role="alert">
-      Rank
-      {% set infoHref = "https://docs.scangov.org/rankings" %}
-      {% set infoLabel = "Rank" %}
-      {% set infoDescription = "How rank position is calculated." %}
-      {% include "info-icon.html" %}
-      &middot;
-      Status
-      {% set infoHref = "https://docs.scangov.org/status" %}
-      {% set infoLabel = "Status" %}
-      {% set infoDescription = "What each status icon means." %}
-      {% include "info-icon.html" %}
-      &middot;
-      Grade
-      {% set infoHref = "https://docs.scangov.org/grades" %}
-      {% set infoLabel = "Grade" %}
-      {% set infoDescription = "How we calculate letter grades." %}
-      {% include "info-icon.html" %}
     </div>
   </div>
 </div>

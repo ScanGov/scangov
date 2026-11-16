@@ -11,6 +11,23 @@ export default {
     ogImageAlt: (data) => (data.pp && data.pp.isAll
       ? 'Map of the United States with each state colored by the overall grade of its main state site'
       : undefined),
+    // Structured data for search: the page describes one dataset of scan results.
+    schema: (data) => {
+      const pp = data.pp;
+      if (!pp) return data.schema;
+      return JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Dataset',
+        name: pp.title,
+        description: pp.description,
+        url: `${data.site.url}${pp.permalink}`,
+        creator: { '@type': 'Organization', name: data.site.org, url: data.site['org-url'] },
+        spatialCoverage: 'United States',
+        keywords: ['website accessibility', 'website security', 'website usability', 'website readability', 'bot access', pp.noun],
+        dateModified: pp.summary.scanWindow && pp.summary.scanWindow.to ? String(pp.summary.scanWindow.to) : undefined,
+        isAccessibleForFree: true,
+      }).replace(/</g, '\\u003c');
+    },
     // The "Sites: N" line in the jumbotron shows the group's list size.
     siteCountOverride: (data) => (data.pp && !data.pp.isAll ? data.pp.summary.count : data.siteCountOverride),
   },

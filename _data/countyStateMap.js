@@ -1,5 +1,5 @@
 // State outlines colored by the average county score in each state, for the
-// county hub (_includes/county-charts.html via report-map.html). Uses the
+// county hub (the counties Pulse page, via report-map.html). Uses the
 // shared outlines in scripts/state-paths.js (keyed "State of Texas") joined
 // to countyStates by state name, so it does not depend on which state sites
 // are in the build. States with no county sites on the list carry -1 scores
