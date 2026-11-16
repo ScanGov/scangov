@@ -122,17 +122,19 @@ keywords: domains, websites
       {% set lower = indicator.toLowerCase() %}
       {% set catInfo = audits[lower] %}
       <section class="border-top pt-4 mt-4 sg-series-{{ lower }}" aria-labelledby="top-issues-{{ lower }}" style="content-visibility:auto;contain-intrinsic-size:auto 40rem">
-        <h3 id="top-issues-{{ lower }}"><a href="/{{ lower }}/">{{ indicator }}</a></h3>
+        <h3 id="top-issues-{{ lower }}"><a href="/rankings/{{ lower }}/">{{ indicator }}</a></h3>
         <div class="sg-charts-large">{% chart all.charts.failures[lower] %}</div>
         {% if catInfo %}
         <div class="alert alert-info small" role="note">
           <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
           {{ catInfo.displayName }}:
-          <a href="https://standards.scangov.org/{{ lower }}/">Standards</a>
+          <a href="/{{ lower }}/">About {{ catInfo.displayName | lower }}</a>
+    &middot;
+    <a href="https://standards.scangov.org/{{ lower }}/">Standards</a>
           &middot;
           <a href="https://standards.scangov.org{{ catInfo.url }}/">Guidance</a>
           &middot;
-          <a href="{{ site.url }}/{{ lower }}/">Project ScanGov rankings</a>
+          <a href="{{ site.url }}/rankings/{{ lower }}/">Project ScanGov rankings</a>
           &middot;
           <a href="https://scangov.com{{ catInfo.scangovUrl }}">How ScanGov helps</a>
         </div>
@@ -184,6 +186,7 @@ keywords: domains, websites
           card.className = card.className.replace(/\btext-bg-\S+/, '').trim() + (color ? ' text-bg-' + color : '');
           grade.textContent = gradeForScore(score);
           if (link) {
+            // All sites: the indicator's own page. A group: that group's rankings for the indicator.
             link.href = topic === 'overall' ? '/rankings/' + categoryPath : (categoryPath ? '/rankings/' + categoryPath + topic + '/' : '/' + topic + '/');
           }
         });

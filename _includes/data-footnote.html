@@ -18,6 +18,7 @@
     A site counts as fully scanned when its homepage loaded and sent us its page content.
     Averages, grade shares, failure rates, and ranks use fully scanned sites only.
     {% if footnotePartialCount or footnoteNoResponseCount %}We could not fully scan {{ (footnotePartialCount + footnoteNoResponseCount) | numberFormat }} sites. They did not respond, blocked the scanner, or sent no page content. They appear in the table without grades, with their <a href="/status/">scan status</a>, and are left out of every figure.{% endif %}
+    {% if specificAttribute and audits[specificAttribute] %}What the {{ audits[specificAttribute].displayName | lower }} checks measure, and why they matter, is on the <a href="/{{ specificAttribute }}/">{{ audits[specificAttribute].displayName | lower }} page</a>.{% endif %}
     Grades follow the <a href="https://docs.scangov.org/grades/">ScanGov grade scale</a>. Rank follows the <a href="https://docs.scangov.org/rankings">ScanGov ranking method</a>.
     The full dataset, with every county's raw results, is in the <a href="https://data.scangov.org/">ScanGov data repository</a>.
   </p>

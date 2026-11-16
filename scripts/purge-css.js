@@ -12,8 +12,7 @@ import { PurgeCSS } from 'purgecss';
 
 // Representative pages. (The old list also named sorts/accessibility, filter,
 // map and report index pages that the site no longer generates.)
-// A per-topic rankings page (at /{topic}/ since the indicator pages moved out of /rankings/;
-// the old /rankings/{topic}/ addresses are redirect stubs with no classes) keeps the indicator classes (.sg-series-*, the
+// A per-topic rankings page keeps the indicator classes (.sg-series-*, the
 // topic icon colors such as .fa-book-open) that only topic pages use.
 const SAMPLE_PAGES = [
   'assets/purge/states.html',
@@ -22,12 +21,12 @@ const SAMPLE_PAGES = [
   'rankings/states/index.html',
   'rankings/counties/index.html',
   'rankings/counties/tx/index.html',
-  'usability/index.html',
+  'rankings/usability/index.html',
   'profile/ca-gov/report/index.html',
 ];
 // Built only once the data carries the topic; no warning when absent.
 const OPTIONAL_PAGES = [
-  'readability/index.html',
+  'rankings/readability/index.html',
 ];
 
 export async function purgeCss(siteDir = '_site') {

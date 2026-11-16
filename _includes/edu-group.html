@@ -136,7 +136,6 @@
     {% endfor %}
     <script src="/js/table-paginate.js" defer></script>
 
-    {% include "topic-about.html" %}
 
     <nav class="d-flex justify-content-between mt-4 small" aria-label="Other {{ eduGroups.kinds[grp.kind].plural }}">
       <span>{% if grp.prev %}<a href="/rankings/edu/{{ grp.prev.path }}{{ topicPath }}">Previous: {{ grp.prev.name }}</a>{% endif %}</span>

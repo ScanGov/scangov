@@ -1,0 +1,133 @@
+---
+home: false
+layout: layouts/page
+showLastUpdated: true
+pagination:
+  data: indicatorPages
+  size: 1
+  alias: ip
+  addAllPagesToCollections: true
+permalink: "{{ ip.permalink }}"
+---
+{#
+  The page about one indicator (accessibility, botability, ...): what it measures and why it
+  matters, how sites score right now, where they fail, who leads and trails, and where to go
+  for the rankings, the issues, and the standards. The table of rankings is a separate page:
+  /rankings/{topic}/. Every number comes from the same summaries the Pulse pages use.
+#}
+{% set t = ip.topic %}
+{% set catInfo = audits[t] %}
+{% set s = siteSummary %}
+{% set lower = catInfo.displayName | lower %}
+{% set avg = s.averages[t] %}
+{% set gradeA = s.gradeDistribution[t].A %}
+
+<div class="sg-charts-large">
+<p>{{ s | gradeSentence(lower, t) }}</p>
+
+<div class="row g-3 mb-2">
+  {% set statLabel = "Average score" %}
+  {% set statValue %}{{ avg | gradify }} <span class="fs-5">{{ avg }}</span>{% endset %}
+  {% set statFooter %}Average {{ lower }} score of the {{ s.scoredCount | numberFormat }} fully scanned sites{% endset %}
+  {% set statColor = avg | colorify %}
+  {% include "stat-card.html" %}
+  {% set statLabel = "Earning an A" %}
+  {% set statValue = (((gradeA / s.scoredCount) * 100) | round if s.scoredCount else 0) + "%" %}
+  {% set statFooter %}{{ gradeA | numberFormat }} sites earn an A for {{ lower }}{% endset %}
+  {% set statColor = "" %}
+  {% include "stat-card.html" %}
+  {% if s.topFailures[t].length %}
+  {% set topFail = s.topFailures[t][0] %}
+  {% set statLabel = "Most common failure" %}
+  {% set statValue = ((topFail.share * 100) | round) + "%" %}
+  {% set statFooter %}<a href="{{ topFail.issueUrl or topFail.standardsUrl }}">{{ topFail.label | humanizeLabel }}</a> fails on {{ topFail.failCount | numberFormat }} sites{% endset %}
+  {% set statColor = "" %}
+  {% include "stat-card.html" %}
+  {% endif %}
+  {% set statLabel = "Sites scanned" %}
+  {% set statValue %}{{ s.scoredCount | numberFormat }} <span class="fs-5">of {{ s.count | numberFormat }}</span>{% endset %}
+  {% set statFooter %}Fully scanned. The rest could not be scanned, so they have no {{ lower }} score{% endset %}
+  {% set statColor = "" %}
+  {% include "stat-card.html" %}
+</div>
+
+<section aria-labelledby="why-it-matters">
+  <h2 id="why-it-matters">Why {{ lower }} matters</h2>
+  <p>{{ catInfo.why }}</p>
+  <p>{{ catInfo.risk }}</p>
+</section>
+
+<section aria-labelledby="what-we-check" style="content-visibility:auto;contain-intrinsic-size:auto 30rem">
+  <h2 id="what-we-check">What we check</h2>
+  <p>{{ catInfo.standardsDescription }}</p>
+  <ul>
+    {% for attr in catInfo.attributes | sort(false, false, "displayName") %}
+    <li><a href="https://standards.scangov.org/{{ attr.key }}">{{ attr.displayName }}</a>: {{ attr.description }}</li>
+    {% endfor %}
+  </ul>
+  {% set guidance = t | getCategoryGuidance %}
+  {% if guidance.length %}
+  <p>{{ catInfo.guidanceDescription }} Guidance:
+    {% for item in guidance %}<a href="https://standards.scangov.org{{ item.url }}">{{ item.displayName }}</a>{% if not loop.last %}, {% endif %}{% endfor %}.</p>
+  {% endif %}
+</section>
+
+<section aria-labelledby="how-sites-score" style="content-visibility:auto;contain-intrinsic-size:auto 40rem">
+  <h2 id="how-sites-score">How sites score</h2>
+  {% set gradesPie = s.charts.grades[t] | pieFromGradeBar | withHeading(3) %}
+  {% chart gradesPie %}
+  {% set groupAverages = pulseCharts.groupsAverages[t] | withHeading(3) %}
+  {% chart groupAverages %}
+</section>
+
+<section aria-labelledby="where-sites-fail" style="content-visibility:auto;contain-intrinsic-size:auto 40rem">
+  <h2 id="where-sites-fail">Where sites fail</h2>
+  {% if s.topFailures[t].length %}
+  <p>{{ s | topFailureSentence(t, lower) }}</p>
+  {% set failChart = s.charts.failures[t] | withHeading(3) %}
+  {% chart failChart %}
+  {% else %}
+  <p>No {{ lower }} check failed among the fully scanned sites in this scan window.</p>
+  {% endif %}
+</section>
+
+{% if ip.top.length %}
+<section aria-labelledby="highest-and-lowest" style="content-visibility:auto;contain-intrinsic-size:auto 40rem">
+  <h2 id="highest-and-lowest">Highest and lowest scores</h2>
+  <div class="row g-4">
+    <div class="col-12 col-lg-6">
+      <h3>Highest {{ lower }} scores</h3>
+      {% set member = ip.top %}
+      {% set specificAttribute = t %}
+      {% set currentsort = "" %}
+      {% set compactTable = true %}
+      {% set tableId = "indicator-top" %}
+      {% set tableCaption = "Five highest " + lower + " scores" %}
+      {% include "ranking-table-block.html" %}
+    </div>
+    <div class="col-12 col-lg-6">
+      <h3>Lowest {{ lower }} scores</h3>
+      {% set member = ip.bottom %}
+      {% set tableId = "indicator-bottom" %}
+      {% set tableCaption = "Five lowest " + lower + " scores" %}
+      {% include "ranking-table-block.html" %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section aria-labelledby="rankings-and-issues" style="content-visibility:auto;contain-intrinsic-size:auto 30rem">
+  <h2 id="rankings-and-issues">Rankings and issues</h2>
+  <ul>
+    <li><a href="/rankings/{{ t }}/">All sites ranked by {{ lower }}</a>: every site with a {{ lower }} score, 100 to a page.</li>
+    {% for g in groupSummaries %}
+    <li><a href="{{ g.hub }}{{ t }}/">{{ g.label }} ranked by {{ lower }}</a>: {{ g.scoredCount | numberFormat }} fully scanned sites.</li>
+    {% endfor %}
+    {% for ip2 in issuePages %}{% if not ip2.unlisted and ip2.group.key == "all" and ip2.issue.topic == t %}
+    <li><a href="{{ ip2.url }}">{{ ip2.title }}</a>: {{ ip2.failCount | numberFormat }} of {{ ip2.testedCount | numberFormat }} fully scanned sites.</li>
+    {% endif %}{% endfor %}
+    <li><a href="/pulse/">Pulse</a>: how every indicator scores across all sites and each group.</li>
+    <li><a href="https://standards.scangov.org/{{ t }}/">{{ catInfo.displayName }} standards</a> and <a href="https://scangov.com{{ catInfo.scangovUrl }}">how ScanGov helps with {{ lower }}</a>.</li>
+  </ul>
+</section>
+</div>

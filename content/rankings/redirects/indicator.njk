@@ -1,15 +1,16 @@
 ---
 layout: false
 pagination:
-  data: topicRankings.overall
+  data: indicatorRedirects
   size: 1
   alias: moved
-permalink: "/rankings/{{ moved.topic }}/{% if moved.pageNumber > 0 %}{{ moved.pageNumber }}/{% endif %}"
+permalink: "/{{ moved.topic }}/{{ moved.pageNumber }}/"
 sitemap: false
+sitemapNumberedUnlisted: true
 eleventyExcludeFromCollections: true
 ---
 <!DOCTYPE html>
 <html>
-<head><meta http-equiv="refresh" content="0;url={{ moved.url }}"><link rel="canonical" href="{{ site.url }}{{ moved.url }}"></head>
-<body><p>Redirecting to <a href="{{ moved.url }}">{{ moved.url }}</a></p></body>
+<head><meta http-equiv="refresh" content="0;url={{ moved.to }}"><link rel="canonical" href="{{ site.url }}{{ moved.to }}"></head>
+<body><p>Redirecting to <a href="{{ moved.to }}">{{ moved.to }}</a></p></body>
 </html>
