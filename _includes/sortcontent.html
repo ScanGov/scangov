@@ -12,16 +12,6 @@
         {% include "pagination.html" %}
       {% endif %}
     </div>
-    {# The data as files, on the national group pages; per-state and per-group pages carry their own scope. #}
-    {% if not stateContext and not groupContext %}
-    {% if page.url.indexOf("/cities/") != -1 %}{% set downloadKey = "cities" %}
-    {% elif page.url.indexOf("/counties/") != -1 %}{% set downloadKey = "counties" %}
-    {% elif page.url.indexOf("/states/") != -1 %}{% set downloadKey = "states" %}
-    {% elif page.url.indexOf("/federal/") != -1 %}{% set downloadKey = "federal" %}
-    {% elif page.url.indexOf("/edu/") != -1 %}{% set downloadKey = "edu" %}
-    {% else %}{% set downloadKey = "all" %}{% endif %}
-    {% include "data-download.html" %}
-    {% endif %}
     {% include "topic-about.html" %}
   </div>
 </div>

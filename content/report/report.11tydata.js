@@ -28,6 +28,8 @@ export default {
         isAccessibleForFree: true,
       }).replace(/</g, '\\u003c');
     },
+    // The Download menu in the row above the h1 (_includes/data-download.html).
+    dataDownloadKey: (data) => (data.pp ? data.pp.key : data.dataDownloadKey),
     // The group pills above the h1 (_includes/filters-bar.html).
     groupPills: (data) => (data.pp ? { base: '/pulse/', active: data.pp.key, allSegment: '', suffix: '', available: false } : data.groupPills),
     // The "Sites: N" line in the jumbotron shows the group's list size.
