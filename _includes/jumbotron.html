@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     {% if description %}
-                    <h1 id="jumbotron-title" class="display-5">{{ title }}</h1>
+                    <h1 id="jumbotron-title" class="display-6">{{ title }}</h1>
                     {% endif %}
                 </div>
             </div>
@@ -156,7 +156,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="display-5" id="jumbotron-title">
+                    <h1 class="display-6" id="jumbotron-title">
                         <span id="site">{{ title }}</span>
                     </h1>
                     {% include "details.html" %}
@@ -198,10 +198,10 @@
     {% endif %}
     {% elif layout == "docs" %}
     {% if title %}
-    <h1 class="display-5">{{ title }}</h1>
+    <h1 class="display-6">{{ title }}</h1>
     {% endif %}
     {% if description %}
-    <p class="lead fs-5">{{ description }}</p>
+    <p>{{ description }}</p>
     {% endif %}
     {% else %}
     {# The row at the top of the page, full width like the domain pages' breadcrumb row: the
@@ -233,13 +233,13 @@
                 <div class="col-12">
                     {% include "filters-bar.html" %}
                     {% if title %}
-                    <h1 class="display-5">{{ title }}</h1>
+                    <h1 class="display-6">{{ title }}</h1>
                     {% endif %}
                     {% if not hideDescription %}
                     {% if descriptionHtml %}
-                    <p{% if not plainDescription %} class="lead fs-5"{% endif %}>{{ descriptionHtml | safe }}</p>
+                    <p>{{ descriptionHtml | safe }}</p>
                     {% elif description %}
-                    <p{% if not plainDescription %} class="lead fs-5"{% endif %}>{{ description }}</p>
+                    <p>{{ description }}</p>
                     {% endif %}
                     {% endif %}
                     {% include "details.html" %}
